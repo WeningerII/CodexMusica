@@ -3,14 +3,14 @@
   "name": "Easy listening (orchestral pop)",
   "family": "global",
   "lineage": "Mid-20th-century instrumental and vocal orchestral-pop tradition — codified through Percy Faith (Theme from A Summer Place 1959), Mantovani (the cascading-strings sound), Henry Mancini (Moon River 1961, the Pink Panther theme 1963), Ray Conniff (the orchestrated-vocal-chorus sound), Lawrence Welk, Mitch Miller; the genre served as the mid-century mass-audience easy-listening AM-radio format before the rock-and-roll era displaced it from commercial-radio dominance",
-  "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal canadian choir chamber music. concert harp, string quartet inst, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, extended harmony through composed jazz big band, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, carpathian spruce bigleaf maple western maple oil varnish amber tinted violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 769,
-  "score": 124.775,
+  "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal chamber music french renaissance. concert harp, string quartet inst, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, extended harmony through composed jazz big band, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, carpathian spruce bigleaf maple western maple oil varnish amber tinted violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 773,
+  "score": 125.875,
   "config": {
     "traditions": [
       "easy_listening_orchestral",
-      "canadian_choir",
-      "chamber_music"
+      "chamber_music",
+      "french_renaissance"
     ],
     "instruments": [
       {
@@ -46,7 +46,7 @@
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
@@ -58,8 +58,8 @@
           "piano_rim": 9.485,
           "piano_soundboard": 7.374999999999999,
           "piano_pinblock": 3.525,
-          "piano_plate": 4.3,
-          "piano_pitch_standard": 10.285
+          "piano_plate": 4.1499999999999995,
+          "piano_pitch_standard": 10.434999999999999
         }
       },
       {
@@ -82,9 +82,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 7.595,
-          "choir_polyphonic_configuration": 3.585,
-          "choir_regional_canonical_configuration": 2.79,
+          "choir_size": 7.895,
+          "choir_polyphonic_configuration": 4.385,
+          "choir_regional_canonical_configuration": 2.94,
           "choir_ensemble_repertoire": 6.954999999999999
         }
       },
@@ -103,7 +103,7 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 10.124999999999998,
+          "bowed_technique": 10.274999999999999,
           "orch_strings": 0.8449999999999999,
           "orch_top_wood": 3.085,
           "orch_back_wood": 5.5575,

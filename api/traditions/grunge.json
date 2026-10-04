@@ -3,21 +3,21 @@
   "name": "Grunge",
   "family": "rock_punk",
   "lineage": "Seattle Pacific Northwest alternative-rock genre that emerged in the late 1980s and went global in 1991 — codified through Nirvana (Nevermind 1991, the commercial breakthrough produced by Butch Vig), Pearl Jam (Ten 1991), Soundgarden (Badmotorfinger 1991, then Superunknown 1994), Alice in Chains (Facelift 1990, Dirt 1992), Mudhoney (the Sub Pop founding band), Screaming Trees, Tad — built on a fusion of hardcore punk aggression and Sabbath-style heavy-blues-derived guitar tone",
-  "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal venezuelan metal louisiana metal. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
-  "recipe_chars": 688,
-  "score": 266.837,
+  "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal louisiana metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
+  "recipe_chars": 667,
+  "score": 341.488,
   "config": {
     "traditions": [
       "grunge",
-      "venezuelan_metal",
-      "louisiana_metal"
+      "louisiana_metal",
+      "sludge_metal"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "lowered_larynx_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 24.239499999999996,
-          "voice_quality": 7.150000000000001,
+          "voice_register": 30.214499999999994,
+          "voice_quality": 13.419999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.95,
-          "voice_articulation": 9.424999999999997,
-          "voice_microtone": 18.849999999999998,
-          "voice_tradition": 6.019,
-          "voice_mechanism_compound": 22.862,
-          "voice_estill_quality": 1.6899999999999997,
-          "voice_speech_song": 9.619999999999997,
-          "voice_ensemble_config": 11.682500000000001,
+          "voice_vibrato": 5.575,
+          "voice_articulation": 12.544999999999993,
+          "voice_microtone": 22.599999999999998,
+          "voice_tradition": 4.889,
+          "voice_mechanism_compound": 28.626999999999995,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 13.129999999999992,
+          "voice_ensemble_config": 17.4625,
           "voice_ornament_system": 3.95,
-          "voice_pitch_organization": 1.885,
-          "voice_processing_chain": 4.9399999999999995,
-          "voice_multitrack_stack": 7.475000000000001
+          "voice_pitch_organization": 1.8849999999999996,
+          "voice_processing_chain": 6.8395,
+          "voice_multitrack_stack": 9.100000000000001
         }
       },
       {
@@ -59,30 +59,30 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 17.507499999999997,
-          "amp_make": 18.785,
-          "body_wood": 3.769999999999999,
-          "neck_wood": 0.258,
-          "fretboard": 0.15,
+          "electric_technique": 19.8475,
+          "amp_make": 23.7205,
+          "body_wood": 4.8100000000000005,
+          "neck_wood": 0.195,
+          "fretboard": 0.39,
           "pickup_magnet": 0,
-          "pickup_winding": 0.39,
-          "string_material": 0.15,
-          "bridge": 1.4949999999999999,
-          "scale_length": 3.575,
-          "string_gauge": 1.4949999999999999,
+          "pickup_winding": 0.78,
+          "string_material": 0.195,
+          "bridge": 1.2349999999999999,
+          "scale_length": 4.8100000000000005,
+          "string_gauge": 1.8199999999999998,
           "finish": 0,
-          "string_tuning": 13.389999999999999
+          "string_tuning": 17.419999999999998
         }
       },
       {
@@ -92,19 +92,19 @@
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.8945,
-          "body_wood": 0.5609999999999999,
+          "amp_make": 15.935999999999998,
+          "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 20.15,
-          "scale_length_b": 0.30300000000000005,
+          "string_type": 24.389,
+          "scale_length_b": 0.585,
           "fretted_or_not": 0.045,
-          "bass_technique": 21,
+          "bass_technique": 26,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.499999999999998,
-          "drumhead": 3.5300000000000002,
+          "drum_technique": 19.25,
+          "drumhead": 3.6350000000000007,
           "drum_kit_kick_pedal": 0
         }
       }

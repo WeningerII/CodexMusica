@@ -2,10 +2,10 @@
   "id": "multidisciplinary",
   "name": "Multidisciplinary",
   "family": "global",
-  "lineage": "Büşra Kayıkçı — complete original Eskizler (Sketches) album, nine solo-piano pieces. Her representing music publisher explicitly identifies this complete instrumentation. This authored rendition retains one piano family and zero voices; it is not a measured reconstruction of source instrument construction. Later electro-acoustic collaborations, Una Corda single Tuna and the five-piece Revisited EP are separate projects and are not silently substituted for this full original album. Broad artMusic applies only to this source-identified minimalist/neoclassical composed-piano branch. Modern standard-sized acoustic studio upright, classical legato gesture and controlled live room are coherent editorial realization choices, not artist equipment or measured articulation. No conductor, orchestral reduction, sampled layer, source tempo or temperament is invented.",
-  "recipe": "classic multidisciplinary, art Music. legato upright piano. live tracking.",
-  "recipe_chars": 74,
-  "score": 5.566,
+  "lineage": "Multidisciplinary music connects artists whose work crosses composition, visual art, design, performance and other practices. Methods and ideas move between media, producing varied forms rather than one common instrumental style.",
+  "recipe": "classic multidisciplinary, art Music. upright piano. live tracking.",
+  "recipe_chars": 67,
+  "score": 0.982,
   "config": {
     "traditions": [
       "multidisciplinary"
@@ -19,9 +19,9 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 5.565500000000001,
-          "upright_use": 0,
-          "upright_piano_size": 0
+          "keyboard_technique": -0.05,
+          "upright_use": 0.0315,
+          "upright_piano_size": 1
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "São Paulo periphery funk subgenre codified around 2020-2022 by DJ Arana, DJ Ws da Igrejinha and DJ Guh Mix — 130-140 BPM tracks built from a hard-clipped, deliberately distorted kick, dry gunshot-like snare and rapid triplet hat rolls, sirens, pitched vocal chops and cut-up MC ad-libs, arranged as long unresolved loops with abrupt drops and no harmonic movement, mixed to overload on phone speakers.",
   "recipe": "classic Southern American 2020-2022 funk mandelão, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm ghanaian hip hop funk consciente. vocal fry, rap, straight note core, interlocked note trading. TR-808, melodic pitched sampler, sub bass monosynth acid bass, sub bass analog mono synth. rio favela home baile funk. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
   "recipe_chars": 425,
-  "score": 139.762,
+  "score": 140.062,
   "config": {
     "traditions": [
       "funk_mandelao",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.420000000000002,
           "voice_pitch_organization": 1.5399999999999998,
           "voice_processing_chain": 10.649999999999995,
-          "voice_multitrack_stack": 4.34
+          "voice_multitrack_stack": 4.49
         }
       },
       {
@@ -78,7 +78,7 @@
           "electronic_technique": 2.415,
           "sampler_archetypes": 1.8449999999999998,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 3.4,
+          "sampler_workflow": 3.55,
           "sampler_classic_context": 18.459999999999997
         }
       },

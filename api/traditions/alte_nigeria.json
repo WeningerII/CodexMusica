@@ -5,7 +5,7 @@
   "lineage": "Lagos alternative scene named around 2016 by DRB LasGidi affiliates and consolidated by Odunsi (The Engine), Santi and Cruel Santino — laptop-built afrofusion at 90-110 BPM that sets loose, log-drum-free syncopated programming and 808 sub against clean single-coil guitar chords, chorused synth pads, and a breathy, half-sung half-rapped delivery in Nigerian Pidgin and English.",
   "recipe": "classic mid-2010s alté, functional Song, African pop branch, lofi experimental electric, Afro-diasporic MC rhythm afroswing bedroom pop. thick, breath veiled tone, pure, interlocked note trading. clean strummed single coil electric guitar, sub heavy electric bass, TR-808, plucked short envelope analog poly synth, field textural sampler, iroko alternative west African talking drum. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
   "recipe_chars": 559,
-  "score": 211.295,
+  "score": 211.145,
   "config": {
     "traditions": [
       "alte_nigeria",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.0050000000000001,
           "voice_articulation": 17.225,
           "voice_microtone": 20.019999999999996,
-          "voice_tradition": 11.684999999999999,
+          "voice_tradition": 11.534999999999998,
           "voice_mechanism_compound": 2.4700000000000006,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 20.669999999999998,

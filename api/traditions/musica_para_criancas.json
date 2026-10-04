@@ -2,10 +2,10 @@
   "id": "musica_para_criancas",
   "name": "Música para crianças",
   "family": "pop",
-  "lineage": "Complete Sesc São Caetano announced sixty-minute Banda Rauzitos/La Troupe children’s programme built around Raul Seixas repertoire. Current presenter technical roster names Daniel Xingu voice and acoustic guitar, Marcelo Dworecki bass, Ângelo Coelho drum kit; Daniel Gonçalves is sound technician, not another musician. One credited band singer plus audience children invited to sing, dance and play; audience headcount and actual participation unknown. Preserve this participatory role through an authored lead-and-response group realization, not a fabricated choir count. This exact announced programme is selected, not the band’s differently staffed historical2018 recording or all Raul Seixas recordings. Source does not establish an actual concert recording or exact calendar year. Authored recurring verse/refrain and tonal-chord organization for the selected rock-song educational concert supports functionalSong, not a measured form for every item or all child music. Neutral source-unspecified vocal physiology and authored lightly ornamented small-note-group leader/group response preserve an invited audience without inventing exact harmony or headcount. Bare violão is realized with editorial mahogany OM steel strings, standard tuning and flatpicked accompaniment; source string material/construction not claimed. Bass uses authored alder body, soapbar pickups, nickel roundwounds, long fretted scale and locked fingerstyle. Authored maple thin-shell kit, coated heads, felt single pedal and B20 machine-hammered fully lathed traditional-finish cymbals support a rock-song backbeat. These are a coherent new rendition, not actual documented gear. Controlled live room, no global tuning or measured capture chain asserted. The neumatic voice gesture is an authored lightly ornamented small-note-group delivery for this new popular-song rendition, not a measured source ornament system or extra hand-clapping part.",
-  "recipe": "classic música para crianças, functional Song. small note groups per syllable, single leader group response, unprocessed natural acoustic, live take. mahogany flatpicked acoustic guitar, alder nickel roundwound fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 337,
-  "score": 77.566,
+  "lineage": "Música para crianças encompasses Brazilian children’s repertoire, from lullabies and sung games to contemporary concerts and music theater. Performers and educators adapt both inherited songs and wider popular music for participation and listening.",
+  "recipe": "classic música para crianças, functional Song. acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 183,
+  "score": 7.04,
   "config": {
     "traditions": [
       "musica_para_criancas"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 6.690499999999999,
-          "voice_ensemble_config": 10.576999999999996,
+          "voice_speech_song": 0.1905,
+          "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 1.3,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
+          "top_wood": 0,
+          "back_sides": 0.3,
           "string_acoustic": 0,
-          "acoustic_om_technique": 1.25
+          "acoustic_om_technique": -0.05
         }
       },
       {
@@ -83,12 +83,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.3,
+          "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 1.3,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 1.3,
-          "bass_technique": 2.4500000000000006,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -108,16 +108,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.686499999999999,
-          "drumhead": 2.5999999999999996,
+          "drum_technique": -0.035,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 6.853999999999999,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 13.104000000000001,
-          "cymbal_lathing": 14.649999999999999,
+          "cymbal_hammering": 2.454,
+          "cymbal_lathing": 3.7,
           "cymbal_finish": 0
         }
       }

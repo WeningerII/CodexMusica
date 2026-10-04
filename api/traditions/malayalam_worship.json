@@ -2,10 +2,10 @@
   "id": "malayalam_worship",
   "name": "Malayalam worship",
   "family": "vernacular",
-  "lineage": "The Twelve — complete 2019 a cappella devotional-film-song medley issued by Pilgrims Communications. All eight human voices are represented by one ensemble voice card: four song singers and four vocal accompanists, not eight independently notated counterpoint parts. Authored live-group rendition with unspecified voicing and neutral source-unspecified physiology preserves the source roles without claiming measured overdub count, SATB registers, beatboxing anatomy or exact original vocal effects. No instruments, tuning system or capture apparatus are invented. Controlled live room and unprocessed present-day voices are authored realization choices, not a reconstruction of the source recording.",
-  "recipe": "classic late-2010s malayalam worship, ritual Devotional. group vocals, unprocessed natural acoustic, live take. live tracking.",
-  "recipe_chars": 126,
-  "score": 10.935,
+  "lineage": "Malayalam worship connects Christian devotional songs with Malayalam-speaking congregations and music ministries. Church repertoire, devotional film songs and contemporary compositions circulate through choral, a cappella and accompanied arrangements.",
+  "recipe": "classic malayalam worship, ritual Devotional. group vocals. live tracking.",
+  "recipe_chars": 74,
+  "score": 1.264,
   "config": {
     "traditions": [
       "malayalam_worship"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.4205,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3945,
-          "voice_multitrack_stack": 4.1205,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       }

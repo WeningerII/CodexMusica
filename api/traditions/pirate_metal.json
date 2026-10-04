@@ -3,14 +3,14 @@
   "name": "Pirate Metal",
   "family": "rock",
   "lineage": "Folk-metal novelty branch established by Running Wild's Under Jolly Roger (1987) and codified as a distinct style by Alestorm from 2008 — mid-to-fast 4/4 and 6/8 power-metal riffing with galloping double-kick, accordion, tin whistle and fiddle carrying diatonic major-key sea-shanty and jig melodies doubled by keyboard, singalong gang choruses on the refrain, and a hoarse shouted lead over nautical narrative lyrics.",
-  "recipe": "classic Northern European late-1980s pirate metal, distorted Rock, folk metal branch, atlantic Southeast Asian shanty, power metal, Celtic traditional improv on frame canadian celtic japanese celtic. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel leather castagnari Italian premium folk music drone like accordion, synthetic magic rosin modern acrylic base fiddle, melodic tin whistle, goat skin canonical Irish ash pre modern traditional Irish bodhran. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 976,
-  "score": 541.06,
+  "recipe": "classic Northern European late-1980s pirate metal, distorted Rock, folk metal branch, atlantic Southeast Asian shanty, power metal, Celtic traditional improv on frame. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base drone like fiddle, melodic tin whistle, ash pre modern traditional Irish bodhran. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 878,
+  "score": 419.985,
   "config": {
     "traditions": [
       "pirate_metal",
-      "canadian_celtic",
-      "japanese_celtic"
+      "power_metal_european",
+      "sea_shanty"
     ],
     "instruments": [
       {
@@ -22,28 +22,28 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
-          "string_material": "nickel_plated_h",
+          "pickup_winding": "high_wind",
+          "string_material": "pure_nickel_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 28.630000000000003,
-          "amp_make": 12.804999999999996,
-          "body_wood": 12.35,
-          "neck_wood": 2.105,
-          "fretboard": 1.45,
+          "electric_technique": 36.894999999999996,
+          "amp_make": 16.249999999999996,
+          "body_wood": 15.6,
+          "neck_wood": 1.105,
+          "fretboard": 1.645,
           "pickup_magnet": 2.08,
-          "pickup_winding": 2.8849999999999993,
-          "string_material": 1.3,
-          "bridge": 1.9049999999999998,
-          "scale_length": 11.894999999999998,
-          "string_gauge": 2.5549999999999997,
-          "finish": 0.45499999999999996,
-          "string_tuning": 18.655
+          "pickup_winding": 0.39,
+          "string_material": 0,
+          "bridge": 2.0999999999999996,
+          "scale_length": 14.3,
+          "string_gauge": 1,
+          "finish": 0.195,
+          "string_tuning": 24.505000000000003
         }
       },
       {
@@ -51,21 +51,21 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.095000000000001,
-          "body_wood": 2.4499999999999997,
-          "pickup_config": 2.9249999999999994,
-          "string_type": 9.365,
-          "scale_length_b": 1.9949999999999997,
-          "fretted_or_not": 1.9949999999999997,
-          "bass_technique": 8.385,
+          "amp_make": 6.565000000000002,
+          "body_wood": 2.6449999999999996,
+          "pickup_config": 1.645,
+          "string_type": 12.115000000000002,
+          "scale_length_b": 1,
+          "fretted_or_not": 0.195,
+          "bass_technique": 11.830000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -73,12 +73,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.904999999999998,
-          "drumhead": 4.234999999999999,
+          "drum_technique": 17.419999999999998,
+          "drumhead": 1.56,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -94,7 +94,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -103,29 +103,29 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 19.524999999999995,
-          "voice_quality": 12.284999999999995,
+          "voice_register": 21.199999999999996,
+          "voice_quality": 9.750000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.315000000000001,
-          "voice_articulation": 23.529999999999994,
-          "voice_microtone": 24.569999999999993,
-          "voice_tradition": 43.795,
-          "voice_mechanism_compound": 23.859999999999996,
-          "voice_estill_quality": 5.915,
-          "voice_speech_song": 30.224999999999994,
-          "voice_ensemble_config": 30.159999999999993,
-          "voice_ornament_system": 28.274999999999995,
-          "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 7.15,
-          "voice_multitrack_stack": 8.580000000000002
+          "voice_vibrato": 2.015,
+          "voice_articulation": 17.549999999999997,
+          "voice_microtone": 20.474999999999994,
+          "voice_tradition": 19.489999999999995,
+          "voice_mechanism_compound": 31.209999999999997,
+          "voice_estill_quality": 3.73,
+          "voice_speech_song": 19.239999999999995,
+          "voice_ensemble_config": 18.524999999999995,
+          "voice_ornament_system": 2.9000000000000004,
+          "voice_pitch_organization": 5.46,
+          "voice_processing_chain": 8.525,
+          "voice_multitrack_stack": 9.620000000000001
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_drone_under",
-          "accordion_reed_material": "steel_reeds",
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
@@ -133,19 +133,19 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 18.62,
-          "accordion_reed_material": 1.9500000000000002,
-          "musette_offset": 2.4850000000000003,
-          "reed_config": 2.1899999999999995,
-          "bellows": 2.2,
-          "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 5.654999999999999
+          "free_reed_technique": 12.009999999999998,
+          "accordion_reed_material": 1,
+          "musette_offset": 1.105,
+          "reed_config": 0.195,
+          "bellows": 0.7,
+          "voicing_chamber": 0.105,
+          "accordion_maker_school": 6.305
         }
       },
       {
         "id": "fiddle",
         "slots": {
-          "bowed_technique": "bowed_celtic_session",
+          "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "no_mute",
@@ -153,11 +153,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 18.575,
-          "fiddle_strings": 3.5749999999999993,
-          "fiddle_bow": 2.6649999999999996,
-          "fiddle_mute": 2.5549999999999997,
-          "fiddle_articulation": 2.9249999999999994,
+          "bowed_technique": 10.17,
+          "fiddle_strings": 0.78,
+          "fiddle_bow": 1.17,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 1.8200000000000003,
           "fiddle_string_configuration": 0
         }
       },
@@ -170,8 +170,8 @@
           "whistle_body_material": "whistle_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 29.379999999999995,
-          "whistle_key": 7.119999999999998,
+          "wind_articulation": 14.434999999999999,
+          "whistle_key": 0.12999999999999998,
           "whistle_ornament": 5.01,
           "whistle_body_material": 0.9299999999999999
         }
@@ -184,9 +184,9 @@
           "bodhran_shell_wood": "bodhran_ash_traditional"
         },
         "scores": {
-          "bodhran_play": 2.2,
-          "bodhran_skin": 6.025,
-          "bodhran_shell_wood": 5.9799999999999995
+          "bodhran_play": 0.7,
+          "bodhran_skin": 0.9099999999999999,
+          "bodhran_shell_wood": 1.3
         }
       }
     ],

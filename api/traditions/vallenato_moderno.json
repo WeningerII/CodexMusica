@@ -2,10 +2,10 @@
   "id": "vallenato_moderno",
   "name": "Vallenato moderno",
   "family": "global",
-  "lineage": "Torcida, complete2025 Music Dreams/Sony Music Latin recording by Silvestre Dangond and Juancho de la Espriella. Full performing credits: Dangond lead voice; de la Espriella accordion; David Pacheco electric guitar; Erichs Martinez bass; Felipe Noriega timbales; Jovani Garcia Perez congas; Eugenio Gamez classical guitar; Jorge Mario Rojas, Roland Valbuena and Nicolas Pineda backing voices; Alberto Urieles keyboards AND programming. Eleven named people, four vocal contributors, nine sound families. Chorus direction is not an extra singer; all positive programming retained separately from neutral keyboard performance. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic vallenato moderno, functional Song. one note per syllable. accordion, conventional tuning standard pitch humbucker electric cutting modern classical carbon fiber classical nylon-string guitar, electric bass, timbales stick played, hands layered congas, electronic keyboard credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 413,
-  "score": 18.383,
+  "lineage": "Modern vallenato extends Colombian accordion-centred song into contemporary commercial production. Silvestre Dangond and Juancho de la Espriella exemplify its connection between recognizable vallenato melody and expanded popular arrangements.",
+  "recipe": "classic vallenato moderno, functional Song. small note groups per syllable, group vocals. button accordion three row hohner legato acordeon vallenato, humbucker electric classical nylon-string guitar, electric bass, timbales stick played, congas, electronic keyboard credited electronics unspecified. live tracking.",
+  "recipe_chars": 315,
+  "score": 12.45,
   "config": {
     "traditions": [
       "vallenato_moderno"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,34 +43,24 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.8565,
-          "voice_ensemble_config": 0.273,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "accordion",
+        "id": "acordeon_vallenato",
         "slots": {
-          "free_reed_technique": "free_reed_bellows_articulated",
-          "accordion_reed_material": "steel_reeds",
-          "musette_offset": "german_tuning",
-          "reed_config": "lmm",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
-          "accordion_maker_school": "accordion_hohner_gola"
+          "acordeon_vallenato_make": "acordeon_hohner_3_filas",
+          "acordeon_vallenato_style": "acordeon_paseo_legato"
         },
         "scores": {
-          "free_reed_technique": 0.49999999999999994,
-          "accordion_reed_material": 0.054,
-          "musette_offset": 0.7364999999999999,
-          "reed_config": 0,
-          "bellows": 0.7364999999999999,
-          "voicing_chamber": 0,
-          "accordion_maker_school": 0.054
+          "acordeon_vallenato_make": 4.354,
+          "acordeon_vallenato_style": 3
         }
       },
       {
@@ -78,8 +68,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -91,27 +81,27 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.2,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.1905,
-          "neck_wood": 0,
+          "body_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.9899999999999998,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -120,12 +110,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.1905,
-          "pickup_config": 0,
+          "body_wood": 0,
+          "pickup_config": 1,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -139,7 +129,7 @@
         "scores": {
           "timbales_playing": 0.1365,
           "timbales_shell": 0,
-          "timbales_context": 0.3
+          "timbales_context": 0
         }
       },
       {
@@ -151,10 +141,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.5,
+          "percussion_technique": 0.2,
           "conga_set": 0,
-          "conga_skin": 0.3,
-          "conga_shell_wood": 0.3
+          "conga_skin": 0,
+          "conga_shell_wood": 0
         }
       },
       {
@@ -162,18 +152,18 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
-          "top_wood_classical": "cedar_cl",
+          "top_wood_classical": "spruce_cl",
           "bracing_classical": "fan_torres_cl",
-          "string_classical": "carbon_cl",
+          "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 0.453,
+          "top_wood_classical": 0.054,
           "bracing_classical": 0.78,
-          "string_classical": 2.68,
-          "attack_technique_cl": 1.78
+          "string_classical": -0.05,
+          "attack_technique_cl": 0.18
         }
       },
       {
@@ -217,14 +207,9 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "accordion": [
-        "free_reed_technique",
-        "accordion_reed_material",
-        "musette_offset",
-        "reed_config",
-        "bellows",
-        "voicing_chamber",
-        "accordion_maker_school"
+      "acordeon_vallenato": [
+        "acordeon_vallenato_make",
+        "acordeon_vallenato_style"
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
@@ -278,15 +263,15 @@
         "credited_electronics_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -295,7 +280,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -307,7 +292,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -316,8 +301,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -327,7 +312,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -336,13 +321,6 @@
       "acoustic_technique": "acoustic_fingerpicked",
       "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
       "keyboard_technique": "electronic_keyboard_melodic_chordal",
-      "free_reed_technique": "free_reed_bellows_articulated",
-      "accordion_reed_material": "steel_reeds",
-      "musette_offset": "german_tuning",
-      "reed_config": "lmm",
-      "bellows": "cardboard_leather",
-      "voicing_chamber": "cassotto",
-      "accordion_maker_school": "accordion_hohner_gola",
       "timbales_playing": "timbales_stick_pattern",
       "timbales_shell": "timbales_steel",
       "timbales_context": "timbales_son",
@@ -350,18 +328,14 @@
       "conga_set": "conga_proper",
       "conga_skin": "conga_mule_hide",
       "conga_shell_wood": "conga_oak_staved",
-      "top_wood_classical": "cedar_cl",
+      "top_wood_classical": "spruce_cl",
       "bracing_classical": "fan_torres_cl",
-      "string_classical": "carbon_cl",
+      "string_classical": "nylon_normal_cl",
       "attack_technique_cl": "tirando_cl",
-      "credited_electronics_identity": "credited_electronics_generator_unspecified"
+      "credited_electronics_identity": "credited_electronics_generator_unspecified",
+      "acordeon_vallenato_make": "acordeon_hohner_3_filas",
+      "acordeon_vallenato_style": "acordeon_paseo_legato"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

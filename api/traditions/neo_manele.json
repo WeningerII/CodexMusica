@@ -5,7 +5,7 @@
   "lineage": "Steaua de Mare — documented five-member instrumental practice2013–2014. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s neo-manele, experimental Elec. electric violin, analog poly synth, electric bass, low fundamental tuning all purpose maple drum kit, credited auxiliary percussion, drum machine analog, wurlitzer ep. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 315,
-  "score": 6.721,
+  "score": 6.723,
   "config": {
     "traditions": [
       "neo_manele"
@@ -53,10 +53,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.105,
+          "body_wood": 0.1365,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.105,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -79,14 +79,14 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.69,
+          "drumhead": 1.639,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.08,
+          "shell_wood": 2.047,
           "shell_thickness": 0,
           "bearing_edges": 0.159,
           "snare_wires": 0,
-          "cymbal_alloy": -0.1685,
-          "cymbal_hammering": 0.15000000000000002,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 0.18150000000000002,
           "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0
         }
@@ -128,7 +128,7 @@
           "keyboard_technique": -0.1,
           "wurlitzer_use": 0,
           "wurlitzer_ep_voice": 0.3,
-          "wurlitzer_model": 0.7149999999999999,
+          "wurlitzer_model": 0.604,
           "wurlitzer_reed_material": 0.8999999999999999
         }
       }

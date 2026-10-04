@@ -5,7 +5,7 @@
   "lineage": "Colombo-centred Sinhala-language popular song codified from the late 1960s by Clarence Wijewardena's Moonstones and Super Golden Chimes and carried into the 1980s cassette era by Milton Mallawarachchi, Sunil Perera's Gypsies and Bathiya & Santhush, welding Portuguese-descended baila's 6/8 kaffrinha lilt and rabana-derived hand-drum patterns to electric guitar-bass-kit combo instrumentation, 100-130 BPM, diatonic major-key refrains and a light nasal-forward tenor delivery with Hindi-filmi-influenced string sweetening.",
   "recipe": "classic Southeast Asian 1967-1969 sinhala pop, functional Song, south Asian pop branch, europop functional song, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern congas, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
   "recipe_chars": 862,
-  "score": 439.732,
+  "score": 437.475,
   "config": {
     "traditions": [
       "sinhala_pop",
@@ -41,14 +41,14 @@
           "voice_vibrato": 10.939999999999998,
           "voice_articulation": 18.264999999999997,
           "voice_microtone": 45.22500000000001,
-          "voice_tradition": 25.277499999999996,
+          "voice_tradition": 24.857499999999995,
           "voice_mechanism_compound": 3.8999999999999995,
           "voice_estill_quality": 4.8100000000000005,
           "voice_speech_song": 27.234999999999992,
           "voice_ensemble_config": 18.199999999999996,
           "voice_ornament_system": 2.8600000000000003,
           "voice_pitch_organization": 3.4450000000000003,
-          "voice_processing_chain": 10.493125,
+          "voice_processing_chain": 10.213125,
           "voice_multitrack_stack": 8.3525
         }
       },
@@ -70,8 +70,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 19.375,
-          "amp_make": 11.068124999999998,
+          "electric_technique": 19.4275,
+          "amp_make": 10.805624999999997,
           "body_wood": 1.625,
           "neck_wood": 1.625,
           "fretboard": 1.3,
@@ -81,7 +81,7 @@
           "bridge": 0.345,
           "scale_length": 1.235,
           "finish": 0.6,
-          "string_tuning": 10.268749999999999,
+          "string_tuning": 10.00625,
           "single_coil_pickup_construction": 0
         }
       },
@@ -93,17 +93,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.565624999999999,
+          "amp_make": 11.128124999999999,
           "body_wood": 1.4300000000000002,
           "pickup_config": 0.345,
-          "string_type": 20.49875,
+          "string_type": 20.23625,
           "scale_length_b": 1.235,
-          "fretted_or_not": 0.195,
+          "fretted_or_not": 0.22000000000000003,
           "bass_technique": 18.825,
           "electric_bass_string_configuration": 0
         }
@@ -131,7 +131,7 @@
         },
         "scores": {
           "percussion_technique": 2.2,
-          "conga_set": 0.78,
+          "conga_set": 0.6525,
           "conga_skin": 1.235,
           "conga_shell_wood": 1.235
         }
@@ -146,7 +146,7 @@
         },
         "scores": {
           "electronic_technique": 19.822499999999998,
-          "poly_archetypes": 9.548749999999998,
+          "poly_archetypes": 9.46125,
           "poly_voices": 0.39,
           "poly_maker_lineage": 1.94
         }
@@ -155,26 +155,26 @@
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_chopped_old_time",
-          "orch_strings": "plain_sheep_gut_violin",
+          "orch_strings": "aluminum_wound_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
-          "orch_articulation": "pizz_orch",
+          "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
           "bowed_technique": 0.06499999999999999,
-          "orch_strings": 0.45062499999999994,
+          "orch_strings": 0.45249999999999996,
           "orch_top_wood": 1.4299999999999997,
-          "orch_back_wood": 10.139999999999999,
+          "orch_back_wood": 9.956249999999999,
           "orch_varnish": 0.5199999999999999,
-          "orch_setup_period": 2.6000000000000005,
+          "orch_setup_period": 2.5175000000000005,
           "orch_bow": 1.415625,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.195,
+          "orch_articulation": 0.265,
           "orch_rosin": -0.035
         }
       }

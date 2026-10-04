@@ -2,34 +2,52 @@
   "id": "cantonese_traditional",
   "name": "Cantonese Traditional",
   "family": "classical",
-  "lineage": "Wong Kong-Yu — complete Eight Cantonese Folk Songs, T.U.X. People’s Music SE0152 (2023 copyright; first printing May2024), a separately issued eight-piece solo-piano collection. Publisher confirms sole piano scoring; no singers or instrumental accompaniment added. Public perusal PDF identifies all eight selections and explains the arranger’s new harmonies, keys and developed forms; retail listing advertises21pages while public perusal PDF has20pages. These edition counts are reported separately, not silently equated. This is the complete issued arrangement, not a reduction invented from the earlier Han Tien Lei trio. Authored standard studio upright with connected classical legato in a controlled live room; source says piano without a make, size or upright/grand requirement. This is a coherent representative recital rendering, not measured source touch, geometry, microphone chain or historical temperament. All three original piano controls protected; no optional global tuning or apparatus claim. ArtMusic family classical is limited to this documented arranged solo recital branch.",
-  "recipe": "classic early-2020s cantonese traditional, art Music. legato upright piano. live tracking.",
-  "recipe_chars": 90,
-  "score": 11.081,
+  "lineage": "Cantonese traditional music developed in the Pearl River Delta and through Guangdong and Hong Kong performance networks. Instrumental ensembles, inherited tunes and newer compositions continue a regional tradition shaped by theatre, social performance and recording.",
+  "recipe": "classic cantonese traditional, art Music. Cantonese silk and bamboo python skin gaohu, traditional bamboo yangqin. live tracking.",
+  "recipe_chars": 129,
+  "score": 26.043,
   "config": {
     "traditions": [
       "cantonese_traditional"
     ],
     "instruments": [
       {
-        "id": "upright_piano",
+        "id": "gaohu",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
+          "bowed_technique": "bowed_legato_classical",
+          "gaohu_type": "gaohu_cantonese",
+          "gaohu_setting": "gaohu_yinyue",
+          "gaohu_membrane": "gaohu_python"
         },
         "scores": {
-          "keyboard_technique": 11.081499999999998,
-          "upright_use": 0,
-          "upright_piano_size": 0
+          "bowed_technique": 2.5315,
+          "gaohu_type": 7.5,
+          "gaohu_setting": 9.62,
+          "gaohu_membrane": 2.0865
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_traditional_smaller",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 2.168,
+          "yangqin_technique": 2.1365
         }
       }
     ],
     "pinned": {
-      "upright_piano": [
-        "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
+      "gaohu": [
+        "bowed_technique",
+        "gaohu_type",
+        "gaohu_setting",
+        "gaohu_membrane"
+      ],
+      "yangqin": [
+        "yangqin_courses",
+        "yangqin_technique"
       ]
     },
     "room": "live_room",
@@ -49,9 +67,12 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "keyboard_technique": "keyboard_classical_legato",
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard"
+      "bowed_technique": "bowed_legato_classical",
+      "gaohu_type": "gaohu_cantonese",
+      "gaohu_setting": "gaohu_yinyue",
+      "gaohu_membrane": "gaohu_python",
+      "yangqin_courses": "yangqin_traditional_smaller",
+      "yangqin_technique": "yangqin_bamboo_mallets"
     },
     "pin_parts": true
   }

@@ -3,9 +3,9 @@
   "name": "Texas country",
   "family": "vernacular",
   "lineage": "Texas country includes a regional touring and recording network whose participants are not all Texas-born. Turnpike Troubadours explicitly describe their longstanding place in the Texas country scene, supplying this fiddle-and-guitar band branch.",
-  "recipe": "classic modern texas country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. dreadnought acoustic Fender tweed amp American 50s amp tweed breakup single coil electric guitar, fiddle, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 448,
-  "score": 79.344,
+  "recipe": "classic modern texas country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, fiddle, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 459,
+  "score": 80.823,
   "config": {
     "traditions": [
       "texas_country"
@@ -27,7 +27,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
@@ -36,16 +36,16 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.2,
+          "voice_vibrato": 11.3365,
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 11.915,
+          "voice_estill_quality": 12.293,
           "voice_speech_song": 7.215,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.0315,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 1.69,
           "voice_multitrack_stack": 0.39
         }
@@ -63,7 +63,7 @@
           "acoustic_technique": 0.26,
           "string_tuning": 0,
           "top_wood": 0.105,
-          "back_sides": 0.22049999999999997,
+          "back_sides": 0.3675,
           "string_acoustic": 0.2205
         }
       },
@@ -81,8 +81,8 @@
           "bowed_technique": 1.95,
           "fiddle_strings": 0.2205,
           "fiddle_bow": 0.1365,
-          "fiddle_mute": 0.357,
-          "fiddle_articulation": 0.1365,
+          "fiddle_mute": 0.5355,
+          "fiddle_articulation": 0.1995,
           "fiddle_string_configuration": 0
         }
       },
@@ -90,7 +90,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_tweed",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "pine",
           "neck_wood": "maple",
           "fretboard": "maple_fb",
@@ -104,18 +104,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.254,
-          "amp_make": 11.205,
-          "body_wood": 0.22049999999999997,
+          "electric_technique": 0.26,
+          "amp_make": 11.217999999999996,
+          "body_wood": 0.3675,
           "neck_wood": 0,
           "fretboard": 0.0315,
           "pickup_magnet": 0.105,
           "string_material": 0.44099999999999984,
-          "string_gauge": 0.357,
-          "bridge": 0.063,
+          "string_gauge": 0.504,
+          "bridge": 0.0315,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.1995,
+          "string_tuning": 0.4095,
           "single_coil_pickup_construction": 0
         }
       },
@@ -125,7 +125,7 @@
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
@@ -134,10 +134,10 @@
         "scores": {
           "amp_make": 11.205,
           "body_wood": 0.0315,
-          "pickup_config": 0.1995,
-          "string_type": 0.2835,
+          "pickup_config": 0.168,
+          "string_type": 0.26,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.3989999999999999,
+          "fretted_or_not": 0.46199999999999986,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -146,12 +146,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.26,
+          "drumhead": 0.3675,
           "drum_kit_kick_pedal": 0
         }
       }

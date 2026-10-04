@@ -2,10 +2,10 @@
   "id": "musica_rapa_nui",
   "name": "Música rapa nui",
   "family": "vernacular",
-  "lineage": "Amahiro’s complete announced one-hour Tapu concert, Centro GAM,9January2017. Mario Ama Tuki sings and plays guitar; Vai a Tare Paoa sings backing vocals; Andrés K. Pakarati plays guitar; Te Uira Tuki bass; Moana Moulton Tepano drums; Carlos Campusano percussion. Retain all six performers, two singers and five sound-source families; the two positively electric guitar roles share one timbre-family card, not one invented guitarist. Sound technicians are not extra performers. Source-unspecified auxiliary percussion remains neutral. The festival identifies contemporary Rapa Nui repertoire combining island tradition with rock, folk and blues, performed in Rapa Nui, Spanish and English. This is the whole documented concert arrangement, not a claim to full Tapu studio overdubs. Authored recurring verse/refrain and tonal chord support for this contemporary song concert places the selected realization under functionalSong; this is not a measured analysis of every source song or the whole island repertoire. Two singers use a neutral live-duet configuration, without invented intervals, technique lineage or physiology. Electric guitars use authored alder bodies, maple necks, rosewood boards, AlnicoII single coils, pure-nickel10s and clean chordal strokes. Bass uses authored alder, fretted long scale, nickel roundwounds and soapbar pickups with locked fingerstyle. Thin maple drum kit with brushes and sticks and traditional-finish fully lathed machine-hammeredB20 cymbals is an authored supportive texture, not exact source inventory. Bare percussion credit receives no guessed subtype. Controlled live room is authored, not the source hall; global tuning and original recording apparatus omitted.",
-  "recipe": "classic música rapa nui, functional Song. duet, live take. alder maple rosewood nickel nitrocellulose single coil electric guitar, alder nickel roundwound fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, credited auxiliary percussion. live tracking.",
-  "recipe_chars": 304,
-  "score": 67.848,
+  "lineage": "Música Rapa Nui encompasses the island’s inherited and contemporary musical expressions. Artists connect local language and identity with folk, rock, blues and other influences, working across acoustic and amplified settings.",
+  "recipe": "classic música rapa nui, functional Song. unprocessed natural acoustic. single coil electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 240,
+  "score": 12.46,
   "config": {
     "traditions": [
       "musica_rapa_nui"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.036499999999999,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 2.7364999999999995,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 1.2,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
-          "neck_wood": 2.5999999999999996,
-          "fretboard": 1.25,
+          "body_wood": 0,
+          "neck_wood": 0,
+          "fretboard": -0.05,
           "pickup_magnet": 0,
-          "string_material": 1.3,
-          "string_gauge": 2,
+          "string_material": 0,
+          "string_gauge": 0.7,
           "bridge": 0,
           "scale_length": 0,
-          "finish": 1.3,
-          "string_tuning": 1.3,
+          "finish": 0,
+          "string_tuning": 0,
           "single_coil_pickup_construction": 0
         }
       },
@@ -99,19 +99,19 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
-          "pickup_config": 1.3,
-          "string_type": 1.3,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 2.4500000000000006,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
+          "drum_technique": "sticks_rock",
           "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt",
           "shell_wood": "maple_shell",
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 18.17450000000001,
-          "drumhead": 1.3,
+          "drum_technique": 2.6365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.5,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 3.4000000000000004,
-          "cymbal_hammering": 4.450000000000001,
-          "cymbal_lathing": 7.050000000000001,
+          "cymbal_alloy": 3.3500000000000005,
+          "cymbal_hammering": 2.4000000000000004,
+          "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 0
         }
       },
@@ -262,7 +262,7 @@
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
       "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "drum_technique": "brushes_and_sticks",
+      "drum_technique": "sticks_rock",
       "shell_wood": "maple_shell",
       "shell_thickness": "thin_shell",
       "bearing_edges": "edge_45",

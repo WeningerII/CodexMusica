@@ -2,10 +2,10 @@
   "id": "danish_techno",
   "name": "Danish techno",
   "family": "electronic",
-  "lineage": "Denmark-centered techno networks range from Kölsch’s melodic club work to the harder Copenhagen underground. This default selects the former’s documented combination of modular synthesis and drum-machine rhythm, rather than treating the national category as one tempo or mood.",
+  "lineage": "Danish techno spans melodic studio production and the harder Copenhagen underground. Modular synthesis, drum-machine rhythm and international label networks connect contrasting approaches within the scene.",
   "recipe": "classic modern danish techno, electronic Dance, techno branch. eurorack modular, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 304,
-  "score": 1.438,
+  "score": -0.115,
   "config": {
     "traditions": [
       "danish_techno"
@@ -19,8 +19,8 @@
           "eurorack_modular_context": "eurorack_modular_studio"
         },
         "scores": {
-          "electronic_technique": 0.325,
-          "eurorack_focus": 0.13724999999999998,
+          "electronic_technique": -0.035,
+          "eurorack_focus": 0.0945,
           "eurorack_modular_context": 0.22049999999999997
         }
       },

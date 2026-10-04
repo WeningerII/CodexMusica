@@ -5,7 +5,7 @@
   "lineage": "Ben Harper — Winter Is for Lovers (2020), complete fifteen-movement solo album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s pastoral, art Music. acoustic lap steel monteleone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 170,
-  "score": 0.3,
+  "score": 0.363,
   "config": {
     "traditions": [
       "pastoral"
@@ -19,7 +19,7 @@
           "monteleone_lap_touch": "monteleone_slide_fingers_pick"
         },
         "scores": {
-          "monteleone_lap_body": 0,
+          "monteleone_lap_body": 0.063,
           "monteleone_lap_tuning": 0,
           "monteleone_lap_touch": 0.3
         }

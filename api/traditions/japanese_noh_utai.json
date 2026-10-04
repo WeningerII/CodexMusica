@@ -5,7 +5,7 @@
   "lineage": "Japanese Noh utai sung-and-chanted vocal tradition of the canonical Noh theatre form, codified in the fourteenth-fifteenth centuries by Zeami Motokiyo (1363-1443). Performance integrates the male shite-actor's utai chant (the central narrative-and-character voice) with the jiutai chorus (typically eight male singers seated stage-right), supported by the hayashi instrumental ensemble (nohkan flute, ko-tsuzumi shoulder-drum, o-tsuzumi hip-drum, taiko stick-drum). Vocal architecture features extremely slow tempi, characteristic narrow-range melodic vocabulary in the yowagin \"weak-style\" and tsuyogin \"strong-style\" registers, with strictly codified breath-pause and vibrato conventions.",
   "recipe": "classic East Asian early-1360s noh utai, art Music, east Asian branch, buddhist ritual devotional theravada pali chant tibetan chöd rite. vocal fry, breath veiled tone, slow rate, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, pitch bent shoulder held tsuzumi. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 468,
-  "score": 193.926,
+  "score": 193.532,
   "config": {
     "traditions": [
       "japanese_noh_utai",
@@ -47,9 +47,9 @@
           "voice_speech_song": 14.169999999999996,
           "voice_ensemble_config": 15.404999999999994,
           "voice_ornament_system": 6.2749999999999995,
-          "voice_pitch_organization": 3.4125,
+          "voice_pitch_organization": 3.30275,
           "voice_processing_chain": 5.914999999999998,
-          "voice_multitrack_stack": 7.344999999999999
+          "voice_multitrack_stack": 7.255749999999999
         }
       },
       {
@@ -77,7 +77,7 @@
           "tsuzumi_body": "tsuzumi_cherry"
         },
         "scores": {
-          "tsuzumi_type": 16.715249999999997,
+          "tsuzumi_type": 16.52025,
           "tsuzumi_context": 22.486250000000002,
           "tsuzumi_body": 3.25
         }

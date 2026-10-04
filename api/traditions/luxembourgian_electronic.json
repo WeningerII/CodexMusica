@@ -2,10 +2,10 @@
   "id": "luxembourgian_electronic",
   "name": "Luxembourgian electronic",
   "family": "electronic",
-  "lineage": "Luxembourgian electronic is represented here by Monophona — early live vocal, guitar and drum core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic luxembourgian electronic, functional Song, pop rock branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 324,
-  "score": 15.28,
+  "lineage": "Luxembourgian electronic music includes collaborations that link electronic production with songwriting and played instruments. Folk-facing and experimental approaches sit alongside more dance-oriented work.",
+  "recipe": "classic luxembourgian electronic, functional Song. solo with instrumental accompaniment. dreadnought acoustic guitar, drum kit, electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 3.055,
   "config": {
     "traditions": [
       "luxembourgian_electronic"
@@ -16,29 +16,40 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "top_wood": "engelmann",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "monel"
         },
         "scores": {
-          "acoustic_technique": 4.114,
+          "acoustic_technique": 0.49999999999999994,
           "string_tuning": 0,
-          "top_wood": 0.28049999999999997,
-          "back_sides": 0.063,
-          "string_acoustic": 0.3435
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.3
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.7815,
-          "drumhead": 3.7315,
+          "drum_technique": -0.035,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0
         }
       },
       {
@@ -73,11 +84,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.47,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.33899999999999997,
-          "voice_multitrack_stack": 0.126
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.3
         }
       }
     ],
@@ -88,6 +99,10 @@
       ],
       "drum_kit": [
         "drum_technique"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
       ],
       "voice": [
         "voice_register",
@@ -145,7 +160,9 @@
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "acoustic_technique": "acoustic_strummed_ringing",
       "string_tuning": "standard_tuning",
-      "drum_technique": "sticks_rock"
+      "drum_technique": "sticks_rock",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

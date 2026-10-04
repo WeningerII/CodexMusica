@@ -5,7 +5,7 @@
   "lineage": "Acoustic, Americana-inflected congregational worship that emerged in North American and Northern Irish church-planting circles after 2008 — Rend Collective, All Sons & Daughters and Shane & Shane stripped arena-worship synth pads back to dreadnought guitar, mandolin, upright-toned bass, brushed kit and Hammond, with 70-100 BPM 6/8 and 4/4 hymn-shaped forms, congregational unison choruses and unaffected, slightly rough lead vocals.",
   "recipe": "classic late-2000s roots worship, ritual Devotional, christian gospel branch, americana country, anglo singer song indie folk canadian americana gulf and western. thick, declaimed, wide pitch sway, interlocked note trading. steel silk travis picked dreadnought acoustic Fender tweed amp American 50s amp tweed breakup nickel plated steel nickel single coil electric guitar, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet gospel runs full spectrum fast tremolo tonewheel organ, a cappella small 3 to 8 one per part polynesian himene tarava parallel thirds congregational choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 970,
-  "score": 333.888,
+  "score": 334.493,
   "config": {
     "traditions": [
       "roots_worship",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 26.86499999999999,
+          "voice_register": 27.01499999999999,
           "voice_quality": 7.195000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 14.884999999999993,
           "voice_tradition": 9.002499999999998,
           "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 16.905,
+          "voice_estill_quality": 17.099999999999998,
           "voice_speech_song": 20.539999999999996,
           "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 3.65,
@@ -62,7 +62,7 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 19.424999999999997,
+          "acoustic_technique": 19.47,
           "string_tuning": 0.8899999999999999,
           "top_wood": 0.845,
           "back_sides": 0.7,
@@ -95,7 +95,7 @@
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_country_chicken_pickin",
+          "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -110,7 +110,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 14.15,
+          "electric_technique": 14.215,
           "amp_make": 15.829999999999998,
           "body_wood": 0.845,
           "neck_wood": 0.845,
@@ -144,7 +144,7 @@
           "string_type": 4.875,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.5399999999999999,
-          "bass_technique": 14.065,
+          "bass_technique": 14.215,
           "electric_bass_string_configuration": 0
         }
       },

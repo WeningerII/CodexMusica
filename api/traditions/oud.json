@@ -5,7 +5,7 @@
   "lineage": "Anouar Brahem — Blue Maqams (2017), complete instrumental quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic late-2010s oud, improv On Frame, fusion branch. oud, grand piano, European maple bosnian source flamed figure double bass, bronze bell bronze brushes-and-sticks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 277,
-  "score": 36.148,
+  "score": 35.912,
   "config": {
     "traditions": [
       "oud"
@@ -25,7 +25,7 @@
         "scores": {
           "plucked_traditional_technique": -0.15000000000000002,
           "oud_school": 0.1365,
-          "oud_strings": 0.43199999999999994,
+          "oud_strings": 0.378,
           "oud_pick": 0,
           "oud_body_wood": 0.6825000000000001,
           "oud_soundboard_wood": 0.546,
@@ -47,13 +47,13 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.054,
+          "grand_piano_size": 0,
           "grand_piano_brand": 0.273,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
-          "piano_plate": -0.07,
+          "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
         }
       },
@@ -73,7 +73,7 @@
         },
         "scores": {
           "bowed_technique": -0.1,
-          "bass_size": 0.054,
+          "bass_size": 0,
           "bass_strings": 0.7244999999999999,
           "bass_top_wood": -0.07,
           "bass_back_wood": 1.56,
@@ -109,7 +109,7 @@
           "snare_wires": 0,
           "cymbal_alloy": 10.649999999999999,
           "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": -0.10500000000000001,
+          "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0
         }
       }

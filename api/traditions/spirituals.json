@@ -5,7 +5,7 @@
   "lineage": "Concert-arranged branch of the African-American spiritual formed when the Fisk Jubilee Singers took plantation songs on tour from 1871 and codified by Harry T. Burleigh's solo-voice-and-piano settings (1916), Hall Johnson's and William Dawson's choral arrangements, and Roland Hayes and Marian Anderson's recital performances — slow-to-moderate rubato tempos, SATB four-part homophony with dialect text, call-and-response refrains flattened into written verses, and trained legit vocal delivery replacing the ring-shout's foot-stamped polyrhythm.",
   "recipe": "classic North American early-1870s spirituals, ritual Devotional, spirituals branch, christian gospel black gospel, christian gospel jubilee quartet, blues narrative work song. thick, declaimed, wide pitch sway, leader call answered. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, choir southern black gospel, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 635,
-  "score": 361.695,
+  "score": 361.98,
   "config": {
     "traditions": [
       "spirituals",
@@ -38,14 +38,14 @@
           "voice_quality": 39.86500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.51,
+          "voice_vibrato": 2.6599999999999997,
           "voice_articulation": 29.185000000000002,
           "voice_microtone": 16.705,
-          "voice_tradition": 39.35,
+          "voice_tradition": 39.305,
           "voice_mechanism_compound": 3.7049999999999996,
           "voice_estill_quality": 28.700000000000003,
           "voice_speech_song": 18.46,
-          "voice_ensemble_config": 28.18,
+          "voice_ensemble_config": 28.33,
           "voice_ornament_system": 13.525000000000002,
           "voice_pitch_organization": 2.265,
           "voice_processing_chain": 3.4450000000000003,
@@ -63,7 +63,7 @@
         "scores": {
           "choir_size": 3.25,
           "choir_polyphonic_configuration": 4.744999999999999,
-          "choir_regional_canonical_configuration": 4.279999999999999,
+          "choir_regional_canonical_configuration": 4.3549999999999995,
           "choir_ensemble_repertoire": 2.08
         }
       },
@@ -94,7 +94,7 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 32.465,
+          "keyboard_technique": 32.42,
           "grand_piano_size": 2.0799999999999996,
           "grand_piano_brand": 0.39,
           "piano_hammer": 6.5649999999999995,

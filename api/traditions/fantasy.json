@@ -2,10 +2,10 @@
   "id": "fantasy",
   "name": "Fantasy",
   "family": "classical",
-  "lineage": "Frank Tedesco — Wanderlust Piano Collections, complete twelve-piece original cycle. Whole twelve-piece Wanderlust Piano Collections published by composer Frank Tedesco in2020, explicitly original solo-piano sheet-music cycle and matching twelve-track release. Author describes a continuous imagined adventure through a fantasy universe. Complete piano-only palette, zero singers; no other albums, game originals or media-production layers imported. Issuer profile locates artist in Salt Lake City; actual session site unknown. Authored recital rendition of the complete published piano cycle: nine-foot SteinwayD, matching original hammer/rim/soundboard/pinblock/plate construction and legato piano articulation. These are performance choices, not measured original piano or technique. Concert hall is expressly new recital environment; source recording room, pitch standard and capture chain unknown. Existing A440 piano construction preset authored, no global tuning asserted.",
+  "lineage": "Fantasy music evokes imagined worlds, journeys and characters through instrumental or vocal composition. Standalone concept pieces coexist with music for games, film and other narrative media, crossing acoustic, orchestral and electronic approaches.",
   "recipe": "classic fantasy, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
   "recipe_chars": 123,
-  "score": 42.275,
+  "score": 16.946,
   "config": {
     "traditions": [
       "fantasy"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 5.331500000000001,
-          "grand_piano_size": 1.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 4.118,
-          "piano_rim": 8.1125,
-          "piano_soundboard": 5.355000000000001,
-          "piano_pinblock": 6.237000000000001,
-          "piano_plate": 5.250000000000001,
-          "piano_pitch_standard": 6.775999999999999
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 1.7315,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.8445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

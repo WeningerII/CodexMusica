@@ -2,10 +2,10 @@
   "id": "histoire_pour_enfants",
   "name": "Histoire pour enfants",
   "family": "vernacular",
-  "lineage": "Caroline Sophie — Tom Pouce, complete12:25 French reading of Jacob and Wilhelm Grimm, separately listed section01 of LibriVox Il était une fois...001 (contes pour enfants), issued9March2010. Publisher expressly presents twenty favorite children stories and fairy tales in French. Selected scope is the entire individually issued story, not the whole multi-reader anthology. One credited reader and no credited singers. Standard LibriVox narration policy prohibits incidental music/effects, with separately hosted enhanced versions and explicit textual-song exceptions; catalog lists no such enhancement or music credit. Voice-only model follows positive reading class and issuer policy, not personal audio inspection. SpokenWord.narration follows the actual recorded story. Source-unspecified physiology, training, register and pitch remain neutral; pure spoken rhythm, one unaccompanied narrator, unprocessed voice and a dry recording room form a transparent authored realization. No global temperament, capture hardware, incidental instruments or extra actors invented.",
-  "recipe": "classic histoire pour enfants, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio.",
-  "recipe_chars": 195,
-  "score": 16.013,
+  "lineage": "Histoire pour enfants brings French-language children’s stories into spoken recordings and listening programmes. Traditional tales, translated stories and newer writing circulate through individual narrators and multi-reader collections.",
+  "recipe": "classic histoire pour enfants, spoken Word, narration branch. treated studio.",
+  "recipe_chars": 77,
+  "score": 1.083,
   "config": {
     "traditions": [
       "histoire_pour_enfants"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 8.4885,
-          "voice_ensemble_config": 1.5310000000000001,
+          "voice_speech_song": 0.3255,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 4.5569999999999995,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       }

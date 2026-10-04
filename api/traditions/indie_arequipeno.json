@@ -2,10 +2,10 @@
   "id": "indie_arequipeno",
   "name": "Indie arequipeño",
   "family": "electronic",
-  "lineage": "Paisaje 3 — Sesión Invernal (2016), complete release-wide palette. Author-selected rendition retains the full release-wide role union without claiming all layers occur in every track. Two source singers use authored live duet/ensemble settings, not a measured take count or invented physiology. Guitar is an authored clean-strummed alder/maple humbucker electric; bass an authored alder dual-single-coil fingerstyle instrument. Neutral electronic synthesis-and-sequencing owner jointly represents the two positively credited electronic role classes, without asserting the two musicians used one device, one architecture, MIDI protocol or a specific synthesis method. Separate neutral credited-samples owner preserves the explicit sample role; unknown embedded sample voices and origins are not fabricated. No finished-master-as-instrument substitution. Controlled room and omitted capture apparatus are authored; global tuning omitted.",
-  "recipe": "classic mid-2010s indie arequipeño, experimental Elec. duet, live take. alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, electronic synthesis sequencing credited samples unspecified. live tracking.",
-  "recipe_chars": 262,
-  "score": 26.027,
+  "lineage": "Arequipa indie connects independent music-making in the southern Peruvian city with wider national rock and pop networks. Guitar-based songwriting and electronic exploration coexist, with artists such as Paisaje 3 drawing on trip-hop, loops and synthesized textures.",
+  "recipe": "classic indie arequipeño, experimental Elec. humbucker electric guitar, electric bass, electronic synthesis sequencing credited samples unspecified. live tracking.",
+  "recipe_chars": 163,
+  "score": 4.645,
   "config": {
     "traditions": [
       "indie_arequipeno"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.194000000000001,
+          "voice_ensemble_config": 0.27299999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 4.194000000000001,
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 0.27299999999999996,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.5000000000000004,
+          "electric_technique": 2.45,
           "amp_make": 0,
-          "body_wood": 3.9314999999999993,
-          "neck_wood": 1.405,
+          "body_wood": 0.1365,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.21,
-          "string_gauge": 2.6,
+          "scale_length": 0.42,
+          "string_gauge": 0.7314999999999999,
           "finish": 0,
-          "string_tuning": 1.615
+          "string_tuning": 0.063
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.9314999999999993,
+          "body_wood": 0.1365,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.105,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -114,7 +114,7 @@
           "electronic_synthesis_sequencing_identity": "electronic_synthesis_sequencing_architecture_unspecified"
         },
         "scores": {
-          "electronic_synthesis_sequencing_identity": 0
+          "electronic_synthesis_sequencing_identity": 0.0315
         }
       },
       {

@@ -2,10 +2,10 @@
   "id": "electronica_argentina",
   "name": "Electronica argentina",
   "family": "electronic",
-  "lineage": "Electronica argentina is represented here by Mueran Humanos — documented 2019 duo performance core. This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic late-2010s electronica argentina, electronic Dance. analog synth, sampler, sampler drum machine, electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 220,
-  "score": 11.449,
+  "lineage": "Electrónica argentina encompasses local and diaspora musicians working with electronic composition and performance. Song, dance rhythms and experimental production meet in varied instrumental and vocal settings.",
+  "recipe": "classic electronica argentina, electronic Dance. analog synth, sampler, sampler drum machine, electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 209,
+  "score": 20.228,
   "config": {
     "traditions": [
       "electronica_argentina"
@@ -17,32 +17,32 @@
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "sustain_env",
+          "envelope": "pluck_env",
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
+          "electronic_technique": 0.585,
           "oscillator": 0.39,
-          "filter_topology": 0.39,
-          "envelope": 1.3,
+          "filter_topology": 0.78,
+          "envelope": 0.39,
           "modulation": 0
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_s1000",
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sampler_archetypes": 2.5,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": -0.1,
-          "sampler_classic_context": -0.15000000000000002
+          "electronic_technique": 2.45,
+          "sampler_archetypes": 0.21,
+          "sampler_bit_depth": 0.38549999999999995,
+          "sampler_workflow": 0.2315,
+          "sampler_classic_context": 2.4
         }
       },
       {
@@ -55,30 +55,30 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 6.25,
+          "sample_bitdepth": 0.38549999999999995,
+          "sample_swing": 9.5,
           "sample_processing": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
-          "string_type": "tape_wound_bass",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "half_round",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.325,
-          "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 0.3,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.063,
+          "amp_make": 0.5199999999999999,
+          "body_wood": 0.39,
+          "pickup_config": 0.054,
+          "string_type": 0.78,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.363,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -115,11 +115,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.168,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.168
+          "voice_multitrack_stack": 0.1365
         }
       }
     ],

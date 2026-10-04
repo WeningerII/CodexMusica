@@ -2,10 +2,10 @@
   "id": "deep_latin_christian",
   "name": "Deep Latin Christian",
   "family": "blues_gospel",
-  "lineage": "Iván Díaz — Nombre Sobre Todo Nombre, authored two-part vocals with guitar from OCP editions. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic deep latin christian, ritual Devotional, christian gospel branch. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 201,
-  "score": 1.456,
+  "lineage": "Deep Latin Christian gathers devotional performers and repertoire circulating through Spanish-speaking faith communities. Contemporary songs connect worship, community singing and recorded popular-music approaches.",
+  "recipe": "classic deep latin christian, ritual Devotional, christian gospel branch. one note per syllable. deep indian rosewood rosewood dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 170,
+  "score": 4.056,
   "config": {
     "traditions": [
       "deep_latin_christian"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 1.69,
           "voice_ensemble_config": 0.108,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0.108,
           "voice_tessitura": 0
         }
@@ -65,7 +65,7 @@
           "acoustic_technique": -0.1,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0.95,
+          "back_sides": 1.95,
           "string_acoustic": 0
         }
       }
@@ -98,15 +98,15 @@
         "string_acoustic"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -115,7 +115,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -140,12 +140,6 @@
       "back_sides": "rosewood_bs",
       "string_acoustic": "eighty_twenty"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

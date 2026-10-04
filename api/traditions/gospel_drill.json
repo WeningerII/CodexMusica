@@ -2,28 +2,121 @@
   "id": "gospel_drill",
   "name": "Gospel Drill",
   "family": "hip_hop",
-  "lineage": "DJ Update GH — complete separately published UK GOSPEL DRILL VOL.1 MIX, issued30June2024, featuring MANDEM DJ ZERO. Publisher identifies DJ mixing, the uploader identifies club/pub DJ practice, and the indexed release displays53:36. This is the full published mixed programme, not reconstructed individual productions or an excerpt. Both named DJ credits are retained; their exact division of work, deck count, medium and software are unspecified. Embedded and separately performed live voice counts and constituent instruments are unknown. No claim of an exclusively single-style tracklist or absence of vocals. Existing neutral DJ playback/mixing owner preserves every mixed source layer without inventing original studio instruments. Controlled live-room listening presentation is an authored realization, not measured source venue or source BPM. Its up-tempo rendering is an energetic presentation choice consistent with this club-DJ drill-facing scope, not a measured tempo assertion. No unsupported pitch framework or recording chain is supplied. Existing mcRhythm.drill parent and hip_hop family describe the positively named drill branch; devotional designation concerns repertoire and community.",
-  "recipe": "classic gospel drill, mc Rhythm, drill branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 93,
-  "score": 0,
+  "lineage": "Gospel drill connects Christian rap artists and audiences with drill-oriented production. Shared faith themes and community networks shape a repertoire that overlaps wider Christian hip-hop and contemporary drill scenes.",
+  "recipe": "classic gospel drill, mc Rhythm, drill branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. analog mono synth, drum machine analog. live tracking.",
+  "recipe_chars": 175,
+  "score": 22.103,
   "config": {
     "traditions": [
       "gospel_drill"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "voice",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "voice_register": 0,
+          "voice_quality": 8.515,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.39,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 8.45,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.126,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 2.21,
+          "mono_oscillator": 0,
+          "mono_filter": 0.3465,
+          "mono_archetypes": 0.3465,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0.47250000000000003,
+          "hat_voice": 0.0315,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "analog_mono_synth": [
+        "electronic_technique",
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -43,7 +136,32 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "rap_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "spoken_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_technique": "electronic_bass_sub",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "minimoog",
+      "mono_maker_lineage": "mono_moog_robert",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

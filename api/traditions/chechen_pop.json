@@ -2,15 +2,56 @@
   "id": "chechen_pop",
   "name": "Chechen Pop",
   "family": "pop",
-  "lineage": "Complete Note-Store Piano.Easy arrangement PEA0106847 of Vozmi moe serdtse associated with Makka Sagaipova, music/words Tamara Dadasheva, work year2016 as catalogued. Issuer explicitly places both melody and accompaniment on one piano and separately lists a Piano&Vocal version. Preserve this complete simplified instrumental edition with one pianist and zero singers; do not reconstruct the original produced song or infer absent original backline. Public product metadata inspected, not purchased full score, audio or source pitches. Authored standard studio upright and connected legato phrasing realize the source-unspecified piano type; neither is claimed to be Sagaipova actual equipment or printed fingering. FunctionalSong models an explicitly authored functional-harmonic verse/refrain pop-song rendition, not a claim based only on sheet music or an analyzed original chord sequence. Pop family follows positive regional estrada/pop field, not classical taxonomy from notation. Controlled live room, no global tuning or capture chain.",
-  "recipe": "classic chechen pop, functional Song. legato upright piano. live tracking.",
-  "recipe_chars": 74,
-  "score": 4.55,
+  "lineage": "Chechen pop connects singers, songwriters and estrada-style popular music associated with Chechen-language and regional audiences. Recordings and public performances circulate both established songs and newer interpretations.",
+  "recipe": "classic chechen pop, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. upright piano. shoebox concert hall.",
+  "recipe_chars": 173,
+  "score": 4.112,
   "config": {
     "traditions": [
       "chechen_pop"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 1.224,
+          "voice_tessitura": 0
+        }
+      },
       {
         "id": "upright_piano",
         "slots": {
@@ -19,20 +60,39 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 4.550000000000001,
+          "keyboard_technique": -0.05,
           "upright_use": 0,
           "upright_piano_size": 0
         }
       }
     ],
     "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
       "upright_piano": [
         "keyboard_technique",
         "upright_use",
         "upright_piano_size"
       ]
     },
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -47,11 +107,28 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "parts": {
       "keyboard_technique": "keyboard_classical_legato",
       "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard"
+      "upright_piano_size": "upright_piano_standard",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
     "pin_parts": true
   }

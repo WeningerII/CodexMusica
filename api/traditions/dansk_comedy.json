@@ -2,10 +2,10 @@
   "id": "dansk_comedy",
   "name": "Dansk comedy",
   "family": "vernacular",
-  "lineage": "Carsten Bang — documented Danish one-person stand-up practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic dansk comedy, spoken Word. no pitch organization speech. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 163,
-  "score": 1.917,
+  "lineage": "Dansk comedy connects Danish comedians and audiences through stand-up, storytelling and other humorous performance. Touring shows and recordings develop comic voices shaped by language, observation and timing.",
+  "recipe": "classic dansk comedy, spoken Word. live tracking.",
+  "recipe_chars": 49,
+  "score": 1.063,
   "config": {
     "traditions": [
       "dansk_comedy"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.17,
-          "voice_ensemble_config": 0.3255,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.252,
           "voice_tessitura": 0
         }
       }
@@ -74,24 +74,22 @@
         "voice_tessitura"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -111,12 +109,6 @@
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

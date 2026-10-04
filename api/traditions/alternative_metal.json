@@ -3,21 +3,21 @@
   "name": "Alternative metal",
   "family": "rock_punk",
   "lineage": "Late-1980s onward metal and alternative-rock crossover, represented here by Faith No More and the 1989 album The Real Thing. Heavy guitar riffing shares the arrangement with a rhythmically active bass, keyboards and an elastic sung vocal. The selected model emphasizes contrasts of riff, keyboard color and vocal register; funk bass and rap delivery are possible influences, not requirements of the entire genre.",
-  "recipe": "classic 1987-1989 alternative metal, distorted Rock, alternative branch, metal distorted rock, funk percussive groove percussion drone metal mathcore. balanced, register break ornamental, interlocked note trading, equal tempered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, sticks backbeat drum kit, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
-  "recipe_chars": 654,
-  "score": 172.502,
+  "recipe": "classic 1987-1989 alternative metal, distorted Rock, alternative branch, metal distorted rock, funk percussive groove percussion nwobhm doom metal. balanced, register break ornamental, interlocked note trading, equal tempered. orange amp British heavy crunch mahogany ebony low output no compression humbucker electric guitar, orange amp British heavy crunch mahogany stainless steel roundwound electric bass, sticks backbeat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
+  "recipe_chars": 606,
+  "score": 196.777,
   "config": {
     "traditions": [
       "alternative_metal",
-      "drone_metal",
-      "mathcore"
+      "nwobhm",
+      "doom"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
@@ -26,30 +26,30 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.754999999999995,
-          "amp_make": 12.674999999999995,
-          "body_wood": 1.23,
-          "neck_wood": 1.1400000000000001,
-          "fretboard": 1.3,
-          "pickup_magnet": 0.045,
-          "pickup_winding": 1.69,
-          "string_material": 0.9900000000000001,
-          "bridge": 1.1400000000000001,
-          "scale_length": 2.37,
-          "string_gauge": 1.23,
+          "electric_technique": 28.679999999999996,
+          "amp_make": 20.4,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4949999999999999,
+          "pickup_magnet": 0.195,
+          "pickup_winding": 1.885,
+          "string_material": 0.845,
+          "bridge": 1.4949999999999999,
+          "scale_length": 1.4949999999999999,
+          "string_gauge": 2.275,
           "finish": 0.09,
-          "string_tuning": 21.189999999999998
+          "string_tuning": 22.944999999999997
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -59,12 +59,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.064999999999998,
-          "body_wood": 1.23,
+          "amp_make": 20.4,
+          "body_wood": 1.4949999999999999,
           "pickup_config": 0,
-          "string_type": 1.04,
+          "string_type": 1.2349999999999999,
           "scale_length_b": 0.585,
-          "fretted_or_not": 0.7899999999999999,
+          "fretted_or_not": 0.94,
           "bass_technique": 5.2,
           "electric_bass_string_configuration": 0
         }
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.75,
-          "drumhead": 0.9099999999999999,
+          "drum_technique": 17.5,
+          "drumhead": 2.4050000000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -91,10 +91,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 3.3099999999999996,
-          "poly_archetypes": 9.75,
-          "poly_voices": 3.1349999999999993,
-          "poly_maker_lineage": -1.225
+          "electronic_technique": 1.435,
+          "poly_archetypes": 9.295,
+          "poly_voices": 1.5350000000000001,
+          "poly_maker_lineage": 0.5200000000000002
         }
       },
       {
@@ -118,22 +118,22 @@
           "voice_multitrack_stack": "voice_multitrack_octave_double_self"
         },
         "scores": {
-          "voice_register": 2.1849999999999996,
+          "voice_register": 1.235,
           "voice_quality": 1.1849999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 16.119999999999997,
-          "voice_microtone": 18.999999999999996,
-          "voice_tradition": 2.3725,
+          "voice_articulation": 15.404999999999998,
+          "voice_microtone": 18.924999999999997,
+          "voice_tradition": 3.2975,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.785,
-          "voice_ensemble_config": 3.3149999999999995,
-          "voice_ornament_system": 1.3,
-          "voice_pitch_organization": 0.195,
+          "voice_speech_song": 0.195,
+          "voice_ensemble_config": 2.4699999999999998,
+          "voice_ornament_system": 1.45,
+          "voice_pitch_organization": 0.135,
           "voice_processing_chain": 0.45500000000000007,
-          "voice_multitrack_stack": 0.78
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

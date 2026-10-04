@@ -5,7 +5,7 @@
   "lineage": "Brazilian doom-metal discovery field represented by São Paulo’s HellLight, founded in 1996 and documented by its labels as atmospheric funeral doom and doom/death metal. The chosen keyboard-bearing trio branch is one part of the wider national doom field.",
   "recipe": "classic mid-1990s brazilian doom metal, distorted Rock, doom branch. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 403,
-  "score": 93.75,
+  "score": 94.023,
   "config": {
     "traditions": [
       "brazilian_doom_metal"
@@ -29,8 +29,8 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 16.10875,
-          "amp_make": 18.429125,
+          "electric_technique": 16.07725,
+          "amp_make": 18.565624999999997,
           "body_wood": 6.24,
           "neck_wood": 0.44175,
           "fretboard": 0.30525,
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 18.429125,
+          "amp_make": 18.565624999999997,
           "body_wood": 0.915,
           "pickup_config": 0,
           "string_type": 4.875,
           "scale_length_b": 0.7049999999999998,
           "fretted_or_not": 0.3315,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": -0.11850000000000002,
           "electric_bass_string_configuration": 0
         }
       },

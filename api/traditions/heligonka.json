@@ -2,10 +2,10 @@
   "id": "heligonka",
   "name": "Heligónka",
   "family": "vernacular",
-  "lineage": "Ladislav Bihari — Spievanky, spievanky, complete one-page heligónka arrangement issued by Miroslav Jurči / Pesničky pre všetkých. The specific score is for a two-row C/F instrument and retains the entire right-hand melody and harmonization, left-hand bass/chords, button choices and push/pull bellows directions. It is an authored instrumental realization of this complete instrumental arrangement, not a reconstruction of an unspecified vocal recording. Printed song lyrics and six verses remain source underlay/context; the publisher identifies the arrangement for heligónka, not a separate scored singer. No additional vocalist is inferred from printed words. The institutionally documented one-player heligónka practice supports this single-player realization; no claim all heligónka music is instrumental. Broad functionalSong represents the selected strophic folk-song melody and explicitly notated functional C/D-minor/F/G7 chord cycle, realized instrumentally across its verses. This does not imply Anglosphere pop/rock or through-composed concert art solely because a score exists. The isolated free-reed owner preserves four documented physical/playing dimensions: two C/F rows with eleven and ten right-hand buttons; a sixth-button F-row stoják retaining one pitch in both bellows directions; left-hand bass-plus-chord support; and explicitly scored push/pull melody phrasing. No manufacturer, reed metal, reed rank count, shell material or measured original tuning frequency is invented. Stoják-present option is selected from the score’s documented alternatives. Authored controlled live-room realization and equal-tempered baseline are editorial recording choices, not a source-session claim.",
-  "recipe": "classic heligónka, functional Song. chordal bass heligonka cf. live tracking.",
-  "recipe_chars": 77,
-  "score": 5.854,
+  "lineage": "Heligónka music centers on a diatonic button accordion associated with Slovak and Czech folk performance. Solo players and accompanying musicians carry dance melodies and songs through a practice shaped by changing pitches with bellows direction and strong left-hand support.",
+  "recipe": "classic heligónka, functional Song. diatonic heligonka cf. live tracking.",
+  "recipe_chars": 73,
+  "score": 2.354,
   "config": {
     "traditions": [
       "heligonka"
@@ -20,10 +20,10 @@
           "free_reed_technique": "heligonka_cf_scored_push_pull"
         },
         "scores": {
-          "heligonka_cf_rows": 0.3,
+          "heligonka_cf_rows": 1,
           "heligonka_cf_stojak": 0,
-          "heligonka_cf_bass": 2.6539999999999995,
-          "free_reed_technique": 2.8999999999999995
+          "heligonka_cf_bass": 0.354,
+          "free_reed_technique": 1
         }
       }
     ],

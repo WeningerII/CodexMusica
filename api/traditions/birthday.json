@@ -5,7 +5,7 @@
   "lineage": "Happy Birthday Band — Hapy Birthday, Solo Piano Version (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic late-2010s birthday, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 157,
-  "score": -0.499,
+  "score": -0.319,
   "config": {
     "traditions": [
       "birthday"
@@ -26,8 +26,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_size": 0.126,
+          "grand_piano_brand": 0.1905,
           "piano_hammer": -0.1,
           "piano_rim": -0.1,
           "piano_soundboard": -0.1,

@@ -5,7 +5,7 @@
   "lineage": "Shakti — This Moment (2023 studio album). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s indian fusion, improv On Frame. group vocals. conventional tuning standard pitch humbucker electric guitar, fm synth, indian rosewood rosewood brass tabla, violin carnatic, jackwood frame canonical carnatic kanjira, mridangam, ghatam. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 353,
-  "score": 26.684,
+  "score": 26.495,
   "config": {
     "traditions": [
       "indian_fusion"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.09449999999999999,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -110,9 +110,9 @@
           "tabla_syahi": "fresh_syahi"
         },
         "scores": {
-          "tabla_dayan": 1.355,
+          "tabla_dayan": 1.3865,
           "tabla_bayan": 1.69,
-          "tabla_syahi": 0
+          "tabla_syahi": 0.0315
         }
       },
       {
@@ -128,7 +128,7 @@
           "bowed_technique": -0.035,
           "violin_carnatic_tuning": 8.969999999999997,
           "violin_carnatic_posture": 4.68,
-          "violin_carnatic_strings": 0.273,
+          "violin_carnatic_strings": 0.1995,
           "violin_carnatic_lineage": 0.705
         }
       },
@@ -171,7 +171,7 @@
           "ghatam_technique": "ghatam_full"
         },
         "scores": {
-          "ghatam_school": 0.252,
+          "ghatam_school": 0.168,
           "ghatam_technique": 0
         }
       }

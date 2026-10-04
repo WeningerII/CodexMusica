@@ -5,7 +5,7 @@
   "lineage": "Japanese male idol-group pop formalized by Johnny & Associates from the 1980s onward and sustained by SMAP, Arashi, Hey! Say! JUMP and Snow Man, built on 120-135 BPM four-on-the-floor or shuffle-pop backing with dense synth-brass and string-machine arrangements, unison-then-solo-rotation vocal distribution across five to nine members, major-key modulating choruses and choreography-driven sectional form.",
   "recipe": "classic Asian mid-1980s j-pop boy group, functional Song, east Asian pop branch, pop rock synthpop, europop functional song wonky pop japanese technopop. thick, breath veiled tone, straight onset, interlocked note trading. plucked short envelope analog poly synth, sampler drum machine, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. multi room segmented 2010-present major-flagship kpop idol complex. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
   "recipe_chars": 814,
-  "score": 433.64,
+  "score": 433.79,
   "config": {
     "traditions": [
       "jpop_boy_group",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.34,
           "voice_articulation": 18.004999999999995,
           "voice_microtone": 34.67500000000001,
-          "voice_tradition": 34.46,
+          "voice_tradition": 34.565,
           "voice_mechanism_compound": 3.835,
           "voice_estill_quality": 3.640000000000001,
           "voice_speech_song": 25.21999999999999,
@@ -100,7 +100,7 @@
           "pickup_config": 0.285,
           "string_type": 9.425,
           "scale_length_b": 1.145,
-          "fretted_or_not": 0.15,
+          "fretted_or_not": 0.195,
           "bass_technique": 7.395000000000001,
           "electric_bass_string_configuration": 0
         }

@@ -2,10 +2,10 @@
   "id": "jazz_harp",
   "name": "Jazz harp",
   "family": "jazz",
-  "lineage": "Harp-centered jazz; selected Brandee Younger/Dezron Douglas plucked-string duet",
-  "recipe": "classic modern jazz harp, improv On Frame, American jazz branch. concert harp, upright bass. hardwood living. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 239,
-  "score": 12.757,
+  "lineage": "Jazz harp brings plucked resonance, flowing voicings and melodic improvisation into jazz ensemble and solo practice. Pedal-harp harmony supports interpretations of standards, contemporary compositions and connections with soul and other song traditions.",
+  "recipe": "classic modern jazz harp, improv On Frame, American jazz branch. concert harp, upright bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 237,
+  "score": 15.382,
   "config": {
     "traditions": [
       "jazz_harp"
@@ -18,8 +18,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 0.38812499999999994,
-          "harp_pedals": 0.275625
+          "harp_strings": 0.351,
+          "harp_pedals": 0.2385
         }
       },
       {
@@ -30,7 +30,7 @@
         },
         "scores": {
           "upright_strings": 0.16799999999999998,
-          "upright_play": 11.25
+          "upright_play": 13.75
         }
       }
     ],
@@ -44,7 +44,7 @@
         "upright_play"
       ]
     },
-    "room": "hardwood_living",
+    "room": "live_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -62,7 +62,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "hardwood_living",
+    "room": "live_room",
     "parts": {
       "harp_strings": "harp_47_string",
       "harp_pedals": "harp_double_pedal",

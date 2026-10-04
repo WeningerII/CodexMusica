@@ -2,10 +2,10 @@
   "id": "bloco",
   "name": "Bloco",
   "family": "vernacular",
-  "lineage": "Complete dated24-member Monobloco performing-group roster preserved by anthropologist Marina Bay Frydberg in2014 fieldwork paper, footnote12 explicitly attributed to contemporaneous artist website accessed1June2014. Five named singers: Biguli,Fábio Allman,Momo,Pedro Luís,Pedro Quental. Three cavaquinho players: Alessandro,Cachaça,Carlinhos. Momo also guitar; Igor Araújo chocalho/bass. André Schmidt and Leo Saad agogô; C.A.Ferrari repique; Caco Chagas,Gabriel Lopes,Mário Moura,Maurão surdo; Celso Alvim,Fred Castilho,Gui Rodrigues,Marcos Feijão,Pitito caixa; Fábio Groove,Júnior Teixeira,Sidon Silva tamborim. Ten family cards preserve all26 credited human-role assignments and24 people, not ten performers. This is the documented standing group, not the expanded Carnaval student parade or an inferred individual recording session. Five credited voices do not establish simultaneous harmony voicing. Broad groovePercussion.brazilian follows the positively documented samba bateria-based eclectic dance practice. Cavaquinho samba and agogô bateria contexts are authored appropriate realization; no Portuguese fado or Candomblé context inferred. Source-generic guitar/bass map to authored electric single-coil guitar and electric bass; construction/gear are editorial, not documentary equipment. Caixas map to standalone snare, explicitly authored steel model not source hardware. Chocalho is source-neutral shaker, no inferred seed/jingle construction. One surdo family represents four players with authored primeira bass realization, not a claim all four play the same register. Repique uses authored existing samba repinique practice, not measured hand technique. All voice physiology and precise pitch practice remain source-unspecified; live-group voicing unknown. Controlled live-room acoustics are authored; unspecified capture hardware is omitted and no original session location is claimed. No global temperament asserted. Authored repair: a dual-single-coil fretted roundwound electric bass and controlled live-room acoustic replace the prior split-coil/neutral-studio realization. Unspecified capture apparatus is omitted. The five credited singers retain their count; small sung note groups per syllable are a newly authored musical choice, not measured source vocal technique or an extra clapping role. All other source roles remain intact.",
-  "recipe": "classic bloco, groove Percussion, Brazilian branch. small note groups per syllable, group vocals, unprocessed natural acoustic, live take. samba foundation jacaranda rosewood canonical Portuguese steel modern cavaquinho, conventional tuning standard pitch single coil electric guitar, growly articulate nickel roundwound electric bass, agogo, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, snare drum, shaker source unspecified. live tracking.",
-  "recipe_chars": 589,
-  "score": 78.138,
+  "lineage": "Brazilian blocos bring music and collective celebration into streets and neighborhood carnival life. Rio’s eclectic samba-based groups connect percussion workshops, public parades and year-round performances, alongside other regional bloco traditions.",
+  "recipe": "classic bloco, groove Percussion, Brazilian branch. small note groups per syllable. rhythmic samba foundation cavaquinho, single coil electric guitar, electric bass, agogo, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, snare drum, shaker source unspecified. live tracking.",
+  "recipe_chars": 425,
+  "score": 25.549,
   "config": {
     "traditions": [
       "bloco"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.241,
-          "voice_ensemble_config": 8.331,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.573,
-          "voice_multitrack_stack": 4.399499999999999,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 0.19949999999999998,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 1.625,
-          "cavaquinho_origin": 6.239999999999998,
-          "cavaquinho_context": 0.39,
-          "cavaquinho_body_wood": 1.625,
-          "cavaquinho_strings": 1.69
+          "plucked_traditional_technique": 0.325,
+          "cavaquinho_origin": 2.47,
+          "cavaquinho_context": 1.3,
+          "cavaquinho_body_wood": -0.035,
+          "cavaquinho_strings": 0.5565
         }
       },
       {
@@ -98,7 +98,7 @@
           "bridge": 0.16799999999999998,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 1.3,
+          "string_tuning": 0,
           "single_coil_pickup_construction": 0
         }
       },
@@ -118,7 +118,7 @@
           "amp_make": 0,
           "body_wood": 0.45149999999999996,
           "pickup_config": 0,
-          "string_type": 1.3,
+          "string_type": 0,
           "scale_length_b": 0.105,
           "fretted_or_not": 0.105,
           "bass_technique": -0.10500000000000001,
@@ -132,8 +132,8 @@
           "agogo_context": "agogo_bateria"
         },
         "scores": {
-          "agogo_bell": 7.929999999999998,
-          "agogo_context": 0.39
+          "agogo_bell": 1.69,
+          "agogo_context": 1.3
         }
       },
       {
@@ -145,8 +145,8 @@
         },
         "scores": {
           "surdo_size": 0,
-          "surdo_skin": 2.8600000000000003,
-          "surdo_shell": 2.8600000000000003
+          "surdo_skin": 2.6,
+          "surdo_shell": 1.3
         }
       },
       {
@@ -157,9 +157,9 @@
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 0.39,
-          "tamborim_striker": 6.629999999999998,
-          "tamborim_shell": 2.8600000000000003
+          "tamborim_skin": 1.3,
+          "tamborim_striker": 2.9899999999999998,
+          "tamborim_shell": 1.3
         }
       },
       {
@@ -169,8 +169,8 @@
           "repinique_technique": "repinique_one_stick_one_hand"
         },
         "scores": {
-          "repinique_shell": 9.619999999999997,
-          "repinique_technique": 6.239999999999998
+          "repinique_shell": 1.69,
+          "repinique_technique": 1.69
         }
       },
       {
@@ -188,7 +188,7 @@
           "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
         },
         "scores": {
-          "shaker_source_unspecified_identity": 0.5145000000000001
+          "shaker_source_unspecified_identity": 0.39
         }
       }
     ],

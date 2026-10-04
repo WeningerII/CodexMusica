@@ -3,9 +3,9 @@
   "name": "Modular techno",
   "family": "electronic",
   "lineage": "Patch-centered techno practice developed across contemporary hardware scenes, represented here by Surgeon's live modular work and From Farthest Known Objects (2016). Voltage sequencing, synthesized percussion and hands-on timbral intervention distinguish the selected performance workflow.",
-  "recipe": "classic mid-2010s modular techno, electronic Dance, techno branch, industrial noise experimental electric, ambient experimental electric power noise polish experimental electronic. doepfer eurorack canonical 1995 present small format standardization modular modular synth, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator.",
-  "recipe_chars": 512,
-  "score": 19.67,
+  "recipe": "classic mid-2010s modular techno, electronic Dance, techno branch, industrial noise experimental electric, ambient experimental electric power noise polish experimental electronic. evolving modular modular synth, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator.",
+  "recipe_chars": 452,
+  "score": 18.72,
   "config": {
     "traditions": [
       "modular_techno",
@@ -22,10 +22,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 13.674999999999999,
+          "electronic_technique": 13.299999999999999,
           "mod_voltage_source": 3.7299999999999995,
-          "mod_patch_density": 2.145,
-          "mod_lineage": 1.04
+          "mod_patch_density": 2.295,
+          "mod_lineage": 0.39
         }
       },
       {

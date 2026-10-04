@@ -2,10 +2,10 @@
   "id": "british_choir",
   "name": "British choir",
   "family": "classical",
-  "lineage": "British choir: The Tallis Scholars — documented unaccompanied sacred-choral branch. A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic british choir, art Music, western common practice branch. choir ensemble. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 183,
-  "score": 2.631,
+  "lineage": "British choral music includes chamber choirs, larger concert ensembles and long-standing sacred singing traditions. Historical polyphony and new compositions coexist across the repertoire.",
+  "recipe": "classic british choir, art Music. choir ensemble. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 151,
+  "score": 3.864,
   "config": {
     "traditions": [
       "british_choir"
@@ -21,9 +21,9 @@
         },
         "scores": {
           "choir_size": 1.3,
-          "choir_polyphonic_configuration": 0.0315,
+          "choir_polyphonic_configuration": 0,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 1.3
+          "choir_ensemble_repertoire": 2.564
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "forro_instrumental",
   "name": "Forró Instrumental",
   "family": "vernacular",
-  "lineage": "Digo Ferreira — Feijão e Farinha, complete BNDES concert programme, 8 May 2026. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Named instrumental-concert development within the wider forró repertoire, positively classified by the presenting institution. Existing forro_brasileiro is broad and overlaps; forro_pe_de_serra and forro_tradicional emphasize the canonical accordion/zabumba/triangle dance trio. This entry does not assert all instrumental forró is guitar-led or that broad forró excludes concerts: it preserves the explicitly named concert-oriented development as a narrower discovery branch. No date-only or different-performer boundary is claimed. The Brazilian groove parent explicitly includes forró and baião; jazz influence alone is not used to infer a bebop improvisation lineage. Representative authored modern choices include alder/maple humbucker guitar with clean arpeggiation, dual-single-coil fingerstyle electric bass, dry LMM accordion with maker unspecified, a baião zabumba pattern, neutral source-unspecified auxiliary percussion, conventional kit, connected alto saxophone and concert flute. Saxophone size, flute make, physical materials, exact accordion construction, source percussion subtype and playing patterns were not measured. The source documents a concert programme; an authored hall capture uses no invented source apparatus. Neutral vocal physiology retains the single named singer, without equating the instrumental-category label to total absence of singing. The accordion is deliberately authored with direct non-cassotto projection and bellows-articulated phrasing for the documented instrumental concert lead role; this is not a measured chamber or articulation of Avelar’s instrument.",
-  "recipe": "classic mid-2020s forró instrumental, groove Percussion, Brazilian branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch humbucker electric guitar, accordion, wood baião tradition low stick with high bacalhau buzz zabumba, credited auxiliary percussion, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, silver powell boston canonical American orchestral flute. shoebox concert hall.",
-  "recipe_chars": 630,
-  "score": 98.426,
+  "lineage": "Instrumental forró develops the melodic and rhythmic resources of northeastern Brazilian dance music in concert and recording practice. Accordion-led traditions meet guitar, wind instruments and modern rhythm sections, extending baião and related forms through instrumental arrangement.",
+  "recipe": "classic forró instrumental, groove Percussion, Brazilian branch. humbucker electric guitar, accordion, zabumba, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. shoebox concert hall.",
+  "recipe_chars": 238,
+  "score": 14.036,
   "config": {
     "traditions": [
       "forro_instrumental"
@@ -29,60 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.15,
+          "electric_technique": -0.15000000000000002,
           "amp_make": 0,
-          "body_wood": 2,
-          "neck_wood": 1.405,
+          "body_wood": 0.7,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.7,
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0.21,
-          "string_gauge": 2.847,
+          "string_gauge": 1.547,
           "finish": 0,
-          "string_tuning": 2.6
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
-        },
-        "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 12.562999999999999,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 6.741499999999999,
-          "voice_tessitura": 0
+          "string_tuning": 0
         }
       },
       {
@@ -97,12 +56,12 @@
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 2.5000000000000004,
+          "free_reed_technique": -0.1,
           "accordion_reed_material": 0.105,
-          "musette_offset": 4.109999999999999,
+          "musette_offset": 0.21,
           "reed_config": 0,
           "bellows": 0.0315,
-          "voicing_chamber": 1.468,
+          "voicing_chamber": 0.168,
           "accordion_maker_school": 0
         }
       },
@@ -113,17 +72,8 @@
           "zabumba_technique": "zabumba_baiao_pattern"
         },
         "scores": {
-          "zabumba_shell": 5.577999999999999,
-          "zabumba_technique": 5.069999999999999
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
+          "zabumba_shell": 0.39,
+          "zabumba_technique": 0.39
         }
       },
       {
@@ -140,12 +90,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2,
+          "body_wood": 0.7,
           "pickup_config": 0,
           "string_type": 0.7,
           "scale_length_b": 0.105,
           "fretted_or_not": 0.105,
-          "bass_technique": 1.255,
+          "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -166,54 +116,16 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 1.405,
+          "drumhead": 0.105,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.963,
+          "shell_wood": 0.7629999999999999,
           "shell_thickness": 0,
-          "bearing_edges": 1.5415,
+          "bearing_edges": 1.2415,
           "snare_wires": 0.7,
-          "cymbal_alloy": 3.8000000000000007,
-          "cymbal_hammering": 4.618,
-          "cymbal_lathing": 3.1500000000000004,
+          "cymbal_alloy": 0.49999999999999983,
+          "cymbal_hammering": 2.568,
+          "cymbal_lathing": 2.4,
           "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "saxophone",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "sax_size": "alto_sax",
-          "sax_reed": "medium_reed",
-          "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_continuous_legato",
-          "sax_maker_school": "sax_selmer_mark_vi"
-        },
-        "scores": {
-          "wind_articulation": 1.9000000000000001,
-          "sax_size": 4.760000000000001,
-          "sax_reed": 0.7,
-          "sax_body_alloy": 3.5675000000000003,
-          "sax_mouthpiece": 0.0315,
-          "sax_technique": 3.25,
-          "sax_maker_school": 5.193
-        }
-      },
-      {
-        "id": "flute",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "flute_size": "concert_flute",
-          "flute_material": "silver_flute",
-          "flute_technique": "classical_flute",
-          "flute_maker_school": "flute_powell_boston"
-        },
-        "scores": {
-          "wind_articulation": 1.9000000000000001,
-          "flute_size": 0.105,
-          "flute_material": 1.5415,
-          "flute_technique": 0.147,
-          "flute_maker_school": 1.69
         }
       }
     ],
@@ -233,25 +145,6 @@
         "finish",
         "string_tuning"
       ],
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
       "accordion": [
         "free_reed_technique",
         "accordion_reed_material",
@@ -264,9 +157,6 @@
       "zabumba": [
         "zabumba_shell",
         "zabumba_technique"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
       ],
       "electric_bass": [
         "amp_make",
@@ -290,22 +180,6 @@
         "cymbal_hammering",
         "cymbal_lathing",
         "cymbal_finish"
-      ],
-      "saxophone": [
-        "wind_articulation",
-        "sax_size",
-        "sax_reed",
-        "sax_body_alloy",
-        "sax_mouthpiece",
-        "sax_technique",
-        "sax_maker_school"
-      ],
-      "flute": [
-        "wind_articulation",
-        "flute_size",
-        "flute_material",
-        "flute_technique",
-        "flute_maker_school"
       ]
     },
     "room": "concert_hall_shoebox",
@@ -338,23 +212,6 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
       "free_reed_technique": "free_reed_bellows_articulated",
       "accordion_reed_material": "steel_reeds",
       "musette_offset": "dry_tuning",
@@ -364,7 +221,6 @@
       "accordion_maker_school": "accordion_maker_unspecified",
       "zabumba_shell": "zabumba_wood_shallow",
       "zabumba_technique": "zabumba_baiao_pattern",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
       "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
@@ -381,18 +237,7 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "wind_articulation": "wind_continuous_legato",
-      "sax_size": "alto_sax",
-      "sax_reed": "medium_reed",
-      "sax_body_alloy": "yellow_brass_sax",
-      "sax_mouthpiece": "hard_rubber_mp",
-      "sax_technique": "sax_continuous_legato",
-      "sax_maker_school": "sax_selmer_mark_vi",
-      "flute_size": "concert_flute",
-      "flute_material": "silver_flute",
-      "flute_technique": "classical_flute",
-      "flute_maker_school": "flute_powell_boston"
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true
   }

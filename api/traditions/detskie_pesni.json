@@ -2,10 +2,10 @@
   "id": "detskie_pesni",
   "name": "Detskie Pesni",
   "family": "classical",
-  "lineage": "Tchaikovsky — Sixteen Songs for Children Op54, complete voice-and-piano cycle, Jurgenson100069. Full sixteen-song original-key voice-and-piano edition ISMN979-0-66008-010-8, issued2025 by P.Jurgenson/Muzyka. Publisher names every song and expressly calls the1881/1883 repertoire children’s songs, while recommending this edition for conservatory students and concert performers of different ages. Consequently one solo voice and piano are retained, without inventing a child singer, children’s choir or reduction from an orchestra. The complete cycle includes a lullaby but is not reduced to that one subgenre. Neutral source-unspecified vocal physiology and pitch, authored syllabic single-lead and classical-legato SteinwayD nine-foot construction; exact original performance phonation and hardware unknown. No global tuning asserted. Common-practice artMusic applies to the selected nineteenth-century composed concert-song cycle, not every Russian-language child-oriented song. Authored acoustic recital realization uses a shoebox concert hall and connected legato voice gestures alongside the authored legato piano. These are optional interpretive/capture choices, not claims about every note in the score, historical singer physiology or original session. Specific microphone/electronic-chain apparatus is left unspecified. Renderer metaphoric prefaces reflect this authored setting, not an asserted vocal school.",
-  "recipe": "classic early-1880s detskie pesni, art Music, western common practice branch. continuous-phonation, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
-  "recipe_chars": 286,
-  "score": 75.552,
+  "lineage": "Detskie pesni gathers Russian-language children’s songs across oral, educational, concert and popular traditions. Composers, performers and teachers have developed repertoire for listening, singing, storytelling and play.",
+  "recipe": "classic detskie pesni, nursery Rhyme. one note per syllable, solo with instrumental accompaniment. upright piano. shoebox concert hall.",
+  "recipe_chars": 135,
+  "score": 3.289,
   "config": {
     "traditions": [
       "detskie_pesni"
@@ -38,43 +38,31 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 2.7680000000000002,
+          "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.4624999999999995,
-          "voice_ensemble_config": 1.657,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3315000000000001,
-          "voice_multitrack_stack": 4.389,
+          "voice_processing_chain": 0.054,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 10.399999999999999,
-          "grand_piano_size": 2.6,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 6.586499999999999,
-          "piano_rim": 9.217999999999996,
-          "piano_soundboard": 7.749999999999999,
-          "piano_pinblock": 7.749999999999999,
-          "piano_plate": 7.812999999999999,
-          "piano_pitch_standard": 6.137
+          "keyboard_technique": -0.1,
+          "upright_use": 0.39,
+          "upright_piano_size": 0.0315
         }
       }
     ],
@@ -98,16 +86,10 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ]
     },
     "room": "concert_hall_shoebox",
@@ -144,15 +126,9 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "keyboard_technique": "keyboard_classical_legato",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

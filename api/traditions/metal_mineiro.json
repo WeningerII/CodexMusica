@@ -2,10 +2,10 @@
   "id": "metal_mineiro",
   "name": "Metal mineiro",
   "family": "rock_punk",
-  "lineage": "Minas Gerais metal represented by Pesta’s Belo Horizonte stoner-doom branch. Exact defaults are an authored present-day recording model.",
-  "recipe": "classic modern metal mineiro, distorted Rock, doom branch. orange amp British heavy crunch basswood riff driven humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 365,
-  "score": 60.309,
+  "lineage": "Metal mineiro encompasses Minas Gerais metal, from extreme styles to the stoner-doom approach of Belo Horizonte’s Pesta.",
+  "recipe": "classic modern metal mineiro, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch basswood ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 460,
+  "score": 42.626,
   "config": {
     "traditions": [
       "metal_mineiro"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },
@@ -56,55 +56,55 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_fuzz_riff",
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "low_wind",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_12_hum",
+          "finish": "poly_hum",
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 7.888999999999999,
-          "amp_make": 10.943999999999997,
-          "body_wood": 5.719999999999999,
-          "neck_wood": 0.36750000000000005,
-          "fretboard": 0.2625,
-          "pickup_magnet": 0.1365,
-          "pickup_winding": 0.36750000000000005,
-          "string_material": 0.2625,
-          "bridge": 1.3,
-          "scale_length": 5.719999999999999,
-          "string_gauge": 1.1785,
+          "electric_technique": 3.628,
+          "amp_make": 6.045,
+          "body_wood": 6.24,
+          "neck_wood": 0.105,
+          "fretboard": 0.20700000000000002,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.105,
+          "bridge": 0.298,
+          "scale_length": 0,
+          "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 4.029999999999999
+          "string_tuning": 1.612
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "body_wood": "basswood_h",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.943999999999997,
-          "body_wood": 0.7665,
-          "pickup_config": 0,
+          "amp_make": 5.9750000000000005,
+          "body_wood": 6.24,
+          "pickup_config": 0.21,
           "string_type": 4.875,
-          "scale_length_b": 0.5565,
-          "fretted_or_not": 0.063,
-          "bass_technique": -0.15000000000000002,
+          "scale_length_b": 0.6165,
+          "fretted_or_not": 0.39,
+          "bass_technique": -0.11850000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.75,
-          "drumhead": 0.5459999999999999,
+          "drum_technique": 3.789,
+          "drumhead": 1.419,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -144,9 +144,20 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -192,7 +203,17 @@
       "electric_technique": "electric_fuzz_riff",
       "string_tuning": "c_standard",
       "drum_technique": "sticks_rock",
-      "bass_technique": "fingerstyle_locked"
+      "bass_technique": "fingerstyle_locked",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_12_hum"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

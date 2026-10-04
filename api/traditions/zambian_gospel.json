@@ -2,10 +2,10 @@
   "id": "zambian_gospel",
   "name": "Zambian Gospel",
   "family": "blues_gospel",
-  "lineage": "Fountain Gates Acappella — complete historically posted eleven-member Lusaka ministry roster. Complete artist-published a cappella ministry roster: three first tenors, two second tenors/leads, baritone, sub-baritone and four bass singers. Eleven named people retained, despite historical generic double-quartet description; no arbitrary reduction to eight or claim all eleven appear in a particular recording. The historical posted full ensemble practice is selected, not its original debut album master. Source explicitly unaccompanied singing and named ranges, not instrumental backing. One aggregate voice card preserves the full eleven-member palette. Four-plus ensemble and live-one-take stack are authored realization choices for the full roster, not measured counterpoint or overdub claims. Physiology/training/ornament/pitch specifics remain source-unspecified, global tuning absent; concert-hall acoustics are editorial; exact recording apparatus remains unspecified. Authored present-day acoustic concert-hall rendition with panoramic reverberant space. All source-positive roles and vocal configuration remain unchanged. Hall acoustics are an editorial rendition choice, not a claim about the original recording location. Exact microphone, preamplifier, console, compressor, equalizer and medium are unknown and omitted.",
-  "recipe": "classic zambian gospel, ritual Devotional, christian gospel branch. four plus independent lines, unprocessed natural acoustic, live take. shoebox concert hall.",
-  "recipe_chars": 159,
-  "score": 33.02,
+  "lineage": "Zambian gospel develops through church, choir and popular-recording communities in Zambia and its diaspora. Groups such as Fountain Gates Acappella represent a strong unaccompanied vocal branch alongside other contemporary gospel settings.",
+  "recipe": "classic zambian gospel, ritual Devotional, christian gospel branch. one note per syllable. shoebox concert hall.",
+  "recipe_chars": 112,
+  "score": 1.292,
   "config": {
     "traditions": [
       "zambian_gospel"
@@ -24,8 +24,8 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_homophonic_block",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 24.569999999999993,
+          "voice_speech_song": 0.8625,
+          "voice_ensemble_config": 0.13000000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 6.759999999999999,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       }
@@ -101,8 +101,8 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_homophonic_block",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",

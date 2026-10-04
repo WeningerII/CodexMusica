@@ -3,14 +3,14 @@
   "name": "Baroque pop",
   "family": "rock_punk",
   "lineage": "1960s pop substyle integrating harpsichord, classical-orchestral-strings, woodwinds, and other Baroque-and-Classical-period instrumental textures into pop-song structures. Procol Harum's A Whiter Shade of Pale (1967), the Beatles' Eleanor Rigby (1966) and broader Sgt. Pepper's (1967) deployments, the Left Banke's Walk Away Renée (1966), and the Zombies' Odessey and Oracle (1968) constitute the canonical type-specimens.",
-  "recipe": "classic British mid-1960s baroque pop, distorted Rock, art rock branch, western common practice art music classical period canadian choir. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, 18 ply hard rock maple vintage production European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bird quill plectra canonical historical raven crow turkey quarter comma meantone canonical renaissance early Baroque legato harpsichord. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 992,
-  "score": 543.297,
+  "recipe": "classic British mid-1960s baroque pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, 18 ply hard rock maple vintage production European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 999,
+  "score": 589.94,
   "config": {
     "traditions": [
       "baroque_pop_60s",
       "classical_period_18c",
-      "canadian_choir"
+      "grand_opera_french"
     ],
     "instruments": [
       {
@@ -28,27 +28,27 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 19.924999999999994,
-          "voice_quality": 9.295,
+          "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 14.905,
-          "voice_articulation": 12.024999999999995,
-          "voice_microtone": 27.029999999999994,
-          "voice_tradition": 23.544999999999995,
-          "voice_mechanism_compound": 12.299999999999999,
-          "voice_estill_quality": 12.854999999999999,
-          "voice_speech_song": 19.575,
-          "voice_ensemble_config": 13.844999999999994,
-          "voice_ornament_system": 12.194999999999999,
+          "voice_articulation": 16.70499999999999,
+          "voice_microtone": 26.729999999999997,
+          "voice_tradition": 24.195,
+          "voice_mechanism_compound": 12.149999999999999,
+          "voice_estill_quality": 17.83,
+          "voice_speech_song": 24.175,
+          "voice_ensemble_config": 16.639999999999993,
+          "voice_ornament_system": 17.125,
           "voice_pitch_organization": 12.149999999999999,
-          "voice_processing_chain": 2.34,
+          "voice_processing_chain": 3.0350000000000006,
           "voice_multitrack_stack": 3.6700000000000004
         }
       },
@@ -72,16 +72,16 @@
         "scores": {
           "electric_technique": 8.95,
           "amp_make": 3.3350000000000004,
-          "body_wood": 1.3,
+          "body_wood": 1.7550000000000001,
           "neck_wood": 0.195,
-          "fretboard": 1.3,
+          "fretboard": 1.7550000000000001,
           "pickup_magnet": 0.195,
-          "string_material": 1.3,
-          "string_gauge": 2.6,
+          "string_material": 1.7550000000000001,
+          "string_gauge": 2.6649999999999996,
           "bridge": 0.135,
           "scale_length": 2.3400000000000003,
           "finish": 0,
-          "string_tuning": 5.775,
+          "string_tuning": 6.425,
           "single_coil_pickup_construction": 0
         }
       },
@@ -99,9 +99,9 @@
         },
         "scores": {
           "amp_make": 3.3350000000000004,
-          "body_wood": 1.3,
+          "body_wood": 1.7550000000000001,
           "pickup_config": 0.045,
-          "string_type": 9.76,
+          "string_type": 10.11,
           "scale_length_b": 0.435,
           "fretted_or_not": 0.345,
           "bass_technique": 7.45,
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.089999999999996,
+          "drum_technique": 16.769999999999992,
           "drumhead": 9.415,
           "drum_kit_kick_pedal": 0
         }
@@ -126,7 +126,7 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -136,14 +136,14 @@
         },
         "scores": {
           "keyboard_technique": 12.25,
-          "grand_piano_size": 2.145,
-          "grand_piano_brand": 0.9000000000000001,
-          "piano_hammer": 16.209999999999997,
-          "piano_rim": 15.89,
+          "grand_piano_size": 3.4450000000000003,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 16.059999999999995,
+          "piano_rim": 15.739999999999998,
           "piano_soundboard": 15.18,
           "piano_pinblock": 12.35,
           "piano_plate": 12.29,
-          "piano_pitch_standard": 16.859999999999996
+          "piano_pitch_standard": 17.509999999999998
         }
       },
       {
@@ -161,16 +161,16 @@
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 15.5,
-          "orch_strings": 1.3,
+          "bowed_technique": 17.125,
+          "orch_strings": 1.7550000000000001,
           "orch_top_wood": 20.86,
           "orch_back_wood": 20.86,
-          "orch_varnish": 19.234999999999996,
+          "orch_varnish": 19.084999999999997,
           "orch_setup_period": 14.295,
           "orch_bow": 3.3799999999999994,
           "orch_bow_stick": 15.059999999999999,
-          "orch_articulation": 0.45499999999999996,
-          "orch_rosin": 21.545
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 22.195
         }
       },
       {
@@ -179,17 +179,17 @@
           "keyboard_technique": "keyboard_classical_legato",
           "harpsichord_register": "harpsi_8_foot",
           "harpsichord_context": "harpsichord_solo",
-          "harpsichord_maker_school": "harpsichord_flemish_ruckers",
-          "harpsichord_plectrum": "harpsichord_quill_canonical",
-          "harpsichord_temperament": "harpsichord_meantone_quarter"
+          "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+          "harpsichord_plectrum": "harpsichord_leather_french",
+          "harpsichord_temperament": "harpsichord_vallotti"
         },
         "scores": {
           "keyboard_technique": 12.25,
           "harpsichord_register": 6.369999999999999,
           "harpsichord_context": 10.27,
-          "harpsichord_maker_school": 2.535,
-          "harpsichord_plectrum": 2.535,
-          "harpsichord_temperament": 6.705
+          "harpsichord_maker_school": 6.76,
+          "harpsichord_plectrum": 5.915,
+          "harpsichord_temperament": 7.37
         }
       }
     ],

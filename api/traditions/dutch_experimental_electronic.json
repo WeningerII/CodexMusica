@@ -2,10 +2,10 @@
   "id": "dutch_experimental_electronic",
   "name": "Dutch experimental electronic",
   "family": "electronic",
-  "lineage": "Dutch experimental electronic is represented here by Colin Benders — documented live Eurorack core / Rigmarole (2021). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic early-2020s dutch experimental electronic, experimental Elec. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 241,
-  "score": 15.411,
+  "lineage": "Dutch experimental electronic music includes exploratory synthesis, live electronic improvisation and approaches that connect sound design with club rhythm.",
+  "recipe": "classic dutch experimental electronic, experimental Elec. evolving modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 169,
+  "score": 10.701,
   "config": {
     "traditions": [
       "dutch_experimental_electronic"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 10.580999999999998,
-          "mod_voltage_source": 1.4625,
-          "mod_patch_density": 0.378,
-          "mod_lineage": 2.9899999999999998
+          "electronic_technique": 9.530999999999999,
+          "mod_voltage_source": 0.78,
+          "mod_patch_density": 0.39,
+          "mod_lineage": 0
         }
       }
     ],
@@ -31,7 +31,8 @@
       "modular_synth": [
         "electronic_technique",
         "mod_voltage_source",
-        "mod_patch_density"
+        "mod_patch_density",
+        "mod_lineage"
       ]
     },
     "room": "treated_studio",
@@ -55,7 +56,8 @@
     "parts": {
       "electronic_technique": "electronic_modular_patch",
       "mod_voltage_source": "mod_sequencer",
-      "mod_patch_density": "mod_dense_patch"
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

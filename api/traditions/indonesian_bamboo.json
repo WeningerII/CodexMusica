@@ -2,10 +2,10 @@
   "id": "indonesian_bamboo",
   "name": "Indonesian bamboo",
   "family": "vernacular",
-  "lineage": "Dusun Tanjung senggayung ensemble — Kalait Cambung, complete1998issued field-recorded composition. The Smithsonian-issued complete1:42 Kalait Cambung (SFW40444_107) credits Aron, Atong, Kanal, Karbin, Sehat, Silon, Stephanus Jinar, Tular, Yakobus and Yosep on bamboo tubes. Publisher explicitly marks instrumental. Full field notes identify this and three neighboring tracks as exclusively senggayung bamboo-tube pieces, not the gong/drum ensemble heard on separate tracks2–4. All positively credited sound roles are retained in one family owner. Ten people are credited in the track metadata; field notes describe seven simultaneous paired-tube roles. The evidence preserves this difference rather than inventing how credits were distributed or claiming ten simultaneous parts. The selected complete composition is repeated three times with only minor differences. Indonesian bamboo is a broad material/ensemble discovery field rather than an alias for Java/Bali gamelan or Sundanese shaken angklung. Primary Smithsonian directly documents this Indonesian struck-bamboo repertoire outside those construction and regional practices; secondary exact category mirrors corroborate the named ensemble, while direct creator retrieval failed. Selected Upper Jelai senggayung is exclusively performed in besenggayung fruit-harvest ritual, with memorized homophonic irregular-meter compositions, named register roles and no improvisation. Broad artMusic scopes this formally transmitted fixed tuned repertoire; no concert-purpose or devotional-worship claim is made, and the Southeast Asian layered-ostinato subnode is intentionally not used. Source descriptions specify seven pairs of fresh bamboo tubes with one closed node and cut tongue-like extensions, struck together with differentiated grip muting. Source pitches are approximate; global temperament is omitted rather than pretending exact equal temperament. One aggregate owner preserves the whole named seven-pair configuration, not seven separate electronic notes or playback of a finished recording. Controlled live-room rendition and neutral axes are authored present-day choices, not the original outdoor field-recording environment.",
+  "lineage": "Indonesian bamboo music brings together distinct regional traditions that use bamboo as a sounding material. Struck tubes, shaken instruments and other local forms retain their own histories and social settings; Upper Jelai senggayung belongs to a fruit-harvest ritual practice rather than a single national ensemble standard.",
   "recipe": "classic indonesian bamboo, art Music. bamboo struck senggayung bamboo tubes. live tracking.",
   "recipe_chars": 91,
-  "score": 10.1,
+  "score": 4.9,
   "config": {
     "traditions": [
       "indonesian_bamboo"
@@ -19,9 +19,9 @@
           "senggayung_ensemble_layout": "senggayung_upper_jelai_seven_pairs"
         },
         "scores": {
-          "senggayung_tube_construction": 7.499999999999999,
-          "senggayung_excitation": 2.5999999999999996,
-          "senggayung_ensemble_layout": 0
+          "senggayung_tube_construction": 3,
+          "senggayung_excitation": 1.6,
+          "senggayung_ensemble_layout": 0.3
         }
       }
     ],

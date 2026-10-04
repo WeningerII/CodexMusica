@@ -5,7 +5,7 @@
   "lineage": "New York, Berlin and Paris scene of 1998-2004, named by promoter Larry Tee and defined by Fischerspooner, Miss Kittin & The Hacker, Peaches and Ladytron, pairing stiff 808/909 electro beats and cheap analog monosynth basslines at 120-130 BPM with deadpan spoken-sung vocals, heavy new-wave pastiche and vocoder, deliberately cold and campy.",
   "recipe": "classic mid-2000s electroclash, electronic Dance, continental branch, pop rock synthpop, techno electronic dance, punk distorted rock synthpunk dance-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead analog mono singing lead analog poly synth, behringer rd 8 modern clone analog circuit reproduction TR-808, TR-909, vocoder, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation roasted maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 664,
-  "score": 191.18,
+  "score": 191.226,
   "config": {
     "traditions": [
       "electroclash",
@@ -120,7 +120,7 @@
         "scores": {
           "voc_band_count": 0.28500000000000003,
           "voc_carrier": 0.195,
-          "voc_modulator": 0.15
+          "voc_modulator": 0.195
         }
       },
       {

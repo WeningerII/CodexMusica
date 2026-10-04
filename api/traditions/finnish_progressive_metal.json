@@ -5,7 +5,7 @@
   "lineage": "Finnish progressive metal includes keyboard-rich rock/metal combinations. This selected Amorphis Circle-era arrangement expands the electric guitar, five-string bass, drum and vocal core with grand piano, Hammond-style tonewheel organ and monophonic synth lead. The primary studio interview documents these distinct keyboard colors; they are not compressed into an invented generic orchestral patch. This model emphasizes the band’s contrasting keyboard and guitar parts rather than requiring odd meter in every passage.",
   "recipe": "classic modern finnish progressive metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. low mid rich spectrum woody mahogany humbucker electric guitar, mahogany five string electric bass electric bass, double bass rapid double strokes bronze bell bronze machine hammered drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched full spectrum fast tremolo tonewheel organ, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 740,
-  "score": 88.297,
+  "score": 87.137,
   "config": {
     "traditions": [
       "finnish_progressive_metal"
@@ -39,9 +39,9 @@
           "string_material": 0.105,
           "bridge": 1.69,
           "scale_length": 0,
-          "string_gauge": 0.421,
+          "string_gauge": 0.147,
           "finish": 0,
-          "string_tuning": 0.3435
+          "string_tuning": 0.063
         }
       },
       {
@@ -61,9 +61,9 @@
           "body_wood": 1.69,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 6.949999999999999,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 7.044499999999999,
           "electric_bass_string_configuration": 5.635
         }
       },
@@ -83,17 +83,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
+          "drum_technique": 7.031499999999999,
           "drumhead": 0.7245,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.42,
-          "shell_thickness": 0.1365,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 1.0999999999999999,
+          "cymbal_alloy": 1.2299999999999998,
           "cymbal_hammering": 7.036499999999999,
-          "cymbal_lathing": 7.278,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 7.068,
+          "cymbal_finish": 0.105
         }
       },
       {
@@ -122,16 +122,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 6.813,
+          "voice_articulation": 0.105,
+          "voice_microtone": 6.7815,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.128,
+          "voice_speech_song": 0.6719999999999999,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5145,
-          "voice_processing_chain": 4.6335,
+          "voice_processing_chain": 4.5945,
           "voice_multitrack_stack": 1.573
         }
       },
@@ -150,13 +150,13 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 1.573,
-          "grand_piano_brand": 0.1995,
+          "grand_piano_size": 1.4365,
+          "grand_piano_brand": 0.231,
           "piano_hammer": 3.5100000000000002,
           "piano_rim": 3.5100000000000002,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
-          "piano_plate": -0.07,
+          "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
         }
       },
@@ -172,11 +172,11 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "drawbar_setting": 1.418,
+          "drawbar_setting": 1.313,
           "rotary_speed": 6.949999999999999,
           "percussion_setting": 0.21,
           "tonewheel_model": 2.5349999999999997,
-          "leslie_cabinet_model": 1.25
+          "leslie_cabinet_model": 1.2815
         }
       },
       {
@@ -189,9 +189,9 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 1.3995,
-          "mono_oscillator": 0.1365,
-          "mono_filter": 0.6825,
+          "electronic_technique": 1.431,
+          "mono_oscillator": 0.315,
+          "mono_filter": 0.7875000000000001,
           "mono_archetypes": 1.69,
           "mono_maker_lineage": -1.9449999999999998
         }

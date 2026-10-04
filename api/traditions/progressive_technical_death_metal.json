@@ -2,10 +2,10 @@
   "id": "progressive_technical_death_metal",
   "name": "Progressive technical death metal",
   "family": "rock_punk",
-  "lineage": "Progressive technical-death-metal field represented by Beyond Creation’s Montréal extended-range guitar and fretless-bass practice.",
-  "recipe": "classic modern progressive technical death metal, distorted Rock, death branch, prog metal progressive deathcore progressive metalcore. solo with instrumental accompaniment. eight string electric, ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 430,
-  "score": 19.335,
+  "lineage": "Progressive technical death metal develops death-metal intensity through intricate instrumental interplay and extended forms.",
+  "recipe": "classic modern progressive technical death metal, distorted Rock, death branch, prog metal progressive deathcore progressive metalcore. solo with instrumental accompaniment, single lead single track no stacking. eight string electric, ampeg svt amp rock bass amp fretless bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 432,
+  "score": 13.395,
   "config": {
     "traditions": [
       "progressive_technical_death_metal",
@@ -20,7 +20,7 @@
           "eight_string_technique": "eight_string_djent_chug"
         },
         "scores": {
-          "eight_string_tuning": 0.69,
+          "eight_string_tuning": 0.09,
           "eight_string_technique": 0.42
         }
       },
@@ -36,11 +36,11 @@
         },
         "scores": {
           "electric_technique": -0.15000000000000002,
-          "amp_make": 9.165,
-          "fretless_use": 0.39,
+          "amp_make": 7.085,
+          "fretless_use": 0.135,
           "fretless_bass_construction": 0.045,
-          "fretless_fingerboard_wood": 2.45,
-          "fretless_bass_strings": 0.3
+          "fretless_fingerboard_wood": 0.325,
+          "fretless_bass_strings": 0
         }
       },
       {
@@ -52,7 +52,7 @@
         },
         "scores": {
           "drum_technique": 0.39,
-          "drumhead": 2.21,
+          "drumhead": 1.8199999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -74,7 +74,8 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -88,11 +89,12 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 0.39,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0.18,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.135,
-          "voice_multitrack_stack": 0.195
+          "voice_processing_chain": 0.045,
+          "voice_multitrack_stack": 0.78,
+          "voice_tessitura": 0
         }
       }
     ],
@@ -105,6 +107,7 @@
         "electric_technique",
         "fretless_use",
         "fretless_bass_construction",
+        "fretless_fingerboard_wood",
         "fretless_bass_strings"
       ],
       "drum_kit": [
@@ -126,7 +129,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ]
     },
     "room": "live_room",
@@ -171,7 +175,9 @@
       "fretless_use": "fretless_rock",
       "fretless_bass_construction": "fretless_bass_factory",
       "fretless_bass_strings": "fretless_roundwound",
-      "drum_technique": "blast_beat_single_strokes"
+      "drum_technique": "blast_beat_single_strokes",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "fretless_fingerboard_wood": "fretless_ebony_unlined"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

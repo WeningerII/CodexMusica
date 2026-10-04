@@ -2,10 +2,10 @@
   "id": "british_post_rock",
   "name": "British post-rock",
   "family": "rock_punk",
-  "lineage": "A British post-rock network spanning Mogwai, Maybeshewill, Bark Psychosis and related groups. The selected Mogwai branch layers mostly instrumental guitar, bass, drums and synthesizer parts in arrangements developed from individual sketches.",
-  "recipe": "classic modern british post-rock, distorted Rock, experimental branch. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb proco RAT.",
-  "recipe_chars": 434,
-  "score": 33.745,
+  "lineage": "British post-rock developed through bands extending rock instrumentation into atmospheric, textural and experimental arrangements. Guitar-led ensembles combine live rhythm sections with electronic layers, often emphasizing instrumental development.",
+  "recipe": "classic modern british post-rock, distorted Rock, experimental branch. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb proco RAT.",
+  "recipe_chars": 385,
+  "score": 37.99,
   "config": {
     "traditions": [
       "british_post_rock"
@@ -36,7 +36,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0.105,
           "string_material": 0.39,
-          "string_gauge": 0.12299999999999997,
+          "string_gauge": 0.9099999999999999,
           "bridge": 0.09899999999999999,
           "scale_length": 0,
           "finish": 0,
@@ -61,7 +61,7 @@
           "body_wood": 0.13799999999999998,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.21899999999999997,
+          "scale_length_b": 0.09899999999999999,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -83,7 +83,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 9.5,
+          "drum_technique": 11.25,
           "drumhead": 0.09899999999999999,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.09899999999999999,
@@ -91,8 +91,8 @@
           "bearing_edges": 0.39,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 9.494499999999999,
-          "cymbal_lathing": 9.470499999999998,
+          "cymbal_hammering": 11.244499999999999,
+          "cymbal_lathing": 11.220499999999998,
           "cymbal_finish": 0
         }
       },
@@ -106,9 +106,9 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 0.289,
+          "electronic_technique": 0.32499999999999996,
           "oscillator": 0.273,
-          "filter_topology": 0.39,
+          "filter_topology": 0.2819999999999999,
           "envelope": 0.588,
           "modulation": 0
         }
@@ -159,7 +159,7 @@
         "modulation"
       ]
     },
-    "room": "studio_distributed_production",
+    "room": "live_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
@@ -181,7 +181,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_distributed_production",
+    "room": "live_room",
     "parts": {
       "body_wood": "alder",
       "neck_wood": "maple",

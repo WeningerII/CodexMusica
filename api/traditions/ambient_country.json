@@ -3,9 +3,9 @@
   "name": "Ambient country",
   "family": "vernacular",
   "lineage": "Late-2010s onward instrumental country-ambient convergence represented by New York group SUSS: sustained pedal steel and resonator-guitar traces against synthesizer beds, with country timbre retained while dance pulse and verse-chorus singing recede. The selected three-instrument arrangement and clean digital recording chain are authored models, not a reconstruction of a documented studio session.",
-  "recipe": "classic 2017-2019 ambient country, experimental Elec, ambient branch, americana country, modal electric drone modal virginia indie south african country. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, metal body three cone system national steel resonator guitar, resonant pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, American clean tube combo, tilt EQ. 24-bit digital analog bucket-brigade delay hall reverb.",
-  "recipe_chars": 571,
-  "score": 134.635,
+  "recipe": "classic 2017-2019 ambient country, experimental Elec, ambient branch, americana country, modal electric drone modal virginia indie south african country. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, metal body three cone system national steel glass slide fingerpicked resonator guitar, resonant pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, American clean tube combo, tilt EQ. 24-bit digital analog bucket-brigade delay hall reverb.",
+  "recipe_chars": 596,
+  "score": 134.935,
   "config": {
     "traditions": [
       "ambient_country",
@@ -32,7 +32,7 @@
           "string_setup": 9.814999999999998,
           "bar_material": 3.055,
           "pedal_steel_brand": 19.41,
-          "pedal_steel_neck_config": 23.96,
+          "pedal_steel_neck_config": 24.11,
           "pedal_steel_strings": 19.4
         }
       },
@@ -46,7 +46,7 @@
         "scores": {
           "resonator_body": 4.205,
           "resonator_strings": 0,
-          "resonator_technique": 0.9150000000000001
+          "resonator_technique": 1.065
         }
       },
       {

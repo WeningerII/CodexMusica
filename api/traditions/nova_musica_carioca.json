@@ -2,10 +2,10 @@
   "id": "nova_musica_carioca",
   "name": "Nova música carioca",
   "family": "pop",
-  "lineage": "Letrux and Thiago Vivas — complete Alfabeto Sonoro intimate literary show. Organizer Guerrilha publishes the complete30September2025 Florianópolis Alfabeto Sonoro programme as Letrux voice with piano and violão alongside Thiago Vivas. Its A–Z structure combines songs and poems, original and borrowed repertoire. The same named show’s Casa de Francisca issuer explicitly limits instrumentation to only piano, violão and voice. Preserve all three families and the sung/spoken literary role; instruments can alternate and no claim three simultaneous performers or full-band Letrux album recreation. Authored intimate recital realizes the complete voice/piano/acoustic-guitar source palette. Source unspecified piano subtype is a standard studio upright with block-chord support; source unspecified acoustic guitar construction is an all-mahogany OM with phosphor-bronze strings and articulated flatpicked phrasing. These are editorial timbres/gestures, not claimed Letrux/Vivas hardware or measured arrangement. One credited vocalist with neutral physiology and source-unspecified sung/spoken balance preserves both songs and recited poetry. Existing neutral vocal speech/song setting avoids inventing a measured proportion. Controlled live room, no global tuning or recording apparatus. BalladPoetry placement follows explicitly intimate literary song-and-poem practice with small accompaniment, not all carioca music.",
-  "recipe": "classic nova música carioca, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. block chord upright piano, mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
-  "recipe_chars": 251,
-  "score": 28.748,
+  "lineage": "Nova música carioca connects contemporary songwriters and independent musical communities in Rio de Janeiro. Local venues and cultural programmes bring varied approaches to popular song into dialogue with the city’s musical history.",
+  "recipe": "classic nova música carioca, ballad Poetry. solo with instrumental accompaniment. upright piano, acoustic guitar. live tracking.",
+  "recipe_chars": 128,
+  "score": 4.108,
   "config": {
     "traditions": [
       "nova_musica_carioca"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 8.590499999999999,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.5999999999999996,
-          "voice_multitrack_stack": 2.6539999999999995,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 5.800000000000001,
+          "keyboard_technique": 2.45,
           "upright_use": 0,
           "upright_piano_size": 0.054
         }
@@ -76,10 +76,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 3.9000000000000004,
-          "acoustic_om_technique": 2.5500000000000003
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.05
         }
       }
     ],

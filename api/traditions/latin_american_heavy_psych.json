@@ -2,10 +2,10 @@
   "id": "latin_american_heavy_psych",
   "name": "Latin American heavy psych",
   "family": "rock",
-  "lineage": "Humo del Cairo — EP 2 Imaginario (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s latin american heavy psych, distorted Rock. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 315,
-  "score": 38.112,
+  "lineage": "Latin American heavy psychedelia — regional heavy-rock scenes with fuzz, repetition and expansive textures.",
+  "recipe": "classic latin american heavy psych, distorted Rock. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 320,
+  "score": 46.264,
   "config": {
     "traditions": [
       "latin_american_heavy_psych"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.231,
+          "voice_ensemble_config": 2.0725,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.231,
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_b",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.2,
+          "electric_technique": 1.8549999999999998,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,
@@ -80,17 +80,17 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 0.9870000000000001,
           "finish": 0,
-          "string_tuning": 1.4365
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_b",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -104,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 7.805,
+          "bass_technique": 10.305,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.749999999999999,
-          "drumhead": 1.4365,
+          "drum_technique": 10.25,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.468,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
-          "cymbal_alloy": 0.13000000000000003,
-          "cymbal_hammering": 7.6499999999999995,
-          "cymbal_lathing": 7.712999999999999,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 10.149999999999999,
+          "cymbal_lathing": 10.181499999999998,
           "cymbal_finish": 0
         }
       }
@@ -235,8 +235,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_fuzz_riff",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_b",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",

@@ -2,10 +2,10 @@
   "id": "polish_modern_jazz",
   "name": "Polish modern jazz",
   "family": "jazz",
-  "lineage": "Modern Polish jazz; selected Wasilewski collective piano trio",
+  "lineage": "Polish modern jazz brings contemporary composition, reinterpretation of repertoire and collective improvisation into dialogue. Piano-led ensembles are one important strand within a scene that moves between lyrical detail and freer interaction.",
   "recipe": "classic modern polish modern jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 375,
-  "score": 85.165,
+  "score": 89.856,
   "config": {
     "traditions": [
       "polish_modern_jazz"
@@ -29,11 +29,11 @@
           "grand_piano_size": 0.0735,
           "grand_piano_brand": 0.105,
           "piano_hammer": 5.4435,
-          "piano_rim": 5.454750000000001,
-          "piano_soundboard": 5.4435,
+          "piano_rim": 6.8919999999999995,
+          "piano_soundboard": 4.95,
           "piano_pinblock": 4.95,
           "piano_plate": 4.95,
-          "piano_pitch_standard": 6.37025
+          "piano_pitch_standard": 7.6875
         }
       },
       {
@@ -43,7 +43,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.39,
+          "upright_strings": 0.063,
           "upright_play": 11.25
         }
       },
@@ -63,16 +63,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.890000000000001,
+          "drum_technique": 9.49,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0735,
-          "shell_thickness": 0,
+          "shell_thickness": 0.3,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.0735,
-          "cymbal_alloy": 11.173499999999997,
+          "snare_wires": 0.11624999999999999,
+          "cymbal_alloy": 11.353499999999999,
           "cymbal_hammering": 11.641,
-          "cymbal_lathing": 5.141500000000001,
+          "cymbal_lathing": 5.375500000000001,
           "cymbal_finish": 0
         }
       }

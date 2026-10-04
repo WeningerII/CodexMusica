@@ -3,14 +3,14 @@
   "name": "Traditional Funk",
   "family": "blues_gospel",
   "lineage": "The foundational funk idiom codified by James Brown's bands at King Records in Cincinnati and on the road between 1965 and 1974 (Jabo Starks, Clyde Stubblefield, Bootsy Collins, Fred Wesley, Maceo Parker) and paralleled by Dyke & the Blazers and the Meters — single-chord vamps with all parts locked to 'the One', sixteenth-note damped guitar, staccato horn punctuation, syncopated melodic bass, and shouted, percussive lead vocals at 95-115 BPM, cut live to tape with minimal overdubs.",
-  "recipe": "classic Midwestern American mid-1960s traditional funk, groove Percussion, funk percussive branch, soul R&B functional song, American jazz soul jazz neo soul-jazz. thick, breath veiled tone, straight onset, interlocked note trading. vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble rubber saxophone, bach 42 canonical American orchestral tenor ensemble student commercial trombone, lead congas. cincinnati 1943-1971 indie-commercial king records studios cincinnati. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 987,
-  "score": 647.555,
+  "recipe": "classic Midwestern American mid-1960s traditional funk, groove Percussion, funk percussive branch, soul R&B functional song, American jazz soul jazz jazz organ. thick, breath veiled tone, straight onset, interlocked note trading. vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, bach 42 canonical American orchestral tenor ensemble student commercial trombone, lead congas. cincinnati 1943-1971 indie-commercial king records studios cincinnati. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 993,
+  "score": 665.358,
   "config": {
     "traditions": [
       "traditional_funk",
-      "neo_soul_jazz",
-      "soul_jazz"
+      "soul_jazz",
+      "jazz_organ"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 36.87500000000001,
-          "voice_quality": 15.92499999999999,
+          "voice_register": 37.87500000000001,
+          "voice_quality": 15.989999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 21.389999999999997,
-          "voice_articulation": 15.989999999999997,
-          "voice_microtone": 21.174999999999994,
-          "voice_tradition": 22.095,
-          "voice_mechanism_compound": 7.279999999999999,
-          "voice_estill_quality": 14.195,
-          "voice_speech_song": 15.404999999999994,
-          "voice_ensemble_config": 12.284999999999995,
+          "voice_vibrato": 22.389999999999997,
+          "voice_articulation": 19.889999999999997,
+          "voice_microtone": 21.674999999999994,
+          "voice_tradition": 22.595,
+          "voice_mechanism_compound": 7.084999999999999,
+          "voice_estill_quality": 13.444999999999999,
+          "voice_speech_song": 19.304999999999993,
+          "voice_ensemble_config": 15.729999999999995,
           "voice_ornament_system": 2.145,
-          "voice_pitch_organization": 1.0449999999999997,
+          "voice_pitch_organization": 1.3399999999999999,
           "voice_processing_chain": 14.654999999999998,
-          "voice_multitrack_stack": 4.095
+          "voice_multitrack_stack": 3.9325000000000006
         }
       },
       {
@@ -60,8 +60,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.529999999999998,
-          "drumhead": 22.349999999999994,
+          "drum_technique": 27.039999999999996,
+          "drumhead": 22.849999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -69,7 +69,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
@@ -78,13 +78,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.665,
-          "body_wood": 0.78,
+          "amp_make": 17.064999999999998,
+          "body_wood": 0.975,
           "pickup_config": 0,
-          "string_type": 21.599999999999998,
-          "scale_length_b": 0.975,
+          "string_type": 22.25,
+          "scale_length_b": 1.17,
           "fretted_or_not": 2.605,
-          "bass_technique": 24.325,
+          "bass_technique": 23.574999999999996,
           "electric_bass_string_configuration": 0
         }
       },
@@ -106,18 +106,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 23.565,
-          "amp_make": 27.454999999999995,
-          "body_wood": 0.78,
+          "electric_technique": 22.964999999999993,
+          "amp_make": 26.854999999999993,
+          "body_wood": 0.975,
           "neck_wood": 2.755,
-          "fretboard": 2.605,
+          "fretboard": 2.755,
           "pickup_magnet": 0.585,
           "string_material": 0.585,
-          "string_gauge": 0.78,
+          "string_gauge": 0.975,
           "bridge": 3.605,
-          "scale_length": 0.78,
+          "scale_length": 0.975,
           "finish": 0.15,
-          "string_tuning": 3.055,
+          "string_tuning": 3.25,
           "single_coil_pickup_construction": 0
         }
       },
@@ -132,11 +132,11 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 23.375,
-          "drawbar_setting": 22.124999999999993,
-          "rotary_speed": 11.770000000000001,
-          "percussion_setting": 20.999999999999996,
-          "tonewheel_model": 27.444999999999993,
+          "keyboard_technique": 22.625,
+          "drawbar_setting": 22.775,
+          "rotary_speed": 11.02,
+          "percussion_setting": 21.5,
+          "tonewheel_model": 28.444999999999997,
           "leslie_cabinet_model": 1.9499999999999997
         }
       },
@@ -146,19 +146,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 14.52,
-          "sax_size": 11.525,
+          "wind_articulation": 13.77,
+          "sax_size": 10.774999999999999,
           "sax_reed": 0.585,
-          "sax_body_alloy": 21.299999999999997,
-          "sax_mouthpiece": 1.345,
-          "sax_technique": 21.194999999999997,
-          "sax_maker_school": 23.479999999999997
+          "sax_body_alloy": 22.75,
+          "sax_mouthpiece": 1.4949999999999999,
+          "sax_technique": 21.695,
+          "sax_maker_school": 23.979999999999997
         }
       },
       {
@@ -173,9 +173,9 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 14.52,
-          "trombone_type": 21.044999999999998,
-          "trombone_mouthpiece": 21.569999999999997,
+          "wind_articulation": 13.77,
+          "trombone_type": 21.545,
+          "trombone_mouthpiece": 22.07,
           "trombone_mute": 0.195,
           "trombone_technique": 1.645,
           "trombone_bell_metal": 0.72,

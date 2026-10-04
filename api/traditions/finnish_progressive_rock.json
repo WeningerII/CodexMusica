@@ -5,7 +5,7 @@
   "lineage": "Finnish progressive rock represented by Wigwam’s Nuclear Nightclub-era composition and ensemble colors. This branch balances concise song forms with developed instrumental passages. The model keeps acoustic and electric piano, organ, synthesizer, electric guitar, bass, drums, marimba and lead/backing singing as distinct documented roles.",
   "recipe": "classic finnish progressive rock, distorted Rock, progressive rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, live take. soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano, electric piano tine, Hammond b3 canonical 1955 1975 jazz gospel rock standard tonewheel organ, analog mono synth, marshall plexi amp British rock amp mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, marimba orchestral. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 617,
-  "score": 86.265,
+  "score": 85.974,
   "config": {
     "traditions": [
       "finnish_progressive_rock"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
+          "voice_speech_song": 1.5310000000000001,
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.0315,
-          "voice_multitrack_stack": 1
+          "voice_multitrack_stack": 1.1365
         }
       },
       {
@@ -65,8 +65,8 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.168,
-          "grand_piano_brand": 1.0315,
+          "grand_piano_size": 0.1365,
+          "grand_piano_brand": 1.1995,
           "piano_hammer": 6.37,
           "piano_rim": 6.76,
           "piano_soundboard": -0.035,
@@ -117,7 +117,7 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 2.026,
+          "electronic_technique": 2.194,
           "mono_oscillator": 0,
           "mono_filter": 0,
           "mono_archetypes": 1.0945,
@@ -135,26 +135,26 @@
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_9_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.1575,
+          "electric_technique": 2.3255,
           "amp_make": 6.37,
-          "body_wood": 1.0315,
-          "neck_wood": 0.7769999999999999,
-          "fretboard": 0.7769999999999999,
+          "body_wood": 1.231,
+          "neck_wood": 0.8084999999999999,
+          "fretboard": 0.8084999999999999,
           "pickup_magnet": 0,
-          "pickup_winding": 0.2415,
+          "pickup_winding": 0.2835,
           "string_material": 0,
-          "bridge": 0.5145,
-          "scale_length": 1.3230000000000002,
-          "string_gauge": 0.5145,
+          "bridge": 0,
+          "scale_length": 1.3545000000000003,
+          "string_gauge": 0.0315,
           "finish": 0,
-          "string_tuning": 0.126
+          "string_tuning": 0
         }
       },
       {
@@ -173,9 +173,9 @@
           "amp_make": 7.735,
           "body_wood": 0,
           "pickup_config": 0.0735,
-          "string_type": 0,
+          "string_type": 0.0315,
           "scale_length_b": 0.0735,
-          "fretted_or_not": 1.0315,
+          "fretted_or_not": 1.1995,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -190,9 +190,9 @@
         },
         "scores": {
           "drum_technique": 12.5,
-          "drumhead": 0.126,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39
+          "shell_wood": 0.3315
         }
       },
       {
@@ -205,7 +205,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "marimba_size": 0.1995,
-          "marimba_orchestral_bar": 0.7769999999999999
+          "marimba_orchestral_bar": 0.8084999999999999
         }
       }
     ],

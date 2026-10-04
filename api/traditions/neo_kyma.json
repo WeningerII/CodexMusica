@@ -5,7 +5,7 @@
   "lineage": "Short-lived Athenian movement of 1960-67 centred on the Plaka boîtes, combining French chanson phrasing with éntekhno lyricism — soft mid-range voices, nylon-string guitar as the primary accompaniment with double bass and occasional string quartet, tempered Western harmony rather than dromoi, slow to moderate 4/4 and 3/4, and intimate close-miked delivery to small seated audiences",
   "recipe": "classic Southern European early-1960s néo kýma, ballad Poetry, Greek entechno branch, chanson fado classic chanson, anglo singer song confessional60s chanson classique. extended whistle, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, lyon twisted plain Baroque setup lighter bass bar no endpin double bass, cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, sitka spruce bigleaf maple western maple French Polish shellac pad violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 714,
-  "score": 197.26,
+  "score": 197.262,
   "config": {
     "traditions": [
       "neo_kyma",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 4.60375,
+          "voice_register": 4.594375,
           "voice_quality": 14.429999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -66,7 +66,7 @@
           "acoustic_technique": 9.024375000000001,
           "string_tuning": 0,
           "top_wood_classical": 7.00525,
-          "bracing_classical": 0.2265,
+          "bracing_classical": 0.232125,
           "string_classical": 3.9512500000000004,
           "attack_technique_cl": 3.05125
         }
@@ -112,7 +112,7 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 2.87,
+          "keyboard_technique": 2.8756250000000003,
           "grand_piano_size": 2.05125,
           "grand_piano_brand": 2.05125,
           "piano_hammer": 2.0012499999999998,

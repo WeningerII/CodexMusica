@@ -5,7 +5,7 @@
   "lineage": "European post-industrial acoustic style formed in England in the mid-1980s as members of Crisis and Death in June turned from industrial electronics to acoustic guitar — codified by Death in June, Current 93 and Sol Invictus and extended in Germany and Scandinavia through the 1990s — with strummed nylon and steel guitar in Aeolian and Phrygian modes, martial snare and bass-drum patterns at slow marching tempo, drones from hurdy-gurdy and string machine, and declaimed baritone vocals over sparse, reverberant arrangements.",
   "recipe": "classic North American 1984-1986 neofolk, ballad Poetry, anglo singer song branch, gothic rock distorted rock, industrial noise experimental electric coldwave. thick, breath veiled tone, slow rate, interlocked note trading. cedar maple phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, double bass rapid double strokes bass five drum arc kevlar aramid extreme tension nylon tenor drum, string machine. denver gothic basement studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 660,
-  "score": 221.88,
+  "score": 221.94,
   "config": {
     "traditions": [
       "neofolk",
@@ -43,10 +43,10 @@
           "voice_microtone": 26.975,
           "voice_tradition": 5.005000000000001,
           "voice_mechanism_compound": 4.485000000000001,
-          "voice_estill_quality": 3.8100000000000005,
+          "voice_estill_quality": 3.9000000000000004,
           "voice_speech_song": 27.560000000000002,
           "voice_ensemble_config": 25.09,
-          "voice_ornament_system": 1.3949999999999998,
+          "voice_ornament_system": 1.3499999999999999,
           "voice_pitch_organization": 0.9749999999999996,
           "voice_processing_chain": 4.615000000000001,
           "voice_multitrack_stack": 5.3950000000000005
@@ -65,7 +65,7 @@
           "acoustic_technique": 4.1,
           "string_tuning": 0,
           "top_wood": 2.795,
-          "back_sides": 1.8,
+          "back_sides": 1.755,
           "string_acoustic": 2.795
         }
       },
@@ -81,7 +81,7 @@
         },
         "scores": {
           "bowed_technique": 0.12999999999999998,
-          "hurdy_strings": 1.645,
+          "hurdy_strings": 1.6,
           "hurdy_buzz": 1.4949999999999999,
           "hurdy_wheel_rosin": 1.4949999999999999,
           "hurdy_string_material": 1.6,
@@ -124,8 +124,8 @@
         },
         "scores": {
           "electronic_technique": 0.06499999999999999,
-          "sm_voice_count": 0.195,
-          "sm_chorus": 4.17,
+          "sm_voice_count": 0.345,
+          "sm_chorus": 4.125,
           "sm_voicing": 1.6899999999999997
         }
       }

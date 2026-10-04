@@ -2,10 +2,10 @@
   "id": "trova_mexicana",
   "name": "Trova Mexicana",
   "family": "vernacular",
-  "lineage": "Alejandro Filio and Fernando Delgadillo — announced2024 El Cantoral joint voices-and-guitars project. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic trova mexicana, ballad Poetry. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 167,
-  "score": 2.998,
+  "lineage": "Mexican trova places poetic songwriting and the singer’s interpretation at the centre of the music. Alejandro Filio and Fernando Delgadillo exemplify its connection between voice, guitar and lyrical expression.",
+  "recipe": "classic trova mexicana, ballad Poetry. dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 82,
+  "score": 0.863,
   "config": {
     "traditions": [
       "trova_mexicana"
@@ -43,30 +43,30 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.40950000000000003,
+          "voice_speech_song": 0.39,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "acoustic_guitar_dread",
         "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.035,
-          "string_acoustic": 0.3,
-          "acoustic_om_technique": 2.323
+          "back_sides": 0,
+          "string_acoustic": 0.273
         }
       }
     ],
@@ -90,23 +90,23 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "acoustic_guitar_om": [
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic",
-        "acoustic_om_technique"
+        "string_acoustic"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -115,7 +115,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -135,17 +135,11 @@
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "string_tuning": "standard_tuning",
-      "top_wood": "sitka_om",
-      "back_sides": "rosewood_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_fingerpicked"
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
+      "acoustic_technique": "acoustic_strummed_ringing"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

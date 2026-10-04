@@ -5,7 +5,7 @@
   "lineage": "Korean solo form in which a performer sings pansori excerpts and short folk-derived songs while simultaneously accompanying herself on the twelve-string gayageum, developed in the late nineteenth century out of the sanjo circle around Kim Chang-jo and carried into the twentieth by Oh Tae-seok, Park Gwi-hui and Kang Jeong-suk — the zither punctuating rather than doubling the vocal line, both parts riding a janggu jangdan cycle in jinyang, jungmori or jajinmori, with the gruff pansori chest voice and wide yukjabaegi vibrato intact.",
   "recipe": "classic East Asian modern gayageum byeongchang, art Music, east Asian branch, indian bard ballad poetry, east Asian field work min'yō korean minyo. thick, breath veiled tone, wide pitch sway, interlocked note trading. sanjo suited paulownia Korean gayageum, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. korean pungnyu pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 517,
-  "score": 205.382,
+  "score": 204.812,
   "config": {
     "traditions": [
       "gayageum_byeongchang",
@@ -25,7 +25,7 @@
           "gayageum_type": 1.5025,
           "gayageum_technique": 5.2,
           "gayageum_top_wood": 2.145,
-          "gayageum_strings": 0.24
+          "gayageum_strings": 0.195
         }
       },
       {
@@ -56,7 +56,7 @@
           "voice_vibrato": 2.425,
           "voice_articulation": 19.304999999999993,
           "voice_microtone": 19.17499999999999,
-          "voice_tradition": 23.457500000000003,
+          "voice_tradition": 22.9325,
           "voice_mechanism_compound": 5.9799999999999995,
           "voice_estill_quality": 7.377500000000001,
           "voice_speech_song": 24.244999999999994,

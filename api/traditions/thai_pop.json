@@ -5,7 +5,7 @@
   "lineage": "Bangkok mainstream pop consolidated in the mid-1980s around the Grammy Entertainment and RS Promotion label system — Thongchai 'Bird' McIntyre and Asanee-Wasan set the template of string (สตริง) band-pop sung in central Thai over 100-125 BPM programmed backbeats — and re-formed after 2015 as idol-group T-pop (BNK48, 4EVE, PROXIE) built on K-pop-style synth-and-808 arrangements, tight unison choreography vocals, and occasional luk thung phrasing or khaen and ranat timbres dropped into otherwise Western-harmonised choruses.",
   "recipe": "classic Asian 1984-1986 t-pop, functional Song, east Asian pop branch, pop rock synthpop wonky pop new romanticism. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, TR-808, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, khaen, ranat ek, sampler. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 633,
-  "score": 438.462,
+  "score": 438.702,
   "config": {
     "traditions": [
       "thai_pop",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 21.059999999999995,
           "voice_microtone": 44.55000000000001,
-          "voice_tradition": 42.31,
+          "voice_tradition": 42.415000000000006,
           "voice_mechanism_compound": 2.73,
           "voice_estill_quality": 2.5350000000000006,
           "voice_speech_song": 27.169999999999998,
@@ -61,7 +61,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 37.410000000000004,
+          "electronic_technique": 37.455000000000005,
           "poly_archetypes": 4.875,
           "poly_voices": 0.21,
           "poly_maker_lineage": -0.9800000000000001
@@ -98,7 +98,7 @@
           "pickup_config": 0.285,
           "string_type": 10.562500000000002,
           "scale_length_b": 1.645,
-          "fretted_or_not": 0.15,
+          "fretted_or_not": 0.195,
           "bass_technique": 8.695000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -155,7 +155,7 @@
           "ranat_ek_technique": "ranat_ek_kep"
         },
         "scores": {
-          "ranat_ek_technique": 11.924999999999999
+          "ranat_ek_technique": 11.969999999999999
         }
       },
       {

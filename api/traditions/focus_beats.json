@@ -2,28 +2,40 @@
   "id": "focus_beats",
   "name": "Focus Beats",
   "family": "electronic",
-  "lineage": "Reform Radio / BBC Sounds — complete Focus Beats two-hour programme. Complete two-hour BBC Sounds/Reform Radio Focus Beats programme Find your flow with a beat driven mix, scheduled21October2023 at00:00 on Radio1Relax. BBC identifies Headache,GeorgiaAnneMuldrow,MykkiBlanco,Quasimoto among its selections, not an exhaustive tracklist. Producer first-person explains the series as curated two-hour mixed programmes of instrumental beats for concentration, allowing occasional sampled voices. No claim personally auditioning the full audio, measuring transitions, knowing every track or live recording technique. Official production team confirms actual weekly series; scheduling metadata is not proof of uninterrupted broadcast execution. Existing neutral DJ playback/mixing owner models positively documented produced mixed-programme practice, not an unspecified musical master placeholder. Whole programme retains all embedded melody,bass,percussion,voices and production. Deck/controller count, playback medium and mixing workflow remain unknown; no invented live instrumental or singer reconstruction. Source defines concentration curation but no special brainwave or signal-frequency mechanism. Authored studio environment/capture is a new realization, not actual BBC or producer hardware. Global tuning omitted.",
-  "recipe": "classic focus beats, experimental Elec. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 170,
-  "score": 0,
+  "lineage": "Focus beats connects instrumental beat-making with listening for work, study and everyday concentration. Radio curators and independent producers draw on beat tapes, instrumental hip-hop and related electronic music, creating a functional listening field that crosses individual production styles.",
+  "recipe": "classic focus beats, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 147,
+  "score": 9.945,
   "config": {
     "traditions": [
       "focus_beats"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "sampler_classic",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.035,
+          "sampler_archetypes": 3.5,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 6.629999999999999
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +55,11 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

@@ -5,7 +5,7 @@
   "lineage": "Liz Rosa — Dangerous Rhythms at Zinc Bar, September27 2018, complete quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-2010s música potiguar, improv On Frame, Latin jazz branch. solo with instrumental accompaniment. tuning stability 7 ply quartersawn maple grand piano, upright bass, maple bronze bell bronze brushes drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 319,
-  "score": 30.864,
+  "score": 32.828,
   "config": {
     "traditions": [
       "musica_potiguar"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8610000000000001,
+          "voice_ensemble_config": 2.1315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -67,12 +67,12 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.0945,
-          "grand_piano_brand": 0.0315,
+          "grand_piano_size": 0.0315,
+          "grand_piano_brand": 0.063,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.2945,
+          "piano_pinblock": 1.2315,
           "piano_plate": -0.07,
           "piano_pitch_standard": -0.035
         }
@@ -104,14 +104,14 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.5315,
-          "drumhead": 1.4260000000000002,
+          "drum_technique": 8.5,
+          "drumhead": 1.363,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.3945,
+          "shell_wood": 1.3315000000000001,
           "shell_thickness": 0,
-          "bearing_edges": 0.1995,
+          "bearing_edges": 0.7244999999999999,
           "snare_wires": 0,
-          "cymbal_alloy": 8.381499999999997,
+          "cymbal_alloy": 8.801499999999997,
           "cymbal_hammering": -0.15000000000000002,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0.0315

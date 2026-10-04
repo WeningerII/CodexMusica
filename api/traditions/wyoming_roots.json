@@ -2,10 +2,10 @@
   "id": "wyoming_roots",
   "name": "Wyoming roots",
   "family": "vernacular",
-  "lineage": "Benyaro — 500 Miles, complete track on Searching for Fortune. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic wyoming roots, functional Song. lead plus third fifth harmony stack 3 part. acoustic guitar, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, harmonica, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 400,
-  "score": 19.841,
+  "lineage": "Wyoming roots music connects regional songwriting with folk, blues, country and other American roots traditions. Jackson Hole artists such as Benyaro combine acoustic song with broader band arrangements.",
+  "recipe": "classic wyoming roots, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, lead plus third fifth harmony stack 3 part. dreadnought acoustic guitar, upright piano, dark bronze bell bronze drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, upright bass. live tracking.",
+  "recipe_chars": 369,
+  "score": 22.572,
   "config": {
     "traditions": [
       "wyoming_roots"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,55 +43,43 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 2.8715,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 1.554,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0.654,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "acoustic_guitar_dread",
         "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0.325,
-          "string_acoustic": 0,
-          "acoustic_om_technique": 0.05000000000000002
+          "back_sides": 0,
+          "string_acoustic": 0.054
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 1.108,
-          "piano_rim": 1.924,
-          "piano_soundboard": 0.7,
-          "piano_pinblock": 2,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 2.064
+          "upright_use": 0,
+          "upright_piano_size": 0
         }
       },
       {
@@ -110,26 +98,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 0.8865000000000001,
-          "drumhead": 1.3,
+          "drum_technique": -0.035,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.354,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
-          "bearing_edges": 0.354,
+          "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": 1.504,
-          "cymbal_lathing": 1.45,
+          "cymbal_alloy": 3.0550000000000006,
+          "cymbal_hammering": -0.10500000000000001,
+          "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
         }
       },
       {
@@ -144,11 +123,11 @@
         },
         "scores": {
           "harmonica_type": 0,
-          "harmonica_comb": 0.6499999999999999,
-          "harmonica_reed": -0.07,
-          "harmonica_technique": -0.1,
-          "harmonica_maker_school": 0.608,
-          "harmonica_tuning": 0.6
+          "harmonica_comb": 3.6945,
+          "harmonica_reed": 2.5865,
+          "harmonica_technique": 2.45,
+          "harmonica_maker_school": 3.5580000000000003,
+          "harmonica_tuning": 2
         }
       },
       {
@@ -183,23 +162,17 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "acoustic_guitar_om": [
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic",
-        "acoustic_om_technique"
+        "string_acoustic"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ],
       "drum_kit": [
         "drum_technique",
@@ -214,9 +187,6 @@
         "cymbal_lathing",
         "cymbal_finish"
       ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
-      ],
       "harmonica": [
         "harmonica_type",
         "harmonica_comb",
@@ -230,15 +200,15 @@
         "upright_play"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -247,7 +217,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -259,7 +229,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -267,19 +237,10 @@
       "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "string_tuning": "standard_tuning",
-      "top_wood": "sitka_om",
-      "back_sides": "rosewood_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_fingerpicked",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
       "drum_technique": "sticks_rock",
       "shell_wood": "maple_shell",
       "shell_thickness": "thin_shell",
@@ -291,7 +252,6 @@
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
       "harmonica_type": "diatonic_blues",
       "harmonica_comb": "pearwood_comb",
       "harmonica_reed": "brass_harm",
@@ -299,14 +259,11 @@
       "harmonica_maker_school": "harmonica_hohner_marine_band",
       "harmonica_tuning": "harmonica_richter_canonical",
       "upright_strings": "gut_upright",
-      "upright_play": "pizz_upright"
+      "upright_play": "pizz_upright",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

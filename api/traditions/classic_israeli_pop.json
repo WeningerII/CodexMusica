@@ -5,7 +5,7 @@
   "lineage": "Israeli popular-song repertoire of the 1970s and 1980s includes the pianist-composer and arranger network around Yoni Rechter, Arik Einstein, Yehudit Ravitz and Gidi Gov. This quiet piano-and-voice model selects Rechter’s songwriter-ballad practice, with composed harmonic movement rather than an assumed Mizrahi dance-band arrangement.",
   "recipe": "classic mid-1970s classic israeli pop, functional Song, pop rock branch. solo with instrumental accompaniment. Japanese factory birch laminated maple laminated arpeggiated sustain rich overtones grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 401,
-  "score": 31.391,
+  "score": 31.454,
   "config": {
     "traditions": [
       "classic_israeli_pop"
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.16125
         }
       },
@@ -67,7 +67,7 @@
           "keyboard_technique": 8.805,
           "grand_piano_size": 0.4335,
           "grand_piano_brand": 0.569,
-          "piano_hammer": 8.8995,
+          "piano_hammer": 8.931,
           "piano_rim": 8.731499999999999,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.05,

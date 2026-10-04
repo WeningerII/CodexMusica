@@ -3,14 +3,14 @@
   "name": "Japanese kōdan",
   "family": "global",
   "lineage": "Japanese historical-narrative recitation in which the koshi (kodan-shi) narrates war-chronicles, vendetta tales, biographies and political-society stories from behind a small reading-desk (shakudai), beating a rhythmic pulse on it with a paper fan or wooden clapper (hariogi). Descended from Edo-period military-chronicle lecturing (koshaku) and distinct from the comic rakugo, it prizes cadenced, driving delivery and dramatic set-pieces; the tradition runs through named koshi lineages and enjoyed a broadcast heyday on early Japanese radio. The voice is a measured, rhythmically-propelled declamation punctuated by the desk-beat.",
-  "recipe": "classic East Asian early-1930s japanese kōdan, art Music, east Asian branch tibetan ache lhamo opera detské pesničky. thick, breath veiled tone, straight note core, interlocked note trading. tatami parlor japanese. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
-  "recipe_chars": 349,
-  "score": 202.805,
+  "recipe": "classic East Asian early-1930s japanese kōdan, art Music, east Asian branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. tatami parlor japanese. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 338,
+  "score": 208.157,
   "config": {
     "traditions": [
       "japanese_kodan",
       "tibetan_ache_lhamo",
-      "detske_pesnicky"
+      "beijing_opera"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_tube_saturation",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.160875000000001,
-          "voice_quality": 21.96999999999999,
+          "voice_register": 2.3075,
+          "voice_quality": 21.384999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.513250000000001,
-          "voice_articulation": 22.554999999999996,
-          "voice_microtone": 22.359999999999992,
-          "voice_tradition": 27.365000000000002,
-          "voice_mechanism_compound": 5.324999999999999,
-          "voice_estill_quality": 12.445624999999998,
-          "voice_speech_song": 29.054999999999996,
-          "voice_ensemble_config": 29.9,
-          "voice_ornament_system": 6.6145,
-          "voice_pitch_organization": 5.232499999999999,
-          "voice_processing_chain": 5.653,
-          "voice_multitrack_stack": 3.38
+          "voice_vibrato": 10.139999999999999,
+          "voice_articulation": 21.06,
+          "voice_microtone": 21.059999999999995,
+          "voice_tradition": 31.7525,
+          "voice_mechanism_compound": 7.049999999999999,
+          "voice_estill_quality": 18.245624999999997,
+          "voice_speech_song": 23.4,
+          "voice_ensemble_config": 25.154999999999998,
+          "voice_ornament_system": 13.704999999999998,
+          "voice_pitch_organization": 8.1055,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 3.4057500000000003
         }
       }
     ],

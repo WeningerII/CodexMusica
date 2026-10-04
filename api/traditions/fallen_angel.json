@@ -5,7 +5,7 @@
   "lineage": "Mercy Isle — Undying Fire (2016), guest-free core tracks. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s fallen angel, distorted Rock, symphonic branch. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, analog poly synth, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 350,
-  "score": 26.618,
+  "score": 26.021,
   "config": {
     "traditions": [
       "fallen_angel"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.252,
+          "voice_ensemble_config": 0.1575,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0975,
-          "voice_multitrack_stack": 0.252,
+          "voice_processing_chain": 0.195,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.3465,
+          "electric_technique": 7.189,
           "amp_make": 0,
           "body_wood": 0.0315,
           "neck_wood": 0,
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 1.5205
+          "string_tuning": 1.3945
         }
       },
       {
@@ -117,7 +117,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "poly_archetypes": 0.2415,
           "poly_voices": 0.0315,
           "poly_maker_lineage": 0.325
@@ -140,9 +140,9 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.489,
+          "drumhead": 1.363,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.1625,
+          "shell_wood": 2.0364999999999998,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0.0735,

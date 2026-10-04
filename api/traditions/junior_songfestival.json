@@ -2,10 +2,10 @@
   "id": "junior_songfestival",
   "name": "Junior songfestival",
   "family": "pop",
-  "lineage": "Julia van Bergen — Around, complete self-accompanied piano audition practice at Junior Songfestival, spring2014. Artist booking biography expressly identifies her singing her self-written song while accompanying herself on piano; it separately describes the later producers transforming the song for the finals. Her first-person interview corroborates the earlier slower piano version versus later uptempo dance version. Selected source is that complete earlier audition rendition, one singer who also plays piano, not a reduced final television production. No unexamined backing track, later dancers, production collaborators or imagined choir imported. Exact audition footage was not personally watched. Authored representative piano-pop rendition: one accompanied singer with source-unspecified physiology/register/tessitura/pitch organization, unprocessed single lead, coherent nine-foot Steinway D and block-chord pop accompaniment. Piano model/materials/A440, chordal realization, controlled live-room capture with optional apparatus omitted are editorial modern choices, not documented audition gear, exact harmony or original capture. Verse/refrain with tonal chordal support is the authored compatible song organization supporting broad functionalSong parent; it is not claimed as measured formal analysis. No global temperament imposed on voice.",
-  "recipe": "classic junior songfestival, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
-  "recipe_chars": 240,
-  "score": 53.582,
+  "lineage": "Junior Songfestival is the Dutch national junior-song competition and its audition, finalist and performance repertoire. Broadcasters and young performers develop songs through a pathway that connects local songwriting with the wider televised European junior-pop setting.",
+  "recipe": "classic junior songfestival, functional Song. solo with instrumental accompaniment. a 440 modern pitch us standard block chord grand piano. live tracking.",
+  "recipe_chars": 154,
+  "score": 8.793,
   "config": {
     "traditions": [
       "junior_songfestival"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.182499999999999,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 6.5,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 13.049999999999997,
+          "keyboard_technique": 4.95,
           "grand_piano_size": 0,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 3.2,
-          "piano_rim": 5.8,
-          "piano_soundboard": 3.3365,
-          "piano_pinblock": 3.2,
-          "piano_plate": 3.2,
-          "piano_pitch_standard": 6.123
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.823
         }
       }
     ],

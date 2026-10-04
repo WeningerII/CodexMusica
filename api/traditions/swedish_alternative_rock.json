@@ -2,10 +2,10 @@
   "id": "swedish_alternative_rock",
   "name": "Swedish alternative rock",
   "family": "rock",
-  "lineage": "Swedish alternative rock is represented here by Royal Republic — selected lead-voice guitar-band core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic swedish alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 414,
-  "score": 58.01,
+  "lineage": "Swedish alternative rock links guitar-based songwriting with rhythmic, melodic and dance-oriented approaches.",
+  "recipe": "classic swedish alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 405,
+  "score": 52.797,
   "config": {
     "traditions": [
       "swedish_alternative_rock"
@@ -16,32 +16,32 @@
         "slots": {
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 6.11,
-          "body_wood": 2.6984999999999997,
+          "body_wood": 0.5775,
           "neck_wood": 0.5775,
-          "fretboard": 0.21000000000000002,
-          "pickup_magnet": 0.1365,
+          "fretboard": 0.3,
+          "pickup_magnet": 0.39,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 1.573,
+          "bridge": 0.5775,
           "scale_length": 1.8795000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.5775,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 0.546
         }
       }
     ],

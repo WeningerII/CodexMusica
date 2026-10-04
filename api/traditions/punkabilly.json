@@ -5,7 +5,7 @@
   "lineage": "Late-1970s to 1980s Anglo-American crossover — Stray Cats' rockabilly revival, The Clash's rooted covers, Social Distortion and later Reverend Horton Heat — pairing rockabilly's walking bass line, hollow-body twang and 12-bar shuffle with punk's downstroke electric guitar, snare-heavy 4/4 backbeat at 150-190 BPM, and flat, shouted vocals rather than hiccup-and-echo crooning.",
   "recipe": "classic North American 1977-1979 punkabilly, distorted Rock, punk branch, pop punk distorted rock, surf rock distorted rock, americana country skate punk oshare kei. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric upright bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 659,
-  "score": 355.418,
+  "score": 354.997,
   "config": {
     "traditions": [
       "punkabilly",
@@ -45,11 +45,11 @@
           "voice_mechanism_compound": 11.8625,
           "voice_estill_quality": 6.76,
           "voice_speech_song": 17.354999999999997,
-          "voice_ensemble_config": 26.38,
+          "voice_ensemble_config": 26.634999999999998,
           "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 3.770000000000001,
-          "voice_processing_chain": 6.76,
-          "voice_multitrack_stack": 5.455
+          "voice_processing_chain": 6.91,
+          "voice_multitrack_stack": 4.795
         }
       },
       {
@@ -62,7 +62,7 @@
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "pure_nickel",
-          "string_gauge": "g_10",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -77,7 +77,7 @@
           "fretboard": 0.585,
           "pickup_magnet": 0.195,
           "string_material": 0,
-          "string_gauge": 0.75,
+          "string_gauge": 0.585,
           "bridge": 0.585,
           "scale_length": 0.585,
           "finish": 1,

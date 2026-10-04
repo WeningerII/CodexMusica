@@ -2,10 +2,10 @@
   "id": "sda_choir",
   "name": "SDA choir",
   "family": "vernacular",
-  "lineage": "Sda choir is represented by Adventist Vocal Ensemble / Ken Burton — There Is a Balm in Gilead, a cappella version. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
-  "recipe": "classic sda choir, ritual Devotional, christian gospel branch. group vocals, no specific ornament system, live take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 215,
-  "score": 3.419,
+  "lineage": "SDA choirs serve Seventh-day Adventist worship, community life and musical outreach. Their repertoire connects hymns, spirituals and other Christian choral music across different local traditions.",
+  "recipe": "classic sda choir, ritual Devotional, christian gospel branch. no specific ornament system. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 1.373,
   "config": {
     "traditions": [
       "sda_choir"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4365,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.6825000000000001,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.3
+          "voice_multitrack_stack": 0.3
         }
       }
     ],

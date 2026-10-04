@@ -3,9 +3,9 @@
   "name": "Neo-Psychedelic",
   "family": "rock",
   "lineage": "Düül Suns — Jealousy2025 exact track credits. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic neo-psychedelic, distorted Rock, experimental branch. one note per syllable. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 36.432,
+  "recipe": "classic neo-psychedelic, distorted Rock, experimental branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 367,
+  "score": 35.896,
   "config": {
     "traditions": [
       "neo_psychedelic"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.7559999999999999,
-          "voice_ensemble_config": 0.44100000000000006,
+          "voice_speech_song": 0.3045,
+          "voice_ensemble_config": 0.3465,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.44100000000000006,
+          "voice_multitrack_stack": 0.3465,
           "voice_tessitura": 0
         }
       },
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 0.9814999999999999,
           "amp_make": 0,
-          "body_wood": 0.063,
-          "neck_wood": 0.063,
+          "body_wood": 0.0945,
+          "neck_wood": 0.0945,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.126,
-          "string_gauge": 1.3,
+          "scale_length": 0.1575,
+          "string_gauge": 1.3735,
           "finish": 0,
           "string_tuning": 1.3
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.0945,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -129,9 +129,9 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1.663,
           "shell_thickness": 0,
-          "bearing_edges": 0.9029999999999999,
+          "bearing_edges": 0.7664999999999998,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.1685,
           "cymbal_hammering": 8.494499999999999,
           "cymbal_lathing": 8.731499999999997,
           "cymbal_finish": 0
@@ -144,8 +144,8 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0.063,
-          "keyboard_technique": 0.1365
+          "electronic_keyboard_identity": 0.105,
+          "keyboard_technique": 0.105
         }
       },
       {

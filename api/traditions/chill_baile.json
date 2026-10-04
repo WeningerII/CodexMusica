@@ -2,28 +2,61 @@
   "id": "chill_baile",
   "name": "Chill Baile",
   "family": "electronic",
-  "lineage": "VHOOR with guest Maffalda/DJ Tonias: complete broadcaster-issued Aquecimento programme, NTS12February2026. Full selected DJ programme retained, including the host selection and guest mix and all embedded vocal/instrumental content; not just the track named Chill Baile Antes Do Fim. The producer describes a guest mix and supplies the programme tracklist. No track duration, exact deck count, playback medium, synthesis inventory, live vocal headcount or source studio apparatus is inferred. The programme includes broader baile funk, R&B and club repertoire: it is a documented contemporary practice of two positively identified chill-baile community artists, not a claim every included record is exclusively chill baile. Existing medium-unspecified DJ playback/mixing owner preserves the whole documented performance. No source mechanisms or absent voices invented. Treated studio is an authored controlled listening rendition, not actual NTS acoustics. Global tuning and capture apparatus omitted. Existing electronicDance.latinElec parent models the positive Brazilian funk/electronic dance lineage; numerical axes remain neutral editorial coordinates.",
-  "recipe": "classic chill baile, electronic Dance, Latin electric branch. dj playback mixing unspecified. treated studio.",
-  "recipe_chars": 109,
-  "score": 0.105,
+  "lineage": "Chill baile connects Brazilian funk references with relaxed electronic production and overlapping R&B and club communities. Producers reshape rhythmic and melodic material into a more spacious branch of baile-related listening.",
+  "recipe": "classic chill baile, electronic Dance, Latin electric branch. sampler, drum machine analog. treated studio.",
+  "recipe_chars": 107,
+  "score": 8.035,
   "config": {
     "traditions": [
       "chill_baile"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "sampler_classic",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.105
+          "electronic_technique": 0.325,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 4.615
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.0945,
+          "snare_voice": 0.168,
+          "hat_voice": 0.126,
+          "shuffle_quantize": 2.5315
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +76,15 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

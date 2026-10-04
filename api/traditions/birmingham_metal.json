@@ -2,10 +2,10 @@
   "id": "birmingham_metal",
   "name": "Birmingham metal",
   "family": "rock_punk",
-  "lineage": "Birmingham metal scenes represented by Black Sabbath and Tony Iommi’s riff-led guitar practice. Direct interviews document the local amplifier connection, full guitar tone and evolution from early standard tuning toward later lower tunings.",
-  "recipe": "classic modern birmingham metal, distorted Rock, metal branch. equal tempered, one note per syllable. basswood conventional tuning standard pitch power chord humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 415,
-  "score": 43.323,
+  "lineage": "Birmingham has been central to heavy metal’s development, particularly through Black Sabbath’s riff-led music and its links with local amplification culture. The city’s wider metal scenes extend beyond that foundational heavy-guitar sound.",
+  "recipe": "classic modern birmingham metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 505,
+  "score": 45.896,
   "config": {
     "traditions": [
       "birmingham_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
@@ -24,30 +24,30 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_fender_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 14.761500000000002,
-          "amp_make": 0,
-          "body_wood": 5.329999999999999,
+          "electric_technique": 15.835,
+          "amp_make": 6.045,
+          "body_wood": 5.85,
           "neck_wood": 0.5775,
           "fretboard": 0.315,
-          "pickup_magnet": 0.0315,
-          "pickup_winding": 0.3045,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.37799999999999995,
           "string_material": 0.105,
           "bridge": 0.5775,
           "scale_length": 0,
-          "string_gauge": 1.7734999999999999,
+          "string_gauge": 0.7875,
           "finish": 0.105,
-          "string_tuning": 2.363
+          "string_tuning": 0.063
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 2.34,
           "body_wood": 1.155,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 1.468,
-          "fretted_or_not": 1.3,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
           "bass_technique": 0.18150000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.75,
-          "drumhead": 1.1995,
+          "drum_technique": 3.7815,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -107,12 +107,12 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 3.563000000000001,
+          "voice_microtone": 3.5315000000000007,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.08,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0.39,
@@ -123,7 +123,6 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "pickup_magnet",
         "string_material",
         "bridge",
@@ -131,7 +130,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "pickup_config",
         "string_type",
         "scale_length_b",
@@ -209,7 +207,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "drumhead": "single_coated",
       "drum_kit_kick_pedal": "dk_kick_single_felt"

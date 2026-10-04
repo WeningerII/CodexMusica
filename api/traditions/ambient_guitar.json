@@ -5,7 +5,7 @@
   "lineage": "1990s onward guitar-centered ambient practice represented by Windy & Carl: extended electric-string tones, bass foundation, and occasional keyboard sustain shape pieces without a conventional drum rhythm section. Their firsthand account emphasizes played textures through pedals and rack delays rather than computer transformation; this beatless guitar-bass-keyboard recipe uses an authored domestic tape model.",
   "recipe": "classic mid-1990s ambient guitar, experimental Elec, ambient branch, modal electric drone modal. maple pau ferro ceramic conventional tuning standard pitch single coil electric guitar, ampeg svt amp rock bass amp electric bass, sustained pad analog synth. bedroom. dynamic moving-coil, console-strip pre, solid-state clean, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette digital delay hall reverb.",
   "recipe_chars": 417,
-  "score": 30.51,
+  "score": 30.627,
   "config": {
     "traditions": [
       "ambient_guitar"
@@ -32,9 +32,9 @@
           "electric_technique": 0.26,
           "amp_make": 0.7149999999999997,
           "body_wood": 0.1562142857142857,
-          "neck_wood": 1.4712142857142858,
-          "fretboard": 1.4712142857142858,
-          "pickup_magnet": 1.4712142857142858,
+          "neck_wood": 1.5102142857142857,
+          "fretboard": 1.5102142857142857,
+          "pickup_magnet": 1.5102142857142857,
           "string_material": 0,
           "string_gauge": 0.29314285714285715,
           "bridge": 0.3306428571428571,
@@ -77,10 +77,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 12.202678571428569,
+          "electronic_technique": 12.241678571428569,
           "oscillator": 3.1254999999999997,
           "filter_topology": 2.8327142857142853,
-          "envelope": 0.23399999999999999,
+          "envelope": 0.195,
           "modulation": 0.0765
         }
       }

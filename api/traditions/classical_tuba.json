@@ -2,10 +2,10 @@
   "id": "classical_tuba",
   "name": "Classical tuba",
   "family": "classical",
-  "lineage": "Classical tuba is represented by Øystein Baadsvik and Niklas Sivelöv — Hindemith Tuba Sonata on Danzas. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic classical tuba, art Music, western modern branch. compact tuba yamaha ybb 841 modern Japanese legato tuba, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 290,
-  "score": 103.939,
+  "lineage": "Classical tuba performance extends from orchestral foundations to solo and chamber repertoire. Composers and performers explore its melodic range as well as its low-register weight.",
+  "recipe": "classic classical tuba, art Music, western modern branch. American orchestral yellow brass canonical orchestral rotary valves canonical German orchestral yamaha ybb 841 modern Japanese legato tuba, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 387,
+  "score": 100.258,
   "config": {
     "traditions": [
       "classical_tuba"
@@ -15,7 +15,7 @@
         "id": "tuba",
         "slots": {
           "wind_articulation": "wind_classical_legato",
-          "tuba_pitch": "tuba_eb",
+          "tuba_pitch": "tuba_cc",
           "tuba_context": "tuba_concerto",
           "tuba_bell_metal": "tuba_yellow_brass",
           "tuba_valve_system": "tuba_rotary_german",
@@ -23,11 +23,11 @@
         },
         "scores": {
           "wind_articulation": 7.6365,
-          "tuba_pitch": 3.3,
-          "tuba_context": 2.34,
-          "tuba_bell_metal": 0.8190000000000002,
-          "tuba_valve_system": 0.8190000000000002,
-          "tuba_maker_school": 2.34
+          "tuba_pitch": 2.3165,
+          "tuba_context": 1.95,
+          "tuba_bell_metal": 1.69,
+          "tuba_valve_system": 1.3,
+          "tuba_maker_school": 1.95
         }
       },
       {
@@ -36,8 +36,8 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_blue_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
@@ -45,14 +45,14 @@
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.507,
-          "grand_piano_brand": 0.9555,
-          "piano_hammer": 14.181000000000001,
-          "piano_rim": 13.36,
-          "piano_soundboard": 12,
-          "piano_pinblock": 12,
-          "piano_plate": 13.908,
-          "piano_pitch_standard": 12.273
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 13.3995,
+          "piano_rim": 11.5545,
+          "piano_soundboard": 11.25,
+          "piano_pinblock": 11.25,
+          "piano_plate": 13.05,
+          "piano_pitch_standard": 12.811
         }
       }
     ],

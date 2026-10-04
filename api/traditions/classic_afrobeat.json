@@ -2,10 +2,10 @@
   "id": "classic_afrobeat",
   "name": "Classic afrobeat",
   "family": "global",
-  "lineage": "Ebo Taylor — Feeling, complete2025 JID022 track7. Authored Afrobeat-family horn/groove realization: fingerstyle electric bass, neutral credited organ, Rhodes MarkI, modern drumkit and hand-played congas, alto plus two baritone section, concert flute, open tenor trombone and open B-flat trumpet. Saxophone attacks short/coordinated with legato brass/flute support; jazz flute and Rhodes chord support editorial compatible settings. Exact makers/materials are authored. Seven singers use an explicitly authored combined live-group rendition, not measured simultaneous take or absence of overdubs. Global tuning omitted. Recording source says analog tape, while library neutral digital studio chain is an explicitly modern editorial realization. Authored render amendment (supersedes earlier authored defaults, not source facts): body_wood=swamp_ash_b, pickup_config=dual_single, string_type=flatwound, trombone_technique=trombone_jazz_single_line. The complete source roster and repertoire are unchanged. This new arrangement uses a controlled live room; unspecified capture apparatus is omitted. Construction/material, pickup, articulation and room choices are editorial realizations, not recovered artist hardware or session techniques. Flat material choices apply to every compatible instrument owner, including both guitar and bass where present. No shared instrument, default, lexicon or engine change. The new authored vocal rendition uses small note groups per lyric syllable (neumatic singing), with source-unspecified articulation and neutral physiology. This is an editorial phrasing choice for all credited singers, not a claim about the recorded vocal technique; no clapping, extra singer or speech-only role is added.",
-  "recipe": "classic classic afrobeat, groove Percussion, Afro-diasporic electric branch. small note groups per syllable, group vocals, live take. flatwound fingerstyle locked electric bass, credited organ unspecified, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, maple bronze bell bronze machine hammered symmetric pattern drum kit, hands layered congas, saxophone section alto two baritones, treble-extended projecting silver flute, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore single line trombone, yellow brass canonical 70 30 bach stradivarius student friendly legato trumpet. live tracking.",
-  "recipe_chars": 811,
-  "score": 120.883,
+  "lineage": "Classic Afrobeat gathers the vintage African funk, highlife, rock and Afrobeat networks associated with pioneers such as Ebo Taylor, alongside later continuations of their sound. Its repertoire extends beyond a single national scene or fixed release-date boundary.",
+  "recipe": "classic classic afrobeat, groove Percussion, Afro-diasporic electric branch. flatwound fingerstyle locked electric bass, credited organ unspecified, rhodes electric, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, hands layered congas, saxophone section alto two baritones, flute, legato single line trombone, trumpet, alnico nickel humbucker electric guitar. live tracking.",
+  "recipe_chars": 416,
+  "score": 38.667,
   "config": {
     "traditions": [
       "classic_afrobeat"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.205,
-          "voice_ensemble_config": 4.3725,
+          "voice_speech_song": 0.105,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 3.9629999999999996,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },
@@ -56,7 +56,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "swamp_ash_b",
+          "body_wood": "alder_h",
           "pickup_config": "dual_single",
           "string_type": "flatwound",
           "scale_length_b": "long_scale_b",
@@ -68,10 +68,10 @@
           "amp_make": 0,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 5.300000000000001,
+          "string_type": 2.45,
           "scale_length_b": 0,
           "fretted_or_not": 0.16799999999999998,
-          "bass_technique": 9.249999999999998,
+          "bass_technique": 9.95,
           "electric_bass_string_configuration": 0
         }
       },
@@ -95,12 +95,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 0.5814999999999999,
-          "rhodes_model": 3.481,
+          "keyboard_technique": -0.035,
+          "rhodes_model": -0.035,
           "rhodes_use": 0.231,
-          "rhodes_tine_material": 3.0049999999999994,
-          "rhodes_hammer_tip": 3.3094999999999994,
-          "rhodes_pickup_position": 4.305
+          "rhodes_tine_material": 0.105,
+          "rhodes_hammer_tip": 0.4095,
+          "rhodes_pickup_position": 0.105
         }
       },
       {
@@ -119,17 +119,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 1.5,
-          "drumhead": 1.6,
+          "drum_technique": 2.5,
+          "drumhead": 1,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.9315,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
-          "bearing_edges": 3.1729999999999996,
+          "bearing_edges": 0.39,
           "snare_wires": 0,
-          "cymbal_alloy": 3.1000000000000005,
-          "cymbal_hammering": 8.3805,
-          "cymbal_lathing": 9.25,
-          "cymbal_finish": 0.3
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 2.8305000000000002,
+          "cymbal_lathing": 2.4000000000000004,
+          "cymbal_finish": 1
         }
       },
       {
@@ -141,7 +141,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.8365,
+          "percussion_technique": 4.1365,
           "conga_set": 0,
           "conga_skin": 0.16799999999999998,
           "conga_shell_wood": 0.16799999999999998
@@ -166,9 +166,9 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 1.2315,
+          "wind_articulation": -0.07,
           "flute_size": 0,
-          "flute_material": 3.1729999999999996,
+          "flute_material": 0.39,
           "flute_technique": 0,
           "flute_maker_school": 0.2415
         }
@@ -185,13 +185,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 1.2315,
-          "trombone_type": 4.550000000000001,
-          "trombone_mouthpiece": 7.781499999999999,
+          "wind_articulation": -0.07,
+          "trombone_type": -0.05,
+          "trombone_mouthpiece": -0.07,
           "trombone_mute": 0.063,
-          "trombone_technique": 4.613,
-          "trombone_bell_metal": 1.51,
-          "trombone_maker_school": 1.573
+          "trombone_technique": 1.013,
+          "trombone_bell_metal": 0.21,
+          "trombone_maker_school": 0.273
         }
       },
       {
@@ -206,13 +206,46 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.2315,
+          "wind_articulation": -0.07,
           "brass_size": 0.39,
-          "trumpet_mouthpiece": 6.449999999999999,
+          "trumpet_mouthpiece": -0.1,
           "brass_mute": 0.063,
-          "trumpet_technique": 3.3235,
-          "trumpet_bell_metal": 1.51,
+          "trumpet_technique": 0.7234999999999999,
+          "trumpet_bell_metal": 0.21,
           "trumpet_maker_school": 0.2415
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.1,
+          "amp_make": 0,
+          "body_wood": 0,
+          "neck_wood": 0.39,
+          "fretboard": -0.035,
+          "pickup_magnet": 1,
+          "pickup_winding": 2.0315,
+          "string_material": 1,
+          "bridge": 1,
+          "scale_length": 0.3989999999999999,
+          "string_gauge": 0.8049999999999999,
+          "finish": 0.0315,
+          "string_tuning": 0
         }
       }
     ],
@@ -303,6 +336,21 @@
         "trumpet_technique",
         "trumpet_bell_metal",
         "trumpet_maker_school"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
       ]
     },
     "room": "live_room",
@@ -340,7 +388,7 @@
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "amp_make": "amp_unspecified",
-      "body_wood": "swamp_ash_b",
+      "body_wood": "alder_h",
       "pickup_config": "dual_single",
       "string_type": "flatwound",
       "scale_length_b": "long_scale_b",
@@ -386,7 +434,18 @@
       "brass_mute": "no_mute_brass",
       "trumpet_technique": "trumpet_classical_legato",
       "trumpet_bell_metal": "trumpet_yellow_brass",
-      "trumpet_maker_school": "trumpet_bach_stradivarius"
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "string_tuning": "standard_tuning",
+      "electric_technique": "electric_clean_strummed",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum"
     },
     "pin_parts": true
   }

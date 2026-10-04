@@ -5,7 +5,7 @@
   "lineage": "The Australian electronic-pop lineage running from Melbourne and Sydney indie-dance of the early 2000s — Cut Copy, The Presets and Pnau on Modular Recordings — into the post-2011 Sydney beat-scene of Flume, Hermitude and Chet Faker; characterised by 100-125 BPM tempos, warm analogue-poly and wavetable pads over crisp sampled drum programming, heavily pitched and chopped vocal samples used as lead melody, hooks built from a single filtered synth swell rather than a chord progression, and a glossy but wide, reverberant mixdown.",
   "recipe": "classic 2000-2003 aussietronica, electronic Dance, continental branch, deep house house, idm glitch experimental electric, pop rock synthpop japanese technopop new romanticism. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly singing lead wavetable synth, glitched textural sampler, TR-909, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, mark 7 modern tine post 2007 reissue wide pickup gap more bell less bark block chord rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 760,
-  "score": 353.397,
+  "score": 353.668,
   "config": {
     "traditions": [
       "aussietronica",
@@ -40,15 +40,15 @@
           "voice_effort": 0,
           "voice_vibrato": 2.6325,
           "voice_articulation": 21.96999999999999,
-          "voice_microtone": 21.31,
-          "voice_tradition": 16.029999999999998,
+          "voice_microtone": 21.22,
+          "voice_tradition": 16.54,
           "voice_mechanism_compound": 3.1849999999999996,
           "voice_estill_quality": 2.6000000000000005,
           "voice_speech_song": 25.544999999999995,
           "voice_ensemble_config": 21.709999999999994,
-          "voice_ornament_system": 1.1199999999999999,
-          "voice_pitch_organization": 3.1150000000000007,
-          "voice_processing_chain": 20.400000000000002,
+          "voice_ornament_system": 1.0749999999999997,
+          "voice_pitch_organization": 3.1600000000000006,
+          "voice_processing_chain": 20.355,
           "voice_multitrack_stack": 6.955000000000001
         }
       },
@@ -61,7 +61,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 17.08,
+          "electronic_technique": 17.035,
           "poly_archetypes": 4.194999999999999,
           "poly_voices": 0.52,
           "poly_maker_lineage": 0.3249999999999998
@@ -72,14 +72,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "wt_position": "wt_morphing",
-          "wt_family": "wt_analog_emul",
+          "wt_family": "wt_vocal",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 17.08,
+          "electronic_technique": 17.035,
           "wt_position": 7.8,
           "wt_family": 0.345,
-          "wt_polyphony": 2.1300000000000003
+          "wt_polyphony": 2.085
         }
       },
       {
@@ -125,11 +125,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.165,
+          "amp_make": 5.255,
           "body_wood": 0.65,
           "pickup_config": 0.24,
           "string_type": 6.375,
-          "scale_length_b": 0.65,
+          "scale_length_b": 0.635,
           "fretted_or_not": 0,
           "bass_technique": 6.75,
           "electric_bass_string_configuration": 0
@@ -160,7 +160,7 @@
         },
         "scores": {
           "keyboard_technique": 16.279999999999998,
-          "rhodes_model": 0.635,
+          "rhodes_model": 0.59,
           "rhodes_use": 2.7299999999999995,
           "rhodes_tine_material": 1.39,
           "rhodes_hammer_tip": -0.6300000000000001,

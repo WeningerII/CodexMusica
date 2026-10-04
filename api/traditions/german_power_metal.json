@@ -5,7 +5,7 @@
   "lineage": "Germany’s power-metal scene is represented here by Blind Guardian’s guitar-led band core: harmonized electric-guitar leads, electric bass, drums and layered melodic voice. The artist’s official history establishes its Krefeld origin and evolution from speed metal, while its 1995 album notes explicitly credit Hansi Kürsch’s bass role. This selected recording model emphasizes electric-band passages and choral vocal layering rather than claiming that all German power metal requires a full orchestra.",
   "recipe": "classic mid-1990s german power metal, distorted Rock, metal branch. equal tempered, one note per syllable, all voices same rhythm, aurally tuned. humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 438,
-  "score": 33.457,
+  "score": 32.417,
   "config": {
     "traditions": [
       "german_power_metal"
@@ -39,9 +39,9 @@
           "string_material": 0.105,
           "bridge": 0.5775,
           "scale_length": 0,
-          "string_gauge": 1.552,
+          "string_gauge": 1.447,
           "finish": 0,
-          "string_tuning": 0.3045
+          "string_tuning": 0.063
         }
       },
       {
@@ -61,9 +61,9 @@
           "body_wood": 0.5775,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,17 +83,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 3.7815,
           "drumhead": 0.7245,
           "drum_kit_kick_pedal": 3.3799999999999994,
           "shell_wood": 0.42,
-          "shell_thickness": 0.1365,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 5.359500000000001,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 5.1495,
+          "cymbal_finish": 0.105
         }
       },
       {
@@ -122,17 +122,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
-          "voice_microtone": 3.563000000000001,
+          "voice_articulation": 0.1365,
+          "voice_microtone": 3.5315000000000007,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.0815000000000001,
-          "voice_ensemble_config": 1.2994999999999999,
+          "voice_speech_song": 0.7349999999999999,
+          "voice_ensemble_config": 1.1629999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5145,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.105
+          "voice_multitrack_stack": 0.21
         }
       }
     ],

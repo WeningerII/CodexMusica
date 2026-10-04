@@ -5,7 +5,7 @@
   "lineage": "French folk includes regional traditional repertoires and revival ensembles. Malicorne’s documented arrangements of traditional song, unaccompanied singing and dance music represent the chosen revival-band branch.",
   "recipe": "classic modern french folk, ballad Poetry. thick, incomplete closure resting, neutral third half flat, notated speech melody. French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, fiddle, dreadnought acoustic guitar, electric bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 433,
-  "score": 44.063,
+  "score": 44.426,
   "config": {
     "traditions": [
       "french_folk"
@@ -36,14 +36,14 @@
           "voice_quality": 2.8000000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.273,
-          "voice_articulation": -0.2,
+          "voice_vibrato": 0.310125,
+          "voice_articulation": -0.14,
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.47100000000000003,
+          "voice_mechanism_compound": 0.310125,
           "voice_estill_quality": 0,
           "voice_speech_song": 4.875,
-          "voice_ensemble_config": 0.9999999999999998,
+          "voice_ensemble_config": 1.0371249999999999,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 0.187125,
           "voice_processing_chain": 1,
@@ -63,7 +63,7 @@
         "scores": {
           "bowed_technique": 1.3,
           "hurdy_strings": 2.7083749999999998,
-          "hurdy_buzz": 2.337125,
+          "hurdy_buzz": 2.3,
           "hurdy_wheel_rosin": 2.3,
           "hurdy_string_material": 2.2475,
           "hurdy_tradition": 4.42375
@@ -81,9 +81,9 @@
         },
         "scores": {
           "bowed_technique": 1.3,
-          "fiddle_strings": 0.273,
-          "fiddle_bow": 0.273,
-          "fiddle_mute": 0.03712499999999999,
+          "fiddle_strings": 0.310125,
+          "fiddle_bow": 0.310125,
+          "fiddle_mute": 0.12374999999999999,
           "fiddle_articulation": 0.40950000000000003,
           "fiddle_string_configuration": 0
         }
@@ -100,9 +100,9 @@
         "scores": {
           "acoustic_technique": 2.95,
           "string_tuning": 0,
-          "top_wood": 0.273,
-          "back_sides": 0.273,
-          "string_acoustic": 0.273
+          "top_wood": 0.310125,
+          "back_sides": 0.310125,
+          "string_acoustic": 0.310125
         }
       },
       {
@@ -118,12 +118,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.25,
+          "amp_make": 0.28712499999999996,
           "body_wood": 0,
           "pickup_config": 0.12374999999999999,
-          "string_type": 0.39675,
+          "string_type": 0.433875,
           "scale_length_b": 0.12374999999999999,
-          "fretted_or_not": 1.610125,
+          "fretted_or_not": 1.69,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

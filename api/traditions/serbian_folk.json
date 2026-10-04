@@ -2,10 +2,10 @@
   "id": "serbian_folk",
   "name": "Serbian folk",
   "family": "vernacular",
-  "lineage": "Serbian folk: Unspecified frula player — Serbia: Dance Tunes, Folk Music of Yugoslavia (1952). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-1950s serbian folk, drone Modal, wind pipe branch. ornamented dance driving frula. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 195,
-  "score": 11.809,
+  "lineage": "Serbian folk music joins regional singing, instrumental melodies and social dance traditions. Village practice and later ensemble performance preserve local styles, with the communal kolo dance an important part of celebrations and cultural transmission.",
+  "recipe": "classic serbian folk, drone Modal, wind pipe branch. ornamented dance driving frula. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 183,
+  "score": 19.523,
   "config": {
     "traditions": [
       "serbian_folk"
@@ -19,8 +19,8 @@
           "frula_body_wood": "frula_plum_wood"
         },
         "scores": {
-          "frula_size_key": 5,
-          "frula_repertoire_style": 6.8095,
+          "frula_size_key": 6.049999999999999,
+          "frula_repertoire_style": 13.4735,
           "frula_body_wood": 0
         }
       }
@@ -40,13 +40,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "frula_repertoire_style": "frula_kolo_dance"

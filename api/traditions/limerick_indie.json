@@ -2,10 +2,10 @@
   "id": "limerick_indie",
   "name": "Limerick Indie",
   "family": "rock",
-  "lineage": "Waterdogs — Midnight Loser (2023), complete EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2020s limerick indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 378,
-  "score": 25.653,
+  "lineage": "Limerick independent music — regional Irish guitar bands and songwriters.",
+  "recipe": "classic limerick indie, distorted Rock, alternative branch. one note per syllable, single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 351,
+  "score": 27.105,
   "config": {
     "traditions": [
       "limerick_indie"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 1.449,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
@@ -58,7 +58,7 @@
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -73,14 +73,14 @@
           "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0.441,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.25,
+          "drum_technique": 6.999999999999999,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
@@ -132,8 +132,8 @@
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 6.181500000000001,
-          "cymbal_lathing": 6.2865,
+          "cymbal_hammering": 7.7315,
+          "cymbal_lathing": 7.836499999999999,
           "cymbal_finish": 0
         }
       }
@@ -236,7 +236,7 @@
       "electric_technique": "electric_fuzz_riff",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",

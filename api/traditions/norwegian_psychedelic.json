@@ -5,7 +5,7 @@
   "lineage": "Orsak:Oslo — documented 2023 instrumental quartet practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s norwegian psychedelic, distorted Rock. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 312,
-  "score": 29.813,
+  "score": 29.403,
   "config": {
     "traditions": [
       "norwegian_psychedelic"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 1.4365
+          "string_tuning": 1.3
         }
       },
       {
@@ -84,9 +84,9 @@
         },
         "scores": {
           "drum_technique": 6.999999999999999,
-          "drumhead": 1.4365,
+          "drumhead": 1.3,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.4365,
+          "shell_wood": 1.3,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,

@@ -3,9 +3,9 @@
   "name": "German shoegaze",
   "family": "rock",
   "lineage": "German shoegaze is represented here by JAGUWAR — Ringthing. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic german shoegaze, distorted Rock, alternative branch. group vocals. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 334,
-  "score": 30.243,
+  "recipe": "classic german shoegaze, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 320,
+  "score": 30.189,
   "config": {
     "traditions": [
       "german_shoegaze"
@@ -52,7 +52,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -62,7 +62,7 @@
           "pickup_config": 0.1365,
           "string_type": 8.125,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.054,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.543,
+          "voice_ensemble_config": 0.489,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.054
+          "voice_multitrack_stack": 0
         }
       }
     ],

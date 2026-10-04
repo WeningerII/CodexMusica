@@ -5,7 +5,7 @@
   "lineage": "Necrot — Cut the Cord, Lifeless Birth opening track (2024). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic mid-2020s new wave of osdm, distorted Rock, death branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 430,
-  "score": 40.846,
+  "score": 40.698,
   "config": {
     "traditions": [
       "new_wave_of_osdm"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
+          "voice_speech_song": 0.7575,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 1.9629999999999999,
           "voice_tessitura": 0
         }
@@ -82,7 +82,7 @@
           "scale_length": 1.743,
           "string_gauge": 1.447,
           "finish": 0.0315,
-          "string_tuning": 1.726
+          "string_tuning": 1.6945000000000001
         }
       },
       {
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.9885000000000002,
+          "drumhead": 1.957,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.2885,
+          "shell_wood": 2.257,
           "shell_thickness": 0,
           "bearing_edges": 0.44099999999999995,
           "snare_wires": 0,

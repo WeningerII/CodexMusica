@@ -2,10 +2,10 @@
   "id": "math_rock_latinoamericano",
   "name": "Math rock latinoamericano",
   "family": "rock",
-  "lineage": "Math rock latinoamericano is represented here by tortuganónima — Corrientes (Instrumental). This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic math rock latinoamericano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 322,
-  "score": 54.47,
+  "lineage": "Latin American math rock emphasizes intricate guitar interplay and irregular rhythmic patterns.",
+  "recipe": "classic math rock latinoamericano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital digital delay.",
+  "recipe_chars": 318,
+  "score": 29.429,
   "config": {
     "traditions": [
       "math_rock_latinoamericano"
@@ -18,50 +18,50 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 6.89,
-          "body_wood": 0.7979999999999999,
-          "neck_wood": 0.5145,
-          "fretboard": 0.5145,
-          "pickup_magnet": 0.357,
-          "pickup_winding": 0.357,
-          "string_material": 0.5145,
-          "bridge": 1.523875,
-          "scale_length": 1.344,
-          "string_gauge": 1.4608750000000001,
-          "finish": 0.1365,
-          "string_tuning": 0.337125
+          "amp_make": 6.5,
+          "body_wood": 0.693,
+          "neck_wood": 0.520125,
+          "fretboard": 0.063,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.252,
+          "string_material": 0.520125,
+          "bridge": 0.063,
+          "scale_length": 0,
+          "string_gauge": 0,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "swamp_ash_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.344999999999999,
-          "body_wood": 0.21,
-          "pickup_config": 0.38849999999999996,
-          "string_type": 17.55,
-          "scale_length_b": 0.483,
+          "amp_make": 6.954999999999999,
+          "body_wood": 0.693,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.5,
-          "drumhead": 0.5145,
+          "drum_technique": 12.75,
+          "drumhead": 0.520125,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -84,10 +84,26 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -107,7 +123,9 @@
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "digital_delay"
+    ]
   },
   "source": {
     "tuning": "twelve_tet",
@@ -117,7 +135,22 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",
@@ -126,6 +159,9 @@
     "chain_eq": "eq_active_parametric",
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "digital_delay"
+    ],
     "chain_amp_guitar": "amp_modern_modeling",
     "chain_amp_bass": "amp_american_ampeg_svt"
   }

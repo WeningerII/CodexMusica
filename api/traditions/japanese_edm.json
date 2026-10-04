@@ -2,10 +2,10 @@
   "id": "japanese_edm",
   "name": "Japanese edm",
   "family": "electronic",
-  "lineage": "Japanese edm is represented by Qrion — synth and chopped-sample production core. One documented branch receives an authored present-day studio realization.",
+  "lineage": "Japanese EDM encompasses producers and performers working across a range of electronic dance styles. Studio experimentation and local club experience contribute to both instrumental tracks and vocal collaborations.",
   "recipe": "classic japanese edm, electronic Dance, house branch. plucked short envelope wavetable synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 216,
-  "score": 16.469,
+  "score": 19.269,
   "config": {
     "traditions": [
       "japanese_edm"
@@ -20,8 +20,8 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 4.95,
-          "wt_position": 3.25,
+          "electronic_technique": 5.25,
+          "wt_position": 4.55,
           "wt_family": 0.1365,
           "wt_polyphony": 0.1365
         }
@@ -35,9 +35,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 1.2,
+          "electronic_technique": -0.1,
           "sample_bitdepth": 0.1365,
-          "sample_swing": 6.25,
+          "sample_swing": 8.75,
           "sample_processing": 0.40950000000000003
         }
       }

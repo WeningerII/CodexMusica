@@ -2,10 +2,10 @@
   "id": "nordic_ambient",
   "name": "Nordic ambient",
   "family": "electronic",
-  "lineage": "A regional discovery grouping of ambient practice from Nordic countries. The selected Biosphere branch uses electronic layers and sampled environments rather than an inherited folk ensemble. The documented Tromsø artist profile provides a practice anchor; regional affiliation does not establish a universal icy timbre, national tuning or compulsory ritual setting.",
+  "lineage": "Ambient music from the Nordic countries combines electronic composition, sampled environments and electroacoustic listening practices. Its regional networks include Norwegian artists such as Biosphere, whose work helped establish a widely heard synthesis-and-sampling approach.",
   "recipe": "classic nordic ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art german electronica. pad like sustained analog synth, field sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
   "recipe_chars": 292,
-  "score": 36.155,
+  "score": 37.13,
   "config": {
     "traditions": [
       "nordic_ambient",
@@ -23,9 +23,9 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 10,
+          "electronic_technique": 10.495,
           "oscillator": 0,
-          "filter_topology": 0.49499999999999994,
+          "filter_topology": 0.39,
           "envelope": 4.66,
           "modulation": 0
         }
@@ -40,11 +40,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 10,
-          "sampler_archetypes": 1.25,
+          "electronic_technique": 10.495,
+          "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.45499999999999996,
-          "sampler_workflow": 12.95,
-          "sampler_classic_context": 0.8449999999999999
+          "sampler_workflow": 13.495000000000001,
+          "sampler_classic_context": 1.6899999999999997
         }
       }
     ],

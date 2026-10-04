@@ -5,7 +5,7 @@
   "lineage": "Henry Godfrey Jazz Orchestra — Attitude & Gratitude (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s modern big band, improv On Frame, American jazz branch. yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris saxophone, bach stradivarius 180 canonical American orchestral student friendly trumpet, bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, tuba, conventional tuning standard pitch humbucker electric guitar, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 651,
-  "score": 114.307,
+  "score": 114.366,
   "config": {
     "traditions": [
       "modern_big_band"
@@ -26,8 +26,8 @@
           "wind_articulation": 0.9749999999999996,
           "sax_size": 0.325,
           "sax_reed": 0.1785,
-          "sax_body_alloy": 3.7985,
-          "sax_mouthpiece": 0.3315,
+          "sax_body_alloy": 3.9035,
+          "sax_mouthpiece": 0.39,
           "sax_technique": -0.10500000000000001,
           "sax_maker_school": 13.259999999999998
         }
@@ -144,8 +144,8 @@
           "grand_piano_size": 0.39,
           "grand_piano_brand": 2.068,
           "piano_hammer": 3.8615,
-          "piano_rim": 4.1615,
-          "piano_soundboard": 3.71,
+          "piano_rim": 4.0565,
+          "piano_soundboard": 3.605,
           "piano_pinblock": 4.5,
           "piano_plate": 3.5,
           "piano_pitch_standard": 5.005
@@ -185,7 +185,7 @@
           "shell_thickness": 0,
           "bearing_edges": 1.69,
           "snare_wires": 0.147,
-          "cymbal_alloy": 10.246999999999998,
+          "cymbal_alloy": 10.351999999999999,
           "cymbal_hammering": 3.3600000000000003,
           "cymbal_lathing": 4.0965,
           "cymbal_finish": 0.063

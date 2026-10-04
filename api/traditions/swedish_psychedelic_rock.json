@@ -2,10 +2,10 @@
   "id": "swedish_psychedelic_rock",
   "name": "Swedish psychedelic rock",
   "family": "rock",
-  "lineage": "Swedish psychedelic rock is represented here by The Ocho — selected synth-and-guitar core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Swedish psychedelic rock connects exploratory guitar music with progressive development and electronic keyboard colour.",
   "recipe": "classic swedish psychedelic rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 55.746,
+  "score": 46.43,
   "config": {
     "traditions": [
       "swedish_psychedelic_rock"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.15000000000000002,
-          "amp_make": 6.5,
+          "amp_make": 5.720000000000001,
           "body_wood": 0.273,
           "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.168,
           "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 1.4785,
+          "bridge": 0.1785,
           "scale_length": 0.8190000000000001,
-          "string_gauge": 1.51,
+          "string_gauge": 0.21000000000000002,
           "finish": 0,
-          "string_tuning": 0.363
+          "string_tuning": 0.063
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 6.175,
           "body_wood": 0.0315,
           "pickup_config": 0.063,
-          "string_type": 16.575,
+          "string_type": 14.625,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.3,
+          "drum_technique": 11.25,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -85,13 +85,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.2,
-          "poly_archetypes": 6.629999999999999,
-          "poly_voices": 0.3,
+          "electronic_technique": -0.1,
+          "poly_archetypes": 5.85,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       }

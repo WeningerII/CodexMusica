@@ -2,10 +2,10 @@
   "id": "norsk_lovsang",
   "name": "Norsk lovsang",
   "family": "global",
-  "lineage": "Impuls — Himmelhøyt, complete issued song on Utbryter(2011). The Norwegian worship network catalog supplies six named performers: Thomas Wilhelmsen voice, Morten Bjørkhaug drums, Sveinung Fjermestad bass, Eivind Thoreid Torgersen keyboards, Tore Kulleseid and Mathias Tjomsland electric guitars. Retain all six people and five sound families; two electric guitarists share a family card, not one falsely counted guitarist. No acoustic guitar, string guest or singer from neighboring album tracks is imported. This is the entire separately published song, not a vocal extraction or opaque master-playback substitute. Authored present-day band rendition of the complete selected song. One credited singer, two electric guitar players, bass, drums and source-unspecified keyboards retained. Natural single lead tracking is an authored rendition, not proof no studio overdubs exist. Generic keyboard stays neutral, without invented synthesizer/organ architecture. Clean strummed alder humbucker guitar, long-scale alder soapbar fingerstyle bass, single-kick maple stick kit and live-room recapture are editorial physical/playing choices, not actual source hardware. Source tempo150BPM and keyB are metadata only; no global temperament inferred. Broad ritualDevotional.christianGospel follows positive Christian sung worship function; it does not assert Black-gospel style. No exact recording chain invented.",
-  "recipe": "classic early-2010s norsk lovsang, ritual Devotional, christian gospel branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. alder maple humbucker electric guitar, alder fingerstyle locked electric bass, low fundamental tuning all purpose maple drum kit, electronic keyboard unspecified. live tracking.",
-  "recipe_chars": 362,
-  "score": 28.746,
+  "lineage": "Norsk lovsang connects Norwegian church songwriters, worship bands and congregations through local ministries and national networks. Contemporary songs circulate alongside hymn and gospel traditions across denominations.",
+  "recipe": "classic norsk lovsang, ritual Devotional, christian gospel branch. humbucker electric guitar, electric bass, drum kit, electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 166,
+  "score": 2.253,
   "config": {
     "traditions": [
       "norsk_lovsang"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.6,
-          "voice_multitrack_stack": 9.399999999999999,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.5000000000000004,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
-          "neck_wood": 1.3,
+          "body_wood": 0,
+          "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.294,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
+          "body_wood": 0,
           "pickup_config": 0.7035,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -127,7 +127,7 @@
           "drum_technique": -0.05,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.6,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.40950000000000003,
           "snare_wires": 0,
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.4095
+          "keyboard_technique": 0.39
         }
       }
     ],

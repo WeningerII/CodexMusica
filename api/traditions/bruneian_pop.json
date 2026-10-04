@@ -2,10 +2,10 @@
   "id": "bruneian_pop",
   "name": "Bruneian pop",
   "family": "pop",
-  "lineage": "Bruneian pop is represented here by Aziz Harun — selected acoustic solo core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic bruneian pop, functional Song, east Asian pop branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 297,
-  "score": 18.665,
+  "lineage": "Bruneian pop connects Brunei’s singers and songwriters with contemporary regional popular music.",
+  "recipe": "classic bruneian pop, functional Song. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 244,
+  "score": 10.58,
   "config": {
     "traditions": [
       "bruneian_pop"
@@ -43,28 +43,28 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
-          "voice_ornament_system": 0.1365,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.6315000000000002,
-          "voice_multitrack_stack": 0.16799999999999998
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "d_standard",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
-          "string_acoustic": "thomastik_flat_top"
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 12.763,
-          "string_tuning": 0.2315,
-          "top_wood": 0.231,
-          "back_sides": 0.1995,
-          "string_acoustic": 0.7034999999999999
+          "acoustic_technique": 8.2,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
         }
       }
     ],

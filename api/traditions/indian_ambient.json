@@ -30,7 +30,7 @@
           "sitar_neck": 0.39,
           "sitar_resonator": 1.3,
           "sitar_jawari": 0.9099999999999999,
-          "sitar_taraf": 0.5507142857142857,
+          "sitar_taraf": 0.435,
           "sitar_frets": 0.3,
           "sitar_pluck": 1,
           "sitar_main_strings": 0.84,
@@ -51,7 +51,7 @@
           "electronic_technique": 10.575428571428569,
           "oscillator": 1.1999999999999997,
           "filter_topology": 0.39,
-          "envelope": 4.063571428571429,
+          "envelope": 4.179285714285714,
           "modulation": 0
         }
       }

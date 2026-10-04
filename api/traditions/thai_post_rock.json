@@ -2,10 +2,10 @@
   "id": "thai_post_rock",
   "name": "Thai post-rock",
   "family": "rock",
-  "lineage": "Thai post-rock is represented here by BYND — Bloom. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic thai post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 330,
-  "score": 58.405,
+  "lineage": "Thai post-rock develops instrumental guitar music through atmospheric textures and influences from jazz and psychedelic rock.",
+  "recipe": "classic thai post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 360,
+  "score": 60.792,
   "config": {
     "traditions": [
       "thai_post_rock"
@@ -22,26 +22,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.10500000000000001,
-          "amp_make": 6.5,
+          "amp_make": 7.0200000000000005,
           "body_wood": 0.5565,
-          "neck_wood": 0.41512499999999997,
-          "fretboard": 0.41512499999999997,
+          "neck_wood": 0.50175,
+          "fretboard": 0.50175,
           "pickup_magnet": 0.147,
           "pickup_winding": 0.42825,
-          "string_material": 0.41512499999999997,
-          "bridge": 1.69,
-          "scale_length": 1.0346250000000001,
-          "string_gauge": 1.69,
+          "string_material": 0.50175,
+          "bridge": 0.10012499999999999,
+          "scale_length": 1.1212499999999999,
+          "string_gauge": 0.063,
           "finish": 0.1365,
-          "string_tuning": 0.39
+          "string_tuning": 0
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.21,
           "pickup_config": 0.1785,
-          "string_type": 16.575,
+          "string_type": 17.875,
           "scale_length_b": 0.273,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.7314999999999999,
+          "drum_technique": 13.75,
+          "drumhead": 2.4815,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -90,8 +90,8 @@
         },
         "scores": {
           "electronic_technique": 0.237125,
-          "poly_archetypes": 6.629999999999999,
-          "poly_voices": 0.337125,
+          "poly_archetypes": 7.15,
+          "poly_voices": 0.37424999999999997,
           "poly_maker_lineage": -0.035
         }
       }

@@ -2,10 +2,10 @@
   "id": "ethiopian_traditional",
   "name": "Ethiopian Traditional",
   "family": "vernacular",
-  "lineage": "Mahay Sofa — Tene eko, complete six-minute recording. Complete six-minute Tene eko by Mahay Sofa, UNESCO UNES08074_107, released1985 from field recordings made1972 in Addis Ababa. Exact issuer track record credits Mahay Sofa alone with lead voice and krar; Dorze culture and Amharic language. No other album performers or instruments imported. Publisher commentary identifies inherited three-generation family repertoire combining love poetry, Dorze pride songs and proverbs. Authored concert-hall voice-and-krar recital realization; five-string wooden bowl/cowhide and historical-type gut strings are candid catalog physical choices, not measured1972 instrument materials/string count. Source krar family only is positive. Solo natural voice with unspecified physiology, pitch system and mechanism; no global tuning or invented capture apparatus. No whole-recording audio inspection claimed. The large recital room is an explicitly new performance setting for the documented repertoire, not a claim about the1972 field-recording space. Gut string choice is an authored historical-type construction, not proof of original string material.",
-  "recipe": "classic ethiopian traditional, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. wood gut ethiopian historical krar. shoebox concert hall.",
-  "recipe_chars": 209,
-  "score": 27.619,
+  "lineage": "Ethiopian traditional music encompasses inherited repertoires across the country’s diverse communities. Family transmission, poetic performance, regional celebrations and devotional institutions sustain distinct musical languages rather than one national style.",
+  "recipe": "classic ethiopian traditional, ballad Poetry. solo with instrumental accompaniment. wood gut ethiopian historical krar. shoebox concert hall.",
+  "recipe_chars": 141,
+  "score": 7.12,
   "config": {
     "traditions": [
       "ethiopian_traditional"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.718999999999999,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 7.1,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -60,9 +60,9 @@
           "krar_string_material": "krar_gut_historical"
         },
         "scores": {
-          "krar_strings": 1.6,
-          "krar_body": 1.6,
-          "krar_string_material": 11.299999999999999
+          "krar_strings": 2,
+          "krar_body": 2,
+          "krar_string_material": 1.95
         }
       }
     ],

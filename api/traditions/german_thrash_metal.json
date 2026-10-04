@@ -2,10 +2,10 @@
   "id": "german_thrash_metal",
   "name": "German thrash metal",
   "family": "rock_punk",
-  "lineage": "German thrash-metal discovery field represented by Kreator’s Essen-rooted guitar, bass, drum and vocal practice, with the band’s different eras acknowledged rather than collapsed into a single historical session.",
-  "recipe": "classic modern german thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 490,
-  "score": 57.89,
+  "lineage": "German thrash metal grew around forceful electric-band playing, with Essen’s Kreator among its defining groups.",
+  "recipe": "classic modern german thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 436,
+  "score": 43.71,
   "config": {
     "traditions": [
       "german_thrash_metal"
@@ -15,40 +15,40 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "poly_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 10.319999999999999,
-          "amp_make": 8.58,
-          "body_wood": 4.9399999999999995,
-          "neck_wood": 0.5459999999999999,
+          "electric_technique": 9.814499999999999,
+          "amp_make": 4.355,
+          "body_wood": 4.55,
+          "neck_wood": 0.1365,
           "fretboard": 0.39,
-          "pickup_magnet": 0.78,
-          "pickup_winding": 0.354,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.1785,
           "string_material": 0.1365,
-          "bridge": 1.69,
-          "scale_length": 4.9399999999999995,
-          "string_gauge": 1.252,
+          "bridge": 1.3,
+          "scale_length": 0,
+          "string_gauge": 0.826,
           "finish": 0,
-          "string_tuning": 2.34
+          "string_tuning": 1.95
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "basswood_h",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.575,
-          "body_wood": 1.0920000000000003,
-          "pickup_config": 0.78,
+          "amp_make": 2.275,
+          "body_wood": 4.55,
+          "pickup_config": 0.39,
           "string_type": 4.875,
           "scale_length_b": 0.5459999999999999,
-          "fretted_or_not": 0.2535,
-          "bass_technique": 3.7855000000000003,
+          "fretted_or_not": 0.168,
+          "bass_technique": 3.817,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,19 +113,31 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 2.08,
-          "voice_ornament_system": 0.354,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.9300000000000002
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.39
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -189,7 +201,18 @@
       "electric_technique": "electric_palm_muted_chug",
       "string_tuning": "eb_standard",
       "bass_technique": "pick_aggressive",
-      "drum_technique": "sticks_punk"
+      "drum_technique": "sticks_punk",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "amp_make": "amp_mesa_dual_rectifier"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -2,10 +2,10 @@
   "id": "kermis",
   "name": "Kermis",
   "family": "pop",
-  "lineage": "Trammeland — complete nine-member core band, January2018 interview. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic kermis, functional Song. group vocals, live take. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 368,
-  "score": 20.524,
+  "lineage": "Kermis music accompanies Dutch fairground festivities with familiar popular songs, local party repertoire and communal singing.",
+  "recipe": "classic kermis, functional Song. low-mid-thick articulate mahogany maple humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified, trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 385,
+  "score": 12.327,
   "config": {
     "traditions": [
       "kermis"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0.6,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.75,
+          "electric_technique": 2.45,
           "amp_make": 0,
-          "body_wood": 0.1905,
+          "body_wood": 1.1905000000000001,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -80,9 +80,9 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.1905,
+          "body_wood": 1.1905000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.254,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 0.13000000000000003,
-          "cymbal_hammering": 3.204,
-          "cymbal_lathing": 3.1500000000000004,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 2.754,
+          "cymbal_lathing": 2.7,
           "cymbal_finish": 0
         }
       },
@@ -144,7 +144,7 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0,
+          "electronic_keyboard_identity": 0.3,
           "keyboard_technique": 0
         }
       },
@@ -160,12 +160,12 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.19500000000000003,
+          "wind_articulation": -0.10500000000000001,
           "brass_size": 0.054,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0.3,
-          "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 0,
+          "brass_mute": 0,
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 0.3,
           "trumpet_maker_school": 0
         }
       }

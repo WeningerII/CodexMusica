@@ -5,7 +5,7 @@
   "lineage": "Umbrella Mexican brass-and-reed band tradition seeded by nineteenth-century military and municipal band reforms under Maximilian and the Porfiriato, standardized on clarinets, cornets or trumpets, alto horns, trombones, tuba, tambora and platillos, playing marchas, valses, pasodobles and sones at 2/4 and 3/4 with the tuba supplying a bass line that later became the harmonic engine of every regional banda style.",
   "recipe": "classic North American early-1940s banda de viento, functional Song, Mexican branch, American marching groove percussion, andean carnival processional marching band. composite resin blackwood dust clarinet, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass trombone trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, eb bass brass band sousaphone, double bass rapid double strokes bass drum, gold brass warmer tone saxophone. us uk civic amateur band hall. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 839,
-  "score": 113.271,
+  "score": 113.155,
   "config": {
     "traditions": [
       "banda_de_viento",
@@ -65,9 +65,9 @@
         "scores": {
           "wind_articulation": 2.8600000000000003,
           "trombone_type": 0,
-          "trombone_mouthpiece": 6.60375,
+          "trombone_mouthpiece": 6.64875,
           "trombone_mute": 0.65,
-          "trombone_technique": 0.5399999999999999,
+          "trombone_technique": 0.585,
           "trombone_bell_metal": 3.3799999999999994,
           "trombone_maker_school": 4.8100000000000005
         }
@@ -84,11 +84,11 @@
         },
         "scores": {
           "wind_articulation": 1.355,
-          "tuba_pitch": 10.459999999999999,
+          "tuba_pitch": 10.309999999999999,
           "tuba_context": 11.18,
           "tuba_bell_metal": 2.7299999999999995,
           "tuba_valve_system": 5.005,
-          "tuba_maker_school": 10.985
+          "tuba_maker_school": 10.936249999999998
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "sousaphone_bore": 5.07,
-          "sousaphone_context": 10.79
+          "sousaphone_context": 10.782499999999999
         }
       },
       {

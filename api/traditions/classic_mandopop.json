@@ -2,10 +2,10 @@
   "id": "classic_mandopop",
   "name": "Classic Mandopop",
   "family": "pop",
-  "lineage": "Chen Zhangyi — Olive Tree, from Three Chyi Yu Songs (2010). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2010s classic mandopop, functional Song. solo and ensemble string orchestra obbligato violin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 206,
-  "score": 3.516,
+  "lineage": "Classic Mandopop preserves influential Mandarin-language popular songs through recordings, renewed performances and arrangements. Lyrical melodies remain recognizable across changes in singers and accompaniment.",
+  "recipe": "classic classic mandopop, functional Song. solo and ensemble string orchestra obbligato violin. shoebox concert hall.",
+  "recipe_chars": 117,
+  "score": 3.96,
   "config": {
     "traditions": [
       "classic_mandopop"
@@ -18,8 +18,8 @@
           "string_orchestra_obbligato_technique": "strings_obbligato_song_melody"
         },
         "scores": {
-          "string_orchestra_obbligato_layout": 3.3799999999999994,
-          "string_orchestra_obbligato_technique": 0.1365
+          "string_orchestra_obbligato_layout": 3.769999999999999,
+          "string_orchestra_obbligato_technique": 0.1905
         }
       }
     ],
@@ -29,15 +29,15 @@
         "string_orchestra_obbligato_technique"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -46,17 +46,11 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
       "string_orchestra_obbligato_technique": "strings_obbligato_song_melody"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

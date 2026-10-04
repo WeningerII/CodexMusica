@@ -2,10 +2,10 @@
   "id": "classic_nz_pop",
   "name": "Classic nz pop",
   "family": "pop",
-  "lineage": "New Zealand’s historical chart and television pop scene, with a selected early-1960s beat-group model. Te Ara documents independent labels, teen clubs, local television, R&B and Shadows-influenced guitars; the wider scene also contained country-pop, vocalists and psychedelic groups.",
-  "recipe": "classic 1960-1963 classic nz pop, functional Song, pop rock branch. solo with instrumental accompaniment. Fender blackface amp American 60s amp spring reverb bright soft down tuning clean single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 494,
-  "score": 54.669,
+  "lineage": "Classic New Zealand pop includes the historical chart, television and dance-club scenes that developed around local labels and touring bands. Ray Columbus and the Invaders exemplify the early-1960s meeting of beat-group pop, R&B and guitar-led rock.",
+  "recipe": "classic 1960-1963 classic nz pop, functional Song, pop rock branch. soft down tuning clean strummed single coil electric guitar, electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 340,
+  "score": 45.006,
   "config": {
     "traditions": [
       "classic_nz_pop"
@@ -27,9 +27,10 @@
           "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -42,25 +43,26 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.063,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 0.363,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.231,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.1575
+          "voice_multitrack_stack": 0.39,
+          "voice_tessitura": 0
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_blackface",
-          "body_wood": "swamp_ash",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
           "neck_wood": "mahogany_neck",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_3",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -68,41 +70,41 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 15.357499999999998,
-          "amp_make": 3.722000000000001,
-          "body_wood": 0,
-          "neck_wood": 0.3705,
+          "electric_technique": 14.1575,
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.0315,
           "string_material": 0.0315,
-          "string_gauge": 0.26549999999999996,
+          "string_gauge": 0.1995,
           "bridge": 0.1365,
-          "scale_length": 0.636,
+          "scale_length": 0.378,
           "finish": 0,
-          "string_tuning": 3.25,
+          "string_tuning": 5.85,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_fender_tweed",
-          "body_wood": "swamp_ash",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_motown",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.2890000000000006,
-          "body_wood": 0,
-          "pickup_config": 0.3045,
-          "string_type": 4.875,
-          "scale_length_b": 0.26549999999999996,
-          "fretted_or_not": 0.0315,
-          "bass_technique": -0.05,
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 0.25,
           "electric_bass_string_configuration": 0
         }
       },
@@ -114,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.7815,
-          "drumhead": 15.4415,
+          "drum_technique": 6.5815,
+          "drumhead": 13.9415,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -137,16 +139,24 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "electric_guitar_single_coil": [
         "electric_technique",
+        "amp_make",
         "body_wood",
         "string_material"
       ],
       "electric_bass": [
+        "amp_make",
         "body_wood",
-        "bass_technique"
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique"
@@ -163,36 +173,41 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_clean_strummed",
       "bass_technique": "pick_motown",
       "drum_technique": "sticks_rock",
-      "body_wood": "swamp_ash",
-      "string_material": "nickel_plated"
+      "body_wood": "alder",
+      "string_material": "nickel_plated",
+      "amp_make": "amp_unspecified",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

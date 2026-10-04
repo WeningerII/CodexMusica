@@ -2,10 +2,10 @@
   "id": "spanish_techno",
   "name": "Spanish techno",
   "family": "electronic",
-  "lineage": "Spain-centered techno producers and club networks, represented here by Paco Osuna’s Barcelona-associated, groove-oriented branch. His documented studio combines Ableton and plug-ins with a Waldorf Pulse; a Roland909 is available but, by his own account, used only occasionally.",
+  "lineage": "Spanish techno connects producers, clubs and labels working across lean grooves, harder electronic rhythm and atmospheric sound design. Hardware and computer-based studio practice support the scene’s varied approaches.",
   "recipe": "classic modern spanish techno, electronic Dance, techno branch. analog synth, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 289,
-  "score": 1.261,
+  "score": 0.183,
   "config": {
     "traditions": [
       "spanish_techno"
@@ -36,9 +36,9 @@
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 0.7815,
+          "tr909_voice": -0.035,
           "drum_machine_909_context": -0.035,
-          "tr909_production_origin": -1.435
+          "tr909_production_origin": -1.4473749999999999
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "south_african_electronic",
   "name": "South african electronic",
   "family": "electronic",
-  "lineage": "South african electronic is represented by Ralf GUM with Mafikizolo — Uyakhala Main Mix electronic-vocal core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic south african electronic, electronic Dance, African dance branch. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 215,
-  "score": 1.127,
+  "lineage": "South African electronic music encompasses dance production and electronic songwriting shaped by local artists and collaborative networks. Vocal house is one strand within a much broader national electronic field.",
+  "recipe": "classic south african electronic, electronic Dance, African dance branch. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 214,
+  "score": 0.998,
   "config": {
     "traditions": [
       "south_african_electronic"
@@ -15,30 +15,30 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "jupiter_8",
-          "poly_voices": "poly_8_voice",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "poly_archetypes": 0.378,
-          "poly_voices": 0.378,
+          "electronic_technique": 0.26,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "drum_machine_analog",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
-          "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.105,
-          "sample_swing": 0,
-          "sample_processing": 0.105
+          "kick_voice": 0.4095,
+          "snare_voice": 0.0315,
+          "hat_voice": 0.0315,
+          "shuffle_quantize": -0.035
         }
       },
       {
@@ -83,12 +83,16 @@
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
-      "sampler_drum_machine": [
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ],
       "voice": [
         "voice_register",
@@ -145,9 +149,13 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "electronic_technique": "electronic_pad_drone",
-      "sample_bitdepth": "twenty_four_bit",
-      "sample_swing": "mid_swing",
-      "sample_processing": "one_shots_layered"
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

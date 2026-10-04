@@ -3,14 +3,14 @@
   "name": "Deathrock",
   "family": "rock_punk",
   "lineage": "Los Angeles offshoot of punk formed 1979-1983 around Christian Death, 45 Grave, Kommunity FK and Super Heroines — mid-tempo 100-140 BPM tom-heavy tribal drumming, high melodic bass carrying the riff, thin chorused and heavily reverbed guitar playing single-note minor figures, cheap string synth or organ pads and declamatory, theatrical vocals over horror and decadence imagery.",
-  "recipe": "classic North American 1979-1983 deathrock, distorted Rock, gothic rock branch, punk distorted rock, pop rock new wave gothabilly rock abc paulista. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 696,
-  "score": 321.762,
+  "recipe": "classic North American 1979-1983 deathrock, distorted Rock, gothic rock branch, punk distorted rock, pop rock new wave gothabilly argentine punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 688,
+  "score": 318.317,
   "config": {
     "traditions": [
       "deathrock",
       "gothabilly",
-      "rock_abc_paulista"
+      "argentine_punk"
     ],
     "instruments": [
       {
@@ -27,29 +27,29 @@
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 27.164999999999992,
-          "voice_quality": 9.945,
+          "voice_register": 25.239999999999995,
+          "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8850000000000007,
-          "voice_articulation": 14.754999999999995,
-          "voice_microtone": 27.324999999999996,
-          "voice_tradition": 5.369999999999999,
-          "voice_mechanism_compound": 5.2975,
-          "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 15.144999999999992,
-          "voice_ensemble_config": 13.584999999999994,
+          "voice_vibrato": 4.535,
+          "voice_articulation": 14.169999999999996,
+          "voice_microtone": 24.099999999999998,
+          "voice_tradition": 2.7625,
+          "voice_mechanism_compound": 6.272500000000001,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 13.779999999999994,
+          "voice_ensemble_config": 14.505,
           "voice_ornament_system": 1.3899999999999997,
           "voice_pitch_organization": 2.5950000000000006,
-          "voice_processing_chain": 2.795,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 1.95,
+          "voice_multitrack_stack": 2.325
         }
       },
       {
@@ -66,12 +66,12 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "d_standard",
+          "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 9.45,
-          "amp_make": 24.735,
+          "electric_technique": 13.45,
+          "amp_make": 28.085,
           "body_wood": 1.3,
           "neck_wood": 1.3,
           "fretboard": 1.2349999999999999,
@@ -81,7 +81,7 @@
           "bridge": 0.39,
           "scale_length": 1.3,
           "finish": 1,
-          "string_tuning": 12.545,
+          "string_tuning": 11.895,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.509999999999998,
+          "amp_make": 15.665,
           "body_wood": 1.3,
           "pickup_config": 0.39,
-          "string_type": 28.775,
+          "string_type": 27.15,
           "scale_length_b": 1.3,
           "fretted_or_not": 0.045,
-          "bass_technique": 34.295,
+          "bass_technique": 36.67,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,22 +116,22 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.05,
-          "drumhead": 4,
+          "drum_technique": 22.424999999999997,
+          "drumhead": 2.125,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 3.92,
-          "poly_archetypes": 12.35,
+          "electronic_technique": 2.7300000000000004,
+          "poly_archetypes": 11.504999999999999,
           "poly_voices": 0,
           "poly_maker_lineage": 5.005000000000001
         }

@@ -2,10 +2,10 @@
   "id": "romanian_contemporary_classical",
   "name": "Romanian contemporary classical",
   "family": "classical",
-  "lineage": "Romanian contemporary classical is represented by Ian Pace — Rădulescu: Piano Sonata No. 1. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
-  "recipe": "classic romanian contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 242,
-  "score": 95.626,
+  "lineage": "Romanian contemporary classical music includes experimental and other new approaches to concert composition. Explorations of resonance, texture and musical structure appear across different instrumental and vocal settings.",
+  "recipe": "classic romanian contemporary classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 264,
+  "score": 84.347,
   "config": {
     "traditions": [
       "romanian_contemporary_classical"
@@ -18,22 +18,22 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.5,
-          "grand_piano_size": 0.294,
-          "grand_piano_brand": 2.9899999999999998,
-          "piano_hammer": 16.576,
-          "piano_rim": 13.8625,
-          "piano_soundboard": 12.18,
-          "piano_pinblock": 12.55875,
-          "piano_plate": 15.132750000000001,
-          "piano_pitch_standard": 14.532250000000001
+          "keyboard_technique": 7.854,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 2.6,
+          "piano_hammer": 13.9635,
+          "piano_rim": 11.5545,
+          "piano_soundboard": 11.25,
+          "piano_pinblock": 11.25,
+          "piano_plate": 13.51125,
+          "piano_pitch_standard": 11.97375
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Three-voice Caucasian vocal polyphony documented across Guria, Svaneti, Kakheti and Samegrelo, transcribed from the 1880s by Zakaria Paliashvili and Dimitri Arakishvili and recorded on wax cylinder from 1901, built on a bass drone or moving bass with two upper parts colliding in seconds and fourths, non-tempered intervals near neutral thirds, sharp cadences resolving to open fifths, Gurian krimanchuli yodel breaks, and the extended supra table-song and Kakhetian long-song forms sung a cappella by male ensembles.",
   "recipe": "classic Caucasian mid-1880s georgian polyphony, drone Modal, vocal branch, christian gospel Russian orthodox, Slavic balkan field work byzantine chant russian orthodox liturgical chant. thick, declaimed, slow rate, interlocked note trading. drone bass choir georgian polyphonic, eastern georgian three string panduri, chonguri, voice like duduki georgian. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 441,
-  "score": 225.918,
+  "score": 226.053,
   "config": {
     "traditions": [
       "georgian_polyphony",
@@ -21,7 +21,7 @@
           "choir_georgian_polyphonic_voices": "choir_georgian_polyphonic_bani"
         },
         "scores": {
-          "choir_georgian_polyphonic_style": 16.303214285714283,
+          "choir_georgian_polyphonic_style": 16.348214285714285,
           "choir_georgian_polyphonic_context": 14.904999999999998,
           "choir_georgian_polyphonic_voices": 12.053214285714285
         }
@@ -48,7 +48,7 @@
         },
         "scores": {
           "voice_register": 7.12,
-          "voice_quality": 15.476428571428567,
+          "voice_quality": 15.566428571428567,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.015,

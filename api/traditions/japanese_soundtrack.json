@@ -3,9 +3,9 @@
   "name": "Japanese soundtrack scoring",
   "family": "classical",
   "lineage": "Japanese screen and game scoring consolidated from the 1950s onward — Toru Takemitsu's sparse modernist film scores for Kobayashi and Teshigahara, Joe Hisaishi's minimalist ostinato-and-melody writing for Miyazaki from 1984, Ryuichi Sakamoto's synth-and-orchestra hybrids, and the game lineage of Koichi Sugiyama and Nobuo Uematsu whose chiptune themes were later rescored for full orchestra — built on long-breathed diatonic or yo-scale themes, ostinato piano or harp figuration, restrained rubato, and orchestral colour weighted toward strings, woodwind solos and celesta.",
-  "recipe": "classic mid-1950s japanese soundtrack scoring, art Music, western modern branch, western common practice art music, east Asian pop functional song, retro aesthetic experimental electric classical guitar duo german romanticism. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass legato french horn, grenadilla African blackwood canonical modern conservatoire yamaha modern Japanese legato oboe, concert harp, legato celesta, choir cathedral satb, madake bamboo phyllostachys canonical Japanese root section continuous-airflow legato shakuhachi, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 921,
-  "score": 338.918,
+  "recipe": "classic mid-1950s japanese soundtrack scoring, art Music, western modern branch, western common practice art music, east Asian pop functional song, retro aesthetic experimental electric classical guitar duo german romanticism. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, norway spruce European alpine bigleaf maple western maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass legato french horn, grenadilla African blackwood canonical modern conservatoire yamaha modern Japanese legato oboe, concert harp, legato celesta, choir cathedral satb, jiari lacquered bore kinko tozan modern concert kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 946,
+  "score": 331.585,
   "config": {
     "traditions": [
       "japanese_soundtrack",
@@ -27,15 +27,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 6.625,
+          "keyboard_technique": 6.25,
           "grand_piano_size": 3.6399999999999997,
           "grand_piano_brand": 2.795,
-          "piano_hammer": 14.61,
-          "piano_rim": 12.945,
-          "piano_soundboard": 11.25,
-          "piano_pinblock": 11.4,
-          "piano_plate": 12.34,
-          "piano_pitch_standard": 15.86
+          "piano_hammer": 14.084999999999999,
+          "piano_rim": 12.57,
+          "piano_soundboard": 10.875,
+          "piano_pinblock": 11.025,
+          "piano_plate": 11.965,
+          "piano_pitch_standard": 16.134999999999998
         }
       },
       {
@@ -44,7 +44,7 @@
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "silver_wound_lamb_gut_violin",
           "orch_top_wood": "norway_spruce_alpine_violin",
-          "orch_back_wood": "european_maple_general_violin",
+          "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
@@ -53,15 +53,15 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 10.25,
-          "orch_strings": 0.975,
-          "orch_top_wood": 7.734999999999999,
-          "orch_back_wood": 12.18,
-          "orch_varnish": 11.25,
-          "orch_setup_period": 11.97,
+          "bowed_technique": 10.025,
+          "orch_strings": 0.78,
+          "orch_top_wood": 7.36,
+          "orch_back_wood": 12.122500000000002,
+          "orch_varnish": 10.875,
+          "orch_setup_period": 11.595,
           "orch_bow": 1.17,
-          "orch_bow_stick": 14.11,
-          "orch_articulation": 1.7550000000000001,
+          "orch_bow_stick": 13.735,
+          "orch_articulation": 2.4050000000000002,
           "orch_rosin": 12.3825
         }
       },
@@ -79,15 +79,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 10.25,
+          "bowed_technique": 10.025,
           "cello_strings": 4.16,
-          "cello_top_wood": 7.734999999999999,
-          "cello_back_wood": 12.18,
-          "cello_varnish": 11.25,
-          "cello_setup_period": 11.97,
-          "cello_bow_grip": 3.445,
-          "cello_rosin": 11.685,
-          "cello_bow_stick": 14.11
+          "cello_top_wood": 7.36,
+          "cello_back_wood": 11.805,
+          "cello_varnish": 10.875,
+          "cello_setup_period": 11.595,
+          "cello_bow_grip": 3.25,
+          "cello_rosin": 11.31,
+          "cello_bow_stick": 13.735
         }
       },
       {
@@ -98,7 +98,7 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 7.324999999999999,
+          "wind_articulation": 6.95,
           "french_horn_bore": 1.885,
           "french_horn_metal": 1.2349999999999999
         }
@@ -113,7 +113,7 @@
           "oboe_maker_school": "oboe_yamaha_modern"
         },
         "scores": {
-          "wind_articulation": 7.324999999999999,
+          "wind_articulation": 6.95,
           "oboe_reed": 2.0349999999999997,
           "oboe_class": 2.975,
           "oboe_body_wood": 2.34,
@@ -127,8 +127,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 6.629999999999999,
-          "harp_pedals": 3.6399999999999997
+          "harp_strings": 6.4350000000000005,
+          "harp_pedals": 3.445
         }
       },
       {
@@ -139,7 +139,7 @@
           "celesta_context": "celesta_film"
         },
         "scores": {
-          "keyboard_technique": 6.625,
+          "keyboard_technique": 6.25,
           "celesta_model": 3.03,
           "celesta_context": 2.4050000000000002
         }
@@ -151,7 +151,7 @@
           "repertoire": "modern_classical_choral"
         },
         "scores": {
-          "voicing": 3.445,
+          "voicing": 3.25,
           "repertoire": 1.44
         }
       },
@@ -161,27 +161,27 @@
           "wind_articulation": "wind_continuous_legato",
           "shaku_length": "two_four",
           "shaku_technique": "mura_iki",
-          "shakuhachi_body_material": "shakuhachi_madake_canonical",
-          "shakuhachi_lineage": "shakuhachi_komuso_fuke"
+          "shakuhachi_body_material": "shakuhachi_jiari_lacquered",
+          "shakuhachi_lineage": "shakuhachi_kinko"
         },
         "scores": {
-          "wind_articulation": 6.8149999999999995,
+          "wind_articulation": 6.44,
           "shaku_length": 0.09999999999999999,
-          "shaku_technique": 1.625,
-          "shakuhachi_body_material": 3.3799999999999994,
-          "shakuhachi_lineage": 0.825
+          "shaku_technique": 1.8199999999999998,
+          "shakuhachi_body_material": 3.4450000000000003,
+          "shakuhachi_lineage": 1.04
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "prophet_5",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 1.6999999999999997,
+          "electronic_technique": 1.8499999999999999,
           "poly_archetypes": 1.7550000000000001,
           "poly_voices": 0.615,
           "poly_maker_lineage": -0.7350000000000001

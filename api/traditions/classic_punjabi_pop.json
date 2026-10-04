@@ -2,10 +2,10 @@
   "id": "classic_punjabi_pop",
   "name": "Classic punjabi pop",
   "family": "pop",
-  "lineage": "Classic punjabi pop is represented here by Sangtar — Jinday Ni Jinday production core with Kamal Heer. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic classic punjabi pop, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar, hard rock maple k and k twin internal mounted acoustic faithful strummed mandolin, dhol, dholak, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 422,
-  "score": 40.442,
+  "lineage": "Classic Punjabi pop connects established Punjabi-language popular song with ongoing recording and performance practice. Melodic singing meets a varied combination of regional percussion and modern instrumental arrangement.",
+  "recipe": "classic classic punjabi pop, functional Song, pop rock branch. solo with instrumental accompaniment. phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, sitka hard rock maple x brace modern mandolin k and k twin mandolin, dhol, synthetic synthetic remo modern stable bolt tuned modern concert stable dholak, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 472,
+  "score": 48.977,
   "config": {
     "traditions": [
       "classic_punjabi_pop"
@@ -21,11 +21,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.4225,
+          "acoustic_technique": 11.6725,
           "string_tuning": 0,
           "top_wood": 0.3465,
           "back_sides": 0.105,
-          "string_acoustic": 0.5774999999999999
+          "string_acoustic": 1.3
         }
       },
       {
@@ -33,22 +33,22 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "mandolin_shape": "a_style",
-          "mandolin_top": "italian_alpine_spruce_m",
+          "mandolin_top": "sitka_m",
           "mandolin_back": "hard_rock_maple_mandolin",
-          "mandolin_bracing": "mandolin_gilchrist_graduation",
+          "mandolin_bracing": "mandolin_x_brace",
           "mandolin_strings": "thomastik_jazz_mandolin_flat",
           "mandolin_fingerboard": "mandolin_ebony_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 12.4225,
+          "acoustic_technique": 11.6725,
           "mandolin_shape": 0.2415,
-          "mandolin_top": 0.42,
+          "mandolin_top": 1.1365,
           "mandolin_back": 1.95,
-          "mandolin_bracing": 0.5565,
+          "mandolin_bracing": 1.5415,
           "mandolin_strings": 0.325,
           "mandolin_fingerboard": 0,
-          "mandolin_pickup": 1.95
+          "mandolin_pickup": 3.769999999999999
         }
       },
       {
@@ -56,27 +56,27 @@
         "slots": {
           "dhol_form": "dhol_bihu",
           "dhol_repertoire": "dhol_bhangra_chaal",
-          "dhol_shell": "dhol_mango"
+          "dhol_shell": "dhol_fiberglass"
         },
         "scores": {
-          "dhol_form": 1.8199999999999998,
+          "dhol_form": 3.6399999999999997,
           "dhol_repertoire": -0.07,
-          "dhol_shell": -0.035
+          "dhol_shell": 1.0365
         }
       },
       {
         "id": "dholak",
         "slots": {
           "dholak_use": "dholak_classical",
-          "dholak_construction": "dholak_mango",
-          "dholak_head": "dholak_goat_skin_canonical",
-          "dholak_tensioning": "dholak_rope_tuning"
+          "dholak_construction": "dholak_synthetic",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.4095,
-          "dholak_construction": 0.25,
-          "dholak_head": 0.2415,
-          "dholak_tensioning": 0.2415
+          "dholak_use": 1.69,
+          "dholak_construction": 1.1365,
+          "dholak_head": 1.1365,
+          "dholak_tensioning": 1.1365
         }
       },
       {
@@ -89,7 +89,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 2.3314999999999997,
+          "poly_archetypes": 2.0315,
           "poly_voices": 0.231,
           "poly_maker_lineage": -0.035
         }
@@ -126,11 +126,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.7575
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

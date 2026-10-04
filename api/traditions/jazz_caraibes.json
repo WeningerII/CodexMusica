@@ -2,10 +2,10 @@
   "id": "jazz_caraibes",
   "name": "Jazz caraibes",
   "family": "jazz",
-  "lineage": "Jazz caraibes is represented by Grégory Privat — Yonn piano-and-voice core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic jazz caraibes, improv On Frame, Latin jazz branch. solo with instrumental accompaniment. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 277,
-  "score": 10.518,
+  "lineage": "Jazz caraïbes connects Caribbean musical cultures with jazz composition and improvisation. Pianists and ensembles draw on regional song, rhythm and wider harmonic influences.",
+  "recipe": "classic jazz caraibes, improv On Frame, Latin jazz branch. solo with instrumental accompaniment. grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 210,
+  "score": 2.902,
   "config": {
     "traditions": [
       "jazz_caraibes"
@@ -16,24 +16,24 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "yamaha_cfx",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.3595,
-          "grand_piano_size": 0.0945,
-          "grand_piano_brand": 0.1995,
-          "piano_hammer": 2.4564999999999997,
-          "piano_rim": 1.1965,
-          "piano_soundboard": 0.975,
-          "piano_pinblock": 1.1019999999999999,
-          "piano_plate": 1.1334999999999997,
-          "piano_pitch_standard": 0.975
+          "keyboard_technique": 0.2815,
+          "grand_piano_size": 0.0315,
+          "grand_piano_brand": 0.0705,
+          "piano_hammer": -0.1,
+          "piano_rim": 0.26,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -68,17 +68,25 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8685,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 2.47,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.0315
+          "voice_multitrack_stack": 0.03899999999999999
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ],
       "voice": [
         "voice_register",
@@ -134,7 +142,15 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "keyboard_technique": "keyboard_jazz_comping"
+      "keyboard_technique": "keyboard_jazz_comping",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

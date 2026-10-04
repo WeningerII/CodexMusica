@@ -3,9 +3,9 @@
   "name": "Norwegian doom metal",
   "family": "rock_punk",
   "lineage": "Norwegian doom metal is represented by Funeral’s Drammen-rooted practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
-  "recipe": "classic modern norwegian doom metal, distorted Rock, doom branch. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, hard rock maple acer saccharum modern setup longer neck longer fingerboard violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 492,
-  "score": 89.653,
+  "recipe": "classic modern norwegian doom metal, distorted Rock, doom branch. solo with instrumental accompaniment. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, hard rock maple acer saccharum modern setup longer neck longer fingerboard violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 530,
+  "score": 90.1,
   "config": {
     "traditions": [
       "norwegian_doom_metal"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.483,
+          "voice_ensemble_config": 0.6615,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -70,8 +70,8 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 13.5435,
-          "amp_make": 13.693999999999997,
+          "electric_technique": 13.512,
+          "amp_make": 13.830499999999997,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.36750000000000005,
           "fretboard": 0.2625,
@@ -93,17 +93,17 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.693999999999997,
+          "amp_make": 13.830499999999997,
           "body_wood": 0.7665,
           "pickup_config": 0,
           "string_type": 4.875,
           "scale_length_b": 0.5565,
-          "fretted_or_not": 0.363,
+          "fretted_or_not": 0.39,
           "bass_technique": 3.8365,
           "electric_bass_string_configuration": 0
         }

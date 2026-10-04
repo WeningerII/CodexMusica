@@ -3,14 +3,14 @@
   "name": "Brostep (American dubstep)",
   "family": "electronic",
   "lineage": "Late-2000s and early-2010s American adaptation of UK dubstep, characterized by aggressive distorted-synth \"wobble\" bass-line designs, half-time drum-and-bass rhythm, simplified song-structure, and explicit teen-festival-EDM targeting. Skrillex's Scary Monsters and Nice Sprites (2010), Excision, Datsik, Borgore, and the broader Mad Decent-OWSLA label rosters consolidated the canonical aesthetic.",
-  "recipe": "classic 2007-2009 brostep, bass System, bass descendants branch, house electronic dance acid house dutch tech house. TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 440,
-  "score": 78.98,
+  "recipe": "classic 2007-2009 brostep, bass System, bass descendants branch, house electronic dance acid house chicago house. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 496,
+  "score": 79.769,
   "config": {
     "traditions": [
       "brostep",
       "acid_house",
-      "dutch_tech_house"
+      "chicago_house"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.66,
-          "drum_machine_808_context": 8.254999999999999,
-          "tr808_production_origin": 0.845
+          "tr808_voice": 7.16,
+          "drum_machine_808_context": 7.405,
+          "tr808_production_origin": 1.625
         }
       },
       {
@@ -36,9 +36,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 13.36,
-          "oscillator": 7.71,
-          "filter_topology": 8.364375,
+          "electronic_technique": 12.86,
+          "oscillator": 7.21,
+          "filter_topology": 7.714375,
           "envelope": 0.3,
           "modulation": 0.105
         }
@@ -52,17 +52,17 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "slap_pop",
+          "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.959999999999997,
-          "body_wood": 1.0987500000000001,
-          "pickup_config": 0.195,
-          "string_type": 8.809999999999999,
-          "scale_length_b": 0.5493750000000001,
+          "amp_make": 11.51,
+          "body_wood": 0.65,
+          "pickup_config": 0.39,
+          "string_type": 10.509999999999998,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.135,
-          "bass_technique": 0.42,
+          "bass_technique": 2.37,
           "electric_bass_string_configuration": 0
         }
       }

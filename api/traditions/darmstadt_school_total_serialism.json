@@ -5,7 +5,7 @@
   "lineage": "Post-war European avant-garde composer movement centered on the Internationale Ferienkurse für Neue Musik in Darmstadt (founded 1946), extending Webern's serial-row organization to all musical parameters (pitch, rhythm, dynamics, articulation, register) — \"total serialism\" or \"integral serialism.\" Boulez's Structures Ia (1952), Stockhausen's Kreuzspiel (1951), and Nono's Il canto sospeso (1956) constitute the canonical type-specimens. The Darmstadt School defined the European-modernist mainstream of 1950s-1960s.",
   "recipe": "classic European mid-1950s darmstadt school, art Music, western modern branch, musique concrete experimental electric acousmatic music soundscape composition. thick, breath veiled tone, slow rate, interlocked note trading. modern bright beech laminated maple laminated European tradition European spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 515,
-  "score": 226.453,
+  "score": 226.783,
   "config": {
     "traditions": [
       "darmstadt_school_total_serialism",
@@ -38,12 +38,12 @@
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.78,
+          "voice_vibrato": 5.87,
           "voice_articulation": 6.5649999999999995,
           "voice_microtone": 6.325,
           "voice_tradition": 9.425,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 7.135000000000001,
+          "voice_estill_quality": 7.180000000000001,
           "voice_speech_song": 9.555,
           "voice_ensemble_config": 4.8100000000000005,
           "voice_ornament_system": 6.2,
@@ -72,9 +72,9 @@
           "piano_hammer": 11.875,
           "piano_rim": 12.825,
           "piano_soundboard": 9.075,
-          "piano_pinblock": 8.795,
-          "piano_plate": 9.275,
-          "piano_pitch_standard": 12.765
+          "piano_pinblock": 8.75,
+          "piano_plate": 9.425,
+          "piano_pitch_standard": 12.81
         }
       },
       {
@@ -92,7 +92,7 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5,
+          "bowed_technique": 5.045,
           "orch_strings": 1.7149999999999999,
           "orch_top_wood": 8.685,
           "orch_back_wood": 11.35,

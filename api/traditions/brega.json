@@ -2,10 +2,10 @@
   "id": "brega",
   "name": "Brega",
   "family": "global",
-  "lineage": "Rodrigo José e Banda — complete ninety-minute SESI Música Série Popular program, documented performing ensemble. Nine people: Rodrigo Alves Emke lead voice; Mauricio Gaspar drums; Rafael Francischangelis bass; Rodrigo Fortunato de Barros guitar; Giovanni José Bonfim keyboards; Felipe Martim Coelho trombone; Bruno Rodrigo Gibertoni Brito trumpet; Claudia Noemi de Oliveira and Nayara Alves Carvalho backing voices. Seven family cards retain the entire roster and all three singers. A presenter-listed program and ensemble is the scope; it is not falsely reported as a witnessed completed concert or a reconstructed album session. Parent functionalSong.brazilianSong represents the documented Brazilian popular-song repertory and new original songs, with a candid authored recurring melody/refrain and chordal support. Authored clean strummed low-wind humbucker guitar, muted flatwound soapbar bass, rock-stick drumkit, source-neutral electronic keyboard and paired punchy open trumpet/tenor trombone form one coherent present-day band realization. Guitar body/neck and other physical choices are editorial, not source equipment claims. Three credited singers use a source-count-preserving live group with small groups of sung notes per syllable as a newly authored rendition, not a measured vocal transcript or physiological claim. A controlled live room is editorial; source capture apparatus and global tuning are not specified and omitted.",
-  "recipe": "classic brega, functional Song, Brazilian song branch. small note groups per syllable, group vocals, live take. alder mahogany ebony low output no compression conventional tuning humbucker electric guitar, alder flatwound thumb muted electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, melodic chordal electronic keyboard unspecified, bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, ensemble trumpet. live tracking.",
-  "recipe_chars": 495,
-  "score": 73.676,
+  "lineage": "Brega is a broad Brazilian popular-song tradition connecting romantic storytelling, direct emotional expression and widely shared refrains. Its development includes sentimental ballads, dance-oriented bands and regional electronic forms.",
+  "recipe": "classic brega, functional Song, Brazilian song branch. humbucker electric guitar, electric bass, drum kit, electronic keyboard unspecified, trombone, trumpet. live tracking.",
+  "recipe_chars": 173,
+  "score": 9.152,
   "config": {
     "traditions": [
       "brega"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.62,
-          "voice_ensemble_config": 6.982999999999999,
+          "voice_speech_song": 0.42,
+          "voice_ensemble_config": 0.483,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 5.472999999999999,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.3,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 1.573,
-          "neck_wood": 1.69,
-          "fretboard": 1.4365,
+          "body_wood": 0.273,
+          "neck_wood": 0.483,
+          "fretboard": 0.1365,
           "pickup_magnet": 0,
-          "pickup_winding": 1.6315000000000002,
+          "pickup_winding": 0.0315,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.69,
-          "string_gauge": 2.273,
+          "scale_length": 0.966,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.573,
+          "body_wood": 0.273,
           "pickup_config": 0.40950000000000003,
-          "string_type": 1.2,
-          "scale_length_b": 1.3,
+          "string_type": -0.1,
+          "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.2315,
+          "bass_technique": -0.07,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4,
-          "drumhead": 2.6,
+          "drum_technique": -0.05,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.2780000000000005,
+          "shell_wood": 0.37799999999999995,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 4.131,
-          "cymbal_lathing": 4.309500000000001,
+          "cymbal_hammering": -0.10500000000000001,
+          "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
       },
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 1.3315000000000001
+          "keyboard_technique": 0.0315
         }
       },
       {
@@ -160,13 +160,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 2.7545,
+          "wind_articulation": -0.10500000000000001,
           "trombone_type": -0.035,
-          "trombone_mouthpiece": 1.2,
-          "trombone_mute": 0.5145,
-          "trombone_technique": 0.3045,
+          "trombone_mouthpiece": -0.1,
+          "trombone_mute": 1.3,
+          "trombone_technique": 0.39,
           "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 1.69
+          "trombone_maker_school": 0.5145
         }
       },
       {
@@ -181,11 +181,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.7545,
+          "wind_articulation": -0.10500000000000001,
           "brass_size": 0.063,
-          "trumpet_mouthpiece": 0.26,
-          "brass_mute": 0.5145,
-          "trumpet_technique": 2.7545,
+          "trumpet_mouthpiece": -0.07,
+          "brass_mute": 1.3,
+          "trumpet_technique": -0.10500000000000001,
           "trumpet_bell_metal": 0.39,
           "trumpet_maker_school": 0.5145
         }

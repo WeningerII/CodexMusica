@@ -2,10 +2,10 @@
   "id": "musica_capixaba",
   "name": "Música capixaba",
   "family": "global",
-  "lineage": "GEXS — complete Entre Ar album:17:03 final and15:12 preliminary performances, both recorded live without editing in2025. Ten credited people across the two versions: Hallison Tito or Baalshamin, Kenzo Tavares and Benjamin Villa Real play guitars; Hallison/Baalshamin and Kenzo also operate guitar pedals; Luci Fernandes electric bass and pedal; Tiago Martins synthesizers; Benjamin, Tiago and Uncle Wender laptops; Uncle Wender CDJ; Nalu and, in the preliminary version, Victoria Tavares live mixing/effects. Four vocalists are credited: Benjamin, Uncle Wender and Tiago with processed voices, plus Nalu whose processing is unspecified. Marcus Neves conducts/directs, not a separately asserted sound generator. Full ensemble union retained; performers alternate between versions, not ten simultaneous players. Authored complete electroacoustic realization: existing alder humbucker guitars with sustained feedback gesture and locked-fingerstyle electric bass are compatible editorial constructions, not identified source pickups/woods/techniques. Four voices retain all17 controls, live ensemble with source-unspecified text-setting and physiology. A plate-reverb vocal realization is explicitly authored for all four; source confirms unspecified processing for three, not the particular plate algorithm or processing of Nalu. Synthesizer architecture and laptop generation remain unspecified through existing neutral owners. Existing neutral DJ playback/mixing represents the positively named CDJ, without disc count, scratching or guessed sampled inventory. Live effects/mixing and the positively credited guitar/bass pedals are retained in the full live-processing role union, not substituted for any generator; circuit, software, routing and controls are unknown. No source-implied keyboard, sequencer, drum machine or additional singer is invented. Broad experimentalElec reflects the explicitly documented experimental sound-art composition with live electronics, not dance-floor lineage. Controlled live room is a new recording proposal; no measured source acoustic or global temperament.",
-  "recipe": "classic música capixaba, experimental Elec. group vocals, plate reverb medium decay vocal classic, live take. full bodied low coloration balanced alder humbucker electric guitar, alder fingerstyle locked electric bass, credited synthesizer credited electronics dj playback mixing live signal processing unspecified. live tracking.",
-  "recipe_chars": 330,
-  "score": 51.92,
+  "lineage": "Música capixaba is the cross-style music community of Espírito Santo, connecting popular music, regional scenes and experimental practice. Universities, labels and cultural organizations provide settings for collaboration across these approaches.",
+  "recipe": "classic música capixaba, experimental Elec. group vocals, live take. humbucker electric guitar, electric bass, credited synthesizer credited electronics dj playback mixing live signal processing unspecified. live tracking.",
+  "recipe_chars": 222,
+  "score": 3.51,
   "config": {
     "traditions": [
       "musica_capixaba"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 12.099,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 5.372999999999999,
-          "voice_multitrack_stack": 11.994000000000002,
+          "voice_processing_chain": -0.07,
+          "voice_multitrack_stack": 0.78,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.5000000000000004,
+          "electric_technique": 0.2315,
           "amp_make": 0,
-          "body_wood": 4.2315,
-          "neck_wood": 0.105,
-          "fretboard": 0,
+          "body_wood": 0.1365,
+          "neck_wood": 0.21,
+          "fretboard": 0.105,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.21,
-          "string_gauge": 4.68,
+          "scale_length": 0.42,
+          "string_gauge": 0.7314999999999999,
           "finish": 0,
-          "string_tuning": 0.31499999999999995
+          "string_tuning": 0.063
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 4.2315,
-          "pickup_config": 2.9314999999999993,
+          "body_wood": 0.1365,
+          "pickup_config": 0.0315,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.105,
           "fretted_or_not": 0,
-          "bass_technique": 3.25,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },

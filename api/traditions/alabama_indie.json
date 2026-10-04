@@ -2,10 +2,10 @@
   "id": "alabama_indie",
   "name": "Alabama indie",
   "family": "popular",
-  "lineage": "Alabama indie is represented by LoveRat — Howl at the Moon (2023). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
-  "recipe": "classic early-2020s alabama indie, distorted Rock, alternative branch. humbucker electric guitar, ernie ball slinky electric bass, sticks backbeat drum kit, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 276,
-  "score": 26.203,
+  "lineage": "Alabama indie connects independent bands and songwriters across the state’s local scenes. Birmingham groups such as LoveRat bring rock songwriting into dialogue with roots-oriented influences through self-directed recording and performance.",
+  "recipe": "classic alabama indie, distorted Rock, alternative branch. basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 284,
+  "score": 30.56,
   "config": {
     "traditions": [
       "alabama_indie"
@@ -57,32 +57,32 @@
         "slots": {
           "electric_technique": "electric_overdriven_lead",
           "amp_make": "amp_modern_modeling",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
+          "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.4415,
-          "body_wood": 0.441,
+          "amp_make": -0.07,
+          "body_wood": 2.4255,
           "neck_wood": 0.441,
           "fretboard": 0.21000000000000002,
-          "pickup_magnet": 0.39,
+          "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 1.3,
-          "scale_length": 0.8820000000000001,
-          "string_gauge": 1.3,
+          "bridge": 0.45825,
+          "scale_length": 1.743,
+          "string_gauge": 0.45825,
           "finish": 0,
-          "string_tuning": 1.95
+          "string_tuning": 3.25
         }
       },
       {
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.4415,
+          "amp_make": -0.07,
           "body_wood": 0.8820000000000001,
-          "pickup_config": 0.39,
-          "string_type": 4.875,
+          "pickup_config": 0.273,
+          "string_type": 8.125,
           "scale_length_b": 0.441,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.75,
-          "drumhead": 0.975,
+          "drum_technique": 6.25,
+          "drumhead": 0.5145,
           "drum_kit_kick_pedal": 0
         }
       },

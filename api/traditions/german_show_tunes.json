@@ -2,10 +2,10 @@
   "id": "german_show_tunes",
   "name": "German Show Tunes",
   "family": "pop",
-  "lineage": "Thomas Borchert — Der Vampir am Klavier, complete solo musical programme with January2026 technical rider. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic german show tunes, functional Song. solo with instrumental accompaniment. 7 ply quartersawn maple a 440 modern pitch us standard grand piano, software sample playback. shoebox concert hall.",
-  "recipe_chars": 197,
-  "score": 12.466,
+  "lineage": "German show tunes connect German-speaking musical theatre with domestic productions and translated international repertoire. Performers and cast recordings carry stage songs into touring concerts, cabaret and independent interpretations.",
+  "recipe": "classic german show tunes, functional Song. solo with instrumental accompaniment. grand piano. shoebox concert hall.",
+  "recipe_chars": 116,
+  "score": 6.415,
   "config": {
     "traditions": [
       "german_show_tunes"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.2825,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -66,24 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.0500000000000003,
-          "grand_piano_size": 0.7,
-          "grand_piano_brand": 0.78,
+          "keyboard_technique": 2.45,
+          "grand_piano_size": 1,
+          "grand_piano_brand": 0.39,
           "piano_hammer": -0.1,
-          "piano_rim": 0.7999999999999998,
+          "piano_rim": -0.1,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.2,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 2.623
-        }
-      },
-      {
-        "id": "software_sample_playback",
-        "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
-        },
-        "scores": {
-          "software_sample_playback_identity": 0
+          "piano_pinblock": -0.1,
+          "piano_plate": 0.8999999999999999,
+          "piano_pitch_standard": -0.035
         }
       }
     ],
@@ -117,9 +108,6 @@
         "piano_pinblock",
         "piano_plate",
         "piano_pitch_standard"
-      ],
-      "software_sample_playback": [
-        "software_sample_playback_identity"
       ]
     },
     "room": "concert_hall_shoebox",
@@ -164,8 +152,7 @@
       "piano_soundboard": "sitka_spruce_diaphragmatic",
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "software_sample_playback_identity": "software_sample_playback_digital"
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true
   }

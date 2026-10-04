@@ -2,10 +2,10 @@
   "id": "musica_pitiusa",
   "name": "Música pitiusa",
   "family": "vernacular",
-  "lineage": "Complete instrumental ball pagès practice specified in the2012 Consell d’Eivissa heritage inventory: a castanyoler and a sonador playing flaüta and tambor together, supporting the four named dances. Three sound-source roles, zero singer roles in the positive official performer inventory. The federation separately documents melodic fragment elaboration and rhythmic improvisation. This is a historical practice realization, not an assertion about every current performance; its complete2012instrument list excludes the espasí that the newer federation page identifies as a later dance-use addition from caramelles. No invented named performer or claim to a particular2025recording with placeholder credits. Authored controlled live-room recording of the complete documented instrumental practice. Broad improvOnFrame follows the source-positive oral melodic-fragment elaboration over dance metre; not jazz or an invented harmonic progression. Flaüta retains its oleander duct-flute body with three finger holes, operated one-handed beside the drum; exact tuning and metal inlay unspecified. Tambor retains a hollow pine body, two skin heads, rope tension and fibre buzzing cord; goat skin is selected from the documented goat/rabbit possibilities, not asserted universal. Large juniper castanyoles retain paired halves with separating badall and hand ties. Neutral numeric axes are editorial scaffolding. Existing Basque txistu, region-specific tabor and differently constructed concert/flamenco castanets are not silently relabeled; three isolated owners preserve regional identity without shared edits. Global temperament and capture hardware omitted.",
-  "recipe": "classic música pitiusa, improv On Frame. flauta pitiusa, pine rope tensioned buzzing tambor pitius, paired hand held castanyoles pitiuses. live tracking.",
-  "recipe_chars": 153,
-  "score": 9.289,
+  "lineage": "Música Pitiusa connects the repertoires of Ibiza and Formentera, including traditional dance music, song and later revival or popular approaches. Island communities and cultural organizations sustain distinct practices within the wider Catalan-speaking musical world.",
+  "recipe": "classic música pitiusa, improv On Frame. flauta pitiusa, tambor pitius, castanyoles pitiuses. live tracking.",
+  "recipe_chars": 108,
+  "score": 0.831,
   "config": {
     "traditions": [
       "musica_pitiusa"
@@ -17,7 +17,7 @@
           "flauta_pitiusa_form": "flauta_pitiusa_oleander_three_hole"
         },
         "scores": {
-          "flauta_pitiusa_form": 2.726
+          "flauta_pitiusa_form": 0.726
         }
       },
       {
@@ -27,8 +27,8 @@
           "tambor_pitius_heads": "tambor_pitius_goat_rope_buzz"
         },
         "scores": {
-          "tambor_pitius_form": 1.3315000000000001,
-          "tambor_pitius_heads": 2.6
+          "tambor_pitius_form": 0,
+          "tambor_pitius_heads": 0
         }
       },
       {
@@ -37,7 +37,7 @@
           "castanyoles_pitiuses_form": "castanyoles_pitiuses_juniper_badall"
         },
         "scores": {
-          "castanyoles_pitiuses_form": 2.6315
+          "castanyoles_pitiuses_form": 0.105
         }
       }
     ],

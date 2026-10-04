@@ -2,10 +2,10 @@
   "id": "chinese_viral_pop",
   "name": "Chinese viral pop",
   "family": "pop",
-  "lineage": "Chinese viral pop is represented here by Zhang Yuan — 袖里长风 selected guitar-and-voice core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Chinese viral pop gathers popular songs circulating through online discovery and listening communities. Soundtrack songs and other melodic pop repertoire can participate in this field without sharing a single production style.",
   "recipe": "classic chinese viral pop, functional Song, east Asian pop branch. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 234,
-  "score": 14.009,
+  "score": 16.277,
   "config": {
     "traditions": [
       "chinese_viral_pop"
@@ -54,14 +54,14 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "d_standard",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 12.013,
-          "string_tuning": 0.2315,
+          "acoustic_technique": 14.513,
+          "string_tuning": 0,
           "top_wood": 0.231,
           "back_sides": 0.1995,
           "string_acoustic": 0.7034999999999999

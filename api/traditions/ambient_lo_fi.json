@@ -2,10 +2,10 @@
   "id": "ambient_lo_fi",
   "name": "Ambient lo-fi",
   "family": "electronic",
-  "lineage": "An internet-circulated ambient discovery cluster whose indexed Every Noise roster includes Borrtex, Gibran Alcocer, reidenshi and SymphoCat. Documented members span quiet piano, electronic synthesis and field-recorded work. The selected piano-and-synth arrangement follows Borrtex’s mixed keyboard/electronic branch, without treating all ambient music with low fidelity as this category.",
+  "lineage": "An online ambient scene combining quiet piano, sustained electronic textures and intimate, softened recording surfaces. Its contemporary repertoire ranges from repeating keyboard miniatures to slowly evolving soundscapes and environmental recordings.",
   "recipe": "classic modern ambient lo-fi, experimental Elec, ambient branch, lofi experimental electric. pad like pad analog synth, grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 348,
-  "score": 24.43,
+  "score": 17.39,
   "config": {
     "traditions": [
       "ambient_lo_fi"
@@ -21,10 +21,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 12.384999999999998,
+          "electronic_technique": 9.834999999999999,
           "oscillator": 0.195,
-          "filter_topology": 1.3900000000000001,
-          "envelope": 5.52,
+          "filter_topology": 0.39,
+          "envelope": 4.265000000000001,
           "modulation": 0.045
         }
       },
@@ -33,7 +33,7 @@
         "slots": {
           "keyboard_technique": "keyboard_minimalist_repeated",
           "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "felt_piano_practice_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -43,14 +43,14 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 1.045,
-          "grand_piano_brand": 1.285,
+          "grand_piano_size": 0.345,
+          "grand_piano_brand": 1.6900000000000002,
           "piano_hammer": -0.035,
           "piano_rim": -0.035,
           "piano_soundboard": -0.05,
           "piano_pinblock": -0.05,
-          "piano_plate": 0.995,
-          "piano_pitch_standard": 0.7149999999999999
+          "piano_plate": 0.295,
+          "piano_pitch_standard": 0.325
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "erotica",
   "name": "Erotica",
   "family": "vernacular",
-  "lineage": "Jenny Ainslie-Turner, My Fantasy, the complete separately published sixth short story in the House of Erotica collection, 4:24. Andrews UK distributed metadata explicitly credits the same person as author and sole narrator; the author is not counted twice. The AUK Records edition is a complete one-track audiobook, not a chapter cut from a longer work or a fabricated acappella extraction. Public issuer/distributor metadata reviewed, not a personal complete audio audition. No additional musical role or voice is credited; absence of uncredited incidental sound is not asserted. The authored rendition preserves the whole spoken work with its one positively named reader. Only neutral catalog and performance metadata are recorded here, with no story text reproduced. All seventeen existing voice parts protected. Pure spoken delivery and one reader follow positive narration credits; neutral source-unspecified physiology, register and pitch avoid invented gendered timbre or erotic vocal technique. An unaccompanied single-lead rendition and unprocessed delivery are candid authored recording choices, not proof of original master isolation or lack of incidental sound. Dry treated studio is an authored capture setting; no source hardware or global tuning claimed. Parent spokenWord.narration follows this complete published literary reading, not the whole heterogeneous category.",
-  "recipe": "classic erotica, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio.",
-  "recipe_chars": 181,
-  "score": 18.913,
+  "lineage": "Erotica is an adult-themed listening field spanning literary readings, songs and atmospheric instrumental material. Publishers and performers connect intimate narrative with a wider repertoire organized around mood and subject rather than a single musical lineage.",
+  "recipe": "classic erotica, spoken Word, narration branch. single lead single track no stacking. treated studio.",
+  "recipe_chars": 101,
+  "score": 1.956,
   "config": {
     "traditions": [
       "erotica"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.488499999999999,
-          "voice_ensemble_config": 1.5310000000000001,
+          "voice_speech_song": 0.3255,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 8.456999999999999,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 1.2625,
           "voice_tessitura": 0
         }
       }

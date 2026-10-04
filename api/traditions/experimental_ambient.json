@@ -2,10 +2,10 @@
   "id": "experimental_ambient",
   "name": "Experimental ambient",
   "family": "electronic",
-  "lineage": "Ambient composition treats recorded sound, acoustic resonance, noise and electronic montage as mutable material. Tim Hecker’s Ravedeath, 1972 was built from improvised pipe-organ recordings in Reykjavik and extended studio transformation in Montreal. The default models the transformed-recording stage with sampling and granular synthesis, not an assertion that Hecker used a particular sampler or granular algorithm.",
-  "recipe": "classic early-1970s experimental ambient, experimental Elec, ambient branch, musique concrete experimental electric, industrial noise experimental electric death industrial italian industrial. field textural sampler, glitched textural granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital digital delay hall reverb.",
-  "recipe_chars": 450,
-  "score": 77.415,
+  "lineage": "An exploratory branch of ambient music that treats acoustic resonance, recorded sound, noise and electronic transformation as compositional material. It connects atmospheric listening with electroacoustic montage and experimental studio practice.",
+  "recipe": "classic modern experimental ambient, experimental Elec, ambient branch, musique concrete experimental electric, industrial noise experimental electric death industrial italian industrial. field textural sampler, glitched textural granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital digital delay hall reverb.",
+  "recipe_chars": 445,
+  "score": 95.575,
   "config": {
     "traditions": [
       "experimental_ambient",
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 15.245000000000001,
-          "sampler_archetypes": 3.25,
-          "sampler_bit_depth": 1.04,
-          "sampler_workflow": 16.95,
-          "sampler_classic_context": 31
+          "electronic_technique": 19.37,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 1.4300000000000002,
+          "sampler_workflow": 21.57,
+          "sampler_classic_context": 37.25
         }
       },
       {
@@ -38,9 +38,9 @@
           "granular_synth_source": "granular_synth_sampled"
         },
         "scores": {
-          "electronic_technique": 15.245000000000001,
+          "electronic_technique": 19.37,
           "granular_use": 0.045,
-          "granular_synth_source": 1.84
+          "granular_synth_source": 1.24
         }
       }
     ],

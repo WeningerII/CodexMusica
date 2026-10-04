@@ -2,10 +2,10 @@
   "id": "lebanese_indie",
   "name": "Lebanese Indie",
   "family": "rock",
-  "lineage": "Interbellum — Now Try Coughing (2016), complete album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2010s lebanese indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 300,
-  "score": 26.808,
+  "lineage": "Lebanese independent rock and pop, including Beirut-based songwriters and bands.",
+  "recipe": "classic lebanese indie, distorted Rock, alternative branch. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 305,
+  "score": 41.717,
   "config": {
     "traditions": [
       "lebanese_indie"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
+          "voice_speech_song": 0.39,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -58,7 +58,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 3.3680000000000003,
           "amp_make": 0,
           "body_wood": 0.441,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 2.173,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
+          "drum_technique": 9.5,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
@@ -132,8 +132,8 @@
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 6.9315,
-          "cymbal_lathing": 7.336499999999999,
+          "cymbal_hammering": 12.731499999999999,
+          "cymbal_lathing": 12.8365,
           "cymbal_finish": 0
         }
       }
@@ -236,7 +236,7 @@
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",

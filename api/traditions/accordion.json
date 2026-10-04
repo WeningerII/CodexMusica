@@ -2,10 +2,10 @@
   "id": "accordion",
   "name": "Accordion",
   "family": "vernacular",
-  "lineage": "Accordéon Mélancolique — Aquarelles (2015). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic mid-2010s accordion, functional Song. accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 155,
-  "score": 0.037,
+  "lineage": "Accordion music encompasses solo and ensemble repertories built around the instrument’s bellows-driven reeds. Dance traditions and song accompaniment coexist with composed concert pieces; duos such as Accordéon Mélancolique develop original works for paired instruments.",
+  "recipe": "classic accordion, functional Song. hohner gola canonical premium German concert accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 2.564,
   "config": {
     "traditions": [
       "accordion"
@@ -23,13 +23,13 @@
           "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": -0.1,
+          "free_reed_technique": 1.24275,
           "accordion_reed_material": 0,
           "musette_offset": 0,
           "reed_config": 0,
           "bellows": 0.1365,
           "voicing_chamber": 0,
-          "accordion_maker_school": 0
+          "accordion_maker_school": 1.18525
         }
       }
     ],

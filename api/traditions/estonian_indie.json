@@ -2,10 +2,10 @@
   "id": "estonian_indie",
   "name": "Estonian Indie",
   "family": "rock",
-  "lineage": "Sibyl Vane — Love, Holy Water and TV (2012), complete11-track album. Complete11-track debut credits Helena Randlaht voice/guitar, Heiko Leesment bass and Mark Kostrov drums. Three people and four instrument families, one singer; no production personnel promoted to musical performers. Artist explicitly calls this an Estonian indie-rock album, located in Pärnu; recorded Muusik Studio Pärnu August/September2012. Profile describes indie-pop, post-punk revival and1990s alternative-rock practice. Authored full-source role realization: humbucker electric guitar with alder body/maple neck and power-chord playing, picked electric bass with soapbar pickup and stick-played acoustic drumkit. These constructions and gestures are editorial, not recovered original equipment. Every positively credited singer is retained, with simultaneous ensemble singing authored where multiple names occur; source multitrack details are unknown. Source-unspecified voice physiology, amplifier and pitch organization retained. Controlled live-room rendition and omitted capture apparatus are new arrangement choices, not asserted original venue. Global tuning omitted.",
-  "recipe": "classic early-2010s estonian indie, distorted Rock, alternative branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. alder maple conventional tuning standard pitch power chord humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. live tracking.",
-  "recipe_chars": 405,
-  "score": 112.702,
+  "lineage": "Estonian indie brings together independent bands, labels and performance communities across Estonia. Indie-pop, post-punk and alternative rock interact with broader experimental and electronic approaches.",
+  "recipe": "classic estonian indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 282,
+  "score": 50.648,
   "config": {
     "traditions": [
       "estonian_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.069999999999999,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.468,
-          "voice_multitrack_stack": 4.446,
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.2,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 3.0095,
-          "neck_wood": 1.405,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 2.273,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.0095,
-          "pickup_config": 1.69,
+          "body_wood": 0.40950000000000003,
+          "pickup_config": 0.40950000000000003,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 19.549999999999997,
+          "bass_technique": 11.25,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 14.999999999999996,
-          "drumhead": 1.4365,
+          "drum_technique": 8.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.8415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 1.0999999999999999,
-          "cymbal_hammering": 20.031499999999998,
-          "cymbal_lathing": 21.136499999999998,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 11.231499999999999,
+          "cymbal_lathing": 11.3365,
           "cymbal_finish": 0
         }
       }

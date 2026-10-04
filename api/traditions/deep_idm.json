@@ -2,10 +2,10 @@
   "id": "deep_idm",
   "name": "Deep idm",
   "family": "electronic",
-  "lineage": "Deep idm is represented here by Datach’i — System (2016). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-2010s deep idm, experimental Elec, idm glitch branch. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 237,
-  "score": 16.145,
+  "lineage": "Deep IDM groups less-mainstream experimental electronic music exploring intricate rhythm, synthesis and evolving sound design.",
+  "recipe": "classic deep idm, experimental Elec, idm glitch branch. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 227,
+  "score": 19.114,
   "config": {
     "traditions": [
       "deep_idm"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 13.581499999999998,
+          "electronic_technique": 16.331500000000002,
           "mod_voltage_source": 0.39,
-          "mod_patch_density": 0.483,
-          "mod_lineage": 1.69
+          "mod_patch_density": 1.3,
+          "mod_lineage": 1.092
         }
       }
     ],

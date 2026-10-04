@@ -2,10 +2,10 @@
   "id": "pop_house",
   "name": "Pop house",
   "family": "electronic",
-  "lineage": "A song-facing house discovery cluster represented by MEDUZA, Becky Hill, Mike Candys and DJ Antoine. MEDUZA’s account of writing Piece of Your Heart with Goodboys documents the meeting of a club-production team with pop verse-and-chorus songwriting.",
-  "recipe": "classic modern pop house, electronic Dance, house branch. solo with instrumental accompaniment. sampler drum machine, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 335,
-  "score": 12.521,
+  "lineage": "Pop house brings song-centered writing and prominent vocal hooks into house production. Collaborations between singers, songwriters and electronic producers connect club releases with mainstream pop circulation.",
+  "recipe": "classic modern pop house, electronic Dance, house branch. solo with instrumental accompaniment, plate reverb medium decay vocal classic. sampler drum machine, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 376,
+  "score": 12.294,
   "config": {
     "traditions": [
       "pop_house"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.26,
-          "voice_multitrack_stack": 0.21075
+          "voice_processing_chain": 1.17,
+          "voice_multitrack_stack": 0.1365
         }
       },
       {
@@ -61,7 +61,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0,
-          "sample_swing": 7.749999999999999,
+          "sample_swing": 8.75,
           "sample_processing": 0.1365
         }
       },
@@ -77,8 +77,8 @@
         "scores": {
           "electronic_technique": 0.19500000000000003,
           "oscillator": 0.39,
-          "filter_topology": 0.03712499999999999,
-          "envelope": 0.1365,
+          "filter_topology": 0,
+          "envelope": 0.21075,
           "modulation": 0
         }
       }

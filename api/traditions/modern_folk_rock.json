@@ -2,10 +2,10 @@
   "id": "modern_folk_rock",
   "name": "Modern folk rock",
   "family": "rock",
-  "lineage": "Modern folk rock is represented here by Houndmouth — From the Hills Below the City era. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic modern folk rock, functional Song, folk rock branch. marshall plexi amp British rock amp basswood alnico clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 377,
-  "score": 94.898,
+  "lineage": "Modern folk rock connects roots-oriented songwriting and shared singing with amplified rock-band arrangements.",
+  "recipe": "classic modern folk rock, functional Song, folk rock branch. marshall plexi amp British rock amp basswood alnico clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord tonewheel organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 444,
+  "score": 102.673,
   "config": {
     "traditions": [
       "modern_folk_rock"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.7,
-          "amp_make": 8.06,
-          "body_wood": 2.6359999999999997,
-          "neck_wood": 0.231,
-          "fretboard": 0.0945,
-          "pickup_magnet": 2.405,
-          "pickup_winding": 2.405,
-          "string_material": 0.126,
-          "bridge": 1.69,
-          "scale_length": 2.5309999999999997,
-          "string_gauge": 1.69,
+          "electric_technique": 4.5315,
+          "amp_make": 8.97,
+          "body_wood": 2.4725,
+          "neck_wood": 0.1995,
+          "fretboard": 0.126,
+          "pickup_magnet": 2.273,
+          "pickup_winding": 2.273,
+          "string_material": 0.189,
+          "bridge": 0.693,
+          "scale_length": 2.336,
+          "string_gauge": 0.6615000000000001,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.336
         }
       },
       {
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.515,
-          "body_wood": 0.46199999999999997,
-          "pickup_config": 2.405,
-          "string_type": 20.475,
-          "scale_length_b": 2.5309999999999997,
-          "fretted_or_not": 0.3315,
+          "amp_make": 9.425,
+          "body_wood": 0.399,
+          "pickup_config": 2.273,
+          "string_type": 21.889,
+          "scale_length_b": 2.3674999999999997,
+          "fretted_or_not": 1.063,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.75,
-          "drumhead": 9.5,
+          "drum_technique": 17.5,
+          "drumhead": 8.918,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,26 +112,30 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.18,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 0.3255,
+          "voice_ornament_system": 0.3045,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4515,
-          "voice_multitrack_stack": 0.063
+          "voice_processing_chain": 0.3885,
+          "voice_multitrack_stack": 0.33599999999999997
         }
       },
       {
-        "id": "analog_poly_synth",
+        "id": "tonewheel_organ",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "wide_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_off",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 8.19,
-          "poly_voices": 0.37049999999999994,
-          "poly_maker_lineage": -0.035
+          "keyboard_technique": 3.7,
+          "drawbar_setting": -0.05,
+          "rotary_speed": -0.1,
+          "percussion_setting": 0.168,
+          "tonewheel_model": 8.905000000000001,
+          "leslie_cabinet_model": -0.05
         }
       }
     ],
@@ -165,8 +169,13 @@
         "voice_processing_chain",
         "voice_multitrack_stack"
       ],
-      "analog_poly_synth": [
-        "electronic_technique"
+      "tonewheel_organ": [
+        "keyboard_technique",
+        "drawbar_setting",
+        "rotary_speed",
+        "percussion_setting",
+        "tonewheel_model",
+        "leslie_cabinet_model"
       ]
     },
     "room": "treated_studio",
@@ -209,7 +218,12 @@
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "electronic_technique": "electronic_pad_drone"
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "drawbar_setting": "wide_drawbars",
+      "rotary_speed": "slow_chorale",
+      "percussion_setting": "percussion_off",
+      "tonewheel_model": "tonewheel_hammond_b3",
+      "leslie_cabinet_model": "leslie_122_canonical"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

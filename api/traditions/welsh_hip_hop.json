@@ -2,10 +2,10 @@
   "id": "welsh_hip_hop",
   "name": "Welsh hip hop",
   "family": "hip_hop",
-  "lineage": "Welsh hip hop is a place-based scene category represented by Cardiff artist Mace the Great and his producer collaborations. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
-  "recipe": "classic modern welsh hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 271,
-  "score": 28.84,
+  "lineage": "Hip-hop communities in Wales, including Cardiff’s MC and producer networks and their exchanges with grime.",
+  "recipe": "classic modern welsh hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 309,
+  "score": 26.571,
   "config": {
     "traditions": [
       "welsh_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 11.309999999999999,
+          "voice_quality": 10.4,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.908249999999999,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 9.035,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0
         }
       },
       {
@@ -59,7 +59,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.6499999999999995,
+          "electronic_technique": 5.2540000000000004,
           "sample_bitdepth": 0.1365,
           "sample_swing": -0.05,
           "sample_processing": 0.105

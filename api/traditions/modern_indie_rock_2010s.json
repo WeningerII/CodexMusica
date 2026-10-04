@@ -5,7 +5,7 @@
   "lineage": "2010s indie rock continuation of the broader 2000s blogosphere indie wave, characterized by mid-fi production, broad-melodic guitar-and-vocal arrangements, and explicit-festival-targeting commercial visibility. Tame Impala's 2010-onward Australian psych-rock-pop hybrid, Vampire Weekend's Afro-influenced indie, the War on Drugs, Real Estate, and the broader Domino Records and Secretly Canadian label rosters anchor the canonical 2010s indie rock roster.",
   "recipe": "classic modern modern indie rock, distorted Rock, alternative branch, experimental distorted rock canadian psychedelic rock finnish psychedelic rock. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 622,
-  "score": 311.97,
+  "score": 316.825,
   "config": {
     "traditions": [
       "modern_indie_rock_2010s",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 26.994999999999994,
-          "voice_quality": 10.529999999999992,
+          "voice_register": 28.244999999999994,
+          "voice_quality": 9.295,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.275,
-          "voice_articulation": 12.089999999999996,
-          "voice_microtone": 27.544999999999995,
-          "voice_tradition": 8.385,
-          "voice_mechanism_compound": 6.305000000000001,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 28.554999999999996,
+          "voice_tradition": 8.39,
+          "voice_mechanism_compound": 6.5,
           "voice_estill_quality": 1.23,
-          "voice_speech_song": 12.934999999999997,
-          "voice_ensemble_config": 11.829999999999995,
-          "voice_ornament_system": 0.26000000000000006,
+          "voice_speech_song": 12.479999999999995,
+          "voice_ensemble_config": 11.764999999999993,
+          "voice_ornament_system": 0.045,
           "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 8.385,
-          "voice_multitrack_stack": 13.414999999999996
+          "voice_processing_chain": 8.34,
+          "voice_multitrack_stack": 13.264999999999997
         }
       },
       {
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": 15.444999999999999,
-          "amp_make": 12.349999999999998,
-          "body_wood": 5.239999999999999,
-          "neck_wood": 1.3900000000000001,
-          "fretboard": 1.34,
+          "amp_make": 12.999999999999998,
+          "body_wood": 5.09,
+          "neck_wood": 1.435,
+          "fretboard": 1.385,
           "pickup_magnet": 1.3,
           "pickup_winding": 1.3,
-          "string_material": 0.7800000000000001,
-          "bridge": 1.3900000000000001,
-          "scale_length": 3.6399999999999997,
+          "string_material": 0.195,
+          "bridge": 1.435,
+          "scale_length": 3.835,
           "string_gauge": 1.3900000000000001,
           "finish": 0.195,
-          "string_tuning": 14.82
+          "string_tuning": 15.665000000000001
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.455,
-          "body_wood": 1.48,
-          "pickup_config": 2.855,
-          "string_type": 30.39,
+          "amp_make": 14.105,
+          "body_wood": 1.525,
+          "pickup_config": 2.705,
+          "string_type": 31.85,
           "scale_length_b": 1.3900000000000001,
-          "fretted_or_not": 0.65,
-          "bass_technique": 23.95,
+          "fretted_or_not": 0.545,
+          "bass_technique": 25.2,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24,
+          "drum_technique": 25.25,
           "drumhead": 5.75,
           "drum_kit_kick_pedal": 0
         }

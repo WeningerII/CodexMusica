@@ -2,10 +2,10 @@
   "id": "brazilian_tech_house",
   "name": "Brazilian tech house",
   "family": "electronic",
-  "lineage": "Brazilian tech-house production and DJ network. Vivi Seixas is verified on the exact author map; her Keskem collaboration is independently documented as club-oriented tech house. Mochakk supplies a separately documented Brazilian production example rather than a verified member of the inspected map. Programmed rhythm, bass hooks and vocal sampling are selected studio practices, not mandatory traditional Brazilian instrumentation.",
-  "recipe": "classic modern brazilian tech house, electronic Dance, tech house branch latin house freestyle house. sub bass analog synth, sampler drum machine, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 301,
-  "score": 67.62,
+  "lineage": "Brazil’s tech-house scene joins local producers and DJs with international club and label circuits. Its groove-centered productions combine house rhythm with concise bass hooks and electronically shaped percussion.",
+  "recipe": "classic modern brazilian tech house, electronic Dance, tech house branch latin house freestyle house. analog synth, sampler drum machine, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 292,
+  "score": 63.746,
   "config": {
     "traditions": [
       "brazilian_tech_house",
@@ -23,10 +23,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.120000000000001,
-          "oscillator": 3.3150000000000004,
+          "electronic_technique": 2.34,
+          "oscillator": 2.535,
           "filter_topology": 0.65,
-          "envelope": 0.50025,
+          "envelope": 0.5148750000000001,
           "modulation": 0
         }
       },
@@ -39,8 +39,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.31725,
+          "electronic_technique": 0.26,
+          "sample_bitdepth": 0.153,
           "sample_swing": -0.05,
           "sample_processing": 1.3
         }
@@ -55,11 +55,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.26,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.31725,
-          "sampler_workflow": 0.7,
-          "sampler_classic_context": 61.14062499999999
+          "sampler_bit_depth": 0.153,
+          "sampler_workflow": 0.7149999999999999,
+          "sampler_classic_context": 59.16475
         }
       }
     ],

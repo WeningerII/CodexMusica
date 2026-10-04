@@ -2,10 +2,10 @@
   "id": "gainesville_indie",
   "name": "Gainesville Indie",
   "family": "pop_rock",
-  "lineage": "Just Neighbors — Inside Voices (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2020s gainesville indie, distorted Rock, alternative branch. dreadnought acoustic guitar, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 263,
-  "score": 4.564,
+  "lineage": "Gainesville indie connects independent musicians and recording projects in Gainesville, Florida. Acoustic and keyboard-based songs sit alongside louder band approaches within the scene.",
+  "recipe": "classic gainesville indie, functional Song. unprocessed natural acoustic. dreadnought acoustic guitar, grand piano. live tracking.",
+  "recipe_chars": 130,
+  "score": 1.916,
   "config": {
     "traditions": [
       "gainesville_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 0.273,
+          "voice_speech_song": 0.2445,
+          "voice_ensemble_config": 0.4635,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -64,9 +64,9 @@
         "scores": {
           "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 0.168,
+          "top_wood": 0,
           "back_sides": -0.05,
-          "string_acoustic": 0.105
+          "string_acoustic": 0
         }
       },
       {
@@ -84,14 +84,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0,
-          "piano_hammer": 1.8199999999999998,
-          "piano_rim": 1.8199999999999998,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": -0.07,
-          "piano_plate": -0.07,
-          "piano_pitch_standard": -0.035
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.1365,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],
@@ -134,15 +134,15 @@
         "piano_pitch_standard"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -151,7 +151,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -185,12 +185,6 @@
       "piano_plate": "gray_iron_full_perimeter_plate",
       "piano_pitch_standard": "a_440_modern"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

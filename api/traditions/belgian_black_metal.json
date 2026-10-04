@@ -2,10 +2,10 @@
   "id": "belgian_black_metal",
   "name": "Belgian black metal",
   "family": "rock_punk",
-  "lineage": "Belgian geographic black-metal field represented by Enthroned. A heavy mid-tempo branch is selected from a repertoire whose primary label also documents ferocious blast passages and progressive structures.",
-  "recipe": "classic modern belgian black metal, distorted Rock, black branch. mahogany soft down tuning power chord humbucker electric guitar, low mid rich spectrum woody mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 418,
-  "score": 42.265,
+  "lineage": "Belgian black metal spans fast, raw playing and more elaborate atmospheric or progressive writing. Namur-origin Enthroned exemplify a repertoire moving between ferocious blast passages, oppressive mid-tempos and changing guitar-led structures.",
+  "recipe": "classic modern belgian black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, low mid rich spectrum woody mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 488,
+  "score": 48.488,
   "config": {
     "traditions": [
       "belgian_black_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -29,15 +29,15 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 13.854000000000001,
-          "amp_make": 0,
-          "body_wood": 1.69,
-          "neck_wood": 0.4095,
-          "fretboard": 0.0315,
+          "electric_technique": 13.104000000000001,
+          "amp_make": 5.655000000000001,
+          "body_wood": 1.3,
+          "neck_wood": 0.39,
+          "fretboard": 1.0315,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.4095,
-          "bridge": 1.69,
+          "string_material": 0.39,
+          "bridge": 1.3,
           "scale_length": 0,
           "string_gauge": 0.2415,
           "finish": 0,
@@ -47,7 +47,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 1.69,
+          "amp_make": 2.275,
+          "body_wood": 1.3,
           "pickup_config": 0,
-          "string_type": 0.4095,
+          "string_type": 0.39,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
           "bass_technique": 4.1725,
@@ -84,11 +84,11 @@
         },
         "scores": {
           "drum_technique": 3.813,
-          "drumhead": 1.69,
+          "drumhead": 1.3,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.4095,
+          "shell_wood": 0.39,
           "shell_thickness": 0,
-          "bearing_edges": 0.4095,
+          "bearing_edges": 0.39,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
@@ -139,7 +139,6 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -153,7 +152,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -246,7 +244,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

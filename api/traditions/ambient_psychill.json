@@ -5,7 +5,7 @@
   "lineage": "The spacious, predominantly instrumental synthesizer branch of psychedelic chillout represented by Carbon Based Lifeforms’ Hydroponic Garden (2003) and World of Sleepers (2006), on Ultimae. Slow electronic rhythms, resonant bass, environmental samples and layered harmony sustain an ambient listening space. This narrower branch does not stand for the entire psychill festival repertoire or presume its acoustic-instrument and vocal collage.",
   "recipe": "classic early-2000s ambient psychill, experimental Elec, ambient branch, trance electronic dance, idm glitch experimental electric ambient trance. pad like pad analog synth, sub bass monosynth acid bass, sampler drum machine, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ping-pong delay hall reverb.",
   "recipe_chars": 481,
-  "score": 83.207,
+  "score": 82.288,
   "config": {
     "traditions": [
       "ambient_psychill",
@@ -23,10 +23,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 16.438214285714285,
-          "oscillator": 7.594999999999999,
-          "filter_topology": 4.095,
-          "envelope": 7.499732142857143,
+          "electronic_technique": 18.188214285714285,
+          "oscillator": 5.22,
+          "filter_topology": 3.705,
+          "envelope": 8.435982142857142,
           "modulation": 0
         }
       },
@@ -39,10 +39,10 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 3.4650000000000007,
+          "electronic_technique": 3.2643750000000007,
           "wave_acid": 0,
           "filter_acid": 0,
-          "accent_acid": 0.195
+          "accent_acid": 0.33
         }
       },
       {
@@ -56,7 +56,7 @@
         "scores": {
           "electronic_technique": 0.2,
           "sample_bitdepth": 0,
-          "sample_swing": 13.500000000000002,
+          "sample_swing": 13.125,
           "sample_processing": 0.195
         }
       },

@@ -2,10 +2,10 @@
   "id": "acoustic_chill",
   "name": "Acoustic chill",
   "family": "popular",
-  "lineage": "Acoustic chill is represented by paulfcook x With Sun — I Can't Look Up (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
-  "recipe": "classic mid-2020s acoustic chill, ballad Poetry, indie folk branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. fingerpicked classical nylon-string guitar, hammer low mid emphasis folk melodica, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 376,
-  "score": 21.959,
+  "lineage": "Acoustic chill brings acoustic songwriting and instrumental textures into relaxed contemporary listening. Collaborations such as paulfcook and With Sun connect singer-songwriter intimacy with understated studio production.",
+  "recipe": "classic acoustic chill, ballad Poetry, indie folk branch. solo with instrumental accompaniment, unprocessed natural acoustic. fingerpicked classical nylon-string guitar, hammer low mid emphasis folk melodica, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 328,
+  "score": 26.972,
   "config": {
     "traditions": [
       "acoustic_chill"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 4.68,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.9899999999999998,
-          "voice_multitrack_stack": 0.5129999999999999,
+          "voice_processing_chain": 3.9,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -58,15 +58,15 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "lattice_cl",
+          "bracing_classical": "double_top_cl",
           "string_classical": "gut_cl",
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 6.396000000000001,
+          "acoustic_technique": 7.946000000000001,
           "string_tuning": 0,
           "top_wood_classical": 0.7815,
-          "bracing_classical": 0.3675,
+          "bracing_classical": 1.3,
           "string_classical": 0.483,
           "attack_technique_cl": 0.3465
         }
@@ -77,13 +77,13 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "melodica_use": "melodica_pedagogical",
           "melodica_pitch": "melodica_alto",
-          "melodica_maker_school": "melodica_hohner_canonical"
+          "melodica_maker_school": "melodica_suzuki_japanese"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 1.45,
           "melodica_use": 1.95,
-          "melodica_pitch": 1.3,
-          "melodica_maker_school": 0.5499999999999999
+          "melodica_pitch": 0.3405,
+          "melodica_maker_school": 0
         }
       },
       {
@@ -96,7 +96,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "va_archetypes": 0.2415,
-          "digital_subtractive_context": 4.549999999999999
+          "digital_subtractive_context": 3.3799999999999994
         }
       }
     ],

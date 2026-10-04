@@ -2,10 +2,10 @@
   "id": "neo_rockabilly",
   "name": "Neo-rockabilly",
   "family": "rock",
-  "lineage": "Neo-rockabilly is represented here by The Bellfuries — Workingman’s Bellfuries (upright-bass branch). This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Neo-rockabilly renews rockabilly’s guitar-led dance-band sound through contemporary songs and performance.",
   "recipe": "classic neo-rockabilly, functional Song, pop rock branch. Fender champ amp low wattage studio grit clean strummed humbucker electric guitar, upright bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 306,
-  "score": 30.987,
+  "score": 29.966,
   "config": {
     "traditions": [
       "neo_rockabilly"
@@ -18,11 +18,11 @@
           "amp_make": "amp_american_fender_champ",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
@@ -30,29 +30,29 @@
         },
         "scores": {
           "electric_technique": 4.9575,
-          "amp_make": 7.790999999999999,
-          "body_wood": 0.483,
+          "amp_make": 8.072000000000001,
+          "body_wood": 0.6194999999999999,
           "neck_wood": 0.2415,
-          "fretboard": 0.0315,
+          "fretboard": 0.3,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 1.6055000000000001,
-          "scale_length": 0.39,
-          "string_gauge": 1.6684999999999999,
+          "bridge": 0.2415,
+          "scale_length": 0.6405000000000001,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.33899999999999997
+          "string_tuning": 0
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "synthetic_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "upright_strings": 0.1365,
-          "upright_play": 2.3
+          "upright_strings": 0,
+          "upright_play": 3.3
         }
       },
       {
@@ -63,7 +63,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.2815,
+          "drum_technique": 6.5815,
           "drumhead": 3.9415,
           "drum_kit_kick_pedal": 0
         }
@@ -100,7 +100,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.441,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -112,6 +112,10 @@
       "electric_guitar_humbucker": [
         "electric_technique",
         "string_tuning"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
       ],
       "drum_kit": [
         "drum_technique",
@@ -174,7 +178,9 @@
       "electric_technique": "electric_clean_strummed",
       "string_tuning": "standard_tuning",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "upright_strings": "gut_upright",
+      "upright_play": "slap_upright"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

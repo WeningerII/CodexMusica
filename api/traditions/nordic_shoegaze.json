@@ -52,7 +52,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -62,7 +62,7 @@
           "pickup_config": 0.1365,
           "string_type": 8.125,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.054,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.054
+          "voice_multitrack_stack": 0
         }
       }
     ],

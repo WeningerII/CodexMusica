@@ -2,10 +2,10 @@
   "id": "haryanvi_ragni",
   "name": "Haryanvi ragni",
   "family": "global",
-  "lineage": "Ravi Kumar and Group — complete five-person Haryanvi Ragini practice documented by producer Anahad. Ravi Kumar sings lead; Ram Meher Singh and Naveen Kumar both play harmonium and sing chorus; Rajesh Kumar plays Nagada; Mausam plays Dholak. Four sound families and three positively documented singers retain all five people, including two harmonium players, without adding another role from other groups these musicians join. The producer interview and two issued performance pages establish a complete storytelling ensemble rather than an arbitrary vocal highlight or incomplete studio-credit reconstruction. Indian bardic placement follows the explicit story-centered song practice. Hand-pumped harmonium uses all original physical action, reed-voicing and use controls with an isolated local free_reed_technique override for keyboard/bellows gesture; it does not inherit mouth-harmonica first-position/overblow technique. Hand pumping and lower-register reed voicing are authored acoustic construction options, not measured source reed banks. Two documented harmonium players share this sound-family card. Nagada is mapped to the Indian kettledrum family: primary museum documentation supports paired clay bowls struck with sticks and folk accompaniment; the particular small clay pair is authored, not visually verified source equipment or a transfer of the museum object’s Assamese lineage. The existing solo-stick variant is a newly authored highlighted drum passage within the complete ensemble, not a claim of an unaccompanied performance or source virtuosity. Dholak retains the existing authored mango/sheesham/rosewood timber vocabulary with skin heads and rope tuning; this mixed catalogue wood option is not a source wood identification or claim of one measured species. Three singers receive authored neumatic word-setting (small note groups per syllable) and a live group-unison chorus treatment; exact source harmonization, physiology, reed tuning and layered studio takes are not asserted. A controlled live-room realization is authored; no recording apparatus or global equal-temperament assumption is supplied.",
-  "recipe": "classic haryanvi ragni, ballad Poetry, indian bard branch. small note groups per syllable, choral, unprocessed natural acoustic, live take. vocal male song accompaniment hand pumped harmonium, nagara indian, sheesham mango goat skin syahi rope laced steel ring dholak. live tracking.",
-  "recipe_chars": 283,
-  "score": 37.837,
+  "lineage": "Haryanvi ragni is a northern Indian folk-storysong tradition in which narrative, poetry and public delivery are central. Singers and accompanying groups carry local histories, dramatic episodes and social themes through a distinct Haryana performance practice that also influences regional popular music.",
+  "recipe": "classic haryanvi ragni, ballad Poetry, indian bard branch. small note groups per syllable. song accompaniment hand pumped harmonium, nagara indian, dholak. live tracking.",
+  "recipe_chars": 170,
+  "score": 5.675,
   "config": {
     "traditions": [
       "haryanvi_ragni"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.694,
-          "voice_ensemble_config": 1.3,
+          "voice_speech_song": 1.294,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3975,
-          "voice_multitrack_stack": 5.305,
+          "voice_processing_chain": 0.0975,
+          "voice_multitrack_stack": 0.105,
           "voice_tessitura": 0
         }
       },
@@ -61,10 +61,10 @@
           "free_reed_technique": "hand_pumped_harmonium_song_support"
         },
         "scores": {
-          "harmonium_action": 3.158,
-          "harmonium_voicing": 1.69,
-          "harmonium_use": 3.38,
-          "free_reed_technique": 0.2415
+          "harmonium_action": 0.39,
+          "harmonium_voicing": 0.39,
+          "harmonium_use": 1.5525,
+          "free_reed_technique": 0.39
         }
       },
       {
@@ -89,10 +89,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.39,
-          "dholak_construction": 6.555,
-          "dholak_head": 1.69,
-          "dholak_tensioning": 1.69
+          "dholak_use": 0.1365,
+          "dholak_construction": -0.035,
+          "dholak_head": 0.45149999999999996,
+          "dholak_tensioning": 0.5565
         }
       }
     ],

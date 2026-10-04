@@ -3,14 +3,14 @@
   "name": "Death metal",
   "family": "rock_punk",
   "lineage": "Mid-1980s onward extreme metal subgenre characterized by down-tuned humbucker guitar, palm-muted chug riffs, blast-beat drumming, growl-vocal delivery, and morbid thematic content — codified through Florida-tampa-bay (Death — Scream Bloody Gore 1987, Morbid Angel — Altars of Madness 1989, Obituary, Deicide), and Stockholm (Entombed — Left Hand Path 1990, Dismember, Grave) with the genre splitting into technical, brutal, and melodic substreams by the mid-1990s",
-  "recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal native american metal black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 635,
-  "score": 332.294,
+  "recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal black speed metal new wave of thrash metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 638,
+  "score": 315.715,
   "config": {
     "traditions": [
       "death_metal",
-      "native_american_metal",
-      "black_speed_metal"
+      "black_speed_metal",
+      "new_wave_of_thrash_metal"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 34.431250000000006,
-          "amp_make": 18.525,
-          "body_wood": 19.305,
+          "electric_technique": 33.580000000000005,
+          "amp_make": 18.134999999999998,
+          "body_wood": 19.11,
           "neck_wood": 4.005,
           "fretboard": 3.955,
-          "pickup_magnet": 2.145,
-          "pickup_winding": 0.80625,
+          "pickup_magnet": 2.34,
+          "pickup_winding": 0.65,
           "string_material": 0.39,
           "bridge": 4.005,
-          "scale_length": 15.08,
-          "string_gauge": 5.004999999999999,
+          "scale_length": 14.689999999999998,
+          "string_gauge": 5.195,
           "finish": 0,
-          "string_tuning": 20.54
+          "string_tuning": 19.759999999999998
         }
       },
       {
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.630000000000001,
-          "body_wood": 4.874999999999999,
-          "pickup_config": 1.4949999999999999,
-          "string_type": 15.01125,
+          "amp_make": 6.240000000000001,
+          "body_wood": 5.069999999999999,
+          "pickup_config": 1.69,
+          "string_type": 14.092500000000001,
           "scale_length_b": 4.005,
           "fretted_or_not": 0.585,
-          "bass_technique": 13.765,
+          "bass_technique": 13.435,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.024999999999995,
-          "drumhead": 4.05,
+          "drum_technique": 11.244999999999996,
+          "drumhead": 4.109999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -97,28 +97,28 @@
           "voice_estill_quality": "voice_estill_sob",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 11.951249999999996,
-          "voice_quality": 8.58,
+          "voice_register": 10.994999999999994,
+          "voice_quality": 7.215000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.095,
-          "voice_articulation": 11.959999999999994,
-          "voice_microtone": 12.544999999999991,
-          "voice_tradition": 6.630000000000001,
-          "voice_mechanism_compound": 35.88625,
+          "voice_articulation": 11.179999999999994,
+          "voice_microtone": 11.764999999999992,
+          "voice_tradition": 5.395000000000001,
+          "voice_mechanism_compound": 35.035,
           "voice_estill_quality": 2.145,
-          "voice_speech_song": 16.054999999999993,
-          "voice_ensemble_config": 11.504999999999992,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.4499999999999997,
-          "voice_processing_chain": 6.044999999999999,
-          "voice_multitrack_stack": 5.46
+          "voice_speech_song": 14.039999999999994,
+          "voice_ensemble_config": 10.724999999999993,
+          "voice_ornament_system": 0.15000000000000002,
+          "voice_pitch_organization": 0.9474999999999999,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 4.615
         }
       }
     ],

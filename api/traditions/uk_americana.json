@@ -5,7 +5,7 @@
   "lineage": "UK Americana connects UK-rooted artists with transatlantic country, soul and roots-song practice. Yola’s Bristol-to-Nashville Walk Through Fire sessions supply one documented country-soul branch.",
   "recipe": "classic modern uk americana, functional Song, americana branch. thick, blues-shouter, straight note core, neutral third half flat. song accompaniment steel reed lead solder tip canonical Wurlitzer ep voicing wurlitzer ep, melodic bowed song accompaniment fiddle, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 608,
-  "score": 142.952,
+  "score": 143.245,
   "config": {
     "traditions": [
       "uk_americana"
@@ -28,25 +28,25 @@
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 13.362999999999996,
+          "voice_register": 13.467999999999995,
           "voice_quality": 5.988000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.017499999999998,
+          "voice_vibrato": 8.912499999999998,
           "voice_articulation": 0.1425,
           "voice_microtone": 2.0799999999999996,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 10.6955,
+          "voice_estill_quality": 10.842499999999998,
           "voice_speech_song": 5.525000000000001,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.26,
           "voice_pitch_organization": 0.19275000000000003,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 0.41025,
           "voice_multitrack_stack": 0.5199999999999999
         }
       },
@@ -72,8 +72,8 @@
         "slots": {
           "bowed_technique": "bowed_local_song_melody",
           "fiddle_strings": "steel_core",
-          "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
@@ -81,7 +81,7 @@
           "bowed_technique": 3.25,
           "fiddle_strings": 0.78,
           "fiddle_bow": 0.0315,
-          "fiddle_mute": 0.0735,
+          "fiddle_mute": 0.19949999999999998,
           "fiddle_articulation": 0.0945,
           "fiddle_string_configuration": 0
         }
@@ -101,12 +101,12 @@
         "scores": {
           "electric_technique": 10.2845,
           "amp_make": 14.424999999999997,
-          "pickup_steel": 0.1365,
+          "pickup_steel": 0.168,
           "string_setup": 4.55,
           "bar_material": 0.78,
           "pedal_steel_brand": 10.0045,
           "pedal_steel_neck_config": 11.765,
-          "pedal_steel_strings": 10.355250000000002
+          "pedal_steel_strings": 10.292250000000001
         }
       },
       {
@@ -125,9 +125,9 @@
           "amp_make": 9.3935,
           "body_wood": 0.273,
           "pickup_config": 0.0315,
-          "string_type": 6.002250000000001,
+          "string_type": 6.065250000000001,
           "scale_length_b": 0.1365,
-          "fretted_or_not": 0.10575,
+          "fretted_or_not": 0.07425,
           "bass_technique": 4.9,
           "electric_bass_string_configuration": 0
         }

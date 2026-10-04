@@ -2,10 +2,10 @@
   "id": "israeli_techno",
   "name": "Israeli Techno",
   "family": "electronic",
-  "lineage": "Nadav Dagon — complete solo drum-and-sampler live techno practice. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
-  "recipe": "classic israeli techno, electronic Dance, techno branch. dark musical bronze bell bronze drum kit, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 206,
-  "score": 4.619,
+  "lineage": "Israeli techno connects regional producers and clubs with international electronic-music networks. Nadav Dagon’s drum-and-sampler performance illustrates one live approach within the scene.",
+  "recipe": "classic israeli techno, electronic Dance, techno branch. drum kit, sampler. live tracking.",
+  "recipe_chars": 90,
+  "score": 3.176,
   "config": {
     "traditions": [
       "israeli_techno"
@@ -34,7 +34,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 1.2679999999999998,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
@@ -46,14 +46,14 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.063,
-          "sampler_workflow": -0.035,
+          "sampler_workflow": -0.07,
           "sampler_classic_context": 3.6399999999999997
         }
       }
@@ -80,15 +80,15 @@
         "sampler_classic_context"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -97,7 +97,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "drum_technique": "sticks_rock",
       "shell_wood": "maple_shell",
@@ -113,15 +113,9 @@
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_sixteen_bit",
-      "sampler_workflow": "sampler_one_shot_pitched",
+      "sampler_workflow": "sampler_loop_layered",
       "sampler_classic_context": "sampler_classic_edm"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

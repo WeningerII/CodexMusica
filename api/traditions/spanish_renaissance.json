@@ -2,10 +2,10 @@
   "id": "spanish_renaissance",
   "name": "Spanish renaissance",
   "family": "classical",
-  "lineage": "Spanish renaissance is represented by The Tallis Scholars / Peter Phillips — Victoria: Requiem, CDGIM012. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+  "lineage": "Spanish Renaissance music includes sacred polyphony, secular song and instrumental practices shaped by religious and courtly institutions. Composers developed closely interwoven vocal writing alongside other forms.",
   "recipe": "classic spanish renaissance, art Music, western early branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 160,
-  "score": 0.168,
+  "score": 0.768,
   "config": {
     "traditions": [
       "spanish_renaissance"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.3
         }
       }
     ],

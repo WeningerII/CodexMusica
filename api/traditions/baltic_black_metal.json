@@ -2,10 +2,10 @@
   "id": "baltic_black_metal",
   "name": "Baltic black metal",
   "family": "rock_punk",
-  "lineage": "Baltic geographic black-metal scope represented by Latvia’s Skyforger and its documented early black-metal phase. Later work broadens into folk/pagan/heavy metal; the model chooses guitar-centered practice rather than treating all Baltic music as one instrument set.",
-  "recipe": "classic modern baltic black metal, distorted Rock, black branch. solo with instrumental accompaniment, unprocessed natural acoustic. classic rock hard rock soft down tuning humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 450,
-  "score": 24.762,
+  "lineage": "Baltic black metal connects regional underground scenes with local historical and folk interests. Latvia’s Skyforger illustrate a path from early black-metal influence toward a broader mixture of folk, pagan and heavy-metal writing.",
+  "recipe": "classic modern baltic black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier soft down tuning humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 458,
+  "score": 32.869,
   "config": {
     "traditions": [
       "baltic_black_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_tremolo_picking",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -30,7 +30,7 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 0,
+          "amp_make": 6.955000000000001,
           "body_wood": 0.483,
           "neck_wood": 0.4095,
           "fretboard": 0.0315,
@@ -47,7 +47,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,7 +57,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 2.275,
           "body_wood": 0.483,
           "pickup_config": 0,
           "string_type": 0.4095,
@@ -110,11 +110,11 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
         },
         "scores": {
           "voice_register": 0,
@@ -128,18 +128,17 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.768,
-          "voice_multitrack_stack": 0.0945
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.39
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -153,7 +152,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -222,13 +220,13 @@
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_none",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "electric_technique": "electric_tremolo_picking",
       "body_wood": "mahogany_h",
       "neck_wood": "maple_neck_h",
@@ -246,7 +244,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

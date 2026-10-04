@@ -5,7 +5,7 @@
   "lineage": "Ecuadorian popular song represented by Juan Fernando Velasco’s romantic singer-songwriter repertoire and contemporary concert practice. The authored ensemble selects voice, electric guitar, piano and drums from the venue’s documented pop instrumentation; the tour’s separately identified pasillo and Andean arrangements are not silently merged into it.",
   "recipe": "classic modern ecuadorian pop, functional Song, pop rock branch. solo with instrumental accompaniment. single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 419,
-  "score": 77.07,
+  "score": 76.684,
   "config": {
     "traditions": [
       "ecuadorian_pop"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.063,
-          "voice_ensemble_config": 1.27725,
+          "voice_ensemble_config": 1.2285000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.34275
+          "voice_multitrack_stack": 0.1575
         }
       },
       {
@@ -60,7 +60,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_3",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -71,13 +71,13 @@
           "electric_technique": -0.10500000000000001,
           "amp_make": 1.8199999999999998,
           "body_wood": 0.063,
-          "neck_wood": 0.3055,
+          "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.0315,
           "string_material": 0.0315,
-          "string_gauge": 0.20049999999999998,
+          "string_gauge": 0.1995,
           "bridge": 0.1365,
-          "scale_length": 0.506,
+          "scale_length": 0.378,
           "finish": 0,
           "string_tuning": 1.95,
           "single_coil_pickup_construction": 0
@@ -98,11 +98,11 @@
         },
         "scores": {
           "keyboard_technique": 14.391,
-          "grand_piano_size": 0.23199999999999998,
+          "grand_piano_size": 0.16799999999999998,
           "grand_piano_brand": 1.69,
           "piano_hammer": 12.181,
-          "piano_rim": 11.981499999999999,
-          "piano_soundboard": 11.95,
+          "piano_rim": 12.013,
+          "piano_soundboard": 12.023499999999999,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
           "piano_pitch_standard": -0.035

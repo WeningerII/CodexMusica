@@ -2,10 +2,10 @@
   "id": "early_synthpop",
   "name": "Early synthpop",
   "family": "pop",
-  "lineage": "Early synthpop is represented here by Telex — early modular/polyphonic synthesizer core. This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic early synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. moog east coast modular canonical 1964 1981 trumansburg keyboard driven subtractive modular yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 414,
-  "score": 9.5,
+  "lineage": "Early synthpop emerged as synthesizers and electronic rhythm became central tools for popular-song arrangements.",
+  "recipe": "classic early synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. modular analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 4.417,
   "config": {
     "traditions": [
       "early_synthpop"
@@ -20,25 +20,25 @@
           "mod_lineage": "mod_moog_east_coast"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "mod_voltage_source": 1.3,
-          "mod_patch_density": 0.39,
-          "mod_lineage": 1.625
+          "electronic_technique": 0.325,
+          "mod_voltage_source": 0.6315,
+          "mod_patch_density": 0.3465,
+          "mod_lineage": 0.325
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "poly_archetypes": 1.95,
+          "electronic_technique": 0.325,
+          "poly_archetypes": 0,
           "poly_voices": 0.168,
-          "poly_maker_lineage": 1.3445
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -73,11 +73,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.1655,
           "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.8925000000000001
+          "voice_multitrack_stack": 0.9555
         }
       }
     ],
@@ -89,7 +89,10 @@
         "mod_lineage"
       ],
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
       "voice": [
         "voice_register",
@@ -148,7 +151,10 @@
       "electronic_technique": "electronic_arpeggiated",
       "mod_voltage_source": "mod_sequencer",
       "mod_patch_density": "mod_simple_patch",
-      "mod_lineage": "mod_moog_east_coast"
+      "mod_lineage": "mod_moog_east_coast",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

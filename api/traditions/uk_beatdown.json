@@ -5,7 +5,7 @@
   "lineage": "50 Caliber — Internal Bleeding, complete original five-song mini-album (2002). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2000s uk beatdown, distorted Rock. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 401,
-  "score": 32.466,
+  "score": 32.001,
   "config": {
     "traditions": [
       "uk_beatdown"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.089,
-          "voice_ensemble_config": 1.0995,
+          "voice_speech_song": 0.9944999999999999,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 1.689,
+          "voice_multitrack_stack": 1.6575,
           "voice_tessitura": 0
         }
       },
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 2.47,
           "finish": 0,
-          "string_tuning": 2.0365
+          "string_tuning": 1.9000000000000001
         }
       },
       {
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.7365000000000002,
+          "drumhead": 1.6,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.3365,
+          "shell_wood": 2.2,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,

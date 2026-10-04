@@ -2,10 +2,10 @@
   "id": "russian_experimental_electronic",
   "name": "Russian experimental electronic",
   "family": "electronic",
-  "lineage": "Russian experimental electronic is represented here by Dasha Rush — Patch Notes studio performance (2021) selected machine core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic early-2020s russian experimental electronic, experimental Elec. analog mono synth, glitched textural sampler, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 219,
-  "score": 29.351,
+  "lineage": "Russian experimental electronic music connects artists working across sound design, composition and live electronic performance. Local and diaspora practice includes interdisciplinary work and varied approaches to rhythm and texture.",
+  "recipe": "classic russian experimental electronic, experimental Elec. analog mono synth, glitched textural sampler, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 207,
+  "score": 28.596,
   "config": {
     "traditions": [
       "russian_experimental_electronic"
@@ -21,10 +21,10 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": -0.11850000000000002,
+          "electronic_technique": -0.10500000000000001,
           "mono_oscillator": 0.105,
-          "mono_filter": 0.21,
-          "mono_archetypes": 0.105,
+          "mono_filter": 0.315,
+          "mono_archetypes": 0.21,
           "mono_maker_lineage": -0.05
         }
       },
@@ -38,11 +38,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 10.2,
+          "electronic_technique": 8.731499999999999,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
+          "sampler_bit_depth": 0.21,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 10.149999999999999
+          "sampler_classic_context": 8.65
         }
       },
       {
@@ -54,9 +54,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "sample_bitdepth": 0,
-          "sample_swing": 9,
+          "sample_swing": 10.75,
           "sample_processing": 0
         }
       }

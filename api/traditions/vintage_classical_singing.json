@@ -2,10 +2,10 @@
   "id": "vintage_classical_singing",
   "name": "Vintage classical singing",
   "family": "classical",
-  "lineage": "Vintage classical singing is represented by Elisabeth Schumann / Gerald Moore — Schubert: Der Musensohn, D. 764. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic vintage classical singing, art Music, western common practice branch. vintage steinway pre-war compression wired 18 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 255,
-  "score": 74.006,
+  "lineage": "Vintage classical singing draws on historical recorded interpretations of art song, opera and related concert repertoire. These performances preserve varied traditions of phrasing, diction and vocal expression.",
+  "recipe": "classic vintage classical singing, art Music, western common practice branch. solo with instrumental accompaniment. vintage steinway pre-war compression wired 18 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 293,
+  "score": 69.738,
   "config": {
     "traditions": [
       "vintage_classical_singing"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3284999999999999,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0.126,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -58,21 +58,21 @@
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "vintage_steinway_pre_war_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.537,
-          "grand_piano_brand": 2.525,
+          "grand_piano_size": 0.645,
+          "grand_piano_brand": 2.6,
           "piano_hammer": 12.5315,
-          "piano_rim": 14.952,
-          "piano_soundboard": 8.25,
-          "piano_pinblock": 9.25,
-          "piano_plate": 8.823,
-          "piano_pitch_standard": 8.962499999999999
+          "piano_rim": 12.932,
+          "piano_soundboard": 8.320500000000001,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 8.7205
         }
       }
     ],

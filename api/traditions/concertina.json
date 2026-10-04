@@ -5,7 +5,7 @@
   "lineage": "Rob Harbron — Meanders, solo English concertina. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic concertina, improv On Frame. concertina. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 147,
-  "score": -0.15,
+  "score": -0.105,
   "config": {
     "traditions": [
       "concertina"
@@ -19,7 +19,7 @@
           "concertina_reed_grade": "concertina_traditional"
         },
         "scores": {
-          "free_reed_technique": -0.15000000000000002,
+          "free_reed_technique": -0.10500000000000001,
           "concertina_type": 0,
           "concertina_reed_grade": 0
         }

@@ -2,10 +2,10 @@
   "id": "italian_jazz",
   "name": "Italian jazz",
   "family": "jazz",
-  "lineage": "Italy-connected jazz practice, represented by Enrico Rava’s lyrical, exploratory quartet on the Wild Dance project. Trumpet fronts electric guitar, acoustic bass and drums; the album’s guest trombone is an optional fifth voice.",
-  "recipe": "classic modern italian jazz, improv On Frame, bop branch. bach stradivarius 180 canonical American orchestral trumpet, single coil electric guitar, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 375,
-  "score": 47.316,
+  "lineage": "Italian jazz encompasses lyrical modern-jazz improvisation, exploratory ensemble playing and composition across local and international networks. Small groups bring together acoustic rhythm sections, brass, reeds, keyboards and amplified instruments in varied combinations.",
+  "recipe": "classic modern italian jazz, improv On Frame, American jazz branch. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, single coil electric guitar, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 464,
+  "score": 68.254,
   "config": {
     "traditions": [
       "italian_jazz"
@@ -24,11 +24,11 @@
         },
         "scores": {
           "wind_articulation": 1.2349999999999999,
-          "brass_size": 0.1365,
-          "trumpet_mouthpiece": -0.07,
-          "brass_mute": 0,
+          "brass_size": 0.273,
+          "trumpet_mouthpiece": 2.5205,
+          "brass_mute": 0.147,
           "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 0.1365,
+          "trumpet_bell_metal": 1.22875,
           "trumpet_maker_school": 1.95
         }
       },
@@ -52,16 +52,16 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 0,
-          "body_wood": 0.0315,
-          "neck_wood": 0.1365,
+          "body_wood": 0.147,
+          "neck_wood": 0.16799999999999998,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "string_material": 0.1995,
-          "string_gauge": 0.0945,
-          "bridge": 0.1995,
-          "scale_length": 0.0315,
+          "string_material": 0.315,
+          "string_gauge": 0.105,
+          "bridge": 0.1365,
+          "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0,
+          "string_tuning": 0.0315,
           "single_coil_pickup_construction": 0
         }
       },
@@ -72,8 +72,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.168,
-          "upright_play": 11.25
+          "upright_strings": 0.16799999999999998,
+          "upright_play": 13.75
         }
       },
       {
@@ -92,17 +92,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.8,
-          "drumhead": 0.063,
+          "drum_technique": 12.089999999999996,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.3315,
+          "shell_wood": 0.252,
           "shell_thickness": 0,
-          "bearing_edges": 0.168,
-          "snare_wires": 0.0315,
-          "cymbal_alloy": 11.099999999999998,
-          "cymbal_hammering": 11.367999999999999,
-          "cymbal_lathing": -0.11100000000000003,
-          "cymbal_finish": 0.0315
+          "bearing_edges": 0.1365,
+          "snare_wires": 0.147,
+          "cymbal_alloy": 13.746999999999998,
+          "cymbal_hammering": 14.18,
+          "cymbal_lathing": 2.6414999999999997,
+          "cymbal_finish": 0
         }
       }
     ],

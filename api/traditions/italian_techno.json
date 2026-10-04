@@ -2,10 +2,10 @@
   "id": "italian_techno",
   "name": "Italian techno",
   "family": "electronic",
-  "lineage": "Italy-centered techno networks spanning several club generations. Enrico Sangiuliano’s Milan production practice supplies this compact synth-and-drum default; Marco Carola, another documented member of the scene, illustrates the photographic record.",
+  "lineage": "Italian techno connects successive generations of club producers, DJs and labels. Melodic synthesis, hypnotic repetition and harder electronic approaches coexist within the country’s varied dance-music networks.",
   "recipe": "classic modern italian techno, electronic Dance, techno branch. analog synth, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 302,
-  "score": 7.752,
+  "score": 4.475,
   "config": {
     "traditions": [
       "italian_techno"
@@ -21,9 +21,9 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "oscillator": 0.39,
-          "filter_topology": 1.3,
+          "electronic_technique": -0.07,
+          "oscillator": 0.2145,
+          "filter_topology": 0.07799999999999999,
           "envelope": 0.39,
           "modulation": 0.1365
         }
@@ -38,9 +38,9 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.3,
+          "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 3.601
+          "shuffle_quantize": 2.851
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "KALOZIN — documented Pindorama X700-era live electronic setup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic musica eletronica brasileira, electronic Dance. sampler, analog synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital digital delay.",
   "recipe_chars": 191,
-  "score": -0.069,
+  "score": 0.379,
   "config": {
     "traditions": [
       "musica_eletronica_brasileira"
@@ -21,10 +21,10 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": -0.035,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": -0.1,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": -0.07,
           "sampler_classic_context": -0.05
         }
       },
@@ -38,10 +38,10 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": -0.035,
           "oscillator": 0,
-          "filter_topology": 0.231,
-          "envelope": 0,
+          "filter_topology": 0.4305,
+          "envelope": 0.063,
           "modulation": 0
         }
       }

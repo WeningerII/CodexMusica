@@ -2,10 +2,10 @@
   "id": "rock_andaluz",
   "name": "Rock andaluz",
   "family": "rock",
-  "lineage": "Rock andaluz is represented here by Pony Bravo — El guarda forestal. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic rock andaluz, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 366,
-  "score": 60.929,
+  "lineage": "Rock andaluz emerged from the meeting of progressive rock with Andalusian musical traditions, especially flamenco, in the 1960s–1980s.",
+  "recipe": "classic mid-1960s rock andaluz, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 376,
+  "score": 63.829,
   "config": {
     "traditions": [
       "rock_andaluz"
@@ -20,28 +20,28 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 6.5,
-          "body_wood": 0.7979999999999999,
-          "neck_wood": 0.5145,
-          "fretboard": 0.5145,
-          "pickup_magnet": 0.357,
-          "pickup_winding": 0.357,
-          "string_material": 0.5145,
-          "bridge": 1.5482500000000001,
-          "scale_length": 1.344,
-          "string_gauge": 1.48525,
+          "amp_make": 7.41,
+          "body_wood": 0.693,
+          "neck_wood": 0.483,
+          "fretboard": 0.483,
+          "pickup_magnet": 0.252,
+          "pickup_winding": 0.33599999999999997,
+          "string_material": 0.483,
+          "bridge": 0.0945,
+          "scale_length": 1.2075,
+          "string_gauge": 0.063,
           "finish": 0.1365,
-          "string_tuning": 0.34275
+          "string_tuning": 0
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.865,
           "body_wood": 0.21,
-          "pickup_config": 0.38849999999999996,
-          "string_type": 16.575,
-          "scale_length_b": 0.483,
-          "fretted_or_not": 0,
+          "pickup_config": 0.2835,
+          "string_type": 18.85,
+          "scale_length_b": 0.378,
+          "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.5145,
+          "drum_technique": 14.5,
+          "drumhead": 0.483,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,10 +113,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.063,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.19949999999999998
         }
       },
       {
@@ -129,8 +129,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 6.629999999999999,
-          "poly_voices": 0.2415,
+          "poly_archetypes": 7.54,
+          "poly_voices": 0.1995,
           "poly_maker_lineage": -0.035
         }
       }

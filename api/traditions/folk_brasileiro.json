@@ -5,7 +5,7 @@
   "lineage": "This discovery label includes modern Brazilian acoustic folk-pop artists such as ANAVITÓRIA, Rubel and Tiago Iorc. Its roster is not a synonym for the entire body of traditional Brazilian regional music.",
   "recipe": "classic modern folk brasileiro, ballad Poetry. thick, breath veiled tone, straight onset, interlocked note trading. fingerpicked acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 283,
-  "score": 39.379,
+  "score": 40.117,
   "config": {
     "traditions": [
       "folk_brasileiro"
@@ -36,18 +36,18 @@
           "voice_quality": 2.0799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8999999999999999,
+          "voice_vibrato": 1.0799999999999998,
           "voice_articulation": 2.665000000000001,
           "voice_microtone": 3.9365000000000006,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.453,
-          "voice_estill_quality": 0,
+          "voice_mechanism_compound": 0.5609999999999999,
+          "voice_estill_quality": 0.054,
           "voice_speech_song": 3.575000000000001,
           "voice_ensemble_config": 0.585,
           "voice_ornament_system": 0.26,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.4140000000000006,
-          "voice_multitrack_stack": 1.8405
+          "voice_processing_chain": 3.5220000000000002,
+          "voice_multitrack_stack": 2.0204999999999997
         }
       },
       {
@@ -62,9 +62,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0.054,
-          "back_sides": 0,
+          "back_sides": 0.054,
           "string_acoustic": 0.1365,
-          "acoustic_om_technique": 7.154000000000001
+          "acoustic_om_technique": 7.208
         }
       }
     ],

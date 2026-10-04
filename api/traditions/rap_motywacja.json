@@ -2,10 +2,10 @@
   "id": "rap_motywacja",
   "name": "Rap motywacja",
   "family": "hip_hop",
-  "lineage": "Polish motivational rap is a thematic discovery category. Polska Wersja supplies a researched MC-and-scratch production branch.",
-  "recipe": "classic modern rap motywacja, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 320,
-  "score": 34.059,
+  "lineage": "Polish motivational rap, a thematic listening field drawing from the wider Polish hip-hop community.",
+  "recipe": "classic modern rap motywacja, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 38.497,
   "config": {
     "traditions": [
       "rap_motywacja"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.625,
+          "voice_quality": 15.08,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.214999999999998,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 14.018999999999998,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -57,8 +57,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 2.2,
-          "turntable_technique": 2.488
+          "electronic_technique": 3.7,
+          "turntable_technique": 4.288
         }
       }
     ],

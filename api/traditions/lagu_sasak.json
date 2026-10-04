@@ -2,10 +2,10 @@
   "id": "lagu_sasak",
   "name": "Lagu Sasak",
   "family": "pop",
-  "lineage": "The Datu: complete five-member band practice documented alongside the March2023 first-person singer interview, not a claimed exhaustive studio master of Sepinate. Jien Raharja sings; Chandra Poci plays drums; Oyok Sapriadi guitar; Bintang bass; Itonk keyboard. One named singer and all five role families retained. Studio/publisher and audiovisual collaborators are not silently assigned instrumental roles. Generic guitar and bass credits receive an explicitly authored electric single-coil tremolo guitar and fretted dual-single-coil bass realization; the primary does not specify those mechanisms, makes, woods or techniques. Clean strummed guitar, fingerstyle bass and maple stick-played kit with conventional traditional-finish cymbals are authored coherent controls, not measured source equipment. Bare keyboard retains existing neutral electronic-keyboard owner without organ/synth architecture inference. Neutral single voice retains unknown physiology and local pitch organization. Live-room acoustic is a new band rendition, not measured venue or studio; no global tuning or recording chain inferred.",
-  "recipe": "classic lagu sasak, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. maple conventional tuning standard pitch clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 394,
-  "score": 40.34,
+  "lineage": "Lagu Sasak encompasses Sasak-language songs from Lombok, linking contemporary pop bands with local-language musical traditions. Musicians use familiar language and stories in arrangements that cross pop, regional entertainment and other styles.",
+  "recipe": "classic lagu sasak, functional Song. solo with instrumental accompaniment. clean strummed single coil electric guitar, electric bass, electronic keyboard unspecified, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. live tracking.",
+  "recipe_chars": 260,
+  "score": 27.773,
   "config": {
     "traditions": [
       "lagu_sasak"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.7715000000000005,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 6.724,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,10 +70,10 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 6.550000000000001,
+          "electric_technique": 7.45,
           "amp_make": 0,
           "body_wood": 0,
-          "neck_wood": 1.354,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "string_material": 0.054,
@@ -81,7 +81,7 @@
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 3.9000000000000004,
+          "string_tuning": 0,
           "single_coil_pickup_construction": 0
         }
       },
@@ -104,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.3
         }
       },
       {
@@ -136,15 +136,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.954,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": 3.954,
-          "cymbal_lathing": 5.2,
+          "cymbal_alloy": 1.0399999999999998,
+          "cymbal_hammering": 7.454000000000001,
+          "cymbal_lathing": 7.7,
           "cymbal_finish": 0
         }
       }

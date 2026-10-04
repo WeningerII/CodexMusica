@@ -2,10 +2,10 @@
   "id": "deep_vocal_jazz",
   "name": "Deep vocal jazz",
   "family": "jazz",
-  "lineage": "Deep vocal jazz is represented by Diane Hubka — I Like It Here selected voice/piano-trio branch. One documented branch is realized as an authored present-day recording arrangement. Sources establish the ensemble roles, genre boundary and practice locality. Exact instrument subtype, technique pins, room, signal chain, numeric axes and tuning baseline are authored choices, not assertions of original session equipment or universal regional practice.",
-  "recipe": "classic deep vocal jazz, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator 7 ply grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 325,
-  "score": 58.726,
+  "lineage": "Deep vocal jazz explores less familiar singers and repertoire within the broad vocal-jazz tradition. Individual phrasing and personal song interpretation remain central.",
+  "recipe": "classic deep vocal jazz, improv On Frame, smooth vocal branch. solo with instrumental accompaniment. grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 45.615,
   "config": {
     "traditions": [
       "deep_vocal_jazz"
@@ -43,47 +43,47 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.17,
+          "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1995,
-          "voice_multitrack_stack": 0.2535
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.168
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.625,
+          "keyboard_technique": 0.325,
           "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.213,
-          "piano_hammer": 3.575,
-          "piano_rim": 1.885,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": 1.56,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "grand_piano_brand": 0.2415,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": 0.26,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.7149999999999999
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_wound_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 12,
-          "upright_play": 12
+          "upright_strings": 0,
+          "upright_play": 13.75
         }
       },
       {
@@ -94,8 +94,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.49,
-          "drumhead": 15.534999999999998,
+          "drum_technique": 11.179999999999996,
+          "drumhead": 17.81,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -120,7 +120,19 @@
         "voice_multitrack_stack"
       ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
       ],
       "drum_kit": [
         "drum_technique"
@@ -162,7 +174,17 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "keyboard_technique": "keyboard_jazz_comping",
-      "drum_technique": "brushes_and_sticks"
+      "drum_technique": "brushes_and_sticks",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "upright_strings": "gut_upright",
+      "upright_play": "pizz_upright"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

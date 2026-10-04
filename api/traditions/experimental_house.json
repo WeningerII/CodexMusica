@@ -2,10 +2,10 @@
   "id": "experimental_house",
   "name": "Experimental House",
   "family": "electronic",
-  "lineage": "A_A — Cyan, complete B1 track from Midori (2023). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s experimental house, experimental Elec. drum machine analog, doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 270,
-  "score": 12.368,
+  "lineage": "House-derived electronic music that treats the dance groove as a framework for unusual sound design, modulation and compositional experiments. A_A connects floor-oriented rhythms with graphic-score and improvised electronic practices.",
+  "recipe": "classic experimental house, experimental Elec. drum machine analog, modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 189,
+  "score": 8.672,
   "config": {
     "traditions": [
       "experimental_house"
@@ -20,8 +20,8 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.705,
-          "snare_voice": 0,
+          "kick_voice": 0.105,
+          "snare_voice": 1.3,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
         }
@@ -35,10 +35,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 9.255499999999998,
-          "mod_voltage_source": 0,
-          "mod_patch_density": 0.378,
-          "mod_lineage": 2.08
+          "electronic_technique": 6.674,
+          "mod_voltage_source": 0.1365,
+          "mod_patch_density": 0.273,
+          "mod_lineage": 0.23399999999999999
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "israeli_jazz",
   "name": "Israeli jazz",
   "family": "jazz",
-  "lineage": "Israel-connected contemporary jazz; selected Avishai Cohen bass-led trio",
+  "lineage": "Israeli jazz connects local composers and improvisers with international jazz networks. Contemporary ensembles explore melodic composition, rhythmic complexity and close interaction between bass, keyboards, percussion and other instrumental voices.",
   "recipe": "classic modern israeli jazz, improv On Frame, American jazz branch. upright bass, grand piano, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 308,
-  "score": 43.978,
+  "score": 54.762,
   "config": {
     "traditions": [
       "israeli_jazz"
@@ -18,8 +18,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.39,
-          "upright_play": 11.25
+          "upright_strings": 0.348,
+          "upright_play": 13.75
         }
       },
       {
@@ -36,15 +36,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.325,
-          "grand_piano_size": 0.39,
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.147,
           "grand_piano_brand": 0.105,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": 0.26,
+          "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -63,15 +63,15 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.280000000000001,
+          "drum_technique": 12.479999999999997,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.252,
           "shell_thickness": 0,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.147,
-          "cymbal_alloy": 11.246999999999998,
-          "cymbal_hammering": 11.641,
+          "snare_wires": 0.186,
+          "cymbal_alloy": 13.876999999999997,
+          "cymbal_hammering": 14.141,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }

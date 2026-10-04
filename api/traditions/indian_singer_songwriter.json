@@ -5,7 +5,7 @@
   "lineage": "India’s independent performer-songwriters work in multiple languages and modern acoustic/electronic formats. Prateek Kuhad, present in the exact roster, supplies the selected Hindi-and-English guitar-based song branch.",
   "recipe": "classic modern indian singer-songwriter, ballad Poetry. straight onset, neutral third half flat, tahrir tekye chain mechanism, opera quality low larynx anchored. indian rosewood rosewood fingerpicked acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 354,
-  "score": 33.044,
+  "score": 33.44,
   "config": {
     "traditions": [
       "indian_singer_songwriter"
@@ -36,15 +36,15 @@
           "voice_quality": -0.35,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8999999999999999,
+          "voice_vibrato": 1.0799999999999998,
           "voice_articulation": 0,
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.6499999999999999,
-          "voice_estill_quality": 1.8299999999999998,
+          "voice_estill_quality": 1.938,
           "voice_speech_song": 5.525,
           "voice_ensemble_config": 4.8100000000000005,
-          "voice_ornament_system": 1.0299999999999998,
+          "voice_ornament_system": 1.0839999999999999,
           "voice_pitch_organization": 0.6499999999999999,
           "voice_processing_chain": 3.5500000000000003,
           "voice_multitrack_stack": 1
@@ -64,7 +64,7 @@
           "top_wood": 0.054,
           "back_sides": 1.2349999999999999,
           "string_acoustic": 0.1365,
-          "acoustic_om_technique": 3.9539999999999997
+          "acoustic_om_technique": 4.008
         }
       }
     ],

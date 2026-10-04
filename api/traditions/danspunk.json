@@ -2,10 +2,10 @@
   "id": "danspunk",
   "name": "Danspunk",
   "family": "pop",
-  "lineage": "Complete presenter-advertised Billy Opel solo show at Folkan, Örnsköldsvik, April2, duration one hour twenty minutes. Riksteatern explicitly describes his own humorous songs and observations performed alone with guitar. One person, one voice and one guitar; no invented band, percussion or studio-production layer. Presenter archive omits the year in visible text, so no year is asserted. This is the complete announced acoustic show, not a claim every Danspunk artist uses acoustic guitar or proof the advertised show occurred without changes. Authored acoustic dreadnought realization of source-unspecified guitar: Engelmann spruce top, rosewood back/sides,80/20bronze strings, standard tuning and fingerpicked support. Small-group neumatic sung phrases are an editorial delivery choice compatible with songs, not a transcription; source-neutral physiology, pitch organization and register retained. Solo-accompanied voice means one singer with the retained guitar. One-track lead and controlled live room are new-rendition choices, not source microphone or overdub evidence. Broad functionalSong/pop models authored functional-harmonic verse/refrain songs, not Anglosphere pop-rock ancestry or a claim every humorous passage is sung.",
-  "recipe": "classic danspunk, functional Song. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. spruce indian rosewood rosewood bronze dreadnought acoustic guitar. live tracking.",
-  "recipe_chars": 255,
-  "score": 28.108,
+  "lineage": "Danspunk connects a Nordic popular-music discovery field with dance-oriented songs, humor and regional performers. Its varied repertoire is distinct from treating the name as a direct synonym for Anglo-American dance-punk.",
+  "recipe": "classic danspunk, functional Song. solo with instrumental accompaniment, single lead single track no stacking. dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 154,
+  "score": 3.448,
   "config": {
     "traditions": [
       "danspunk"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.0905000000000005,
-          "voice_ensemble_config": 7.371499999999999,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 4.967999999999999,
-          "voice_multitrack_stack": 6.724,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 1.0499999999999998,
+          "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.25,
-          "string_acoustic": 1.354
+          "top_wood": 0,
+          "back_sides": -0.05,
+          "string_acoustic": 0.054
         }
       }
     ],

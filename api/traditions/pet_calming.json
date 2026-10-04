@@ -5,7 +5,7 @@
   "lineage": "Through a Dog’s Ear Starter CD — Track One, four solo-piano selections performed by Lisa Spector. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic pet calming, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 204,
-  "score": 27.793,
+  "score": 26.401,
   "config": {
     "traditions": [
       "pet_calming"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": -0.07,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.363,
-          "piano_hammer": 4.168,
-          "piano_rim": 6.1625000000000005,
-          "piano_soundboard": 4.105,
-          "piano_pinblock": 6.287000000000001,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 4,
+          "piano_rim": 5.9945,
+          "piano_soundboard": 4,
+          "piano_pinblock": 5.300000000000001,
           "piano_plate": 4,
-          "piano_pitch_standard": 2.7760000000000002
+          "piano_pitch_standard": 2.7550000000000003
         }
       }
     ],

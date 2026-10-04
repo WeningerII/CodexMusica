@@ -2,10 +2,10 @@
   "id": "belarusian_electronic",
   "name": "Belarusian electronic",
   "family": "electronic",
-  "lineage": "Belarusian electronic is represented by luty sakavik — Bol Jon Moj. This documented branch is realized as an authored present-day arrangement.",
+  "lineage": "Belarusian electronic music includes local musicians and collaborations working across electronic song, new wave and other production styles. Vocal and instrumental approaches share an interest in timbre and repeated patterns.",
   "recipe": "classic belarusian electronic, functional Song, synthpop branch. analog poly synth, sampler drum machine, ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 239,
-  "score": 19.677,
+  "score": 22.369,
   "config": {
     "traditions": [
       "belarusian_electronic"
@@ -37,7 +37,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "sample_bitdepth": 0.3045,
-          "sample_swing": 9.0315,
+          "sample_swing": 10.7815,
           "sample_processing": 0.1365
         }
       },
@@ -54,12 +54,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.275,
+          "amp_make": 2.6650000000000005,
           "body_wood": 0.3045,
           "pickup_config": 0.1995,
           "string_type": 4.875,
           "scale_length_b": 0.1365,
-          "fretted_or_not": 0.105,
+          "fretted_or_not": 0.213,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -96,11 +96,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.168,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.168
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

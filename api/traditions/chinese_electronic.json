@@ -2,10 +2,10 @@
   "id": "chinese_electronic",
   "name": "Chinese electronic",
   "family": "electronic",
-  "lineage": "Chinese electronic is represented by Shanghai Restoration Project with Zhang Le — There and Then programmed-vocal core. This documented branch is realized as an authored present-day arrangement.",
+  "lineage": "Chinese electronic music includes local and diaspora producers bringing electronic production into dialogue with varied Chinese musical experiences.",
   "recipe": "classic chinese electronic, experimental Elec. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 207,
-  "score": 10.166,
+  "score": 13.218,
   "config": {
     "traditions": [
       "chinese_electronic"
@@ -17,13 +17,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 8.25,
-          "sample_processing": 0.105
+          "electronic_technique": 0.2,
+          "sample_bitdepth": 0.21,
+          "sample_swing": 10.75,
+          "sample_processing": 0
         }
       },
       {
@@ -61,12 +61,18 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.1575
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.126
         }
       }
     ],
     "pinned": {
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
       "voice": [
         "voice_register",
         "voice_quality",
@@ -120,7 +126,11 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead"
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

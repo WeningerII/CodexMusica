@@ -3,53 +3,53 @@
   "name": "Samba-Enredo (escola de samba competition theme samba)",
   "family": "vernacular",
   "lineage": "The competition theme-samba of Rio de Janeiro's escolas de samba, formalized after the 1930s Estácio-era school system and hardened into its modern form in the 1970s-80s, in which a single composed melody narrating the school's annual enredo is sung by a puxador over a 200-300-piece bateria at 130-145 BPM, surdos de primeira/segunda/terceira marking the two-beat pulse, tamborins in teleco-teco, repiniques calling the breaks, and cavaquinho-and-violão harmony support.",
-  "recipe": "classic Southern American mid-1930s samba-enredo, carnival Processional, Brazilian branch, Brazilian groove percussion, pagode Brazilian bloco. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, Brazilian rosewood pre 1992 choro spruce modern choro tradition violao 7 cordas, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, agogo, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, snappy samba tradition metal construction reco reco. escola samba quadra. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA.",
-  "recipe_chars": 994,
-  "score": 459.73,
+  "recipe": "classic Southern American mid-1930s samba-enredo, carnival Processional, Brazilian branch, Brazilian groove percussion, pagode Brazilian roda de samba. kargyraa, breath veiled tone, slow rate, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, Brazilian rosewood pre 1992 choro spruce modern violao 7 cordas, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, urban bahian modern agogo, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, snappy samba tradition metal construction reco reco. escola samba quadra. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA.",
+  "recipe_chars": 971,
+  "score": 375.298,
   "config": {
     "traditions": [
       "samba_enredo",
-      "bloco",
-      "pagode"
+      "pagode",
+      "roda_de_samba"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "kargyraa_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.235,
-          "voice_quality": 51.765,
+          "voice_register": 1.1049999999999998,
+          "voice_quality": 46.765,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.205,
-          "voice_articulation": 20.864999999999995,
-          "voice_microtone": 18.134999999999994,
-          "voice_tradition": 11.114999999999997,
-          "voice_mechanism_compound": 6.8,
-          "voice_estill_quality": 4.1274999999999995,
-          "voice_speech_song": 27.202500000000004,
-          "voice_ensemble_config": 19.304999999999996,
-          "voice_ornament_system": 3.7499999999999996,
-          "voice_pitch_organization": 2.03,
-          "voice_processing_chain": 6.67,
-          "voice_multitrack_stack": 10.399999999999999
+          "voice_vibrato": 2.1774999999999998,
+          "voice_articulation": 17.939999999999998,
+          "voice_microtone": 15.404999999999992,
+          "voice_tradition": 7.93,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 19.467499999999994,
+          "voice_ensemble_config": 16.119999999999997,
+          "voice_ornament_system": 1,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 6.42,
+          "voice_multitrack_stack": 8.32
         }
       },
       {
@@ -62,28 +62,28 @@
           "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 1.17,
-          "cavaquinho_origin": 15.144999999999998,
-          "cavaquinho_context": 25.739999999999995,
-          "cavaquinho_body_wood": 14.169999999999998,
-          "cavaquinho_strings": 2.145
+          "plucked_traditional_technique": 0.325,
+          "cavaquinho_origin": 13.454999999999997,
+          "cavaquinho_context": 24.830000000000002,
+          "cavaquinho_body_wood": 12.479999999999997,
+          "cavaquinho_strings": 1.3
         }
       },
       {
         "id": "violao_7_cordas",
         "slots": {
           "violao_7_string7": "violao_7_low_B",
-          "violao_7_strings": "violao_7_steel",
+          "violao_7_strings": "violao_7_nylon",
           "violao_7_body_wood": "violao_7_brazilian_rosewood",
           "violao_7_top_wood": "violao_7_spruce_top",
           "violao_7_role": "violao_7_bordao_counter"
         },
         "scores": {
-          "violao_7_string7": 4.209999999999999,
-          "violao_7_strings": 0.65,
-          "violao_7_body_wood": 7.279999999999999,
+          "violao_7_string7": 0.39,
+          "violao_7_strings": 0.195,
+          "violao_7_body_wood": 7.410000000000001,
           "violao_7_top_wood": 1.045,
-          "violao_7_role": 4.614999999999999
+          "violao_7_role": 0.585
         }
       },
       {
@@ -95,8 +95,8 @@
         },
         "scores": {
           "surdo_size": 1.4949999999999999,
-          "surdo_skin": 6.5,
-          "surdo_shell": 6.954999999999999
+          "surdo_skin": 6.37,
+          "surdo_shell": 6.37
         }
       },
       {
@@ -107,9 +107,9 @@
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 2.34,
-          "tamborim_striker": 16.509999999999998,
-          "tamborim_shell": 5.654999999999999
+          "tamborim_skin": 2.6,
+          "tamborim_striker": 15.079999999999997,
+          "tamborim_shell": 5.07
         }
       },
       {
@@ -119,8 +119,8 @@
           "repinique_technique": "repinique_one_stick_one_hand"
         },
         "scores": {
-          "repinique_shell": 16.054999999999996,
-          "repinique_technique": 14.364999999999998
+          "repinique_shell": 12.674999999999997,
+          "repinique_technique": 12.674999999999997
         }
       },
       {
@@ -133,22 +133,22 @@
           "cuica_head": "cuica_calfskin_canonical"
         },
         "scores": {
-          "percussion_technique": 0.325,
-          "cuica_size": 14.169999999999998,
-          "cuica_context": 2.5349999999999997,
-          "cuica_shell_material": 22.879999999999995,
-          "cuica_head": 7.6049999999999995
+          "percussion_technique": -0.1,
+          "cuica_size": 12.479999999999997,
+          "cuica_context": 2.795,
+          "cuica_shell_material": 21.319999999999997,
+          "cuica_head": 7.735000000000001
         }
       },
       {
         "id": "agogo",
         "slots": {
           "agogo_bell": "agogo_double",
-          "agogo_context": "agogo_bateria"
+          "agogo_context": "agogo_samba_reggae"
         },
         "scores": {
-          "agogo_bell": 16.705,
-          "agogo_context": 2.5349999999999997
+          "agogo_bell": 14.169999999999998,
+          "agogo_context": 3.38
         }
       },
       {
@@ -157,13 +157,13 @@
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 18.04,
-          "choir_polyphonic_configuration": 6.124999999999999,
-          "choir_regional_canonical_configuration": 9.29,
-          "choir_ensemble_repertoire": 1.6899999999999997
+          "choir_size": 11.05,
+          "choir_polyphonic_configuration": 2.275,
+          "choir_regional_canonical_configuration": 7.489999999999998,
+          "choir_ensemble_repertoire": 1.4949999999999999
         }
       },
       {
@@ -172,7 +172,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 16.054999999999996
+          "reco_source": 12.674999999999997
         }
       }
     ],

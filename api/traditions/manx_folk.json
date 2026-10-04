@@ -3,9 +3,9 @@
   "name": "Manx folk",
   "family": "global",
   "lineage": "Traditional music of the Isle of Man, collected by Dr John Clague and the Gill brothers in the 1890s and revived from the 1920s by Mona Douglas and again from the 1970s around the Yn Chruinnaght festival — Manx Gaelic carvals and lullabies sung in a plain narrow-range style, plus jigs, reels and the distinctive Manx hop-tu-naa and dance tunes played on fiddle, whistle and harp with light accompaniment.",
-  "recipe": "classic Northern European mid-1890s manx folk, ballad Poetry, Celtic balladic branch, Celtic traditional improv on frame, European lullaby scottish folk canadian celtic. thick, breath veiled tone, slow rate, interlocked note trading. plain gut lamb gut whole lamb method magic rosin modern acrylic base fiddle, melodic tin whistle, low mid rich spectrum traditional gut gut string celtic harp, dadgad tuning steel silk drone like acoustic guitar, goat skin canonical Irish ash pre modern traditional Irish bodhran. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 678,
-  "score": 319.435,
+  "recipe": "classic Northern European mid-1890s manx folk, ballad Poetry, Celtic balladic branch, Celtic traditional improv on frame, European lullaby scottish folk canadian celtic. thick, breath veiled tone, pure, interlocked note trading. magic rosin modern acrylic base fiddle, melodic tin whistle, low mid rich spectrum traditional gut gut string celtic harp, dadgad tuning drone like acoustic guitar, goat skin canonical Irish ash pre modern traditional Irish bodhran. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 625,
+  "score": 242.315,
   "config": {
     "traditions": [
       "manx_folk",
@@ -19,15 +19,15 @@
           "bowed_technique": "bowed_celtic_session",
           "fiddle_strings": "plain_lamb_gut_fiddle",
           "fiddle_bow": "magic_rosin_fiddle",
-          "fiddle_mute": "no_mute",
+          "fiddle_mute": "practice_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 16.294999999999998,
-          "fiddle_strings": 1.5999999999999999,
-          "fiddle_bow": 1.4449999999999998,
-          "fiddle_mute": 0.8,
+          "bowed_technique": 10.945,
+          "fiddle_strings": 0.95,
+          "fiddle_bow": 1.17,
+          "fiddle_mute": 0.195,
           "fiddle_articulation": 0.845,
           "fiddle_string_configuration": 0
         }
@@ -36,15 +36,15 @@
         "id": "tin_whistle",
         "slots": {
           "wind_articulation": "wind_folk_melodic",
-          "whistle_key": "c_whistle",
+          "whistle_key": "d_whistle",
           "whistle_ornament": "cut_ornament",
-          "whistle_body_material": "whistle_aluminum_anodized"
+          "whistle_body_material": "whistle_wood_premium"
         },
         "scores": {
-          "wind_articulation": 21.9,
-          "whistle_key": 1.4300000000000002,
+          "wind_articulation": 14.55,
+          "whistle_key": 1.295,
           "whistle_ornament": 4.16,
-          "whistle_body_material": 0.345
+          "whistle_body_material": 0.5199999999999999
         }
       },
       {
@@ -55,9 +55,9 @@
           "celtic_harp_strings": "celtic_gut"
         },
         "scores": {
-          "acoustic_technique": 0.8124999999999999,
-          "celtic_harp_levers": 2.8249999999999997,
-          "celtic_harp_strings": 5.005
+          "acoustic_technique": 0.5199999999999999,
+          "celtic_harp_levers": 2.175,
+          "celtic_harp_strings": 4.16
         }
       },
       {
@@ -67,7 +67,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -77,26 +77,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.175,
-          "voice_quality": 18.394999999999996,
+          "voice_register": 4.125,
+          "voice_quality": 12.739999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.1125,
-          "voice_articulation": 21.709999999999994,
-          "voice_microtone": 20.474999999999994,
-          "voice_tradition": 36.309999999999995,
-          "voice_mechanism_compound": 3.5100000000000002,
-          "voice_estill_quality": 3.315000000000001,
-          "voice_speech_song": 27.56,
-          "voice_ensemble_config": 28.014999999999997,
-          "voice_ornament_system": 22.36,
-          "voice_pitch_organization": 2.0799999999999996,
-          "voice_processing_chain": 5.720000000000001,
-          "voice_multitrack_stack": 5.3950000000000005
+          "voice_vibrato": 1.3,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 18.199999999999996,
+          "voice_tradition": 25.485,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 20.669999999999998,
+          "voice_ensemble_config": 19.629999999999995,
+          "voice_ornament_system": 17.884999999999998,
+          "voice_pitch_organization": 1.2349999999999997,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 3.3150000000000004
         }
       },
       {
@@ -104,16 +104,16 @@
         "slots": {
           "string_tuning": "dadgad",
           "top_wood": "mahogany_top_om",
-          "back_sides": "walnut_bs_om",
-          "string_acoustic": "silk_steel_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_drop_d_drone"
         },
         "scores": {
-          "string_tuning": 18.715,
+          "string_tuning": 14.615000000000002,
           "top_wood": 0.65,
-          "back_sides": 0.845,
-          "string_acoustic": 2.1899999999999995,
-          "acoustic_om_technique": 17.06
+          "back_sides": 0.65,
+          "string_acoustic": 0.5850000000000001,
+          "acoustic_om_technique": 11.559999999999999
         }
       },
       {
@@ -125,8 +125,8 @@
         },
         "scores": {
           "bodhran_play": 4.16,
-          "bodhran_skin": 4.55,
-          "bodhran_shell_wood": 4.745
+          "bodhran_skin": 5.005,
+          "bodhran_shell_wood": 5.3950000000000005
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "ukrainian_folk",
   "name": "Ukrainian folk",
   "family": "vernacular",
-  "lineage": "Ukrainian folk is represented by DakhaBrakha — vocal-and-drum opening segment at WOMAD 2019. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic late-2010s ukrainian folk, drone Modal, vocal branch. bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 171,
-  "score": 1.47,
+  "lineage": "Ukrainian folk music includes orally transmitted regional songs, communal singing and instrumental traditions. Historical narratives, local memory and social occasions shape its repertories, while contemporary ensembles reinterpret inherited materials for concert audiences.",
+  "recipe": "classic ukrainian folk, drone Modal, vocal branch. bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 160,
+  "score": 1.419,
   "config": {
     "traditions": [
       "ukrainian_folk"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.441,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

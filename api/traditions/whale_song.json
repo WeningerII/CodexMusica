@@ -2,10 +2,10 @@
   "id": "whale_song",
   "name": "Whale song",
   "family": "electronic",
-  "lineage": "Roger Payne, Katharine Payne and Frank Watlington — Songs of the Humpback Whale (1970). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-1970s whale song, experimental Elec. environmental field recording whale environmental recording. treated studio. 24-bit digital.",
-  "recipe_chars": 143,
-  "score": 2.563,
+  "lineage": "Recorded whale vocalizations offer a listening field distinct from recordings of ocean water or human music. Early recordings by Frank Watlington and Roger and Katharine Payne helped bring these sounds to a wider audience.",
+  "recipe": "classic whale song, experimental Elec. field recording whale environmental recording.",
+  "recipe_chars": 85,
+  "score": 1.2,
   "config": {
     "traditions": [
       "whale_song"
@@ -17,7 +17,7 @@
           "whale_environmental_source": "whale_field_recording_source"
         },
         "scores": {
-          "whale_environmental_source": 2.563
+          "whale_environmental_source": 1.1995
         }
       }
     ],
@@ -26,29 +26,23 @@
         "whale_environmental_source"
       ]
     },
-    "room": "treated_studio",
     "inline_chain": {
       "mic": null,
       "pre": null,
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
     "parts": {
       "whale_environmental_source": "whale_field_recording_source"
     },
-    "pin_parts": true,
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

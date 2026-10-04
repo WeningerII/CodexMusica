@@ -2,10 +2,10 @@
   "id": "musique_centrafricaine",
   "name": "Musique centrafricaine",
   "family": "vernacular",
-  "lineage": "Complete separately issued2:26 Dikoboda sombe (solo), Smithsonian UNES08054_103, recorded by Simha Arom in the Central African Republic in1971 and released1973. Publisher credits one young Aka woman singing; the collector describes this first performance as a solo melody, followed by a separately indexed duet. The chosen whole solo excludes that distinct duet and the drums, iron blades, whistles, clapping and ritual choruses documented for other tracks. No personal name invented; the archival label does not provide one. Authored unprocessed solo-voice rendition retaining the source’s intimate single melodic line. Broad improvOnFrame is an editorial melodic-elaboration realization within the collector’s documented modal and metric organization, not a claim to jazz harmony or a fixed transcribed tune. No piano/chordal backing added. All17 original voice controls explicitly resolved: sole unaccompanied singer and single layer; neutral effort/tract are editorial, while exact register, laryngeal mechanism, timbre, training, microtones and tuning remain unspecified. General Aka yodel descriptions are not silently assigned as a measured mechanism for this individual track. Controlled live room is a proposed new recording, not the1971 setting; no global temperament or capture hardware inferred.",
-  "recipe": "classic musique centrafricaine, improv On Frame. solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. live tracking.",
-  "recipe_chars": 151,
-  "score": 17.319,
+  "lineage": "Musique centrafricaine encompasses the Central African Republic’s varied communities and contemporary musical life. Aka, Banda, Gbaya, Ngbaka and other repertoires coexist with urban song and popular music.",
+  "recipe": "classic musique centrafricaine, improv On Frame. live tracking.",
+  "recipe_chars": 63,
+  "score": 0.747,
   "config": {
     "traditions": [
       "musique_centrafricaine"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 7.499,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 8.519999999999998,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.35700000000000004,
           "voice_tessitura": 0
         }
       }

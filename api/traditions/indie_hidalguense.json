@@ -2,10 +2,10 @@
   "id": "indie_hidalguense",
   "name": "Indie hidalguense",
   "family": "rock",
-  "lineage": "Last Videotape — Tpoaz 94 (2024), complete single. The two guitar roles share one authored guitar-family card rather than an asserted single source guitarist. Generic guitars become clean-strummed alder/maple humbucker electrics, bass an alder dual-single-coil fingerstyle instrument, and kit maple shells with sticks and machine-hammered traditionally finished cymbals. Those construction and playing choices are a representative rendition, not the original equipment or a claim that source shoegaze requires clean tone. One singer uses a solo accompanied/one-lead editorial setting; actual tracking and vocal physiology unknown. Controlled room and omitted capture equipment are authored; global tuning omitted.",
-  "recipe": "classic mid-2020s indie hidalguense, distorted Rock. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 341,
-  "score": 65.565,
+  "lineage": "Hidalgo indie connects independent rock and pop practice in the Mexican state, including artists working in Pachuca. Dream pop, shoegaze and alternative-rock influences meet within a regional branch of the broader Mexican independent field.",
+  "recipe": "classic indie hidalguense, distorted Rock. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 242,
+  "score": 50.325,
   "config": {
     "traditions": [
       "indie_hidalguense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.0995000000000004,
+          "voice_ensemble_config": 0.6405,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 6.288999999999999,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.6,
+          "electric_technique": 4.95,
           "amp_make": 0,
-          "body_wood": 2.9314999999999993,
-          "neck_wood": 2.5999999999999996,
+          "body_wood": 0.0315,
+          "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.3,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.4365
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.9314999999999993,
+          "body_wood": 0.0315,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.549999999999997,
-          "drumhead": 1.4365,
+          "drum_technique": 11.25,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.036499999999999,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 12.549999999999997,
-          "cymbal_lathing": 10.581499999999997,
+          "cymbal_hammering": 16.2,
+          "cymbal_lathing": 16.2315,
           "cymbal_finish": 0
         }
       }

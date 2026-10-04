@@ -2,55 +2,97 @@
   "id": "jesus_movement",
   "name": "Jesus movement",
   "family": "blues_gospel",
-  "lineage": "Keith Green, Create In Me a Clean Heart, complete two-page instrumental piano arrangement by Phillip Keveren, Musicnotes MN0118802, licensed publisher Capitol CMG. Product explicitly specifies instrumental solo, piano, no lyrics, G major and flowing gently in 4/4. This is a realization of that complete separately issued piano edition, zero singers, not a stripped reconstruction of the original album recording. Paid score pages and audio were not personally inspected. Publication metadata dates the song1984; neither this arrangement nor every repertoire item is claimed to be a1970s recording. Broad Christian sacred-song parent follows the repertoire purpose, not notation alone as classical music. Coherent nine-foot Steinway D with original felt hammers, maple rim/pinblock, spruce soundboard, iron plate and A440 are authored representative piano choices, not documented source hardware. Sustain-rich arpeggiated playing and controlled live-room acoustics are an authored gently flowing hymn realization, not a score transcription or a measured recording claim.",
-  "recipe": "classic jesus movement, ritual Devotional, christian gospel branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
-  "recipe_chars": 156,
-  "score": 39.883,
+  "lineage": "The Jesus Movement connected late-1960s and 1970s Christian revival communities with contemporary songs, bands and new recording networks. Groups such as Love Song and artists including Keith Green helped link personal devotional songwriting, communal worship and the emerging contemporary Christian music field.",
+  "recipe": "classic 1967-1969 jesus movement, ritual Devotional, christian gospel branch. continuous-phonation, small note groups per syllable, solo with instrumental accompaniment. upright piano. shoebox concert hall.",
+  "recipe_chars": 206,
+  "score": 4.921,
   "config": {
     "traditions": [
       "jesus_movement"
     ],
     "instruments": [
       {
-        "id": "grand_piano",
+        "id": "voice",
         "slots": {
-          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "keyboard_technique": 3.8000000000000007,
-          "grand_piano_size": 0.294,
-          "grand_piano_brand": 0.273,
-          "piano_hammer": 6.4,
-          "piano_rim": 5.646000000000001,
-          "piano_soundboard": 5.800000000000001,
-          "piano_pinblock": 4.500000000000001,
-          "piano_plate": 5.800000000000001,
-          "piano_pitch_standard": 7.3694999999999995
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 1.3,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.573,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.054,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0.3,
+          "upright_piano_size": 0.49350000000000005
         }
       }
     ],
     "pinned": {
-      "grand_piano": [
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ]
     },
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -65,17 +107,28 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "concert_hall_shoebox",
     "parts": {
-      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

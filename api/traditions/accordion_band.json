@@ -2,10 +2,10 @@
   "id": "accordion_band",
   "name": "Accordion band",
   "family": "vernacular",
-  "lineage": "Bradford Accordion Band — arranged mixed-accordion ensemble practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic accordion band, functional Song. accordion, electric bass, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 178,
-  "score": 1.208,
+  "lineage": "Accordion bands develop arranged ensemble repertories through community groups and concert organisations. Piano-key and button instruments can play differentiated parts, with bass and keyboard players extending the ensemble’s range.",
+  "recipe": "classic accordion band, functional Song. hohner gola canonical premium German concert accordion, electric bass, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 223,
+  "score": 3.462,
   "config": {
     "traditions": [
       "accordion_band"
@@ -23,13 +23,13 @@
           "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": 1.3865,
+          "free_reed_technique": 2.229,
           "accordion_reed_material": 0,
           "musette_offset": 0,
           "reed_config": 0,
           "bellows": 0.1365,
           "voicing_chamber": 0,
-          "accordion_maker_school": 0
+          "accordion_maker_school": 1.4425000000000001
         }
       },
       {
@@ -73,7 +73,7 @@
           "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
           "piano_hammer": -0.1,
-          "piano_rim": -0.07,
+          "piano_rim": -0.1,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,

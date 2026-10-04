@@ -2,10 +2,10 @@
   "id": "swedish_choir",
   "name": "Swedish choir",
   "family": "classical",
-  "lineage": "Swedish choir is represented by S:t Jacobs Chamber Choir / Gary Graden — Sandström: Laudamus te, Sonority. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+  "lineage": "Swedish choral music connects professional, educational and community ensembles with sacred and secular repertoire. Historical works and contemporary composition sustain varied approaches to collective vocal sound.",
   "recipe": "classic swedish choir, art Music, western modern branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 155,
-  "score": 0.683,
+  "score": 1.053,
   "config": {
     "traditions": [
       "swedish_choir"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.27299999999999996,
-          "voice_multitrack_stack": 0.1365
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Amy Naylor — Mellea (World Chillout Mix), complete eight-track album (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s world chill, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 157,
-  "score": 3.063,
+  "score": 3.243,
   "config": {
     "traditions": [
       "world_chill"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 1.4,
+          "electronic_technique": 1.4315,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.3,
-          "sampler_workflow": 0.25,
-          "sampler_classic_context": 0.363
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 0.2815,
+          "sampler_classic_context": 0.39
         }
       }
     ],

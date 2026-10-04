@@ -5,7 +5,7 @@
   "lineage": "Animegrind: Septic Karnage — Fat Otaku Abomination demo (Gonorrhea Records2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic animegrind, distorted Rock, death branch. equal tempered, notated speech melody, duet, live take. basswood palm muted humbucker electric guitar, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 273,
-  "score": 31.666,
+  "score": 31.623,
   "config": {
     "traditions": [
       "animegrind"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 4.875,
-          "voice_ensemble_config": 0.9314999999999999,
+          "voice_ensemble_config": 0.9629999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.6315,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.663,
           "voice_tessitura": 0
         }
       },
@@ -97,7 +97,7 @@
           "electronic_technique": -0.1,
           "sample_bitdepth": 0,
           "sample_swing": -0.05,
-          "sample_processing": 0.27299999999999996
+          "sample_processing": 0.19949999999999998
         }
       }
     ],

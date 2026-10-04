@@ -3,14 +3,14 @@
   "name": "Brit Funk",
   "family": "blues_gospel",
   "lineage": "British Black dance-band funk of 1978-1984 centred on London's Acton, Wembley and Southall youth-club circuit and the Ealing/Crackers jazz-funk dancefloors, made by Light of the World, Hi-Tension, Freeez, Level 42, Beggar & Co and Incognito — jazz-schooled slap and thumb bass, tight brass sections, Rhodes and Prophet pads, Latin percussion, tempos of 105-120 BPM, and a lighter, more instrumental-led approach than American funk with chanted group vocals.",
-  "recipe": "classic Western European mid-1980s brit funk, groove Percussion, funk percussive branch, American jazz soul jazz, soul R&B functional song british soul neo soul-jazz. thick, blues-shouter, straight onset, narrative. ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s wide pickup gap more bell less bark ostinato rhodes electric, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, cowhide mid tier siam oak mid tier modern open slap hand drum congas, low sub bass analog poly synth. brent black community studio london. large-diaphragm condenser, Neve 1073 inductor pre.",
-  "recipe_chars": 1000,
-  "score": 673.485,
+  "recipe": "classic Western European mid-1980s brit funk, groove Percussion, funk percussive branch, American jazz soul jazz, soul R&B functional song british soul jazz organ. thick, blues-shouter, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s wide pickup gap more bell less bark ostinato rhodes electric, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, cowhide mid tier siam oak mid tier modern open slap hand drum congas, low sub bass analog poly synth. brent black community studio london. large-diaphragm condenser.",
+  "recipe_chars": 985,
+  "score": 691.15,
   "config": {
     "traditions": [
       "brit_funk",
       "british_soul",
-      "neo_soul_jazz"
+      "jazz_organ"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 37.46000000000001,
-          "voice_quality": 18.69499999999999,
+          "voice_register": 39.010000000000005,
+          "voice_quality": 19.39499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.69,
-          "voice_articulation": 17.695,
-          "voice_microtone": 19.349999999999998,
-          "voice_tradition": 20.615,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 17.749999999999996,
-          "voice_speech_song": 18.134999999999994,
-          "voice_ensemble_config": 18.069999999999997,
-          "voice_ornament_system": 0.6,
+          "voice_vibrato": 19.84,
+          "voice_articulation": 19.694999999999997,
+          "voice_microtone": 20.349999999999998,
+          "voice_tradition": 20.335,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 16.999999999999996,
+          "voice_speech_song": 22.034999999999993,
+          "voice_ensemble_config": 21.514999999999993,
+          "voice_ornament_system": 0.78,
           "voice_pitch_organization": 0.32500000000000007,
           "voice_processing_chain": 19.725,
-          "voice_multitrack_stack": 4.470000000000001
+          "voice_multitrack_stack": 3.625
         }
       },
       {
@@ -65,13 +65,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 25.255,
-          "body_wood": 1.4299999999999997,
-          "pickup_config": 1.3,
-          "string_type": 25.447499999999994,
-          "scale_length_b": 1.4299999999999997,
-          "fretted_or_not": 1.5,
-          "bass_technique": 33.699999999999996,
+          "amp_make": 24.854999999999997,
+          "body_wood": 1.625,
+          "pickup_config": 1.95,
+          "string_type": 24.4725,
+          "scale_length_b": 1.625,
+          "fretted_or_not": 1.605,
+          "bass_technique": 32.949999999999996,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,8 +83,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.504999999999995,
-          "drumhead": 20.910000000000004,
+          "drum_technique": 28.014999999999997,
+          "drumhead": 20.630000000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -99,10 +99,10 @@
           "rhodes_pickup_position": "rhodes_pickup_far_bell"
         },
         "scores": {
-          "keyboard_technique": 33.75,
-          "rhodes_model": 18.94,
-          "rhodes_use": 3.7049999999999996,
-          "rhodes_tine_material": 0.695,
+          "keyboard_technique": 33,
+          "rhodes_model": 19.785,
+          "rhodes_use": 3.055,
+          "rhodes_tine_material": 0.8449999999999999,
           "rhodes_hammer_tip": 1.1699999999999993,
           "rhodes_pickup_position": 1.99
         }
@@ -125,18 +125,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 33.879999999999995,
-          "amp_make": 38.735,
-          "body_wood": 1.4299999999999997,
-          "neck_wood": 1.65,
-          "fretboard": 1.6949999999999998,
-          "pickup_magnet": 0.195,
-          "string_material": 0.195,
-          "string_gauge": 1.4299999999999997,
-          "bridge": 1.5,
-          "scale_length": 1.4299999999999997,
+          "electric_technique": 33.279999999999994,
+          "amp_make": 38.185,
+          "body_wood": 1.625,
+          "neck_wood": 1.755,
+          "fretboard": 1.95,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.625,
+          "bridge": 1.605,
+          "scale_length": 1.625,
           "finish": 0.045,
-          "string_tuning": 2.145,
+          "string_tuning": 2.6,
           "single_coil_pickup_construction": 0
         }
       },
@@ -146,19 +146,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 19.119999999999997,
-          "sax_size": 17.275,
-          "sax_reed": 0.195,
-          "sax_body_alloy": 17.375,
-          "sax_mouthpiece": 0.195,
-          "sax_technique": 17.375,
-          "sax_maker_school": 19.41
+          "wind_articulation": 18.759999999999998,
+          "sax_size": 16.525,
+          "sax_reed": 0.39,
+          "sax_body_alloy": 19.125,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 18.07,
+          "sax_maker_school": 19.325000000000003
         }
       },
       {
@@ -173,11 +173,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 19.119999999999997,
-          "brass_size": 0.195,
-          "trumpet_mouthpiece": 20.615,
-          "brass_mute": 1.1949999999999998,
-          "trumpet_technique": 19.119999999999997,
+          "wind_articulation": 18.759999999999998,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 20.335,
+          "brass_mute": 1.345,
+          "trumpet_technique": 18.759999999999998,
           "trumpet_bell_metal": 1.545,
           "trumpet_maker_school": 5.004999999999999
         }
@@ -191,10 +191,10 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 6.19,
+          "percussion_technique": 6.1450000000000005,
           "conga_set": 0.8300000000000001,
           "conga_skin": 1.2349999999999999,
-          "conga_shell_wood": 1.2349999999999999
+          "conga_shell_wood": 1.885
         }
       },
       {
@@ -206,8 +206,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 3.1550000000000002,
-          "poly_archetypes": 0.845,
+          "electronic_technique": 3.455,
+          "poly_archetypes": 0.65,
           "poly_voices": 0.5700000000000001,
           "poly_maker_lineage": -0.035
         }

@@ -2,10 +2,10 @@
   "id": "folclore_navarra",
   "name": "Folclore Navarra",
   "family": "vernacular",
-  "lineage": "Mielotxin — complete current standard ensemble. Mielotxin complete current standard-group practice, official roster read3October2026: Iñigo Aguerri accordion,accordina,kalimba,voice; Manu Gaigne world percussion set; Igor Martínez txistu,alboka,piano,txirula,ttun-ttun,backing voices; Xanti Etxeberria double bass,backing voices; Jorge Sánchez guitars. Five people,three positively named singers,twelve sound families. All doublings retained as full practice palette, not assertion one person simultaneously plays every instrument. Standard Mielotxin concert explicitly separate from Hutsun collaboration, marching-band adaptation and Órdago show with additional jotera/dancers; those additional formations are not selected. Authored full-practice ensemble realization retains three voices with neutral physiology and unknown original overdubs. Generic guitars become one acoustic family card, all-mahogany dreadnought/bronze strings/flatpicked notes; exact source guitar types and number unknown. Accordion dry LMMH steel-reed open-chamber Castagnari-type folk construction with ensemble playing is authored, not source make. Kalimba17-key C-major is authored, not recovered source tuning; no global temperament. Txistu boxwood standard/dance and alboka cane/cowhorn dance construction are authored models. Separate neutral txirula identity preserves explicitly credited second flute size without double-counting performers or assuming source wood/pitch. Accordina literal mouth-blown button free-reed identity follows museum documentation, no source maker/reed count assumed. Piano D9 block-chord, gut-string pizzicato upright and six-unison-string dance-pulse ttun-ttun are authored choices. Unspecified world percussion retains neutral auxiliary owner; no invented drums. Accordion ensemble flat pin is inapplicable to accordina; its private source-unspecified breath-articulation import default remains UNPINNED and compiled optimizer may vary it, with no harmonica-position assumption. Authored small note-group singing and controlled live-room rendition with omitted apparatus are new recording realization, not measured original venue.",
-  "recipe": "classic folclore navarra, functional Song. small note groups per syllable, group vocals, unprocessed natural acoustic, live take. steel castagnari Italian premium folk music ensemble accordion, accordina, c major kalimba, credited auxiliary percussion, dance driving traditional txistu, traditional dance driving cane piped horn belled alboka, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, txirula, steady pulse ttun ttun, vintage gut upright bass, mahogany phosphor bronze modern martin dreadnought acoustic guitar. live tracking.",
-  "recipe_chars": 554,
-  "score": 101.943,
+  "lineage": "Navarre folk music brings together regional song, dance and instrumental traditions in Basque and Spanish. Contemporary groups such as Mielotxin connect locally transmitted repertoire with new compositions and arrangements, maintaining a dialogue between rural traditions and present-day concert life.",
+  "recipe": "classic folclore navarra, functional Song. small note groups per syllable. castagnari Italian premium folk music accordion, dance driving traditional txistu, credited auxiliary percussion, upright bass, dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 246,
+  "score": 14.929,
   "config": {
     "traditions": [
       "folclore_navarra"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.0905000000000005,
-          "voice_ensemble_config": 9.072999999999999,
+          "voice_speech_song": 1.1905000000000001,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 6.199999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -64,35 +64,26 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.85,
-          "accordion_reed_material": 1.354,
+          "free_reed_technique": -0.05,
+          "accordion_reed_material": 0.054,
           "musette_offset": 0,
-          "reed_config": 2.5999999999999996,
-          "bellows": 0.1365,
+          "reed_config": 0,
+          "bellows": 0.39,
           "voicing_chamber": 0.42150000000000004,
-          "accordion_maker_school": 4.890499999999999
+          "accordion_maker_school": 2.4905
         }
       },
       {
-        "id": "accordina",
+        "id": "txistu",
         "slots": {
-          "accordina_identity": "accordina_mouth_blown_button_free_reed",
-          "free_reed_technique": "accordina_breath_articulation_source_unspecified"
+          "txistu_form": "txistu_standard",
+          "txistu_context": "txistu_dance",
+          "txistu_body": "txistu_wood_boxwood"
         },
         "scores": {
-          "accordina_identity": 0,
-          "free_reed_technique": 0
-        }
-      },
-      {
-        "id": "kalimba",
-        "slots": {
-          "kalimba_type": "kalimba_treble_17",
-          "kalimba_tuning": "kalimba_c_major"
-        },
-        "scores": {
-          "kalimba_type": 0.054,
-          "kalimba_tuning": 2.6
+          "txistu_form": 2.5,
+          "txistu_context": 4.4825,
+          "txistu_body": 2.9364999999999997
         }
       },
       {
@@ -105,84 +96,13 @@
         }
       },
       {
-        "id": "txistu",
-        "slots": {
-          "txistu_form": "txistu_standard",
-          "txistu_context": "txistu_dance",
-          "txistu_body": "txistu_wood_boxwood"
-        },
-        "scores": {
-          "txistu_form": 3,
-          "txistu_context": 8.1825,
-          "txistu_body": 3.1365
-        }
-      },
-      {
-        "id": "alboka",
-        "slots": {
-          "alboka_form": "alboka_biscayan",
-          "alboka_repertoire": "alboka_dantza",
-          "alboka_material": "alboka_cane_cowhorn"
-        },
-        "scores": {
-          "alboka_form": 3.0865,
-          "alboka_repertoire": 8.1825,
-          "alboka_material": 4.4365
-        }
-      },
-      {
-        "id": "grand_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
-        },
-        "scores": {
-          "keyboard_technique": 2.5000000000000004,
-          "grand_piano_size": 2.5999999999999996,
-          "grand_piano_brand": 1.4905,
-          "piano_hammer": -0.07,
-          "piano_rim": 2.824,
-          "piano_soundboard": 2.5,
-          "piano_pinblock": 1.2,
-          "piano_plate": 2.5,
-          "piano_pitch_standard": 6.864
-        }
-      },
-      {
-        "id": "txirula",
-        "slots": {
-          "txirula_identity": "txirula_three_hole_flute"
-        },
-        "scores": {
-          "txirula_identity": 0
-        }
-      },
-      {
-        "id": "ttun_ttun",
-        "slots": {
-          "ttun_ttun_stringing": "ttun_ttun_six_unison",
-          "ttun_ttun_technique": "ttun_ttun_dance_pulse"
-        },
-        "scores": {
-          "ttun_ttun_stringing": 0,
-          "ttun_ttun_technique": 1.3
-        }
-      },
-      {
         "id": "upright_bass",
         "slots": {
           "upright_strings": "gut_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 1.3,
+          "upright_strings": 0,
           "upright_play": -0.05
         }
       },
@@ -196,11 +116,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 1.2,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 2.6,
-          "string_acoustic": 3.8999999999999995
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
         }
       }
     ],
@@ -233,43 +153,13 @@
         "voicing_chamber",
         "accordion_maker_school"
       ],
-      "accordina": [
-        "accordina_identity"
-      ],
-      "kalimba": [
-        "kalimba_type",
-        "kalimba_tuning"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
-      ],
       "txistu": [
         "txistu_form",
         "txistu_context",
         "txistu_body"
       ],
-      "alboka": [
-        "alboka_form",
-        "alboka_repertoire",
-        "alboka_material"
-      ],
-      "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
-      ],
-      "txirula": [
-        "txirula_identity"
-      ],
-      "ttun_ttun": [
-        "ttun_ttun_stringing",
-        "ttun_ttun_technique"
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
       ],
       "upright_bass": [
         "upright_strings",
@@ -324,28 +214,10 @@
       "bellows": "cardboard_leather",
       "voicing_chamber": "no_cassotto",
       "accordion_maker_school": "accordion_castagnari_italian",
-      "accordina_identity": "accordina_mouth_blown_button_free_reed",
-      "kalimba_type": "kalimba_treble_17",
-      "kalimba_tuning": "kalimba_c_major",
       "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
       "txistu_form": "txistu_standard",
       "txistu_context": "txistu_dance",
       "txistu_body": "txistu_wood_boxwood",
-      "alboka_form": "alboka_biscayan",
-      "alboka_repertoire": "alboka_dantza",
-      "alboka_material": "alboka_cane_cowhorn",
-      "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "txirula_identity": "txirula_three_hole_flute",
-      "ttun_ttun_stringing": "ttun_ttun_six_unison",
-      "ttun_ttun_technique": "ttun_ttun_dance_pulse",
       "upright_strings": "gut_upright",
       "upright_play": "pizz_upright",
       "acoustic_technique": "acoustic_flatpicked",

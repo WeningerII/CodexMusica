@@ -2,9 +2,9 @@
   "id": "rock_noise",
   "name": "Rock Noise",
   "family": "electronic",
-  "lineage": "Mincemeat Or Tenspeed — All Critters, complete2008 album restored2018. The complete positive source network is an isolated feedback-pedal/mixer instrument identity. No invented circuit models, pedal brand, oscillator, sampler, drum machine, input guitar or synth architecture. Neutral axes and a dry modern recording chain are authored; feedback is the source-generation mechanism, distinct from optional recording-chain effects. Optional global tuning omitted because no pitched tuning framework is documented. No singers.",
-  "recipe": "classic rock noise, experimental Elec. feedback pedal mixer network. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 167,
+  "lineage": "Rock Noise connects underground noise performance with rock-scene energy and electronic experimentation. Artists such as Mincemeat Or Tenspeed use feedback and beat-like patterns beyond a conventional guitar-band format.",
+  "recipe": "classic rock noise, experimental Elec. feedback pedal mixer network. live tracking.",
+  "recipe_chars": 83,
   "score": 0,
   "config": {
     "traditions": [
@@ -26,31 +26,25 @@
         "feedback_pedal_mixer_network_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "feedback_pedal_mixer_network_identity": "feedback_pedal_mixer_network_closed_loop"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

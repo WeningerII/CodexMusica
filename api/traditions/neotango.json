@@ -5,7 +5,7 @@
   "lineage": "Pablo Aslan Trio — La Boca Blues2022 complete trio recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic neotango, improv On Frame. upright bass, bellows articulated bandoneon, tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 232,
-  "score": 15.832,
+  "score": 15.727,
   "config": {
     "traditions": [
       "neotango"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "free_reed_technique": 3.5814999999999997,
-          "bandoneon_action": 1.668,
+          "bandoneon_action": 1.563,
           "bandoneon_use": 0,
           "bandoneon_maker_school": -0.05,
           "bandoneon_reed_material": 0
@@ -57,8 +57,8 @@
           "grand_piano_size": 0,
           "grand_piano_brand": 0.0315,
           "piano_hammer": 0.7,
-          "piano_rim": 0.7945,
-          "piano_soundboard": 0.7314999999999999,
+          "piano_rim": 0.826,
+          "piano_soundboard": 0.7,
           "piano_pinblock": 2.5999999999999996,
           "piano_plate": 0.7,
           "piano_pitch_standard": 0.325

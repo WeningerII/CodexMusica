@@ -2,10 +2,10 @@
   "id": "malawian_folk",
   "name": "Malawian folk",
   "family": "vernacular",
-  "lineage": "Malawian folk encompasses local song traditions and contemporary vernacular guitar practice. Giddes Chalamanda’s field-documented guitar songs provide the selected branch, with a long performance history distinct from later viral remixes.",
-  "recipe": "classic modern malawian folk, ballad Poetry. thick, neutral third half flat, m1 with m0 pulse borrowing, nasal twang velar port open. coated nanoweb fingerpicked dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 328,
-  "score": 27.526,
+  "lineage": "Malawian folk includes local song traditions and a longstanding vernacular guitar-song practice. Giddes Chalamanda’s career exemplifies a direct, rhythmically animated relationship between narrative singing and acoustic guitar that also extends into ensemble performance.",
+  "recipe": "classic modern malawian folk, ballad Poetry. narrative, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. narrative fingerpicked dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 336,
+  "score": 16.514,
   "config": {
     "traditions": [
       "malawian_folk"
@@ -14,40 +14,42 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "speech_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_hall_reverb_long",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 4.5,
-          "voice_quality": 0.054,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.3,
-          "voice_articulation": -0.14,
-          "voice_microtone": 2.0799999999999996,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.9904999999999998,
+          "voice_microtone": 0,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.681,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 3.9650000000000007,
-          "voice_ensemble_config": 2.4699999999999998,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 2.8175,
+          "voice_ensemble_config": 0.9165000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1,
-          "voice_multitrack_stack": 0.4635
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.3,
+          "voice_tessitura": 0
         }
       },
       {
@@ -57,22 +59,36 @@
           "string_tuning": "standard_tuning",
           "top_wood": "sitka",
           "back_sides": "maple_bs",
-          "string_acoustic": "coated_nano_acoustic"
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 7.2365,
+          "acoustic_technique": 8.6445,
           "string_tuning": 0,
-          "top_wood": 0.273,
-          "back_sides": 0.273,
-          "string_acoustic": 1
+          "top_wood": 0.39,
+          "back_sides": 0.39,
+          "string_acoustic": 0.39
         }
       }
     ],
     "pinned": {
       "voice": [
+        "voice_register",
         "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
         "voice_articulation",
-        "voice_tradition"
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "acoustic_guitar_dread": [
         "acoustic_technique"
@@ -99,9 +115,23 @@
     "room": "parlor",
     "parts": {
       "voice_articulation": "narrative_voice",
-      "acoustic_technique": "acoustic_fingerpicked",
-      "voice_quality": "speech_voice",
-      "voice_tradition": "voice_tradition_source_unspecified"
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "acoustic_technique": "acoustic_fingerpicked"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

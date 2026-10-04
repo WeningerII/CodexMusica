@@ -2,15 +2,56 @@
   "id": "emo_rap_italiano",
   "name": "Emo rap italiano",
   "family": "hip_hop",
-  "lineage": "Roma Pianist — complete four-page solo-piano arrangement of Fasma and GG’s Parlami, issued 3 March 2021. The arranger directly specifies two staves, solo piano and no lyrics; one piano, zero singers. This is the entire separately published instrumental adaptation, not a transcription claim about Fasma’s studio master or Sanremo orchestra. No original voice, guitar, trap drums or concert accompaniment is silently omitted from that different recording. Authored standard studio upright with connected legato is a coherent piano realization where source construction and measured touch are unspecified. Controlled live-room acoustics are authored; no original session venue, capture chain or global temperament asserted. Broad functionalSong is an authored recurring melodic-song and functional-harmony rendition, not an assertion that notation makes rap classical art music or a measured harmonic analysis of the unseen full score. Regional origin anchor Rome follows Fasma interview, not arranger location.",
-  "recipe": "classic early-2020s emo rap italiano, functional Song. legato upright piano. live tracking.",
-  "recipe_chars": 91,
-  "score": 4.55,
+  "lineage": "Emo rap italiano connects Italian-language rap with emotionally direct singing and song-oriented production. Artists such as Fasma bring personal themes into a field overlapping trap, pop and other rap approaches.",
+  "recipe": "classic emo rap italiano, functional Song. rap, small note groups per syllable, solo with instrumental accompaniment. upright piano, drum machine analog. live tracking.",
+  "recipe_chars": 168,
+  "score": 12.858,
   "config": {
     "traditions": [
       "emo_rap_italiano"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 10.25,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.054,
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
+        }
+      },
       {
         "id": "upright_piano",
         "slots": {
@@ -19,17 +60,57 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 4.550000000000001,
-          "upright_use": 0,
+          "keyboard_technique": -0.05,
+          "upright_use": 0.054,
           "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
       "upright_piano": [
         "keyboard_technique",
         "upright_use",
         "upright_piano_size"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -49,9 +130,30 @@
   "source": {
     "room": "live_room",
     "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "rap_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "keyboard_technique": "keyboard_classical_legato",
       "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard"
+      "upright_piano_size": "upright_piano_standard",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

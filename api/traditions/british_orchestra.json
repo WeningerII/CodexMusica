@@ -2,10 +2,10 @@
   "id": "british_orchestra",
   "name": "British orchestra",
   "family": "classical",
-  "lineage": "British orchestra: English Chamber Orchestra — Elgar Serenade for Strings, Cadogan Hall program (2025). A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic mid-2020s british orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 four layer system viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 504,
-  "score": 66.535,
+  "lineage": "British orchestral music includes chamber and symphony ensembles performing international repertoire and music by British composers. Concerts, commissions and recordings sustain varied approaches to orchestral sound.",
+  "recipe": "classic british orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 modern setup viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 489,
+  "score": 69.059,
   "config": {
     "traditions": [
       "british_orchestra"
@@ -15,7 +15,7 @@
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "synthetic_orch",
+          "orch_strings": "plain_sheep_gut_violin",
           "orch_top_wood": "italian_alpine_spruce_violin",
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "cremonese_pre_1750_varnish_violin",
@@ -26,15 +26,15 @@
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "orch_strings": 0.46199999999999997,
+          "bowed_technique": 2.9852499999999997,
+          "orch_strings": 0.95,
           "orch_top_wood": 2.5925000000000002,
           "orch_back_wood": 2.6915,
-          "orch_varnish": 2.6075000000000004,
-          "orch_setup_period": 3.24725,
-          "orch_bow": 0.29400000000000004,
+          "orch_varnish": 2.75,
+          "orch_setup_period": 2.8617500000000002,
+          "orch_bow": 0.47924999999999995,
           "orch_bow_stick": 3.1200000000000006,
-          "orch_articulation": 0.2835,
+          "orch_articulation": 0.39,
           "orch_rosin": 2.834
         }
       },
@@ -42,8 +42,8 @@
         "id": "viola_classical",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "viola_size": "viola_15_inch",
-          "viola_strings": "viola_synthetic",
+          "viola_size": "viola_16_inch",
+          "viola_strings": "viola_gut_plain",
           "viola_top_wood": "viola_italian_alpine_spruce",
           "viola_back_wood": "viola_european_maple_general",
           "viola_varnish": "viola_cremonese_pre_1750",
@@ -52,22 +52,22 @@
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "viola_size": 1.69,
-          "viola_strings": 0.44325000000000003,
+          "bowed_technique": 2.9852499999999997,
+          "viola_size": 2.6,
+          "viola_strings": 0.95,
           "viola_top_wood": 2.5925000000000002,
           "viola_back_wood": 2.6915,
-          "viola_varnish": 2.6075000000000004,
-          "viola_setup_period": 3.24725,
+          "viola_varnish": 2.75,
+          "viola_setup_period": 2.8617500000000002,
           "viola_bow_stick": 3.1200000000000006,
-          "viola_rosin": 3.38375
+          "viola_rosin": 3.0410000000000004
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
+          "cello_strings": "plain_sheep_gut_cello",
           "cello_top_wood": "italian_alpine_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
           "cello_varnish": "cremonese_pre_1750_varnish_cello",
@@ -77,14 +77,14 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "cello_strings": 0.66375,
+          "bowed_technique": 2.9852499999999997,
+          "cello_strings": 0.95,
           "cello_top_wood": 2.5925000000000002,
           "cello_back_wood": 2.6915,
-          "cello_varnish": 2.6075000000000004,
-          "cello_setup_period": 3.24725,
+          "cello_varnish": 2.75,
+          "cello_setup_period": 2.8617500000000002,
           "cello_bow_grip": 1.3,
-          "cello_rosin": 3.0035,
+          "cello_rosin": 2.789,
           "cello_bow_stick": 3.1200000000000006
         }
       },
@@ -95,7 +95,7 @@
           "upright_play": "arco_upright"
         },
         "scores": {
-          "upright_strings": 0.60075,
+          "upright_strings": 0.4725,
           "upright_play": 1.3
         }
       }

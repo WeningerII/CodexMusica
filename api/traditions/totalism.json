@@ -3,9 +3,9 @@
   "name": "Totalism",
   "family": "classical",
   "lineage": "New York downtown movement of the late 1980s and 1990s — Michael Gordon, Julia Wolfe and David Lang with Bang on a Can, plus Mikel Rouse, Rhys Chatham and critic Kyle Gann — steady fast pulse with conflicting tempo layers stacked as 3:4 or 5:7 rhythmic dissonance over it, harmony richer and more dissonant than minimalism, amplified mixed ensembles of electric guitar, bass, drums, piano and winds played at rock volume but with through-composed formal scale.",
-  "recipe": "classic 1987-1989 totalism, art Music, western modern branch, classic distorted rock classic garage rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, grenadilla African blackwood traditional clarinet, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello, marimba sitka spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, doepfer eurorack canonical 1995 present small format standardization modular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 828,
-  "score": 274.973,
+  "recipe": "classic 1987-1989 totalism, art Music, western modern branch, classic distorted rock classic garage rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, grenadilla African blackwood traditional clarinet, synthetic engelmann spruce hard rock maple oil varnish amber tinted cello, marimba sitka spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, doepfer eurorack canonical 1995 present small format standardization modular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 824,
+  "score": 283.175,
   "config": {
     "traditions": [
       "totalism",
@@ -32,40 +32,40 @@
         },
         "scores": {
           "electric_technique": 2.7300000000000004,
-          "amp_make": 8.125,
-          "body_wood": 2.6,
-          "neck_wood": 0.65,
-          "fretboard": 1,
+          "amp_make": 10.53,
+          "body_wood": 1.95,
+          "neck_wood": 0.885,
+          "fretboard": 1.15,
           "pickup_magnet": 2.5,
-          "pickup_winding": 3.6399999999999997,
-          "string_material": 0.845,
+          "pickup_winding": 4.55,
+          "string_material": 0.195,
           "bridge": 1,
           "scale_length": 1.95,
-          "string_gauge": 0.65,
-          "finish": 0.195,
-          "string_tuning": 10.725
+          "string_gauge": 0.885,
+          "finish": 0.65,
+          "string_tuning": 13.195
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.62,
-          "body_wood": 1.95,
-          "pickup_config": 1.6949999999999998,
-          "string_type": 18.557499999999997,
-          "scale_length_b": 1.5,
-          "fretted_or_not": 0.65,
-          "bass_technique": 13.709999999999997,
+          "amp_make": 9.425,
+          "body_wood": 1.7700000000000002,
+          "pickup_config": 1.545,
+          "string_type": 19.5,
+          "scale_length_b": 1.65,
+          "fretted_or_not": 0.15,
+          "bass_technique": 16.385,
           "electric_bass_string_configuration": 0
         }
       },
@@ -74,7 +74,7 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
@@ -84,14 +84,14 @@
         },
         "scores": {
           "keyboard_technique": 2.545,
-          "grand_piano_size": 0.65,
-          "grand_piano_brand": 0.6950000000000001,
-          "piano_hammer": 15.209999999999999,
-          "piano_rim": 15.405,
+          "grand_piano_size": 0.9300000000000002,
+          "grand_piano_brand": 0.9750000000000001,
+          "piano_hammer": 16.77,
+          "piano_rim": 16.77,
           "piano_soundboard": 6.4,
           "piano_pinblock": 7.25,
-          "piano_plate": 6.82,
-          "piano_pitch_standard": 10.540000000000001
+          "piano_plate": 7.32,
+          "piano_pitch_standard": 8.44
         }
       },
       {
@@ -115,7 +115,7 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "venice_catlin_cello",
+          "cello_strings": "cello_synthetic",
           "cello_top_wood": "engelmann_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "oil_amber_varnish_cello",
@@ -126,14 +126,14 @@
         },
         "scores": {
           "bowed_technique": 2.7399999999999998,
-          "cello_strings": 2.235,
+          "cello_strings": 1.545,
           "cello_top_wood": 3.75,
-          "cello_back_wood": 11.959999999999999,
+          "cello_back_wood": 13.52,
           "cello_varnish": 6.25,
-          "cello_setup_period": 8.79,
-          "cello_bow_grip": 1.89,
+          "cello_setup_period": 8.09,
+          "cello_bow_grip": 1.39,
           "cello_rosin": 6.7,
-          "cello_bow_stick": 7.540000000000001
+          "cello_bow_stick": 6.890000000000001
         }
       },
       {
@@ -153,7 +153,7 @@
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "steel_orch",
+          "orch_strings": "aluminum_wound_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "oil_amber_varnish_violin",
@@ -165,13 +165,13 @@
         },
         "scores": {
           "bowed_technique": 2.7399999999999998,
-          "orch_strings": 0.18,
+          "orch_strings": 0.325,
           "orch_top_wood": 4.32,
-          "orch_back_wood": 13.844999999999999,
+          "orch_back_wood": 15.209999999999999,
           "orch_varnish": 6.25,
-          "orch_setup_period": 8.79,
+          "orch_setup_period": 8.09,
           "orch_bow": 0.045,
-          "orch_bow_stick": 7.540000000000001,
+          "orch_bow_stick": 6.890000000000001,
           "orch_articulation": 0.3,
           "orch_rosin": 6.7
         }
@@ -185,8 +185,8 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 2.09,
-          "mod_voltage_source": 4.9399999999999995,
+          "electronic_technique": 1.3899999999999997,
+          "mod_voltage_source": 5.85,
           "mod_patch_density": 0.65,
           "mod_lineage": 1.6049999999999995
         }

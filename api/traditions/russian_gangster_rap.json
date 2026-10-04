@@ -5,7 +5,7 @@
   "lineage": "Krovostok’s authored fictional narrative branch, distinguished from autobiographical claims about artists or communities.",
   "recipe": "classic modern russian gangster rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 29.755,
+  "score": 29.863,
   "config": {
     "traditions": [
       "russian_gangster_rap"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

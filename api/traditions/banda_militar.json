@@ -5,7 +5,7 @@
   "lineage": "Banda militar: Banda Instrumental de la III DIVMÑA — Tattoo Militar y Concierto, Valdivia. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic banda militar, groove Percussion, American marching branch. bach stradivarius 180 canonical American orchestral large cup large rim orchestral bottom heavy trumpet, bach 42 canonical American orchestral tenor trombone, softer tone ebonite hard rubber klezmer tradition clarinet, gold brass warmer tone split tone overblown saxophone, bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 451,
-  "score": 12.723,
+  "score": 12.786,
   "config": {
     "traditions": [
       "banda_militar"
@@ -25,7 +25,7 @@
         "scores": {
           "wind_articulation": -0.10500000000000001,
           "brass_size": 0,
-          "trumpet_mouthpiece": 1.0565,
+          "trumpet_mouthpiece": 1.1195,
           "brass_mute": 0.273,
           "trumpet_technique": -0.10500000000000001,
           "trumpet_bell_metal": 0.39,
@@ -38,7 +38,7 @@
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_3g",
-          "trombone_mute": "no_mute_trb",
+          "trombone_mute": "straight_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
@@ -47,8 +47,8 @@
           "wind_articulation": -0.10500000000000001,
           "trombone_type": 0,
           "trombone_mouthpiece": 0.325,
-          "trombone_mute": 0.168,
-          "trombone_technique": 0.378,
+          "trombone_mute": 0.1365,
+          "trombone_technique": 0.4095,
           "trombone_bell_metal": 0.39,
           "trombone_maker_school": 1.95
         }

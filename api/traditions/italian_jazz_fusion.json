@@ -2,10 +2,10 @@
   "id": "italian_jazz_fusion",
   "name": "Italian jazz fusion",
   "family": "jazz",
-  "lineage": "Italian jazz-rock fusion; selected Trio Bobo electric trio",
+  "lineage": "Italian jazz fusion brings jazz improvisation into contact with electric rock textures, progressive composition and groove-based rhythm. Guitar-led groups and other amplified ensembles combine instrumental interplay with rhythmically assertive arrangements.",
   "recipe": "classic modern italian jazz fusion, improv On Frame, fusion branch. single coil electric guitar, electric bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 325,
-  "score": 41.551,
+  "score": 42.801,
   "config": {
     "traditions": [
       "italian_jazz_fusion"
@@ -31,11 +31,11 @@
         "scores": {
           "electric_technique": 0.15000000000000002,
           "amp_make": 0,
-          "body_wood": 0.03899999999999999,
-          "neck_wood": 0.4095,
+          "body_wood": 0,
+          "neck_wood": 0.4485,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "string_material": 0.4095,
+          "string_material": 0.4485,
           "string_gauge": 0.1365,
           "bridge": 0,
           "scale_length": 0,
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.03899999999999999,
+          "body_wood": 0,
           "pickup_config": 0.315,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0.0735,
-          "bass_technique": 0.19500000000000003,
+          "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,16 +83,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.355,
+          "drum_technique": 2.605,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.03899999999999999,
           "snare_wires": 0,
-          "cymbal_alloy": 20.65,
-          "cymbal_hammering": 11.95,
-          "cymbal_lathing": 3.1500000000000004,
+          "cymbal_alloy": 22.4,
+          "cymbal_hammering": 13.7,
+          "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 0
         }
       }

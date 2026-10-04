@@ -2,10 +2,10 @@
   "id": "hindi_worship",
   "name": "Hindi worship",
   "family": "blues_gospel",
-  "lineage": "Echoes of Zion — complete MAHAN release (2018). The artist explicitly identifies Hindi Christian worship. Performing credits specify Immanuel Machado lead voice, Ryan and Gwen Dias vocal harmonies, and Alston Remedios keyboard. Three positively identified singers and two sound families are retained. Fr. McEnroe Lopes is separately credited as worship leader, without an explicit vocal or instrument role; his organizational title is not silently counted as a fourth singer. Songwriting, production and engineering credits do not establish additional performers or instruments. This models the complete explicitly credited palette, not an audio-forensic claim that no uncredited sound exists. Sacred Christian placement follows the creator stated purpose. The credited generic keyboard is retained with electronic_keyboard_unspecified, without choosing piano, Hammond or a synthesizer engine. A newly authored three-singer homophonic lead-and-harmony realization with third/fifth support is an arrangement option, not a transcription of the source intervals or recording layers. Small note groups per syllable and unprocessed voices in a controlled live room are authored present-day choices. Physiological, regional singing-school and exact tuning claims remain unspecified. Source studio credit is preserved separately; the authored room is not claimed as its measured acoustics.",
-  "recipe": "classic late-2010s hindi worship, ritual Devotional, christian gospel branch. small note groups per syllable, all voices same rhythm, unprocessed natural acoustic, lead plus third fifth harmony stack 3 part. electronic keyboard unspecified. live tracking.",
-  "recipe_chars": 255,
-  "score": 17.713,
+  "lineage": "Hindi worship connects Christian congregational singing and original devotional songwriting across Hindi-speaking communities. Youth ensembles, churches and recording musicians share repertoire that overlaps wider contemporary worship while retaining its language and local religious networks.",
+  "recipe": "classic hindi worship, ritual Devotional, christian gospel branch. small note groups per syllable. electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 146,
+  "score": 2.123,
   "config": {
     "traditions": [
       "hindi_worship"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 8.073,
-          "voice_ensemble_config": 1.4299999999999997,
+          "voice_speech_song": 1.573,
+          "voice_ensemble_config": -0.14,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 6.499999999999999,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.4095
+          "keyboard_technique": 0.39
         }
       }
     ],

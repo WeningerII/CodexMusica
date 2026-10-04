@@ -2,10 +2,10 @@
   "id": "canadian_shoegaze",
   "name": "Canadian shoegaze",
   "family": "rock_punk",
-  "lineage": "A Canadian atmospheric-guitar discovery label, represented here by the Montreal-based Besnard Lakes’ studio-built shoegaze/psychedelic branch around The Besnard Lakes Are the Roaring Night. Sustained electric guitar, bass, drums, lead singing and a guest Omnichord texture supply a documented palette.",
-  "recipe": "classic modern canadian shoegaze, distorted Rock, alternative branch. one note per syllable, single lead single track no stacking. single coil electric guitar, atmospheric production texture omnichord, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital tape echo spring reverb.",
-  "recipe_chars": 470,
-  "score": 23.36,
+  "lineage": "Canadian shoegaze connects atmospheric guitar music with independent recording scenes and psychedelic experimentation. Montreal’s Besnard Lakes exemplify a studio-oriented strand built from sustained tones, gradual development and dense vocal and instrumental textures.",
+  "recipe": "classic modern canadian shoegaze, distorted Rock, alternative branch. solo with instrumental accompaniment. single coil electric guitar, atmospheric production texture omnichord, electric bass, brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital tape echo spring reverb.",
+  "recipe_chars": 422,
+  "score": 22.2,
   "config": {
     "traditions": [
       "canadian_shoegaze"
@@ -17,11 +17,11 @@
           "electric_technique": "electric_electromagnetic_bow",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -29,18 +29,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.6555,
+          "electric_technique": 0.6194999999999999,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.446625,
-          "neck_wood": 0.341625,
-          "fretboard": 0.173625,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
           "pickup_magnet": 0,
-          "string_material": 0.141,
-          "string_gauge": 0.341625,
-          "bridge": 0.173625,
-          "scale_length": 0.6832500000000001,
+          "string_material": 0.39,
+          "string_gauge": 0.359625,
+          "bridge": 0.1365,
+          "scale_length": 0.609,
           "finish": 0,
-          "string_tuning": 1.95,
+          "string_tuning": 2.73,
           "single_coil_pickup_construction": 0
         }
       },
@@ -53,8 +53,8 @@
         },
         "scores": {
           "omnichord_model": -0.1,
-          "omnichord_context": 2.9517499999999997,
-          "omnichord_sound_setting": 0.2415
+          "omnichord_context": 1.3,
+          "omnichord_sound_setting": 0.39
         }
       },
       {
@@ -62,20 +62,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder",
-          "pickup_config": "soapbar",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.185,
-          "body_wood": 0.446625,
-          "pickup_config": 0.1365,
+          "amp_make": 2.6650000000000005,
+          "body_wood": 0.40950000000000003,
+          "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.34725,
-          "fretted_or_not": 1.036,
+          "scale_length_b": 0.310125,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -83,17 +83,17 @@
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt",
           "shell_wood": "maple_shell",
           "cymbal_alloy": "b20"
         },
         "scores": {
-          "drum_technique": 3.75,
-          "drumhead": 0.415125,
+          "drum_technique": 5.329999999999999,
+          "drumhead": 0.464625,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.278625,
+          "shell_wood": 0.2415,
           "cymbal_alloy": -0.2
         }
       },
@@ -128,12 +128,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.47024999999999995,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 2.046625
+          "voice_processing_chain": 0.205125,
+          "voice_multitrack_stack": 0.4095
         }
       }
     ],
@@ -151,6 +151,7 @@
       ],
       "electric_bass": [
         "body_wood",
+        "pickup_config",
         "string_type",
         "bass_technique"
       ],
@@ -227,7 +228,8 @@
       "string_type": "roundwound_n",
       "shell_wood": "maple_shell",
       "drumhead": "double_coated",
-      "cymbal_alloy": "b20"
+      "cymbal_alloy": "b20",
+      "pickup_config": "dual_single"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

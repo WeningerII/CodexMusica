@@ -5,7 +5,7 @@
   "lineage": "West Texas songwriter school formed in Lubbock in the early 1970s around the Flatlanders (Joe Ely, Butch Hancock, Jimmie Dale Gilmore) and visual-artist-songwriter Terry Allen, extending Buddy Holly's local legacy — flatpicked acoustic guitar, musical saw or dobro drones, honky-tonk piano and fiddle under conversational nasal high-plains vocals at moderate 2/4 and waltz tempos, with literary, place-fixed lyrics.",
   "recipe": "classic North American 1970-1973 lubbock sound, functional Song, outlaw branch, americana country, anglo singer song country folk story, nashville country nashville sound instrumental country. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel silk travis picked dreadnought acoustic brass body warmer than steel national style heavy gauge dobro canon resonator guitar, steel double stops fiddle, upright piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 775,
-  "score": 372.477,
+  "score": 373.063,
   "config": {
     "traditions": [
       "lubbock_sound",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 34.49000000000002,
+          "voice_register": 34.64000000000002,
           "voice_quality": 10.659999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 14.624999999999991,
           "voice_tradition": 7.8,
           "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 30.18,
+          "voice_estill_quality": 30.375,
           "voice_speech_song": 24.11499999999999,
           "voice_ensemble_config": 14.754999999999992,
           "voice_ornament_system": 0.9950000000000001,
@@ -62,7 +62,7 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 28.375,
+          "acoustic_technique": 28.42,
           "string_tuning": 0.06499999999999999,
           "top_wood": 0.195,
           "back_sides": 0.045,
@@ -75,7 +75,7 @@
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
@@ -83,7 +83,7 @@
           "bowed_technique": 31.700000000000003,
           "fiddle_strings": 1.4300000000000002,
           "fiddle_bow": 0.15,
-          "fiddle_mute": 0.195,
+          "fiddle_mute": 0.24,
           "fiddle_articulation": 0.3,
           "fiddle_string_configuration": 0
         }
@@ -133,7 +133,7 @@
           "string_type": 2.6,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.09,
-          "bass_technique": 26.140000000000004,
+          "bass_technique": 26.290000000000003,
           "electric_bass_string_configuration": 0
         }
       },

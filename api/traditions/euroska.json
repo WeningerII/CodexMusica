@@ -2,10 +2,10 @@
   "id": "euroska",
   "name": "Euroska",
   "family": "global",
-  "lineage": "The Busters current published nine-person performing practice: Joe Ibrahim voice/guitar, Deniz Alataş guitar, Hardy Appich trumpet, Markus Schramhauser organ, Michl Fischer drums, Oli Wetzl saxophones, Rob Solomon trombone, Rolf Breyer bass guitar and Stephan Keller piano. All nine families retained, two guitarists share one family card; one explicitly credited singer. This is their complete published current practice, not an asserted recording of the future advertised tour or the older duet with Farin Urlaub. Saxophone sizes and organ architecture are unspecified by the roster. Authored energetic contemporary ska rendition: alder humbucker guitar with maple neck, rosewood board, Alnico2 medium winding, pure-nickel strings and Gibson-scale stop-tail; same shared alder body token is valid for electric bass, with passive split-coil, roundwound strings and a firm picked attack suited to the source-positive energetic punk/ska practice. Maple medium shell rock kit, coated heads,20wire snare and machine-hammered fully lathed B20 traditional-finish cymbals are authored. All three winds share ska-stab articulation; open B-flat trumpet, authored tenor saxophone realizing the source-unspecified saxophone family, and open tenor trombone have coherent punchy section gestures. Maker models are representative choices, not observed equipment. Source-bare organ remains architecture-unspecified; piano becomes standard studio upright/block chords. Single accompanied singer with explicitly authored small-note-group neumatic word-setting, unknown physiology/pitch system neutral. Brisk energetic treatment is source-compatible but no BPM is measured. Controlled live room is authored; no original capture chain asserted.",
-  "recipe": "classic euroska, bass System, reggae diaspora branch. small note groups per syllable, solo with instrumental accompaniment, single lead single track no stacking. alder maple rosewood nickel conventional tuning humbucker electric guitar, alder nickel roundwound electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited organ unspecified, upright piano, medium cup student friendly trumpet, tenor yellow brass modern standard rubber honking saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone. live tracking.",
-  "recipe_chars": 642,
-  "score": 157.727,
+  "lineage": "Euroska connects European ska bands and audiences with Jamaican-derived rhythms and exchanges with punk and other popular styles. Touring ensembles and independent scenes develop varied local sounds.",
+  "recipe": "classic euroska, bass System, reggae diaspora branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, drum kit, credited organ unspecified, upright piano, trumpet, saxophone, trombone. live tracking.",
+  "recipe_chars": 231,
+  "score": 19.816,
   "config": {
     "traditions": [
       "euroska"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.2675,
-          "voice_ensemble_config": 6.417999999999999,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 4.026,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.126,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 2.6314999999999995,
-          "neck_wood": 2.5999999999999996,
-          "fretboard": 1.5965,
+          "body_wood": 0.0315,
+          "neck_wood": 0,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 1.4995,
+          "string_material": 0.1995,
           "bridge": 0.3465,
           "scale_length": 0.693,
           "string_gauge": 0.8365,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.6314999999999995,
+          "body_wood": 0.0315,
           "pickup_config": 0,
-          "string_type": 2.6,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 1.3,
-          "bass_technique": 10.05,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 2.45,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.3865,
+          "drum_technique": -0.035,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.499999999999999,
-          "shell_thickness": 1.3,
+          "shell_wood": 0,
+          "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
-          "cymbal_alloy": 0.5999999999999999,
-          "cymbal_hammering": 6.550000000000001,
-          "cymbal_lathing": 7.913,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": 0.19500000000000003,
           "cymbal_finish": 0
         }
       },
@@ -154,7 +154,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 1.9999999999999998,
+          "keyboard_technique": -0.1,
           "upright_use": 0.3465,
           "upright_piano_size": 0
         }
@@ -171,13 +171,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 14.949999999999994,
+          "wind_articulation": 2.75,
           "brass_size": 0,
-          "trumpet_mouthpiece": 2.5,
+          "trumpet_mouthpiece": -0.1,
           "brass_mute": 0.0315,
-          "trumpet_technique": 14.949999999999994,
-          "trumpet_bell_metal": 0.21,
-          "trumpet_maker_school": 0.39
+          "trumpet_technique": 2.45,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.105
         }
       },
       {
@@ -192,13 +192,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 14.949999999999994,
-          "sax_size": 2.6285000000000003,
-          "sax_reed": 1.3,
-          "sax_body_alloy": 1.4415,
-          "sax_mouthpiece": 1.3,
-          "sax_technique": 1.15,
-          "sax_maker_school": 0.26
+          "wind_articulation": 2.75,
+          "sax_size": -0.10500000000000001,
+          "sax_reed": 0,
+          "sax_body_alloy": 0.26,
+          "sax_mouthpiece": 0,
+          "sax_technique": -0.15000000000000002,
+          "sax_maker_school": -0.07
         }
       },
       {
@@ -213,13 +213,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 14.949999999999994,
-          "trombone_type": -0.05,
-          "trombone_mouthpiece": 6.505,
+          "wind_articulation": 2.75,
+          "trombone_type": 0.25,
+          "trombone_mouthpiece": -0.07,
           "trombone_mute": 0.0315,
-          "trombone_technique": 1.69,
-          "trombone_bell_metal": 1.51,
-          "trombone_maker_school": 3.0049999999999994
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 0.105
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "mexican_post_rock",
   "name": "Mexican post-rock",
   "family": "rock",
-  "lineage": "Mexican post-rock is represented here by Un Disparo de Nievi — documented band core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic mexican post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 333,
-  "score": 57.034,
+  "lineage": "Mexican post-rock develops instrumental guitar-band music through repeating figures, layered textures and changing intensity.",
+  "recipe": "classic mexican post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 347,
+  "score": 42.963,
   "config": {
     "traditions": [
       "mexican_post_rock"
@@ -22,26 +22,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.11850000000000002,
-          "amp_make": 6.5,
+          "electric_technique": 0.18150000000000002,
+          "amp_make": 5.720000000000001,
           "body_wood": 0.39,
-          "neck_wood": 0.378,
-          "fretboard": 0.378,
+          "neck_wood": 0.681375,
+          "fretboard": 0.681375,
           "pickup_magnet": 0.147,
-          "pickup_winding": 0.34725000000000006,
-          "string_material": 0.378,
-          "bridge": 1.69,
+          "pickup_winding": 0.44700000000000006,
+          "string_material": 0.681375,
+          "bridge": 0.063,
           "scale_length": 0.39,
-          "string_gauge": 1.69,
+          "string_gauge": 0.063,
           "finish": 0.1365,
-          "string_tuning": 0.39
+          "string_tuning": 0
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 6.175,
           "body_wood": 0.126,
           "pickup_config": 0.1785,
-          "string_type": 16.575,
+          "string_type": 14.625,
           "scale_length_b": 0.273,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.03712499999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,28 +71,24 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.39,
+          "drum_technique": 11.25,
+          "drumhead": 0.681375,
           "drum_kit_kick_pedal": 0
         }
       },
       {
-        "id": "analog_poly_synth",
+        "id": "electronic_keyboard_unspecified",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "poly_archetypes": 6.629999999999999,
-          "poly_voices": 0.38549999999999995,
-          "poly_maker_lineage": -0.035
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0.18487499999999998
         }
       }
     ],
@@ -108,8 +104,9 @@
         "drum_technique",
         "drum_kit_kick_pedal"
       ],
-      "analog_poly_synth": [
-        "electronic_technique"
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -136,7 +133,8 @@
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

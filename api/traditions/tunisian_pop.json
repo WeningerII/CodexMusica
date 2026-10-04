@@ -2,10 +2,10 @@
   "id": "tunisian_pop",
   "name": "Tunisian pop",
   "family": "pop",
-  "lineage": "Jawhar — Tasweerah (2022), complete credited album. Authored present-day arrangement: clean-strummed electric guitar, fingerstyle electric bass, stick kit, Steinway D nine-foot grand and Wurlitzer200A bell-toned pop block chords. Source generic guitar/bass/piano do not establish these architectures or makes; these are editorial timbral choices. Bare keys use existing architecture-unspecified electronic keyboard owner; no analog synth substitution. Source specifies Wurlitzer but not model or gesture. Voice register/training/mechanism and percussion subtype remain unknown. Single-lead tracking is authored, not measured overdub count. No global tuning asserted. The present-day authored electrical construction uses an alder-bodied maple-neck humbucker guitar and an alder-bodied dual-single-coil electric bass. These physically compatible timbral choices do not assert original source equipment; all credited musical roles and performers remain unchanged.",
-  "recipe": "classic early-2020s tunisian pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, electronic keyboard unspecified, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, credited auxiliary percussion, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 693,
-  "score": 138.937,
+  "lineage": "Tunisian pop connects national and diaspora songwriting with a range of contemporary popular styles. Artists such as Jawhar and Saber Rebai span intimate folk-influenced work and broader mainstream recording networks.",
+  "recipe": "classic tunisian pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, block chord upright piano, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 334,
+  "score": 34.199,
   "config": {
     "traditions": [
       "tunisian_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5715000000000001,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 8.923999999999998,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -70,55 +70,32 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 19.049999999999994,
+          "electric_technique": 7.45,
           "amp_make": 0,
-          "body_wood": 5.199999999999999,
-          "neck_wood": 1.354,
+          "body_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 3.769999999999999,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 18.249999999999993,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.1905,
-          "piano_hammer": 1.308,
-          "piano_rim": 2.1239999999999997,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": 2.5000000000000004,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 2.4640000000000004
-        }
-      },
-      {
-        "id": "electronic_keyboard_unspecified",
-        "slots": {
-          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-          "keyboard_technique": "electronic_keyboard_melodic_chordal"
-        },
-        "scores": {
-          "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 7.45,
+          "upright_use": 0,
+          "upright_piano_size": 0
         }
       },
       {
@@ -126,7 +103,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_h",
-          "pickup_config": "dual_single",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -135,12 +112,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 5.199999999999999,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -161,15 +138,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.554,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 3.120000000000001,
-          "cymbal_hammering": 16.453999999999994,
-          "cymbal_lathing": 16.399999999999995,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 7.454000000000001,
+          "cymbal_lathing": 7.4,
           "cymbal_finish": 0
         }
       },
@@ -180,23 +157,6 @@
         },
         "scores": {
           "credited_auxiliary_percussion_identity": 0
-        }
-      },
-      {
-        "id": "wurlitzer_ep",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "wurlitzer_use": "wurlitzer_supertramp",
-          "wurlitzer_ep_voice": "wurlitzer_ep_bell",
-          "wurlitzer_model": "wurlitzer_200a_canonical",
-          "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
-        },
-        "scores": {
-          "keyboard_technique": 18.249999999999993,
-          "wurlitzer_use": 0,
-          "wurlitzer_ep_voice": 0,
-          "wurlitzer_model": 1.9580000000000002,
-          "wurlitzer_reed_material": 3.254
         }
       }
     ],
@@ -235,19 +195,10 @@
         "finish",
         "string_tuning"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
-      ],
-      "electronic_keyboard_unspecified": [
-        "electronic_keyboard_identity"
+        "upright_use",
+        "upright_piano_size"
       ],
       "electric_bass": [
         "amp_make",
@@ -274,31 +225,24 @@
       ],
       "credited_auxiliary_percussion": [
         "credited_auxiliary_percussion_identity"
-      ],
-      "wurlitzer_ep": [
-        "keyboard_technique",
-        "wurlitzer_use",
-        "wurlitzer_ep_voice",
-        "wurlitzer_model",
-        "wurlitzer_reed_material"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -310,7 +254,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -331,16 +275,7 @@
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "pickup_config": "dual_single",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -358,17 +293,9 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
       "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
-      "wurlitzer_use": "wurlitzer_supertramp",
-      "wurlitzer_ep_voice": "wurlitzer_ep_bell",
-      "wurlitzer_model": "wurlitzer_200a_canonical",
-      "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "musica_paranaense",
   "name": "Música paranaense",
   "family": "vernacular",
-  "lineage": "Leo Fressato’s complete separately advertised solo voice-and-acoustic-guitar pocket show at the Goethe-Institut Salvador courtyard,12July2019, presented by Dimenti Produções Culturais. The producer explicitly distinguishes this21h pocket show from the preceding Vermelho Melodrama stage production, whose cast performs his compositions in a different event. Retain one singer and one guitar for the complete pocket show, including songs written for the play and his career repertoire; do not import or erase the preceding theater cast or substitute a full-band album. No exact set list, personal audio inspection or original instrument model is claimed. Authored acoustic songwriter rendition preserves the one accompanied singer and acoustic guitar. A mahogany-top/back/sides steel-string OM, phosphor-bronze strings, standard guitar tuning and flatpicked melodic accompaniment are coherent editorial choices for the credited violão role, not evidence of its actual source string material, model or gesture. Neutral source-unspecified physiology and natural single voice retain the documented solo format; controlled live room is an authored new capture, not a claim that the courtyard was enclosed. No original microphone, global temperament or source recording chain is asserted.",
-  "recipe": "classic música paranaense, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
-  "recipe_chars": 222,
-  "score": 22.469,
+  "lineage": "Música paranaense connects Paraná’s varied musical communities, including songwriters, bands and concert performers. Local institutions and artists sustain regional networks within broader Brazilian musical life.",
+  "recipe": "classic música paranaense, ballad Poetry. solo with instrumental accompaniment. acoustic guitar. live tracking.",
+  "recipe_chars": 111,
+  "score": 1.42,
   "config": {
     "traditions": [
       "musica_paranaense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.319,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 5.199999999999999,
-          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 4.2,
-          "acoustic_om_technique": 1.25
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.05
         }
       }
     ],

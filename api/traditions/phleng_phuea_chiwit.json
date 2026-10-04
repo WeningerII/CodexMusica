@@ -5,7 +5,7 @@
   "lineage": "Thai \"songs for life\" protest rock formed among Bangkok student activists around the 1973-76 uprisings and codified by Caravan and later Carabao, welding mid-tempo 4/4 folk-rock strumming and country-rock backbeats to Isan reed timbres (khaen, phin), plainspoken baritone lead vocals in unison group choruses, and lyrics on rural poverty, labor and dictatorship.",
   "recipe": "classic Southeast Asian early-1970s phleng phuea chiwit, protest Song, east Asian branch, pop rock folk rock, anglo singer song country folk story czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar coated nanoweb travis picked dreadnought acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic straight khaen, dance driving phin, reed pearwood marine band tradition brass traditional harmonica. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 838,
-  "score": 519.082,
+  "score": 518.957,
   "config": {
     "traditions": [
       "phleng_phuea_chiwit",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 57.37000000000001,
+          "voice_register": 57.47500000000001,
           "voice_quality": 9.36,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.61,
+          "voice_vibrato": 7.355,
           "voice_articulation": 15.989999999999995,
-          "voice_microtone": 32.420000000000016,
+          "voice_microtone": 32.72000000000001,
           "voice_tradition": 29.542499999999993,
           "voice_mechanism_compound": 1.2349999999999999,
-          "voice_estill_quality": 9.23,
+          "voice_estill_quality": 8.69,
           "voice_speech_song": 23.984999999999992,
           "voice_ensemble_config": 15.729999999999993,
-          "voice_ornament_system": 3.285,
-          "voice_pitch_organization": 3.3950000000000005,
-          "voice_processing_chain": 5.165000000000001,
-          "voice_multitrack_stack": 4.2
+          "voice_ornament_system": 3.6300000000000003,
+          "voice_pitch_organization": 3.5900000000000007,
+          "voice_processing_chain": 5.19,
+          "voice_multitrack_stack": 4.050000000000001
         }
       },
       {
@@ -58,15 +58,15 @@
           "acoustic_technique": "acoustic_travis_picking",
           "string_tuning": "open_d",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
           "acoustic_technique": 25.249999999999996,
           "string_tuning": 0.06499999999999999,
-          "top_wood": 2.625,
+          "top_wood": 2.58,
           "back_sides": 0.15,
-          "string_acoustic": 1.495
+          "string_acoustic": 1.3
         }
       },
       {
@@ -89,14 +89,14 @@
         "scores": {
           "electric_technique": 7.5,
           "amp_make": 14.169999999999998,
-          "body_wood": 2.58,
-          "neck_wood": 2.58,
-          "fretboard": 2.5300000000000002,
+          "body_wood": 2.535,
+          "neck_wood": 2.535,
+          "fretboard": 2.4850000000000003,
           "pickup_magnet": 0.195,
           "string_material": 0.39,
-          "string_gauge": 2.58,
+          "string_gauge": 2.535,
           "bridge": 0.195,
-          "scale_length": 2.91,
+          "scale_length": 2.8200000000000003,
           "finish": 0,
           "string_tuning": 13.845,
           "single_coil_pickup_construction": 0
@@ -110,17 +110,17 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 14.82,
-          "body_wood": 2.91,
+          "body_wood": 2.8200000000000003,
           "pickup_config": 0,
-          "string_type": 33.6,
-          "scale_length_b": 2.58,
-          "fretted_or_not": 0.195,
+          "string_type": 32.97,
+          "scale_length_b": 2.535,
+          "fretted_or_not": 0.24,
           "bass_technique": 26.395,
           "electric_bass_string_configuration": 0
         }
@@ -134,7 +134,7 @@
         },
         "scores": {
           "drum_technique": 26.25,
-          "drumhead": 5.825000000000001,
+          "drumhead": 6.065000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -146,7 +146,7 @@
           "khaen_context": "khaen_mor_lam"
         },
         "scores": {
-          "free_reed_technique": 26.394999999999996,
+          "free_reed_technique": 26.484999999999996,
           "khaen_size": 9.684999999999999,
           "khaen_context": 7.215000000000001
         }
@@ -159,7 +159,7 @@
           "phin_construction": "phin_jackfruit_carved"
         },
         "scores": {
-          "phin_form": 20.075,
+          "phin_form": 20.735,
           "phin_repertoire": 3.2,
           "phin_construction": 3.25
         }
@@ -175,10 +175,10 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "harmonica_type": 1.3900000000000001,
+          "harmonica_type": 1.435,
           "harmonica_comb": 2.4699999999999998,
-          "harmonica_reed": 2.5250000000000004,
-          "harmonica_technique": 26.394999999999996,
+          "harmonica_reed": 2.4800000000000004,
+          "harmonica_technique": 26.484999999999996,
           "harmonica_maker_school": 0,
           "harmonica_tuning": 0.12999999999999998
         }

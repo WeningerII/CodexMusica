@@ -5,7 +5,7 @@
   "lineage": "Jinjer — Audiotree From Nothing (2024), complete three-song studio session. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic mid-2020s slayer, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment. conventional tuning standard pitch palm muted humbucker electric guitar, electric bass, maple double bass rapid double strokes machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 387,
-  "score": 42.454,
+  "score": 42.024,
   "config": {
     "traditions": [
       "slayer"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 1.029,
+          "voice_ensemble_config": 1.344,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1575,
+          "voice_processing_chain": 0.0945,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": 7.72,
           "amp_make": 0,
-          "body_wood": 0.8084999999999999,
+          "body_wood": 0.8399999999999999,
           "neck_wood": 0.5775,
           "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
+          "pickup_magnet": 0.105,
           "pickup_winding": 0.0315,
-          "string_material": 0.1365,
-          "bridge": 0.0315,
+          "string_material": 0.21,
+          "bridge": 0.105,
           "scale_length": 1.155,
-          "string_gauge": 1.852,
+          "string_gauge": 1.747,
           "finish": 0.105,
-          "string_tuning": 1.6045
+          "string_tuning": 1.363
         }
       },
       {
@@ -99,11 +99,11 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.8084999999999999,
+          "body_wood": 0.8399999999999999,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
           "bass_technique": 0.19500000000000003,
           "electric_bass_string_configuration": 0
         }
@@ -124,17 +124,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4.5,
-          "drumhead": 1.6045,
+          "drum_technique": 4.5315,
+          "drumhead": 1.573,
           "drum_kit_kick_pedal": 1.17,
-          "shell_wood": 1.678,
+          "shell_wood": 1.468,
           "shell_thickness": 0,
           "bearing_edges": 1.005,
           "snare_wires": 0,
           "cymbal_alloy": 0.39999999999999997,
           "cymbal_hammering": 6.836499999999999,
-          "cymbal_lathing": 7.4094999999999995,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 7.1995000000000005,
+          "cymbal_finish": 0.105
         }
       }
     ],

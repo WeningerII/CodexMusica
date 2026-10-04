@@ -5,7 +5,7 @@
   "lineage": "Angellore — Errances (2013), complete positively credited album palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2010s gothic doom, distorted Rock, doom branch. duet. conventional tuning standard pitch power chord humbucker electric acoustic guitar, electric bass, melodic band keyboard rompler workstation, maple machine hammered symmetric pattern organized rows full lathed drum kit, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 448,
-  "score": 34.295,
+  "score": 34.075,
   "config": {
     "traditions": [
       "gothic_doom"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6315,
+          "voice_ensemble_config": 0.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.3315,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -82,7 +82,7 @@
           "scale_length": 0.7665,
           "string_gauge": 1.4785,
           "finish": 0,
-          "string_tuning": 1.5625
+          "string_tuning": 1.4575
         }
       },
       {
@@ -97,7 +97,7 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0.2815,
+          "back_sides": 0.325,
           "string_acoustic": 0.36750000000000005,
           "acoustic_om_technique": -0.25
         }
@@ -121,7 +121,7 @@
           "string_type": 0,
           "scale_length_b": 0.357,
           "fretted_or_not": 0.063,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": -0.11850000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -159,7 +159,7 @@
           "drum_technique": 3.75,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.69,
+          "shell_wood": 1.594,
           "shell_thickness": 0,
           "bearing_edges": 0.2625,
           "snare_wires": 0,
@@ -192,7 +192,7 @@
           "orch_setup_period": 0.26,
           "orch_bow": 0.0315,
           "orch_bow_stick": -0.10500000000000001,
-          "orch_articulation": 0.29400000000000004,
+          "orch_articulation": 0.2625,
           "orch_rosin": -0.1
         }
       }

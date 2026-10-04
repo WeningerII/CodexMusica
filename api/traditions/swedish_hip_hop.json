@@ -5,7 +5,7 @@
   "lineage": "Swedish hip hop includes Timbuktu’s long collaboration with the Malmö/Lund band Damn!. Defaults are a present-day authored realization, not a historical session reconstruction.",
   "recipe": "classic modern swedish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. long life coated elixir nanoweb electric bass, drum kit, clean strummed single coil electric guitar, a 440 modern pitch us standard grand piano, trumpet, trombone, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 486,
-  "score": 45.888,
+  "score": 46.785,
   "config": {
     "traditions": [
       "swedish_hip_hop"
@@ -58,17 +58,17 @@
           "pickup_config": "soapbar",
           "string_type": "coated_nano_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0.325,
-          "body_wood": 0.054,
+          "body_wood": 0.162,
           "pickup_config": 0.105,
           "string_type": 1,
-          "scale_length_b": 0.105,
-          "fretted_or_not": 0.054,
+          "scale_length_b": 0.267,
+          "fretted_or_not": 0,
           "bass_technique": -0.035,
           "electric_bass_string_configuration": 0
         }
@@ -98,7 +98,7 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_fender",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -106,16 +106,16 @@
         "scores": {
           "electric_technique": 4.45,
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.1905,
           "neck_wood": 0.1365,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.2445,
           "string_gauge": 1.3735,
-          "bridge": 0.105,
-          "scale_length": 0,
+          "bridge": 0.159,
+          "scale_length": 0.108,
           "finish": 0,
-          "string_tuning": 0.4635,
+          "string_tuning": 0.5715,
           "single_coil_pickup_construction": 0
         }
       },
@@ -134,13 +134,13 @@
         },
         "scores": {
           "keyboard_technique": 0.325,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.276,
+          "grand_piano_size": 0.159,
+          "grand_piano_brand": 0.456,
           "piano_hammer": 0.325,
           "piano_rim": -0.035,
           "piano_soundboard": -0.035,
           "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
+          "piano_plate": -0.035,
           "piano_pitch_standard": 2.925
         }
       },
@@ -159,7 +159,7 @@
           "wind_articulation": 0.44999999999999996,
           "brass_size": 0.1365,
           "trumpet_mouthpiece": 0.325,
-          "brass_mute": 0.105,
+          "brass_mute": 0.159,
           "trumpet_technique": 0.44999999999999996,
           "trumpet_bell_metal": 0.273,
           "trumpet_maker_school": 0.5459999999999999
@@ -190,7 +190,7 @@
         "id": "saxophone",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "sax_size": "soprano_sax",
+          "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "rose_brass_sax",
           "sax_mouthpiece": "metal_mp",
@@ -199,7 +199,7 @@
         },
         "scores": {
           "wind_articulation": 0.44999999999999996,
-          "sax_size": 0,
+          "sax_size": 0.054,
           "sax_reed": 0.1365,
           "sax_body_alloy": -0.05,
           "sax_mouthpiece": 0.1365,

@@ -2,10 +2,10 @@
   "id": "emotional_black_metal",
   "name": "Emotional black metal",
   "family": "rock_punk",
-  "lineage": "Emotional black metal is represented by Waldgeflüster’s self-described emotional, nature-connected black-metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
-  "recipe": "classic modern emotional black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 516,
-  "score": 45.344,
+  "lineage": "An expressive black-metal field associated with personal reflection, emotional urgency and, in some work, a strong connection to nature and place.",
+  "recipe": "classic modern emotional black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 465,
+  "score": 35.044,
   "config": {
     "traditions": [
       "emotional_black_metal"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
@@ -58,38 +58,38 @@
           "electric_technique": "electric_tremolo_picking",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 7.215,
-          "body_wood": 7.409999999999999,
-          "neck_wood": 0.483,
-          "fretboard": 0.4095,
-          "pickup_magnet": 0.0315,
-          "pickup_winding": 0.063,
+          "amp_make": 4.355,
+          "body_wood": 4.55,
+          "neck_wood": 0.4095,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.483,
-          "scale_length": 7.409999999999999,
-          "string_gauge": 0.693,
-          "finish": 0.16799999999999998,
-          "string_tuning": 0.39
+          "bridge": 0.0315,
+          "scale_length": 0,
+          "string_gauge": 0.483,
+          "finish": 0,
+          "string_tuning": 0.34650000000000003
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "basswood_h",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.9659999999999999,
+          "body_wood": 4.55,
           "pickup_config": 0.40950000000000003,
           "string_type": 4.875,
           "scale_length_b": 0.483,
@@ -127,13 +127,13 @@
           "electronic_technique": "electronic_pad_drone",
           "rompler_preset_bank": "rompler_preset_oriental_arranger",
           "rompler_context": "rompler_context_township_midi",
-          "rompler_lineage": "rompler_yamaha_psr_casio"
+          "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
           "electronic_technique": -0.07,
           "rompler_preset_bank": 0.462,
           "rompler_context": 0.49350000000000005,
-          "rompler_lineage": 1.17
+          "rompler_lineage": 0.5355
         }
       }
     ],
@@ -159,9 +159,20 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -211,7 +222,17 @@
       "string_tuning": "d_standard",
       "drum_technique": "sticks_rock",
       "bass_technique": "pick_aggressive",
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_technique": "electronic_pad_drone",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "string_gauge": "g_11_hum",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

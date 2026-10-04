@@ -2,10 +2,10 @@
   "id": "ugandan_hip_hop",
   "name": "Ugandan hip hop",
   "family": "hip_hop",
-  "lineage": "Kampala Lugaflow recording practice represented by GNL Zamba and Baboon Forest’s producer network.",
-  "recipe": "classic modern ugandan hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 298,
-  "score": 28.482,
+  "lineage": "Ugandan hip-hop connects local-language MC practice, including Lugaflow, with independent beat-production networks.",
+  "recipe": "classic modern ugandan hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 33.822,
   "config": {
     "traditions": [
       "ugandan_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 7.8,
+          "voice_quality": 10.01,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.735,
-          "voice_ensemble_config": 0.78,
+          "voice_speech_song": 8.645,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.522
         }
       },
       {
@@ -60,11 +60,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 4,
+          "electronic_technique": 5.2,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.213,
           "sampler_workflow": 0.254,
-          "sampler_classic_context": 7.345000000000001
+          "sampler_classic_context": 7.6049999999999995
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Gregorian dance (chant-sampling dance pop)",
   "family": "electronic",
   "lineage": "European studio pop subgenre of 1990-1997 launched by Michael Cretu's Enigma project in Munich and extended by Era, Gregorian and Deep Forest — plainchant or chant-styled male choir loops laid over slow 90-100 BPM downtempo or mid-tempo four-on-floor breakbeats, sampled shakuhachi and pan-flute leads, reverb-drenched synth pads, and whispered or breathy female vocals doubling the modal chant line in an ambient, heavily gated mix.",
-  "recipe": "classic mid-1990s gregorian dance, electronic Dance, continental branch, ambient experimental electric, eurodance electronic dance bubblegum dance russian witch house. extended whistle, chest mix belt, slow rate, interlocked note trading. four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, field textural sampler, singing lead analog poly synth, TR-909, high lead 25 75 canonical flue stops mellow romantic werckmeister iii canonical bach era well temperament electric pneumatic canonical 20th century American block chord pipe organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 782,
-  "score": 205.117,
+  "recipe": "classic mid-1990s gregorian dance, electronic Dance, continental branch, ambient experimental electric, eurodance electronic dance bubblegum dance ambient techno. extended whistle, chest mix belt, slow rate, interlocked note trading. four voice polyphonic regional aka four part motangole ngue osese diyei choir ensemble, field textural sampler, sustained pad analog poly synth, TR-909, wood oak pine canonical pedal stops flutes werckmeister iii canonical bach era well temperament electric pneumatic canonical 20th century American block chord pipe organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 761,
+  "score": 201.338,
   "config": {
     "traditions": [
       "gregorian_dance",
       "bubblegum_dance",
-      "russian_witch_house"
+      "ambient_techno"
     ],
     "instruments": [
       {
@@ -18,14 +18,14 @@
         "slots": {
           "choir_size": "mens_chorus",
           "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 2.275,
-          "choir_polyphonic_configuration": 2.795,
-          "choir_regional_canonical_configuration": 1.685,
-          "choir_ensemble_repertoire": 2.4699999999999998
+          "choir_size": 2.535,
+          "choir_polyphonic_configuration": 1.95,
+          "choir_regional_canonical_configuration": 1.4949999999999999,
+          "choir_ensemble_repertoire": 2.925
         }
       },
       {
@@ -40,7 +40,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
@@ -50,21 +50,21 @@
         },
         "scores": {
           "voice_register": 10.329999999999998,
-          "voice_quality": 8.999999999999998,
+          "voice_quality": 8.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3150000000000004,
-          "voice_articulation": 15.599999999999994,
-          "voice_microtone": 17.354999999999993,
-          "voice_tradition": 9.844999999999999,
-          "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 1.69,
-          "voice_speech_song": 17.224999999999994,
-          "voice_ensemble_config": 18.589999999999993,
+          "voice_vibrato": 3.7700000000000005,
+          "voice_articulation": 14.039999999999996,
+          "voice_microtone": 15.989999999999995,
+          "voice_tradition": 10.344999999999999,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 15.079999999999995,
+          "voice_ensemble_config": 17.679999999999993,
           "voice_ornament_system": 1.1049999999999998,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 15.620000000000001,
-          "voice_multitrack_stack": 7.735
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 15.570000000000002,
+          "voice_multitrack_stack": 6.175
         }
       },
       {
@@ -77,25 +77,25 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.8149999999999995,
+          "electronic_technique": 5.615,
           "sampler_archetypes": 4,
           "sampler_bit_depth": 1.3649999999999998,
-          "sampler_workflow": 4.49,
-          "sampler_classic_context": 17.90749999999999
+          "sampler_workflow": 5.515000000000001,
+          "sampler_classic_context": 16.217499999999998
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "jupiter_8",
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "juno_60",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 8.599999999999998,
-          "poly_archetypes": 0.975,
-          "poly_voices": 0.975,
+          "electronic_technique": 8.459999999999999,
+          "poly_archetypes": 0.8,
+          "poly_voices": 0.78,
           "poly_maker_lineage": -1.435
         }
       },
@@ -103,12 +103,12 @@
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "drum_machine_909_context": "drum_machine_909_techno",
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 2.375,
-          "drum_machine_909_context": 1.3,
+          "tr909_voice": 1.125,
+          "drum_machine_909_context": 4.494999999999999,
           "tr909_production_origin": 0.255
         }
       },
@@ -119,17 +119,17 @@
           "pipe_organ_class": "pipe_organ_neo_baroque",
           "pipe_organ_context": "pipe_organ_concert",
           "pipe_organ_voicing_school": "pipe_organ_cavaille_coll",
-          "pipe_organ_pipe_alloy": "pipe_organ_high_lead_25_75",
+          "pipe_organ_pipe_alloy": "pipe_organ_wood_pipes",
           "pipe_organ_temperament": "pipe_organ_werckmeister_iii",
           "pipe_organ_action": "pipe_organ_electric_pneumatic"
         },
         "scores": {
-          "keyboard_technique": 6.994999999999999,
-          "pipe_organ_class": 0.345,
+          "keyboard_technique": 7.644999999999999,
+          "pipe_organ_class": 0.6950000000000001,
           "pipe_organ_context": 2.535,
           "pipe_organ_voicing_school": 0.65,
-          "pipe_organ_pipe_alloy": 2.795,
-          "pipe_organ_temperament": 1.4949999999999999,
+          "pipe_organ_pipe_alloy": 1.5600000000000003,
+          "pipe_organ_temperament": 1.3,
           "pipe_organ_action": 2.16
         }
       }

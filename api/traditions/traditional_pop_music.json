@@ -5,7 +5,7 @@
   "lineage": "American and British mainstream popular song from roughly 1930 to 1955, built on Tin Pan Alley and Broadway 32-bar AABA writing by Berlin, Porter, Kern and Van Heusen, arranged for big band or lush string orchestra by Nelson Riddle, Gordon Jenkins and Axel Stordahl, and delivered by microphone-intimate crooners and torch singers at slow-to-medium swung or ballad tempos with legato phrasing, wide vibrato and conversational rubato.",
   "recipe": "classic North American early-1930s traditional pop music, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song, anglo singer song ballad poetry skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. extended harmony through composed jazz big band, string quartet inst, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, growly gut upright bass, pre muffled edge muffled brushes-and-sticks drum kit, bach stradivarius 180 canonical American orchestral jazz balance legato trumpet, bach 42 canonical American orchestral tenor student commercial trombone. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 839,
-  "score": 423.015,
+  "score": 422.931,
   "config": {
     "traditions": [
       "traditional_pop_music",
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,7 +41,7 @@
           "voice_vibrato": 11.584999999999999,
           "voice_articulation": 20.474999999999998,
           "voice_microtone": 43.97500000000001,
-          "voice_tradition": 15.421999999999997,
+          "voice_tradition": 15.307499999999996,
           "voice_mechanism_compound": 3.51,
           "voice_estill_quality": 4.974000000000001,
           "voice_speech_song": 28.535,
@@ -72,7 +72,7 @@
         },
         "scores": {
           "bowed_technique": 1.25,
-          "quartet_school": 0.39,
+          "quartet_school": 0.345,
           "string_quartet_inst_era": 0.585
         }
       },
@@ -94,9 +94,9 @@
           "grand_piano_size": 2.015,
           "grand_piano_brand": 2.015,
           "piano_hammer": 13.25,
-          "piano_rim": 15.139999999999999,
-          "piano_soundboard": 14.794999999999998,
-          "piano_pinblock": 1.105,
+          "piano_rim": 15.439999999999998,
+          "piano_soundboard": 14.599999999999998,
+          "piano_pinblock": 1.015,
           "piano_plate": 0.5199999999999999,
           "piano_pitch_standard": 0.9099999999999999
         }
@@ -121,7 +121,7 @@
         },
         "scores": {
           "drum_technique": 24.959999999999994,
-          "drumhead": 15.139999999999999,
+          "drumhead": 14.899999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,7 +129,7 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_classical_legato",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_classical_legato",
@@ -159,7 +159,7 @@
         },
         "scores": {
           "wind_articulation": 1.355,
-          "trombone_type": 10.044999999999998,
+          "trombone_type": 10.344999999999999,
           "trombone_mouthpiece": 25.084999999999997,
           "trombone_mute": 0.0495,
           "trombone_technique": 1.3,

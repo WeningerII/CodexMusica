@@ -2,10 +2,10 @@
   "id": "pop_nacional",
   "name": "Pop nacional",
   "family": "pop",
-  "lineage": "Alice Sales and Leo de Freitas — complete Show Pop! duo programme announced by the municipal Centro da Música Carioca. Issuer explicitly defines national AND international pop repertoire jointly rearranged by this singer and pianist, and gives complete two-person performing credits: Sales voice, de Freitas piano. Davi Pessanha is production, not a third musician. Preserve the whole mixed-repertoire programme; do not invent a national-only subset, song list, duration, exact date, or proof of the advertised later live performance. Source also documents two earlier online presentations of this same duo programme. One singer, two people and two families. Piano construction unspecified; a standard studio upright with block-chord accompaniment is a declared new rendition, not the venue instrument. Accompanied voice retains source-unspecified physiology, pitch organization, ornament and word-setting. Authored spacious shoebox-hall listening setting is not a measured venue acoustic. No fixed temperament or specific recording chain is inferred.",
-  "recipe": "classic pop nacional, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. block chord upright piano. shoebox concert hall.",
-  "recipe_chars": 193,
-  "score": 27.341,
+  "lineage": "Pop nacional identifies Brazilian popular-song artists and repertoire within a broad national listening field. It overlaps MPB, rock and other styles while emphasizing contemporary songs and their circulation through recordings and performances.",
+  "recipe": "classic pop nacional, functional Song. single lead single track no stacking. block chord upright piano. shoebox concert hall.",
+  "recipe_chars": 125,
+  "score": 9.454,
   "config": {
     "traditions": [
       "pop_nacional"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.4715000000000007,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 2.08,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 20.099999999999994,
+          "keyboard_technique": 7.45,
           "upright_use": 0,
           "upright_piano_size": 0
         }

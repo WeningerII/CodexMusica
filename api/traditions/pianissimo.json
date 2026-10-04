@@ -5,7 +5,7 @@
   "lineage": "Raphaël Novarina — Solo Piano (2014), complete ten-piece instrumental album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s pianissimo, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 213,
-  "score": 26.193,
+  "score": 24.816,
   "config": {
     "traditions": [
       "pianissimo"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": -0.07,
           "grand_piano_size": 0.6315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 4.168,
-          "piano_rim": 5.562500000000001,
-          "piano_soundboard": 4.105,
-          "piano_pinblock": 5.987,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 4,
+          "piano_rim": 5.394500000000001,
+          "piano_soundboard": 4,
+          "piano_pinblock": 5,
           "piano_plate": 4.3,
-          "piano_pitch_standard": 1.476
+          "piano_pitch_standard": 1.4549999999999998
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "indian_techno",
   "name": "Indian Techno",
   "family": "electronic",
-  "lineage": "Monophonik — complete live synthesis practice documented June2021. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
+  "lineage": "India’s techno community brings international club forms into local producer and live-performance networks. Mumbai-based Monophonik exemplifies its use of analog and modular synthesis.",
   "recipe": "classic indian techno, electronic Dance, techno branch. analog modular synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 197,
-  "score": 1.821,
+  "score": 7.424,
   "config": {
     "traditions": [
       "indian_techno"
@@ -23,8 +23,8 @@
         "scores": {
           "electronic_technique": -0.035,
           "oscillator": 0,
-          "filter_topology": 0.6000000000000001,
-          "envelope": 0.168,
+          "filter_topology": 1.3,
+          "envelope": 0.348,
           "modulation": 0.1365
         }
       },
@@ -38,7 +38,7 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "mod_voltage_source": 0.39,
+          "mod_voltage_source": 1.2955,
           "mod_patch_density": 0,
           "mod_lineage": 0.5775
         }
@@ -52,10 +52,10 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.054,
+          "kick_voice": 1,
           "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": -0.035
+          "shuffle_quantize": 2.836
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "jazz_guitar_trio",
   "name": "Jazz guitar trio",
   "family": "jazz",
-  "lineage": "Guitar-led jazz trio; selected Jakob Bro electric-guitar/bass/drums branch",
+  "lineage": "Jazz guitar trio centres guitar within a three-part improvising ensemble, commonly alongside bass and drums. The format ranges from swinging chord-melody interplay to spacious contemporary textures and varied drummerless combinations.",
   "recipe": "classic modern jazz guitar trio, improv On Frame, American jazz branch. single coil electric guitar, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 328,
-  "score": 43.376,
+  "score": 47.125,
   "config": {
     "traditions": [
       "jazz_guitar_trio"
@@ -31,11 +31,11 @@
         "scores": {
           "electric_technique": 0.19500000000000003,
           "amp_make": 0,
-          "body_wood": 0.16012499999999996,
+          "body_wood": 0.24412499999999998,
           "neck_wood": 0.18675,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "string_material": 0.34687499999999993,
+          "string_material": 0.4308749999999999,
           "string_gauge": 0.105,
           "bridge": 0.1365,
           "scale_length": 0,
@@ -71,14 +71,14 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.5,
+          "drum_technique": 9.49,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.31987499999999996,
-          "shell_thickness": 0.03899999999999999,
+          "shell_wood": 0.36787499999999995,
+          "shell_thickness": 0.24999999999999994,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.16012499999999996,
-          "cymbal_alloy": 11.296124999999998,
+          "snare_wires": 0.24412499999999998,
+          "cymbal_alloy": 11.344124999999998,
           "cymbal_hammering": 11.641,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

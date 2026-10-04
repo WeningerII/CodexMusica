@@ -5,7 +5,7 @@
   "lineage": "Formed in São Paulo and Rio between 2016 and 2019 out of the rap-battle and YouTube-cypher circuit, codified by Matuê, Teto, Derek, WIU and producers Papatinho and Sidoka's circle, applying 130-150 BPM half-time 808 trap production with dark plucked-synth and piano loops to Brazilian Portuguese flows, plus periodic funk-carioca tamborzão or samba percussion inserts and sung Auto-Tuned refrains.",
   "recipe": "classic mid-2010s trap brasileiro, mc Rhythm, intl hip hop branch, Afro-diasporic MC rhythm, Brazilian groove percussion pagode samba rock. thick, breath veiled tone, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampler drum machine, low sub bass analog poly synth, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival aluminum canonical modern rio escola surdo, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 811,
-  "score": 215.325,
+  "score": 215.37,
   "config": {
     "traditions": [
       "trap_brasileiro",
@@ -35,13 +35,13 @@
         },
         "scores": {
           "voice_register": 6.185000000000002,
-          "voice_quality": 25.089999999999993,
+          "voice_quality": 24.999999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.7224999999999997,
           "voice_articulation": 23.724999999999994,
           "voice_microtone": 24.83,
-          "voice_tradition": 7.96,
+          "voice_tradition": 8.005,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 25.154999999999998,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.3150000000000013,
           "voice_pitch_organization": 1.4299999999999997,
           "voice_processing_chain": 7.15,
-          "voice_multitrack_stack": 7.305
+          "voice_multitrack_stack": 7.35
         }
       },
       {
@@ -129,7 +129,7 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 1.3900000000000001,
+          "multitrack_stack_density": 1.435,
           "multitrack_stack_era_aesthetic": 3.7375,
           "multitrack_stack_processing": 2.015
         }

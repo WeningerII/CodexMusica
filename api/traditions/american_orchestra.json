@@ -2,10 +2,10 @@
   "id": "american_orchestra",
   "name": "American orchestra",
   "family": "classical",
-  "lineage": "American orchestra is represented here by Sphinx Virtuosi — Valerie Coleman: Tracing Visions, Songs for Our Times (2023). This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic early-2020s american orchestra, art Music, western modern branch. sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, synthetic core carpathian spruce eastern European source European maple general oil varnish viola classical, synthetic engelmann spruce European maple sycamore maple oil varnish cello, synthetic upright bass. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 447,
-  "score": 138.722,
+  "lineage": "American orchestral music encompasses symphony orchestras and smaller chamber ensembles performing historical repertoire and new works. String orchestras provide one important concert setting within this broader field.",
+  "recipe": "classic american orchestra, art Music, western modern branch. sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, synthetic core carpathian spruce eastern European source European maple general oil varnish viola classical, synthetic engelmann spruce European maple sycamore maple oil varnish cello, synthetic upright bass. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 435,
+  "score": 140.833,
   "config": {
     "traditions": [
       "american_orchestra"
@@ -26,15 +26,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.605,
-          "orch_strings": 0.504,
-          "orch_top_wood": 4.296,
+          "bowed_technique": 2.944,
+          "orch_strings": 0.5775,
+          "orch_top_wood": 4.426,
           "orch_back_wood": 6.825,
           "orch_varnish": 6.25,
-          "orch_setup_period": 8.125,
-          "orch_bow": 0.546,
-          "orch_bow_stick": 8.050625,
-          "orch_articulation": 0.504,
+          "orch_setup_period": 8.33,
+          "orch_bow": 0.7150000000000001,
+          "orch_bow_stick": 7.5600000000000005,
+          "orch_articulation": 0.6165,
           "orch_rosin": 8.125
         }
       },
@@ -42,7 +42,7 @@
         "id": "viola_classical",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "viola_size": "viola_15_inch",
+          "viola_size": "viola_16_inch",
           "viola_strings": "viola_synthetic",
           "viola_top_wood": "viola_carpathian_spruce",
           "viola_back_wood": "viola_european_maple_general",
@@ -52,15 +52,15 @@
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 2.605,
-          "viola_size": 0.3,
+          "bowed_technique": 2.944,
+          "viola_size": 1.26,
           "viola_strings": 1.95,
           "viola_top_wood": 2.773,
           "viola_back_wood": 6.523,
           "viola_varnish": 6.25,
-          "viola_setup_period": 8.125,
-          "viola_bow_stick": 8.050625,
-          "viola_rosin": 8.125
+          "viola_setup_period": 8.33,
+          "viola_bow_stick": 7.5600000000000005,
+          "viola_rosin": 8.33
         }
       },
       {
@@ -77,15 +77,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 2.605,
+          "bowed_technique": 2.944,
           "cello_strings": 1.95,
           "cello_top_wood": 3.75,
           "cello_back_wood": 6.523,
           "cello_varnish": 6.25,
-          "cello_setup_period": 8.125,
+          "cello_setup_period": 8.33,
           "cello_bow_grip": 1.3,
-          "cello_rosin": 6.3865,
-          "cello_bow_stick": 8.050625
+          "cello_rosin": 6.6865,
+          "cello_bow_stick": 7.5600000000000005
         }
       },
       {

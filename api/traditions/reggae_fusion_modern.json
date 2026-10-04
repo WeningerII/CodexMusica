@@ -3,14 +3,14 @@
   "name": "Reggae fusion (modern)",
   "family": "global",
   "lineage": "Late-1990s onward Caribbean popular-music genre fusing reggae rhythmic and vocal vocabulary with hip-hop, pop, R-and-B, and electronic-dance production techniques — codified through Sean Paul (Dutty Rock 2002), Shaggy (Hot Shot 2000), Sean Kingston (Sean Kingston 2007), Magic! (Don't Kill the Magic 2014), with the form serving as the international-mainstream commercial-reggae substream",
-  "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop chinese melodic rap. thick, rap, straight onset, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky thumb muted electric bass, pre muffled edge muffled rim clicks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 604,
-  "score": 273.177,
+  "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop german alternative rap. thick, rap, straight onset, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky thumb muted electric bass, pre muffled edge muffled rim clicks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 607,
+  "score": 281.498,
   "config": {
     "traditions": [
       "reggae_fusion_modern",
       "australian_hip_hop",
-      "chinese_melodic_rap"
+      "german_alternative_rap"
     ],
     "instruments": [
       {
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 10.194999999999995,
-          "voice_quality": 15.242499999999996,
+          "voice_quality": 17.062499999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.8550000000000004,
-          "voice_articulation": 12.414999999999996,
-          "voice_microtone": 12.219999999999994,
-          "voice_tradition": 14.135,
+          "voice_articulation": 12.804999999999994,
+          "voice_microtone": 12.609999999999992,
+          "voice_tradition": 14.784999999999998,
           "voice_mechanism_compound": 4.219999999999999,
           "voice_estill_quality": 4.114999999999999,
-          "voice_speech_song": 14.915,
-          "voice_ensemble_config": 12.544999999999996,
+          "voice_speech_song": 16.464999999999996,
+          "voice_ensemble_config": 12.934999999999995,
           "voice_ornament_system": 3.315000000000001,
           "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 10.370000000000001,
+          "voice_processing_chain": 11.620000000000001,
           "voice_multitrack_stack": 9.835
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 17.199999999999996,
-          "drumhead": 9.5,
+          "drumhead": 9.65,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -134,8 +134,8 @@
           "electronic_technique": 7.1499999999999995,
           "sampler_archetypes": 12.48,
           "sampler_bit_depth": 1.69,
-          "sampler_workflow": 8.235,
-          "sampler_classic_context": 22.489999999999995
+          "sampler_workflow": 8.084999999999999,
+          "sampler_classic_context": 22.879999999999995
         }
       },
       {
@@ -153,7 +153,7 @@
           "drawbar_setting": 2.695,
           "rotary_speed": 2.45,
           "percussion_setting": 1,
-          "tonewheel_model": 1.17,
+          "tonewheel_model": 2.535,
           "leslie_cabinet_model": 0.78
         }
       }

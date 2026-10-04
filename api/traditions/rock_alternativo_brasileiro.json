@@ -2,10 +2,10 @@
   "id": "rock_alternativo_brasileiro",
   "name": "Rock alternativo brasileiro",
   "family": "rock",
-  "lineage": "Rock alternativo brasileiro is represented here by Turmallina — Enquanto o Mundo Dorme. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic rock alternativo brasileiro, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 351,
-  "score": 59.783,
+  "lineage": "Brazilian alternative rock includes guitar-band approaches shaped by independent rock, shoegaze and dream pop.",
+  "recipe": "classic rock alternativo brasileiro, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 376,
+  "score": 66.186,
   "config": {
     "traditions": [
       "rock_alternativo_brasileiro"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 6.5,
+          "amp_make": 7.0200000000000005,
           "body_wood": 1.1969999999999998,
           "neck_wood": 0.3045,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 1.69,
+          "bridge": 1.443,
           "scale_length": 0.651,
-          "string_gauge": 2.08,
+          "string_gauge": 1.443,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.27
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.609,
-          "pickup_config": 0.39,
-          "string_type": 16.575,
+          "pickup_config": 0.1365,
+          "string_type": 17.875,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.7,
+          "drum_technique": 13.75,
+          "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -128,8 +128,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.7,
-          "poly_archetypes": 6.629999999999999,
+          "electronic_technique": 2.45,
+          "poly_archetypes": 7.15,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }

@@ -5,7 +5,7 @@
   "lineage": "Unblack metal is represented here by On Neginoth — Church Burner. This selected branch has an authored present-day studio realization.",
   "recipe": "classic unblack metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sampler drum machine, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 476,
-  "score": 37.889,
+  "score": 37.628,
   "config": {
     "traditions": [
       "unblack_metal"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.063,
           "string_material": 0.4095,
-          "bridge": 1.51675,
+          "bridge": 1.3315000000000001,
           "scale_length": 5.329999999999999,
-          "string_gauge": 1.69,
-          "finish": 0.21075,
-          "string_tuning": 0.39
+          "string_gauge": 1.5415,
+          "finish": 0.3105,
+          "string_tuning": 0.363
         }
       },
       {

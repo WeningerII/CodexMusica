@@ -2,10 +2,10 @@
   "id": "algerian_folk",
   "name": "Algerian folk",
   "family": "vernacular",
-  "lineage": "Algerian folk is represented by Souad Massi / Malik Kerrouche — Raoui, Néo Géo Nova at Palais de la Porte Dorée. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic algerian folk, ballad Poetry. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 165,
-  "score": 3.286,
+  "lineage": "Algerian folk encompasses diverse regional song and instrumental traditions alongside contemporary acoustic songwriting. Musicians connect local languages and melodic references with changing performance contexts.",
+  "recipe": "classic algerian folk, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 233,
+  "score": 5.009,
   "config": {
     "traditions": [
       "algerian_folk"
@@ -43,28 +43,28 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0.3
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_e",
+          "string_tuning": "standard_tuning",
           "top_wood": "sitka",
           "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
           "acoustic_technique": -0.1,
-          "string_tuning": 2.1500000000000004,
+          "string_tuning": 0,
           "top_wood": 0.273,
           "back_sides": 0.273,
-          "string_acoustic": 0.3
+          "string_acoustic": 0.273
         }
       }
     ],

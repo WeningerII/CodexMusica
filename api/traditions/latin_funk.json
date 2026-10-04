@@ -2,10 +2,10 @@
   "id": "latin_funk",
   "name": "Latin funk",
   "family": "blues_gospel",
-  "lineage": "Latin funk: Ex Romantika — Latin Funk Konnection, regular album ensemble. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
-  "recipe": "classic latin funk, groove Percussion, funk percussive branch. group vocals, live take. fast decay low resonance ebony humbucker electric guitar, mahogany fingerstyle locked electric bass, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s wide pickup gap more bell less bark ostinato rhodes electric, gold brass warmer tone saxophone, large cup large rim orchestral bottom heavy ensemble trumpet, bach 42 canonical American orchestral tenor trombone, drum kit, open slap hand drum congas, open slap hand drum timbales. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 686,
-  "score": 86.091,
+  "lineage": "Latin funk brings funk grooves into dialogue with Latin American and Caribbean rhythmic practices. Bands such as Ex Romantika combine horn-led ensemble writing with dance-oriented rhythm sections and percussion.",
+  "recipe": "classic latin funk, groove Percussion, funk percussive branch. group vocals, live take. fast decay low resonance ebony humbucker electric guitar, mahogany fingerstyle locked electric bass, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s ostinato rhodes electric, horn section ensemble saxophone, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, bach 42 canonical American orchestral tenor ensemble trombone, drum kit, open slap hand drum congas, open slap hand drum timbales. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 706,
+  "score": 86.857,
   "config": {
     "traditions": [
       "latin_funk"
@@ -63,24 +63,24 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 0.7,
+          "electric_technique": 2.45,
           "amp_make": -0.07,
           "body_wood": 0.84,
           "neck_wood": 0.6405,
           "fretboard": 1.95,
           "pickup_magnet": 0.168,
-          "pickup_winding": 0.3315,
+          "pickup_winding": 0.0315,
           "string_material": 0.273,
-          "bridge": 1.168,
+          "bridge": 0.6405,
           "scale_length": 1.2810000000000006,
-          "string_gauge": 1,
+          "string_gauge": 0.6405,
           "finish": 0.063,
           "string_tuning": 1.1444999999999999
         }
@@ -104,7 +104,7 @@
           "string_type": 1.0500000000000003,
           "scale_length_b": 0.6405,
           "fretted_or_not": 1.95,
-          "bass_technique": 12.141499999999999,
+          "bass_technique": 11.391499999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,18 +113,18 @@
         "slots": {
           "keyboard_technique": "keyboard_ostinato_groove",
           "rhodes_model": "rhodes_suitcase",
-          "rhodes_use": "rhodes_soul",
+          "rhodes_use": "rhodes_jazz",
           "rhodes_tine_material": "rhodes_torrington_tine",
           "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
-          "rhodes_pickup_position": "rhodes_pickup_far_bell"
+          "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 12.0865,
+          "keyboard_technique": 11.3365,
           "rhodes_model": 0.6405,
-          "rhodes_use": 1.113,
+          "rhodes_use": 0.6405,
           "rhodes_tine_material": 1.1445,
           "rhodes_hammer_tip": 1.5225,
-          "rhodes_pickup_position": 1.594
+          "rhodes_pickup_position": 0.651
         }
       },
       {
@@ -133,18 +133,18 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "gold_brass_sax",
+          "sax_body_alloy": "rose_brass_sax",
           "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_split_tone_overblown",
+          "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 1.885,
-          "sax_size": 0.325,
+          "wind_articulation": 3.185000000000001,
+          "sax_size": -0.035,
           "sax_reed": 0.273,
-          "sax_body_alloy": 1.0365,
+          "sax_body_alloy": -0.035,
           "sax_mouthpiece": 0.273,
-          "sax_technique": 0.95,
+          "sax_technique": -0.035,
           "sax_maker_school": 0.4724999999999999
         }
       },
@@ -153,20 +153,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_red_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.885,
+          "wind_articulation": 3.185000000000001,
           "brass_size": 0.273,
-          "trumpet_mouthpiece": 1.1495,
+          "trumpet_mouthpiece": 1.625,
           "brass_mute": 0.1365,
-          "trumpet_technique": 1.885,
+          "trumpet_technique": 3.185000000000001,
           "trumpet_bell_metal": 0.3465,
-          "trumpet_maker_school": 0.9029999999999999
+          "trumpet_maker_school": 1.3
         }
       },
       {
@@ -174,20 +174,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "valve_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_4g",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
           "trombone_mute": "cup_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 1.885,
+          "wind_articulation": 3.185000000000001,
           "trombone_type": 0.777,
-          "trombone_mouthpiece": -0.035,
+          "trombone_mouthpiece": 0.325,
           "trombone_mute": 0,
-          "trombone_technique": 0.39,
+          "trombone_technique": 1.3,
           "trombone_bell_metal": 0.4095,
-          "trombone_maker_school": 1.0079999999999998
+          "trombone_maker_school": 1.3
         }
       },
       {
@@ -212,7 +212,7 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 9.277000000000001,
+          "percussion_technique": 8.227,
           "conga_set": 0.3045,
           "conga_skin": 0.609,
           "conga_shell_wood": 0.6405
@@ -226,7 +226,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 9.277000000000001,
+          "percussion_technique": 8.227,
           "timbales_shell": 0.8085,
           "timbales_context": 0.105
         }

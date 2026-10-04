@@ -2,10 +2,10 @@
   "id": "canadian_modern_jazz",
   "name": "Canadian modern jazz",
   "family": "jazz",
-  "lineage": "Canada-connected contemporary jazz; selected Ingrid Jensen tribute quintet",
-  "recipe": "classic modern canadian modern jazz, improv On Frame, American jazz branch. bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 554,
-  "score": 74.834,
+  "lineage": "Canadian modern jazz draws together contemporary composition, improvisation and international collaboration. Small ensembles often combine extended harmonies and distinctive melodic themes with flexible rhythmic and collective interplay.",
+  "recipe": "classic modern canadian modern jazz, improv On Frame, American jazz branch. bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, treble-extended sustaining steel upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 587,
+  "score": 108.287,
   "config": {
     "traditions": [
       "canadian_modern_jazz"
@@ -24,8 +24,8 @@
         },
         "scores": {
           "wind_articulation": -0.035,
-          "brass_size": 0.273,
-          "trumpet_mouthpiece": 2.5205,
+          "brass_size": 1.2730000000000001,
+          "trumpet_mouthpiece": 4.9815000000000005,
           "brass_mute": 0.147,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.105,
@@ -47,10 +47,10 @@
           "wind_articulation": -0.035,
           "sax_size": 0.19500000000000003,
           "sax_reed": 0.1785,
-          "sax_body_alloy": 3.039,
+          "sax_body_alloy": 5.8100000000000005,
           "sax_mouthpiece": 0,
           "sax_technique": -0.035,
-          "sax_maker_school": 1.3
+          "sax_maker_school": 2.6
         }
       },
       {
@@ -67,15 +67,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.2815,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0.147,
           "grand_piano_brand": 0.105,
-          "piano_hammer": 3.0485,
-          "piano_rim": 2.912,
-          "piano_soundboard": 2.621,
-          "piano_pinblock": 2.45,
-          "piano_plate": 2.45,
-          "piano_pitch_standard": 3.25
+          "piano_hammer": 5.5485,
+          "piano_rim": 5.711,
+          "piano_soundboard": 4.95,
+          "piano_pinblock": 4.95,
+          "piano_plate": 4.95,
+          "piano_pitch_standard": 6.5
         }
       },
       {
@@ -85,7 +85,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.246,
+          "upright_strings": 1.168,
           "upright_play": 11.25
         }
       },
@@ -105,16 +105,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.280000000000001,
+          "drum_technique": 11.179999999999996,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.252,
-          "shell_thickness": 0,
+          "shell_thickness": 0.03899999999999999,
           "bearing_edges": 0.1365,
           "snare_wires": 0.147,
-          "cymbal_alloy": 11.246999999999998,
+          "cymbal_alloy": 11.376999999999997,
           "cymbal_hammering": 11.641,
-          "cymbal_lathing": 2.6414999999999997,
+          "cymbal_lathing": 5.6105,
           "cymbal_finish": 0
         }
       }

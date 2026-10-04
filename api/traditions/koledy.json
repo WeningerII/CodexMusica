@@ -2,10 +2,10 @@
   "id": "koledy",
   "name": "Kolędy",
   "family": "sacred",
-  "lineage": "Witold Lutosławski — Twenty Polish Christmas Carols, publisher-listed unison voices and piano version. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic kolędy, ritual Devotional, christian gospel branch. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 212,
-  "score": 3.071,
+  "lineage": "Polish Christmas carols — traditional seasonal religious songs in domestic, church and concert performance.",
+  "recipe": "classic kolędy, ritual Devotional, christian gospel branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 171,
+  "score": 0.986,
   "config": {
     "traditions": [
       "koledy"
@@ -67,13 +67,13 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.78,
-          "grand_piano_brand": 0.39,
+          "grand_piano_size": 0.294,
+          "grand_piano_brand": 0.78,
           "piano_hammer": -0.1,
-          "piano_rim": 0.6499999999999999,
+          "piano_rim": 0.26,
           "piano_soundboard": -0.1,
-          "piano_pinblock": 1.2,
-          "piano_plate": 0.2,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
         }
       }

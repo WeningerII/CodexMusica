@@ -5,7 +5,7 @@
   "lineage": "CZSK black metal groups Czech and Slovak black-metal scenes rather than prescribing one national sound. This selected Czech Root branch uses heavy electric-guitar riffs, bass, acoustic drums and Big Boss’s clear, dramatic singing. Root’s musicians describe composing from lyrics and transposing preliminary keyboard sketches into guitar riffs, then recording the prepared parts as a band. The model follows that guitar-centered arrangement; it does not add a keyboard player merely because keyboards were used to sketch songs.",
   "recipe": "classic modern czsk black metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 456,
-  "score": 53.613,
+  "score": 49.077,
   "config": {
     "traditions": [
       "czsk_black_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 17.4115,
+          "electric_technique": 17.3935,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6315000000000001,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.222,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.5775,
+          "bridge": 0.6315000000000001,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.7649999999999998
+          "string_tuning": 0.063
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6315000000000001,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.8699999999999999,
-          "fretted_or_not": 0.7019999999999998,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.222,
+          "fretted_or_not": 0,
+          "bass_technique": 3.862,
           "electric_bass_string_configuration": 0
         }
       },
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.6315000000000001,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.42,
-          "shell_thickness": 0.7019999999999998,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 5.7885,
+          "cymbal_lathing": 5.0865,
           "cymbal_finish": 0
         }
       },
@@ -120,7 +120,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
+          "voice_effort": 0.108,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 3.734000000000001,
@@ -128,11 +128,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 3.38,
-          "voice_ensemble_config": 1.7895,
+          "voice_ensemble_config": 1.5375,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.8479999999999999
+          "voice_pitch_organization": 0.5684999999999999,
+          "voice_processing_chain": 0.18,
+          "voice_multitrack_stack": 0.7319999999999999
         }
       }
     ],

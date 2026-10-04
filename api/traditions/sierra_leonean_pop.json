@@ -2,10 +2,10 @@
   "id": "sierra_leonean_pop",
   "name": "Sierra Leonean pop",
   "family": "hip_hop",
-  "lineage": "Drizilik and Freetown Uncut — complete five-person practice announced by Jazzlive at The Crypt for 13 September2019. Organizer names Drizilik as multilingual hip-hop/afrobeat/dancehall/Bubu-influenced frontman, Emmanuel Edwards drums, Solos Beats keyboards/production, Francil Johnson keyboards, and Reginald Thompson bass guitar/saxophone. All five sound families retained. Two keyboard players share one architecture-unspecified keyboard owner; bass/sax are a documented doubling by one person, not a claim of simultaneous playing. Production is a professional credit, not evidence of an additional live sampler. No other performers or backing voices asserted. Entire announced ensemble practice, not a reconstruction of a viewed concert recording. Authored representative live-band rap rendition: one lead, neutral vocal physiology, fingerstyle dual-single-coil electric bass, stick drumkit, source-unspecified electronic keyboard, and an authored tenor/medium-reed/hard-rubber/Yellow-brass saxophone realization. Source says sax only; tenor and manufacturer-style hardware are editorial choices, not source measurements. Hall spatial model authored, global tuning and recording apparatus omitted.",
-  "recipe": "classic sierra leonean pop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. pocket fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, tenor yellow brass modern standard ensemble rubber saxophone. shoebox concert hall.",
-  "recipe_chars": 371,
-  "score": 49.927,
+  "lineage": "Sierra Leonean pop connects artists, producers and listeners through local and diasporic networks. Contemporary performers combine popular songwriting with hip-hop, dancehall, Afrobeat and regional rhythmic references.",
+  "recipe": "classic sierra leonean pop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment. pocket fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified, tenor honking attack saxophone. shoebox concert hall.",
+  "recipe_chars": 315,
+  "score": 25.365,
   "config": {
     "traditions": [
       "sierra_leonean_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.504,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 4.5,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -71,7 +71,7 @@
           "string_type": 0.7,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 5.2,
+          "bass_technique": 2.4000000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -92,15 +92,15 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.6,
+          "shell_wood": 0.7,
           "shell_thickness": 0,
           "bearing_edges": 0.315,
           "snare_wires": 0.7,
           "cymbal_alloy": 0.6499999999999998,
-          "cymbal_hammering": 5.400000000000001,
-          "cymbal_lathing": 5.7,
+          "cymbal_hammering": 4.9,
+          "cymbal_lathing": 4.9,
           "cymbal_finish": 0
         }
       },
@@ -112,7 +112,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.1995
+          "keyboard_technique": 0.39
         }
       },
       {
@@ -127,12 +127,12 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 5.2,
-          "sax_size": 6.5,
+          "wind_articulation": 2.4000000000000004,
+          "sax_size": 2.4000000000000004,
           "sax_reed": 0.7,
-          "sax_body_alloy": 2.6785000000000005,
-          "sax_mouthpiece": 1.3,
-          "sax_technique": 3.9000000000000004,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0,
+          "sax_technique": 2.4000000000000004,
           "sax_maker_school": -0.07
         }
       }

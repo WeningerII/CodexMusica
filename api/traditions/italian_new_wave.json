@@ -2,10 +2,10 @@
   "id": "italian_new_wave",
   "name": "Italian New Wave",
   "family": "pop_rock",
-  "lineage": "Style Sindrome — Naked Dust (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2020s italian new wave, functional Song, new wave branch. one note per syllable, solo with instrumental accompaniment. humbucker electric guitar, sampler, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple block chord grand piano, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 445,
-  "score": 34.472,
+  "lineage": "Italian new wave — post-punk and modern pop experimentation emerging around the early 1980s.",
+  "recipe": "classic 1980-1983 italian new wave, functional Song, new wave branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, sampler, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 459,
+  "score": 72.303,
   "config": {
     "traditions": [
       "italian_new_wave"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.8324999999999999,
-          "voice_ensemble_config": 0.7080000000000001,
+          "voice_speech_song": 0.20249999999999999,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.5774999999999999,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.38149999999999995,
+          "electric_technique": 1.8815000000000002,
           "amp_make": 0,
           "body_wood": 0.168,
-          "neck_wood": 0.168,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.336,
-          "string_gauge": 1.69,
+          "string_gauge": 0.48750000000000004,
           "finish": 0.0315,
-          "string_tuning": 0.0945
+          "string_tuning": 0
         }
       },
       {
@@ -95,11 +95,11 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.063,
+          "electronic_technique": -0.035,
+          "sampler_archetypes": 2.5315,
+          "sampler_bit_depth": 1.063,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 3.7815
+          "sampler_classic_context": 7.2815
         }
       },
       {
@@ -119,15 +119,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.0945,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0945,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.0945,
+          "bearing_edges": 1.0945,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 7.6495,
-          "cymbal_lathing": 7.45,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 12.6995,
+          "cymbal_lathing": 12.8,
           "cymbal_finish": 0
         }
       },
@@ -145,15 +145,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.7315,
+          "keyboard_technique": 6.2315000000000005,
           "grand_piano_size": 0,
           "grand_piano_brand": 0,
-          "piano_hammer": 1.8199999999999998,
-          "piano_rim": 1.8199999999999998,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": -0.07,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_hammer": 5.135,
+          "piano_rim": 5.135,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 2.9965
         }
       },
       {
@@ -161,7 +161,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -296,7 +296,7 @@
       "electric_technique": "electric_arpeggiated_clean",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -331,7 +331,7 @@
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
       "piano_pitch_standard": "a_440_modern",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",

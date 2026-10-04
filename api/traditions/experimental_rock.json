@@ -5,7 +5,7 @@
   "lineage": "Emerged internationally 1967-1980 through Captain Beefheart, Faust, This Heat, Frank Zappa and later Sonic Youth and Swans, using the rock band as raw material rather than form — polymetric interlocking parts, altered and prepared guitars, tape splicing and musique concrete inserts, non-functional harmony, extended or absent song structure, and vocals treated as timbre, usually self-produced in converted non-studio spaces on multitrack tape.",
   "recipe": "classic mid-1970s experimental rock, distorted Rock, experimental branch, noise rock distorted rock, musique concrete experimental electric east anglia indie. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit, prepared piano, emu modular 1971 1978 analog studio grade east coast precision textural modular synth, alto multiphonic saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 758,
-  "score": 396.333,
+  "score": 396.228,
   "config": {
     "traditions": [
       "experimental_rock",
@@ -42,7 +42,7 @@
           "bridge": 0.845,
           "scale_length": 1.975,
           "string_gauge": 0.845,
-          "finish": 1.045,
+          "finish": 1.195,
           "string_tuning": 18.915
         }
       },
@@ -62,7 +62,7 @@
           "amp_make": 16.965,
           "body_wood": 0.195,
           "pickup_config": 0.195,
-          "string_type": 38.315,
+          "string_type": 38.135,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.24,
           "bass_technique": 33.32,
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 32.375,
-          "drumhead": 3.185714285714286,
+          "drumhead": 3.095714285714286,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -110,7 +110,7 @@
           "voice_vibrato": 1.69,
           "voice_articulation": 16.184999999999995,
           "voice_microtone": 32.230000000000004,
-          "voice_tradition": 15.96107142857143,
+          "voice_tradition": 16.03607142857143,
           "voice_mechanism_compound": 11.764999999999999,
           "voice_estill_quality": 0.9749999999999999,
           "voice_speech_song": 19.109999999999992,
@@ -148,7 +148,7 @@
           "electronic_technique": 12.160000000000002,
           "mod_voltage_source": 0.39,
           "mod_patch_density": 2.3057142857142856,
-          "mod_lineage": 2.405
+          "mod_lineage": 2.33
         }
       },
       {
@@ -157,7 +157,7 @@
           "wind_articulation": "wind_multiphonic_avant",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "rose_brass_sax",
+          "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_multiphonic_avant",
           "sax_maker_school": "sax_yamaha_custom"
@@ -166,7 +166,7 @@
           "wind_articulation": 11.075,
           "sax_size": 1.625,
           "sax_reed": 1.54,
-          "sax_body_alloy": -0.05,
+          "sax_body_alloy": -0.035,
           "sax_mouthpiece": 1.585,
           "sax_technique": 11.125,
           "sax_maker_school": 0.255

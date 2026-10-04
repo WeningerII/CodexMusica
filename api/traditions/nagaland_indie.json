@@ -5,7 +5,7 @@
   "lineage": "Fifth Note — Here We Are (2023). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s nagaland indie, distorted Rock. solo with instrumental accompaniment. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 38.075,
+  "score": 37.634,
   "config": {
     "traditions": [
       "nagaland_indie"
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 2.4699999999999998,
           "finish": 0,
-          "string_tuning": 1.4365
+          "string_tuning": 1.3
         }
       },
       {
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 8.5,
-          "drumhead": 1.4365,
+          "drumhead": 1.3,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.7365000000000002,
+          "shell_wood": 1.6,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.0315
+          "keyboard_technique": 0
         }
       }
     ],

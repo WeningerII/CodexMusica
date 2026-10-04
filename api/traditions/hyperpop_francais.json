@@ -2,10 +2,10 @@
   "id": "hyperpop_francais",
   "name": "Hyperpop français",
   "family": "electronic",
-  "lineage": "SARILOU — complete Tsugi Radio hybrid live/DJ episode published 1 October 2026, 1:02:47. The producing broadcaster explicitly documents SARILOU with a Hello Kitty microphone and DJ decks, combining French-language hyperpop songs with ethereal dance music. Both live voice and complete DJ playback/mixing are retained. This is the actual issued hybrid performance, not a proposed future event or a reconstruction of the studio production hidden inside the played tracks. All embedded music and voices remain in the playback role; their source-instrument inventory, singer count, layers and media format are not asserted. The existing experimentalElec.popExperimental parent follows the explicitly identified hyperpop/alternative electronic-pop branch, not an invented claim of laboratory synthesis. One live singer is retained with neutral physiology and deliberately authored small-note-groups-per-syllable singing, solo accompanied geometry and unprocessed vocal setting; the source does not identify actual voice processing, and venue descriptions of her broader distorted-vocal aesthetic are not exact-session measurements. The neutral DJ playback/mixing owner does not invent vinyl, deck count, scratch style, samples or synthesizer architecture. The controlled live room is newly authored; no equipment match is asserted for the generic recording microphone photo. Global tuning omitted.",
-  "recipe": "classic mid-2020s hyperpop français, experimental Elec, pop experimental branch. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 265,
-  "score": 17.881,
+  "lineage": "French hyperpop connects French-language songwriting with emerging electronic-pop and internet-based music communities. Artists such as SARILOU move between sung pop, club performance and hybrid DJ formats, sharing space with a wider alternative-electronic scene.",
+  "recipe": "classic hyperpop français, experimental Elec, pop experimental branch. solo with instrumental accompaniment, single lead single track no stacking. singing lead digital subtractive, drum machine analog. live tracking.",
+  "recipe_chars": 216,
+  "score": 15.782,
   "config": {
     "traditions": [
       "hyperpop_francais"
@@ -28,7 +28,7 @@
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
@@ -43,22 +43,41 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.968,
-          "voice_ensemble_config": 6.2604999999999995,
+          "voice_speech_song": 0.16799999999999998,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.468,
-          "voice_multitrack_stack": 2.08,
+          "voice_processing_chain": -0.10500000000000001,
+          "voice_multitrack_stack": 0.8084999999999999,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "digital_subtractive",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.105
+          "electronic_technique": 9.078,
+          "va_archetypes": 0.1995,
+          "digital_subtractive_context": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.105,
+          "snare_voice": 0.0735,
+          "hat_voice": 0,
+          "shuffle_quantize": 2.5
         }
       }
     ],
@@ -82,8 +101,16 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -117,10 +144,16 @@
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_pop"
     },
     "pin_parts": true
   }

@@ -2,10 +2,10 @@
   "id": "spanish_post_rock",
   "name": "Spanish post-rock",
   "family": "rock",
-  "lineage": "Spanish post-rock is represented here by Toundra — IV. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic spanish post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 314,
-  "score": 54.488,
+  "lineage": "Spanish post-rock develops instrumental guitar-band music through extended textures and contrasts in intensity.",
+  "recipe": "classic spanish post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 350,
+  "score": 46.558,
   "config": {
     "traditions": [
       "spanish_post_rock"
@@ -20,28 +20,28 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 6.89,
-          "body_wood": 0.7979999999999999,
-          "neck_wood": 0.5145,
-          "fretboard": 0.5145,
-          "pickup_magnet": 0.357,
-          "pickup_winding": 0.357,
-          "string_material": 0.5145,
-          "bridge": 1.532,
-          "scale_length": 1.344,
-          "string_gauge": 1.469,
+          "amp_make": 5.720000000000001,
+          "body_wood": 0.693,
+          "neck_wood": 1.3,
+          "fretboard": 1.3,
+          "pickup_magnet": 0.252,
+          "pickup_winding": 0.33599999999999997,
+          "string_material": 1.3,
+          "bridge": 0.1335,
+          "scale_length": 1.3,
+          "string_gauge": 0.063,
           "finish": 0.1365,
-          "string_tuning": 0.33899999999999997
+          "string_tuning": 0
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.344999999999999,
+          "amp_make": 6.175,
           "body_wood": 0.21,
-          "pickup_config": 0.38849999999999996,
-          "string_type": 17.55,
-          "scale_length_b": 0.483,
-          "fretted_or_not": 0,
+          "pickup_config": 0.2835,
+          "string_type": 14.625,
+          "scale_length_b": 0.378,
+          "fretted_or_not": 0.0705,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.5,
-          "drumhead": 0.5145,
+          "drum_technique": 11.25,
+          "drumhead": 1.3,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "jazz_boom_bap",
   "name": "Jazz boom bap",
   "family": "hip-hop",
-  "lineage": "Jazz boom bap is represented by Damu The Fudgemunk — How It Should Sound Volumes 1 & 2 instrumental MPC core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic jazz boom bap, mc Rhythm, us hip hop branch. sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 141,
-  "score": 10.561,
+  "lineage": "Jazz boom bap combines hip-hop beatmaking with jazz-derived samples, harmonic colour and instrumental phrasing. Producers develop both rapper-led tracks and self-contained instrumental beats.",
+  "recipe": "classic jazz boom bap, mc Rhythm, us hip hop branch. sampled chopped sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 157,
+  "score": 19.541,
   "config": {
     "traditions": [
       "jazz_boom_bap"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.5,
-          "sampler_archetypes": 3.9,
+          "electronic_technique": 4,
+          "sampler_archetypes": 6.5,
           "sampler_bit_depth": 0.1365,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 4.095
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 8.645
         }
       }
     ],

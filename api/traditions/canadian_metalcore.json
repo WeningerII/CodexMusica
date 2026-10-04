@@ -2,10 +2,10 @@
   "id": "canadian_metalcore",
   "name": "Canadian metalcore",
   "family": "rock_punk",
-  "lineage": "Canadian metal/hardcore crossover scene, represented by Montreal’s Despised Icon. The selected branch follows Eric Jarrin’s account of The Aftermath as straightforward hardcore with grind elements; the band also documents death-metal/slam material.",
-  "recipe": "classic modern canadian metalcore, distorted Rock, metal branch, punk distorted rock adelaide punk alabama hardcore. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 404,
-  "score": 75.733,
+  "lineage": "Canadian metalcore connects heavy guitar writing with hardcore song and rhythmic traditions. Montreal’s Despised Icon illustrate its overlap with deathcore and grind through direct hardcore pulses, dense riffs and alternating vocal attacks.",
+  "recipe": "classic modern canadian metalcore, distorted Rock, metal branch, punk distorted rock adelaide punk alabama hardcore. duet, live take. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, high-headroom ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 550,
+  "score": 99.855,
   "config": {
     "traditions": [
       "canadian_metalcore",
@@ -17,7 +17,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -31,25 +31,25 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 17.375,
-          "amp_make": 0,
+          "electric_technique": 12.252500000000001,
+          "amp_make": 22.620000000000005,
           "body_wood": 0.585,
           "neck_wood": 0.09,
-          "fretboard": 0.195,
+          "fretboard": 0.65,
           "pickup_magnet": 0,
           "pickup_winding": 0.195,
           "string_material": 0.09,
           "bridge": 0.585,
           "scale_length": 0,
-          "string_gauge": 2.05,
+          "string_gauge": 0.7,
           "finish": 0,
-          "string_tuning": 7.02
+          "string_tuning": 4.55
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 6.175000000000001,
           "body_wood": 0.585,
           "pickup_config": 0,
           "string_type": 0.28500000000000003,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 16.6225,
+          "bass_technique": 19.047500000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,16 +85,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.124999999999999,
+          "drum_technique": 8,
           "drumhead": 0.9099999999999999,
-          "drum_kit_kick_pedal": 0.78,
+          "drum_kit_kick_pedal": 0.585,
           "shell_wood": 0.135,
           "shell_thickness": 0,
           "bearing_edges": 0.28500000000000003,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 9.54,
-          "cymbal_lathing": 9.149999999999999,
+          "cymbal_hammering": 10.79,
+          "cymbal_lathing": 10.399999999999999,
           "cymbal_finish": 0
         }
       },
@@ -130,18 +130,17 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 0.5025,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.195,
-          "voice_multitrack_stack": 0
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.5025
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -155,7 +154,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -248,7 +246,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_punk",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

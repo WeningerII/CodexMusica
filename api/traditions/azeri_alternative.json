@@ -5,7 +5,7 @@
   "lineage": "Azeri alternative: Dihaj — T.E.O.S (2017). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
   "recipe": "classic late-2010s azeri alternative, functional Song, synthpop branch. thick, interlocked note trading, equal tempered, single source phonation. mahogany maple clean strummed humbucker electric guitar, digital subtractive, pre muffled edge muffled sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 373,
-  "score": 60.718,
+  "score": 60.245,
   "config": {
     "traditions": [
       "azeri_alternative"
@@ -37,7 +37,7 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.1365,
+          "voice_vibrato": 0.2415,
           "voice_articulation": 4.095000000000001,
           "voice_microtone": 9.549999999999997,
           "voice_tradition": 0,
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": 5.4415000000000004,
           "amp_make": -0.07,
-          "body_wood": 1.2415,
+          "body_wood": 1.2730000000000001,
           "neck_wood": 0.168,
           "fretboard": 0.16799999999999998,
           "pickup_magnet": 0.2415,
           "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 1.2730000000000001,
+          "bridge": 1,
           "scale_length": 0.39,
-          "string_gauge": 1.2730000000000001,
+          "string_gauge": 1,
           "finish": 0.063,
-          "string_tuning": 0.1995
+          "string_tuning": 0.1365
         }
       },
       {

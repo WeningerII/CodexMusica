@@ -2,10 +2,10 @@
   "id": "caribbean_metal",
   "name": "Caribbean metal",
   "family": "rock_punk",
-  "lineage": "A Caribbean regional discovery category, represented by the San Juan progressive-metal practice of MOTHS. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
-  "recipe": "classic modern caribbean metal, distorted Rock, prog branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 476,
-  "score": 50.717,
+  "lineage": "Caribbean metal encompasses regional heavy-band communities, including Puerto Rican progressive metal.",
+  "recipe": "classic modern caribbean metal, distorted Rock, prog branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 494,
+  "score": 50.481,
   "config": {
     "traditions": [
       "caribbean_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.8059999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.6405000000000001,
           "voice_tessitura": 0
         }
       },
@@ -59,37 +59,37 @@
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 10.325999999999999,
-          "amp_make": 5.135,
-          "body_wood": 5.329999999999999,
+          "electric_technique": 11.325999999999999,
+          "amp_make": 5.655000000000001,
+          "body_wood": 5.85,
           "neck_wood": 0.33599999999999997,
-          "fretboard": 0.33599999999999997,
-          "pickup_magnet": 0.168,
-          "pickup_winding": 0.252,
+          "fretboard": 0.126,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0,
           "string_material": 0.33599999999999997,
-          "bridge": 0.651,
-          "scale_length": 5.329999999999999,
-          "string_gauge": 0.42,
+          "bridge": 0.5145000000000001,
+          "scale_length": 0.0315,
+          "string_gauge": 0.0945,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.0945
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "basswood_h",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -98,11 +98,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.6650000000000005,
-          "body_wood": 0.252,
+          "amp_make": 2.275,
+          "body_wood": 5.85,
           "pickup_config": 0.1365,
           "string_type": 4.875,
-          "scale_length_b": 0.3885,
+          "scale_length_b": 0.3255,
           "fretted_or_not": 0.1365,
           "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.855,
-          "drumhead": 0.39,
+          "drumhead": 0.33599999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,8 +132,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 1.95,
-          "poly_voices": 1.2415,
-          "poly_maker_lineage": 1.2815
+          "poly_voices": 0.1365,
+          "poly_maker_lineage": -0.035
         }
       }
     ],
@@ -159,9 +159,21 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -211,7 +223,18 @@
       "string_tuning": "d_standard",
       "drum_technique": "sticks_rock",
       "bass_technique": "pick_aggressive",
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_technique": "electronic_pad_drone",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "string_gauge": "g_11_hum",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "amp_make": "amp_mesa_dual_rectifier"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

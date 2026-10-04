@@ -5,7 +5,7 @@
   "lineage": "Netherlands hip-hop scenes; selected De Jeugd van Tegenwoordig synth/electro branch",
   "recipe": "classic modern dutch hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sub bass analog synth, drum machine analog. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 287,
-  "score": 27.981,
+  "score": 27.927,
   "config": {
     "traditions": [
       "dutch_hip_hop"
@@ -79,7 +79,7 @@
           "kick_voice": 0.3,
           "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 0.159
+          "shuffle_quantize": 0.105
         }
       }
     ],

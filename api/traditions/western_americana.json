@@ -2,10 +2,10 @@
   "id": "western_americana",
   "name": "Western Americana",
   "family": "vernacular",
-  "lineage": "Western Americana draws on ranching, road-song and roots-performance traditions across the North American West. Corb Lund’s documented Alberta acoustic recording practice offers a Canadian western branch without making the category exclusively American-national.",
-  "recipe": "classic modern western americana, functional Song, contemp main branch. thick, breath veiled tone, wide pitch sway, equal tempered. dreadnought acoustic guitar, big leaf maple modern American thomastik flatwound jazz mandolin mandolin, upright bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 397,
-  "score": 42.454,
+  "lineage": "Western Americana connects ranching stories, road songs and roots performance across the North American West. Its Canadian and American scenes draw on country, folk and western song, with artists such as Corb Lund linking local experience to contemporary songwriting.",
+  "recipe": "classic modern western americana, functional Song, contemp main branch. thick, breath veiled tone, straight note core, neutral third half flat. dreadnought acoustic guitar, big leaf maple modern American k and k twin internal mounted acoustic faithful mandolin, upright bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 430,
+  "score": 54.846,
   "config": {
     "traditions": [
       "western_americana"
@@ -18,36 +18,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.461,
-          "voice_quality": 3.380000000000001,
+          "voice_register": 9.011,
+          "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7,
+          "voice_vibrato": 6.45,
           "voice_articulation": 0.13000000000000003,
-          "voice_microtone": 3.711500000000001,
+          "voice_microtone": 4.680000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 4.3805000000000005,
-          "voice_speech_song": 5.135,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.3,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.068,
-          "voice_multitrack_stack": 0.7260000000000001
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 7.580500000000001,
+          "voice_speech_song": 8.125,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.05000000000000002,
+          "voice_processing_chain": 1.17,
+          "voice_multitrack_stack": 0.6315
         }
       },
       {
@@ -56,14 +56,14 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": 0.2,
           "string_tuning": 0,
           "top_wood": 0.105,
-          "back_sides": 0.3045,
+          "back_sides": 0.7,
           "string_acoustic": 0.5684999999999999
         }
       },
@@ -71,46 +71,46 @@
         "id": "mandolin",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "mandolin_shape": "a_style",
+          "mandolin_shape": "f_style",
           "mandolin_top": "sitka_m",
           "mandolin_back": "big_leaf_maple",
           "mandolin_bracing": "mandolin_x_brace",
-          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_strings": "ghs_mandolin_silk_steel",
           "mandolin_fingerboard": "mandolin_ebony_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": -0.1,
-          "mandolin_shape": 0.105,
+          "acoustic_technique": 0.2,
+          "mandolin_shape": -0.05,
           "mandolin_top": 0.159,
           "mandolin_back": 2.3585,
           "mandolin_bracing": 0.39,
-          "mandolin_strings": 1.1039999999999999,
+          "mandolin_strings": 0.47250000000000003,
           "mandolin_fingerboard": 0.0225,
-          "mandolin_pickup": 4.16
+          "mandolin_pickup": 5.459999999999999
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_wound_upright",
+          "upright_strings": "steel_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.75,
-          "upright_play": 0.75
+          "upright_strings": 0.47250000000000003,
+          "upright_play": -0.05
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.25,
-          "drumhead": 0.7,
+          "drum_technique": -0.05,
+          "drumhead": 0.8049999999999999,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -135,7 +135,7 @@
         "drum_technique"
       ]
     },
-    "room": "parlor",
+    "room": "live_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -153,11 +153,11 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "parlor",
+    "room": "live_room",
     "parts": {
       "voice_articulation": "narrative_voice",
       "acoustic_technique": "acoustic_strummed_ringing",
-      "mandolin_shape": "a_style",
+      "mandolin_shape": "f_style",
       "upright_play": "pizz_upright",
       "drum_technique": "sticks_rock",
       "voice_tradition": "voice_tradition_source_unspecified",

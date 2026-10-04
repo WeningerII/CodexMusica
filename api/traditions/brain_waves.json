@@ -2,10 +2,10 @@
   "id": "brain_waves",
   "name": "Brain waves",
   "family": "electronic",
-  "lineage": "Jason Lewis / Mind Amend complete30minute 7HzThetaWaves JustTones edition. Issuer explicitly offers this entire edition without music/soundtrack and constant seven amplitude pulses per second without ramps. Producer technical explanation specifies one audible tone switched on/off regularly; exact audible carrier pitch and waveform not supplied. No acoustic instruments or singers belong to this selected tones-only edition. Other product editions with ambience,singingbowls/rain are separate and not silently removed from a mixed master. Single isolated software tone-generation owner preserves positive amplitude-modulated audible sound creation. Producer identifies MindWorkStation as his ongoing creation tool; packet does not assert a particular version/session file or waveform. Original source-neutral digital studio chain is authored,not an acoustic microphone capture claim. No global musical temperament,carrier pitch or neurological outcome inferred. Ambient electronic routing reflects sustained minimal listening purpose, while actual sound remains regularly pulsed, not beat-free.",
-  "recipe": "classic brain waves, experimental Elec, ambient branch. software isochronic tone generator. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 190,
-  "score": 5.33,
+  "lineage": "Brain-wave audio organizes listening products around slow modulation rates, including isochronic pulses and binaural-tone techniques. Producers such as Mind Amend publish both tone-only and musically accompanied versions.",
+  "recipe": "classic brain waves, experimental Elec, ambient branch. software isochronic tone generator.",
+  "recipe_chars": 91,
+  "score": 1.95,
   "config": {
     "traditions": [
       "brain_waves"
@@ -17,7 +17,7 @@
           "software_isochronic_tone_identity": "software_isochronic_tone_amplitude_pulsed"
         },
         "scores": {
-          "software_isochronic_tone_identity": 5.329999999999999
+          "software_isochronic_tone_identity": 1.95
         }
       }
     ],
@@ -26,31 +26,23 @@
         "software_isochronic_tone_identity"
       ]
     },
-    "room": "treated_studio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
     "parts": {
       "software_isochronic_tone_identity": "software_isochronic_tone_amplitude_pulsed"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

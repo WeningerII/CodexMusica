@@ -2,10 +2,10 @@
   "id": "jangle_rock",
   "name": "Jangle rock",
   "family": "rock",
-  "lineage": "Jangle rock is represented here by Catcase — A Ring. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic jangle rock, functional Song, pop rock branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 381,
-  "score": 55.109,
+  "lineage": "Jangle rock centres on bright, ringing electric-guitar patterns within melodic rock and indie-pop songwriting.",
+  "recipe": "classic jangle rock, functional Song, pop rock branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 330,
+  "score": 57.144,
   "config": {
     "traditions": [
       "jangle_rock"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.6075,
-          "amp_make": 7.41,
+          "electric_technique": 2.5575,
+          "amp_make": 7.0200000000000005,
           "body_wood": 0.6194999999999999,
           "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 1.4365,
+          "bridge": 0.2415,
           "scale_length": 0.6405000000000001,
-          "string_gauge": 1.4995,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.378,
           "pickup_config": 0.3045,
-          "string_type": 15.291,
+          "string_type": 16.291,
           "scale_length_b": 0.168,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.7815,
-          "drumhead": 4.6915000000000004,
+          "drum_technique": 13.7815,
+          "drumhead": 6.4415000000000004,
           "drum_kit_kick_pedal": 0
         }
       },

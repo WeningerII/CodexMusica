@@ -2,28 +2,58 @@
   "id": "cinematic_dubstep",
   "name": "Cinematic Dubstep",
   "family": "electronic",
-  "lineage": "Molez: complete separately delimited twenty-selection guest DJ mix in Mantis Radio48, issued2October2009. The publisher distinguishes his whole guest programme from host DVNT’s opening section. All twenty recorded selections remain; this is actual DJ mixing, not a surrogate for unknown studio synthesis. The issuer directly ties Molez’s debut to DubKraft Cinematic Dubstep Vol1 and describes his deep science-fiction soundscapes. Full Spektrum also appears in the programme. Exact decks, media format and source studio palettes are unspecified. Existing source-medium-unspecified DJ owner retains the complete recorded programme and unknown embedded voices. No separate live vocalist or uncredited studio instrument is invented. Omit global tuning and optional equipment. Authored treated-studio monitoring is not an assertion about actual performance acoustics. Broad bassSystem.ukSoundsystem reflects the positively documented dubstep/bass DJ branch, not a universal tempo or fixed bar structure.",
-  "recipe": "classic cinematic dubstep, bass System, uk soundsystem branch. dj playback mixing unspecified. treated studio.",
-  "recipe_chars": 110,
-  "score": 0,
+  "lineage": "Cinematic dubstep connects dubstep production with imaginative soundtrack-like atmosphere, including the DubKraft-associated scene. It describes a musical approach rather than requiring a commissioned film score or an orchestra.",
+  "recipe": "classic cinematic dubstep, bass System, uk soundsystem branch. analog poly synth, drum machine analog. treated studio.",
+  "recipe_chars": 118,
+  "score": -0.17,
   "config": {
     "traditions": [
       "cinematic_dubstep"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.035
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +73,14 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true
   }

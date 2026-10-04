@@ -2,10 +2,10 @@
   "id": "brazilian_modern_jazz",
   "name": "Brazilian modern jazz",
   "family": "jazz",
-  "lineage": "Contemporary Brazilian jazz; selected Recife piano-trio branch",
+  "lineage": "Brazilian modern jazz connects contemporary improvisation with Brazil’s varied rhythmic and melodic inheritances. Composers and ensembles reshape these traditions through modern harmony, changing meters and exploratory instrumental interplay.",
   "recipe": "classic modern brazilian modern jazz, improv On Frame, Latin jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 375,
-  "score": 64.289,
+  "score": 106.346,
   "config": {
     "traditions": [
       "brazilian_modern_jazz"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0945,
-          "grand_piano_brand": 0.0315,
-          "piano_hammer": 2.45,
-          "piano_rim": 2.4815,
-          "piano_soundboard": 2.8445,
-          "piano_pinblock": 2.576,
-          "piano_plate": 2.5445,
-          "piano_pitch_standard": 3.1254999999999997
+          "keyboard_technique": 0.25,
+          "grand_piano_size": 0.0315,
+          "grand_piano_brand": 0.063,
+          "piano_hammer": 7.45,
+          "piano_rim": 7.618,
+          "piano_soundboard": 7.5445,
+          "piano_pinblock": 7.4815000000000005,
+          "piano_plate": 7.4815000000000005,
+          "piano_pitch_standard": 8.151
         }
       },
       {
@@ -63,16 +63,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.45,
-          "drumhead": 0.1575,
+          "drum_technique": 10.399999999999999,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.126,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
-          "bearing_edges": 0.126,
+          "bearing_edges": 0.0315,
           "snare_wires": 0,
-          "cymbal_alloy": 11.131499999999997,
+          "cymbal_alloy": 11.656499999999998,
           "cymbal_hammering": 11.5,
-          "cymbal_lathing": 2.4945,
+          "cymbal_lathing": 7.5365,
           "cymbal_finish": 0.0315
         }
       }

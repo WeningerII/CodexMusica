@@ -2,10 +2,10 @@
   "id": "balochi_pop",
   "name": "Balochi pop",
   "family": "pop",
-  "lineage": "Balochi pop is represented here by Rostam Mirlashari — Pour Afrigha selected guitar-vocal core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Balochi pop connects Baloch singing and cultural expression with contemporary popular arrangements and cross-cultural collaboration. Musicians work both within the region and in diaspora communities.",
   "recipe": "classic balochi pop, functional Song, south Asian pop branch. basswood humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 198,
-  "score": 7.921,
+  "score": 4.788,
   "config": {
     "traditions": [
       "balochi_pop"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.15000000000000002,
-          "amp_make": 1.081,
+          "amp_make": 0,
           "body_wood": 1.3755,
           "neck_wood": 0.21000000000000002,
           "fretboard": 0.0315,
           "pickup_magnet": 0.2415,
           "pickup_winding": 0.273,
           "string_material": 0.1365,
-          "bridge": 1.3,
+          "bridge": 0.21000000000000002,
           "scale_length": 1.197,
-          "string_gauge": 1.3,
+          "string_gauge": 0.21000000000000002,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.1365
         }
       },
       {
@@ -76,11 +76,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1995,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.1995
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

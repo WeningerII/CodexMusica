@@ -2,10 +2,10 @@
   "id": "japanese_post_punk",
   "name": "Japanese post-punk",
   "family": "rock_punk",
-  "lineage": "Japanese post-punk is represented here by HOT TOASTERS. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic japanese post-punk, functional Song, new wave branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 378,
-  "score": 35.017,
+  "lineage": "Japanese post-punk includes song-oriented bands blending guitar textures with electronic programming and other rhythmic traditions.",
+  "recipe": "classic japanese post-punk, functional Song, new wave branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation arpeggiated humbucker electric guitar, electric bass, pre muffled edge muffled sticks backbeat drum kit, credited electronics credited organ unspecified, saxophone, block chord electric piano tine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 447,
+  "score": 27.75,
   "config": {
     "traditions": [
       "japanese_post_punk"
@@ -17,53 +17,53 @@
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 3.3815,
-          "amp_make": 9.23,
-          "body_wood": 0.1995,
-          "neck_wood": 0.168,
-          "fretboard": 0.063,
-          "pickup_magnet": 1.3315000000000001,
-          "pickup_winding": 1.3315000000000001,
+          "amp_make": 9.05525,
+          "body_wood": 0.3045,
+          "neck_wood": 0.063,
+          "fretboard": 0,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.39,
           "string_material": 0.063,
-          "bridge": 1.3,
-          "scale_length": 0.336,
-          "string_gauge": 1.3,
-          "finish": 0.0315,
-          "string_tuning": 0.38549999999999995
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 0.01125,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.6650000000000005,
-          "body_wood": 0.336,
-          "pickup_config": 0.0315,
-          "string_type": 4.875,
-          "scale_length_b": 0.168,
+          "amp_make": 2.275,
+          "body_wood": 0.3045,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": 0.6499999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -98,7 +98,8 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -112,21 +113,90 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.07125,
+          "voice_ensemble_config": 0.06,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.17625000000000002
+          "voice_multitrack_stack": 0.165,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "credited_electronics_unspecified",
+        "slots": {
+          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+        },
+        "scores": {
+          "credited_electronics_identity": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "sax_size": -0.15000000000000002,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0,
+          "sax_technique": -0.05,
+          "sax_maker_school": -0.08875000000000001
+        }
+      },
+      {
+        "id": "credited_organ_unspecified",
+        "slots": {
+          "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+        },
+        "scores": {
+          "credited_organ_unspecified_identity": 0.0315
+        }
+      },
+      {
+        "id": "electric_piano_tine",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tine_voicing": "mellow_tine",
+          "tine_effect": "tremolo_tine"
+        },
+        "scores": {
+          "keyboard_technique": 3.7315,
+          "tine_voicing": 0,
+          "tine_effect": 0
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -148,7 +218,28 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "credited_electronics_unspecified": [
+        "credited_electronics_identity"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "credited_organ_unspecified": [
+        "credited_organ_unspecified_identity"
+      ],
+      "electric_piano_tine": [
+        "keyboard_technique",
+        "tine_voicing",
+        "tine_effect"
       ]
     },
     "room": "treated_studio",
@@ -190,7 +281,35 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "credited_electronics_identity": "credited_electronics_generator_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "tenor_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "tine_voicing": "mellow_tine",
+      "tine_effect": "tremolo_tine"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

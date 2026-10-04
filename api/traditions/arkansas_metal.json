@@ -2,10 +2,10 @@
   "id": "arkansas_metal",
   "name": "Arkansas metal",
   "family": "rock_punk",
-  "lineage": "Arkansas geographic metal scope represented by Little Rock’s Pallbearer and its doom-based melodic/progressive interplay. The authored branch follows documented baritone-guitar practice rather than treating low tuning as a new instrument.",
-  "recipe": "classic modern arkansas metal, distorted Rock, doom branch. equal tempered, one note per syllable. 27 inch short baritone nickel plated steel baritone gauge dual humbucker baritone electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 504,
-  "score": 54.817,
+  "lineage": "Arkansas metal includes Little Rock’s doom and progressive-heavy scenes, with Pallbearer known for melodic singing, low guitar textures and evolving song structures. Layered guitars and spacious arrangements connect weight with harmonic detail.",
+  "recipe": "classic modern arkansas metal, distorted Rock, doom branch. equal tempered, one note per syllable, solo with instrumental accompaniment. orange amp British heavy crunch 27 inch short baritone nickel plated steel baritone electric guitar, orange amp British heavy crunch mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 540,
+  "score": 74.969,
   "config": {
     "traditions": [
       "arkansas_metal"
@@ -15,7 +15,7 @@
         "id": "baritone_electric",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_orange",
           "baritone_use": "baritone_metal",
           "baritone_electric_tuning": "baritone_electric_drop_a",
           "baritone_electric_scale": "baritone_27_scale",
@@ -24,18 +24,18 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 0,
+          "amp_make": 9.907499999999999,
           "baritone_use": 0.168,
-          "baritone_electric_tuning": 4.9399999999999995,
-          "baritone_electric_scale": 3.3575000000000004,
+          "baritone_electric_tuning": 4.55,
+          "baritone_electric_scale": 2.0575,
           "baritone_electric_strings": 2.08,
-          "baritone_electric_pickup": 9.7415
+          "baritone_electric_pickup": 8.9915
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -45,13 +45,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 9.907499999999999,
           "body_wood": 1.69,
           "pickup_config": 0,
           "string_type": 0.2625,
           "scale_length_b": 1.5205,
           "fretted_or_not": 0.063,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": 0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -111,12 +111,12 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0.0315,
-          "voice_microtone": 6.300000000000001,
+          "voice_microtone": 6.000000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 2.5564999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
@@ -127,7 +127,6 @@
     "pinned": {
       "baritone_electric": [
         "electric_technique",
-        "amp_make",
         "baritone_use",
         "baritone_electric_tuning",
         "baritone_electric_scale",
@@ -135,7 +134,6 @@
         "baritone_electric_pickup"
       ],
       "electric_bass": [
-        "amp_make",
         "pickup_config",
         "string_type",
         "scale_length_b",
@@ -230,7 +228,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
       "electric_technique": "electric_clean_strummed",
-      "amp_make": "amp_unspecified",
       "baritone_use": "baritone_metal",
       "baritone_electric_tuning": "baritone_electric_drop_a",
       "baritone_electric_scale": "baritone_27_scale",

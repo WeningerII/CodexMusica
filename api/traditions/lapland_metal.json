@@ -2,10 +2,10 @@
   "id": "lapland_metal",
   "name": "Lapland metal",
   "family": "rock_punk",
-  "lineage": "Lapland metal is treated as a regional umbrella, represented by Lordi’s theatrical, keyboard-colored heavy metal and hard rock. Exact defaults are an authored contemporary realization.",
-  "recipe": "classic modern lapland metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 507,
-  "score": 78.934,
+  "lineage": "Lapland metal is a regional field encompassing several metal styles, including Lordi’s theatrical heavy metal and hard rock from Rovaniemi.",
+  "recipe": "classic modern lapland metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 485,
+  "score": 72.188,
   "config": {
     "traditions": [
       "lapland_metal"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.0365,
+          "voice_ensemble_config": 1.3059999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 0.063,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -58,53 +58,53 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_10_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 18.468625,
-          "amp_make": 7.215,
-          "body_wood": 7.409999999999999,
-          "neck_wood": 0.614625,
-          "fretboard": 0.315,
-          "pickup_magnet": 0.21,
-          "pickup_winding": 0.310125,
+          "electric_technique": 18.07925,
+          "amp_make": 6.955000000000001,
+          "body_wood": 7.15,
+          "neck_wood": 0.105,
+          "fretboard": 0.168,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.614625,
-          "scale_length": 7.409999999999999,
-          "string_gauge": 0.863625,
-          "finish": 0.105,
-          "string_tuning": 0.39
+          "bridge": 0.2415,
+          "scale_length": 0,
+          "string_gauge": 0.0735,
+          "finish": 0,
+          "string_tuning": 0.063
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "basswood_h",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.965,
-          "body_wood": 1.2292500000000002,
-          "pickup_config": 0.21,
+          "body_wood": 7.15,
+          "pickup_config": 0.24712499999999998,
           "string_type": 9.099999999999998,
-          "scale_length_b": 0.614625,
-          "fretted_or_not": 0.1755,
-          "bass_technique": 6.988999999999999,
+          "scale_length_b": 0.609,
+          "fretted_or_not": 0.39,
+          "bass_technique": 7.012999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,22 +117,22 @@
         },
         "scores": {
           "drum_technique": 7.038999999999999,
-          "drumhead": 0.688125,
+          "drumhead": 0.651,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "rompler_workstation",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_lead_line",
           "rompler_preset_bank": "rompler_preset_piano_orchestral",
           "rompler_context": "rompler_context_rock_band",
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.6499999999999999,
           "rompler_preset_bank": -0.035,
-          "rompler_context": 2.8600000000000003,
+          "rompler_context": 0.39,
           "rompler_lineage": 0
         }
       }
@@ -159,9 +159,20 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -214,10 +225,20 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "pick_aggressive",
       "drum_technique": "sticks_rock",
-      "electronic_technique": "electronic_pad_drone",
+      "electronic_technique": "electronic_lead_line",
       "rompler_preset_bank": "rompler_preset_piano_orchestral",
       "rompler_context": "rompler_context_rock_band",
-      "rompler_lineage": "rompler_lineage_unspecified"
+      "rompler_lineage": "rompler_lineage_unspecified",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -2,10 +2,10 @@
   "id": "blues_mexicano",
   "name": "Blues mexicano",
   "family": "blues_gospel",
-  "lineage": "Blues mexicano identifies Mexican blues bands and songwriters. The selected Real de Catorce branch formed in Mexico City and combines José Cruz’s sung poetry with blues song structures. A reduced voice, harmonica, guitar, electric-bass and drum arrangement follows documented personnel, retaining room for blues-rock, swing and jazz inflections without imposing a single national rhythm.",
-  "recipe": "classic modern blues mexicano, functional Song, blues electric branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, clean strummed single coil electric guitar, walking fingerstyle electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 605,
-  "score": 116.052,
+  "lineage": "Blues mexicano brings together Mexican blues bands and songwriters. Mexico City’s Real de Catorce exemplify the connection between sung poetry, blues song structures and wider rock or jazz inflections.",
+  "recipe": "classic modern blues mexicano, functional Song, blues electric branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, single coil electric guitar, walking fingerstyle electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 574,
+  "score": 76.76,
   "config": {
     "traditions": [
       "blues_mexicano"
@@ -20,16 +20,17 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_aural_relative",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -37,17 +38,18 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": -0.14,
-          "voice_microtone": 6.300000000000001,
+          "voice_articulation": 0.13000000000000003,
+          "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.224,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 1.239,
+          "voice_tessitura": 0
         }
       },
       {
@@ -62,11 +64,11 @@
         },
         "scores": {
           "harmonica_type": 0.063,
-          "harmonica_comb": 20.495,
-          "harmonica_reed": 19.543499999999998,
-          "harmonica_technique": 20.201999999999998,
-          "harmonica_maker_school": 22.36,
-          "harmonica_tuning": 10.009999999999998
+          "harmonica_comb": 14.995,
+          "harmonica_reed": 14.0435,
+          "harmonica_technique": 14.702,
+          "harmonica_maker_school": 15.209999999999999,
+          "harmonica_tuning": 7.15
         }
       },
       {
@@ -74,7 +76,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
+          "body_wood": "alder",
           "neck_wood": "maple",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
@@ -87,9 +89,9 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 3.3365,
+          "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.28049999999999997,
+          "body_wood": 0.063,
           "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0.0315,
@@ -106,8 +108,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -116,12 +118,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.28049999999999997,
+          "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.102,
           "fretted_or_not": 0.0705,
-          "bass_technique": 3.5305,
+          "bass_technique": 3.0805,
           "electric_bass_string_configuration": 0
         }
       },
@@ -133,7 +135,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.3865,
+          "drum_technique": 2.6365,
           "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0
         }
@@ -156,7 +158,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "harmonica": [
         "harmonica_type",
@@ -187,7 +190,8 @@
         "string_type",
         "scale_length_b",
         "fretted_or_not",
-        "bass_technique"
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -206,7 +210,6 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
@@ -214,25 +217,25 @@
     ]
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
     "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "narrative_voice",
-      "voice_microtone": "tempered_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_pitch_organization": "voice_pitch_aural_relative",
-      "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "harmonica_type": "diatonic_blues",
       "harmonica_comb": "pearwood_comb",
       "harmonica_reed": "brass_harm",
@@ -241,7 +244,7 @@
       "harmonica_tuning": "harmonica_richter_canonical",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
+      "body_wood": "alder",
       "neck_wood": "maple",
       "fretboard": "rosewood_fb",
       "pickup_magnet": "alnico_2",
@@ -251,14 +254,15 @@
       "scale_length": "scale_fender",
       "finish": "nitro",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_walking",
       "drum_technique": "sticks_rock",
       "drumhead": "single_coated",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

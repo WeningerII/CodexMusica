@@ -5,7 +5,7 @@
   "lineage": "Japanese bedroom-producer culture formed after the August 2007 release of Crypton's Hatsune Miku voicebank for Yamaha's Vocaloid 2 engine, codified on Niconico Douga by ryo (supercell), wowaka, Hachi, kz and Jin — songs entirely built in a DAW at 130-180 BPM around a machine-sung lead whose pitch, note-length and phoneme timing are hand-drawn, with fast syllabic wordy verses that exceed human breath capacity, four-on-floor or driving eighth-note rock backing, piano-and-synth arrangements, and a release cycle of free uploads answered by fan illustration and dance covers.",
   "recipe": "classic late-2000s vocaloid producer scene, functional Song, east Asian pop branch, pop rock synthpop, pop experimental experimental electric, eurodance electronic dance etherpop wonky pop. lead plus third fifth 3 part stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, singing lead analog poly synth, singing lead digital subtractive, field textural sampler, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 738,
-  "score": 282.202,
+  "score": 282.382,
   "config": {
     "traditions": [
       "vocaloid_producer_scene",
@@ -35,7 +35,7 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 21.785,
+          "electronic_technique": 21.83,
           "poly_archetypes": 5.98,
           "poly_voices": 0.21,
           "poly_maker_lineage": -0.8700000000000001
@@ -49,7 +49,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 21.785,
+          "electronic_technique": 21.83,
           "va_archetypes": 0.845,
           "digital_subtractive_context": 21.319999999999997
         }
@@ -89,7 +89,7 @@
           "pickup_config": 1.15,
           "string_type": 12.35,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.15,
+          "fretted_or_not": 0.195,
           "bass_technique": 10.295,
           "electric_bass_string_configuration": 0
         }
@@ -123,7 +123,7 @@
         "scores": {
           "keyboard_technique": 19.34,
           "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.54,
+          "grand_piano_brand": 0.5850000000000001,
           "piano_hammer": 20.474999999999998,
           "piano_rim": 20.234999999999996,
           "piano_soundboard": 20.659999999999997,

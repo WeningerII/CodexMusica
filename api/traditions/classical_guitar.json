@@ -2,10 +2,10 @@
   "id": "classical_guitar",
   "name": "Classical guitar",
   "family": "classical",
-  "lineage": "Classical guitar is represented by Sean Shibe — Bach guitar recital, DCD34233. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic classical guitar, art Music, western early branch. cedar carbon fiber classical nylon-string guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 209,
-  "score": 14.699,
+  "lineage": "Classical guitar performance draws on original concert works and transcriptions from many periods. Plucked-string technique allows melody, bass and inner voices to coexist on a single instrument.",
+  "recipe": "classic classical guitar, art Music, western early branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 228,
+  "score": 12.14,
   "config": {
     "traditions": [
       "classical_guitar"
@@ -22,12 +22,12 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": -0.25,
+          "acoustic_technique": 0.05000000000000002,
           "string_tuning": 0,
-          "top_wood_classical": 2.079,
-          "bracing_classical": 4.29,
-          "string_classical": 4.29,
-          "attack_technique_cl": 4.29
+          "top_wood_classical": 0.39,
+          "bracing_classical": 3.9,
+          "string_classical": 3.9,
+          "attack_technique_cl": 3.9
         }
       }
     ],

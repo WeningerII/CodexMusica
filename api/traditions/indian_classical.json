@@ -2,10 +2,10 @@
   "id": "indian_classical",
   "name": "Indian classical",
   "family": "classical",
-  "lineage": "Indian classical is represented by Ustad Sultan Khan and Shri Rij Ram — Raga Bageshree, Sarangi: The Music of India. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, raga-informed tuning preset, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic indian classical, art Music, south Asian branch. sarangi, indian rosewood rosewood copper tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 203,
-  "score": 12.104,
+  "lineage": "Indian classical music encompasses Hindustani and Carnatic traditions of melodic development, rhythmic organisation and sustained musical learning. Raga and tala guide varied instrumental and vocal practices.",
+  "recipe": "classic indian classical, art Music, south Asian branch. gut 3 main playing strings microtonal sarangi, pitched indian rosewood rosewood tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 13.908,
   "config": {
     "traditions": [
       "indian_classical"
@@ -16,17 +16,17 @@
         "slots": {
           "bowed_technique": "bowed_microtonal_inflected",
           "sarangi_belly": "goat_skin_sarangi",
-          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_taraf": "sarangi_35_strings",
           "sarangi_bow": "horse_hair_loose",
-          "sarangi_main_strings": "sarangi_steel_main",
+          "sarangi_main_strings": "sarangi_gut_main",
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": -0.15000000000000002,
-          "sarangi_belly": 0.588,
-          "sarangi_taraf": 0.1365,
+          "bowed_technique": 3.1500000000000004,
+          "sarangi_belly": 1.69,
+          "sarangi_taraf": 0.063,
           "sarangi_bow": 0,
-          "sarangi_main_strings": 0.363,
+          "sarangi_main_strings": 1.625,
           "sarangi_body_wood": 0.44099999999999995
         }
       },
@@ -34,19 +34,29 @@
         "id": "tabla",
         "slots": {
           "tabla_dayan": "shisham_dayan",
-          "tabla_bayan": "copper_bayan",
-          "tabla_syahi": "aged_syahi"
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
         },
         "scores": {
           "tabla_dayan": 6.4350000000000005,
-          "tabla_bayan": 3.9,
-          "tabla_syahi": 0.39
+          "tabla_bayan": 0.504,
+          "tabla_syahi": 0
         }
       }
     ],
     "pinned": {
       "sarangi": [
-        "bowed_technique"
+        "bowed_technique",
+        "sarangi_belly",
+        "sarangi_taraf",
+        "sarangi_bow",
+        "sarangi_main_strings",
+        "sarangi_body_wood"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
       ]
     },
     "room": "treated_studio",
@@ -68,7 +78,15 @@
     "tuning": "shruti_22",
     "room": "treated_studio",
     "parts": {
-      "bowed_technique": "bowed_microtonal_inflected"
+      "bowed_technique": "bowed_microtonal_inflected",
+      "sarangi_belly": "goat_skin_sarangi",
+      "sarangi_taraf": "sarangi_35_strings",
+      "sarangi_bow": "horse_hair_loose",
+      "sarangi_main_strings": "sarangi_gut_main",
+      "sarangi_body_wood": "sarangi_tun_body",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

@@ -2,10 +2,10 @@
   "id": "turkish_modern_jazz",
   "name": "Turkish modern jazz",
   "family": "jazz",
-  "lineage": "Turkish modern jazz is represented here by Selen Gülün — Answers (recorded Istanbul 2006; released 2010). This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-2000s turkish modern jazz, improv On Frame, American jazz branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 383,
-  "score": 101.593,
+  "lineage": "Turkish modern jazz connects contemporary composition and improvisation through individual musicians and collaborative ensembles. Acoustic and amplified instruments both contribute to this developing field.",
+  "recipe": "classic turkish modern jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 370,
+  "score": 93.302,
   "config": {
     "traditions": [
       "turkish_modern_jazz"
@@ -16,24 +16,24 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "renner_blue_hammer",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.3,
-          "piano_hammer": 6.371999999999999,
-          "piano_rim": 6.215999999999999,
-          "piano_soundboard": 5.84775,
-          "piano_pinblock": 6.1395,
-          "piano_plate": 6.088499999999999,
-          "piano_pitch_standard": 8.71275
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 5.5485,
+          "piano_rim": 5.734500000000001,
+          "piano_soundboard": 5.1405,
+          "piano_pinblock": 4.95,
+          "piano_plate": 4.95,
+          "piano_pitch_standard": 6.3515
         }
       },
       {
@@ -49,13 +49,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.5885000000000002,
+          "amp_make": 2.2885,
           "body_wood": 0.3885,
-          "pickup_config": 2.804,
-          "string_type": 15.6,
-          "scale_length_b": 2.7935,
+          "pickup_config": 2.504,
+          "string_type": 14.625,
+          "scale_length_b": 2.4935,
           "fretted_or_not": 0.105,
-          "bass_technique": 12.105,
+          "bass_technique": 11.355,
           "electric_bass_string_configuration": 0
         }
       },
@@ -67,15 +67,23 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 7.67,
-          "drumhead": 17.75,
+          "drum_technique": 10.399999999999999,
+          "drumhead": 16.25,
           "drum_kit_kick_pedal": 0
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ],
       "drum_kit": [
         "drum_technique"
@@ -101,7 +109,15 @@
     "room": "treated_studio",
     "parts": {
       "keyboard_technique": "keyboard_jazz_comping",
-      "drum_technique": "brushes_and_sticks"
+      "drum_technique": "brushes_and_sticks",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

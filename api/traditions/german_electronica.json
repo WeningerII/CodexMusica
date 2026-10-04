@@ -2,10 +2,10 @@
   "id": "german_electronica",
   "name": "German electronica",
   "family": "electronic",
-  "lineage": "German electronica is represented by Schneider TM — Guitar Sounds electric-guitar improvisations. One documented branch receives an authored present-day studio realization.",
+  "lineage": "German electronica includes exploratory sound production that connects instrumental gestures with electronic processing and composition.",
   "recipe": "classic german electronica, experimental Elec, musique concrete branch. humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 199,
-  "score": 6.297,
+  "score": 4.346,
   "config": {
     "traditions": [
       "german_electronica"
@@ -15,32 +15,32 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_feedback_drone",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
-          "amp_make": 1.1049999999999998,
+          "electric_technique": 0.6365,
+          "amp_make": 0,
           "body_wood": 0.504,
           "neck_wood": 0,
-          "fretboard": 0.22049999999999997,
+          "fretboard": 0.3315,
           "pickup_magnet": 0.3675,
           "pickup_winding": 0.588,
           "string_material": 0.22049999999999997,
-          "bridge": 1.105,
+          "bridge": 0,
           "scale_length": 0.504,
-          "string_gauge": 1.3,
-          "finish": 0.063,
+          "string_gauge": 0.441,
+          "finish": 0.363,
           "string_tuning": 0.39
         }
       }

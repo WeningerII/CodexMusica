@@ -2,10 +2,10 @@
   "id": "brutal_deathcore",
   "name": "Brutal deathcore",
   "family": "rock_punk",
-  "lineage": "Exact EveryNoise brutal-deathcore roster includes Fit For An Autopsy. Primary practitioner and label accounts support a seven-string, rhythmically precise modern deathcore branch; the label is a discovery cluster rather than a claim of uniform technique.",
-  "recipe": "classic modern brutal deathcore, distorted Rock, death branch, punk distorted rock korean hardcore finnish punk. solo with instrumental accompaniment. brutal drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 514,
-  "score": 75.365,
+  "lineage": "Brutal deathcore emphasizes low-register impact and rhythmic precision within the intersection of death metal and hardcore. Groups such as Fit For An Autopsy connect extended-range guitar writing with melodic, heavy-groove and slow crushing passages.",
+  "recipe": "classic modern brutal deathcore, distorted Rock, death branch, punk distorted rock korean hardcore finnish punk. solo with instrumental accompaniment. brutal drop a seven string electric, ampeg svt amp rock bass amp mahogany stainless steel roundwound electric bass, birch double bass rapid double strokes machine hammered symmetric pattern drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 517,
+  "score": 67.655,
   "config": {
     "traditions": [
       "brutal_deathcore",
@@ -20,7 +20,7 @@
           "seven_string_technique": "seven_string_djent_palm_mute"
         },
         "scores": {
-          "seven_string_tuning": 7.294999999999999,
+          "seven_string_tuning": 2.3449999999999998,
           "seven_string_technique": 0
         }
       },
@@ -28,7 +28,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
@@ -37,13 +37,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.915,
-          "body_wood": 0.39,
+          "amp_make": 5.720000000000001,
+          "body_wood": 1.69,
           "pickup_config": 0,
-          "string_type": 1.585,
-          "scale_length_b": 0.3,
+          "string_type": 1.2850000000000001,
+          "scale_length_b": 1.3,
           "fretted_or_not": 0,
-          "bass_technique": 17.020000000000003,
+          "bass_technique": 17.445000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -64,15 +64,15 @@
         },
         "scores": {
           "drum_technique": 9.25,
-          "drumhead": 0.39,
-          "drum_kit_kick_pedal": 0.78,
-          "shell_wood": 0.39,
+          "drumhead": 1.69,
+          "drum_kit_kick_pedal": 2.21,
+          "shell_wood": 1.135,
           "shell_thickness": 0,
-          "bearing_edges": 1.585,
+          "bearing_edges": 1.2850000000000001,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 13.09,
-          "cymbal_lathing": 12,
+          "cymbal_hammering": 9.54,
+          "cymbal_lathing": 9.149999999999999,
           "cymbal_finish": 0
         }
       },
@@ -108,10 +108,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 2.925,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "polish_electronica",
   "name": "Polish electronica",
   "family": "electronic",
-  "lineage": "Polish electronica is represented here by Skalpel — early Polish-jazz sampling branch. This is a documented branch with an authored present-day studio realization.",
+  "lineage": "Polish electronica includes independent producers who connect electronic composition with local recorded traditions and international production techniques.",
   "recipe": "classic polish electronica, experimental Elec, idm glitch branch. sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 154,
-  "score": 3.587,
+  "score": 0.772,
   "config": {
     "traditions": [
       "polish_electronica"
@@ -18,14 +18,14 @@
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_chopped_breaks",
-          "sampler_classic_context": "sampler_classic_industrial"
+          "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.147,
           "sampler_workflow": -0.10500000000000001,
-          "sampler_classic_context": 3.65
+          "sampler_classic_context": 0.8354999999999999
         }
       }
     ],
@@ -34,7 +34,8 @@
         "electronic_technique",
         "sampler_archetypes",
         "sampler_bit_depth",
-        "sampler_workflow"
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
@@ -59,7 +60,8 @@
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_chopped_breaks"
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_post"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

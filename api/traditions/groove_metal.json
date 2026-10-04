@@ -3,9 +3,9 @@
   "name": "Groove metal",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-1990s heavy-metal subgenre emerging from thrash metal's tempo-deceleration into mid-tempo headbanging-groove rhythmic foundation. Pantera (post-1990 reinvention from glam-metal origins) inaugurated the canonical groove-metal sound through Cowboys from Hell (1990) and Vulgar Display of Power (1992); Sepultura (post-1991 Arise reinvention), Machine Head, and Lamb of God (2000s extension) constitute the broader canonical roster.",
-  "recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 688,
-  "score": 318.88,
+  "recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 694,
+  "score": 332.815,
   "config": {
     "traditions": [
       "groove_metal",
@@ -20,35 +20,35 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 11.474999999999994,
-          "voice_quality": 5.07,
+          "voice_quality": 4.875000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6899999999999995,
-          "voice_articulation": 11.179999999999996,
-          "voice_microtone": 11.634999999999994,
-          "voice_tradition": 2.9250000000000007,
-          "voice_mechanism_compound": 37.25,
-          "voice_estill_quality": 1.69,
-          "voice_speech_song": 11.829999999999997,
-          "voice_ensemble_config": 11.309999999999997,
-          "voice_ornament_system": 0.06499999999999999,
+          "voice_vibrato": 1.625,
+          "voice_articulation": 12.479999999999995,
+          "voice_microtone": 13.129999999999992,
+          "voice_tradition": 3.0550000000000006,
+          "voice_mechanism_compound": 39.525000000000006,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 12.479999999999995,
+          "voice_ensemble_config": 11.764999999999993,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 5.315,
-          "voice_processing_chain": 3.84,
+          "voice_processing_chain": 3.5400000000000005,
           "voice_multitrack_stack": 6.575000000000001
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 43.765,
-          "amp_make": 17.095,
-          "body_wood": 21.515,
+          "electric_technique": 46.04,
+          "amp_make": 18.199999999999996,
+          "body_wood": 22.619999999999997,
           "neck_wood": 1.69,
           "fretboard": 1.625,
-          "pickup_magnet": 0.48,
+          "pickup_magnet": 0.65,
           "pickup_winding": 0.46499999999999997,
           "string_material": 0.43499999999999994,
           "bridge": 1.69,
-          "scale_length": 19.825,
+          "scale_length": 20.929999999999996,
           "string_gauge": 1.69,
           "finish": 0.045,
-          "string_tuning": 27.625
+          "string_tuning": 28.73
         }
       },
       {
@@ -98,9 +98,9 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.435000000000001,
-          "body_wood": 1.69,
-          "pickup_config": 0.24,
+          "amp_make": 6.240000000000001,
+          "body_wood": 2.34,
+          "pickup_config": 0.65,
           "string_type": 15.275,
           "scale_length_b": 1.69,
           "fretted_or_not": 0.045,
@@ -111,12 +111,12 @@
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.75,
+          "drum_technique": 12.089999999999996,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 0
         }

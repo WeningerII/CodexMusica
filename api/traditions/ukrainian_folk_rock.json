@@ -2,10 +2,10 @@
   "id": "ukrainian_folk_rock",
   "name": "Ukrainian folk rock",
   "family": "rock",
-  "lineage": "Ukrainian folk rock is represented here by Pororoka — Polyn selected string-and-keyboard core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic ukrainian folk rock, functional Song, folk rock branch. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth, folk diatonic bandura. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 273,
-  "score": 36.433,
+  "lineage": "Ukrainian folk rock connects folk-song and plucked-string traditions with contemporary guitar and keyboard arrangements.",
+  "recipe": "classic ukrainian folk rock, functional Song. group vocals. dreadnought acoustic guitar, analog poly synth, chromatic concert bandura. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 235,
+  "score": 18.169,
   "config": {
     "traditions": [
       "ukrainian_folk_rock"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1575,
+          "voice_ensemble_config": 0.546,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.063
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.1365
         }
       },
       {
@@ -55,16 +55,16 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "top_wood": "engelmann",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "monel"
         },
         "scores": {
-          "acoustic_technique": 3.7,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 0.2625,
-          "back_sides": 0.105,
-          "string_acoustic": 0.4725
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.3
         }
       },
       {
@@ -76,23 +76,23 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 8.19,
-          "poly_voices": 0.273,
-          "poly_maker_lineage": -0.035
+          "electronic_technique": 0.2,
+          "poly_archetypes": 3.3,
+          "poly_voices": 1.1365,
+          "poly_maker_lineage": -0.05
         }
       },
       {
         "id": "bandura",
         "slots": {
-          "bandura_form": "bandura_starosvitska",
+          "bandura_form": "bandura_kyiv",
           "bandura_repertoire": "bandura_song",
-          "bandura_string_material": "bandura_nylon"
+          "bandura_string_material": "bandura_wire"
         },
         "scores": {
-          "bandura_form": 12.739999999999998,
-          "bandura_repertoire": 10.25,
-          "bandura_string_material": -0.035
+          "bandura_form": 4.95,
+          "bandura_repertoire": 7.5,
+          "bandura_string_material": -0.05
         }
       }
     ],
@@ -123,7 +123,9 @@
         "electronic_technique"
       ],
       "bandura": [
-        "bandura_repertoire"
+        "bandura_form",
+        "bandura_repertoire",
+        "bandura_string_material"
       ]
     },
     "room": "treated_studio",
@@ -164,7 +166,9 @@
       "electronic_technique": "electronic_pad_drone",
       "acoustic_technique": "acoustic_strummed_ringing",
       "string_tuning": "standard_tuning",
-      "bandura_repertoire": "bandura_song"
+      "bandura_repertoire": "bandura_song",
+      "bandura_form": "bandura_kyiv",
+      "bandura_string_material": "bandura_wire"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

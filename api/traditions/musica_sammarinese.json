@@ -5,7 +5,7 @@
   "lineage": "Emanuele Rastelli — Accordion Solo, Solo Jazz only official project. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic musica sammarinese, improv On Frame, American jazz branch. accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 8.289,
+  "score": 8.499,
   "config": {
     "traditions": [
       "musica_sammarinese"
@@ -27,7 +27,7 @@
           "accordion_reed_material": 0.23099999999999998,
           "musette_offset": 0.063,
           "reed_config": 6.889999999999999,
-          "bellows": 0,
+          "bellows": 0.21,
           "voicing_chamber": 0,
           "accordion_maker_school": 0.39
         }

@@ -2,10 +2,10 @@
   "id": "canadian_choir",
   "name": "Canadian choir",
   "family": "classical",
-  "lineage": "Canadian choir is represented by Vancouver Chamber Choir / Bergmann Duo — Brahms Requiem, Langley 2017. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic late-2010s canadian choir, art Music, western common practice branch. group vocals, live take. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 298,
-  "score": 24.43,
+  "lineage": "Canadian choral music encompasses professional, community and educational ensembles performing historical and contemporary repertoire. Local composers and international works contribute to varied concert traditions.",
+  "recipe": "classic canadian choir, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 209,
+  "score": 16.019,
   "config": {
     "traditions": [
       "canadian_choir"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5774999999999999,
-          "voice_ornament_system": 0.126,
+          "voice_ensemble_config": 0.213,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.5774999999999999
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.159
         }
       },
       {
@@ -56,23 +56,23 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": 2.5,
-          "grand_piano_size": 0.63,
-          "grand_piano_brand": 0.798,
-          "piano_hammer": 3.575,
-          "piano_rim": 3.25,
-          "piano_soundboard": 3.25,
-          "piano_pinblock": 2.828,
-          "piano_plate": 3.2584999999999997,
-          "piano_pitch_standard": 3.0275000000000003
+          "grand_piano_size": 0.03899999999999999,
+          "grand_piano_brand": 0.368,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.552,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 0.325
         }
       }
     ],
@@ -96,7 +96,15 @@
         "voice_multitrack_stack"
       ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -134,7 +142,15 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "keyboard_technique": "keyboard_classical_legato"
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

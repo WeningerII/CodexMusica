@@ -2,10 +2,10 @@
   "id": "indie_psych_pop",
   "name": "Indie psych-pop",
   "family": "pop",
-  "lineage": "Indie psych-pop is represented here by Sound Mirrors — spacerocketsandsunshine core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Indie psych pop brings independent pop songwriting together with psychedelic textures and exploratory arrangements.",
   "recipe": "classic indie psych-pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 304,
-  "score": 47.851,
+  "score": 46.504,
   "config": {
     "traditions": [
       "indie_psych_pop"
@@ -16,32 +16,32 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.265499999999998,
+          "electric_technique": 13.8575,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.26549999999999996,
-          "neck_wood": 0.1365,
+          "body_wood": 0.6194999999999999,
+          "neck_wood": 0.2415,
           "fretboard": 0.0315,
-          "pickup_magnet": 0.105,
-          "pickup_winding": 0.702,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 1.69,
-          "scale_length": 0.36749999999999994,
-          "string_gauge": 1.69,
+          "bridge": 0.2415,
+          "scale_length": 0.6405000000000001,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.3
         }
       },
       {
@@ -58,11 +58,11 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.168,
-          "pickup_config": 0.27299999999999996,
+          "body_wood": 0.378,
+          "pickup_config": 0.3045,
           "string_type": 4.875,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.23399999999999999,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 12.731499999999999,
+          "drumhead": 13.9415,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.378,
+          "voice_ensemble_config": 0.441,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.063
         }
       },
@@ -124,13 +124,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.254,
+          "electronic_technique": -0.07,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.39,
+          "poly_voices": 0.231,
           "poly_maker_lineage": -0.035
         }
       }

@@ -3,9 +3,9 @@
   "name": "Spanish reggae",
   "family": "global",
   "lineage": "Spanish reggae is represented by Pelikan Hook — Everyone Matters. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-  "recipe": "classic spanish reggae, bass System, reggae diaspora branch. humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, digital subtractive, gold brass warmer tone split tone overblown saxophone, bass trombone trombone, big tone large cup large rim orchestral bottom heavy trumpet, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 412,
-  "score": 33.038,
+  "recipe": "classic spanish reggae, bass System, reggae diaspora branch. humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, digital subtractive, gold brass warmer tone split tone overblown saxophone, bass trombone trombone, heavy one piece matched to monette horn trumpet, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 399,
+  "score": 34.176,
   "config": {
     "traditions": [
       "spanish_reggae"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.0315,
+          "voice_ensemble_config": 0.37349999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0.37349999999999994,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": -0.1,
+          "electric_technique": -0.07,
           "amp_make": 1.1049999999999998,
           "body_wood": 0.39,
           "neck_wood": 0,
@@ -78,11 +78,11 @@
           "pickup_magnet": 0.39,
           "pickup_winding": 0.39,
           "string_material": 0.063,
-          "bridge": 1.3,
-          "scale_length": 0.39,
-          "string_gauge": 1.3,
-          "finish": 1.3,
-          "string_tuning": 0.4425
+          "bridge": 1.105,
+          "scale_length": 0.3315,
+          "string_gauge": 1.105,
+          "finish": 1,
+          "string_tuning": 0.6224999999999999
         }
       },
       {
@@ -93,17 +93,17 @@
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0,
-          "pickup_config": 0.39,
+          "pickup_config": 0.3315,
           "string_type": 2.21,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0,
+          "scale_length_b": 0.3315,
+          "fretted_or_not": 0.288,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -112,12 +112,12 @@
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
           "electronic_technique": 2.145,
-          "va_archetypes": 0,
+          "va_archetypes": 0.054,
           "digital_subtractive_context": 5.459999999999999
         }
       },
@@ -133,13 +133,13 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 1.2349999999999999,
+          "wind_articulation": 1.2229999999999999,
           "sax_size": 0.0315,
           "sax_reed": 0,
-          "sax_body_alloy": 2.21,
+          "sax_body_alloy": 2.153,
           "sax_mouthpiece": 0,
-          "sax_technique": 1.2349999999999999,
-          "sax_maker_school": 0.39
+          "sax_technique": 1.2229999999999999,
+          "sax_maker_school": 0.3315
         }
       },
       {
@@ -154,33 +154,33 @@
           "trombone_maker_school": "trombone_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.2349999999999999,
+          "wind_articulation": 1.2229999999999999,
           "trombone_type": 0.0315,
           "trombone_mouthpiece": 2.6650000000000005,
           "trombone_mute": 0,
-          "trombone_technique": 0.336,
-          "trombone_bell_metal": 0,
-          "trombone_maker_school": 0.39
+          "trombone_technique": 0.49800000000000005,
+          "trombone_bell_metal": 0.18,
+          "trombone_maker_school": 0.3315
         }
       },
       {
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_split_tone_overblown",
-          "brass_size": "cornet",
-          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "cup_mute",
           "trumpet_technique": "trumpet_classical_legato",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_yamaha_xeno"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 1.2349999999999999,
-          "brass_size": 0,
+          "wind_articulation": 1.2229999999999999,
+          "brass_size": 0.288,
           "trumpet_mouthpiece": 1.2349999999999999,
           "brass_mute": 0,
           "trumpet_technique": -0.035,
-          "trumpet_bell_metal": 0,
+          "trumpet_bell_metal": 0.18,
           "trumpet_maker_school": 0.39
         }
       },
@@ -193,7 +193,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.75,
+          "drumhead": 0.9299999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

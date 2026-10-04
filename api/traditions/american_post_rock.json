@@ -5,7 +5,7 @@
   "lineage": "American post-rock is represented here by Caspian. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic american post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 315,
-  "score": 41.573,
+  "score": 41.642,
   "config": {
     "traditions": [
       "american_post_rock"
@@ -32,16 +32,16 @@
           "electric_technique": -0.07,
           "amp_make": 4.8100000000000005,
           "body_wood": 0.693,
-          "neck_wood": 0.378,
-          "fretboard": 0.378,
+          "neck_wood": 0.586,
+          "fretboard": 0.586,
           "pickup_magnet": 0.252,
-          "pickup_winding": 0.375,
-          "string_material": 0.378,
-          "bridge": 2.01725,
-          "scale_length": 1.2324999999999997,
-          "string_gauge": 1.95425,
+          "pickup_winding": 0.46599999999999997,
+          "string_material": 0.586,
+          "bridge": 1.663,
+          "scale_length": 1.3104999999999998,
+          "string_gauge": 1.6,
           "finish": 0.1365,
-          "string_tuning": 0.38175
+          "string_tuning": 0.3
         }
       },
       {
@@ -61,7 +61,7 @@
           "body_wood": 0.21,
           "pickup_config": 0.2835,
           "string_type": 12.35,
-          "scale_length_b": 0.508,
+          "scale_length_b": 0.378,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.39,
+          "drumhead": 0.586,
           "drum_kit_kick_pedal": 0
         }
       }

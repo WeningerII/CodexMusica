@@ -5,7 +5,7 @@
   "lineage": "Tamil-language Madras (Chennai) film-song playback tradition — the Kollywood parallel canon that the catalog's hindi_filmi record explicitly scopes out — codified by Ilaiyaraaja from his 1976 debut score Annakili onward across roughly 1000 films, hand-orchestrated at a rate of about one song per session and tracked on the Madras cinema-industry scoring stages at Prasad, AVM and Gemini; the defining innovation is the fusion of Tamil village folk idiom (gaana, villuppattu, therukoothu and the nadaswaram-thavil temple-and-wedding repertoire) and Carnatic melakarta-raga melody with Western symphonic orchestration, functional harmony and genuine written counterpoint, heard on Mullum Malarum (1978), Sindhu Bhairavi (1985), Punnagai Mannan (1986), Mouna Ragam (1986) and Nayakan (1987), and carried into concert form on his own How To Name It? (1986) and Nothing But Wind (1988); preceded by the Tamil music-director generation of M.S. Viswanathan and K.V. Mahadevan (1950s-1970s); voiced by the playback axis of S.P. Balasubrahmanyam (1946-2020, some 40000 recorded songs across Tamil, Telugu, Kannada, Malayalam and Hindi) and S. Janaki (1938-), with P. Susheela, Malaysia Vasudevan, Vani Jairam and K.J. Yesudas; the core era closes with A.R. Rahman's Roja (1992), whose sampler-and-sequencer bedroom-studio method displaced the live-orchestra scoring stage and reset Tamil film sound for the 1990s. Distinct from hindi_filmi in language, industrial base (Madras rather than Bombay), Carnatic rather than Hindustani melodic source, and single-auteur rather than music-director-rotation production economy",
   "recipe": "classic South Asian early-1940s tamil filmi / kollywood playback, functional Song, south Asian pop branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, gourd silk pre modern vijayanagara era thanjavur canonical south indian veena, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit.",
   "recipe_chars": 917,
-  "score": 669.77,
+  "score": 670.555,
   "config": {
     "traditions": [
       "tamil_filmi",
@@ -38,24 +38,24 @@
           "voice_quality": 27.56000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.285,
+          "voice_vibrato": 18.375,
           "voice_articulation": 36.335000000000015,
           "voice_microtone": 33.28000000000001,
-          "voice_tradition": 35.89,
-          "voice_mechanism_compound": 13.61,
+          "voice_tradition": 36.04,
+          "voice_mechanism_compound": 13.46,
           "voice_estill_quality": 17,
           "voice_speech_song": 43.90750000000003,
           "voice_ensemble_config": 36.335000000000015,
-          "voice_ornament_system": 26.104999999999997,
-          "voice_pitch_organization": 26.599999999999998,
+          "voice_ornament_system": 26.254999999999995,
+          "voice_pitch_organization": 26.75,
           "voice_processing_chain": 13.227500000000001,
-          "voice_multitrack_stack": 9.409999999999998
+          "voice_multitrack_stack": 9.065
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
+          "bowed_technique": "bowed_legato_classical",
           "orch_strings": "silver_wound_lamb_gut_violin",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "bosnian_flamed_maple_violin",
@@ -67,16 +67,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 13.27,
-          "orch_strings": 1.535,
+          "bowed_technique": 13.32,
+          "orch_strings": 1.625,
           "orch_top_wood": 14.950000000000001,
           "orch_back_wood": 14.9,
           "orch_varnish": 14.8,
-          "orch_setup_period": 13.545,
+          "orch_setup_period": 13.5,
           "orch_bow": 1.6449999999999996,
           "orch_bow_stick": 18.43,
-          "orch_articulation": 1.885,
-          "orch_rosin": 13.545
+          "orch_articulation": 2.08,
+          "orch_rosin": 13.5
         }
       },
       {
@@ -91,12 +91,12 @@
           "veena_lineage": "veena_thanjavur_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 13.17,
+          "plucked_traditional_technique": 13.32,
           "veena_construction": 0.195,
-          "veena_resonator": 1.1900000000000002,
+          "veena_resonator": 1.235,
           "veena_pluck": 6.825,
           "veena_body_wood": 0.195,
-          "veena_strings": 2.14,
+          "veena_strings": 2.095,
           "veena_lineage": 9.23
         }
       },
@@ -112,7 +112,7 @@
         "scores": {
           "wind_articulation": 13.225,
           "bansuri_length": 4.29,
-          "bansuri_ornament": 11.594999999999999,
+          "bansuri_ornament": 11.79,
           "bansuri_body_material": 9.034999999999998,
           "bansuri_lineage": 5.784999999999999
         }
@@ -154,7 +154,7 @@
           "thavil_head": "thavil_buffalo_goat"
         },
         "scores": {
-          "thavil_context": 4.0249999999999995,
+          "thavil_context": 3.9799999999999995,
           "thavil_technique": 0.39,
           "thavil_shell_wood": 9.075,
           "thavil_head": 0.6749999999999999
@@ -217,14 +217,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 4.195,
+          "electronic_technique": 4.24,
           "poly_archetypes": 0.195,
-          "poly_voices": 0.045,
+          "poly_voices": 0.195,
           "poly_maker_lineage": 3.5100000000000002
         }
       }

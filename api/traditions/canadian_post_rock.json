@@ -2,10 +2,10 @@
   "id": "canadian_post_rock",
   "name": "Canadian post-rock",
   "family": "rock_punk",
-  "lineage": "A Canadian experimental-rock network represented by Godspeed You! Black Emperor, Do Make Say Think, Silver Mt. Zion and Esmerine. This default selects Godspeed’s Montreal-based instrumental guitar-and-violin branch, with arranged ensemble passages and manipulated recorded sound.",
-  "recipe": "classic modern canadian post-rock, distorted Rock, experimental branch. single coil electric guitar, violin orchestral, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sound design field sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay electro-harmonix big muff pi.",
-  "recipe_chars": 515,
-  "score": 43.277,
+  "lineage": "Canadian post-rock connects experimental bands and independent recording networks, with Montréal an important center. Extended ensemble compositions combine amplified rock instruments, bowed strings and manipulated recorded sound.",
+  "recipe": "classic modern canadian post-rock, distorted Rock, experimental branch. maple nickel plated steel nickel nickel plated steel single coil electric guitar, violin orchestral, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sound design field sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay electro-harmonix big muff pi.",
+  "recipe_chars": 519,
+  "score": 52.348,
   "config": {
     "traditions": [
       "canadian_post_rock"
@@ -29,14 +29,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.239,
+          "electric_technique": 0.575,
           "amp_make": 0,
           "body_wood": 0.39,
-          "neck_wood": 0.417,
+          "neck_wood": 1.3,
           "fretboard": -0.035,
           "pickup_magnet": 0.105,
-          "string_material": 0.417,
-          "string_gauge": 0.39,
+          "string_material": 1.3,
+          "string_gauge": 1.3,
           "bridge": 0.09899999999999999,
           "scale_length": 0,
           "finish": 0,
@@ -59,15 +59,15 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.78,
+          "bowed_technique": 1.69,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
-          "orch_back_wood": 0.26,
+          "orch_back_wood": -0.07,
           "orch_varnish": -0.035,
           "orch_setup_period": 0.26,
           "orch_bow": 0,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.744,
+          "orch_articulation": 0.39,
           "orch_rosin": -0.035
         }
       },
@@ -88,7 +88,7 @@
           "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.21899999999999997,
+          "scale_length_b": 0.09899999999999999,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -110,16 +110,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 9.5,
+          "drum_technique": 11.25,
           "drumhead": 0.13499999999999998,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.13499999999999998,
           "shell_thickness": 0,
-          "bearing_edges": 0.564,
+          "bearing_edges": 1.3,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 9.494499999999999,
-          "cymbal_lathing": 9.731499999999997,
+          "cymbal_hammering": 11.244499999999999,
+          "cymbal_lathing": 11.481499999999999,
           "cymbal_finish": 0
         }
       },
@@ -133,11 +133,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 0.289,
+          "electronic_technique": 0.32499999999999996,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.492,
-          "sampler_workflow": 7.2315000000000005,
-          "sampler_classic_context": 1.1785
+          "sampler_bit_depth": 0.5309999999999999,
+          "sampler_workflow": 7.3875,
+          "sampler_classic_context": 1.2145
         }
       }
     ],
@@ -196,7 +196,7 @@
         "sampler_classic_context"
       ]
     },
-    "room": "studio_distributed_production",
+    "room": "live_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
@@ -218,7 +218,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_distributed_production",
+    "room": "live_room",
     "parts": {
       "body_wood": "alder",
       "neck_wood": "maple",

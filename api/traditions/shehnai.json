@@ -5,7 +5,7 @@
   "lineage": "Rajendra Prasanna — Raag Madhuvanti at Darbar Festival2012, Southbank Centre. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic shehnai, art Music, south Asian branch. mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai, indian rosewood rosewood brass tabla, harmonium indian, gourd body canonical traditional drone like modal tanpura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 436,
-  "score": 32.404,
+  "score": 32.897,
   "config": {
     "traditions": [
       "shehnai"
@@ -37,7 +37,7 @@
         },
         "scores": {
           "tabla_dayan": 2.7950000000000004,
-          "tabla_bayan": 1.69,
+          "tabla_bayan": 1.6675,
           "tabla_syahi": 0
         }
       },
@@ -51,8 +51,8 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.8609999999999999,
-          "harmonium_voicing": 0.7244999999999999,
+          "harmonium_action": 1.1025,
+          "harmonium_voicing": 0.861,
           "harmonium_use": 2.47
         }
       },
@@ -68,7 +68,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 3.835,
-          "tanpura_size": 0.7874999999999999,
+          "tanpura_size": 0.9239999999999998,
           "tanpura_jawari": 4.75,
           "tanpura_strings": 0.363,
           "tanpura_string_material": 0.39,

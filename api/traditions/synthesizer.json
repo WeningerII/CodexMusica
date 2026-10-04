@@ -5,7 +5,7 @@
   "lineage": "Mort Garson — Mother Earth's Plantasia (1976), authorized Sacred Bones reissue. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-1970s synthesizer, experimental Elec. moog east coast modular canonical 1964 1981 trumansburg keyboard driven subtractive modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 255,
-  "score": 7.979,
+  "score": 7.874,
   "config": {
     "traditions": [
       "synthesizer"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_moog_east_coast"
         },
         "scores": {
-          "electronic_technique": 4.6255,
-          "mod_voltage_source": 0,
-          "mod_patch_density": 0.378,
-          "mod_lineage": 2.9755
+          "electronic_technique": 4.657,
+          "mod_voltage_source": 0.0315,
+          "mod_patch_density": 0.3045,
+          "mod_lineage": 2.881
         }
       }
     ],

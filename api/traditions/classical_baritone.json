@@ -2,10 +2,10 @@
   "id": "classical_baritone",
   "name": "Classical baritone",
   "family": "classical",
-  "lineage": "Classical baritone is represented by Gerald Finley / Julius Drake — Schumann Dichterliebe. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic classical baritone, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 256,
-  "score": 66.553,
+  "lineage": "Classical baritone singing encompasses art song, opera and other concert repertoire for the baritone voice. Text, melodic phrasing and expressive interpretation shape the tradition across different languages and periods.",
+  "recipe": "classic classical baritone, art Music. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 251,
+  "score": 47.833,
   "config": {
     "traditions": [
       "classical_baritone"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.126,
+          "voice_ensemble_config": 1.17,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.189
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0
         }
       },
       {
@@ -56,23 +56,23 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 8.25,
-          "grand_piano_size": 0.63,
-          "grand_piano_brand": 0.798,
-          "piano_hammer": 11.037499999999998,
-          "piano_rim": 9.270999999999999,
-          "piano_soundboard": 9.4365,
-          "piano_pinblock": 8.592999999999998,
-          "piano_plate": 9.023499999999999,
-          "piano_pitch_standard": 8.7775
+          "keyboard_technique": 7.5,
+          "grand_piano_size": 0.054,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 7.45,
+          "piano_rim": 7.621,
+          "piano_soundboard": 7.45,
+          "piano_pinblock": 7.45,
+          "piano_plate": 7.45,
+          "piano_pitch_standard": 0.325
         }
       }
     ],
@@ -96,7 +96,15 @@
         "voice_multitrack_stack"
       ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -134,7 +142,15 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "keyboard_technique": "keyboard_classical_legato"
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

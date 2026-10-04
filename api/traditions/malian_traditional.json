@@ -2,10 +2,10 @@
   "id": "malian_traditional",
   "name": "Malian Traditional",
   "family": "vernacular",
-  "lineage": "Bambara musician — Song for Chief, FW08852 track103. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic malian traditional, ballad Poetry, west African griot branch. calabash cowhide mande traditional mande hardwood local traditional kora. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 242,
-  "score": 7.923,
+  "lineage": "Mali’s traditional music includes local praise-song and storytelling practices, with voices and string instruments carrying histories, social relationships and poetic expression.",
+  "recipe": "classic malian traditional, ballad Poetry, west African griot branch. solo with instrumental accompaniment. calabash cowhide mande traditional mande hardwood local traditional kora. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 280,
+  "score": 12.858,
   "config": {
     "traditions": [
       "malian_traditional"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -66,10 +66,10 @@
         "scores": {
           "plucked_traditional_technique": -0.05,
           "kora_strings": 1.95,
-          "kora_resonator": 1.4995,
+          "kora_resonator": 2.1995,
           "kora_strings_mat": -0.035,
-          "kora_top_skin": 1.69,
-          "kora_neck_wood": 1.69,
+          "kora_top_skin": 2.6,
+          "kora_neck_wood": 3.5775,
           "kora_lineage": 0.399
         }
       }

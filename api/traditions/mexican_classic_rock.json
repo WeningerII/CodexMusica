@@ -2,10 +2,10 @@
   "id": "mexican_classic_rock",
   "name": "Mexican classic rock",
   "family": "rock",
-  "lineage": "Toncho Pilatos — Segunda Vez, complete1980 ten-track album. Authored present-day full-palette realization uses clean-strummed humbucker electric guitar, fingerstyle electric bass, rock-stick drum kit and a diatonic Richter Marine Band-style harmonica with pearwood comb/brass reeds and cross-harp technique. These timbral/material choices are editorial, not the original exact instruments or a claim every guitar used the same gesture. All three credited guitarists aggregate to one family card; one positively credited singer remains solo-accompanied. Voice physiology, training, ornament and pitch organization remain source-unspecified. Global tuning omitted. Studio chain and neutral axes are authored; participant’s analog first-take account is preserved as source history, not claimed for the modern chain.",
-  "recipe": "classic mexican classic rock, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. alder conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 533,
-  "score": 103.636,
+  "lineage": "Mexican classic rock gathers foundational rock repertoire and the countercultural scenes that developed around it. Bands such as Toncho Pilatos, Los Dug Dug’s and El Ritual connect blues and psychedelic influences with local expression.",
+  "recipe": "classic mexican classic rock, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. live tracking.",
+  "recipe_chars": 384,
+  "score": 73.838,
   "config": {
     "traditions": [
       "mexican_classic_rock"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 3.3665000000000003,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.69,
+          "voice_multitrack_stack": 0.6405,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.5315000000000003,
+          "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 1.3315000000000001,
+          "body_wood": 0.0315,
           "neck_wood": 0.126,
           "fretboard": -0.035,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 4.029999999999999,
+          "pickup_winding": 4.55,
           "string_material": 0.1365,
           "bridge": 0.1365,
           "scale_length": 1.2390000000000003,
-          "string_gauge": 2.6315,
+          "string_gauge": 0.7314999999999999,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.3315000000000001,
-          "pickup_config": 2.6315,
+          "body_wood": 0.0315,
+          "pickup_config": 0.0315,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 16.562999999999995,
-          "drumhead": 1.4365,
+          "drum_technique": 13.813,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.2,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 1.4260000000000002,
+          "bearing_edges": 0.126,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 19.804999999999996,
-          "cymbal_lathing": 21.062999999999995,
+          "cymbal_alloy": 5.1000000000000005,
+          "cymbal_hammering": 13.754999999999999,
+          "cymbal_lathing": 13.713,
           "cymbal_finish": 0.1365
         }
       },
@@ -149,11 +149,11 @@
         },
         "scores": {
           "harmonica_type": 0,
-          "harmonica_comb": 4.3775,
-          "harmonica_reed": 1.56,
-          "harmonica_technique": 2.6050000000000004,
-          "harmonica_maker_school": 3.2500000000000004,
-          "harmonica_tuning": 3.38
+          "harmonica_comb": 4.077500000000001,
+          "harmonica_reed": 3.8195,
+          "harmonica_technique": 3.305,
+          "harmonica_maker_school": 4.550000000000001,
+          "harmonica_tuning": 1.69
         }
       }
     ],
@@ -224,22 +224,22 @@
         "harmonica_tuning"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -251,7 +251,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -295,12 +295,6 @@
       "harmonica_maker_school": "harmonica_hohner_marine_band",
       "harmonica_tuning": "harmonica_richter_canonical"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

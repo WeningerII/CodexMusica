@@ -5,7 +5,7 @@
   "lineage": "French adaptation of UK drill emerging in Paris's 93 and 95 departments from 2019 (Gazo, Freeze corleone's circle, Ashe 22, Zola), built on 138-145 BPM half-time beats with sliding 808 glides, triplet and stuttered hi-hat patterns, sparse minor-key piano or flute leads from UK producers such as Ghosty and Chuki, and a flat, low-register conversational flow in verlan-heavy argot.",
   "recipe": "classic Western European late-2010s drill français, mc Rhythm, drill branch, intl hip hop MC rhythm, us hip hop modern, uk soundsystem bass system pinoy trap viral rap. vocal fry, rap, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampled chopped sampler drum machine, low sub bass digital subtractive, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, low sub bass monosynth acid bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 703,
-  "score": 228.215,
+  "score": 223.777,
   "config": {
     "traditions": [
       "drill_francais",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 1.885,
-          "voice_quality": 19.8575,
+          "voice_register": 2.08,
+          "voice_quality": 18.72,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.6925,
@@ -44,12 +44,12 @@
           "voice_tradition": 6.240000000000001,
           "voice_mechanism_compound": 3.185,
           "voice_estill_quality": 4.030000000000001,
-          "voice_speech_song": 18.520000000000003,
-          "voice_ensemble_config": 12.544999999999996,
+          "voice_speech_song": 17.645000000000003,
+          "voice_ensemble_config": 12.349999999999994,
           "voice_ornament_system": 6.435000000000001,
           "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 9.52,
-          "voice_multitrack_stack": 3.1200000000000006
+          "voice_processing_chain": 8.645,
+          "voice_multitrack_stack": 3.3150000000000004
         }
       },
       {
@@ -88,7 +88,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 11.112499999999999,
+          "electronic_technique": 10.737499999999999,
           "va_archetypes": 0.195,
           "digital_subtractive_context": 12.219999999999999
         }
@@ -96,26 +96,26 @@
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_jazz_comping",
+          "keyboard_technique": "keyboard_minimalist_repeated",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.12999999999999998,
+          "keyboard_technique": 0.45,
           "grand_piano_size": 1.2025,
           "grand_piano_brand": 2.0725,
           "piano_hammer": 4.46,
           "piano_rim": 4.6475,
           "piano_soundboard": 3.68,
-          "piano_pinblock": 3.7249999999999996,
-          "piano_plate": 4.625,
-          "piano_pitch_standard": 10.375
+          "piano_pinblock": 3.625,
+          "piano_plate": 5.004999999999999,
+          "piano_pitch_standard": 9.124999999999998
         }
       },
       {
@@ -127,8 +127,8 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 11.112499999999999,
-          "wave_acid": 0.39,
+          "electronic_technique": 10.737499999999999,
+          "wave_acid": 0.195,
           "filter_acid": 0.845,
           "accent_acid": 1
         }

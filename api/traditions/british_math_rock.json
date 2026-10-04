@@ -2,10 +2,10 @@
   "id": "british_math_rock",
   "name": "British math rock",
   "family": "rock_punk",
-  "lineage": "A British math-rock network including TTNG, Delta Sleep, Orchards and Three Trapped Tigers. The selected TTNG trio branch combines clean two-handed guitar figures, an independent low six-string part, drums with shifting accents, and melodic lead singing.",
-  "recipe": "classic modern british math rock, distorted Rock, experimental branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. alder rosewood single coil electric guitar, plucked articulated melodic chordal bass vi, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 482,
-  "score": 49.035,
+  "lineage": "British math rock developed through independent bands and live networks combining intricate guitar writing with shifting rhythmic groupings. TTNG, Delta Sleep and Orchards represent a song-oriented strand alongside more instrumental and electronic approaches.",
+  "recipe": "classic modern british math rock, distorted Rock, experimental branch. solo with instrumental accompaniment. single coil electric guitar, bass vi, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 382,
+  "score": 35.483,
   "config": {
     "traditions": [
       "british_math_rock"
@@ -29,15 +29,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 2.6315,
+          "electric_technique": 0.6315,
           "amp_make": 0,
-          "body_wood": 1.063,
-          "neck_wood": 0.5459999999999999,
-          "fretboard": 1.013,
+          "body_wood": 0.363,
+          "neck_wood": 0.5145,
+          "fretboard": 0.325,
           "pickup_magnet": 0,
-          "string_material": 0.5459999999999999,
-          "string_gauge": 0,
-          "bridge": 1.063,
+          "string_material": 0.5145,
+          "string_gauge": 0.0735,
+          "bridge": 0.363,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -51,8 +51,8 @@
           "bass_vi_pickups": "bass_vi_three_single_coil"
         },
         "scores": {
-          "bass_vi_technique": 1.4365,
-          "bass_vi_pickups": 0.063
+          "bass_vi_technique": 0.39,
+          "bass_vi_pickups": 0.363
         }
       },
       {
@@ -71,16 +71,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.25,
-          "drumhead": 1.063,
+          "drum_technique": 8.75,
+          "drumhead": 0.363,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.063,
+          "shell_wood": 0.363,
           "shell_thickness": 0,
-          "bearing_edges": 0.9029999999999999,
+          "bearing_edges": 0.7664999999999998,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 10.244499999999999,
-          "cymbal_lathing": 10.181499999999998,
+          "cymbal_alloy": -0.1685,
+          "cymbal_hammering": 8.744499999999999,
+          "cymbal_lathing": 8.681499999999998,
           "cymbal_finish": 0
         }
       },
@@ -115,12 +115,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.3,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.2625
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

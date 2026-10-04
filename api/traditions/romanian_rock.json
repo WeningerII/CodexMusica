@@ -2,10 +2,10 @@
   "id": "romanian_rock",
   "name": "Romanian rock",
   "family": "rock",
-  "lineage": "Romanian rock is represented here by The Mono Jacks — Now in Stereo. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Romanian rock encompasses local guitar bands and alternative approaches to melodic songwriting.",
   "recipe": "classic romanian rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 306,
-  "score": 48.644,
+  "score": 40.621,
   "config": {
     "traditions": [
       "romanian_rock"
@@ -16,8 +16,8 @@
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "maple_neck_h",
+          "body_wood": "mahogany_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.15000000000000002,
-          "amp_make": 6.5,
-          "body_wood": 0.1365,
-          "neck_wood": 0.1365,
+          "electric_technique": 0.15000000000000002,
+          "amp_make": 5.720000000000001,
+          "body_wood": 0.18,
+          "neck_wood": 0.18,
           "fretboard": 0.1365,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.0735,
           "string_material": 0.1365,
-          "bridge": 1.69,
+          "bridge": 0.3075,
           "scale_length": 0.378,
-          "string_gauge": 1.69,
+          "string_gauge": 0.3075,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.11699999999999999
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
-          "body_wood": 0,
+          "amp_make": 6.175,
+          "body_wood": 0.18,
           "pickup_config": 0,
-          "string_type": 16.575,
+          "string_type": 14.625,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.39,
+          "drum_technique": 11.25,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.37049999999999994,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1395,
-          "voice_multitrack_stack": 0.23399999999999999
+          "voice_processing_chain": 0.3195,
+          "voice_multitrack_stack": 0
         }
       }
     ],

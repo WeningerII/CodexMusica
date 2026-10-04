@@ -5,7 +5,7 @@
   "lineage": "Swedish fiddle practice codified through 19th-century parish spelmän, the 1908 spelmansstämma revival movement and the Zorn medal system from 1933 — polska in uneven 3/4 with the second or third beat shortened, plus schottis, vals and polketta, played with heavy double-stops, drone-fifth accompaniment, second-fiddle stämma harmony a third below, and swung foot-driven pulse in unison spelmanslag ensembles.",
   "recipe": "classic Northern European late-1900s swedish fiddle tradition, improv On Frame, string improv branch, string drone modal, Slavic baltic domestic rhythm estonian folk music polish folk. kargyraa, breath veiled tone, slow rate, interlocked note trading. double stops fiddle, traditional spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, castagnari Italian premium folk music drone like accordion, harpa. mountain valley fabod. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 516,
-  "score": 167.311,
+  "score": 166.894,
   "config": {
     "traditions": [
       "swedish_fiddle",
@@ -19,7 +19,7 @@
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "silver_wound_lamb_gut_fiddle",
           "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "no_mute",
+          "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
@@ -65,9 +65,9 @@
         "scores": {
           "free_reed_technique": 3.7700000000000005,
           "accordion_reed_material": 0.15,
-          "musette_offset": 0.9739285714285715,
+          "musette_offset": 0.7649999999999999,
           "reed_config": 0.15,
-          "bellows": 0.9739285714285715,
+          "bellows": 0.7649999999999999,
           "voicing_chamber": 0.21,
           "accordion_maker_school": 1.69
         }

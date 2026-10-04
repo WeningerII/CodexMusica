@@ -5,7 +5,7 @@
   "lineage": "Lalgudi Jayaraman with Palghat Raghu and Vinayakram — complete Parvathi Mysore concert (1973). Authored present-day rendition of the complete credited instrumental programme. Lalgudi violin lineage follows the actual featured violinist; Palghat mridangam lineage is positively supported by a first-person fellow musician’s account of Raghu studying with Mani Iyer. Microtonally inflected bowing, seated South Indian posture, tonic/fifth violin tuning and synthetic strings are explicit representative choices, not measured 1973 equipment. Mridangam jackwood/goat-buffalo construction and standard heads are authored. Ghatam Manamadurai denotes an authored clay-temper construction choice, not Vinayakram’s personal pedagogical lineage or identified historical pot; full-bowl strike is an authored default, not an assertion excluding other gestures. Controlled live room and neutral numeric axes are authored; global temperament and capture apparatus omitted. No new instrument owner or source-inferred lineage is introduced.",
   "recipe": "classic early-1970s indian violin, art Music, south Asian branch. synthetic core modern lalgudi lineage carnatic violin carnatic, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam. live tracking.",
   "recipe_chars": 265,
-  "score": 49.939,
+  "score": 50.149,
   "config": {
     "traditions": [
       "indian_violin"
@@ -25,7 +25,7 @@
           "violin_carnatic_tuning": 19.759999999999994,
           "violin_carnatic_posture": 1.008,
           "violin_carnatic_strings": 1.69,
-          "violin_carnatic_lineage": 9.754499999999998
+          "violin_carnatic_lineage": 9.859499999999999
         }
       },
       {
@@ -42,7 +42,7 @@
           "mridangam_use": 0,
           "mridangam_shell_wood": 2.4699999999999998,
           "mridangam_heads_material": 3.0725000000000002,
-          "mridangam_lineage": 9.4545
+          "mridangam_lineage": 9.5595
         }
       },
       {

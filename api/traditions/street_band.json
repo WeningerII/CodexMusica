@@ -5,7 +5,7 @@
   "lineage": "The Party Band — Mad Cadenza (2016), complete ensemble album. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic mid-2010s street band, groove Percussion. one note per syllable, group vocals, live take. snare bass drum, party cans credited, credited cymbals, credited auxiliary percussion, traditional mellow brass tambourine orch, brass yellow brass canonical orchestral tuba, sousaphone, band section bass trombone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, yellow brass canonical 70 30 bach stradivarius trumpet, saxophone section alto tenor baritone, clarinet, oboe, accordion, shaker source unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 693,
-  "score": 32.694,
+  "score": 33.372,
   "config": {
     "traditions": [
       "street_band"
@@ -68,7 +68,7 @@
           "bass_drum_beater": "bass_drum_wood_click"
         },
         "scores": {
-          "bass_drum_size": 0.363,
+          "bass_drum_size": 0.3315,
           "bass_drum_beater": 0
         }
       },
@@ -106,8 +106,8 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 1.15,
-          "tambourine_orch_context": -0.05
+          "tambourine_orch_jingle": 1.2129999999999999,
+          "tambourine_orch_context": -0.035
         }
       },
       {
@@ -123,8 +123,8 @@
         "scores": {
           "wind_articulation": 0.2,
           "tuba_pitch": 0,
-          "tuba_context": 4.966,
-          "tuba_bell_metal": 1.2,
+          "tuba_context": 5.176,
+          "tuba_bell_metal": 1.263,
           "tuba_valve_system": 0,
           "tuba_maker_school": 0
         }
@@ -147,8 +147,8 @@
           "bass_trombone_context": "bass_trombone_big_band_section"
         },
         "scores": {
-          "bass_trombone_valves": 0.663,
-          "bass_trombone_context": 3.8674999999999997
+          "bass_trombone_valves": 0.6,
+          "bass_trombone_context": 3.7414999999999994
         }
       },
       {
@@ -165,11 +165,11 @@
         "scores": {
           "wind_articulation": 0.2,
           "trombone_type": 1.1864999999999999,
-          "trombone_mouthpiece": 2.626,
+          "trombone_mouthpiece": 2.5,
           "trombone_mute": 0.8999999999999999,
           "trombone_technique": 0,
-          "trombone_bell_metal": 1.2315,
-          "trombone_maker_school": 1.9575
+          "trombone_bell_metal": 1.2945,
+          "trombone_maker_school": 1.9365
         }
       },
       {
@@ -189,8 +189,8 @@
           "trumpet_mouthpiece": 0.8049999999999999,
           "brass_mute": 0.8999999999999999,
           "trumpet_technique": 0.25,
-          "trumpet_bell_metal": 1.2315,
-          "trumpet_maker_school": 0.0315
+          "trumpet_bell_metal": 1.2945,
+          "trumpet_maker_school": 0.1365
         }
       },
       {
@@ -213,7 +213,7 @@
         },
         "scores": {
           "wind_articulation": 0.2,
-          "clarinet_body": 0.7129999999999999,
+          "clarinet_body": 0.7549999999999999,
           "clarinet_size": 0,
           "clarinet_reed": 0,
           "clarinet_articulation": 0
@@ -232,8 +232,8 @@
           "wind_articulation": 0.2,
           "oboe_reed": 0.7364999999999999,
           "oboe_class": 0.8999999999999999,
-          "oboe_body_wood": 0.313,
-          "oboe_maker_school": 0
+          "oboe_body_wood": 0.325,
+          "oboe_maker_school": 0.1365
         }
       },
       {
@@ -263,7 +263,7 @@
           "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
         },
         "scores": {
-          "shaker_source_unspecified_identity": 0
+          "shaker_source_unspecified_identity": 0.273
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "classic_japanese_jazz",
   "name": "Classic Japanese jazz",
   "family": "jazz",
-  "lineage": "Historical Japanese jazz recording; selected Akiyoshi 1953 quartet",
-  "recipe": "classic early-1950s classic japanese jazz, improv On Frame, bop branch. a 440 modern pitch us standard grand piano, acoustic leaning carved top solid spruce Gibson canon thomastik archtop, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 416,
-  "score": 100.573,
+  "lineage": "Classic Japanese jazz reflects the development of recorded jazz in Japan through swing, bebop and modern small-group practice. Pianists and instrumental ensembles adapted international jazz vocabularies through local clubs, recording sessions and collaborations.",
+  "recipe": "classic modern classic japanese jazz, improv On Frame, bop branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, acoustic leaning carved top solid spruce Gibson canon thomastik archtop, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 441,
+  "score": 149.926,
   "config": {
     "traditions": [
       "classic_japanese_jazz"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0,
           "grand_piano_brand": 0,
-          "piano_hammer": 0.9099999999999999,
-          "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 0.7945,
-          "piano_pinblock": 0.8049999999999999,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 1.755
+          "piano_hammer": 3.1055,
+          "piano_rim": 3.0395000000000003,
+          "piano_soundboard": 2.5130000000000003,
+          "piano_pinblock": 2.555,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 3.14275
         }
       },
       {
@@ -49,11 +49,11 @@
         },
         "scores": {
           "amp_make": 0,
-          "archtop_body": 12.0945,
-          "archtop_pickup": 6.629999999999999,
-          "archtop_top_wood": 12.063,
-          "archtop_strings": 15.6,
-          "archtop_technique": 0.876,
+          "archtop_body": 16.3205,
+          "archtop_pickup": 8.84,
+          "archtop_top_wood": 16.3455,
+          "archtop_strings": 20.42975,
+          "archtop_technique": 2.602,
           "archtop_string_tuning": 0
         }
       },
@@ -64,8 +64,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.39,
-          "upright_play": 12
+          "upright_strings": 0.1615,
+          "upright_play": 16.25
         }
       },
       {
@@ -84,17 +84,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.89,
-          "drumhead": 0.3315,
+          "drum_technique": 13.389999999999997,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.063,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 0.168,
-          "snare_wires": 0.0315,
-          "cymbal_alloy": 11.954999999999998,
-          "cymbal_hammering": 12.918,
-          "cymbal_lathing": 0.6814999999999999,
-          "cymbal_finish": 0.3
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": 0.105,
+          "snare_wires": 0,
+          "cymbal_alloy": 16.099999999999998,
+          "cymbal_hammering": 16.305,
+          "cymbal_lathing": 2.7315,
+          "cymbal_finish": 0
         }
       }
     ],

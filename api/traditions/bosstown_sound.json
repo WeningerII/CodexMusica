@@ -3,9 +3,9 @@
   "name": "Bosstown Sound",
   "family": "rock",
   "lineage": "Short-lived psychedelic scene manufactured by MGM Records publicist Alan Lorber in Boston in 1967-69 around Ultimate Spinach, The Beacon Street Union and Orpheus — heavily overdubbed eight-track productions with fuzz guitar, harpsichord and combo organ, flute and string sweetening, tempo-shifting suite structures, mixed-meter passages, and mystical or literary lyrics delivered in dry close-miked mid-range vocals.",
-  "recipe": "classic North American late-1960s bosstown sound, distorted Rock, art rock branch, experimental distorted rock, pop rock functional song yacht rock power pop. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, powell boston canonical American orchestral flute, string quartet inst, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 943,
-  "score": 532.254,
+  "recipe": "classic North American late-1960s bosstown sound, distorted Rock, art rock branch, experimental distorted rock, pop rock functional song yacht rock power pop. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, powell boston canonical American orchestral flute, string quartet inst, soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 935,
+  "score": 532.339,
   "config": {
     "traditions": [
       "bosstown_sound",
@@ -38,17 +38,17 @@
           "voice_quality": 15.144999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.135,
+          "voice_vibrato": 5.005,
           "voice_articulation": 12.544999999999996,
-          "voice_microtone": 45.400000000000006,
-          "voice_tradition": 19.643749999999997,
+          "voice_microtone": 45.35500000000001,
+          "voice_tradition": 19.448749999999997,
           "voice_mechanism_compound": 3.705,
           "voice_estill_quality": 3.315000000000001,
           "voice_speech_song": 15.599999999999994,
           "voice_ensemble_config": 13.129999999999995,
           "voice_ornament_system": 0.585,
           "voice_pitch_organization": 0.7149999999999999,
-          "voice_processing_chain": 7.56125,
+          "voice_processing_chain": 7.66625,
           "voice_multitrack_stack": 7.42875
         }
       },
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 17.192499999999995,
           "amp_make": 15.567499999999999,
-          "body_wood": 2.04,
-          "neck_wood": 2.04,
-          "fretboard": 1.9900000000000002,
+          "body_wood": 2.085,
+          "neck_wood": 2.085,
+          "fretboard": 2.035,
           "pickup_magnet": 0.78,
           "string_material": 0.78,
           "string_gauge": 2.04,
           "bridge": 0.09,
-          "scale_length": 2.1300000000000003,
+          "scale_length": 2.1750000000000003,
           "finish": 0.195,
           "string_tuning": 18.59,
           "single_coil_pickup_construction": 0
@@ -110,17 +110,17 @@
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 14.95,
-          "body_wood": 2.1300000000000003,
+          "body_wood": 2.1750000000000003,
           "pickup_config": 0.15,
-          "string_type": 33.376250000000006,
+          "string_type": 33.48125,
           "scale_length_b": 2.04,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.045,
           "bass_technique": 27.375000000000004,
           "electric_bass_string_configuration": 0
         }
@@ -150,7 +150,7 @@
         "scores": {
           "wind_articulation": 0.06499999999999999,
           "flute_size": 0.78,
-          "flute_material": 0.435,
+          "flute_material": 0.42,
           "flute_technique": 0,
           "flute_maker_school": 2.535
         }
@@ -174,7 +174,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "japanese_1980s_hammer",
+          "piano_hammer": "steinway_original_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -185,7 +185,7 @@
           "keyboard_technique": 16.607499999999998,
           "grand_piano_size": 2.04,
           "grand_piano_brand": 2.23875,
-          "piano_hammer": 14.504999999999999,
+          "piano_hammer": 14.494999999999997,
           "piano_rim": 15.648749999999998,
           "piano_soundboard": 15.45,
           "piano_pinblock": 1,

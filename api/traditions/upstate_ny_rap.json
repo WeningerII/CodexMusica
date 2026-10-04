@@ -2,10 +2,10 @@
   "id": "upstate_ny_rap",
   "name": "Upstate NY rap",
   "family": "hip_hop",
-  "lineage": "Upstate New York rap is a regional scene category represented by Benny the Butcher and the Buffalo Griselda branch. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
-  "recipe": "classic modern upstate ny rap, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 292,
-  "score": 34.173,
+  "lineage": "Hip-hop communities of upstate New York, including Buffalo’s independent MC and production networks.",
+  "recipe": "classic modern upstate ny rap, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 270,
+  "score": 34.671,
   "config": {
     "traditions": [
       "upstate_ny_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 13.325,
+          "voice_quality": 12.35,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.772499999999999,
-          "voice_ensemble_config": 1.0815,
+          "voice_speech_song": 10.985,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -59,10 +59,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 2.6095,
+          "electronic_technique": 4.109500000000001,
           "sample_bitdepth": 0,
-          "sample_swing": 3.9,
-          "sample_processing": 0.39
+          "sample_swing": 6.5,
+          "sample_processing": 0.2415
         }
       }
     ],

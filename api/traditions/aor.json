@@ -5,7 +5,7 @@
   "lineage": "Late-1970s polished mainstream rock genre crafted for FM-radio rotation, characterized by smooth productions, melodic hook-foregrounded songwriting, and adult-contemporary instrumental polish — codified through Toto (Toto IV 1982), Foreigner (4 1981), REO Speedwagon (Hi Infidelity 1980), Boston, Journey, Asia, Survivor (Vital Signs 1984), with the form serving as the late-1970s and 1980s commercial-rock mainstream",
   "recipe": "classic North American 1977-1979 album-oriented rock, distorted Rock, late analog major branch, pop rock functional song, American jazz improv on frame yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 767,
-  "score": 532.236,
+  "score": 531.912,
   "config": {
     "traditions": [
       "aor",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.585,
           "voice_pitch_organization": 2.3899999999999997,
           "voice_processing_chain": 15.63,
-          "voice_multitrack_stack": 15.176249999999998
+          "voice_multitrack_stack": 14.964999999999998
         }
       },
       {
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 35.669999999999995,
-          "drumhead": 12.45,
+          "drumhead": 12.271249999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -126,7 +126,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -135,9 +135,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 9.825,
+          "keyboard_technique": 9.87375,
           "grand_piano_size": 1.625,
-          "grand_piano_brand": 1.625,
+          "grand_piano_brand": 1.6425,
           "piano_hammer": 18.589999999999996,
           "piano_rim": 18.979999999999997,
           "piano_soundboard": 8.894999999999998,

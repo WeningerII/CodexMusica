@@ -2,10 +2,10 @@
   "id": "baroque_woodwind",
   "name": "Baroque woodwind",
   "family": "classical",
-  "lineage": "Baroque woodwind: Barthold Kuijken — Telemann Twelve Fantasias for transverse flute without bass. A documented branch is realized as an authored current studio arrangement.",
+  "lineage": "Baroque woodwind practice explores early repertoire through historical wind instruments and performance research. Solo and ensemble music use distinctive articulations, registers and ornament.",
   "recipe": "classic baroque woodwind, art Music, western common practice branch. grenadilla cocus legato flute. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 201,
-  "score": 7.418,
+  "score": 7.304,
   "config": {
     "traditions": [
       "baroque_woodwind"
@@ -23,9 +23,9 @@
         "scores": {
           "wind_articulation": 3.461625,
           "flute_size": 0,
-          "flute_material": 2.535,
+          "flute_material": 2.46025,
           "flute_technique": 0.9099999999999999,
-          "flute_maker_school": 0.5115
+          "flute_maker_school": 0.47250000000000003
         }
       }
     ],

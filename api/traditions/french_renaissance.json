@@ -2,10 +2,10 @@
   "id": "french_renaissance",
   "name": "French renaissance",
   "family": "classical",
-  "lineage": "French renaissance is represented by Ensemble Clément Janequin — Le chant des oyseaulx, four voices and lute programme. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic french renaissance, art Music, western common practice branch. four voice polyphonic regional choir ensemble, low dynamic level renaissance soloistic lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 274,
-  "score": 11.795,
+  "lineage": "French Renaissance music includes sacred polyphony, secular chansons and instrumental repertoire. Text setting and the interaction of vocal parts connect intimate ensemble music with wider courtly and civic traditions.",
+  "recipe": "classic french renaissance, art Music, western common practice branch. polyrhythmic vocal layering independent cycles choir ensemble, mid renaissance English Spanish lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 282,
+  "score": 14.61,
   "config": {
     "traditions": [
       "french_renaissance"
@@ -15,7 +15,7 @@
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "chamber_choir",
-          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
           "choir_regional_canonical_configuration": "choir_regional_none",
           "choir_ensemble_repertoire": "choir_ensemble_renaissance"
         },
@@ -23,14 +23,14 @@
           "choir_size": 1.3,
           "choir_polyphonic_configuration": 2.08,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 0.18525
+          "choir_ensemble_repertoire": 1.3
         }
       },
       {
         "id": "lute_renaissance",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
-          "lute_courses": "lute_6_courses",
+          "lute_courses": "lute_7_courses",
           "lute_renaissance_context": "lute_renaissance_consort",
           "lute_renaissance_ribs": "lute_maple_ribs",
           "lute_renaissance_soundboard": "lute_carpathian_spruce",
@@ -38,11 +38,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 2.5,
-          "lute_courses": 2.6,
-          "lute_renaissance_context": 1.69,
-          "lute_renaissance_ribs": 0.594,
-          "lute_renaissance_soundboard": 0.594,
-          "lute_renaissance_strings": 0.252
+          "lute_courses": 2.4845,
+          "lute_renaissance_context": 3.9,
+          "lute_renaissance_ribs": 0.36,
+          "lute_renaissance_soundboard": 0.36,
+          "lute_renaissance_strings": 0.3255
         }
       }
     ],

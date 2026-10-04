@@ -2,10 +2,10 @@
   "id": "classic_portuguese_pop",
   "name": "Classic portuguese pop",
   "family": "pop",
-  "lineage": "Classic portuguese pop is represented here by Mafalda Veiga — Solo vocal-guitar program. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic classic portuguese pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 301,
-  "score": 17.597,
+  "lineage": "Classic Portuguese pop connects established popular songs with the singers and songwriters who continue to reinterpret them. Acoustic performance forms one strand of this wider repertoire.",
+  "recipe": "classic classic portuguese pop, functional Song, europop branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 300,
+  "score": 12.852,
   "config": {
     "traditions": [
       "classic_portuguese_pop"
@@ -17,15 +17,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
-          "string_acoustic": "coated_nano_acoustic"
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.0045,
+          "acoustic_technique": 7.858,
           "string_tuning": 0,
-          "top_wood": 0.1905,
-          "back_sides": 0.063,
-          "string_acoustic": 0.39
+          "top_wood": 0.45299999999999996,
+          "back_sides": 0.105,
+          "string_acoustic": 0.6194999999999999
         }
       },
       {
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9899999999999998,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.8099999999999999,
-          "voice_multitrack_stack": 0.11699999999999999
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.3
         }
       }
     ],

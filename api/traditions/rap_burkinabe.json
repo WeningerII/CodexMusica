@@ -5,7 +5,7 @@
   "lineage": "Burkina Faso rap is represented by Smockey’s Ouagadougou Abazon studio practice, bringing politically engaged vocal writing together with programmed rhythm. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern rap burkinabè, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 331,
-  "score": 34.595,
+  "score": 34.757,
   "config": {
     "traditions": [
       "rap_burkinabe"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.464999999999998,
+          "voice_speech_song": 13.518999999999998,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

@@ -2,28 +2,40 @@
   "id": "weightless",
   "name": "Weightless",
   "family": "electronic",
-  "lineage": "Complete Logos RA.456 commissioned programme23February2015,1:11:11. Artist describes an assemblage with two CDJ beat-mixed sections and whole-programme assembly in Logic, retaining the entire25-selection noise/drone/grime/club trajectory. Existing neutral playback/mixing owner represents this documented montage practice, not a reconstruction of constituent productions. General interview remarks on later Akai/outboard postprocessing concern his studio work, not additional credited live roles in this selected assemblage. Embedded voice counts unknown; no separately performed live vocal part credited. No claim every selected track is exclusively Weightless. Coarse existing playback/mixing owner retains both CDJ sections and Logic montage under the documented recorded-programme practice. It does not assert unknown hardware or pretend this is a single untouched master used to conceal original instrumentation. No invented source synthesis, extra live singers or global tuning. Controlled room is an authored playback presentation, not measured source studio acoustics.",
-  "recipe": "classic weightless, bass System, uk soundsystem branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 102,
-  "score": 0,
+  "lineage": "Weightless connects electronic producers and the Different Circles label around spacious developments from grime and related club music. Logos and Mumdance helped articulate a field in which rhythm can be suggested through fragments, texture and carefully placed events.",
+  "recipe": "classic weightless, bass System, uk soundsystem branch. sampler. live tracking.",
+  "recipe_chars": 79,
+  "score": 1.032,
   "config": {
     "traditions": [
       "weightless"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "sampler_classic",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": 0.5499999999999999,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 0.36750000000000005
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "live_room",
@@ -43,7 +55,11 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_post"
     },
     "pin_parts": true
   }

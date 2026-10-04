@@ -5,7 +5,7 @@
   "lineage": "Fátima Miranda and Miguel Ángel Alonso Mirón — perVERSIONES, complete2011 concert-performance. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic spanish experimental, art Music. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 19.934,
+  "score": 18.59,
   "config": {
     "traditions": [
       "spanish_experimental"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.0945,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.8314999999999997,
+          "keyboard_technique": 2.8,
           "grand_piano_size": 0.3315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 2.6180000000000003,
-          "piano_rim": 3.0125,
-          "piano_soundboard": 2.555,
-          "piano_pinblock": 4.437,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.8445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 3.45,
           "piano_plate": 2.75,
           "piano_pitch_standard": 0.325
         }

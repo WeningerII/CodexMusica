@@ -2,10 +2,10 @@
   "id": "dutch_experimental",
   "name": "Dutch experimental",
   "family": "vernacular",
-  "lineage": "Cor Fuhler — Stengam solo extended acoustic piano branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic dutch experimental, improv On Frame, jam free branch. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 228,
-  "score": 13.31,
+  "lineage": "Dutch experimental music connects improvisers, composers and artists exploring unfamiliar sound relationships. Acoustic extended techniques coexist with electronic approaches across this broad field.",
+  "recipe": "classic dutch experimental, improv On Frame, jam free branch. prepared grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 182,
+  "score": 5.063,
   "config": {
     "traditions": [
       "dutch_experimental"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 5.831500000000001,
+          "keyboard_technique": 4.9815000000000005,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 0.9099999999999999,
-          "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 0.7314999999999999,
-          "piano_pinblock": 2.441,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 1.3649999999999998
+          "grand_piano_brand": 0.105,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],

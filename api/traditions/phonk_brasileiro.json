@@ -5,7 +5,7 @@
   "lineage": "Emerged online around 2020-2022 as Brazilian producers on SoundCloud and TikTok fused drift-phonk's cowbell-driven 130-150 BPM template with funk carioca's tamborzão and beat-mandela rhythms, codified by producers such as MXZI, Yzomandias-adjacent Brazilian circles, Kordhell imitators and the 'funk phonk' / 'brazilian phonk' YouTube channel economy, marked by distorted 808 cowbell melodies, sidechained subs, chopped Memphis-style vocal samples and Portuguese shouted or pitched vocal chops.",
   "recipe": "classic 2020-2022 phonk brasileiro, mc Rhythm, experimental branch, Afro-diasporic MC rhythm, Latin electric electronic dance funk consciente rave funk. vocal fry, breath veiled tone, interlocked note trading, neutral third half flat. field textural sampler, TR-808, sub bass analog poly synth, nylon canonical rio carnival aluminum canonical modern rio escola surdo, hand clap. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 486,
-  "score": 173.992,
+  "score": 174.037,
   "config": {
     "traditions": [
       "phonk_brasileiro",
@@ -94,7 +94,7 @@
           "voice_ornament_system": 4.290000000000002,
           "voice_pitch_organization": 0.8499999999999999,
           "voice_processing_chain": 11.899999999999999,
-          "voice_multitrack_stack": 6.795
+          "voice_multitrack_stack": 6.84
         }
       },
       {

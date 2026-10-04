@@ -2,10 +2,10 @@
   "id": "chinese_jazz",
   "name": "Chinese jazz",
   "family": "jazz",
-  "lineage": "Chinese jazz is represented by Annie Chen — Secret Treetop selected voice/rhythm core. One documented branch is realized as an authored present-day recording arrangement. Sources establish the ensemble roles, genre boundary and practice locality. Exact instrument subtype, technique pins, room, signal chain, numeric axes and tuning baseline are authored choices, not assertions of original session equipment or universal regional practice.",
-  "recipe": "classic chinese jazz, improv On Frame, American jazz branch. conventional tuning standard pitch humbucker electric guitar, cold pressed wurzen felt oversize maple tension resonator 7 ply grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 384,
-  "score": 72.32,
+  "lineage": "Chinese jazz includes instrumental and vocal musicians working across local and international jazz communities. Contemporary approaches connect personal composition and cultural references with jazz ensemble playing.",
+  "recipe": "classic chinese jazz, improv On Frame, American jazz branch. solo with instrumental accompaniment. humbucker electric guitar, grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 63.53,
   "config": {
     "traditions": [
       "chinese_jazz"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.48450000000000004,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 3.77,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1995,
-          "voice_multitrack_stack": 0.2535
+          "voice_processing_chain": 0.3045,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -57,66 +57,66 @@
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 2.45,
+          "electric_technique": -0.1,
           "amp_make": 1.6899999999999997,
-          "body_wood": 0.42,
-          "neck_wood": 0.105,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0.315,
-          "pickup_winding": 0.1785,
-          "string_material": 0.1365,
-          "bridge": 1.69,
-          "scale_length": 0.34650000000000003,
-          "string_gauge": 1.69,
+          "body_wood": 0.9135,
+          "neck_wood": 0.21,
+          "fretboard": 0.34650000000000003,
+          "pickup_magnet": 0.5985,
+          "pickup_winding": 0.46199999999999997,
+          "string_material": 0.34650000000000003,
+          "bridge": 0.21000000000000002,
+          "scale_length": 0.7979999999999999,
+          "string_gauge": 0.693,
           "finish": 0,
-          "string_tuning": 1.69
+          "string_tuning": 0.9974999999999998
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.2349999999999999,
-          "grand_piano_size": 0.105,
+          "keyboard_technique": 0.2815,
+          "grand_piano_size": 0.147,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 3.185,
-          "piano_rim": 1.885,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": 1.56,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": 0.26,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_wound_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 12.75,
-          "upright_play": 12.75
+          "upright_strings": 0,
+          "upright_play": 16.25
         }
       },
       {
@@ -127,8 +127,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.27,
-          "drumhead": 16.509999999999998,
+          "drum_technique": 13.389999999999997,
+          "drumhead": 21.06,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -156,7 +156,19 @@
         "electric_technique"
       ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
       ],
       "drum_kit": [
         "drum_technique"
@@ -199,7 +211,17 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electric_technique": "electric_clean_strummed"
+      "electric_technique": "electric_clean_strummed",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "upright_strings": "gut_upright",
+      "upright_play": "pizz_upright"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

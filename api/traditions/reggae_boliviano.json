@@ -2,10 +2,10 @@
   "id": "reggae_boliviano",
   "name": "Reggae boliviano",
   "family": "global",
-  "lineage": "Reggae boliviano is represented by Matamba — documented dreadcore/reggae band branch. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
-  "recipe": "classic reggae boliviano, bass System, reggae diaspora branch. humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, rim clicks drum kit, analog poly synth, big tone large cup large rim orchestral bottom heavy trumpet, bass leaning trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 367,
-  "score": 31.552,
+  "lineage": "Bolivian reggae develops through local performers connecting roots reggae with rock and other popular approaches. Vocal collaboration and live-band energy contribute to its varied sound.",
+  "recipe": "classic reggae boliviano, bass System, reggae diaspora branch. group vocals, live take. humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, rim clicks drum kit, analog poly synth, heavy one piece matched to monette horn trumpet, bass trombone trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 387,
+  "score": 34.603,
   "config": {
     "traditions": [
       "reggae_boliviano"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.21075,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.07425,
+          "voice_multitrack_stack": 1.6592500000000001,
           "voice_tessitura": 0
         }
       },
@@ -56,10 +56,10 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
@@ -67,42 +67,42 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.95,
-          "body_wood": 0.39,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "amp_make": 1.56,
+          "body_wood": 0.17925,
+          "neck_wood": 0.042749999999999996,
+          "fretboard": 0.042749999999999996,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 1.3,
-          "scale_length": 0.39,
-          "string_gauge": 1.3,
+          "bridge": 0.14775,
+          "scale_length": 0.15974999999999998,
+          "string_gauge": 0.105,
           "finish": 0,
-          "string_tuning": 0.78
+          "string_tuning": 1.69
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.275,
-          "body_wood": 0,
-          "pickup_config": 0.39,
-          "string_type": 1.8199999999999998,
-          "scale_length_b": 0.39,
+          "amp_make": 3.9650000000000003,
+          "body_wood": 0.08549999999999999,
+          "pickup_config": 0.0315,
+          "string_type": 3.6385,
+          "scale_length_b": 0.15974999999999998,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "rim_clicks_dub",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.95,
-          "drumhead": 0.75,
+          "drum_technique": 11.24275,
+          "drumhead": 0.11624999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,52 +130,52 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0.39,
-          "poly_voices": 0.0315,
+          "electronic_technique": -0.07,
+          "poly_archetypes": 1.6885,
+          "poly_voices": 0.174,
           "poly_maker_lineage": -0.035
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_split_tone_overblown",
+          "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "cornet",
-          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
-          "brass_mute": "cup_mute",
-          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_yamaha_xeno"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 1.2349999999999999,
+          "wind_articulation": 0.19500000000000003,
           "brass_size": 0,
           "trumpet_mouthpiece": 1.2349999999999999,
-          "brass_mute": 0,
-          "trumpet_technique": -0.035,
-          "trumpet_bell_metal": 0,
+          "brass_mute": 0.042749999999999996,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 0.18,
           "trumpet_maker_school": 0.39
         }
       },
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_split_tone_overblown",
+          "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
           "trombone_mute": "cup_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.2349999999999999,
+          "wind_articulation": 0.19500000000000003,
           "trombone_type": 0.0315,
-          "trombone_mouthpiece": 1.885,
+          "trombone_mouthpiece": 2.6650000000000005,
           "trombone_mute": 0,
-          "trombone_technique": 0.336,
-          "trombone_bell_metal": 0,
-          "trombone_maker_school": 0.39
+          "trombone_technique": 0.6180000000000001,
+          "trombone_bell_metal": 0.18,
+          "trombone_maker_school": 0.3165
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through early-1980s underground rock movement extending punk's rejection of rock-tradition conventions through more harmonic-and-rhythmic experimentation, dub-and-disco bass-and-rhythm sensibility, and intellectualized lyrical content — codified through Wire (Pink Flag 1977), Joy Division (Unknown Pleasures 1979), Gang of Four (Entertainment! 1979), The Fall, Public Image Ltd (Metal Box 1979), Magazine, Talking Heads (Remain in Light 1980)",
   "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock american post-punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
   "recipe_chars": 800,
-  "score": 350.435,
+  "score": 355.577,
   "config": {
     "traditions": [
       "post_punk",
@@ -23,14 +23,14 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
@@ -39,16 +39,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.8449999999999999,
-          "voice_articulation": 11.634999999999994,
+          "voice_articulation": 12.089999999999996,
           "voice_microtone": 20.299999999999997,
-          "voice_tradition": 3.1525,
+          "voice_tradition": 2.4699999999999998,
           "voice_mechanism_compound": 7.930000000000001,
-          "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 12.414999999999994,
-          "voice_ensemble_config": 18.584999999999997,
-          "voice_ornament_system": 1.1499999999999997,
+          "voice_estill_quality": 1.4299999999999997,
+          "voice_speech_song": 12.869999999999996,
+          "voice_ensemble_config": 19.459999999999997,
+          "voice_ornament_system": 0.9999999999999998,
           "voice_pitch_organization": 1.255,
-          "voice_processing_chain": 5.445,
+          "voice_processing_chain": 5.735,
           "voice_multitrack_stack": 6.780000000000001
         }
       },
@@ -70,14 +70,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 18.98,
-          "amp_make": 30.5175,
+          "electric_technique": 19.854999999999997,
+          "amp_make": 31.654999999999998,
           "body_wood": 0.825,
           "neck_wood": 0.825,
           "fretboard": 0.75,
           "pickup_magnet": 0.75,
           "string_material": 0.75,
-          "string_gauge": 1.4949999999999999,
+          "string_gauge": 0.845,
           "bridge": 0.195,
           "scale_length": 1.6500000000000004,
           "finish": 0,
@@ -104,7 +104,7 @@
           "string_type": 23.5625,
           "scale_length_b": 0.825,
           "fretted_or_not": 0.105,
-          "bass_technique": 34.5,
+          "bass_technique": 35.375,
           "electric_bass_string_configuration": 0
         }
       },
@@ -134,7 +134,7 @@
           "electronic_technique": 2.475,
           "oscillator": 2.4699999999999998,
           "filter_topology": 2.4699999999999998,
-          "envelope": 1.4949999999999999,
+          "envelope": 1.8900000000000001,
           "modulation": 0.105
         }
       },
@@ -150,8 +150,8 @@
           "baritone_electric_pickup": "baritone_dual_humbucker"
         },
         "scores": {
-          "electric_technique": 18.98,
-          "amp_make": 30.5175,
+          "electric_technique": 19.854999999999997,
+          "amp_make": 31.654999999999998,
           "baritone_use": 0.195,
           "baritone_electric_tuning": 1.69,
           "baritone_electric_scale": 2.4699999999999998,

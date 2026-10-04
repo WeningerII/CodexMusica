@@ -2,10 +2,10 @@
   "id": "hausa_pop",
   "name": "Hausa pop",
   "family": "pop",
-  "lineage": "Hausa pop is represented here by Ali Jita — lead-only Kano electronic-song model. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Hausa pop connects Hausa-language song with contemporary studio production, including the popular nanaye repertoire associated with Kano.",
   "recipe": "classic hausa pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 273,
-  "score": 7.511,
+  "score": 7.598,
   "config": {
     "traditions": [
       "hausa_pop"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 0.168,
-          "poly_voices": 0.21,
+          "poly_voices": 1.21,
           "poly_maker_lineage": -0.035
         }
       },
@@ -31,13 +31,13 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "tight_swing",
+          "sample_swing": "mid_swing",
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.2,
+          "electronic_technique": -0.1,
           "sample_bitdepth": 0.609,
-          "sample_swing": 3.25,
+          "sample_swing": 1.47,
           "sample_processing": 0.3045
         }
       },
@@ -73,11 +73,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 1.3
+          "voice_multitrack_stack": 0.7770000000000001
         }
       }
     ],

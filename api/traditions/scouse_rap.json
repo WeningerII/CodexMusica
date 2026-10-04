@@ -5,7 +5,7 @@
   "lineage": "Scouse rap foregrounds Liverpool speech and local storytelling, represented here by Aystar and producer Jxmie.",
   "recipe": "classic modern scouse rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 297,
-  "score": 23.112,
+  "score": 23.166,
   "config": {
     "traditions": [
       "scouse_rap"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.9015,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.6500000000000004,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 4.68,
           "sample_processing": 0.105
         }

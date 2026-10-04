@@ -2,10 +2,10 @@
   "id": "swedish_synth",
   "name": "Swedish synth",
   "family": "electronic",
-  "lineage": "Swedish synth is represented by Johan Baeckström — Cassini instrumental synthesizer branch. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic swedish synth, functional Song, synthpop branch. analog poly synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 155,
-  "score": 2.595,
+  "lineage": "Swedish synth music connects electronic-pop songwriting with instrumental synthesizer composition and local recording communities.",
+  "recipe": "classic swedish synth, experimental Elec. analog poly synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 140,
+  "score": 0.442,
   "config": {
     "traditions": [
       "swedish_synth"
@@ -15,21 +15,24 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": 0.325
+          "electronic_technique": 0.2315,
+          "poly_archetypes": 0.0315,
+          "poly_voices": 0.22874999999999998,
+          "poly_maker_lineage": -0.05
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

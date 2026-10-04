@@ -5,7 +5,7 @@
   "lineage": "European club hybrid crystallised in Paris and Vienna in the mid-2000s around Parov Stelar, Caravan Palace and the Freshly Squeezed label, layering four-on-the-floor house or breakbeat drums at 110-130 BPM under sampled 1920s-40s shellac jazz — clarinet, muted trumpet, tenor banjo, slap bass and crackly crooner vocals — with the swung eighths of the source loop set against straight electronic kick and clap.",
   "recipe": "classic 2004-2006 electro swing, electronic Dance, continental branch, deep house house, American jazz early, eurodance electronic dance swing revival neo-swing. thick, breath veiled tone, straight onset, interlocked note trading. sampler, TR-909, grenadilla African blackwood traditional clarinet, bach stradivarius 180 canonical American orchestral jazz balance trumpet, dance tune single string tenor banjo irish, venice catlin high twist renaissance bass carpathian spruce European maple double bass, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 719,
-  "score": 311.053,
+  "score": 310.602,
   "config": {
     "traditions": [
       "electroswing",
@@ -23,9 +23,9 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.44,
+          "electronic_technique": 1.29,
           "sampler_archetypes": 2.375,
-          "sampler_bit_depth": 2.8900000000000006,
+          "sampler_bit_depth": 2.7400000000000007,
           "sampler_workflow": 1.3249999999999997,
           "sampler_classic_context": 26.519999999999996
         }
@@ -75,7 +75,7 @@
           "wind_articulation": 1.1499999999999997,
           "brass_size": 0.39,
           "trumpet_mouthpiece": 17.215,
-          "brass_mute": 0.59,
+          "brass_mute": 0.545,
           "trumpet_technique": 0.585,
           "trumpet_bell_metal": 0.9950000000000001,
           "trumpet_maker_school": 5.225000000000001
@@ -112,12 +112,12 @@
           "bowed_technique": 0.42249999999999993,
           "bass_size": 0.9099999999999999,
           "bass_strings": 3.5100000000000002,
-          "bass_top_wood": 2.595,
+          "bass_top_wood": 2.5500000000000003,
           "bass_back_wood": 3.625,
           "bass_varnish": 3.675,
-          "bass_setup_period": 6.235,
+          "bass_setup_period": 6.325,
           "bass_play": 15.82,
-          "bass_rosin": 20.28,
+          "bass_rosin": 20.37,
           "bass_bow_stick": 2.375
         }
       },
@@ -146,10 +146,10 @@
           "voice_quality": 10.659999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.675,
+          "voice_vibrato": 17.720000000000002,
           "voice_articulation": 15.599999999999994,
-          "voice_microtone": 18.764999999999997,
-          "voice_tradition": 17.935,
+          "voice_microtone": 18.674999999999997,
+          "voice_tradition": 17.89,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 16.054999999999996,
@@ -167,7 +167,7 @@
           "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 1.44,
+          "electronic_technique": 1.29,
           "turntable_technique": 0
         }
       }

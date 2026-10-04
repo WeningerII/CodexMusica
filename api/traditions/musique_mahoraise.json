@@ -2,10 +2,10 @@
   "id": "musique_mahoraise",
   "name": "Musique mahoraise",
   "family": "vernacular",
-  "lineage": "Babali Acoustic Band as documented by its Lorient neighborhood journal on29September2023: Abdou Anli/Babali guitar and lead singing, Stéphane cajón, Gwendale bass, Damien piano and accordion, Mathilde backing singing. All five people, two singers and six instrument cards retained as the complete documented ensemble practice. Piano and accordion are the same performer’s doubling, not evidence of two simultaneous keyboard players. This concerns the full band formed after Babali’s earlier solo neighborhood appearance; neither that earlier solo nor an unrelated later studio album substitutes for this roster. No exact recorded take or backing interval is claimed. Authored new ensemble rendition of the full documented practice. FunctionalSong describes the editorial verse/refrain organization and functional chord support selected for these documented popular songs, not measured analysis of every source song or all Mahorais music. One lead and one backing singer are modeled as an accompanied live duo with neutral source-unspecified physiology and authored small-note-group neumatic delivery; intervals remain unspecified. The source-generic guitar is realized on an all-mahogany steel-string OM with phosphor strings and flatpicked accompaniment; bass is an alder fretted34-inch nickel-roundwound active-soapbar instrument played fingerstyle. Piano is an authored SteinwayD nine-foot concert instrument with original matched hammer/rim/board/pinblock and block chords. Accordion uses dry LM steel-reed registration, cardboard/leather bellows, unchambered voicing and articulated bellows, maker unspecified. Credited cajón is rendered as an unsnared wooden rear-port box using the existing neutral role option, with no Afro-Peruvian festejo or marinera pattern assertion. These are explicit new recording choices, not claims of source instruments, measured tuning or performer-owned models. Controlled live room authored; global temperament and capture hardware absent.",
-  "recipe": "classic musique mahoraise, functional Song. small note groups per syllable, duet, unprocessed natural acoustic, live take. mahogany phosphor bronze bronze flatpicked acoustic guitar, alder nickel roundwound fingerstyle locked electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, steel leather bellows articulated accordion, unsnared rear sound port cajon peruano. live tracking.",
-  "recipe_chars": 414,
-  "score": 74.405,
+  "lineage": "Musique mahoraise connects Mayotte’s music and Shimaoré-language song with its wider Comorian and diaspora relationships. Traditional repertoire and contemporary songwriting meet influences such as reggae and other popular styles.",
+  "recipe": "classic musique mahoraise, functional Song. acoustic guitar, electric bass, grand piano, responsive traditional leather accordion, cajon peruano. live tracking.",
+  "recipe_chars": 160,
+  "score": 2.865,
   "config": {
     "traditions": [
       "musique_mahoraise"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 6.9095,
-          "voice_ensemble_config": 5.336499999999999,
+          "voice_speech_song": 0.40950000000000003,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 6.636499999999999,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 2.6,
-          "back_sides": 2.6,
-          "string_acoustic": 3.8999999999999995,
-          "acoustic_om_technique": 2.5500000000000003
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.05
         }
       },
       {
@@ -83,12 +83,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.3,
-          "pickup_config": 2.5999999999999996,
-          "string_type": 2.6,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -106,15 +106,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.5000000000000004,
-          "grand_piano_size": 2.5999999999999996,
-          "grand_piano_brand": 3.0094999999999996,
-          "piano_hammer": 1.2,
-          "piano_rim": 3.8,
-          "piano_soundboard": 2.6365000000000003,
-          "piano_pinblock": 1.2,
-          "piano_plate": 2.5,
-          "piano_pitch_standard": 1.1049999999999998
+          "keyboard_technique": -0.1,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -129,11 +129,11 @@
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 3.8,
-          "accordion_reed_material": 2.5999999999999996,
+          "free_reed_technique": -0.1,
+          "accordion_reed_material": 0,
           "musette_offset": 0,
-          "reed_config": 1.6,
-          "bellows": 1.7365000000000002,
+          "reed_config": 0,
+          "bellows": 1.1365,
           "voicing_chamber": 0.735,
           "accordion_maker_school": 0
         }
@@ -145,7 +145,7 @@
           "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
         },
         "scores": {
-          "cajon_peruano_construction": 3.9000000000000004,
+          "cajon_peruano_construction": 0,
           "cajon_peruano_role": 0
         }
       }

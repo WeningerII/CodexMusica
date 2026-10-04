@@ -5,7 +5,7 @@
   "lineage": "Formed in London and Bristol 1992-94 out of hardcore rave's acceleration, codified by Rebel MC, Shy FX, Congo Natty and DJ Hype on white-label 12-inches — 155-170 BPM chopped Amen and Apache breakbeats time-stretched over halftime 80 BPM sub-bass and Jamaican dancehall samples, with ragga toasting and pitched-up diva vocals cut to dubplate for pirate-radio play.",
   "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass german techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. chopped sampler, sampler drum machine, turntable, low sub bass analog poly synth, monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
   "recipe_chars": 516,
-  "score": 190.032,
+  "score": 190.025,
   "config": {
     "traditions": [
       "oldschool_jungle",
@@ -38,7 +38,7 @@
           "voice_quality": 3.1850000000000014,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7899999999999998,
+          "voice_vibrato": 1.595,
           "voice_articulation": 19.174999999999997,
           "voice_microtone": 18.589999999999993,
           "voice_tradition": 2.6650000000000005,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 20.279999999999994,
           "voice_ornament_system": 2.8600000000000003,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 15.535,
+          "voice_processing_chain": 15.79,
           "voice_multitrack_stack": 2.9899999999999998
         }
       },
@@ -64,7 +64,7 @@
         "scores": {
           "electronic_technique": 1.91,
           "sampler_archetypes": 1.265,
-          "sampler_bit_depth": 0.585,
+          "sampler_bit_depth": 0.49499999999999994,
           "sampler_workflow": 4.725,
           "sampler_classic_context": 19.955
         }
@@ -92,7 +92,7 @@
         },
         "scores": {
           "electronic_technique": 1.91,
-          "turntable_technique": 0.6599999999999999
+          "turntable_technique": 0.6824999999999999
         }
       },
       {

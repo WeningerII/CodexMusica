@@ -5,7 +5,7 @@
   "lineage": "Guafa Trío — complete host-published 29 September 2016 Texas State touring ensemble palette. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic mid-2010s música andina colombiana, improv On Frame. flute, cuatro venezolano, maracas, modern setup heavier bass bar kolstein bass specific double electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 269,
-  "score": 8.464,
+  "score": 8.869,
   "config": {
     "traditions": [
       "musica_andina_colombiana"
@@ -21,7 +21,7 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": -0.1,
+          "wind_articulation": -0.07,
           "flute_size": 0,
           "flute_material": 0.39,
           "flute_technique": 0,
@@ -69,16 +69,16 @@
           "bass_bow_stick": "pernambuco_stick_bass"
         },
         "scores": {
-          "bowed_technique": 1.3944999999999999,
+          "bowed_technique": 1.6359999999999997,
           "bass_size": 0,
-          "bass_strings": 0.2415,
+          "bass_strings": 0.168,
           "bass_top_wood": -0.1,
           "bass_back_wood": 0.26,
           "bass_varnish": -0.1,
-          "bass_setup_period": 2.0045,
-          "bass_play": 1.1444999999999999,
+          "bass_setup_period": 2.036,
+          "bass_play": 1.3649999999999998,
           "bass_rosin": 1.8995,
-          "bass_bow_stick": -0.10500000000000001
+          "bass_bow_stick": -0.15000000000000002
         }
       },
       {

@@ -2,10 +2,10 @@
   "id": "eritrean_pop",
   "name": "Eritrean pop",
   "family": "pop",
-  "lineage": "Bruno Blum & Asmara All Stars — Haftime Allokhu (Bruno’s Travel Agency), complete artist-issued track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored render refinement: an alder body on both electric guitar and bass, a maple electric-guitar neck, and a dual-single-coil bass pickup configuration replace the previous authored mahogany/maple-cap, mahogany-neck and split-coil choices. These are plausible alternative modern instrument constructions, not measurements or claims about the credited performers’ gear. All documented roles, performers, techniques and source boundaries remain intact. The original flat body_wood key applies the same compatible alder choice to both owning instruments.",
-  "recipe": "classic eritrean pop, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, yellow brass modern standard saxophone, fast-attack-transient alder electric bass, block chord electric piano tine, congas, maple machine hammered symmetric pattern organized rows full lathed drum kit, room natural hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 542,
-  "score": 72.649,
+  "lineage": "Eritrean pop brings several languages and regional rhythmic traditions into modern popular song. Groups such as Asmara All Stars connect local dance approaches, including gwaila, with amplified band arrangements.",
+  "recipe": "classic eritrean pop, functional Song. small note groups per syllable, solo with instrumental accompaniment. clean strummed humbucker electric guitar, yellow brass modern standard saxophone, electric bass, block chord electric piano tine, congas, maple machine hammered symmetric pattern organized rows full lathed drum kit, hand clap. live tracking.",
+  "recipe_chars": 350,
+  "score": 45.12,
   "config": {
     "traditions": [
       "eritrean_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.56,
-          "voice_ensemble_config": 0.78,
+          "voice_speech_song": 1.4905,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 4.94,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -57,7 +57,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
+          "body_wood": "alder_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.249999999999999,
+          "electric_technique": 7.45,
           "amp_make": 0,
-          "body_wood": 2.8999999999999995,
-          "neck_wood": 2.6539999999999995,
+          "body_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.08,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.6
+          "string_tuning": 0
         }
       },
       {
@@ -97,12 +97,12 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.2,
-          "sax_size": 0.44999999999999996,
+          "wind_articulation": -0.1,
+          "sax_size": -0.15000000000000002,
           "sax_reed": 0,
-          "sax_body_alloy": 3.2,
+          "sax_body_alloy": 2.45,
           "sax_mouthpiece": 0.1365,
-          "sax_technique": 0.25,
+          "sax_technique": -0.05,
           "sax_maker_school": -0.1
         }
       },
@@ -110,8 +110,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "dual_single",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -120,8 +120,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.8999999999999995,
-          "pickup_config": 0,
+          "body_wood": 0,
+          "pickup_config": 1,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -137,7 +137,7 @@
           "tine_effect": "dry_tine"
         },
         "scores": {
-          "keyboard_technique": 6.449999999999999,
+          "keyboard_technique": 7.45,
           "tine_voicing": 0,
           "tine_effect": 0
         }
@@ -151,10 +151,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 0.2,
+          "percussion_technique": -0.1,
           "conga_set": 0,
-          "conga_skin": 0.6,
-          "conga_shell_wood": 0.3
+          "conga_skin": 0,
+          "conga_shell_wood": 0
         }
       },
       {
@@ -174,15 +174,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.6,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 7.154,
+          "shell_wood": 1.054,
           "shell_thickness": 0,
-          "bearing_edges": 1.354,
+          "bearing_edges": 1.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 9.754,
-          "cymbal_lathing": 12.599999999999998,
+          "cymbal_hammering": 10.004,
+          "cymbal_lathing": 9.95,
           "cymbal_finish": 0
         }
       },
@@ -194,7 +194,7 @@
         },
         "scores": {
           "clap_technique": 0.39,
-          "clap_capture": 1.3
+          "clap_capture": 0
         }
       }
     ],
@@ -281,22 +281,22 @@
         "clap_capture"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -308,7 +308,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -317,7 +317,7 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
+      "body_wood": "alder_h",
       "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
@@ -335,7 +335,7 @@
       "sax_mouthpiece": "hard_rubber_mp",
       "sax_technique": "sax_continuous_legato",
       "sax_maker_school": "sax_selmer_mark_vi",
-      "pickup_config": "dual_single",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -362,12 +362,6 @@
       "clap_technique": "clap_group_massed",
       "clap_capture": "clap_room_natural"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

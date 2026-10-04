@@ -2,10 +2,10 @@
   "id": "classical_guitar_quartet",
   "name": "Classical guitar quartet",
   "family": "classical",
-  "lineage": "Classical guitar quartet is represented by Mēla Guitar Quartet — Anthony Burgess Complete Guitar Quartets. This documented branch has an authored present-day studio realization.",
+  "lineage": "Classical guitar quartets bring four plucked-string parts together in original concert works and arrangements. The ensemble expands the instrument’s polyphonic range through distributed melody, bass and accompaniment.",
   "recipe": "classic classical guitar quartet, art Music, western modern branch. cedar carbon fiber classical nylon-string guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 218,
-  "score": 15.684,
+  "score": 15.09,
   "config": {
     "traditions": [
       "classical_guitar_quartet"
@@ -24,10 +24,10 @@
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 1.1145,
-          "bracing_classical": 4.29,
-          "string_classical": 6.24,
-          "attack_technique_cl": 4.29
+          "top_wood_classical": 1.69,
+          "bracing_classical": 3.9,
+          "string_classical": 5.85,
+          "attack_technique_cl": 3.9
         }
       }
     ],

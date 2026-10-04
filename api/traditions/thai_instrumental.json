@@ -2,10 +2,10 @@
   "id": "thai_instrumental",
   "name": "Thai instrumental",
   "family": "global",
-  "lineage": "Pongpan Channet — complete Whispering Hammers LP, all five selections on both sides. The composer-owned issuer explicitly calls the whole album piano solo, gives its five-track programme, and describes spontaneous single-pass performances without later melodic correction. One piano and zero singers; no other issued album, soundtrack layers or vocal releases are folded into this scope. Broad improvOnFrame includes free improvisation and is used only for this explicitly spontaneous piano realization. Authored modern standard-size acoustic studio upright with connected classical-legato phrasing and controlled live room; source piano construction and measured touch are unspecified. No score, fixed chord sequence, concert grand, orchestral reduction, capture chain or measured temperament is invented.",
-  "recipe": "classic thai instrumental, improv On Frame. legato upright piano. live tracking.",
-  "recipe_chars": 80,
-  "score": 4.55,
+  "lineage": "Thai instrumental connects traditional ensembles and contemporary instrumental artists across a varied national listening field. Piano, guitar, traditional instruments and other approaches circulate through recordings and live performance.",
+  "recipe": "classic thai instrumental, improv On Frame. upright piano. live tracking.",
+  "recipe_chars": 73,
+  "score": -0.05,
   "config": {
     "traditions": [
       "thai_instrumental"
@@ -19,7 +19,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 4.550000000000001,
+          "keyboard_technique": -0.05,
           "upright_use": 0,
           "upright_piano_size": 0
         }

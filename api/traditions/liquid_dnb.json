@@ -5,7 +5,7 @@
   "lineage": "2000s and 2010s drum-and-bass subgenre extending atmospheric drum-and-bass with explicit soul-and-jazz vocal-feature emphasis and broader pop-crossover-friendly arrangement. Hospital Records (founded 1996, peak influence 2005-onward) anchored the canonical liquid drum-and-bass institutional infrastructure; High Contrast, Logistics, London Elektricity, Netsky, and the broader contemporary Hospital roster define the canonical liquid drum-and-bass aesthetic.",
   "recipe": "classic liquid drum-and-bass, bass System, bass descendants branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. TR-808, sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 498,
-  "score": 305.583,
+  "score": 301.153,
   "config": {
     "traditions": [
       "liquid_dnb",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -46,10 +46,10 @@
           "voice_estill_quality": 5.695000000000001,
           "voice_speech_song": 19.305000000000003,
           "voice_ensemble_config": 17.485000000000003,
-          "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 2.645,
-          "voice_processing_chain": 8.38,
-          "voice_multitrack_stack": 10.14
+          "voice_ornament_system": 1.74,
+          "voice_pitch_organization": 2.45,
+          "voice_processing_chain": 8.175,
+          "voice_multitrack_stack": 9.945
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 10.455000000000002,
-          "drum_machine_808_context": 11.155000000000003,
+          "tr808_voice": 9.825000000000003,
+          "drum_machine_808_context": 10.525000000000002,
           "tr808_production_origin": 0.7149999999999994
         }
       },
@@ -75,10 +75,10 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 10.595,
-          "oscillator": 10.700000000000003,
-          "filter_topology": 12.995000000000003,
-          "envelope": 0.5549999999999999,
+          "electronic_technique": 9.965,
+          "oscillator": 9.875000000000004,
+          "filter_topology": 12.365000000000004,
+          "envelope": 0.405,
           "modulation": 0.15
         }
       },
@@ -91,7 +91,7 @@
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
@@ -100,9 +100,9 @@
           "grand_piano_size": 4.77,
           "grand_piano_brand": 4.77,
           "piano_hammer": 8.55,
-          "piano_rim": 8.639999999999999,
-          "piano_soundboard": 8.64,
-          "piano_pinblock": 1.4849999999999999,
+          "piano_rim": 8.939999999999998,
+          "piano_soundboard": 8.445,
+          "piano_pinblock": 1.25,
           "piano_plate": 2.195,
           "piano_pitch_standard": 1.625
         }

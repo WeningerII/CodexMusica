@@ -5,7 +5,7 @@
   "lineage": "A broad Every Noise country discovery cluster whose roster runs from established country performers to contemporary country-rock and pop-country. Lady A, listed in that roster, supplies the selected Nashville studio-band branch.",
   "recipe": "classic modern country road, functional Song, contemp main branch. breath veiled tone, wide pitch sway, interlocked note trading, equal tempered. dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 535,
-  "score": 102.774,
+  "score": 102.848,
   "config": {
     "traditions": [
       "country_road"
@@ -41,7 +41,7 @@
           "voice_microtone": 5.415000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.8499999999999999,
-          "voice_estill_quality": 16.612,
+          "voice_estill_quality": 16.685499999999998,
           "voice_speech_song": 5.395000000000001,
           "voice_ensemble_config": 2.990000000000001,
           "voice_ornament_system": 0.9099999999999997,
@@ -60,7 +60,7 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 2.45,
+          "acoustic_technique": 2.4815,
           "string_tuning": 0,
           "top_wood": 0.105,
           "back_sides": 0.39,
@@ -84,7 +84,7 @@
           "keyboard_technique": 2.45,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 1.3,
-          "piano_hammer": 2.5865,
+          "piano_hammer": 2.6180000000000003,
           "piano_rim": 2.555,
           "piano_soundboard": 2.45,
           "piano_pinblock": -0.05,
@@ -123,8 +123,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 2.5315,
-          "drumhead": 2.4815,
+          "drum_technique": 2.5,
+          "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }
       }

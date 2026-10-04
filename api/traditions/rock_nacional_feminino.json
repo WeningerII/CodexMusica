@@ -1,11 +1,11 @@
 {
   "id": "rock_nacional_feminino",
   "name": "Rock Nacional Feminino",
-  "family": "rock_punk",
-  "lineage": "The Damnnation — Apocalypse, complete2020 compilation track. Authored distorted power-chord humbucker guitar, picked fretted bass and rock-stick acoustic drum kit realize the positive guitar/bass/drums roles. Shared mahogany/maple-cap construction is an authored compatible choice, not measured hardware. One credited singer; register, training, physiology, pitch and speech/song mechanism remain unspecified. No additional singer inferred from later band biographies. Optional global tuning omitted. Neutral axes and modern studio chain are authored. Authored render amendment (supersedes earlier authored defaults, not source facts): body_wood=alder_h, fretboard=ebony_fb_h, pickup_magnet=ceramic_h, pickup_winding=high_wind, pickup_config=soapbar. The complete source roster and repertoire are unchanged. This new arrangement uses a controlled live room; unspecified capture apparatus is omitted. Construction/material, pickup, articulation and room choices are editorial realizations, not recovered artist hardware or session techniques. Flat material choices apply to every compatible instrument owner, including both guitar and bass where present. No shared instrument, default, lexicon or engine change.",
-  "recipe": "classic rock nacional feminino, distorted Rock, metal branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 358,
-  "score": 106.066,
+  "family": "rock",
+  "lineage": "Rock nacional feminino highlights women-fronted projects across Brazil’s rock and underground scenes. Collections such as A Cena é Delas bring together bands working in varied rock, punk and metal approaches.",
+  "recipe": "classic rock nacional feminino, distorted Rock. solo with instrumental accompaniment. distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 254,
+  "score": 75.482,
   "config": {
     "traditions": [
       "rock_nacional_feminino"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 1.029,
+          "voice_speech_song": 0.3,
+          "voice_ensemble_config": 0.6405,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4575,
-          "voice_multitrack_stack": 5.0729999999999995,
+          "voice_processing_chain": 0.231,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 14.756500000000003,
+          "electric_technique": 5.525,
           "amp_make": 0,
-          "body_wood": 0.273,
-          "neck_wood": 1.69,
-          "fretboard": 0.168,
+          "body_wood": 0.0315,
+          "neck_wood": 0,
+          "fretboard": 0,
           "pickup_magnet": 0,
-          "pickup_winding": 1.3,
-          "string_material": 0.1365,
-          "bridge": 0.0315,
-          "scale_length": 1.155,
-          "string_gauge": 2.252,
-          "finish": 0.105,
-          "string_tuning": 2.9045
+          "pickup_winding": 0.0315,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 0.9099999999999999,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.273,
-          "pickup_config": 1.405,
+          "body_wood": 0.0315,
+          "pickup_config": 0.063,
           "string_type": 0,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 15.249999999999996,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 18.855,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,17 +124,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 13.999999999999996,
-          "drumhead": 1.6045,
+          "drum_technique": 16.25,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.2780000000000005,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 1.405,
+          "bearing_edges": 0.0315,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 17.336499999999997,
-          "cymbal_lathing": 18.909499999999998,
-          "cymbal_finish": 0.0315
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 16.15,
+          "cymbal_lathing": 16.1815,
+          "cymbal_finish": 0
         }
       }
     ],
@@ -224,7 +224,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",

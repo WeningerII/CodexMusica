@@ -2,10 +2,10 @@
   "id": "aggressive_phonk",
   "name": "Aggressive phonk",
   "family": "hip_hop",
-  "lineage": "Hard-edged internet phonk; selected Kordhell drift-oriented production branch",
-  "recipe": "classic modern aggressive phonk, mc Rhythm, southern branch. melodic pitched sampler, roland tr 8s modern aira digital recreation TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 362,
-  "score": 14.91,
+  "lineage": "Aggressive phonk is a hard-edged internet production style associated with the fast drift-oriented branch of phonk. Producers such as Kordhell combine cut rap recordings, forceful electronic low end and prominent pitched 808-family cowbell patterns.",
+  "recipe": "classic modern aggressive phonk, mc Rhythm, southern branch. chopped sampler, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 310,
+  "score": 15.158,
   "config": {
     "traditions": [
       "aggressive_phonk"
@@ -17,15 +17,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.7775,
-          "sampler_archetypes": 0.975,
-          "sampler_bit_depth": 1.17,
-          "sampler_workflow": 3.0225,
-          "sampler_classic_context": 3.38
+          "electronic_technique": 3.0774999999999997,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 1.69,
+          "sampler_workflow": 3.0275,
+          "sampler_classic_context": 4.29
         }
       },
       {
@@ -37,8 +37,8 @@
         },
         "scores": {
           "tr808_voice": 0,
-          "drum_machine_808_context": 0.39,
-          "tr808_production_origin": 1.17
+          "drum_machine_808_context": 1.1865,
+          "tr808_production_origin": 0.546
         }
       }
     ],
@@ -67,7 +67,6 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
@@ -75,13 +74,12 @@
     ]
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
     "parts": {
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_one_shot_pitched",
+      "sampler_workflow": "sampler_chopped_breaks",
       "sampler_classic_context": "sampler_classic_edm",
       "tr808_voice": "tr808_cowbell",
       "drum_machine_808_context": "drum_machine_808_trap",

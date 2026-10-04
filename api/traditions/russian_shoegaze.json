@@ -2,10 +2,10 @@
   "id": "russian_shoegaze",
   "name": "Russian shoegaze",
   "family": "rock",
-  "lineage": "Russian shoegaze is represented here by Life On Venus — Odes to the Void. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic russian shoegaze, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 321,
-  "score": 30.036,
+  "lineage": "Russian shoegaze combines independent guitar-band practice with the layered textures of shoegaze and dream pop.",
+  "recipe": "classic russian shoegaze, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 346,
+  "score": 31.626,
   "config": {
     "traditions": [
       "russian_shoegaze"
@@ -18,7 +18,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -32,37 +32,37 @@
           "electric_technique": -0.07,
           "amp_make": 3.1200000000000006,
           "body_wood": 1.1969999999999998,
-          "neck_wood": 0.3045,
-          "fretboard": 0.1365,
+          "neck_wood": 0.39,
+          "fretboard": 0.325,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 1.69,
+          "bridge": 1.443,
           "scale_length": 0.651,
-          "string_gauge": 1.69,
+          "string_gauge": 1.443,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.27
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 0.609,
+          "body_wood": 0.39,
           "pickup_config": 0.1365,
           "string_type": 8.125,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.7,
+          "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.489,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,

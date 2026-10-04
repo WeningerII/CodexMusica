@@ -5,7 +5,7 @@
   "lineage": "Nashville’s contemporary performer-songwriter network includes Joy Williams, listed in the genre’s artist metadata. Her Front Porch sessions provide a documented acoustic-song branch within a wider writing and production community.",
   "recipe": "classic modern nashville singer-songwriter, ballad Poetry. breath veiled tone, neutral third half flat, opera quality low larynx anchored, notated speech melody. fingerpicked acoustic guitar, fiddle, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 351,
-  "score": 20.479,
+  "score": 21.166,
   "config": {
     "traditions": [
       "nashville_singer_songwriter"
@@ -14,7 +14,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "head_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -36,15 +36,15 @@
           "voice_quality": 1.6899999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.285,
-          "voice_articulation": -0.15725,
+          "voice_vibrato": 0.32775,
+          "voice_articulation": -0.14,
           "voice_microtone": 2.0799999999999996,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.9924999999999998,
+          "voice_estill_quality": 1.0779999999999998,
           "voice_speech_song": 3.575000000000001,
           "voice_ensemble_config": 0.19500000000000003,
-          "voice_ornament_system": 0.9924999999999998,
+          "voice_ornament_system": 1.0352499999999998,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.48525,
           "voice_multitrack_stack": 1
@@ -62,9 +62,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0.042749999999999996,
-          "back_sides": 0,
+          "back_sides": 0.042749999999999996,
           "string_acoustic": 0.3,
-          "acoustic_om_technique": 3.6427499999999995
+          "acoustic_om_technique": 3.6854999999999998
         }
       },
       {
@@ -82,7 +82,7 @@
           "fiddle_strings": 0.39,
           "fiddle_bow": 0.1365,
           "fiddle_mute": 0,
-          "fiddle_articulation": 0.31575000000000003,
+          "fiddle_articulation": 0.40125,
           "fiddle_string_configuration": 0
         }
       },
@@ -94,7 +94,7 @@
         },
         "scores": {
           "upright_strings": 0.39,
-          "upright_play": 0.31575000000000003
+          "upright_play": 0.6435
         }
       }
     ],

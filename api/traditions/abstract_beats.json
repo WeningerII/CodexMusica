@@ -2,10 +2,10 @@
   "id": "abstract_beats",
   "name": "Abstract beats",
   "family": "electronic",
-  "lineage": "Abstract beats is represented by Capitaine Hadōken — Eine Symphonie des Grauens. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-  "recipe": "classic abstract beats, mc Rhythm, experimental branch. sampler, turntable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 174,
-  "score": 12.125,
+  "lineage": "Abstract beats approaches hip-hop production as an instrumental art of rhythm, sampling and collage. Producers reshape recorded fragments into loops and broken grooves, with turntablism and electronic processing extending the beatmaker’s palette.",
+  "recipe": "classic abstract beats, mc Rhythm, experimental branch. chopped sampler, turntable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 182,
+  "score": 19.463,
   "config": {
     "traditions": [
       "abstract_beats"
@@ -16,27 +16,27 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_chopped_breaks",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sampler_archetypes": 3.6959999999999997,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": -0.10500000000000001,
-          "sampler_classic_context": 8.19
+          "electronic_technique": 2.023,
+          "sampler_archetypes": 2.6,
+          "sampler_bit_depth": 0.5880000000000001,
+          "sampler_workflow": 1.9729999999999999,
+          "sampler_classic_context": 8.319999999999999
         }
       },
       {
         "id": "turntable",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_chirp_baby"
+          "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "turntable_technique": 0.0945
+          "electronic_technique": 2.023,
+          "turntable_technique": 1.9365
         }
       }
     ],
@@ -59,13 +59,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "electronic_technique": "electronic_sample_chopped",

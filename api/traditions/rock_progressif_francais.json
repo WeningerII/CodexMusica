@@ -2,10 +2,10 @@
   "id": "rock_progressif_francais",
   "name": "Rock progressif francais",
   "family": "rock",
-  "lineage": "Rock progressif francais is represented here by One Shot — Vendredi 13 instrumental core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic rock progressif francais, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 340,
-  "score": 58.986,
+  "lineage": "French progressive rock includes exploratory electric ensembles drawing on jazz-rock and related progressive traditions.",
+  "recipe": "classic rock progressif francais, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 370,
+  "score": 60.904,
   "config": {
     "traditions": [
       "rock_progressif_francais"
@@ -20,28 +20,28 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 6.5,
-          "body_wood": 0.7979999999999999,
-          "neck_wood": 0.5145,
-          "fretboard": 0.5145,
-          "pickup_magnet": 0.357,
-          "pickup_winding": 0.357,
-          "string_material": 0.5145,
-          "bridge": 1.5190000000000001,
-          "scale_length": 1.344,
-          "string_gauge": 1.456,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 0.693,
+          "neck_wood": 0.519,
+          "fretboard": 0.519,
+          "pickup_magnet": 0.252,
+          "pickup_winding": 0.33599999999999997,
+          "string_material": 0.519,
+          "bridge": 0.0945,
+          "scale_length": 1.2435,
+          "string_gauge": 0.063,
           "finish": 0.1365,
-          "string_tuning": 0.33599999999999997
+          "string_tuning": 0
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.21,
-          "pickup_config": 0.38849999999999996,
-          "string_type": 16.575,
-          "scale_length_b": 0.483,
-          "fretted_or_not": 0,
+          "pickup_config": 0.2835,
+          "string_type": 17.875,
+          "scale_length_b": 0.378,
+          "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.7314999999999999,
+          "drum_technique": 13.75,
+          "drumhead": 2.4815,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -90,8 +90,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 6.629999999999999,
-          "poly_voices": 0.2415,
+          "poly_archetypes": 7.15,
+          "poly_voices": 0.1995,
           "poly_maker_lineage": -0.035
         }
       }

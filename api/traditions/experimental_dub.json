@@ -2,10 +2,10 @@
   "id": "experimental_dub",
   "name": "Experimental dub",
   "family": "electronic",
-  "lineage": "Experimental dub is represented by PostEx — Slow Tech Dub, original mix. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-  "recipe": "classic experimental dub, bass System, dub descendants branch. digital subtractive, yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator fm synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 281,
-  "score": 14.954,
+  "lineage": "Experimental dub extends dub mixing and rhythmic space into exploratory electronic composition. Synthesized sound, repetition and effects can become as important as a conventional song structure.",
+  "recipe": "classic experimental dub, bass System, dub descendants branch. digital subtractive, fm synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital tape echo spring reverb.",
+  "recipe_chars": 237,
+  "score": 1.628,
   "config": {
     "traditions": [
       "experimental_dub"
@@ -14,52 +14,67 @@
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_pluck_short",
           "va_archetypes": "nord_lead",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 1.755,
-          "va_archetypes": 0,
-          "digital_subtractive_context": 4.68
+          "electronic_technique": 0.2315,
+          "va_archetypes": 0.054,
+          "digital_subtractive_context": -0.05
         }
       },
       {
         "id": "fm_synth",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
-          "fm_algorithm": "fm_complex",
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_classic",
           "fm_modulator_ratio": "fm_harmonic",
-          "fm_polyphony": "fm_mono",
-          "fm_model_lineage": "fm_yamaha_tx81z"
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
-          "electronic_technique": 1.755,
-          "fm_algorithm": 1.3,
-          "fm_modulator_ratio": 1.3,
-          "fm_polyphony": 0.16799999999999998,
-          "fm_model_lineage": 1.885
+          "electronic_technique": 0.2315,
+          "fm_algorithm": -0.05,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 0.0315,
+          "fm_model_lineage": 0.0315
         }
       },
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "bridged_t_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "noise_hat",
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 1.3,
-          "snare_voice": 0.39,
-          "hat_voice": 0.0315,
-          "shuffle_quantize": 0.39
+          "kick_voice": 0.08549999999999999,
+          "snare_voice": 1.063,
+          "hat_voice": 0,
+          "shuffle_quantize": 0
         }
       }
     ],
     "pinned": {
       "digital_subtractive": [
-        "va_archetypes"
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "fm_synth": [
+        "electronic_technique",
+        "fm_algorithm",
+        "fm_modulator_ratio",
+        "fm_polyphony",
+        "fm_model_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -75,13 +90,26 @@
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "tape_echo",
+      "spring_reverb"
+    ]
   },
   "source": {
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "va_archetypes": "nord_lead"
+      "va_archetypes": "nord_lead",
+      "digital_subtractive_context": "digital_subtractive_pop",
+      "electronic_technique": "electronic_pluck_short",
+      "fm_algorithm": "fm_classic",
+      "fm_modulator_ratio": "fm_harmonic",
+      "fm_polyphony": "fm_poly",
+      "fm_model_lineage": "fm_native_instruments_fm8",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "noise_hat",
+      "shuffle_quantize": "shuffle_low"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",
@@ -89,6 +117,10 @@
     "chain_comp": "comp_none",
     "chain_eq": "eq_none",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "tape_echo",
+      "spring_reverb"
+    ]
   }
 }

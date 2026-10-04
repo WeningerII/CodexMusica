@@ -2,10 +2,10 @@
   "id": "american_early_music",
   "name": "American early music",
   "family": "classical",
-  "lineage": "American early music: Francis Hopkinson — My Days Have Been So Wondrous Free, AMRC0015 track1 soprano/harpsichord version. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic american early music, art Music, western early branch. straight note core, equal tempered, notated speech melody. English kirkman shudi canonical mid 18th century London equal temperament modern concert standard harpsichord. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 331,
-  "score": 29.823,
+  "lineage": "American early music includes colonial-era repertory and its historically informed revival. Early song composers such as Francis Hopkinson drew on European models while contributing to musical life in the American colonies.",
+  "recipe": "classic american early music, art Music, western early branch. straight note core, equal tempered, notated speech melody, solo with instrumental accompaniment. harpsichord. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 271,
+  "score": 21.559,
   "config": {
     "traditions": [
       "american_early_music"
@@ -39,16 +39,16 @@
           "voice_effort": 0,
           "voice_vibrato": 6.473000000000001,
           "voice_articulation": 0,
-          "voice_microtone": 6.565000000000001,
+          "voice_microtone": 3.575,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 6.4350000000000005,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 3.9650000000000007,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.609,
           "voice_tessitura": 0
         }
       },
@@ -58,17 +58,17 @@
           "keyboard_technique": "keyboard_classical_legato",
           "harpsichord_register": "harpsi_8_foot",
           "harpsichord_context": "harpsichord_continuo",
-          "harpsichord_maker_school": "harpsichord_english_kirkman",
+          "harpsichord_maker_school": "harpsichord_flemish_ruckers",
           "harpsichord_plectrum": "harpsichord_delrin_modern",
           "harpsichord_temperament": "harpsichord_equal_modern"
         },
         "scores": {
           "keyboard_technique": 2.5,
           "harpsichord_register": 1.3,
-          "harpsichord_context": 0.1995,
-          "harpsichord_maker_school": 3.2129999999999996,
-          "harpsichord_plectrum": 0.39,
-          "harpsichord_temperament": 1.936
+          "harpsichord_context": 0.39,
+          "harpsichord_maker_school": 0.39,
+          "harpsichord_plectrum": 0.819,
+          "harpsichord_temperament": 0.33599999999999997
         }
       }
     ],

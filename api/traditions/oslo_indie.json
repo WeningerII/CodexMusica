@@ -3,9 +3,9 @@
   "name": "Oslo Indie",
   "family": "electronic",
   "lineage": "Hanne Kolstø — Veggen (2019), complete single credits. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s oslo indie, experimental Elec. one note per syllable. electric bass, analog synth, drum machine analog, drum kit, humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 258,
-  "score": 7.497,
+  "recipe": "classic late-2010s oslo indie, experimental Elec. electric bass, analog synth, drum machine analog, drum kit, humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 235,
+  "score": 6.941,
   "config": {
     "traditions": [
       "oslo_indie"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.0815,
+          "voice_speech_song": 0.399,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.105,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -66,10 +66,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.273,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.105,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -85,10 +85,10 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": -0.035,
           "oscillator": 0,
           "filter_topology": 0.39,
-          "envelope": 0.21,
+          "envelope": 0.2835,
           "modulation": 0
         }
       },
@@ -124,14 +124,14 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.2835,
+          "drumhead": 0.105,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.39,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": -0.1685,
-          "cymbal_hammering": 0.6499999999999999,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 0.6814999999999999,
           "cymbal_lathing": 0.6814999999999999,
           "cymbal_finish": 0
         }
@@ -156,17 +156,17 @@
         "scores": {
           "electric_technique": 0.7,
           "amp_make": 0,
-          "body_wood": 0.1365,
-          "neck_wood": 0.105,
+          "body_wood": 0.273,
+          "neck_wood": 0.21,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.21,
-          "string_gauge": 1.69,
+          "scale_length": 0.42,
+          "string_gauge": 1.3315000000000001,
           "finish": 0,
-          "string_tuning": 0.31499999999999995
+          "string_tuning": 0.063
         }
       }
     ],

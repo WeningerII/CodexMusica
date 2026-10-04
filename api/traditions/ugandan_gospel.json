@@ -2,10 +2,10 @@
   "id": "ugandan_gospel",
   "name": "Ugandan gospel",
   "family": "blues_gospel",
-  "lineage": "Ugandan gospel: DocHill And MrsT Music — The Healing Tape (Side B) (2022), credited album ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2020s ugandan gospel, ritual Devotional, christian gospel branch. small vocal ensemble, live take. basswood humbucker electric guitar, gold brass warmer tone split tone overblown saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 302,
-  "score": 16.067,
+  "lineage": "Ugandan gospel grows through church worship, devotional songwriting and local recording projects. Kampala initiatives such as Songs To Glory create praise music for congregations, combining personal testimony with messages of thanksgiving, healing and salvation.",
+  "recipe": "classic ugandan gospel, ritual Devotional, christian gospel branch. basswood humbucker electric guitar, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 213,
+  "score": 5.585,
   "config": {
     "traditions": [
       "ugandan_gospel"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.1365,
+          "voice_ensemble_config": 0.1905,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -56,14 +56,14 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_60s_selmer",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
@@ -71,16 +71,16 @@
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.384,
+          "amp_make": 0,
           "body_wood": 1.2285,
-          "neck_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": 0,
           "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.40950000000000003,
           "string_material": 0,
-          "bridge": 1.69,
+          "bridge": 0.34800000000000003,
           "scale_length": 1.2285,
-          "string_gauge": 1.69,
+          "string_gauge": 0.294,
           "finish": 0,
           "string_tuning": 1.2285
         }
@@ -88,21 +88,21 @@
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_split_tone_overblown",
+          "wind_articulation": "wind_bebop_runs",
           "sax_size": "alto_sax",
           "sax_reed": "medium_reed",
-          "sax_body_alloy": "gold_brass_sax",
+          "sax_body_alloy": "rose_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_split_tone_overblown",
+          "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 1.484,
+          "wind_articulation": -0.05,
           "sax_size": -0.05,
           "sax_reed": 0,
-          "sax_body_alloy": 1.434,
-          "sax_mouthpiece": 0,
-          "sax_technique": 1.484,
+          "sax_body_alloy": -0.035,
+          "sax_mouthpiece": 0.054,
+          "sax_technique": -0.035,
           "sax_maker_school": 0.40950000000000003
         }
       }

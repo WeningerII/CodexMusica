@@ -2,10 +2,10 @@
   "id": "brazilian_ccm",
   "name": "Brazilian CCM",
   "family": "blues_gospel",
-  "lineage": "Camila Holanda — Grande Tesouro, the separately issued Canção Nova Voz e Violão acoustic version. The issuer explicitly credits Camila Holanda singing and Carlos Tocco musical execution within this voice-and-guitar edition. Two people, one singer, two musical families. This is the complete separately issued version, not a convenient reduction of the original EP recording; the original EP duet with Jolina Rojas is a different version and no guest voice is transferred. The issuer text is the evidence, not a claimed viewing of the blocked linked YouTube video. The broad ritualDevotional.christianGospel node includes Christian devotional music, without claiming Pentecostal singing. A newly authored steel-string dreadnought acoustic-guitar realization uses the coherent Engelmann spruce/rosewood construction with 80/20 bronze strings and open chordal strumming; the source only identifies violão, so subtype, materials and technique are editorial choices rather than observed Carlos Tocco equipment. The single credited singer is accompanied; source-unspecified register, vocal physiology and training remain neutral. Small note groups per syllable are an authored singing treatment, not a transcription. Controlled live-room acoustics are editorial; unspecified capture hardware and global tuning are omitted.",
-  "recipe": "classic brazilian ccm, ritual Devotional, christian gospel branch. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. spruce indian rosewood rosewood bronze dreadnought acoustic guitar. live tracking.",
-  "recipe_chars": 287,
-  "score": 28.869,
+  "lineage": "Brazilian contemporary Christian music includes a substantial Catholic recording and performance community. Artists, ministries and devotional media connect newly composed songs with communal worship and personal reflection.",
+  "recipe": "classic brazilian ccm, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 148,
+  "score": 2.62,
   "config": {
     "traditions": [
       "brazilian_ccm"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.972999999999999,
-          "voice_ensemble_config": 3.4459999999999997,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.8999999999999995,
-          "voice_multitrack_stack": 2.9000000000000004,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 1.2,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.25,
-          "string_acoustic": 3.9000000000000004
+          "top_wood": 0,
+          "back_sides": -0.05,
+          "string_acoustic": 0
         }
       }
     ],

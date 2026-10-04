@@ -2,10 +2,10 @@
   "id": "andalusian_classical",
   "name": "Andalusian classical",
   "family": "classical",
-  "lineage": "Andalusian classical is represented here by Salim Fergani with Beihdja Rahal — Opéra de Lyon,21January2023, malouf and sanâa programme. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic andalusian classical, art Music, middle eastern classical branch. no specific ornament system. oud arbi, Lebanese cedar eastern Mediterranean pyramid nylon arab school oud, articulate metal finger picks qanun, carpathian spruce European maple bosnian source flamed figure cremonese pre 1750 violin orchestral, walnut bent frame canonical Iranian tar frame drum, goat skin Turkish darbuka regional darbuka, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 581,
-  "score": 164.983,
+  "lineage": "Andalusian classical music continues through related North African traditions, including malouf in Constantine and sanâa in Algiers. Vocal repertoire and instrumental ensembles preserve distinct regional approaches to modal melody and rhythmic development.",
+  "recipe": "classic andalusian classical, art Music, middle eastern classical branch. no specific ornament system. oud arbi, Lebanese cedar eastern Mediterranean pyramid nylon arab school oud, articulate metal finger picks qanun, carpathian spruce European maple bosnian source flamed figure cremonese pre 1750 violin orchestral, mulberry kurdish regional tar frame drum, goat skin Turkish darbuka regional darbuka, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 571,
+  "score": 159.354,
   "config": {
     "traditions": [
       "andalusian_classical"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 1.2705,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.231
         }
       },
       {
@@ -58,16 +58,16 @@
           "oud_arbi_plectrum": "oud_arbi_risha_quill"
         },
         "scores": {
-          "oud_arbi_form": 1.8479999999999996,
-          "oud_arbi_tuning": 2.1,
-          "oud_arbi_plectrum": 0
+          "oud_arbi_form": 1.3,
+          "oud_arbi_tuning": 1.3,
+          "oud_arbi_plectrum": 0.3
         }
       },
       {
         "id": "oud",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
-          "oud_school": "oud_turkish",
+          "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_plastic",
           "oud_body_wood": "oud_maple_body",
@@ -75,9 +75,9 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
-          "oud_school": 0.5985,
-          "oud_strings": 6.24,
+          "plucked_traditional_technique": 11.25,
+          "oud_school": 1.69,
+          "oud_strings": 5.85,
           "oud_pick": 0.168,
           "oud_body_wood": 0.6615,
           "oud_soundboard_wood": 1.95,
@@ -96,10 +96,10 @@
           "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
-          "qanun_strings": 6.24,
+          "plucked_traditional_technique": 11.25,
+          "qanun_strings": 5.85,
           "qanun_levers": 0.4515,
-          "qanun_pick": 6.24,
+          "qanun_pick": 5.85,
           "qanun_body_wood": 0.8714999999999999,
           "qanun_bridge_skin": 0.7874999999999999,
           "qanun_string_material": 0.483
@@ -120,16 +120,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 12.286,
+          "bowed_technique": 11.836,
           "orch_strings": 0.168,
-          "orch_top_wood": 15.075,
-          "orch_back_wood": 12.0865,
-          "orch_varnish": 13.363,
-          "orch_setup_period": 12.8425,
+          "orch_top_wood": 14.325,
+          "orch_back_wood": 11.3365,
+          "orch_varnish": 12.312999999999999,
+          "orch_setup_period": 12.0925,
           "orch_bow": 0.3045,
-          "orch_bow_stick": 15.469999999999999,
-          "orch_articulation": 0.0945,
-          "orch_rosin": 12.401499999999999
+          "orch_bow_stick": 14.494999999999997,
+          "orch_articulation": 0.39,
+          "orch_rosin": 11.651499999999999
         }
       },
       {
@@ -138,14 +138,14 @@
           "percussion_technique": "percussion_hands_layered",
           "tar_size": "tar_large",
           "tar_frame_drum_context": "tar_frame_drum_art",
-          "tar_frame_shell_wood": "tar_frame_walnut",
+          "tar_frame_shell_wood": "tar_frame_mulberry",
           "tar_frame_head": "tar_frame_goat_skin"
         },
         "scores": {
           "percussion_technique": -0.1,
           "tar_size": 0.378,
-          "tar_frame_drum_context": 6.24,
-          "tar_frame_shell_wood": 1.575,
+          "tar_frame_drum_context": 5.85,
+          "tar_frame_shell_wood": 1.51,
           "tar_frame_head": 0.9239999999999999
         }
       },
@@ -160,7 +160,7 @@
         "scores": {
           "percussion_technique": -0.1,
           "darbuka_material": 0.5775,
-          "darbuka_skin": 1.0395,
+          "darbuka_skin": 1.69,
           "darbuka_regional_style": 0.9344999999999999
         }
       },
@@ -175,7 +175,7 @@
         },
         "scores": {
           "wind_articulation": -0.15000000000000002,
-          "ghaita_region": 0.2415,
+          "ghaita_region": 2.5414999999999996,
           "ghaita_context": 0.9765000000000001,
           "ghaita_body_wood": 1.1865,
           "ghaita_reed": 1.155

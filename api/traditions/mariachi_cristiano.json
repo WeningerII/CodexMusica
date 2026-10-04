@@ -2,10 +2,10 @@
   "id": "mariachi_cristiano",
   "name": "Mariachi Cristiano",
   "family": "vernacular",
-  "lineage": "Mariachi Cristiano Guatemala Sinaí — published six-member ministry lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mariachi cristiano, ritual Devotional, christian gospel branch. European maple bosnian source flamed figure violin orchestral, cedar caoba paracho nylon treble steel bass guitarron mexicano, bach stradivarius 180 canonical American orchestral trumpet, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 444,
-  "score": 23.713,
+  "lineage": "Mariachi cristiano brings Christian praise and devotional texts into mariachi performance, joining vocal worship with the regional string-and-brass ensemble.",
+  "recipe": "classic mariachi cristiano, ritual Devotional, christian gospel branch. duet, live take. violin orchestral, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 481,
+  "score": 28.532,
   "config": {
     "traditions": [
       "mariachi_cristiano"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 1.3,
           "voice_tessitura": 0
         }
       },
@@ -70,10 +70,10 @@
           "bowed_technique": 0.546,
           "orch_strings": 0,
           "orch_top_wood": -0.1,
-          "orch_back_wood": 1.5,
+          "orch_back_wood": -0.1,
           "orch_varnish": -0.1,
           "orch_setup_period": -0.07,
-          "orch_bow": 0.294,
+          "orch_bow": 0.39,
           "orch_bow_stick": -0.10500000000000001,
           "orch_articulation": 0.9974999999999999,
           "orch_rosin": -0.07
@@ -90,10 +90,10 @@
         },
         "scores": {
           "guitarron_body": 0.1365,
-          "guitarron_body_wood": 3.3799999999999994,
-          "guitarron_strings": 0.1365,
+          "guitarron_body_wood": 3.819,
+          "guitarron_strings": 1.1365,
           "guitarron_string_material": 1.2285,
-          "guitarron_technique": 3.3799999999999994
+          "guitarron_technique": 3.9
         }
       },
       {
@@ -113,7 +113,7 @@
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0.4305,
           "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 0.9555,
+          "trumpet_bell_metal": 1.3,
           "trumpet_maker_school": 1.4385000000000001
         }
       },
@@ -127,11 +127,11 @@
           "vihuela_mexicana_strings": "vihuela_mexicana_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
-          "vihuela_mexicana_back": 2.5999999999999996,
-          "vihuela_mexicana_context": 0,
-          "vihuela_mexicana_body_wood": 3.3799999999999994,
-          "vihuela_mexicana_strings": 3.3799999999999994
+          "plucked_traditional_technique": 0.325,
+          "vihuela_mexicana_back": 3,
+          "vihuela_mexicana_context": 0.3,
+          "vihuela_mexicana_body_wood": 3.819,
+          "vihuela_mexicana_strings": 3.9
         }
       }
     ],

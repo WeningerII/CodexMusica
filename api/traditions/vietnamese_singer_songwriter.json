@@ -3,9 +3,9 @@
   "name": "Vietnamese singer-songwriter",
   "family": "vernacular",
   "lineage": "Vietnamese singer-songwriters bring authored songs to multiple acoustic and studio settings. Lê Cát Trọng Lý’s documented singing and guitar-based writing supplies a contemporary folk-influenced branch.",
-  "recipe": "classic modern vietnamese singer-songwriter, ballad Poetry. thick, incomplete closure resting, neutral third half flat, opera quality low larynx anchored. fingerpicked classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 336,
-  "score": 35.428,
+  "recipe": "classic modern vietnamese singer-songwriter, ballad Poetry. thick, incomplete closure resting, neutral third half flat, m1 with m0 pulse borrowing. fingerpicked classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 329,
+  "score": 35.752,
   "config": {
     "traditions": [
       "vietnamese_singer_songwriter"
@@ -36,16 +36,16 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.36,
+          "voice_vibrato": 0.414,
           "voice_articulation": 0,
           "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.453,
-          "voice_estill_quality": 3.0300000000000007,
+          "voice_mechanism_compound": 0.5609999999999999,
+          "voice_estill_quality": 3.1380000000000003,
           "voice_speech_song": 4.745,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 2.03,
-          "voice_pitch_organization": 5.604,
+          "voice_ornament_system": 2.0839999999999996,
+          "voice_pitch_organization": 5.55,
           "voice_processing_chain": 2.504,
           "voice_multitrack_stack": 0.39
         }
@@ -61,7 +61,7 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 6.5040000000000004,
+          "acoustic_technique": 6.558,
           "string_tuning": 0,
           "top_wood_classical": 0.273,
           "bracing_classical": 1.3,

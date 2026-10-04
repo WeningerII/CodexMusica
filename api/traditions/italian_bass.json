@@ -40,16 +40,16 @@
           "voice_vibrato": 0,
           "voice_articulation": 0.16799999999999998,
           "voice_microtone": 4.55,
-          "voice_tradition": 16.651249999999997,
+          "voice_tradition": 16.61525,
           "voice_mechanism_compound": 0.273,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.4799999999999999,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0.07425,
           "voice_multitrack_stack": 0.189,
-          "voice_tessitura": 5.707749999999999
+          "voice_tessitura": 6.22375
         }
       },
       {
@@ -68,11 +68,11 @@
         "scores": {
           "keyboard_technique": 5.75,
           "grand_piano_size": 0.9099999999999999,
-          "grand_piano_brand": 0.83025,
+          "grand_piano_brand": 1.07025,
           "piano_hammer": 5.8365,
-          "piano_rim": 6.15075,
+          "piano_rim": 5.94675,
           "piano_soundboard": 5.7,
-          "piano_pinblock": 5.736,
+          "piano_pinblock": 5.7,
           "piano_plate": 5.763,
           "piano_pitch_standard": 1.2349999999999999
         }

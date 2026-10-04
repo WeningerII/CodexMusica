@@ -2,10 +2,10 @@
   "id": "tijuana_electronic",
   "name": "Tijuana electronic",
   "family": "electronic",
-  "lineage": "Tijuana electronic is represented by Ford Proco with Ul4lume — El Instante Previo original vocal core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic tijuana electronic, experimental Elec. solo with instrumental accompaniment. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 226,
-  "score": 10.797,
+  "lineage": "Tijuana electronic music connects border-city experimentation with synthesizers, machine rhythms and collaborative electronic songwriting.",
+  "recipe": "classic tijuana electronic, experimental Elec. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 225,
+  "score": 1.862,
   "config": {
     "traditions": [
       "tijuana_electronic"
@@ -20,25 +20,25 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 0.2315,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
           "poly_maker_lineage": -0.05
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "drum_machine_analog",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 9,
-          "sample_processing": 0
+          "kick_voice": 0,
+          "snare_voice": 0.0315,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       },
       {
@@ -73,22 +73,26 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.1575
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 0.126
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
-      "sampler_drum_machine": [
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ],
       "voice": [
         "voice_register",
@@ -145,9 +149,13 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electronic_technique": "electronic_pad_drone",
-      "sample_bitdepth": "twenty_four_bit",
-      "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -3,14 +3,14 @@
   "name": "Afro soul",
   "family": "global",
   "lineage": "Band-based African soul that formed in the late 1960s-1970s across Johannesburg, Lagos, Nairobi and the diaspora — Letta Mbulu, Miriam Makeba's later work, Hugh Masekela and later Thandiswa Mazwai and Vusi Mahlasela — coupling American soul horn charts, Rhodes and gospel-derived vocal harmony with mbaqanga guitar figures, conga-and-shaker layers and mid-tempo 90-110 BPM grooves sung in Xhosa, Zulu, Yoruba or Swahili.",
-  "recipe": "classic Southern African 1967-1969 afro soul, functional Song, soul R&B branch, African pop functional song, American jazz soul jazz, sub saharan African protest song neo soul-jazz. thick, blues-shouter, straight onset, narrative. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cowhide mid tier open slap hand drum congas, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric mbaqanga guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu.",
-  "recipe_chars": 994,
-  "score": 647.375,
+  "recipe": "classic Southern African 1967-1969 afro soul, functional Song, soul R&B branch, African pop functional song, American jazz soul jazz, sub saharan African protest song jazz organ. thick, blues-shouter, straight onset, narrative. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cowhide mid tier open slap hand drum congas, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric mbaqanga guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu.",
+  "recipe_chars": 999,
+  "score": 656.75,
   "config": {
     "traditions": [
       "afro_soul",
       "soul_jazz",
-      "neo_soul_jazz"
+      "jazz_organ"
     ],
     "instruments": [
       {
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 53.69500000000001,
-          "voice_quality": 25.649999999999995,
+          "voice_register": 54.69500000000001,
+          "voice_quality": 26.14999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.689999999999994,
-          "voice_articulation": 22.475,
-          "voice_microtone": 23.509999999999994,
-          "voice_tradition": 29.870000000000005,
-          "voice_mechanism_compound": 5.9799999999999995,
-          "voice_estill_quality": 28.595,
-          "voice_speech_song": 19.434999999999995,
-          "voice_ensemble_config": 15.534999999999997,
+          "voice_vibrato": 23.689999999999994,
+          "voice_articulation": 21.724999999999998,
+          "voice_microtone": 24.009999999999998,
+          "voice_tradition": 29.62,
+          "voice_mechanism_compound": 5.785,
+          "voice_estill_quality": 27.845,
+          "voice_speech_song": 23.335,
+          "voice_ensemble_config": 18.979999999999997,
           "voice_ornament_system": 5.654999999999999,
-          "voice_pitch_organization": 3.380000000000001,
+          "voice_pitch_organization": 4.030000000000001,
           "voice_processing_chain": 6.234999999999999,
           "voice_multitrack_stack": 7.205
         }
@@ -63,9 +63,9 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 28.4,
-          "rhodes_model": 23.019999999999996,
-          "rhodes_use": 4.225,
+          "keyboard_technique": 27.65,
+          "rhodes_model": 23.67,
+          "rhodes_use": 3.575,
           "rhodes_tine_material": 1.69,
           "rhodes_hammer_tip": 5.07,
           "rhodes_pickup_position": 1.69
@@ -84,13 +84,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 29.18,
-          "body_wood": 2.08,
+          "amp_make": 28.58,
+          "body_wood": 2.275,
           "pickup_config": 0.195,
-          "string_type": 24.439999999999998,
-          "scale_length_b": 2.125,
+          "string_type": 23.689999999999998,
+          "scale_length_b": 2.275,
           "fretted_or_not": 0.195,
-          "bass_technique": 23.325000000000003,
+          "bass_technique": 22.575,
           "electric_bass_string_configuration": 0
         }
       },
@@ -102,8 +102,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.999999999999996,
-          "drumhead": 22.529999999999994,
+          "drum_technique": 29.509999999999994,
+          "drumhead": 23.029999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -128,19 +128,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "hard_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "ebonite_vintage",
           "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 24.605000000000004,
-          "sax_size": 22.930000000000003,
+          "wind_articulation": 23.855,
+          "sax_size": 22.18,
           "sax_reed": 0.15,
-          "sax_body_alloy": 20.999999999999996,
-          "sax_mouthpiece": 0.39,
-          "sax_technique": 22.525000000000002,
-          "sax_maker_school": 22.419999999999995
+          "sax_body_alloy": 22.75,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 21.775,
+          "sax_maker_school": 22.919999999999995
         }
       },
       {
@@ -157,22 +157,22 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d",
+          "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 23.910000000000004,
-          "amp_make": 28.52,
-          "body_wood": 1.975,
-          "neck_wood": 1.975,
-          "fretboard": 1.925,
-          "pickup_magnet": 0.24,
+          "electric_technique": 23.310000000000002,
+          "amp_make": 27.919999999999998,
+          "body_wood": 2.125,
+          "neck_wood": 2.125,
+          "fretboard": 2.075,
+          "pickup_magnet": 0.195,
           "string_material": 0.15,
-          "string_gauge": 1.975,
-          "bridge": 0.24,
-          "scale_length": 2.08,
+          "string_gauge": 2.125,
+          "bridge": 0.195,
+          "scale_length": 2.275,
           "finish": 0.15,
-          "string_tuning": 0.975,
+          "string_tuning": 1.2349999999999999,
           "single_coil_pickup_construction": 0
         }
       },

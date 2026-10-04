@@ -2,10 +2,10 @@
   "id": "modern_hard_rock",
   "name": "Modern hard rock",
   "family": "rock",
-  "lineage": "Modern hard rock is represented here by Satellite Citi — documented duo core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic modern hard rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood alnico humbucker electric guitar, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 297,
-  "score": 41.919,
+  "lineage": "Modern hard rock builds on heavy guitar-band traditions with contemporary vocal hooks and forceful production.",
+  "recipe": "classic modern hard rock, distorted Rock, alternative branch. group vocals. alnico humbucker electric guitar, electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 281,
+  "score": 33.259,
   "config": {
     "traditions": [
       "modern_hard_rock"
@@ -15,8 +15,8 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "alder_b",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
@@ -29,19 +29,42 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.8199999999999998,
-          "amp_make": 6.11,
-          "body_wood": 2.9899999999999998,
+          "electric_technique": 2.6000000000000005,
+          "amp_make": 2.005,
+          "body_wood": 0.168,
           "neck_wood": 0.3045,
           "fretboard": 0.1365,
-          "pickup_magnet": 2.3,
-          "pickup_winding": 2.3,
+          "pickup_magnet": 2,
+          "pickup_winding": 2,
           "string_material": 0.105,
-          "bridge": 1.69,
-          "scale_length": 2.9899999999999998,
-          "string_gauge": 1.69,
+          "bridge": 0.6435,
+          "scale_length": 2.6,
+          "string_gauge": 0.6435,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.08549999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 2.005,
+          "body_wood": 0.168,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -52,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 6.1594999999999995,
+          "drum_technique": 11.55,
+          "drumhead": 5.4094999999999995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -89,8 +112,8 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.40125,
-          "voice_ornament_system": 0.32175,
+          "voice_ensemble_config": 0.501,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
           "voice_multitrack_stack": 0.042749999999999996
@@ -100,7 +123,19 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
+        "body_wood",
         "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -163,7 +198,15 @@
       "electric_technique": "electric_power_chord",
       "string_tuning": "standard_tuning",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "bass_technique": "fingerstyle_locked",
+      "amp_make": "amp_modern_modeling",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

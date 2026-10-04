@@ -2,38 +2,26 @@
   "id": "indonesian_electronic",
   "name": "Indonesian electronic",
   "family": "electronic",
-  "lineage": "Indonesian electronic is represented by Random Brothers — 2020 streamed piano-and-live-sampling experiment. One documented branch receives an authored present-day studio realization.",
-  "recipe": "classic early-2020s indonesian electronic, experimental Elec, idm glitch branch. one piece 17 ply hard rock maple grand piano, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 249,
-  "score": 9.483,
+  "lineage": "Indonesian electronic music includes experimental producers and performers working between recorded sound, live instruments and digital manipulation.",
+  "recipe": "classic indonesian electronic, experimental Elec, idm glitch branch. upright piano, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 8.094,
   "config": {
     "traditions": [
       "indonesian_electronic"
     ],
     "instruments": [
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_minimalist_repeated",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "ronsen_weikert_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0.1365,
-          "piano_hammer": -0.035,
-          "piano_rim": 1.17,
-          "piano_soundboard": -0.05,
-          "piano_pinblock": 0.26,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": 0.325
+          "upright_use": 0.1365,
+          "upright_piano_size": 0
         }
       },
       {
@@ -42,22 +30,27 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.26,
           "sample_bitdepth": 0.0735,
           "sample_swing": 7.5,
-          "sample_processing": 0.1365
+          "sample_processing": 0.173625
         }
       }
     ],
     "pinned": {
-      "grand_piano": [
-        "keyboard_technique"
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
       ],
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -80,7 +73,12 @@
     "room": "treated_studio",
     "parts": {
       "keyboard_technique": "keyboard_minimalist_repeated",
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

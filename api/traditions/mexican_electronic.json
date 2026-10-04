@@ -2,10 +2,10 @@
   "id": "mexican_electronic",
   "name": "Mexican electronic",
   "family": "electronic",
-  "lineage": "Mexican electronic is represented here by Cubenx — Noir synthesizer core. This is a documented branch with an authored present-day studio realization.",
+  "lineage": "Mexican electronic music includes independent producers working across club styles, electronica and ambient sound.",
   "recipe": "classic mexican electronic, experimental Elec, ambient branch. sustained pad analog poly synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 4.845,
+  "score": 7.444,
   "config": {
     "traditions": [
       "mexican_electronic"
@@ -15,14 +15,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 4.6495,
-          "poly_archetypes": 0,
-          "poly_voices": 0.231,
+          "electronic_technique": 6.6995000000000005,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -0.035
         }
       }
@@ -30,7 +30,9 @@
     "pinned": {
       "analog_poly_synth": [
         "electronic_technique",
-        "poly_archetypes"
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ]
     },
     "room": "treated_studio",
@@ -53,7 +55,9 @@
     "room": "treated_studio",
     "parts": {
       "electronic_technique": "electronic_pad_drone",
-      "poly_archetypes": "juno_60"
+      "poly_archetypes": "jupiter_8",
+      "poly_voices": "poly_8_voice",
+      "poly_maker_lineage": "poly_roland_jupiter"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

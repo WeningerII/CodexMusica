@@ -2,10 +2,10 @@
   "id": "korean_instrumental",
   "name": "Korean instrumental",
   "family": "classical",
-  "lineage": "Yiruma — SOLO: Original, composer-authorized piano scores. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "lineage": "Korean instrumental music — melodic recordings and compositions without a foreground sung text.",
   "recipe": "classic korean instrumental, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 212,
-  "score": 15.632,
+  "score": 13.766,
   "config": {
     "traditions": [
       "korean_instrumental"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.2,
+          "keyboard_technique": -0.07,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 2.6180000000000003,
-          "piano_rim": 3.0125,
-          "piano_soundboard": 2.555,
-          "piano_pinblock": 4.737,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.5445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
           "piano_plate": 2.45,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 1.355
         }
       }
     ],

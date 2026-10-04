@@ -2,10 +2,10 @@
   "id": "swiss_folk",
   "name": "Swiss folk",
   "family": "vernacular",
-  "lineage": "Swiss folk is represented by Christoph Pfändler — Stimmig (2024). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic mid-2020s swiss folk, drone Modal, string branch. maple modern concert steel bronze modern hammered dulcimer. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 216,
-  "score": 8.626,
+  "lineage": "Swiss folk includes varied regional instrumental and vocal traditions maintained through community performance, teaching and festivals. Contemporary musicians also develop new arrangements and solo approaches.",
+  "recipe": "classic swiss folk, drone Modal, string branch. hammered dulcimer. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 165,
+  "score": 3.614,
   "config": {
     "traditions": [
       "swiss_folk"
@@ -14,22 +14,25 @@
       {
         "id": "hammered_dulcimer",
         "slots": {
-          "hammer_dulcimer_courses": "hd_15_15",
+          "hammer_dulcimer_courses": "hd_extended",
           "hammer_material": "wood_bare",
           "hammered_dulcimer_body_wood": "hd_maple_modern",
           "hammered_dulcimer_strings": "hd_steel_bronze_modern"
         },
         "scores": {
-          "hammer_dulcimer_courses": 2.695875,
-          "hammer_material": 2.695875,
-          "hammered_dulcimer_body_wood": 1.544125,
-          "hammered_dulcimer_strings": 1.69
+          "hammer_dulcimer_courses": 0.168,
+          "hammer_material": 2.65875,
+          "hammered_dulcimer_body_wood": 0.168,
+          "hammered_dulcimer_strings": 0.6194999999999999
         }
       }
     ],
     "pinned": {
       "hammered_dulcimer": [
-        "hammer_material"
+        "hammer_dulcimer_courses",
+        "hammer_material",
+        "hammered_dulcimer_body_wood",
+        "hammered_dulcimer_strings"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "hammer_material": "wood_bare"
+      "hammer_material": "wood_bare",
+      "hammer_dulcimer_courses": "hd_extended",
+      "hammered_dulcimer_body_wood": "hd_maple_modern",
+      "hammered_dulcimer_strings": "hd_steel_bronze_modern"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

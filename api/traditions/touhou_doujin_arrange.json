@@ -5,7 +5,7 @@
   "lineage": "Japanese fan-arrangement circuit built on ZUN's Touhou Project shooting-game themes (1996 onward, PC-98 FM then Windows-era PCM), codified from the early 2000s at Comiket by circles such as IOSYS, Alstroemeria Records, SOUND HOLIC, COOL&CREATE and Demetori — 150-190 BPM covers of a fixed melodic canon rebuilt as eurobeat, hardcore, power metal, jazz-fusion or trance, keeping the originals' harmonic-minor and Phrygian-dominant tunes, rapid 16th-note arpeggiated backing and abrupt key-shifting B-sections, with a high anime-inflected female lead or an all-instrumental shred arrangement.",
   "recipe": "classic 2000-2003 touhou doujin arrange music, functional Song, east Asian pop branch, retro aesthetic experimental electric, power metal, trance electronic dance fantasy metal. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly singing lead fm synth, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 848,
-  "score": 273.147,
+  "score": 277.08,
   "config": {
     "traditions": [
       "touhou_doujin_arrange",
@@ -63,19 +63,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.165,
-          "amp_make": 6.6049999999999995,
-          "body_wood": 6.874999999999999,
+          "electric_technique": 23.015,
+          "amp_make": 6.805000000000001,
+          "body_wood": 7.075,
           "neck_wood": 0.39,
           "fretboard": 0.32999999999999996,
           "pickup_magnet": 1.6949999999999998,
           "pickup_winding": 0.63,
           "string_material": 0.255,
-          "bridge": 1.4949999999999999,
-          "scale_length": 6.469999999999999,
-          "string_gauge": 0.895,
+          "bridge": 0.8449999999999999,
+          "scale_length": 6.67,
+          "string_gauge": 0.39499999999999996,
           "finish": 0.045,
-          "string_tuning": 13.65
+          "string_tuning": 14.200000000000001
         }
       },
       {
@@ -109,7 +109,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.325,
+          "drum_technique": 13.974999999999998,
           "drumhead": 4.095,
           "drum_kit_kick_pedal": 0
         }
@@ -123,20 +123,20 @@
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 5.3,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.935,
+          "grand_piano_brand": 0.785,
           "piano_hammer": 4.955,
           "piano_rim": 5.15,
           "piano_soundboard": 5.2,
-          "piano_pinblock": 0.06499999999999999,
-          "piano_plate": 0.45499999999999996,
-          "piano_pitch_standard": 6.434999999999999
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.26,
+          "piano_pitch_standard": 6.239999999999998
         }
       },
       {
@@ -151,7 +151,7 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
@@ -161,21 +161,21 @@
         },
         "scores": {
           "voice_register": 13.009999999999994,
-          "voice_quality": 8.807500000000001,
+          "voice_quality": 9.4575,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.835,
-          "voice_articulation": 10.334999999999999,
+          "voice_vibrato": 5.985,
+          "voice_articulation": 10.984999999999996,
           "voice_microtone": 12.579999999999998,
-          "voice_tradition": 7.635,
-          "voice_mechanism_compound": 20.709999999999997,
-          "voice_estill_quality": 2.5349999999999997,
-          "voice_speech_song": 11.179999999999994,
-          "voice_ensemble_config": 9.425,
+          "voice_tradition": 8.135,
+          "voice_mechanism_compound": 21.21,
+          "voice_estill_quality": 2.3725,
+          "voice_speech_song": 11.829999999999995,
+          "voice_ensemble_config": 10.464999999999995,
           "voice_ornament_system": 2.3000000000000003,
-          "voice_pitch_organization": 4.375000000000001,
+          "voice_pitch_organization": 4.525000000000001,
           "voice_processing_chain": 7.745,
-          "voice_multitrack_stack": 7.15
+          "voice_multitrack_stack": 6.110000000000001
         }
       }
     ],

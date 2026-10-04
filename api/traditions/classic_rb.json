@@ -5,7 +5,7 @@
   "lineage": "Atlantic Records New York 1948-1962 small-combo R&B canon — Ruth Brown, LaVern Baker, the Drifters, Ray Charles I Got a Woman and What Did I Say, Big Joe Turner Shake Rattle and Roll, the Coasters — tracked by Tom Dowd at Atlantic Studios 11 West 60th Street with a recurring NYC session rhythm section, distinct from later Stax / Motown / Philly Soul subgenres",
   "recipe": "classic North American classic r&b, functional Song, soul R&B branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, wide pitch sway, multi note runs per syllable. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled brushes-and-sticks drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble honking saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 659,
-  "score": 386.611,
+  "score": 386.971,
   "config": {
     "traditions": [
       "classic_rb",
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 12.606499999999997,
-          "amp_make": 18.746499999999997,
+          "amp_make": 18.896499999999996,
           "body_wood": 0.78,
           "neck_wood": 0.78,
           "fretboard": 0.7149999999999999,
@@ -78,7 +78,7 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 37.7205,
+          "keyboard_technique": 37.6755,
           "upright_use": 0.78,
           "upright_piano_size": 1.95
         }
@@ -98,7 +98,7 @@
           "wind_articulation": 13.494499999999997,
           "sax_size": 10.524999999999997,
           "sax_reed": 0.195,
-          "sax_body_alloy": 1.7640000000000002,
+          "sax_body_alloy": 1.614,
           "sax_mouthpiece": 0.65,
           "sax_technique": 10.524999999999999,
           "sax_maker_school": 0
@@ -129,14 +129,14 @@
           "voice_quality": 28.746999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.575,
-          "voice_articulation": 27.875,
+          "voice_vibrato": 5.7250000000000005,
+          "voice_articulation": 28.025,
           "voice_microtone": 15.664999999999992,
-          "voice_tradition": 42.0775,
+          "voice_tradition": 42.0325,
           "voice_mechanism_compound": 4.355,
           "voice_estill_quality": 33.60500000000001,
           "voice_speech_song": 20.929999999999993,
-          "voice_ensemble_config": 23.602,
+          "voice_ensemble_config": 23.752000000000002,
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 0.7149999999999997,
           "voice_processing_chain": 4.2575,

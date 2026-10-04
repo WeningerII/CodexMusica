@@ -2,10 +2,10 @@
   "id": "house_argentino",
   "name": "House argentino",
   "family": "electronic",
-  "lineage": "Argentine house-production and DJ networks with a selected progressive strand represented by Hernán Cattáneo’s Sudbeat label and Mariano Mellino. Mellino’s own account connects work in Berlin and Buenos Aires to a hybrid of Roland drum/keyboard hardware, Maschine and software synthesizers.",
+  "lineage": "Argentine house connects DJs, producers and labels across progressive, deep and other club-oriented styles. Buenos Aires networks and international collaborations helped establish a prominent melodic progressive strand.",
   "recipe": "classic modern house argentino, electronic Dance, house branch. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 312,
-  "score": 23.976,
+  "score": 18.741,
   "config": {
     "traditions": [
       "house_argentino"
@@ -20,10 +20,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.26,
           "sample_bitdepth": 0,
-          "sample_swing": 0.285,
-          "sample_processing": 1.1365
+          "sample_swing": 0.32774999999999993,
+          "sample_processing": 0.1365
         }
       },
       {
@@ -37,8 +37,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "oscillator": 0.39,
-          "filter_topology": 1.38175,
+          "oscillator": 0.4485,
+          "filter_topology": 0,
           "envelope": 0.483,
           "modulation": 0
         }
@@ -53,11 +53,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.26,
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 0.2,
-          "sampler_classic_context": 19.435
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 16.769999999999996
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "latin_american_classical_piano",
   "name": "Latin american classical piano",
   "family": "classical",
-  "lineage": "Latin american classical piano is represented by Jorge Federico Osorio — The French Album. One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic latin american classical piano, art Music, western common practice branch. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 276,
-  "score": 65.371,
+  "lineage": "Latin American classical piano encompasses performers and composers working across regional and international concert traditions. Recitals bring Latin American works into conversation with a broader piano repertoire.",
+  "recipe": "classic latin american classical piano, art Music, western common practice branch. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 268,
+  "score": 64.504,
   "config": {
     "traditions": [
       "latin_american_classical_piano"
@@ -17,7 +17,7 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.86,
-          "grand_piano_size": 0.6105,
-          "grand_piano_brand": 0.7155,
-          "piano_hammer": 10.725,
-          "piano_rim": 10.277,
-          "piano_soundboard": 8.4135,
-          "piano_pinblock": 8.355,
-          "piano_plate": 8.715,
-          "piano_pitch_standard": 9.699
+          "keyboard_technique": 7.554,
+          "grand_piano_size": 0.684,
+          "grand_piano_brand": 0.798,
+          "piano_hammer": 10.6995,
+          "piano_rim": 11.277,
+          "piano_soundboard": 8.6865,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.8805000000000005,
+          "piano_pitch_standard": 9.369499999999999
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Nu Skool Breaks",
   "family": "electronic",
   "lineage": "London breaks style codified 1998-2004 by Adam Freeland, Rennie Pilgrem, Stanton Warriors, Plump DJs and the Marine Parade and TCR labels — 128-135 BPM two-step-influenced chopped breakbeat with a techno-tight kick, growling filtered or reese basslines, dub-siren effects and heavy sidechain compression, arranged with long tension-building filter sweeps rather than song forms.",
-  "recipe": "classic mid-2000s nu skool breaks, bass System, bass descendants branch, uk soundsystem bass system, tech house house, techno electronic dance breakbeat hardcore belgian techno. thick, breath veiled tone, interlocked note trading, neutral third half flat. sampler drum machine, monosynth acid bass, low sub bass analog poly low sub bass wavetable synth, turntable. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 558,
-  "score": 162.3,
+  "recipe": "classic mid-2000s nu skool breaks, bass System, bass descendants branch, uk soundsystem bass system, tech house house, techno electronic dance breakbeat hardcore belgian techno. thick, breath veiled tone, interlocked note trading, neutral third half flat. sampler drum machine, low sub bass monosynth acid bass, low sub bass analog poly low sub bass wavetable synth, turntable. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 571,
+  "score": 162.835,
   "config": {
     "traditions": [
       "nu_skool_breaks",
@@ -24,20 +24,20 @@
         "scores": {
           "electronic_technique": 2.2099999999999995,
           "sample_bitdepth": 0.195,
-          "sample_swing": 12.545,
+          "sample_swing": 13.419999999999998,
           "sample_processing": 0.975
         }
       },
       {
         "id": "monosynth_acid_bass",
         "slots": {
-          "electronic_technique": "electronic_acid_squelch",
+          "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 10.5,
+          "electronic_technique": 9.815000000000001,
           "wave_acid": 0.345,
           "filter_acid": 0.845,
           "accent_acid": 0.375
@@ -52,7 +52,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 10.464999999999998,
+          "electronic_technique": 9.815000000000001,
           "poly_archetypes": 0.3,
           "poly_voices": 0,
           "poly_maker_lineage": -1.085
@@ -67,8 +67,8 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 10.464999999999998,
-          "wt_position": 7.15,
+          "electronic_technique": 9.815000000000001,
+          "wt_position": 7.6049999999999995,
           "wt_family": 0.15,
           "wt_polyphony": 0.045
         }
@@ -77,11 +77,11 @@
         "id": "turntable",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_chirp_baby"
+          "turntable_technique": "turntable_backspin"
         },
         "scores": {
           "electronic_technique": 2.2099999999999995,
-          "turntable_technique": 0
+          "turntable_technique": 0.12999999999999998
         }
       },
       {
@@ -106,21 +106,21 @@
         },
         "scores": {
           "voice_register": 1.9699999999999995,
-          "voice_quality": 4.940000000000001,
+          "voice_quality": 4.745000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.39,
           "voice_articulation": 15.339999999999998,
           "voice_microtone": 17.029999999999994,
-          "voice_tradition": 4.290000000000001,
+          "voice_tradition": 4.550000000000001,
           "voice_mechanism_compound": 2.9899999999999998,
           "voice_estill_quality": 2.7950000000000004,
-          "voice_speech_song": 16.835,
+          "voice_speech_song": 16.639999999999997,
           "voice_ensemble_config": 15.665,
           "voice_ornament_system": 4.745,
           "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 13.64,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_processing_chain": 14.514999999999997,
+          "voice_multitrack_stack": 3.77
         }
       }
     ],

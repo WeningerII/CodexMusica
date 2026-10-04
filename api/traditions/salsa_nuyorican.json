@@ -3,9 +3,9 @@
   "name": "Salsa (Nuyorican)",
   "family": "global",
   "lineage": "New York Puerto Rican-Cuban-Latin diaspora dance-music codified through the Fania All-Stars canon (1968-1977) with Hector Lavoe, Willie Colón, Celia Cruz, Eddie Palmieri, Rubén Blades",
-  "recipe": "classic North American mid-1970s salsa, groove Percussion, son salsa branch, American jazz bop cool jazz / west coast classic japanese jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris lyrical saxophone, claves, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre.",
-  "recipe_chars": 980,
-  "score": 291.175,
+  "recipe": "classic North American mid-1970s salsa, groove Percussion, son salsa branch, American jazz bop cool jazz / west coast classic japanese jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris lyrical saxophone, claves, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre.",
+  "recipe_chars": 987,
+  "score": 337.832,
   "config": {
     "traditions": [
       "salsa_nuyorican",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 12.649999999999997,
-          "voice_quality": 4.972500000000001,
+          "voice_register": 15.299999999999997,
+          "voice_quality": 4.842500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.515,
-          "voice_articulation": 3.5100000000000002,
-          "voice_microtone": 12.99,
-          "voice_tradition": 17.1275,
+          "voice_vibrato": 15.225,
+          "voice_articulation": 5.655000000000001,
+          "voice_microtone": 15.594999999999999,
+          "voice_tradition": 20.085,
           "voice_mechanism_compound": 1.6899999999999997,
           "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 3.705,
-          "voice_ensemble_config": 4.29,
-          "voice_ornament_system": 0.045,
+          "voice_speech_song": 5.850000000000001,
+          "voice_ensemble_config": 6.630000000000002,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0.6499999999999999,
           "voice_processing_chain": 1.6899999999999997,
-          "voice_multitrack_stack": 1.0724999999999998
+          "voice_multitrack_stack": 0.65
         }
       },
       {
@@ -57,24 +57,24 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "fazioli",
+          "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 0.9750000000000001,
+          "keyboard_technique": 1.2675,
           "grand_piano_size": 0.845,
-          "grand_piano_brand": 0.39,
+          "grand_piano_brand": 0.195,
           "piano_hammer": 3.25,
           "piano_rim": 3.25,
-          "piano_soundboard": 0.565,
-          "piano_pinblock": 0.42249999999999993,
-          "piano_plate": 0.4875,
-          "piano_pitch_standard": 1.7224999999999997
+          "piano_soundboard": 1.29,
+          "piano_pinblock": 1.38,
+          "piano_plate": 1.445,
+          "piano_pitch_standard": 2.275
         }
       },
       {
@@ -90,13 +90,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.7775,
+          "amp_make": 4.5825000000000005,
           "body_wood": 0.43499999999999994,
           "pickup_config": 0.345,
-          "string_type": 16.7375,
-          "scale_length_b": 0.18,
-          "fretted_or_not": 0.045,
-          "bass_technique": 13.07,
+          "string_type": 19.5,
+          "scale_length_b": 0.135,
+          "fretted_or_not": 0,
+          "bass_technique": 15.15,
           "electric_bass_string_configuration": 0
         }
       },
@@ -109,10 +109,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.5900000000000003,
-          "conga_set": 0.045,
-          "conga_skin": 3.3449999999999998,
-          "conga_shell_wood": 3.3449999999999998
+          "percussion_technique": 3.524,
+          "conga_set": 0.174,
+          "conga_skin": 3.969,
+          "conga_shell_wood": 3.969
         }
       },
       {
@@ -123,8 +123,8 @@
           "timbales_context": "timbales_descarga"
         },
         "scores": {
-          "percussion_technique": 3.5900000000000003,
-          "timbales_shell": 6.695,
+          "percussion_technique": 3.524,
+          "timbales_shell": 7.8,
           "timbales_context": 0.39
         }
       },
@@ -137,10 +137,10 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.5900000000000003,
-          "bongos_skin": 7.845000000000001,
+          "percussion_technique": 3.524,
+          "bongos_skin": 8.794,
           "bongos_context": 0.39,
-          "bongos_shell_wood": 3.3449999999999998
+          "bongos_shell_wood": 3.969
         }
       },
       {
@@ -157,9 +157,9 @@
         "scores": {
           "wind_articulation": 5.745,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 16.7375,
+          "trumpet_mouthpiece": 19.5,
           "brass_mute": 2.5349999999999997,
-          "trumpet_technique": 3.6249999999999996,
+          "trumpet_technique": 4.5,
           "trumpet_bell_metal": 0.845,
           "trumpet_maker_school": 4.159999999999999
         }
@@ -176,11 +176,11 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 3.6249999999999996,
-          "trombone_type": 12.875,
-          "trombone_mouthpiece": 12.825,
+          "wind_articulation": 4.5,
+          "trombone_type": 15.195,
+          "trombone_mouthpiece": 14.95,
           "trombone_mute": 0,
-          "trombone_technique": 1.04,
+          "trombone_technique": 0.845,
           "trombone_bell_metal": 0.845,
           "trombone_maker_school": 4.159999999999999
         }
@@ -198,23 +198,23 @@
         },
         "scores": {
           "wind_articulation": 5.745,
-          "sax_size": 4.015,
+          "sax_size": 4.89,
           "sax_reed": 0.195,
-          "sax_body_alloy": 13.25,
+          "sax_body_alloy": 16.25,
           "sax_mouthpiece": 0.195,
-          "sax_technique": 12.875,
-          "sax_maker_school": 15.470000000000002
+          "sax_technique": 15,
+          "sax_maker_school": 17.68
         }
       },
       {
         "id": "claves",
         "slots": {
           "claves_pattern": "claves_son_2_3",
-          "claves_wood": "claves_cuban_hardwood"
+          "claves_wood": "claves_hollowed"
         },
         "scores": {
-          "claves_pattern": 6.695,
-          "claves_wood": 0.65
+          "claves_pattern": 7.8,
+          "claves_wood": 0.195
         }
       },
       {
@@ -222,12 +222,12 @@
         "slots": {
           "cencerro_bell_type": "cencerro_mambo_bell",
           "cencerro_context": "cencerro_charanga",
-          "cencerro_build": "cencerro_cattle_bell"
+          "cencerro_build": "cencerro_welded_steel"
         },
         "scores": {
           "cencerro_bell_type": 0.39,
           "cencerro_context": 0.845,
-          "cencerro_build": 0.195
+          "cencerro_build": 0.045
         }
       }
     ],

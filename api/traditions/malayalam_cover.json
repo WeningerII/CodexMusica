@@ -1,11 +1,11 @@
 {
   "id": "malayalam_cover",
   "name": "Malayalam Cover",
-  "family": "electronic",
-  "lineage": "Shruti and Michael — Moham Kondu (2020), exact cover. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2020s malayalam cover, experimental Elec, ambient branch. electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 203,
-  "score": 0.516,
+  "family": "pop",
+  "lineage": "Malayalam cover music reinterprets Malayalam-language songs, including familiar film repertoire, through new singers, arrangements and recording formats.",
+  "recipe": "classic malayalam cover, functional Song. solo with instrumental accompaniment. electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 127,
+  "score": 1.768,
   "config": {
     "traditions": [
       "malayalam_cover"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.2445,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.0315
+          "keyboard_technique": 0
         }
       }
     ],
@@ -89,15 +89,15 @@
         "keyboard_technique"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -106,7 +106,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -128,12 +128,6 @@
       "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
       "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

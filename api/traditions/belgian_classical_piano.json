@@ -2,10 +2,10 @@
   "id": "belgian_classical_piano",
   "name": "Belgian classical piano",
   "family": "classical",
-  "lineage": "Belgian classical piano is represented by Florian Noack — solo piano transcriptions. A documented solo-piano branch is given an authored present-day recording realization. Primary sources establish artist identity, repertoire, role and locality; exact grand-piano construction, legato default, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or a universal national style.",
+  "lineage": "Belgian classical piano encompasses performers and institutions working across the international concert repertoire. Solo recitals, chamber collaborations and the art of transcription contribute to this performance field.",
   "recipe": "classic belgian classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 268,
-  "score": 73.004,
+  "score": 60.94,
   "config": {
     "traditions": [
       "belgian_classical_piano"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 9.43,
+          "keyboard_technique": 7.554,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.8520000000000001,
-          "piano_hammer": 11.6745,
-          "piano_rim": 9.9135,
-          "piano_soundboard": 9.4365,
-          "piano_pinblock": 9.105,
-          "piano_plate": 9.484499999999999,
-          "piano_pitch_standard": 12.717499999999998
+          "grand_piano_brand": 0.9345000000000001,
+          "piano_hammer": 9.685,
+          "piano_rim": 8.6365,
+          "piano_soundboard": 9.096,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.954000000000001,
+          "piano_pitch_standard": 9.1345
         }
       }
     ],

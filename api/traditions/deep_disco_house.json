@@ -5,7 +5,7 @@
   "lineage": "Disco-informed deep-house intersection represented by COEO and the Toy Tonics network: sample-based funk, soul and disco material joins a rounded bass pocket and chordal accompaniment. This selected strand uses the deeper harmonic groove rather than requiring the heavy filter-sweep arrangement of the broad disco-house record.",
   "recipe": "classic modern deep disco house, electronic Dance, deep house branch, soul R&B functional song british soul detroit house. sampler, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, chordal centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, drum machine analog. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter phaser.",
   "recipe_chars": 483,
-  "score": 150.089,
+  "score": 150.013,
   "config": {
     "traditions": [
       "deep_disco_house",
@@ -43,10 +43,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 23.651374999999994,
+          "amp_make": 23.574874999999995,
           "body_wood": 1.04,
           "pickup_config": 0.3765,
-          "string_type": 26.096874999999994,
+          "string_type": 26.249874999999996,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.15,
           "bass_technique": 23.282125,
@@ -65,8 +65,8 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "rhodes_model": 3.7689999999999997,
-          "rhodes_use": 2.694,
+          "rhodes_model": 3.6925,
+          "rhodes_use": 2.6175,
           "rhodes_tine_material": 0.2025,
           "rhodes_hammer_tip": -0.2799999999999999,
           "rhodes_pickup_position": 1.2349999999999999

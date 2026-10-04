@@ -5,7 +5,7 @@
   "lineage": "The broad heavy-metal tradition — high-gain distorted-guitar music that emerged from hard rock into a distinct genre of amplified aggression, volume, and virtuosity",
   "recipe": "classic North American mid-1990s metal, distorted Rock, thrash branch. thick, breath veiled tone, interlocked note trading, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 proco RAT.",
   "recipe_chars": 632,
-  "score": 128.208,
+  "score": 128.313,
   "config": {
     "traditions": [
       "metal"
@@ -29,17 +29,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 17.0365,
+          "electric_technique": 17.005000000000003,
           "amp_make": 7.67,
           "body_wood": 5.719999999999999,
           "neck_wood": 0.5835,
-          "fretboard": 0.5325,
-          "pickup_magnet": 2.105,
+          "fretboard": 0.7424999999999999,
+          "pickup_magnet": 2,
           "pickup_winding": 0.1785,
           "string_material": 0.18525,
-          "bridge": 0.6059999999999999,
+          "bridge": 0.6794999999999999,
           "scale_length": 5.719999999999999,
-          "string_gauge": 0.9195,
+          "string_gauge": 0.8565,
           "finish": 0,
           "string_tuning": 9.75
         }
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 4.485,
-          "body_wood": 1.3155000000000001,
-          "pickup_config": 0.837,
+          "body_wood": 1.4625000000000001,
+          "pickup_config": 0.8789999999999999,
           "string_type": 8.125,
           "scale_length_b": 0.5835,
-          "fretted_or_not": 0.1995,
-          "bass_technique": 8.263,
+          "fretted_or_not": 0.168,
+          "bass_technique": 8.2945,
           "electric_bass_string_configuration": 0
         }
       },
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.6885,
+          "drumhead": 0.657,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -107,16 +107,16 @@
           "voice_effort": 0,
           "voice_vibrato": 0.39,
           "voice_articulation": 2.665000000000001,
-          "voice_microtone": 6.105000000000001,
+          "voice_microtone": 6.073500000000001,
           "voice_tradition": 2.7950000000000004,
-          "voice_mechanism_compound": 16.04,
+          "voice_mechanism_compound": 16.008499999999998,
           "voice_estill_quality": 0.9179999999999998,
           "voice_speech_song": 2.665000000000001,
           "voice_ensemble_config": 2.600000000000001,
           "voice_ornament_system": 0.15000000000000002,
           "voice_pitch_organization": 0.3,
           "voice_processing_chain": 1.20275,
-          "voice_multitrack_stack": 1.332
+          "voice_multitrack_stack": 1.2585000000000002
         }
       }
     ],

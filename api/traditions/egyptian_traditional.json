@@ -2,15 +2,98 @@
   "id": "egyptian_traditional",
   "name": "Egyptian traditional",
   "family": "vernacular",
-  "lineage": "Muhammad El-Arabi — complete Darabukka solo, UNESCO UNES08038_106. Smithsonian Folkways issues Muhammad El-Arabi Darabukka solo as complete track6 UNES08038_106,3:58,1971, explicitly instrumental and credited only to El-Arabi on darabukka. Original UNESCO booklet identifies an earthenware single-skin drum and successive sama i thaqil10/8, darij3/4, nawakht7/8, aksak9/8, murabba13/4 and mukhammas16/8 rhythmic patterns, ending in a variation. No melodic instruments or singers from the other compilation tracks enter this complete solo scope. One clay darabukka preserves positively documented material and whole solo palette. Fish-skin membrane, Egyptian playing-school preset and open/slap hand technique are coherent authored traditional Egyptian choices; the source does not identify skin species, exact drum size or a Sombaty model. The existing Egyptian style label is an editorial regional realization, not an exact historical construction claim. Broad improvOnFrame follows the documented succession of rhythmic frames and final variation, not a melodic maqam imposed on an unpitched drum. Controlled live-room acoustic is authored, with unknown capture hardware and global tuning omitted. Rendered up-tempo wording is authored energetic solo affect, not a measured BPM claim about all source rhythmic sections.",
-  "recipe": "classic early-1970s egyptian traditional, improv On Frame. clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka. live tracking.",
-  "recipe_chars": 208,
-  "score": 33.035,
+  "lineage": "Egyptian traditional music encompasses urban art-song, regional folk, devotional and instrumental traditions. Cairo’s takht heritage is one influential strand within a wider landscape that also includes Upper Egyptian, Nubian and Coptic repertoires.",
+  "recipe": "classic egyptian traditional, improv On Frame. neutral third half flat, solo with instrumental accompaniment. oud, qanun, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka. live tracking.",
+  "recipe_chars": 251,
+  "score": 27.483,
   "config": {
     "traditions": [
       "egyptian_traditional"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "arabic_maqam_tradition",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_melismatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 13.974999999999994,
+          "voice_tradition": 0.19500000000000003,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.0945,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": -0.15000000000000002,
+          "voice_pitch_organization": -0.15000000000000002,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.35700000000000004,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.18150000000000002,
+          "oud_school": 0.1365,
+          "oud_strings": 0,
+          "oud_pick": 0.273,
+          "oud_body_wood": 0,
+          "oud_soundboard_wood": 0,
+          "oud_string_material": 0
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_finger_picks",
+          "qanun_body_wood": "qanun_walnut_body",
+          "qanun_bridge_skin": "qanun_goat_skin_bridge",
+          "qanun_string_material": "qanun_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.18150000000000002,
+          "qanun_strings": 0,
+          "qanun_levers": 0.168,
+          "qanun_pick": 0.0315,
+          "qanun_body_wood": 0,
+          "qanun_bridge_skin": 0,
+          "qanun_string_material": 0.168
+        }
+      },
       {
         "id": "darbuka",
         "slots": {
@@ -20,14 +103,51 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 7.8260000000000005,
-          "darbuka_material": 4.504499999999999,
-          "darbuka_skin": 13.904499999999999,
-          "darbuka_regional_style": 6.799999999999999
+          "percussion_technique": 0.26,
+          "darbuka_material": 2.231,
+          "darbuka_skin": 5.231,
+          "darbuka_regional_style": 3
         }
       }
     ],
     "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick",
+        "oud_body_wood",
+        "oud_soundboard_wood",
+        "oud_string_material"
+      ],
+      "qanun": [
+        "plucked_traditional_technique",
+        "qanun_strings",
+        "qanun_levers",
+        "qanun_pick",
+        "qanun_body_wood",
+        "qanun_bridge_skin",
+        "qanun_string_material"
+      ],
       "darbuka": [
         "percussion_technique",
         "darbuka_material",
@@ -52,6 +172,36 @@
   "source": {
     "room": "live_room",
     "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "maqam_inflected",
+      "voice_tradition": "arabic_maqam_tradition",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_plastic",
+      "oud_body_wood": "oud_walnut_body",
+      "oud_soundboard_wood": "oud_spruce_face",
+      "oud_string_material": "oud_pyramid_nylon",
+      "qanun_strings": "qanun_arab_72",
+      "qanun_levers": "mandal_brass",
+      "qanun_pick": "qanun_finger_picks",
+      "qanun_body_wood": "qanun_walnut_body",
+      "qanun_bridge_skin": "qanun_goat_skin_bridge",
+      "qanun_string_material": "qanun_nylon_modern",
       "percussion_technique": "percussion_open_slap",
       "darbuka_material": "darbuka_clay_traditional",
       "darbuka_skin": "darbuka_fish_skin",

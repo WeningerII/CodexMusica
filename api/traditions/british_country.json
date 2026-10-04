@@ -3,9 +3,9 @@
   "name": "British country",
   "family": "vernacular",
   "lineage": "British country includes local songwriting and transatlantic studio collaboration. The Shires’ documented UK country career provides a selected contemporary vocal-duo branch.",
-  "recipe": "classic modern british country, functional Song, contemp main branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. dreadnought acoustic guitar, a 440 modern pitch us standard grand piano. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 349,
-  "score": 54.39,
+  "recipe": "classic modern british country, functional Song, contemp main branch. thick, breath veiled tone, straight note core, neutral third half flat. dreadnought acoustic guitar, a 440 modern pitch us standard grand piano. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 352,
+  "score": 54.54,
   "config": {
     "traditions": [
       "british_country"
@@ -18,7 +18,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
@@ -32,19 +32,19 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 11.085999999999995,
+          "voice_register": 11.117499999999994,
           "voice_quality": 1.6899999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.2,
+          "voice_vibrato": 11.203999999999999,
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 2.470000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.6,
-          "voice_estill_quality": 11.686999999999998,
+          "voice_mechanism_compound": 0.6419999999999999,
+          "voice_estill_quality": 11.760499999999999,
           "voice_speech_song": 4.615000000000001,
           "voice_ensemble_config": 0.18150000000000002,
-          "voice_ornament_system": 0.0315,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 4.1594999999999995,
           "voice_multitrack_stack": 1.69
@@ -60,7 +60,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.105,
           "back_sides": 0.3045,

@@ -2,10 +2,10 @@
   "id": "pontianak_indie",
   "name": "Pontianak indie",
   "family": "rock",
-  "lineage": "Stromberry Blue — See You Darling, full six-song Dirtwave EP. Official independent label Dirtwave publishes the complete six-song See You Darling EP with vocals and guitars by Ori Natasha and Gian Pangestu, bass Adi Moh, trumpet Wikry Mok, synthesizer Ario Perdana, drums Andhanika Budang. Retain all six families and both explicitly credited singers across the full EP. Two guitar performers aggregate into one family card; no independent per-guitar gestures inferred. Bare synthesizer is represented by architecture-unspecified credited synthesis, not guessed analog hardware. The earlier2023 band press statement corroborates Pontianak origin and alternative pop practice, but does not override the later EP guest trumpet/synth or second vocal credit. Label publication date2026 differs from press accounts of earlier physical issue; the selected full label edition defines scope, not an invented session date. Pontianak indie is a local independent community, not a unique timbre inferred from geography. Fresh creator map names Manjakani, LAS!, Coffternoon and other local acts; selected Stromberry Blue is not claimed as map member. The band’s supplied2023 statement places its alternative pop practice in Pontianak. Record Store Day Pontianak media partner Radio Volare reports organizer-defined independent physical-release community since2014, expressly featuring this EP, band and Dirtwave alongside Manjakani and other local institutions. This positively substantiates regional network beyond one artist address. Actual Indonesian indie pop/rock national fields overlap; local boundary does not assert they exclude Pontianak. Alternative/dream-pop/shoegaze release classification supports selected alternative node. Coherent alder/maple humbucker power-chord guitar, alder/maple dual-single-coil fingerstyle bass and rock kit are authored modern realizations, not actual source hardware. Authored trumpet Bb/unmuted punchy playing is not measured source technique. Duet/live-ensemble stack combines two credited voices editorially, not simultaneous/no-overdub recording fact. Controlled live room and omitted global tuning/apparatus are authored.",
-  "recipe": "classic pontianak indie, distorted Rock, alternative branch. duet, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral student friendly ensemble trumpet, credited synthesizer unspecified. live tracking.",
-  "recipe_chars": 464,
-  "score": 136.81,
+  "lineage": "Pontianak indie connects independent bands, labels and physical-release communities in Pontianak, West Kalimantan. Local events and collaborations support varied pop, rock and experimental approaches within Indonesia’s broader independent field.",
+  "recipe": "classic pontianak indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, credited synthesizer unspecified. live tracking.",
+  "recipe_chars": 349,
+  "score": 39.992,
   "config": {
     "traditions": [
       "pontianak_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.199999999999999,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.2,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 6.6095,
-          "neck_wood": 2.7049999999999996,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 4.872999999999999,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 6.6095,
+          "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 1.7365000000000002,
+          "drum_technique": 8.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.7415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 1.405,
+          "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 29.0315,
-          "cymbal_lathing": 34.0365,
+          "cymbal_hammering": 11.231499999999999,
+          "cymbal_lathing": 11.3365,
           "cymbal_finish": 0
         }
       },
@@ -149,11 +149,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.15,
+          "wind_articulation": -0.15000000000000002,
           "brass_size": 0.105,
-          "trumpet_mouthpiece": 3.305,
-          "brass_mute": 3.8729999999999998,
-          "trumpet_technique": 1.15,
+          "trumpet_mouthpiece": -0.07,
+          "brass_mute": 0.273,
+          "trumpet_technique": -0.15000000000000002,
           "trumpet_bell_metal": 1.2285,
           "trumpet_maker_school": 2.1525
         }

@@ -2,10 +2,10 @@
   "id": "j_ambient",
   "name": "J-ambient",
   "family": "electronic",
-  "lineage": "A broad Japanese ambient discovery grouping spanning electronic environmental composition and later studio electroacoustic work. Hiroshi Yoshimura’s GREEN documents a Tokyo home-studio FM approach; Eiko Ishibashi’s For McCoy documents a later collage practice with synthesizers, field recordings and acoustic collaborators. The default is an authored electronic subset, not a reconstruction of either album.",
-  "recipe": "classic j-ambient, experimental Elec, ambient branch, musique concrete experimental electric. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity sustained fm synth, sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
-  "recipe_chars": 323,
-  "score": 26.005,
+  "lineage": "Japanese ambient music spans the environmental music of the 1980s and later electronic and electroacoustic experimentation. Home-studio synthesis, restrained melodic patterns and attention to listening space connect its varied generations.",
+  "recipe": "classic mid-1980s j-ambient, experimental Elec, ambient branch, musique concrete experimental electric. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity sustained fm synth, sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
+  "recipe_chars": 333,
+  "score": 23.535,
   "config": {
     "traditions": [
       "j_ambient"
@@ -21,7 +21,7 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 8.75,
+          "electronic_technique": 8.795,
           "fm_algorithm": 0,
           "fm_modulator_ratio": 0,
           "fm_polyphony": 0.315,
@@ -38,11 +38,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 8.75,
-          "sampler_archetypes": 5.75,
+          "electronic_technique": 8.795,
+          "sampler_archetypes": 2.5,
           "sampler_bit_depth": 0.525,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 0.39
+          "sampler_classic_context": 1.08
         }
       }
     ],

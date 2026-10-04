@@ -3,14 +3,14 @@
   "name": "Turntablism",
   "family": "hip_hop",
   "lineage": "Codified in the Bronx from Grand Wizzard Theodore's mid-1970s scratch discovery and formalized as a solo discipline by the Invisibl Skratch Piklz and X-Ecutioners through DMC and ITF championships (1990s), it treats two turntables and a crossfader as an instrument — baby, transformer, flare, and crab scratches over cut breakbeats at 90-100 BPM, with beat-juggling of doubled records and battle-record sample vocabulary.",
-  "recipe": "classic North American 1974-1976 turntablism, mc Rhythm, experimental branch, us hip hop east coast, musique concrete experimental electric, us hip hop west coast asian-american hip hop g-funk. kargyraa, rap, slow rate, interlocked note trading. sampled chopped turntable, pitched chopped sampler, TR-808, low mid rich spectrum low-mid-thick mahogany electric bass. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-  "recipe_chars": 618,
-  "score": 201.735,
+  "recipe": "classic North American 1974-1976 turntablism, mc Rhythm, experimental branch, us hip hop east coast, musique concrete experimental electric, us hip hop west coast g-funk oakland hip-hop. kargyraa, rap, slow rate, interlocked note trading. sampled chopped turntable, pitched chopped sampler, TR-808, mahogany pyramid pure nickel bass British mid 60s era electric bass. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 620,
+  "score": 237.205,
   "config": {
     "traditions": [
       "turntablism",
-      "asian_american_hip_hop",
-      "g_funk"
+      "g_funk",
+      "oakland_hip_hop"
     ],
     "instruments": [
       {
@@ -20,8 +20,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 7.959999999999999,
-          "turntable_technique": 9.12
+          "electronic_technique": 8.260000000000002,
+          "turntable_technique": 10.395
         }
       },
       {
@@ -34,11 +34,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 7.959999999999999,
-          "sampler_archetypes": 12.869999999999997,
-          "sampler_bit_depth": 1.17,
-          "sampler_workflow": 8.704999999999998,
-          "sampler_classic_context": 23.432499999999997
+          "electronic_technique": 8.260000000000002,
+          "sampler_archetypes": 13.39,
+          "sampler_bit_depth": 1.3649999999999998,
+          "sampler_workflow": 8.855,
+          "sampler_classic_context": 29.1525
         }
       },
       {
@@ -49,7 +49,7 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 8.055,
+          "tr808_voice": 9.155000000000001,
           "drum_machine_808_context": 2.01,
           "tr808_production_origin": 0.325
         }
@@ -67,7 +67,7 @@
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
@@ -76,21 +76,21 @@
         },
         "scores": {
           "voice_register": 0.8949999999999999,
-          "voice_quality": 17.875,
+          "voice_quality": 18.6875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 13.194999999999993,
-          "voice_microtone": 12.999999999999991,
-          "voice_tradition": 8.735,
-          "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 18.025,
-          "voice_ensemble_config": 13.974999999999993,
-          "voice_ornament_system": 5.330000000000002,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 9.899999999999999,
-          "voice_multitrack_stack": 4.385000000000001
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 18.524999999999995,
+          "voice_microtone": 18.32999999999999,
+          "voice_tradition": 8.885000000000002,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 18.914999999999996,
+          "voice_ensemble_config": 20.344999999999995,
+          "voice_ornament_system": 6.240000000000002,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 9.825,
+          "voice_multitrack_stack": 4.735000000000001
         }
       },
       {
@@ -99,20 +99,20 @@
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "half_round",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "slap_pop",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.2349999999999997,
-          "body_wood": 1.4949999999999999,
+          "amp_make": 2.0799999999999996,
+          "body_wood": 1.6899999999999997,
           "pickup_config": 0.15,
-          "string_type": 1.4949999999999999,
-          "scale_length_b": 1.6899999999999997,
+          "string_type": 2.6000000000000005,
+          "scale_length_b": 1.8849999999999996,
           "fretted_or_not": 0.7999999999999999,
-          "bass_technique": 4.05,
+          "bass_technique": 6.049999999999999,
           "electric_bass_string_configuration": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Moussa Koita — Setou Setou, Burkina Faso children’s repertoire. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic comptine africaine, nursery Rhyme, sub saharan African branch. duet, live take. acoustic guitar, djembe. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 211,
-  "score": 2.561,
+  "score": 2.464,
   "config": {
     "traditions": [
       "comptine_africaine"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.72,
+          "voice_ensemble_config": 0.6224999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

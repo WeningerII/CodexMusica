@@ -2,10 +2,10 @@
   "id": "himachali_pop",
   "name": "Himachali pop",
   "family": "rock",
-  "lineage": "Moksh — Tatva, complete label-issued2018 album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic himachali pop, distorted Rock. duet, unprocessed natural acoustic. conventional tuning standard pitch humbucker electric guitar, electric bass, credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 284,
-  "score": 17.366,
+  "lineage": "Himachali pop brings regional song and identity into contemporary popular recording and performance. Artists range across acoustic, electronic and amplified-band settings; Moksh illustrates a rock-based reinterpretation of inherited repertoire.",
+  "recipe": "classic himachali pop, distorted Rock. unprocessed natural acoustic. humbucker electric guitar, electric bass, drum machine analog. live tracking.",
+  "recipe_chars": 146,
+  "score": 10.904,
   "config": {
     "traditions": [
       "himachali_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.189,
-          "voice_ensemble_config": 0.6,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.78,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 1.231,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.6315,
-          "neck_wood": 0.3,
+          "body_wood": 0.0315,
+          "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.08,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 2.0365
+          "string_tuning": 0
         }
       },
       {
@@ -99,22 +99,28 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6315,
-          "pickup_config": 0.663,
+          "body_wood": 0.0315,
+          "pickup_config": 0.063,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 9.304999999999998,
+          "bass_technique": 8.805,
           "electric_bass_string_configuration": 0
         }
       },
       {
-        "id": "credited_electronics_unspecified",
+        "id": "drum_machine_analog",
         "slots": {
-          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "credited_electronics_identity": 0
+          "kick_voice": 0,
+          "snare_voice": 0.0315,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
@@ -163,26 +169,29 @@
         "bass_technique",
         "electric_bass_string_configuration"
       ],
-      "credited_electronics_unspecified": [
-        "credited_electronics_identity"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -194,7 +203,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -220,14 +229,11 @@
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
       "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "credited_electronics_identity": "credited_electronics_generator_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

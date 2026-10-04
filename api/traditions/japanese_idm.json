@@ -2,10 +2,10 @@
   "id": "japanese_idm",
   "name": "Japanese idm",
   "family": "electronic",
-  "lineage": "Japanese idm is represented by Yosi Horikawa — Wandering field-sampling core. One documented branch receives an authored present-day studio realization.",
+  "lineage": "Japanese IDM connects exploratory electronic composition with detailed rhythmic programming and sound design.",
   "recipe": "classic japanese idm, experimental Elec, idm glitch branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 182,
-  "score": 2.97,
+  "score": 4.954,
   "config": {
     "traditions": [
       "japanese_idm"
@@ -17,19 +17,22 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": -0.07,
           "sample_bitdepth": 0.0735,
-          "sample_swing": 2.5,
-          "sample_processing": 0.1365
+          "sample_swing": 5,
+          "sample_processing": -0.05
         }
       }
     ],
     "pinned": {
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "chopped_break"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -2,10 +2,10 @@
   "id": "musica_blumenauense",
   "name": "Música blumenauense",
   "family": "pop",
-  "lineage": "Eu & Minha Banda — complete five-person performing palette documented by its artist-owned biography and full member page. Martin Erich Rodacki and Luiz Rodacki sing and play acoustic guitar; Otávio also sings, plays acoustic guitar and percussion; Gabriel plays bass; Paulo Rodacki (Quilha) plays electric guitar and cello. All six sounding families and three named vocal contributors are retained. The shortened biography omits some member-page doubles; this union includes them. This is the documented ensemble practice, not a claim every role sounds on Se você deixar or a single album session. Representative new recording of the complete source-positive palette. Steel-string dreadnought, clean-strummed electric humbucker, fingerstyle electric bass and modern bowed cello are explicitly authored implementations of credited guitar/bass/cello roles, not measured source hardware or techniques. Acoustic guitar is not asserted to have source-specified strings. Source-unspecified percussion retains its neutral existing owner, with no invented drum/shaker. Three vocal contributors receive an authored live-group union and small-note-group neumatic phrasing with neutral physiological controls, not a transcription or claim simultaneous original harmony. Broad functionalSong applies to this self-described pop/MPB song ensemble and its authored recurring verse/refrain chordal realization, not the whole city. No global tuning or capture chain is asserted.",
-  "recipe": "classic música blumenauense, functional Song. small note groups per syllable, group vocals, unprocessed natural acoustic, live take. strummed open chord ringing overtones dreadnought acoustic alder conventional tuning standard pitch clean strummed humbucker electric guitar, alder fingerstyle locked electric bass, synthetic European maple bosnian source flamed figure oil varnish cello, credited auxiliary percussion. live tracking.",
-  "recipe_chars": 433,
-  "score": 77.93,
+  "lineage": "Música blumenauense connects Blumenau’s musicians, venues and independent cultural organizations. Authorial music ranges from rock to MPB and acoustic pop, with regional collaboration supporting varied approaches.",
+  "recipe": "classic música blumenauense, functional Song. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic clean strummed humbucker electric guitar, electric bass, cello, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 244,
+  "score": 13.47,
   "config": {
     "traditions": [
       "musica_blumenauense"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.0905000000000005,
-          "voice_ensemble_config": 6.772999999999999,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 4.667999999999999,
-          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 7.749999999999999,
+          "acoustic_technique": 4.95,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
@@ -87,19 +87,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 9.049999999999997,
+          "electric_technique": 4.95,
           "amp_make": 0,
-          "body_wood": 1.3,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0,
-          "pickup_winding": 1.3,
+          "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.6,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -116,12 +116,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.3,
-          "pickup_config": 2.6,
+          "body_wood": 0,
+          "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -140,14 +140,14 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "cello_strings": 2.6,
+          "cello_strings": 0,
           "cello_top_wood": -0.1,
-          "cello_back_wood": 6.486,
-          "cello_varnish": 3.2,
-          "cello_setup_period": 7.154,
+          "cello_back_wood": -0.07,
+          "cello_varnish": -0.1,
+          "cello_setup_period": 0.254,
           "cello_bow_grip": 0.3705,
-          "cello_rosin": 7.1,
-          "cello_bow_stick": 3.3300000000000005
+          "cello_rosin": 0.2,
+          "cello_bow_stick": -0.10500000000000001
         }
       },
       {

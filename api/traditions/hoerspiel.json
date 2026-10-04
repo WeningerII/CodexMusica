@@ -2,10 +2,10 @@
   "id": "hoerspiel",
   "name": "Hörspiel",
   "family": "global",
-  "lineage": "Jeanne Marni — Stille Existenzen, complete German-language LibriVox dramatic anthology (2020), translated by Franziska Gräfin zu Reventlow. All15 one-act plays, total2:51:28, retain the entire14-person credited reading cast across narrator and character roles. Editors who also read are counted once, and no additional musician is inferred from editorial coordination. The publisher explicitly tags this release hörspiel and its dramatic-work policy forbids added music and sound effects; this is a positively bounded voice-only dramatic reading branch, not an arbitrary reduction of a radio production with musical or foley credits. Fourteen is the reader count across the anthology, not14simultaneous singers, characters or recording tracks. Broad spokenWord is chosen because this selected edited digital dramatic reading is neither a single narrator, a live stand-up stage act nor an asserted broadcast session. The isolated spoken cast owner retains all17 original vocal physical/technique controls, with local spoken-ensemble and edited-dialogue options replacing sung choir and single-lead tracking assumptions. Fourteen credited readers are represented by one human-voice family card; individual physiology, actor-specific timbre, layering and recording locations remain unspecified. Pure spoken pitch treatment and a dry treated-studio acoustic realization are authored narration choices, not proof no character ever sings in the whole text or measured original booths. No global tuning or musical instrument is added. Source policy permits unaccompanied character singing where scripted; no such actual sung role is positively credited in this release, and the model does not assert an audio-forensic absence.",
-  "recipe": "classic early-2020s hörspiel, spoken Word. no pitch organization speech unprocessed natural acoustic spoken dramatic cast. treated studio.",
-  "recipe_chars": 138,
-  "score": 10.219,
+  "lineage": "Hörspiel developed as a German-language field of radio drama and acoustic dramatic art, encompassing literary dialogue, original scripts and experimental sound. Broadcast institutions and independent recording projects support both voiced dramatic readings and productions combining speech with music or sound design.",
+  "recipe": "classic hörspiel, spoken Word. no pitch organization speech unprocessed natural acoustic spoken dramatic cast. treated studio.",
+  "recipe_chars": 126,
+  "score": 3.022,
   "config": {
     "traditions": [
       "hoerspiel"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 8.587499999999999,
+          "voice_speech_song": 1.69,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.6315000000000002,
+          "voice_processing_chain": 1.3315000000000001,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

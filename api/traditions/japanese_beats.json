@@ -2,31 +2,43 @@
   "id": "japanese_beats",
   "name": "Japanese beats",
   "family": "electronic",
-  "lineage": "DJ Mitsu the Beats — complete label-issued DJ Mitsu the Beats Plays Jazzy Sport, JSPMIX1001, released for rental4December2013. Official label explicitly calls this a MIXCD by DJ Mitsu the Beats and publishes all24selections drawn from its catalogue. Entire24-selection DJ programme retained, including vocal/rap releases credited to GAGLE, mimismooth, Joe Styles, Fatima and others. This models the positively documented DJ playback/mixing performance, not guessed instruments inside the original recordings. One named DJ; total embedded singers and separately performed live voices are unknown, not zero. No source-positive separate live accompanist is omitted. Existing neutral DJ playback/mixing owner retains actual label-documented mix programme, without substituting a sampler for an undocumented production palette. No deck count, media format used in performance, mixer hardware or original track instruments inferred. Controlled live-room playback/capture is authored; source is released MIXCD, not proof it was recorded before a live audience. No global tuning or source microphone chain imposed.",
-  "recipe": "classic japanese beats, experimental Elec. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 89,
-  "score": 0,
+  "lineage": "Japanese beats connects beatmakers, DJs and independent labels through sample-based production and record culture. Networks such as Jazzy Sport bring hip-hop into contact with jazz, soul, house and experimental electronic approaches.",
+  "recipe": "classic japanese beats, experimental Elec. sampler. treated studio.",
+  "recipe_chars": 67,
+  "score": 8.561,
   "config": {
     "traditions": [
       "japanese_beats"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "sampler_classic",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": 0.2815,
+          "sampler_archetypes": 1.5,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 6.629999999999999
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
-    "room": "live_room",
+    "room": "treated_studio",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -41,9 +53,13 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
     },
     "pin_parts": true
   }

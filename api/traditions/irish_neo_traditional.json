@@ -2,10 +2,10 @@
   "id": "irish_neo_traditional",
   "name": "Irish Neo-Traditional",
   "family": "vernacular",
-  "lineage": "Valerio Vettori — Fluo / Cece’s Jig / Deep Blue Night, River Tunes (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s irish neo-traditional, drone Modal, wind pipe branch. African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed uilleann pipes three quarter, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 325,
-  "score": 5.707,
+  "lineage": "Irish neo-traditional music develops Irish tune traditions through new composition and contemporary arrangements, retaining the melodic ornament and rhythmic character of jigs, reels and other inherited forms.",
+  "recipe": "classic irish neo-traditional, drone Modal, wind pipe branch. African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed uilleann pipes three quarter, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 314,
+  "score": 10.949,
   "config": {
     "traditions": [
       "irish_neo_traditional"
@@ -23,12 +23,12 @@
           "uilleann_three_quarter_makers": "uilleann_three_quarter_aebi_bicego_gallagher"
         },
         "scores": {
-          "uilleann_three_quarter_articulation": -0.11850000000000002,
+          "uilleann_three_quarter_articulation": 0.18150000000000002,
           "uilleann_three_quarter_configuration": 0,
           "uilleann_pipes_pitch": 0.063,
-          "uilleann_chanter_wood": 1.991,
-          "uilleann_reed": 2.0095,
-          "uilleann_bag": 2.08,
+          "uilleann_chanter_wood": 3.391,
+          "uilleann_reed": 3.4095,
+          "uilleann_bag": 3.8925,
           "uilleann_three_quarter_makers": 0
         }
       },
@@ -50,7 +50,7 @@
           "grand_piano_size": 0.105,
           "grand_piano_brand": 0.0315,
           "piano_hammer": -0.07,
-          "piano_rim": -0.07,
+          "piano_rim": 0.26,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
           "piano_plate": -0.07,

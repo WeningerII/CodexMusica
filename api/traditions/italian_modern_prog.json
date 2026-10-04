@@ -2,10 +2,10 @@
   "id": "italian_modern_prog",
   "name": "Italian Modern Prog",
   "family": "rock",
-  "lineage": "Barock Project — Time Voyager (2024 complete album credits). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2020s italian modern prog, distorted Rock, progressive rock branch. one note per syllable. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, dreadnought acoustic humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, bouzouki, European maple bosnian source flamed figure oil varnish amber tinted violin orchestral, yellow brass modern standard saxophone, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 597,
-  "score": 98.401,
+  "lineage": "Modern Italian progressive rock — contemporary developments of the country’s 1970s progressive-rock tradition.",
+  "recipe": "classic mid-1970s italian modern prog, distorted Rock, progressive rock branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 119.771,
   "config": {
     "traditions": [
       "italian_modern_prog"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.861,
-          "voice_ensemble_config": 0.273,
+          "voice_speech_song": 0.36749999999999994,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.105,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.2415,
           "voice_tessitura": 0
         }
       },
@@ -67,31 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 9.75,
-          "piano_rim": 9.75,
-          "piano_soundboard": 3.326,
-          "piano_pinblock": 3.326,
-          "piano_plate": 3.2,
-          "piano_pitch_standard": 4.069
-        }
-      },
-      {
-        "id": "acoustic_guitar_dread",
-        "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
-          "back_sides": "rosewood_bs",
-          "string_acoustic": "eighty_twenty"
-        },
-        "scores": {
-          "acoustic_technique": -0.07,
-          "string_tuning": 0,
-          "top_wood": 0,
-          "back_sides": -0.05,
-          "string_acoustic": 0.7769999999999999
+          "grand_piano_size": 0.3315,
+          "grand_piano_brand": 0.273,
+          "piano_hammer": 15.6,
+          "piano_rim": 15.6,
+          "piano_soundboard": 5.826,
+          "piano_pinblock": 5.7315,
+          "piano_plate": 5.699999999999999,
+          "piano_pitch_standard": 6.511999999999999
         }
       },
       {
@@ -100,7 +83,7 @@
           "electric_technique": "electric_overdriven_lead",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -115,16 +98,16 @@
           "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0,
-          "neck_wood": 0,
+          "neck_wood": 0.8084999999999999,
           "fretboard": -0.05,
           "pickup_magnet": 0,
-          "pickup_winding": 0.2415,
+          "pickup_winding": 0.2835,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.678,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0
         }
       },
       {
@@ -132,7 +115,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -142,10 +125,10 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0,
+          "pickup_config": 0.0315,
+          "string_type": 0.0315,
+          "scale_length_b": 0.0315,
+          "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -166,91 +149,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.75,
-          "drumhead": 0.0945,
+          "drum_technique": 15.75,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39,
+          "shell_wood": 0.063,
           "shell_thickness": 0,
-          "bearing_edges": 1.69,
-          "snare_wires": 0,
+          "bearing_edges": 2.9899999999999998,
+          "snare_wires": 0.0315,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 14.2545,
-          "cymbal_lathing": 13.981499999999999,
+          "cymbal_hammering": 21.7545,
+          "cymbal_lathing": 21.4815,
           "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "bouzouki",
-        "slots": {
-          "plucked_traditional_technique": "plucked_ornamented_melodic",
-          "bouzouki_courses": "tetrachordo",
-          "bouzouki_pick": "bouzouki_thin",
-          "bouzouki_body_wood": "bouzouki_walnut_bowl",
-          "bouzouki_strings": "bouzouki_steel_modern"
-        },
-        "scores": {
-          "plucked_traditional_technique": -0.15000000000000002,
-          "bouzouki_courses": 1.3735,
-          "bouzouki_pick": 0,
-          "bouzouki_body_wood": 0.40950000000000003,
-          "bouzouki_strings": 0.44100000000000006
-        }
-      },
-      {
-        "id": "violin_orchestral",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "synthetic_orch",
-          "orch_top_wood": "norway_spruce_alpine_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
-          "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "pirastro_gold_rosin_orch"
-        },
-        "scores": {
-          "bowed_technique": -0.035,
-          "orch_strings": 0,
-          "orch_top_wood": -0.1,
-          "orch_back_wood": 1.263,
-          "orch_varnish": 3.2,
-          "orch_setup_period": 3.7775,
-          "orch_bow": 0,
-          "orch_bow_stick": 3.3495000000000004,
-          "orch_articulation": 0.0945,
-          "orch_rosin": 3.2735000000000003
-        }
-      },
-      {
-        "id": "saxophone",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "sax_size": "tenor_sax",
-          "sax_reed": "medium_reed",
-          "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_continuous_legato",
-          "sax_maker_school": "sax_selmer_mark_vi"
-        },
-        "scores": {
-          "wind_articulation": -0.1,
-          "sax_size": -0.15000000000000002,
-          "sax_reed": 0,
-          "sax_body_alloy": 3.305,
-          "sax_mouthpiece": 0,
-          "sax_technique": -0.05,
-          "sax_maker_school": -0.07
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
         }
       }
     ],
@@ -284,13 +193,6 @@
         "piano_pinblock",
         "piano_plate",
         "piano_pitch_standard"
-      ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
-        "string_tuning",
-        "top_wood",
-        "back_sides",
-        "string_acoustic"
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
@@ -329,37 +231,6 @@
         "cymbal_hammering",
         "cymbal_lathing",
         "cymbal_finish"
-      ],
-      "bouzouki": [
-        "plucked_traditional_technique",
-        "bouzouki_courses",
-        "bouzouki_pick",
-        "bouzouki_body_wood",
-        "bouzouki_strings"
-      ],
-      "violin_orchestral": [
-        "bowed_technique",
-        "orch_strings",
-        "orch_top_wood",
-        "orch_back_wood",
-        "orch_varnish",
-        "orch_setup_period",
-        "orch_bow",
-        "orch_bow_stick",
-        "orch_articulation",
-        "orch_rosin"
-      ],
-      "saxophone": [
-        "wind_articulation",
-        "sax_size",
-        "sax_reed",
-        "sax_body_alloy",
-        "sax_mouthpiece",
-        "sax_technique",
-        "sax_maker_school"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
       ]
     },
     "room": "treated_studio",
@@ -407,15 +278,11 @@
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "string_tuning": "standard_tuning",
-      "top_wood": "engelmann",
-      "back_sides": "rosewood_bs",
-      "string_acoustic": "eighty_twenty",
       "electric_technique": "electric_overdriven_lead",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -424,7 +291,7 @@
       "scale_length": "scale_gibson_h",
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -440,30 +307,7 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
-      "plucked_traditional_technique": "plucked_ornamented_melodic",
-      "bouzouki_courses": "tetrachordo",
-      "bouzouki_pick": "bouzouki_thin",
-      "bouzouki_body_wood": "bouzouki_walnut_bowl",
-      "bouzouki_strings": "bouzouki_steel_modern",
-      "bowed_technique": "bowed_legato_classical",
-      "orch_strings": "synthetic_orch",
-      "orch_top_wood": "norway_spruce_alpine_violin",
-      "orch_back_wood": "bosnian_flamed_maple_violin",
-      "orch_varnish": "oil_amber_varnish_violin",
-      "orch_setup_period": "modern_setup_violin",
-      "orch_bow": "modern_bow",
-      "orch_bow_stick": "pernambuco_stick_orch",
-      "orch_articulation": "arco_orch",
-      "orch_rosin": "pirastro_gold_rosin_orch",
-      "wind_articulation": "wind_continuous_legato",
-      "sax_size": "tenor_sax",
-      "sax_reed": "medium_reed",
-      "sax_body_alloy": "yellow_brass_sax",
-      "sax_mouthpiece": "hard_rubber_mp",
-      "sax_technique": "sax_continuous_legato",
-      "sax_maker_school": "sax_selmer_mark_vi"
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

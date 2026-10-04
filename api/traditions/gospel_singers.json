@@ -2,10 +2,10 @@
   "id": "gospel_singers",
   "name": "Gospel singers",
   "family": "blues_gospel",
-  "lineage": "Gospel singers is represented by The Blind Boys of Alabama — Motherless Child, Spirit of the Century (2001). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-  "recipe": "classic early-2000s gospel singers, ritual Devotional, black gospel branch. humbucker electric guitar, upright bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 225,
-  "score": 8.16,
+  "lineage": "Gospel singers carry devotional repertoire through soloists, vocal groups and community performance. The Blind Boys of Alabama exemplify a long African American tradition of expressive leads and rich group harmonies, bringing traditional songs into dialogue with newer songwriting.",
+  "recipe": "classic gospel singers, ritual Devotional, black gospel branch. group vocals. mahogany open string slide resonance humbucker electric guitar, upright bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 264,
+  "score": 9.729,
   "config": {
     "traditions": [
       "gospel_singers"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1815,
+          "voice_ensemble_config": 1.204,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.44249999999999995,
-          "voice_multitrack_stack": 0.28650000000000003,
+          "voice_processing_chain": 0.42,
+          "voice_multitrack_stack": 0.30900000000000005,
           "voice_tessitura": 0
         }
       },
@@ -56,33 +56,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_60s_selmer",
-          "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "ebony_fb_h",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "korina",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_9_hum",
           "finish": "nitro_hum",
           "string_tuning": "open_g"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.1049999999999998,
-          "body_wood": 0.39,
-          "neck_wood": 0.0315,
-          "fretboard": 0.11249999999999999,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "amp_make": 1.0399999999999998,
+          "body_wood": 1.075,
+          "neck_wood": 1,
+          "fretboard": 0.95,
+          "pickup_magnet": 0.2415,
+          "pickup_winding": 0.3,
           "string_material": 0.0315,
-          "bridge": 1.3,
-          "scale_length": 0.39,
-          "string_gauge": 1.3,
+          "bridge": 1,
+          "scale_length": 1,
+          "string_gauge": 0.0675,
           "finish": 0,
-          "string_tuning": 0.8145
+          "string_tuning": 1.017
         }
       },
       {
@@ -92,7 +92,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.39,
+          "upright_strings": 0.2415,
           "upright_play": -0.05
         }
       },
@@ -100,12 +100,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.8049999999999999,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0
         }
       }

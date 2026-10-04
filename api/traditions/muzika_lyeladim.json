@@ -2,10 +2,10 @@
   "id": "muzika_lyeladim",
   "name": "Muzika l’yeladim",
   "family": "global",
-  "lineage": "Complete eight-page Pizmon LaYakinton arrangement published by Zemereshet, credited to Yoav Bilinsky and Smadar Carmi-Giberman. The publisher explicitly specifies mixed choir and flute; full PDF text contains Fl,S,A,T,B staves and the final68-bar ending. Four scored vocal parts do not imply four people: actual choir headcount is unknown. This is the full published arrangement of Rivka Gwili/Leah Goldberg’s song, not the Baby Oriental Ensemble recording listed in the creator corpus and not an instrumental-subtracted master. Other arrangements, orchestras and historical performers on the song page are excluded. Authored realization of the complete composed SATB-and-flute choral reworking. Broad artMusic applies to this examined multipart choral arrangement with independently written flute and four vocal lines, not to all children’s music or to notation alone. The four-stanza poetic narrative remains intact; no intimate solo-ballad scale is imposed on the unspecified-size choir. Four written SATB lines retained as an unspecified-size live group; no claim fixed human headcount or measured overdub stack. Exact voice physiology and ornaments remain neutral. Silver modern concert flute, Powell maker lineage and classical legato are explicit authored physical/playing choices, not specified source hardware. Authored concert-hall recapture supplies choral space; it does not assert this score was publicly performed in a hall. No global tuning asserted from the source’s partly pentatonic melodic discussion; no Chinese instrument, mode or culture imported from the composer’s anecdote about a flower name.",
-  "recipe": "classic muzika l’yeladim, art Music. group vocals, live take. silver powell boston canonical American orchestral legato flute. shoebox concert hall.",
-  "recipe_chars": 148,
-  "score": 15.702,
+  "lineage": "Muzika l’yeladim encompasses Hebrew and Israeli children’s musical repertoire, including educational songs, festival material, lullabies and concert arrangements. Songs circulate between family, school, broadcast and performance settings.",
+  "recipe": "classic muzika l’yeladim, art Music. flute. shoebox concert hall.",
+  "recipe_chars": 65,
+  "score": 1.531,
   "config": {
     "traditions": [
       "muzika_lyeladim"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.026000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 2.726,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.2415,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 4.550000000000001,
+          "wind_articulation": -0.035,
           "flute_size": 0,
-          "flute_material": 2.9315,
-          "flute_technique": 0,
-          "flute_maker_school": 1.3315000000000001
+          "flute_material": 0.0315,
+          "flute_technique": 0.22049999999999997,
+          "flute_maker_school": 0.588
         }
       }
     ],

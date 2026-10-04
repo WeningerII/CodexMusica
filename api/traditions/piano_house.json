@@ -5,7 +5,7 @@
   "lineage": "Transatlantic piano-led house vocabulary carried from 1990s club records into contemporary productions by Mark Knight, ATFC and Gene Farris: a recurring piano riff supplies the principal harmonic hook above kick, clap, offbeat hats and bass. This is an arrangement practice rather than the historical Italian Italo-house scene.",
   "recipe": "classic mid-1990s piano house, electronic Dance, house branch, garage house u s house, italo house house new york garage house. cold pressed light felt practice grade 17 ply hard rock maple grand piano, sampler drum machine, analog mono synth, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 398,
-  "score": 101.641,
+  "score": 101.838,
   "config": {
     "traditions": [
       "piano_house",
@@ -63,7 +63,7 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 2.8850000000000007,
+          "electronic_technique": 2.9221250000000007,
           "mono_oscillator": 0,
           "mono_filter": 0.65,
           "mono_archetypes": 2.145,
@@ -84,7 +84,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
           "sampler_workflow": 0.39,
-          "sampler_classic_context": 61.505500000000005
+          "sampler_classic_context": 61.666375
         }
       }
     ],

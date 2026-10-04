@@ -5,7 +5,7 @@
   "lineage": "Latin hip hop spans Spanish-language and Latin American rap practices. Ana Tijoux’s Vengo branch explicitly brings Latin American acoustic instruments into a contemporary rap recording.",
   "recipe": "classic modern latin hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, unprocessed natural acoustic. sampled chopped sampler drum machine, quena, gaita hembra gaita colombiana, cajon peruano. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 392,
-  "score": 51.578,
+  "score": 51.632,
   "config": {
     "traditions": [
       "latin_hip_hop"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.464999999999998,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 15.518999999999998,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.4080000000000001,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 9.1,
           "sample_processing": 0.105
         }
@@ -96,7 +96,7 @@
           "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
         },
         "scores": {
-          "cajon_peruano_construction": 0.46349999999999997,
+          "cajon_peruano_construction": 0.4095,
           "cajon_peruano_role": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "psychedelic_folk_rock",
   "name": "Psychedelic folk rock",
   "family": "rock_punk",
-  "lineage": "Psychedelic folk rock is represented here by Robert Lester Folsom — Abacus Atlanta Sessions. This documented branch is realized as an authored present-day recording arrangement.",
-  "recipe": "classic psychedelic folk rock, functional Song, folk rock branch. solo with instrumental accompaniment. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 567,
-  "score": 126.016,
+  "lineage": "Psychedelic folk rock brings roots-oriented songwriting into layered rock and pop arrangements.",
+  "recipe": "classic psychedelic folk rock, functional Song, folk rock branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, block chord upright piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 558,
+  "score": 128.57,
   "config": {
     "traditions": [
       "psychedelic_folk_rock"
@@ -23,25 +23,25 @@
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
+          "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.7,
-          "amp_make": 6.76,
-          "body_wood": 0.4725,
-          "neck_wood": 0.231,
-          "fretboard": 0.0945,
-          "pickup_magnet": 0.2415,
-          "pickup_winding": 0.2415,
-          "string_material": 0.126,
-          "bridge": 1.69,
-          "scale_length": 0.46199999999999997,
-          "string_gauge": 1.69,
+          "electric_technique": 6.2315000000000005,
+          "amp_make": 7.67,
+          "body_wood": 0.5775,
+          "neck_wood": 0.1995,
+          "fretboard": 0.126,
+          "pickup_magnet": 0.378,
+          "pickup_winding": 0.378,
+          "string_material": 0.189,
+          "bridge": 0.693,
+          "scale_length": 0.44099999999999995,
+          "string_gauge": 0.6615000000000001,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.336
         }
       },
       {
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.215,
-          "body_wood": 0.46199999999999997,
-          "pickup_config": 0.2415,
-          "string_type": 17.225,
-          "scale_length_b": 0.3675,
-          "fretted_or_not": 0.063,
+          "amp_make": 8.125,
+          "body_wood": 0.399,
+          "pickup_config": 0.378,
+          "string_type": 19.494,
+          "scale_length_b": 0.47250000000000003,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.25,
-          "drumhead": 3.7,
+          "drum_technique": 15,
+          "drumhead": 6.368,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,36 +112,24 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2915,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 0.8084999999999999,
+          "voice_ornament_system": 0.3045,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4515,
-          "voice_multitrack_stack": 0.126
+          "voice_processing_chain": 0.3885,
+          "voice_multitrack_stack": 0.525
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 3.7315,
-          "grand_piano_size": 0.231,
-          "grand_piano_brand": 0.36750000000000005,
-          "piano_hammer": 6.76,
-          "piano_rim": 6.76,
-          "piano_soundboard": 3.7,
-          "piano_pinblock": 0.26,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "keyboard_technique": 6.2,
+          "upright_use": 0.1995,
+          "upright_piano_size": 0
         }
       },
       {
@@ -155,12 +143,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 3.7,
-          "drawbar_setting": 13.2815,
-          "rotary_speed": 13.2,
-          "percussion_setting": 6.89,
-          "tonewheel_model": 6.695,
-          "leslie_cabinet_model": 0.168
+          "keyboard_technique": 6.2,
+          "drawbar_setting": 15.0315,
+          "rotary_speed": 14.95,
+          "percussion_setting": 7.8,
+          "tonewheel_model": 7.605,
+          "leslie_cabinet_model": 0.1995
         }
       }
     ],
@@ -193,6 +181,14 @@
         "voice_pitch_organization",
         "voice_processing_chain",
         "voice_multitrack_stack"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "tonewheel_organ": [
+        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -234,7 +230,10 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

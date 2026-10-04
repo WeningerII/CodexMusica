@@ -3,9 +3,9 @@
   "name": "Pittsburgh metal",
   "family": "rock_punk",
   "lineage": "Pittsburgh metal is a city-scene discovery field represented by Argus’s heavy/doom-metal practice and the locally recorded Beyond the Martyrs ensemble.",
-  "recipe": "classic modern pittsburgh metal, distorted Rock, doom branch. single lead single track no stacking. orange amp British heavy crunch basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 403,
-  "score": 48.594,
+  "recipe": "classic modern pittsburgh metal, distorted Rock, doom branch. solo with instrumental accompaniment, single lead single track no stacking. orange amp British heavy crunch basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 441,
+  "score": 49.083,
   "config": {
     "traditions": [
       "pittsburgh_metal"
@@ -29,8 +29,8 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.2315,
-          "amp_make": 9.493999999999998,
+          "electric_technique": 0.26,
+          "amp_make": 9.630499999999998,
           "body_wood": 5.85,
           "neck_wood": 0.36750000000000005,
           "fretboard": 0.2625,
@@ -41,7 +41,7 @@
           "scale_length": 5.85,
           "string_gauge": 1.029,
           "finish": 0,
-          "string_tuning": 0.78
+          "string_tuning": 0.7575
         }
       },
       {
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.493999999999998,
+          "amp_make": 9.630499999999998,
           "body_wood": 0.7665,
           "pickup_config": 0,
           "string_type": 4.875,
           "scale_length_b": 0.5565,
           "fretted_or_not": 0.363,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": -0.11850000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.483,
+          "voice_ensemble_config": 0.6615,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

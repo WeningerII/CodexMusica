@@ -5,7 +5,7 @@
   "lineage": "Jorijn van Hese — Mars der Medici (Euphonium Choir),2024. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s marsmuziek, art Music. controlled legato euphonium. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 168,
-  "score": 7.095,
+  "score": 7.221,
   "config": {
     "traditions": [
       "marsmuziek"
@@ -21,11 +21,11 @@
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": 4.300000000000001,
+          "wind_articulation": 4.520500000000001,
           "euph_use": 0.3,
-          "euphonium_pitch": 0.6315,
-          "euphonium_bell_metal": 0.9314999999999999,
-          "euphonium_maker_school": 0.9314999999999999
+          "euphonium_pitch": 0.6,
+          "euphonium_bell_metal": 0.8999999999999999,
+          "euphonium_maker_school": 0.8999999999999999
         }
       }
     ],

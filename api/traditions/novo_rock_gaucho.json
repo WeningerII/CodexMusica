@@ -2,10 +2,10 @@
   "id": "novo_rock_gaucho",
   "name": "Novo Rock Gaúcho",
   "family": "rock",
-  "lineage": "Coisa de Asfalto — complete Qualquer EP, four tracks, 2021. Artist-supplied full technical credits establish Dado Porzio voices/acoustic guitars, Guilherme Kessler electric guitars, Bruno Prévidi basses, Bruno Fonini drums and Gabriel Superti opening verses/voices. Retain both vocal contributors and all five source families across the complete four-track Qualquer EP: Mente Aberta, Por Mais, Morte Minha and Tudo, issued8August2021. Fernão Agra is credited co-production, not an additional musical performer. These are the Qualquer credits, not the earlier Simples Cidade production-only listing. No per-track absence or measured playing technique inferred. Authored two-voice ensemble rendition preserves the two credited human contributors, including opening verses, without asserting simultaneous harmony or source tracking. Neutral vocal physiology and speech/song identity retained. Acoustic guitar is realized as all-mahogany steel-string OM with articulated flatpicked phrases; electric guitar as alder/maple humbucker with clean strumming, bass as dual-single-coil fingerstyle and drums as maple kit with B20 machine-hammered traditionally finished cymbals. All physical identities and gestures are editorial choices for source-generic roles, not actual player equipment or measured source performance. Broad functionalSong describes an explicitly authored functional-harmonic verse/refrain rock-song realization, not an analyzed original score. Controlled live room, no global tuning or capture chain.",
-  "recipe": "classic early-2020s novo rock gaúcho, functional Song. duet, unprocessed natural acoustic, live take. mahogany phosphor bronze bronze flatpicked acoustic alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. live tracking.",
-  "recipe_chars": 352,
-  "score": 85.325,
+  "lineage": "Novo rock gaúcho connects newer rock bands and independent networks in Rio Grande do Sul, Brazil. Local performers and releases continue and reshape the region’s broader rock history.",
+  "recipe": "classic novo rock gaúcho, functional Song. acoustic humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 198,
+  "score": 39.716,
   "config": {
     "traditions": [
       "novo_rock_gaucho"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.3679999999999994,
-          "voice_multitrack_stack": 2.6,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 1.9000000000000001,
-          "acoustic_om_technique": 2.5500000000000003
+          "top_wood": 0,
+          "back_sides": 0.3,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.05
         }
       },
       {
@@ -87,19 +87,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.9999999999999998,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 3.2,
-          "neck_wood": 2.6539999999999995,
+          "body_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 3.38,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -116,12 +116,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.2,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -141,16 +141,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 11.386499999999996,
-          "drumhead": 1.3,
+          "drum_technique": 12.6365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 7.853999999999999,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 2.4699999999999998,
-          "cymbal_hammering": 14.603999999999997,
-          "cymbal_lathing": 15.149999999999997,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 12.453999999999999,
+          "cymbal_lathing": 12.7,
           "cymbal_finish": 0
         }
       }

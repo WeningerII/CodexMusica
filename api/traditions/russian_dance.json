@@ -2,10 +2,10 @@
   "id": "russian_dance",
   "name": "Russian dance",
   "family": "electronic",
-  "lineage": "Russian dance is represented here by Filatov & Karas — documented 2017 software-synth core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic late-2010s russian dance, electronic Dance. digital subtractive. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 152,
-  "score": -0.1,
+  "lineage": "Russian dance music combines electronic club production with popular-song influences and recurring references to earlier dance styles.",
+  "recipe": "classic russian dance, electronic Dance. digital subtractive. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 141,
+  "score": -0.085,
   "config": {
     "traditions": [
       "russian_dance"
@@ -19,7 +19,7 @@
           "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": -0.035,
           "va_archetypes": 0,
           "digital_subtractive_context": -0.05
         }

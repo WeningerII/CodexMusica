@@ -2,10 +2,10 @@
   "id": "french_soundtrack",
   "name": "French Soundtrack",
   "family": "classical",
-  "lineage": "Yann Tiersen — La Valse d’Amélie, complete five-page Quickpartitions solo-piano edition1191. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic french soundtrack, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 210,
-  "score": 33.374,
+  "lineage": "French soundtrack music connects cinema composers, performers and production institutions with a broad range of dramatic scoring practices. Piano-centered themes, chamber writing, orchestral sound and popular-song influences coexist across French film repertoire and its wider circulation.",
+  "recipe": "classic french soundtrack, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 231,
+  "score": 19.599,
   "config": {
     "traditions": [
       "french_soundtrack"
@@ -25,15 +25,28 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 4.0315,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 4.918,
-          "piano_rim": 5.312500000000001,
-          "piano_soundboard": 4.855,
-          "piano_pinblock": 7.037000000000001,
-          "piano_plate": 4.75,
-          "piano_pitch_standard": 2.376
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 1.0315,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.5445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 1.055
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_classical",
+          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+        },
+        "scores": {
+          "bowed_technique": 2.5315,
+          "quartet_school": 0.0315,
+          "string_quartet_inst_era": 0
         }
       }
     ],
@@ -48,6 +61,11 @@
         "piano_pinblock",
         "piano_plate",
         "piano_pitch_standard"
+      ],
+      "string_quartet_inst": [
+        "bowed_technique",
+        "quartet_school",
+        "string_quartet_inst_era"
       ]
     },
     "room": "treated_studio",
@@ -75,7 +93,10 @@
       "piano_soundboard": "sitka_spruce_diaphragmatic",
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "piano_pitch_standard": "a_440_modern",
+      "bowed_technique": "bowed_legato_classical",
+      "quartet_school": "quartet_classical",
+      "string_quartet_inst_era": "string_quartet_inst_contemporary"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

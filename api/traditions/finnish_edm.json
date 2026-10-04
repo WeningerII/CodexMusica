@@ -2,10 +2,10 @@
   "id": "finnish_edm",
   "name": "Finnish edm",
   "family": "electronic",
-  "lineage": "Finnish edm is represented here by Darude — Sandstorm documented instrumental roles. This is one documented branch with an authored present-day studio realization.",
+  "lineage": "Finnish EDM includes producers working across trance, house and other electronic dance styles. Studio production and live performance connect local musicians with an international club and festival field.",
   "recipe": "classic finnish edm, electronic Dance, trance branch. digital subtractive, sampler, organ preset rompler workstation, TR-909. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 205,
-  "score": 21.106,
+  "score": 31.267,
   "config": {
     "traditions": [
       "finnish_edm"
@@ -21,7 +21,7 @@
         "scores": {
           "electronic_technique": -0.035,
           "va_archetypes": 0.1365,
-          "digital_subtractive_context": 2.34
+          "digital_subtractive_context": 5.069999999999999
         }
       },
       {
@@ -38,7 +38,7 @@
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0.063,
           "sampler_workflow": -0.035,
-          "sampler_classic_context": 10.334999999999999
+          "sampler_classic_context": 14.43
         }
       },
       {
@@ -51,22 +51,22 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "rompler_preset_bank": 6.449999999999999,
+          "rompler_preset_bank": 7.5,
           "rompler_context": -0.035,
-          "rompler_lineage": 0.7149999999999999
+          "rompler_lineage": -0.035
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_hat",
+          "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 0,
-          "drum_machine_909_context": 0.21,
-          "tr909_production_origin": 0.7364999999999999
+          "tr909_voice": 2.6365,
+          "drum_machine_909_context": 1.21,
+          "tr909_production_origin": 0.1365
         }
       }
     ],

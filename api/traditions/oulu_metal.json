@@ -5,7 +5,7 @@
   "lineage": "Oulu metal is a local-scene umbrella represented by Afterworld’s self-described heavy-metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern oulu metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 416,
-  "score": 46.193,
+  "score": 46.71,
   "config": {
     "traditions": [
       "oulu_metal"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.3585,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -74,15 +74,15 @@
           "amp_make": 7.6049999999999995,
           "body_wood": 7.799999999999999,
           "neck_wood": 0.5775,
-          "fretboard": 0.35775,
-          "pickup_magnet": 0.25275,
-          "pickup_winding": 0.3045,
-          "string_material": 0.1365,
+          "fretboard": 0.4575,
+          "pickup_magnet": 0.3525,
+          "pickup_winding": 0.37799999999999995,
+          "string_material": 0.21,
           "bridge": 0.5775,
           "scale_length": 7.799999999999999,
-          "string_gauge": 0.83025,
+          "string_gauge": 0.93,
           "finish": 0.105,
-          "string_tuning": 0.39
+          "string_tuning": 0.363
         }
       },
       {
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 1.155,
-          "pickup_config": 0.25275,
+          "pickup_config": 0.3525,
           "string_type": 4.875,
-          "scale_length_b": 0.5775,
-          "fretted_or_not": 0.1995,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.609,
+          "fretted_or_not": 0.27375,
+          "bass_technique": 3.7945,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.79275,
+          "drum_technique": 3.82425,
           "drumhead": 0.7245,
           "drum_kit_kick_pedal": 0
         }
@@ -131,7 +131,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.42150000000000004,
+          "rompler_preset_bank": 0.3045,
           "rompler_context": 0.39,
           "rompler_lineage": 0.39
         }

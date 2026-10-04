@@ -2,10 +2,10 @@
   "id": "lagu_madura",
   "name": "Lagu Madura",
   "family": "global",
-  "lineage": "Complete Earthsongs S-229 Gai Bintang SSAATTBB a-cappella edition, not an original popular studio master. Eight scored vocal lines are retained in one generic voice-family card; actual singer headcount unknown. Source preview uses some combined staves and explicitly descending glissandi; exact pitch slides and complete polyphonic voice leading cannot be specified by this generic card and are not claimed reconstructed. An authored simultaneous choir realization uses neutral vocal physiology, register and local pitch conventions, unprocessed group take and resonant shoebox concert hall. No measured recording venue, global equal temperament or instrumental accompaniment is invented.",
-  "recipe": "classic lagu madura, art Music. group vocals, unprocessed natural acoustic, live take. shoebox concert hall.",
-  "recipe_chars": 108,
-  "score": 4.289,
+  "lineage": "Lagu Madura encompasses Madurese-language song, including community play-songs and later popular or concert interpretations. Regional language and repertoire link varied arrangements without requiring a single ensemble.",
+  "recipe": "classic lagu madura, art Music. group vocals, live take. shoebox concert hall.",
+  "recipe_chars": 78,
+  "score": 2.578,
   "config": {
     "traditions": [
       "lagu_madura"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4260000000000002,
+          "voice_ensemble_config": 1.2415,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 1.4260000000000002,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 1.2415,
           "voice_tessitura": 0
         }
       }

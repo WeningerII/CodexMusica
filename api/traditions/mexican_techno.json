@@ -2,22 +2,28 @@
   "id": "mexican_techno",
   "name": "Mexican Techno",
   "family": "electronic",
-  "lineage": "Murcof — The Etna Sessions complete 2024 audio release. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
-  "recipe": "classic mid-2020s mexican techno, electronic Dance, techno branch. software sample playback, modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay.",
-  "recipe_chars": 234,
-  "score": 0.973,
+  "lineage": "Mexican techno includes club production and exploratory electronics that overlap ambient, dub and experimental sound. Murcof exemplifies its attention to texture, space and transformed recorded material.",
+  "recipe": "classic mexican techno, electronic Dance, techno branch. drum machine analog, modular synth, sound design field sampler.",
+  "recipe_chars": 120,
+  "score": 16.469,
   "config": {
     "traditions": [
       "mexican_techno"
     ],
     "instruments": [
       {
-        "id": "software_sample_playback",
+        "id": "drum_machine_analog",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0.2415,
+          "shuffle_quantize": 2.836
         }
       },
       {
@@ -29,58 +35,79 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "mod_voltage_source": 0,
-          "mod_patch_density": 0.39,
+          "electronic_technique": 2.45,
+          "mod_voltage_source": 1,
+          "mod_patch_density": 1.405,
           "mod_lineage": 0.6825
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 2.45,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.063,
+          "sampler_workflow": 4.0905000000000005,
+          "sampler_classic_context": 1.3
         }
       }
     ],
     "pinned": {
-      "software_sample_playback": [
-        "software_sample_playback_identity"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ],
       "modular_synth": [
         "electronic_technique",
         "mod_voltage_source",
         "mod_patch_density",
         "mod_lineage"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
-    "room": "treated_studio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": [
-      "analog_delay"
-    ]
+    "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
     "parts": {
-      "software_sample_playback_identity": "software_sample_playback_digital",
       "electronic_technique": "electronic_glitch_textural",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_classic_context": "sampler_classic_post",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
       "mod_voltage_source": "mod_random",
       "mod_patch_density": "mod_dense_patch",
       "mod_lineage": "mod_doepfer_eurorack"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_fx": [
-      "analog_delay"
-    ]
+    "pin_parts": true
   }
 }

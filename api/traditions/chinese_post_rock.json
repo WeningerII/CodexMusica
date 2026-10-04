@@ -2,10 +2,10 @@
   "id": "chinese_post_rock",
   "name": "Chinese post-rock",
   "family": "rock_punk",
-  "lineage": "Chinese post-rock is represented here by Zhaoze — 1911. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic early-1910s chinese post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, guqin. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 333,
-  "score": 44.409,
+  "lineage": "Chinese post-rock includes ensembles combining guqin phrases with amplified instrumental bands.",
+  "recipe": "classic chinese post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, guqin. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 303,
+  "score": 22.783,
   "config": {
     "traditions": [
       "chinese_post_rock"
@@ -18,50 +18,50 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 5.2,
+          "amp_make": 4.42,
           "body_wood": 0.7624285714285713,
           "neck_wood": 0.39,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.252,
-          "pickup_winding": 0.37071428571428566,
+          "fretboard": 0.09771428571428571,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.252,
           "string_material": 0.39,
-          "bridge": 1.6314642857142858,
-          "scale_length": 0.39,
-          "string_gauge": 1.53375,
-          "finish": 0.1365,
-          "string_tuning": 0.33525
+          "bridge": 0.17871428571428571,
+          "scale_length": 0,
+          "string_gauge": 0.08099999999999999,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "swamp_ash_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.654999999999999,
-          "body_wood": 0.21,
-          "pickup_config": 0.2835,
-          "string_type": 13.325,
-          "scale_length_b": 0.4474285714285714,
+          "amp_make": 4.875,
+          "body_wood": 0.7624285714285713,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.09771428571428571,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.25,
+          "drum_technique": 8.75,
           "drumhead": 0.78,
           "drum_kit_kick_pedal": 0
         }
@@ -85,15 +85,15 @@
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
           "guqin_strings": "guqin_metal_silk",
-          "guqin_context": "guqin_qin_xiao",
+          "guqin_context": "guqin_literati",
           "guqin_body_wood": "guqin_tongmu_aged",
           "guqin_lacquer": "guqin_lacquer_modern_plain"
         },
         "scores": {
-          "plucked_traditional_technique": 0.31675,
+          "plucked_traditional_technique": -0.035,
           "guqin_strings": 0.252,
-          "guqin_context": 0.651,
-          "guqin_body_wood": 0.4724999999999999,
+          "guqin_context": 0.1995,
+          "guqin_body_wood": 0.44099999999999995,
           "guqin_lacquer": 0.252
         }
       }
@@ -101,14 +101,37 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
         "drum_kit_kick_pedal"
+      ],
+      "guqin": [
+        "plucked_traditional_technique",
+        "guqin_strings",
+        "guqin_context",
+        "guqin_body_wood",
+        "guqin_lacquer"
       ]
     },
     "room": "treated_studio",
@@ -134,7 +157,27 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "guqin_strings": "guqin_metal_silk",
+      "guqin_context": "guqin_literati",
+      "guqin_body_wood": "guqin_tongmu_aged",
+      "guqin_lacquer": "guqin_lacquer_modern_plain",
+      "plucked_traditional_technique": "plucked_classical_idiom"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

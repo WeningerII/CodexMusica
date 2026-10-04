@@ -2,10 +2,10 @@
   "id": "nyc_pop",
   "name": "Nyc pop",
   "family": "vernacular",
-  "lineage": "Frankie Cosmos — One! Gray! Hair!, melodic core from Different Talking. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic nyc pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. 17 ply hard rock maple gray iron cast plate full perimeter grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 280,
-  "score": 8.527,
+  "lineage": "NYC pop grows through New York City’s overlapping independent bands, songwriters and recording communities. Intimate melodic writing and contemporary pop production connect small performances with fuller band arrangements.",
+  "recipe": "classic nyc pop, functional Song. solo with instrumental accompaniment. block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 195,
+  "score": 10.979,
   "config": {
     "traditions": [
       "nyc_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.546,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.008,
+          "voice_processing_chain": 0.18,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.95,
-          "grand_piano_size": 0.354,
+          "keyboard_technique": 8.2,
+          "grand_piano_size": 0.054,
           "grand_piano_brand": 0.1365,
-          "piano_hammer": -0.07,
-          "piano_rim": 1.254,
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.07,
-          "piano_plate": 1.554,
-          "piano_pitch_standard": -0.035
+          "piano_plate": -0.07,
+          "piano_pitch_standard": 0.7149999999999999
         }
       }
     ],

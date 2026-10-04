@@ -2,10 +2,10 @@
   "id": "colombian_black_metal",
   "name": "Colombian black metal",
   "family": "rock_punk",
-  "lineage": "Colombian black metal is a regional/transnational discovery category, represented by the Colombia-origin Inquisition duo’s later Seattle practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
-  "recipe": "classic modern colombian black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 397,
-  "score": 25.404,
+  "lineage": "Colombian black metal developed through local bands and transnational continuities, including Inquisition and Thy Antichrist.",
+  "recipe": "classic modern colombian black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 434,
+  "score": 24.92,
   "config": {
     "traditions": [
       "colombian_black_metal"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3345,
+          "voice_ensemble_config": 1.2954999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1755,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
@@ -59,42 +59,65 @@
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "finish": "poly_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 5.915,
-          "body_wood": 6.499999999999999,
+          "amp_make": 4.355,
+          "body_wood": 4.55,
           "neck_wood": 0.4095,
-          "fretboard": 0.4095,
-          "pickup_magnet": 0.0315,
-          "pickup_winding": 0.363,
+          "fretboard": 0.0315,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.39,
-          "scale_length": 6.499999999999999,
-          "string_gauge": 0.39,
-          "finish": 0.16799999999999998,
+          "bridge": 0.0315,
+          "scale_length": 0,
+          "string_gauge": 0.483,
+          "finish": 0,
           "string_tuning": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 2.275,
+          "body_wood": 4.55,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.0315,
+          "fretted_or_not": 0,
+          "bass_technique": 4.1725,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "blast_beat_single_strokes",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 1.2914999999999999,
-          "drumhead": 0.702,
+          "drumhead": 0.483,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -121,7 +144,26 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique"
@@ -165,7 +207,23 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_tremolo_picking",
       "string_tuning": "d_standard",
-      "drum_technique": "blast_beat_single_strokes"
+      "drum_technique": "blast_beat_single_strokes",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "string_gauge": "g_11_hum",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "bass_technique": "pick_aggressive",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",
@@ -174,6 +232,7 @@
     "chain_eq": "eq_none",
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box",
-    "chain_amp_guitar": "amp_mesa_dual_rectifier"
+    "chain_amp_guitar": "amp_mesa_dual_rectifier",
+    "chain_amp_bass": "amp_american_ampeg_svt"
   }
 }

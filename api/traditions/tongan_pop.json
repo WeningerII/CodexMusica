@@ -2,10 +2,10 @@
   "id": "tongan_pop",
   "name": "Tongan pop",
   "family": "pop",
-  "lineage": "Aisea Taimani + Minor Islands — Jahmekya, entire6:54 issued live track from Live & Direct2022. Authored contemporary complete ten-family rendition retains all three credited singers and every track-specific source role. Clean-strummed alder/maple single-coil electric guitar and alder dual-single-coil fingerstyle bass form a coherent modern realization; these woods/pickups are not source equipment claims. Separate Rhodes, architecture-unspecified organ, nine-foot Steinway D piano and architecture-unspecified credited synthesizer preserve all four distinct keyboard roles; no guessed oscillator system or Prophet model. Maple drum kit with coated heads and traditionally finished B20 cymbals, alto saxophone with medium reed and unmuted B-flat trumpet use coherent authored ensemble articulation, not measured source makes/gestures. All vocal physiology/ornament and syllabic distribution remain source-unspecified; live group retains three humans, not a claimed scored texture. Controlled reflective live room is an authored new capture, not the actual Art Boutiki geometry. Optional capture chain and global tuning omitted. Broad functionalSong/pop uses explicitly authored functional-harmonic verse/refrain arrangement, not a measured original chord analysis.",
-  "recipe": "classic tongan pop, functional Song. group vocals, live take. alder maple conventional tuning standard pitch clean single coil electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, credited organ credited synthesizer unspecified, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, alto yellow brass modern standard saxophone, student friendly ensemble trumpet. live tracking.",
-  "recipe_chars": 686,
-  "score": 153.923,
+  "lineage": "Tongan pop connects Tongan artists and audiences with regional and international popular-music influences. Island and diasporic networks circulate songs that overlap reggae, soul and other contemporary styles.",
+  "recipe": "classic tongan pop, functional Song. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, block chord rhodes electric. live tracking.",
+  "recipe_chars": 255,
+  "score": 34.136,
   "config": {
     "traditions": [
       "tongan_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 7.772999999999999,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 6.199999999999999,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.049999999999997,
+          "electric_technique": 7.45,
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
-          "neck_wood": 2.6539999999999995,
+          "body_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "string_material": 0.054,
           "string_gauge": 0.9099999999999999,
-          "bridge": 1.3,
+          "bridge": 0,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 1.3,
+          "string_tuning": 0,
           "single_coil_pickup_construction": 0
         }
       },
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": 2.4,
           "electric_bass_string_configuration": 0
         }
       },
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 8.153999999999998,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
-          "bearing_edges": 1.354,
+          "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 13.754,
-          "cymbal_lathing": 13.7,
+          "cymbal_hammering": 7.454000000000001,
+          "cymbal_lathing": 7.4,
           "cymbal_finish": 0
         }
       },
@@ -148,97 +148,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 11.749999999999996,
+          "keyboard_technique": 7.45,
           "rhodes_model": -0.05,
-          "rhodes_use": 1.48,
-          "rhodes_tine_material": 1.3,
-          "rhodes_hammer_tip": 1.3,
-          "rhodes_pickup_position": 1.3
-        }
-      },
-      {
-        "id": "credited_organ_unspecified",
-        "slots": {
-          "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
-        },
-        "scores": {
-          "credited_organ_unspecified_identity": 0
-        }
-      },
-      {
-        "id": "grand_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
-        },
-        "scores": {
-          "keyboard_technique": 11.749999999999996,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.1905,
-          "piano_hammer": 5.9079999999999995,
-          "piano_rim": 6.124,
-          "piano_soundboard": 3.2,
-          "piano_pinblock": 7.1,
-          "piano_plate": 3.2,
-          "piano_pitch_standard": 8.463999999999999
-        }
-      },
-      {
-        "id": "credited_synthesizer_unspecified",
-        "slots": {
-          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
-        },
-        "scores": {
-          "credited_synthesizer_identity": 0
-        }
-      },
-      {
-        "id": "saxophone",
-        "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "sax_size": "alto_sax",
-          "sax_reed": "medium_reed",
-          "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_honking_attack",
-          "sax_maker_school": "sax_selmer_mark_vi"
-        },
-        "scores": {
-          "wind_articulation": 1.204,
-          "sax_size": 1.304,
-          "sax_reed": 0,
-          "sax_body_alloy": 3.2,
-          "sax_mouthpiece": 0.39,
-          "sax_technique": -0.15000000000000002,
-          "sax_maker_school": -0.1
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-          "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
-        },
-        "scores": {
-          "wind_articulation": 1.204,
-          "brass_size": 0.054,
-          "trumpet_mouthpiece": 4.5,
-          "brass_mute": 0,
-          "trumpet_technique": 1.204,
-          "trumpet_bell_metal": 0,
-          "trumpet_maker_school": 0
+          "rhodes_use": 0.39,
+          "rhodes_tine_material": 0,
+          "rhodes_hammer_tip": 0,
+          "rhodes_pickup_position": 0
         }
       }
     ],
@@ -307,41 +222,6 @@
         "rhodes_tine_material",
         "rhodes_hammer_tip",
         "rhodes_pickup_position"
-      ],
-      "credited_organ_unspecified": [
-        "credited_organ_unspecified_identity"
-      ],
-      "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
-      ],
-      "credited_synthesizer_unspecified": [
-        "credited_synthesizer_identity"
-      ],
-      "saxophone": [
-        "wind_articulation",
-        "sax_size",
-        "sax_reed",
-        "sax_body_alloy",
-        "sax_mouthpiece",
-        "sax_technique",
-        "sax_maker_school"
-      ],
-      "trumpet": [
-        "wind_articulation",
-        "brass_size",
-        "trumpet_mouthpiece",
-        "brass_mute",
-        "trumpet_technique",
-        "trumpet_bell_metal",
-        "trumpet_maker_school"
       ]
     },
     "room": "live_room",
@@ -413,30 +293,7 @@
       "rhodes_use": "rhodes_soul",
       "rhodes_tine_material": "rhodes_torrington_tine",
       "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
-      "rhodes_pickup_position": "rhodes_pickup_centered",
-      "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
-      "wind_articulation": "wind_punchy_ensemble",
-      "sax_size": "alto_sax",
-      "sax_reed": "medium_reed",
-      "sax_body_alloy": "yellow_brass_sax",
-      "sax_mouthpiece": "hard_rubber_mp",
-      "sax_technique": "sax_honking_attack",
-      "sax_maker_school": "sax_selmer_mark_vi",
-      "brass_size": "trumpet_b_flat",
-      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-      "brass_mute": "no_mute_brass",
-      "trumpet_technique": "trumpet_punchy_ensemble",
-      "trumpet_bell_metal": "trumpet_yellow_brass",
-      "trumpet_maker_school": "trumpet_bach_stradivarius"
+      "rhodes_pickup_position": "rhodes_pickup_centered"
     },
     "pin_parts": true
   }

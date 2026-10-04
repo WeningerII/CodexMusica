@@ -3,9 +3,9 @@
   "name": "Speed metal",
   "family": "rock_punk",
   "lineage": "Mid-1980s heavy-metal subgenre emphasizing extreme tempo and virtuoso guitar-playing while retaining melodic-vocal lines and traditional heavy-metal song-structure (vs the simultaneously-emerging thrash metal's harsher vocal-and-rhythmic-aggression). Motörhead's 1979-onward catalog inaugurated the style; Helloween (Hamburg, 1984-onward), Iced Earth, and (especially in 1990s extension) the Italian power-metal scene continued the lineage. Distinguished from thrash metal by speed metal's retention of melodic-vocal lines and traditional metal harmonic-vocabulary.",
-  "recipe": "classic North American modern speed metal, distorted Rock, thrash branch, power metal brazilian power metal british power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 707,
-  "score": 346.945,
+  "recipe": "classic North American modern speed metal, distorted Rock, thrash branch, power metal brazilian power metal british power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 703,
+  "score": 354.47,
   "config": {
     "traditions": [
       "speed_metal",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 8.899999999999995,
-          "voice_quality": 8.645,
+          "voice_quality": 7.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.42,
-          "voice_articulation": 10.14,
-          "voice_microtone": 9.75,
-          "voice_tradition": 6.695,
-          "voice_mechanism_compound": 46.835000000000015,
-          "voice_estill_quality": 3.3300000000000005,
-          "voice_speech_song": 12.219999999999995,
-          "voice_ensemble_config": 13.909999999999995,
+          "voice_vibrato": 4.225,
+          "voice_articulation": 12.674999999999995,
+          "voice_microtone": 11.829999999999993,
+          "voice_tradition": 6.145,
+          "voice_mechanism_compound": 45.710000000000015,
+          "voice_estill_quality": 3.1950000000000003,
+          "voice_speech_song": 14.364999999999997,
+          "voice_ensemble_config": 15.989999999999995,
           "voice_ornament_system": 3.1500000000000004,
-          "voice_pitch_organization": 1.39,
-          "voice_processing_chain": 4.19,
-          "voice_multitrack_stack": 9.145
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 4.205,
+          "voice_multitrack_stack": 9.024999999999999
         }
       },
       {
@@ -70,27 +70,27 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 56.35000000000001,
-          "amp_make": 22.620000000000005,
-          "body_wood": 22.815000000000005,
+          "electric_technique": 54.94500000000001,
+          "amp_make": 22.005000000000003,
+          "body_wood": 22.110000000000007,
           "neck_wood": 1.3,
           "fretboard": 1.25,
-          "pickup_magnet": 0.24,
+          "pickup_magnet": 0.845,
           "pickup_winding": 0.105,
-          "string_material": 0.09,
+          "string_material": 0.045,
           "bridge": 1.3,
-          "scale_length": 21.125000000000004,
+          "scale_length": 20.540000000000006,
           "string_gauge": 1.3,
           "finish": 0.045,
-          "string_tuning": 32.370000000000005
+          "string_tuning": 31.850000000000005
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.720000000000001,
-          "body_wood": 1.54,
-          "pickup_config": 0.65,
+          "amp_make": 5.95,
+          "body_wood": 2.535,
+          "pickup_config": 0.845,
           "string_type": 11.965,
           "scale_length_b": 1.3,
-          "fretted_or_not": 0.195,
-          "bass_technique": 9.83,
+          "fretted_or_not": 0.39,
+          "bass_technique": 9.98,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.009999999999998,
+          "drum_technique": 12.089999999999996,
           "drumhead": 1.405,
           "drum_kit_kick_pedal": 0
         }

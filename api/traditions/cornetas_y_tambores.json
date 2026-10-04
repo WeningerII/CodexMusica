@@ -2,9 +2,9 @@
   "id": "cornetas_y_tambores",
   "name": "Cornetas y tambores",
   "family": "vernacular",
-  "lineage": "Banda Esencia — complete current corneta-and-drum processional practice (2025–2026). New isolated data owners retain the positive upper and lower corneta constructions and both drum sizes/models. Exact brass articulation is source-unspecified; the original family merge supplies no applicable inherited technique variants for these new owners. No unspecified brass alloy, pitch temperament, membrane material or voice physiology is invented. Optional global tuning omitted. Neutral axes and modern studio chain are editorial realization, not actual outdoor procession acoustics or session settings.",
-  "recipe": "classic 2025-2026 cornetas y tambores, ritual Devotional. esencia spanish corneta section, esencia processional drum set. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 220,
+  "lineage": "Cornetas y tambores is a Spanish processional band tradition closely associated with religious brotherhoods and Semana Santa. Corneta and drum ensembles draw on military and civic-band histories while developing distinctive local repertoires.",
+  "recipe": "classic cornetas y tambores, ritual Devotional. esencia spanish corneta section, esencia processional drum set. live tracking.",
+  "recipe_chars": 126,
   "score": 0,
   "config": {
     "traditions": [
@@ -44,34 +44,28 @@
         "esencia_processional_timbal"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "esencia_corneta_upper": "esencia_corneta_honsuy_do_reb",
       "esencia_corneta_lower": "esencia_corneta_leon_tenor",
       "esencia_processional_drum": "esencia_samba_35_13",
       "esencia_processional_timbal": "esencia_np_palio_45_34"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

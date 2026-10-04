@@ -5,7 +5,7 @@
   "lineage": "Turun Sotaveteraanilaulajat — Testamentti pojalleni, catalogued choir/voice/piano recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic sotalaulut, art Music. group vocals, live take. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 25.732,
+  "score": 24.452,
   "config": {
     "traditions": [
       "sotalaulut"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.326,
+          "voice_ensemble_config": 1.4415,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.726,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.78,
           "voice_tessitura": 0
         }
       },
@@ -68,13 +68,13 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 4.118,
-          "piano_rim": 4.512500000000001,
-          "piano_soundboard": 4.055000000000001,
-          "piano_pinblock": 6.237000000000001,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 3.95,
+          "piano_rim": 4.344500000000001,
+          "piano_soundboard": 3.95,
+          "piano_pinblock": 5.250000000000001,
           "piano_plate": 3.95,
-          "piano_pitch_standard": 0.6759999999999999
+          "piano_pitch_standard": 0.6549999999999999
         }
       }
     ],

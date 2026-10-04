@@ -5,7 +5,7 @@
   "lineage": "Kebu and Madis — Touching the Sun (2026), complete instrumental release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s spacesynth, experimental Elec. analog mono analog poly synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 199,
-  "score": 12.762,
+  "score": 12.823,
   "config": {
     "traditions": [
       "spacesynth"
@@ -21,9 +21,9 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 2.25,
-          "mono_oscillator": 1.659,
-          "mono_filter": 2.0100000000000002,
+          "electronic_technique": 2.2815,
+          "mono_oscillator": 1.605,
+          "mono_filter": 2.115,
           "mono_archetypes": 0.39,
           "mono_maker_lineage": 0.5499999999999999
         }
@@ -37,9 +37,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.25,
+          "electronic_technique": 2.2815,
           "poly_archetypes": 0.3315,
-          "poly_voices": 1.659,
+          "poly_voices": 1.605,
           "poly_maker_lineage": -0.05
         }
       },

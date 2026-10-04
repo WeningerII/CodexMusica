@@ -2,10 +2,10 @@
   "id": "british_grindcore",
   "name": "British grindcore",
   "family": "rock_punk",
-  "lineage": "British grindcore represented by Napalm Death’s Birmingham scene and a primary retrospective of its early BBC Peel session. Short high-intensity songs, live basic tracking and blast drumming provide the branch.",
-  "recipe": "classic modern british grindcore, distorted Rock, metal branch, punk distorted rock norwegian hardcore psychedelic punk. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter electro-harmonix big muff pi.",
-  "recipe_chars": 464,
-  "score": 46.004,
+  "lineage": "British grindcore emerged from underground punk and extreme-metal exchanges, with Birmingham’s Napalm Death central to its early development. Very short songs, distorted ensemble attack and explosive drumming became defining resources of the style.",
+  "recipe": "classic modern british grindcore, distorted Rock, metal branch, punk distorted rock norwegian hardcore psychedelic punk. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, marshall plexi amp British rock amp electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter electro-harmonix big muff pi.",
+  "recipe_chars": 575,
+  "score": 78.859,
   "config": {
     "traditions": [
       "british_grindcore",
@@ -17,7 +17,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_tremolo_picking",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -32,24 +32,24 @@
         },
         "scores": {
           "electric_technique": 0.04999999999999999,
-          "amp_make": 0,
+          "amp_make": 23.367499999999996,
           "body_wood": 0.195,
           "neck_wood": 0.09,
-          "fretboard": 0.585,
+          "fretboard": 0.195,
           "pickup_magnet": 0,
-          "pickup_winding": 0.195,
+          "pickup_winding": 0.39,
           "string_material": 0.09,
           "bridge": 0.195,
           "scale_length": 0,
-          "string_gauge": 1.86875,
+          "string_gauge": 1.2,
           "finish": 0,
-          "string_tuning": 0.35062499999999996
+          "string_tuning": 0.15
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 7.280000000000001,
           "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 0.28500000000000003,
           "scale_length_b": 0.15,
           "fretted_or_not": 0,
-          "bass_technique": 17.42,
+          "bass_technique": 20.17,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,15 +85,15 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 1.69,
+          "drum_technique": 0.78,
           "drumhead": 1.105,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.135,
+          "shell_wood": 1.135,
           "shell_thickness": 0,
           "bearing_edges": 0.28500000000000003,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": 9.84,
+          "cymbal_alloy": -0.03500000000000001,
+          "cymbal_hammering": 9.54,
           "cymbal_lathing": 9.149999999999999,
           "cymbal_finish": 0
         }
@@ -130,18 +130,17 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.47,
+          "voice_ensemble_config": 3.67125,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.3
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -155,7 +154,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -250,7 +248,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "blast_beat_single_strokes",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

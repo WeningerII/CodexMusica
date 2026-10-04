@@ -2,10 +2,10 @@
   "id": "normal_indie",
   "name": "Normal indie",
   "family": "vernacular",
-  "lineage": "Andrew Osenga, complete original six-song Letters to the Editor, Vol.1 EP2007, including the community vocal finale Swing Wide the Glimmering Gates. Creator interviews positively restrict instrumental sources to acoustic guitar, repeatedly recorded without picks; the artist and contributed human voices are retained. The stated only-my-voice rule has an explicitly documented exception: the first-person RELEVANT interview describes about forty contributors sending about sixty vocal tracks for the finale, bounced to four tracks. Therefore this model does not falsely call the whole EP a one-person solo. Total distinct singers and exact layers across the whole EP remain unknown; third-party discography additionally lists Alison on The Ball Game, which is consistent with retained plural human voices but not treated as inspected primary credit. Acoustic guitars and all human voice layers are represented; no percussion, bass or electronic instrument is inferred from multitrack production. This is the2007 six-song scope, not the later expanded fourteen-track collection. New authored rendition retains the full acoustic-guitar/human-vocal source family union. Existing human_voice_ensemble_unspecified protects unknown total headcount and exact stack geometry; the source’s positive overdubbing/community contributions remain documented rather than erased or converted to a numeric choir. Acoustic OM is an authored all-mahogany/phosphor-string realization with open-chord hand strumming, compatible with the artist’s no-pick restriction and specifically described flowing strum, not a source brand/construction claim. A new controlled hall capture is editorial, not the basement or distributed fan microphones. No global tuning, exact microphones or electronics asserted. Functional-harmonic song structure is an authored realization; broad functionalSong parent does not assert a measured score.",
-  "recipe": "classic normal indie, functional Song. unprocessed natural acoustic human voice ensemble unspecified, mahogany phosphor bronze bronze acoustic guitar. shoebox concert hall.",
-  "recipe_chars": 172,
-  "score": 12.233,
+  "lineage": "Normal indie connects independent musicians associated with Normal, Illinois, including The Normals and Andrew Osenga. Local roots and collaborations link the community with wider American indie and singer-songwriter networks.",
+  "recipe": "classic normal indie, functional Song. human voice ensemble unspecified, low mid rich spectrum full phosphor bronze bronze acoustic guitar. shoebox concert hall.",
+  "recipe_chars": 161,
+  "score": 1.755,
   "config": {
     "traditions": [
       "normal_indie"
@@ -46,7 +46,7 @@
           "voice_speech_song": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 5.667999999999999,
+          "voice_processing_chain": 0.39,
           "human_voice_ensemble_source_status": 0,
           "human_voice_tracking_source_status": 0,
           "voice_tessitura": 0
@@ -63,9 +63,9 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 4,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 1.4,
           "acoustic_om_technique": -0.035
         }
       }

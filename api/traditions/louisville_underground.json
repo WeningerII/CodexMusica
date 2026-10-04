@@ -2,10 +2,10 @@
   "id": "louisville_underground",
   "name": "Louisville Underground",
   "family": "rock_punk",
-  "lineage": "Shipping News — One Less Heartless to Fear, complete nine-track live album issued9November2010. Artist credits all four performers: Jeff Mueller electric guitar and voice on Axons/Bad Eve; Jason Noble electric guitar and voice on other tracks except instrumental Half A House; Kyle Crabtree drums; Todd Cook three different electric bass guitars across the recording, not three simultaneously claimed bassists. Two positively named vocal contributors alternate across the album, no simultaneous duet inferred. Both electric guitars, bass and drums retained as four family cards with source multiplicities in this audit. Seven tracks recorded Skull Alley Louisville19June2009, Axons/HalfAHouse O-Nest Tokyo2April2006; no universal Louisville recording-site claim. Source electric guitars receive authored alder humbucker/maple-neck rosewood-board constructions and power-chord gesture; bass receives authored dual-single-coil alder fingerstyle construction; maple stick-played kit uses traditional-finish symmetrically machine-hammered cymbals. None is asserted actual source gear or exhaustive note transcription. Solo-accompanied neutral voice models alternating album leads, with both contributors retained in evidence, not a forced duet. Live-room acoustic is editorial reconstruction of live practice, not measured venue acoustics; no capture hardware/global tuning supplied.",
-  "recipe": "classic louisville underground, distorted Rock, punk branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. alder maple rosewood conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 382,
-  "score": 61.9,
+  "lineage": "Louisville underground developed through connected punk, hardcore and experimental-rock communities, with shared musicians, labels, venues and independent publications. Groups such as Slint, Rodan and Shipping News helped sustain a network that crosses stylistic boundaries.",
+  "recipe": "classic louisville underground, distorted Rock, punk branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 245,
+  "score": 24.9,
   "config": {
     "traditions": [
       "louisville_underground"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.140499999999999,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 6.5,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,11 +70,11 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.2,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
-          "neck_wood": 2.663,
-          "fretboard": 1.625,
+          "body_wood": 0,
+          "neck_wood": 0.063,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
@@ -82,7 +82,7 @@
           "scale_length": 0.8190000000000002,
           "string_gauge": 0.7,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0.3
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.25,
-          "drumhead": 1.3,
+          "drum_technique": 6.25,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.305,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 8.023000000000001,
-          "cymbal_lathing": 9.049999999999999,
+          "cymbal_hammering": 6.423,
+          "cymbal_lathing": 6.15,
           "cymbal_finish": 0
         }
       }

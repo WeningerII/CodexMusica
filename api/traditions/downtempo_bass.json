@@ -2,28 +2,58 @@
   "id": "downtempo_bass",
   "name": "Downtempo Bass",
   "family": "electronic",
-  "lineage": "Super Future: complete issued Future Flowstate Vol1 DJ mix described in his29November2024 firsthand interview as substantially the downtempo programme played on phase1 of Augmented Duality. Preserve the entire issued mix, not merely a track extract or original source stems. He explicitly discusses his DJ sets/mixes and their slowed bass-derived character. No constituent tracklist or equipment roster is supplied here; all embedded layers and unknown voice counts remain through actual recorded playback/mixing. Existing medium-unspecified DJ playback/mixing owner models complete actual DJ practice, not a whole-master shortcut for undocumented studio creation. No source mechanism, hardware, live vocalist or tuning is guessed. Treated studio is an authored controlled listening rendition, not measured venue acoustics. Broad bassSystem parent reflects the explicitly bass-led practice rather than forcing every constituent track into one tempo or UK subgenre.",
-  "recipe": "classic downtempo bass, bass System. dj playback mixing unspecified. treated studio.",
-  "recipe_chars": 84,
-  "score": 0.032,
+  "lineage": "Downtempo bass connects slower bass-music production and listening programmes with the wider electronic bass scene. Producers develop a grounded rhythmic feel distinct from both beatless ambient music and their more intense dance sets.",
+  "recipe": "classic downtempo bass, bass System. sub bass analog poly synth, drum machine analog. treated studio.",
+  "recipe_chars": 101,
+  "score": 7.277,
   "config": {
     "traditions": [
       "downtempo_bass"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.0315
+          "electronic_technique": 7.345000000000001,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0.0315,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +73,14 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_bass_sub",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true
   }

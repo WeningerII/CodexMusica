@@ -2,10 +2,10 @@
   "id": "classic_canadian_rock",
   "name": "Classic Canadian rock",
   "family": "rock_punk",
-  "lineage": "A retrospective Canadian rock discovery label, represented here by Rush’s early-1980s guitar/bass/drums and synthesizer integration. The selected model draws on the band’s account of developing Tom Sawyer and the producer’s description of Moving Pictures sessions.",
-  "recipe": "classic 1980-1983 classic canadian rock, distorted Rock, progressive rock branch. solo with instrumental accompaniment. electric bass, humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog synth. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, marshall super lead 1959, SSL inline console, 1176 FET, SSL surgical EQ. Studer 30ips tape analog bucket-brigade delay.",
-  "recipe_chars": 452,
-  "score": 49.905,
+  "lineage": "Classic Canadian rock gathers enduring repertoire from the country’s hard-rock, progressive and song-oriented bands. Amplified rhythm sections, distinctive singing and an expanding role for keyboards connect successive periods of studio and live practice.",
+  "recipe": "classic classic canadian rock, distorted Rock, progressive rock branch. one note per syllable, solo with instrumental accompaniment. electric bass, humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog synth. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, marshall super lead 1959, SSL inline console, 1176 FET, SSL surgical EQ. Studer 30ips tape analog bucket-brigade delay.",
+  "recipe_chars": 465,
+  "score": 57.596,
   "config": {
     "traditions": [
       "classic_canadian_rock"
@@ -26,10 +26,10 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 0.8505,
-          "scale_length_b": 0,
-          "fretted_or_not": 0,
+          "pickup_config": 0.3,
+          "string_type": 0.882,
+          "scale_length_b": 0.3,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -52,19 +52,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.26,
+          "electric_technique": 1.0995,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.7769999999999999,
+          "string_material": 0.8084999999999999,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.5145,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.126
+          "string_tuning": 0
         }
       },
       {
@@ -83,16 +83,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 13.25,
-          "drumhead": 0.126,
+          "drum_technique": 15,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39,
+          "shell_wood": 0.063,
           "shell_thickness": 0,
-          "bearing_edges": 0.8505,
-          "snare_wires": 0,
+          "bearing_edges": 0.882,
+          "snare_wires": 0.3,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 13.4545,
-          "cymbal_lathing": 13.181499999999998,
+          "cymbal_hammering": 15.2045,
+          "cymbal_lathing": 14.931499999999998,
           "cymbal_finish": 0
         }
       },
@@ -106,10 +106,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 0.6499999999999999,
-          "oscillator": 0.39,
-          "filter_topology": 2.8774999999999995,
-          "envelope": 0.8505,
+          "electronic_technique": 1.17,
+          "oscillator": 1.0079999999999998,
+          "filter_topology": 2.8459999999999996,
+          "envelope": 0.336,
           "modulation": 0
         }
       },
@@ -144,12 +144,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 1.294,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.29400000000000004
         }
       }
     ],

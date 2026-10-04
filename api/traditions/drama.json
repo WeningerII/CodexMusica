@@ -2,10 +2,10 @@
   "id": "drama",
   "name": "Drama",
   "family": "global",
-  "lineage": "Oscar Wilde — The Importance of Being Earnest, complete LibriVox version3 issued29May2012, all three acts totaling2:11:02. Ten named readers retain all character and narrator roles: Dublin Gothic, John Fricker, Martin Geeson, mb, Algy Pug, Ruth Golding, Elizabeth Klett, Arielle Lipshaw, Carol Box and Tiffany Halla Colonna. Klett also edits and is counted once. The publisher dramatic-reading policy establishes edited spoken dialogue without added music or sound effects; scripted unaccompanied character singing is permitted generally, but no actual sung role is credited here. No audio-forensic exclusivity claim or simultaneous ten-voice choir inferred. Existing spoken_dramatic_cast preserves all seventeen vocal controls with source-unspecified physiology, edited dialogue and named-reader ensemble organization. Ten is the total credited cast, not ten simultaneous voices or singers. Pure spoken pitch treatment and dry treated-studio acoustics are an authored new recording realization; no measured original booths, hardware or global tuning claimed. Broad spokenWord reflects dramatic literary speech. Source silence on apparatus remains silence.",
-  "recipe": "classic drama, spoken Word. speech rhythm only no pitch organization speech spoken dramatic cast. treated studio.",
-  "recipe_chars": 113,
-  "score": 8.619,
+  "lineage": "Dramatic spoken performance gives written characters, dialogue and narration distinct voices. Cast readings and recorded plays present stories through timing, delivery and exchanges between speakers.",
+  "recipe": "classic drama, spoken Word. spoken dramatic cast. treated studio.",
+  "recipe_chars": 65,
+  "score": 0.421,
   "config": {
     "traditions": [
       "drama"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 8.587499999999999,
+          "voice_speech_song": 0.39,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

@@ -5,7 +5,7 @@
   "lineage": "New York and New Jersey club style of the late 1980s and 1990s associated with Frankie Knuckles, Junior Vasquez and Masters at Work, pairing a 120-128 BPM four-on-the-floor garage groove, open hi-hats, gospel-rooted piano chords and organ bass with a full-throated belted or melismatic female lead in the mould of Martha Wash and Ultra Naté, arranged around a hook-driven twelve-inch club edit.",
   "recipe": "classic North American 1987-1989 diva house, electronic Dance, garage house u s branch, deep house house, soul R&B functional song, christian gospel black gospel contemporary urban gospel. thick, declaimed, wide pitch sway, leader call answered. TR-909, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club gospel runs full spectrum fast tremolo tonewheel organ, sub bass analog poly synth, snappy to palm hand clap, tambourine orch. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
   "recipe_chars": 789,
-  "score": 443.861,
+  "score": 443.114,
   "config": {
     "traditions": [
       "diva_house",
@@ -27,7 +27,7 @@
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.625,
-          "voice_articulation": 27.263749999999998,
+          "voice_articulation": 27.218749999999996,
           "voice_microtone": 18.004999999999995,
           "voice_tradition": 32.965,
           "voice_mechanism_compound": 5.654999999999999,
           "voice_estill_quality": 29.224999999999994,
           "voice_speech_song": 20.669999999999995,
-          "voice_ensemble_config": 25.808749999999996,
+          "voice_ensemble_config": 25.804999999999993,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 2.1949999999999994,
+          "voice_pitch_organization": 2.2399999999999998,
           "voice_processing_chain": 11.35,
-          "voice_multitrack_stack": 6.37
+          "voice_multitrack_stack": 6.28
         }
       },
       {
@@ -81,13 +81,13 @@
         "scores": {
           "keyboard_technique": 29.914999999999996,
           "grand_piano_size": 1,
-          "grand_piano_brand": 1.3900000000000001,
+          "grand_piano_brand": 1.345,
           "piano_hammer": 3.6500000000000004,
           "piano_rim": 4.3,
           "piano_soundboard": 3.175,
           "piano_pinblock": 1.625,
           "piano_plate": 2.575,
-          "piano_pitch_standard": 8.677499999999998
+          "piano_pitch_standard": 7.934999999999999
         }
       },
       {
@@ -102,11 +102,11 @@
         },
         "scores": {
           "keyboard_technique": 29.914999999999996,
-          "drawbar_setting": 26.95,
+          "drawbar_setting": 26.799999999999997,
           "rotary_speed": 25.449999999999996,
           "percussion_setting": 0.195,
           "tonewheel_model": 24.419999999999998,
-          "leslie_cabinet_model": 2.745
+          "leslie_cabinet_model": 3.12
         }
       },
       {
@@ -131,7 +131,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.4300000000000002,
+          "clap_technique": 1.34,
           "clap_capture": 0.39
         }
       },

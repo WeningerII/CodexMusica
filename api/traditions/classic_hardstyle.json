@@ -2,55 +2,84 @@
   "id": "classic_hardstyle",
   "name": "Classic hardstyle",
   "family": "electronic",
-  "lineage": "Scope DJ — whole Scantraxx2007–2011 Classic Hardstyle Mix Part1, published18May2017. Existing neutral DJ playback/mixing owner preserves the whole recorded program without reverse-engineering masters into guessed instruments. ElectronicDance.hardstyle follows primary label hardstyle identity. The neutral studio chain and axes are authored; no global tuning, source hardware, exact live workflow or vocalist count is claimed.",
-  "recipe": "classic early-2010s classic hardstyle, electronic Dance, hardstyle branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 205,
-  "score": 0,
+  "lineage": "Classic hardstyle is a repertoire and revival branch within hardstyle, sustained through label catalogues, dedicated events and DJ programmes. Artists such as Scope DJ revisit influential releases alongside continuing interpretations of the style.",
+  "recipe": "classic classic hardstyle, electronic Dance, hardstyle branch. digital subtractive, drum machine analog. live tracking.",
+  "recipe_chars": 119,
+  "score": 8.302,
   "config": {
     "traditions": [
       "classic_hardstyle"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "digital_subtractive",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.07,
+          "va_archetypes": 0.231,
+          "digital_subtractive_context": 4.159999999999999
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 2,
+          "snare_voice": 0,
+          "hat_voice": 2.0315,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "tuning": "twelve_tet",
+    "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

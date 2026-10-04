@@ -2,10 +2,10 @@
   "id": "urdu_hip_hop",
   "name": "Urdu hip hop",
   "family": "hip_hop",
-  "lineage": "Urdu hip hop is a language-defined rap category, represented by Karachi duo Young Stunners and their producer collaborations. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
-  "recipe": "classic modern urdu hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 293,
-  "score": 50.168,
+  "lineage": "Urdu-language hip-hop connects MCs and producers across national borders, with Karachi’s Young Stunners among its prominent voices.",
+  "recipe": "classic modern urdu hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, echo word punctuation. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 331,
+  "score": 39.13,
   "config": {
     "traditions": [
       "urdu_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.559999999999999,
+          "voice_quality": 9.1,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.543999999999999,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 9.035,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 6.039499999999999
+          "voice_multitrack_stack": 5.15
         }
       },
       {
@@ -59,9 +59,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.6499999999999995,
+          "electronic_technique": 5.3395,
           "sample_bitdepth": 0,
-          "sample_swing": 9.879999999999999,
+          "sample_swing": 9.1,
           "sample_processing": 0.105
         }
       }

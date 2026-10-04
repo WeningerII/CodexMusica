@@ -2,10 +2,10 @@
   "id": "nz_jazz",
   "name": "NZ jazz",
   "family": "jazz",
-  "lineage": "New Zealand jazz musicians and diaspora; selected Mike Nock acoustic trio",
-  "recipe": "classic modern nz jazz, improv On Frame, American jazz branch. sitka spruce diaphragmatic a 440 modern pitch us standard grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 361,
-  "score": 51.385,
+  "lineage": "New Zealand jazz encompasses local scenes and diaspora musicians working across modern composition and improvisation. Acoustic small-group playing is one strand within a varied field shaped by international exchange and individual musical languages.",
+  "recipe": "classic modern nz jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 364,
+  "score": 71.242,
   "config": {
     "traditions": [
       "nz_jazz"
@@ -28,12 +28,12 @@
           "keyboard_technique": -0.07,
           "grand_piano_size": 0.0735,
           "grand_piano_brand": 0.105,
-          "piano_hammer": 0.9099999999999999,
-          "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 1.1935,
-          "piano_pinblock": 0.7,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 1.755
+          "piano_hammer": 2.9435000000000002,
+          "piano_rim": 4.146,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 4.55
         }
       },
       {
@@ -43,7 +43,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.39,
+          "upright_strings": 0.063,
           "upright_play": 11.25
         }
       },
@@ -63,16 +63,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.8,
+          "drum_technique": 10.789999999999996,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0735,
-          "shell_thickness": 0,
+          "shell_thickness": 0.054,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.0735,
-          "cymbal_alloy": 11.173499999999997,
+          "snare_wires": 0.11624999999999999,
+          "cymbal_alloy": 12.173499999999997,
           "cymbal_hammering": 11.641,
-          "cymbal_lathing": 0.8449999999999999,
+          "cymbal_lathing": 3.1215,
           "cymbal_finish": 0
         }
       }

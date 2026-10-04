@@ -5,7 +5,7 @@
   "lineage": "A Brazilian post-rock network including Hurtmold, ruído/mm, Labirinto and E A Terra Nunca Me Pareceu Tão Distante. This default selects Hurtmold’s rhythm-centered instrumental branch, with vibraphone and bass clarinet placed beside guitar, bass, drums and trumpet.",
   "recipe": "classic brazilian post-rock, distorted Rock, experimental branch. vibraphone, expressive clarinet jazz bass clarinet, marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, shallow cup lead trumpet trumpet. live tracking. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital plate reverb.",
   "recipe_chars": 433,
-  "score": 47.866,
+  "score": 49.215,
   "config": {
     "traditions": [
       "brazilian_post_rock"
@@ -22,7 +22,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "vibe_motor": -0.05,
-          "vibe_mallets": 0.363,
+          "vibe_mallets": 0.39,
           "vibe_bar_material": 0.78
         }
       },
@@ -58,13 +58,13 @@
           "electric_technique": -0.11850000000000002,
           "amp_make": 4.42,
           "body_wood": 0.39,
-          "neck_wood": 0.414,
-          "fretboard": 0.414,
-          "pickup_magnet": 0.414,
-          "string_material": 0.414,
-          "string_gauge": 0.736,
+          "neck_wood": 0.57,
+          "fretboard": 0.57,
+          "pickup_magnet": 0.57,
+          "string_material": 0.57,
+          "string_gauge": 0.9039999999999999,
           "bridge": 0.39,
-          "scale_length": 0.7304999999999999,
+          "scale_length": 0.78,
           "finish": 0.1365,
           "string_tuning": 4.9399999999999995,
           "single_coil_pickup_construction": 0
@@ -77,7 +77,7 @@
           "body_wood": "alder",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -104,7 +104,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.414,
+          "drumhead": 0.57,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.363,
           "cymbal_alloy": -0.2
@@ -122,8 +122,8 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.6499999999999999,
-          "brass_size": 0.414,
+          "wind_articulation": 0.8179999999999998,
+          "brass_size": 0.57,
           "trumpet_mouthpiece": 1.2229999999999999,
           "brass_mute": 0.03599999999999999,
           "trumpet_technique": 0.19500000000000003,

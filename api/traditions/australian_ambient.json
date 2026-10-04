@@ -2,10 +2,10 @@
   "id": "australian_ambient",
   "name": "Australian ambient",
   "family": "electronic",
-  "lineage": "Australian atmospheric electronic and electroacoustic practices, represented here by Lawrence English and the Brisbane ROOM40 network: environmental listening, recorded sound and slowly transformed electronic material. A representative field-recording/synthesis arrangement is selected rather than a national instrument inventory.",
+  "lineage": "Australia’s ambient and experimental sound scene includes electronic composition, environmental listening and electroacoustic work. Independent networks such as Brisbane’s ROOM40 connect local sound practices with international collaborations and releases.",
   "recipe": "classic modern australian ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art electroacoustic composition. field sustained sampler, sustained analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 412,
-  "score": 38.668,
+  "score": 43.108,
   "config": {
     "traditions": [
       "australian_ambient",
@@ -18,16 +18,16 @@
         "slots": {
           "electronic_technique": "electronic_sustained_layering",
           "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 9,
+          "electronic_technique": 10.345,
           "sampler_archetypes": 0.375,
           "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 15.2785,
-          "sampler_classic_context": 2.9899999999999998
+          "sampler_workflow": 17.6735,
+          "sampler_classic_context": 4.29
         }
       },
       {
@@ -40,10 +40,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 9,
+          "electronic_technique": 10.345,
           "oscillator": 0,
-          "filter_topology": 0.49949999999999994,
-          "envelope": 0.39,
+          "filter_topology": 0.195,
+          "envelope": 0.15,
           "modulation": 0
         }
       }
@@ -93,7 +93,7 @@
       "envelope": "sustain_env",
       "modulation": "no_mod",
       "sampler_archetypes": "akai_s1000",
-      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_bit_depth": "sampler_sixteen_bit",
       "sampler_workflow": "sampler_field_recordings",
       "sampler_classic_context": "sampler_classic_post"
     },

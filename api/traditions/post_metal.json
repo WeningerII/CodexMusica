@@ -3,9 +3,9 @@
   "name": "Post-metal",
   "family": "rock",
   "lineage": "US and European long-form instrumental-foregrounded metal-and-post-rock fusion that emerged from late-1990s onward — codified through Isis (the Boston-area post-metal band, Oceanic 2002, Panopticon 2004), Pelican (the Chicago instrumental-only canon, The Fire in Our Throats Will Beckon the Thaw 2005), Cult of Luna (Swedish), Russian Circles (Chicago instrumental-only), Neurosis (the founding pre-post-metal Oakland band, Through Silver in Blood 1996); built on extended-composition song structures (10-20 minute pieces), ambient-textural sections alternating with heavy crescendo peaks",
-  "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock american post-rock british post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 549,
-  "score": 347.099,
+  "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock american post-rock british post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 557,
+  "score": 352.646,
   "config": {
     "traditions": [
       "post_metal",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 21.994999999999994,
-          "voice_quality": 9.685,
+          "voice_register": 22.86999999999999,
+          "voice_quality": 8.255,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.805,
-          "voice_articulation": 8.709999999999997,
-          "voice_microtone": 22.205624999999994,
-          "voice_tradition": 9.620000000000001,
-          "voice_mechanism_compound": 30.426250000000003,
-          "voice_estill_quality": 3.5100000000000007,
-          "voice_speech_song": 10.464999999999995,
-          "voice_ensemble_config": 8.795,
+          "voice_vibrato": 4.559374999999999,
+          "voice_articulation": 8.45,
+          "voice_microtone": 22.879999999999992,
+          "voice_tradition": 11.245000000000001,
+          "voice_mechanism_compound": 30.53125,
+          "voice_estill_quality": 3.9650000000000007,
+          "voice_speech_song": 10.204999999999998,
+          "voice_ensemble_config": 9.173125,
           "voice_ornament_system": 2.0799999999999996,
           "voice_pitch_organization": 1.3006249999999997,
-          "voice_processing_chain": 14.119999999999994,
+          "voice_processing_chain": 13.628749999999995,
           "voice_multitrack_stack": 4.030000000000001
         }
       },
@@ -71,24 +71,24 @@
         },
         "scores": {
           "electric_technique": 30.026250000000005,
-          "amp_make": 11.959999999999997,
+          "amp_make": 12.414999999999996,
           "body_wood": 10.390000000000002,
           "neck_wood": 2.275,
           "fretboard": 2.275,
           "pickup_magnet": 0.36,
           "pickup_winding": 1.17,
           "string_material": 2.275,
-          "bridge": 1.04,
+          "bridge": 1.4949999999999999,
           "scale_length": 12.775625000000002,
-          "string_gauge": 1.37,
+          "string_gauge": 1.8381249999999998,
           "finish": 0.195,
-          "string_tuning": 25.935000000000002
+          "string_tuning": 26.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "swamp_ash_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.219999999999999,
+          "amp_make": 12.414999999999996,
           "body_wood": 0.3,
           "pickup_config": 0.39,
-          "string_type": 28.985,
+          "string_type": 30.128124999999997,
           "scale_length_b": 0.54,
           "fretted_or_not": 0.195,
-          "bass_technique": 21.95,
+          "bass_technique": 22.824999999999996,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22,
+          "drum_technique": 22.874999999999996,
           "drumhead": 2.275,
           "drum_kit_kick_pedal": 0
         }

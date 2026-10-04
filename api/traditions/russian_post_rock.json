@@ -2,10 +2,10 @@
   "id": "russian_post_rock",
   "name": "Russian post-rock",
   "family": "rock",
-  "lineage": "Russian post-rock is represented here by Artificial waves — Fragile. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic russian post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 314,
-  "score": 49.874,
+  "lineage": "Russian post-rock develops instrumental rock through layered textures and extended changes in intensity.",
+  "recipe": "classic russian post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 350,
+  "score": 54.453,
   "config": {
     "traditions": [
       "russian_post_rock"
@@ -22,26 +22,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 6.5,
-          "body_wood": 0.39,
-          "neck_wood": 0.378,
-          "fretboard": 0.378,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 0.5565,
+          "neck_wood": 1.3,
+          "fretboard": 1.3,
           "pickup_magnet": 0.147,
-          "pickup_winding": 0.3435,
-          "string_material": 0.378,
-          "bridge": 1.69,
-          "scale_length": 0.39,
-          "string_gauge": 1.69,
+          "pickup_winding": 0.4345,
+          "string_material": 1.3,
+          "bridge": 0.063,
+          "scale_length": 1.3,
+          "string_gauge": 0.063,
           "finish": 0.1365,
-          "string_tuning": 0.39
+          "string_tuning": 0
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.21,
           "pickup_config": 0.1785,
-          "string_type": 16.575,
+          "string_type": 17.875,
           "scale_length_b": 0.273,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.03899999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.39,
+          "drum_technique": 13.75,
+          "drumhead": 1.3,
           "drum_kit_kick_pedal": 0
         }
       }

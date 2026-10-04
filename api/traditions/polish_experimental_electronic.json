@@ -2,10 +2,10 @@
   "id": "polish_experimental_electronic",
   "name": "Polish experimental electronic",
   "family": "electronic",
-  "lineage": "Polish experimental electronic is represented here by Zamilska — Untune-era sampled/synthesized core. This is a documented branch with an authored present-day studio realization.",
+  "lineage": "Polish experimental electronic music explores sound design, sampling and performance beyond a single dance style. Producers and live acts develop personal relationships between rhythm, texture and electronic composition.",
   "recipe": "classic polish experimental electronic, experimental Elec, industrial noise branch. glitched textural sampler, digital subtractive. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 211,
-  "score": 28.54,
+  "score": 31.031,
   "config": {
     "traditions": [
       "polish_experimental_electronic"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 9.45,
+          "electronic_technique": 8.7,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.5985,
+          "sampler_bit_depth": 0.39,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 17
+          "sampler_classic_context": 16.25
         }
       },
       {
@@ -36,9 +36,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": -0.10500000000000001,
+          "electronic_technique": 0.19500000000000003,
           "va_archetypes": 0.546,
-          "digital_subtractive_context": 1.17
+          "digital_subtractive_context": 5.069999999999999
         }
       }
     ],

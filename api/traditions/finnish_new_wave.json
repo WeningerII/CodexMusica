@@ -2,10 +2,10 @@
   "id": "finnish_new_wave",
   "name": "Finnish New Wave",
   "family": "rock_punk",
-  "lineage": "Eppu Normaali — Murheellisten laulujen maa, complete Levottomat palat YLE2 television performance (1982). Routledge Global Popular Music author Terhi Skaniakos supplies the selected1982 YLE2 performance roster: Pantse Syrjä guitar, Martti Syrjä lead voice, Safka Pekkonen piano/voice, Mikko Nevalainen bass, Aku Syrjä drums, Juha Torvinen guitar. Six people, two singers, two guitars and five role families retained. This is the specifically described television rendition, not an assumed whole-album roster. No personal video listening or visual instrument identification claimed. Authored complete-role rendition: alder/maple humbucker guitar, picked soapbar electric bass, acoustic stick kit and nine-foot SteinwayD piano with block-chord melody support. Construction, gestures and controlled live-room are explicitly editorial choices, not recovered source equipment or venue. Both credited singers retained as an authored simultaneous duet, with neutral physiology and source-unspecified pitch organization. Global tuning and undocumented capture chain omitted.",
-  "recipe": "classic early-1980s finnish new wave, distorted Rock, punk branch. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. live tracking.",
-  "recipe_chars": 404,
-  "score": 73.198,
+  "lineage": "Finnish new wave emerged from the country’s punk movement around the turn of the 1980s and developed into broader Finnish rock and pop. Bands such as Eppu Normaali connected direct local-language songwriting with new guitar-band approaches.",
+  "recipe": "classic mid-1980s finnish new wave, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, upright piano. live tracking.",
+  "recipe_chars": 226,
+  "score": 44.695,
   "config": {
     "traditions": [
       "finnish_new_wave"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 1.3,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,10 +70,10 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.5100000000000002,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 1.3,
-          "neck_wood": 1.363,
+          "body_wood": 0,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
@@ -82,7 +82,7 @@
           "scale_length": 0.8190000000000002,
           "string_gauge": 0.7,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.3,
+          "body_wood": 0,
           "pickup_config": 0.1365,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 16.3315,
+          "bass_technique": 13.2815,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,42 +124,30 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.25,
-          "drumhead": 1.3,
+          "drum_technique": 6.25,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.0050000000000003,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 6.223,
-          "cymbal_lathing": 7.250000000000001,
+          "cymbal_hammering": 8.972999999999999,
+          "cymbal_lathing": 9,
           "cymbal_finish": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 3.6675,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 4.290000000000001,
-          "piano_rim": 4.290000000000001,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": 2.5000000000000004,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 1.9595
+          "keyboard_technique": 2.8175000000000003,
+          "upright_use": 0.39,
+          "upright_piano_size": 0
         }
       }
     ],
@@ -221,16 +209,10 @@
         "cymbal_lathing",
         "cymbal_finish"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ]
     },
     "room": "live_room",
@@ -298,14 +280,8 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

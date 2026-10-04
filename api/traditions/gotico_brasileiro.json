@@ -5,7 +5,7 @@
   "lineage": "Plastique Noir — Dead Pop (2008), original album tracks 1–13. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-2000s gótico brasileiro, distorted Rock, gothic rock branch. conventional tuning standard pitch clean strummed humbucker electric acoustic guitar, electric bass, analog poly synth, sampler, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 322,
-  "score": 14.627,
+  "score": 15.289,
   "config": {
     "traditions": [
       "gotico_brasileiro"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.063,
+          "voice_ensemble_config": 0.0945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": 3.2945,
           "amp_make": 0,
-          "body_wood": 0.6405,
-          "neck_wood": 0.504,
+          "body_wood": 0.7769999999999999,
+          "neck_wood": 0.609,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
           "bridge": 0,
-          "scale_length": 1.0079999999999998,
-          "string_gauge": 1.8835000000000002,
+          "scale_length": 1.2179999999999997,
+          "string_gauge": 1.6735,
           "finish": 0.1365,
-          "string_tuning": 1.363
+          "string_tuning": 1.3
         }
       },
       {
@@ -116,10 +116,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6405,
+          "body_wood": 0.7769999999999999,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.26249999999999996,
+          "scale_length_b": 0.36749999999999994,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -152,7 +152,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.525,
+          "sampler_bit_depth": 0.735,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 3.25
         }

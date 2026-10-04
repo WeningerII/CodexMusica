@@ -2,10 +2,10 @@
   "id": "cathedral_choir",
   "name": "Cathedral choir",
   "family": "classical",
-  "lineage": "Cathedral choir is represented by Westminster Cathedral Choir — Peter Maxwell Davies Mass. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic cathedral choir, art Music, western modern branch. cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic pipe organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 402,
-  "score": 16.042,
+  "lineage": "Cathedral choirs maintain musical traditions tied to worship, liturgical calendars and the architecture of their institutions. Historical sacred repertoire coexists with contemporary commissions and concert work.",
+  "recipe": "classic cathedral choir, art Music. spotted metal 50 50 canonical mixtures bright historical pipe organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 205,
+  "score": 9.168,
   "config": {
     "traditions": [
       "cathedral_choir"
@@ -43,32 +43,32 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.327,
-          "voice_ornament_system": 0.054,
+          "voice_ensemble_config": 0.213,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.27299999999999996,
-          "voice_multitrack_stack": 0.1905
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.159
         }
       },
       {
         "id": "pipe_organ",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_class": "pipe_organ_neo_baroque",
           "pipe_organ_context": "pipe_organ_concert",
-          "pipe_organ_voicing_school": "pipe_organ_cavaille_coll",
-          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_voicing_school": "pipe_organ_skinner_american",
+          "pipe_organ_pipe_alloy": "pipe_organ_spotted_metal_50_50",
           "pipe_organ_temperament": "pipe_organ_equal_temperament",
-          "pipe_organ_action": "pipe_organ_pneumatic"
+          "pipe_organ_action": "pipe_organ_electric_pneumatic"
         },
         "scores": {
           "keyboard_technique": 2.5,
-          "pipe_organ_class": 0,
+          "pipe_organ_class": 0.12999999999999998,
           "pipe_organ_context": 3.9,
-          "pipe_organ_voicing_school": 2.5620000000000003,
-          "pipe_organ_pipe_alloy": 1.743,
-          "pipe_organ_temperament": 2.34,
-          "pipe_organ_action": 2.1525
+          "pipe_organ_voicing_school": 0.45149999999999996,
+          "pipe_organ_pipe_alloy": 1.3,
+          "pipe_organ_temperament": 0,
+          "pipe_organ_action": 0.45149999999999996
         }
       }
     ],

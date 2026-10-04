@@ -2,10 +2,10 @@
   "id": "ukrainian_experimental",
   "name": "Ukrainian Experimental",
   "family": "classical",
-  "lineage": "Ihor Tsymbrovsky — complete separately billed KW Institute concert, Berlin10July2026. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic ukrainian experimental, art Music. one note per syllable, solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, credited organ unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 304,
-  "score": 30.34,
+  "lineage": "Ukrainian experimental music brings composition, improvisation and unconventional sound practices into dialogue. Artists such as Ihor Tsymbrovsky connect poetry and exploratory singing with minimal keyboard forms, alongside other electronic and instrumental approaches.",
+  "recipe": "classic ukrainian experimental, art Music. small note groups per syllable, solo with instrumental accompaniment. upright piano, credited organ unspecified. live tracking.",
+  "recipe_chars": 170,
+  "score": 4.218,
   "config": {
     "traditions": [
       "ukrainian_experimental"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,38 +43,26 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.089,
-          "voice_ensemble_config": 1.95,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "keyboard_technique": "keyboard_minimalist_repeated",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 3.5815,
-          "grand_piano_size": 0.3315,
-          "grand_piano_brand": 0.363,
-          "piano_hammer": 3.6680000000000006,
-          "piano_rim": 4.6625000000000005,
-          "piano_soundboard": 3.6050000000000004,
-          "piano_pinblock": 5.487000000000001,
-          "piano_plate": 3.5000000000000004,
-          "piano_pitch_standard": 1.576
+          "keyboard_technique": -0.05,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
         }
       },
       {
@@ -83,7 +71,7 @@
           "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
         },
         "scores": {
-          "credited_organ_unspecified_identity": 0
+          "credited_organ_unspecified_identity": 0.0315
         }
       }
     ],
@@ -107,30 +95,24 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ],
       "credited_organ_unspecified": [
         "credited_organ_unspecified_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -139,7 +121,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -151,30 +133,18 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "keyboard_technique": "keyboard_classical_legato",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+      "keyboard_technique": "keyboard_minimalist_repeated",
+      "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

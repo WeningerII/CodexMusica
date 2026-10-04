@@ -2,10 +2,10 @@
   "id": "baroque_ensemble",
   "name": "Baroque ensemble",
   "family": "classical",
-  "lineage": "Baroque ensemble: Florilegium — Telemann Paris Quartets Volume2 (2003 recording). A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic early-2000s baroque ensemble, art Music, western common practice branch. grenadilla cocus legato flute, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, norway spruce European alpine European maple bosnian source flamed figure cello, French blanchet taskin paris canonical late 18th century galant harpsichord. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 556,
-  "score": 118.516,
+  "lineage": "Baroque ensemble practice brings early repertoire to life through historical instruments and informed approaches to articulation, ornament and continuo. Chamber groups balance independent melodic lines with harmonic support.",
+  "recipe": "classic baroque ensemble, art Music, western common practice branch. grenadilla cocus yamaha modern Japanese mid to premium legato flute, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, snakewood underhand grip canonical Baroque viol viola da gamba, norway spruce European alpine European maple bosnian source flamed figure cello, English kirkman shudi canonical mid 18th century London bird quill plectra canonical historical raven crow turkey harpsichord. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 604,
+  "score": 121.334,
   "config": {
     "traditions": [
       "baroque_ensemble"
@@ -23,9 +23,9 @@
         "scores": {
           "wind_articulation": 3.4598750000000003,
           "flute_size": 0.1365,
-          "flute_material": 2.40825,
+          "flute_material": 2.334,
           "flute_technique": 0.9099999999999999,
-          "flute_maker_school": 0.509625
+          "flute_maker_school": 2.4725
         }
       },
       {
@@ -45,14 +45,14 @@
         "scores": {
           "bowed_technique": 2.5,
           "orch_strings": -0.035,
-          "orch_top_wood": 7.6365,
-          "orch_back_wood": 7.6365,
+          "orch_top_wood": 7.76025,
+          "orch_back_wood": 7.76025,
           "orch_varnish": 7.7940000000000005,
-          "orch_setup_period": 6.202875,
-          "orch_bow": 0.546,
+          "orch_setup_period": 6.239999999999999,
+          "orch_bow": 0.5831249999999999,
           "orch_bow_stick": 5.496,
-          "orch_articulation": 0.357,
-          "orch_rosin": 8.47275
+          "orch_articulation": 1.657,
+          "orch_rosin": 8.435625
         }
       },
       {
@@ -68,11 +68,11 @@
         },
         "scores": {
           "bowed_technique": 2.5,
-          "gamba_size": 0.3,
+          "gamba_size": 1.42375,
           "viola_da_gamba_context": -0.035,
-          "gamba_strings": 1.491625,
-          "gamba_frets": 0.7149999999999999,
-          "gamba_bow_stick": 6.17625,
+          "gamba_strings": 0.7149999999999999,
+          "gamba_frets": -0.035,
+          "gamba_bow_stick": 5.502000000000001,
           "gamba_lineage": 0.252
         }
       },
@@ -91,13 +91,13 @@
         },
         "scores": {
           "bowed_technique": 2.5,
-          "cello_strings": 0.5145,
-          "cello_top_wood": 7.6365,
-          "cello_back_wood": 7.6365,
+          "cello_strings": 0.5887499999999999,
+          "cello_top_wood": 7.76025,
+          "cello_back_wood": 7.76025,
           "cello_varnish": 7.7940000000000005,
-          "cello_setup_period": 6.076874999999999,
-          "cello_bow_grip": 2.48975,
-          "cello_rosin": 8.47275,
+          "cello_setup_period": 6.114,
+          "cello_bow_grip": 2.4154999999999998,
+          "cello_rosin": 8.435625,
           "cello_bow_stick": 4.95
         }
       },
@@ -107,17 +107,17 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "harpsichord_register": "harpsi_8_foot",
           "harpsichord_context": "harpsichord_continuo",
-          "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
-          "harpsichord_plectrum": "harpsichord_leather_french",
+          "harpsichord_maker_school": "harpsichord_english_kirkman",
+          "harpsichord_plectrum": "harpsichord_quill_canonical",
           "harpsichord_temperament": "harpsichord_equal_modern"
         },
         "scores": {
           "keyboard_technique": -0.1,
           "harpsichord_register": 1.3,
           "harpsichord_context": 0.78,
-          "harpsichord_maker_school": 1.69,
-          "harpsichord_plectrum": 0.6615,
-          "harpsichord_temperament": 0.6825
+          "harpsichord_maker_school": 1.1024999999999998,
+          "harpsichord_plectrum": 1.3,
+          "harpsichord_temperament": 0.8062499999999999
         }
       }
     ],

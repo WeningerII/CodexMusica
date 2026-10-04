@@ -2,28 +2,52 @@
   "id": "jumptek",
   "name": "Jumptek",
   "family": "electronic",
-  "lineage": "devnull / blog to the oldskool, complete Jump Tek / Tekstyle Mix December09,51:41. The artist explicitly calls this a mix of tekstyle, jumptek and related sounds, naming E-Max, Conjo S, Junior Waxx, SLY and Orson Keith among the included artists. The whole recorded DJ program is retained, including every embedded instrumental and vocal layer. Full track-by-track credits and embedded singer count are unavailable; no zero-singer claim, guessed synthesis architecture, deck hardware or live-versus-edited workflow is imposed. Existing architecture-neutral DJ playback/mixing owner retains the complete mix. The hardstyle-and-hardcore-techno tree is the same existing hard-dance branch used by jumpstyle, not a claim that all source tracks follow a particular tempo or hardstyle kick design. Neutral axes, treated-studio and clean digital chain are an authored rendering model, not source measurements. Global tuning omitted; no extra singer, sampler, MIDI or source instrument fabrication.",
-  "recipe": "classic jumptek, electronic Dance, hardstyle branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 183,
-  "score": 0,
+  "lineage": "Jumptek connects Jump and Tek or tekstyle repertoire through Belgian and Dutch hard-dance communities and their wider circulation. Producers, club programmes and DJs bring related rhythmic styles together, overlapping jumpstyle without being confined to its dance demonstrations.",
+  "recipe": "classic jumptek, electronic Dance, hardstyle branch. digital subtractive, TR-909. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 180,
+  "score": 7.055,
   "config": {
     "traditions": [
       "jumptek"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "digital_subtractive",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.07,
+          "va_archetypes": 0.231,
+          "digital_subtractive_context": 6.369999999999999
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": -0.05,
+          "drum_machine_909_context": 0.609,
+          "tr909_production_origin": -0.035
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +67,12 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_hardcore",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

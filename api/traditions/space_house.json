@@ -5,7 +5,7 @@
   "lineage": "French and Belgian house variant of the mid-to-late 1990s associated with Alan Braxe, Stardust, I:Cube and the Roule and Versatile labels, characterized by 118-126 BPM disco-derived kicks, cosmic analogue synth arpeggios and phaser-swept pads over filtered loops, sustained vocoder or heavily processed vocal fragments, and slow-evolving one-chord builds owing more to 70s space disco than to Chicago tracks.",
   "recipe": "classic Western European 1997-1999 space house, electronic Dance, house branch, deep house house, continental electronic dance, retro aesthetic experimental electric canadian house deep disco house. analog poly synth, monosynth acid ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, TR-909, field sampler, vocoder, turntable. intimate paris small studio. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 525,
-  "score": 125.888,
+  "score": 123.07,
   "config": {
     "traditions": [
       "space_house",
@@ -16,15 +16,15 @@
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 1.095,
-          "poly_archetypes": 1.845,
-          "poly_voices": 1.845,
+          "electronic_technique": 1.2349999999999999,
+          "poly_archetypes": 1.195,
+          "poly_voices": 1.195,
           "poly_maker_lineage": -1.7199999999999998
         }
       },
@@ -34,13 +34,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 1.0399999999999998,
+          "electronic_technique": 1.2349999999999999,
           "wave_acid": 0.27,
           "filter_acid": 0.15,
-          "accent_acid": 0
+          "accent_acid": 0.045
         }
       },
       {
@@ -51,7 +51,7 @@
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 31.07,
+          "tr909_voice": 29.945,
           "drum_machine_909_context": 1.95,
           "tr909_production_origin": 0
         }
@@ -60,17 +60,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "emu_emax",
+          "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 1.6999999999999997,
-          "sampler_archetypes": 0.65,
-          "sampler_bit_depth": 1.8199999999999998,
-          "sampler_workflow": 1.9399999999999997,
-          "sampler_classic_context": 50.61999999999999
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 1.17,
+          "sampler_workflow": 2.09,
+          "sampler_classic_context": 51.485
         }
       },
       {
@@ -99,10 +99,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.12,
-          "body_wood": 1.95,
+          "amp_make": 5.2250000000000005,
+          "body_wood": 1.3,
           "pickup_config": 0.195,
-          "string_type": 5.07,
+          "string_type": 5.265000000000001,
           "scale_length_b": 1.3,
           "fretted_or_not": 0,
           "bass_technique": 5.535,
@@ -116,7 +116,7 @@
           "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 0.7149999999999999,
+          "electronic_technique": 0.06499999999999999,
           "turntable_technique": 0
         }
       }

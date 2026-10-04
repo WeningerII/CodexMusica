@@ -2,10 +2,10 @@
   "id": "world_meditation",
   "name": "World meditation",
   "family": "global",
-  "lineage": "Cross-cultural instrumental meditation recordings combine selected acoustic timbres and studio atmosphere. Deuter’s Koyasan explicitly credits erhu, shakuhachi, tamboura and Tibetan bowls with keyboards; Nawang Khechog’s Tibetan Meditation Music combines flute with chant and sparse accents. The default models the former palette without presenting it as the traditional ensemble of any single culture.",
-  "recipe": "classic modern world meditation, experimental Elec, ambient branch. pad like pad analog synth, shakuhachi, ensemble bamboo silk erhu, gourd body canonical traditional tanpura, continuous drone himalayan singing bowl. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
-  "recipe_chars": 362,
-  "score": 21.1,
+  "lineage": "Cross-cultural instrumental music for meditative listening, developed through contemporary studio production and international acoustic influences. Flutes, bowed strings, drones and resonant percussion appear in varied combinations with electronic atmosphere.",
+  "recipe": "classic modern world meditation, experimental Elec, ambient branch. pad like pad analog synth, shakuhachi, bamboo stick horsehair threaded between strings erhu, tanpura, himalayan singing bowl. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
+  "recipe_chars": 339,
+  "score": 18.613,
   "config": {
     "traditions": [
       "world_meditation"
@@ -21,10 +21,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 5.373964285714287,
-          "oscillator": 0.33649999999999997,
-          "filter_topology": 1.3,
-          "envelope": 2.34,
+          "electronic_technique": 4.623964285714286,
+          "oscillator": 0.21649999999999997,
+          "filter_topology": 0.41021428571428564,
+          "envelope": 1.95,
           "modulation": 0.0315
         }
       },
@@ -33,13 +33,13 @@
         "slots": {
           "wind_articulation": "wind_breath_quiet",
           "shaku_length": "two_one",
-          "shaku_technique": "meri_kari",
+          "shaku_technique": "classical_shaku",
           "shakuhachi_body_material": "shakuhachi_madake_canonical",
           "shakuhachi_lineage": "shakuhachi_kinko"
         },
         "scores": {
-          "wind_articulation": -0.07,
-          "shaku_length": 0.39,
+          "wind_articulation": 0.26,
+          "shaku_length": 1.1157142857142857,
           "shaku_technique": 1,
           "shakuhachi_body_material": 0.56225,
           "shakuhachi_lineage": 0.4789285714285714
@@ -57,30 +57,30 @@
         },
         "scores": {
           "bowed_technique": 0.325,
-          "erhu_skin": 0.6246785714285714,
-          "erhu_use": 1.0699642857142857,
+          "erhu_skin": 0.39,
+          "erhu_use": 0.0699642857142857,
           "erhu_body_wood": 0.1712142857142857,
           "erhu_strings": 0.89975,
-          "erhu_bow": 0.6779642857142858
+          "erhu_bow": 1.3
         }
       },
       {
         "id": "tanpura",
         "slots": {
           "plucked_traditional_technique": "plucked_drone_modal",
-          "tanpura_size": "female_size",
+          "tanpura_size": "male_size",
           "tanpura_jawari": "flat_jawari",
-          "tanpura_strings": "four_string_classical",
+          "tanpura_strings": "five_string_chitra",
           "tanpura_string_material": "tanpura_bronze_steel",
           "tanpura_body_wood": "tanpura_gourd_body"
         },
         "scores": {
-          "plucked_traditional_technique": -0.07,
-          "tanpura_size": 0.7499642857142856,
-          "tanpura_jawari": 0.38825,
-          "tanpura_strings": 1,
+          "plucked_traditional_technique": 0.26,
+          "tanpura_size": 1.0315,
+          "tanpura_jawari": 1.3,
+          "tanpura_strings": 0.39374999999999993,
           "tanpura_string_material": 0.63275,
-          "tanpura_body_wood": 1.3
+          "tanpura_body_wood": 0.40950000000000003
         }
       },
       {
@@ -90,8 +90,8 @@
           "singing_bowl_technique": "singing_bowl_rim_rubbed"
         },
         "scores": {
-          "singing_bowl_form": 0.48639285714285707,
-          "singing_bowl_technique": 1.1007142857142855
+          "singing_bowl_form": 0.39,
+          "singing_bowl_technique": 0.39
         }
       }
     ],

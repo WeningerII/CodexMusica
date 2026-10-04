@@ -2,10 +2,10 @@
   "id": "swing_italiano",
   "name": "Swing italiano",
   "family": "jazz",
-  "lineage": "Swing italiano is represented here by Carlo Colombo Trio — MusicaViva/Artigiano Vivo, Cison di Valmarino, 11 August 2022. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic early-2020s swing italiano, improv On Frame, early branch. group vocals. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 342,
-  "score": 33.663,
+  "lineage": "Swing italiano connects Italian song and local dance-band traditions with the rhythmic language of swing. Revival groups and contemporary songwriters continue the repertoire in small ensembles and larger arrangements.",
+  "recipe": "classic swing italiano, improv On Frame, early branch. group vocals. grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 255,
+  "score": 24.364,
   "config": {
     "traditions": [
       "swing_italiano"
@@ -43,46 +43,46 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
+          "voice_ensemble_config": 0.6517499999999999,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.399
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.44175
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.29275,
-          "grand_piano_size": 0.36749999999999994,
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.0945,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 2.275,
-          "piano_rim": 1.885,
-          "piano_soundboard": 0.26,
-          "piano_pinblock": 0.24275000000000002,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": 1.2349999999999999
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_wound_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 6.25,
+          "upright_strings": 0,
           "upright_play": 6.25
         }
       },
@@ -94,7 +94,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 4.29,
+          "drum_technique": 8.58,
           "drumhead": 8.06,
           "drum_kit_kick_pedal": 0
         }
@@ -120,7 +120,19 @@
         "voice_multitrack_stack"
       ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
       ],
       "drum_kit": [
         "drum_technique"
@@ -162,7 +174,17 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "keyboard_technique": "keyboard_jazz_comping",
-      "drum_technique": "brushes_and_sticks"
+      "drum_technique": "brushes_and_sticks",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "upright_strings": "gut_upright",
+      "upright_play": "pizz_upright"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

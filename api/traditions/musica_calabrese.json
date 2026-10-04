@@ -2,10 +2,10 @@
   "id": "musica_calabrese",
   "name": "Musica calabrese",
   "family": "vernacular",
-  "lineage": "Peppe Voltarelli — musical performances at the first Trame di Color Fest presentation of Voltarelli canta Profazio, reported by its organizer on 17 June 2016. The organizer describes his Calabrian dialect folk revival and quotes his voice-and-guitar-only stage practice; he sings Qua si campa d’aria, Amuri amuri and Allu mè paisi. This realization retains the complete two-role solo practice, one singer accompanying himself on guitar. Discussion moderator Andrea Di Consoli is not an additional musical singer; studio-album arrangements and absent Profazio are not imported into this live scope. Authored new recording of the complete documented solo format. A strummed steel-string dreadnought with Engelmann top, rosewood back and sides, standard tuning and 80/20 strings is an explicit recording choice for the source-generic guitar, not a claim about original construction. One accompanied singer uses neutral physiological controls and an authored small-note-group neumatic setting; exact source ornamentation is not measured. Broad balladPoetry reflects the positively documented lyric/dialect storytelling priority and sparse accompaniment, without an inferred specific Mediterranean mode. Live-room setting is authored; global tuning and capture hardware are unspecified.",
-  "recipe": "classic mid-2010s musica calabrese, ballad Poetry. small note groups per syllable, solo with instrumental accompaniment. indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
-  "recipe_chars": 234,
-  "score": 17.952,
+  "lineage": "Musica calabrese encompasses Calabrian regional repertoire, including dialect storytelling, sentimental song and dance music. Folk revivals and contemporary performers renew songs associated with local history and social life.",
+  "recipe": "classic musica calabrese, ballad Poetry. solo with instrumental accompaniment. dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 122,
+  "score": 2.203,
   "config": {
     "traditions": [
       "musica_calabrese"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.309500000000001,
-          "voice_ensemble_config": 6.018999999999999,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 3.2,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 1.25,
-          "string_acoustic": 2.873
+          "back_sides": -0.05,
+          "string_acoustic": 0.273
         }
       }
     ],

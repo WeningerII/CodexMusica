@@ -2,10 +2,10 @@
   "id": "bulgarian_pop",
   "name": "Bulgarian pop",
   "family": "pop",
-  "lineage": "Bulgarian pop is represented here by Lyubo Kirov — As Before touring core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Bulgarian pop encompasses melodic popular songwriting and contemporary performance traditions in Bulgaria.",
   "recipe": "classic bulgarian pop, functional Song, europop branch. solo with instrumental accompaniment. basswood clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 30.589,
+  "score": 23.747,
   "config": {
     "traditions": [
       "bulgarian_pop"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 9.75,
-          "amp_make": 1.255,
+          "electric_technique": 7.45,
+          "amp_make": 0,
           "body_wood": 1.0605000000000002,
           "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0.2415,
           "pickup_winding": 0.2415,
           "string_material": 0,
-          "bridge": 1.3315000000000001,
+          "bridge": 0.273,
           "scale_length": 0.8505,
-          "string_gauge": 1.3315000000000001,
+          "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -51,8 +51,8 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "half_round",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -61,8 +61,8 @@
           "body_wood": 0.546,
           "pickup_config": 0.2415,
           "string_type": 0.273,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 9.055,
+          "drumhead": 7.555000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.008,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
@@ -130,7 +130,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 0.9135000000000002,
-          "poly_voices": 0.0945,
+          "poly_voices": 1.0945,
           "poly_maker_lineage": -0.035
         }
       }

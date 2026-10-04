@@ -5,7 +5,7 @@
   "lineage": "Paris-centred style of roughly 1995-2003 codified by Daft Punk, Cassius, Etienne de Crecy, Alan Braxe and Stardust, built from short looped disco and boogie vinyl samples at 115-128 BPM, driven by aggressive resonant band-pass filter sweeps and phaser motion across the whole loop, hard bus compression that pumps against a 909 kick, and vocals used as pitched, chopped, vocoded or talkbox texture rather than as verse-chorus lead.",
   "recipe": "classic Western European mid-1990s french house, electronic Dance, house branch, deep house house, italo house house, continental electronic dance canadian house deep disco house. turntable, melodic pitched sampler, TR-909, analog poly synth, vocoder, talkbox. intimate paris small studio. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 419,
-  "score": 106.359,
+  "score": 102.806,
   "config": {
     "traditions": [
       "french_house",
@@ -20,7 +20,7 @@
           "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 1.7899999999999998,
+          "electronic_technique": 1.14,
           "turntable_technique": 0
         }
       },
@@ -28,17 +28,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "emu_emax",
+          "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.7899999999999998,
-          "sampler_archetypes": 0.65,
-          "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 1.4299999999999997,
-          "sampler_classic_context": 50.05649999999999
+          "electronic_technique": 1.14,
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 0.26,
+          "sampler_workflow": 1.885,
+          "sampler_classic_context": 50.921499999999995
         }
       },
       {
@@ -49,7 +49,7 @@
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 31.319999999999997,
+          "tr909_voice": 30.195,
           "drum_machine_909_context": 1.04,
           "tr909_production_origin": 0
         }
@@ -57,15 +57,15 @@
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
-          "poly_archetypes": "jupiter_8",
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 1.2899999999999998,
-          "poly_archetypes": 0.65,
-          "poly_voices": 0.65,
+          "electronic_technique": 1.2349999999999999,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
           "poly_maker_lineage": -1.69
         }
       },
@@ -78,7 +78,7 @@
         },
         "scores": {
           "voc_band_count": 0,
-          "voc_carrier": 0.24,
+          "voc_carrier": 0.195,
           "voc_modulator": 0.045
         }
       },
@@ -86,11 +86,11 @@
         "id": "talkbox",
         "slots": {
           "talkbox_use": "talkbox_funk",
-          "talkbox_construction": "talkbox_combo"
+          "talkbox_construction": "talkbox_tube"
         },
         "scores": {
           "talkbox_use": 0,
-          "talkbox_construction": 0.65
+          "talkbox_construction": 0
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "frankfurt_electronic",
   "name": "Frankfurt electronic",
   "family": "electronic",
-  "lineage": "Frankfurt electronic is represented here by Jogging House — Self (2017). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic late-2010s frankfurt electronic, experimental Elec. emu modular 1971 1978 analog studio grade east coast precision modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 225,
-  "score": 8.509,
+  "lineage": "Frankfurt electronic music connects the city’s dance-music history with independent electronic production, including quieter ambient and experimental strands.",
+  "recipe": "classic frankfurt electronic, experimental Elec. evolving modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 160,
+  "score": 7.848,
   "config": {
     "traditions": [
       "frankfurt_electronic"
@@ -16,21 +16,23 @@
         "slots": {
           "electronic_technique": "electronic_modular_patch",
           "mod_voltage_source": "mod_sequencer",
-          "mod_patch_density": "mod_dense_patch",
-          "mod_lineage": "mod_emu_modular"
+          "mod_patch_density": "mod_simple_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 4.2940000000000005,
+          "electronic_technique": 7.031,
           "mod_voltage_source": 0.78,
-          "mod_patch_density": 1.81,
-          "mod_lineage": 1.625
+          "mod_patch_density": 0,
+          "mod_lineage": 0.03712499999999999
         }
       }
     ],
     "pinned": {
       "modular_synth": [
         "electronic_technique",
-        "mod_voltage_source"
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
       ]
     },
     "room": "treated_studio",
@@ -53,7 +55,9 @@
     "room": "treated_studio",
     "parts": {
       "electronic_technique": "electronic_modular_patch",
-      "mod_voltage_source": "mod_sequencer"
+      "mod_voltage_source": "mod_sequencer",
+      "mod_lineage": "mod_doepfer_eurorack",
+      "mod_patch_density": "mod_simple_patch"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

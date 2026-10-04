@@ -2,10 +2,10 @@
   "id": "contemporary_choir",
   "name": "Contemporary choir",
   "family": "classical",
-  "lineage": "Contemporary choir is represented by Roomful of Teeth — Caroline Shaw, Partita IV: Passacaglia. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "lineage": "Contemporary choral music explores new composition and vocal textures within ensemble singing. Written structures can combine sustained harmony with speech, extended sounds and changing relationships between the parts.",
   "recipe": "classic contemporary choir, art Music, western modern branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 2.737,
+  "score": 1.93,
   "config": {
     "traditions": [
       "contemporary_choir"
@@ -23,7 +23,7 @@
           "choir_size": 1.3,
           "choir_polyphonic_configuration": 0.1365,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 1.3
+          "choir_ensemble_repertoire": 0.49350000000000005
         }
       }
     ],

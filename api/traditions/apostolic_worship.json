@@ -3,9 +3,9 @@
   "name": "Apostolic worship",
   "family": "global",
   "lineage": "Apostolic worship: Richard W. Smith — Apostolic Praise School of Music church-piano practice. An accompaniment/solo-piano realization of positively documented apostolic church-piano practice. No singer count is asserted, no choir inferred, and the other courses are not used to invent this roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic apostolic worship, ritual Devotional, pentecostal branch. no chemical hardener t rivet Asian spruce hokkaido source gospel runs grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 247,
-  "score": 8.808,
+  "recipe": "classic apostolic worship, ritual Devotional, pentecostal branch. no chemical hardener t rivet gospel runs grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 218,
+  "score": 8.622,
   "config": {
     "traditions": [
       "apostolic_worship"
@@ -27,10 +27,10 @@
         "scores": {
           "keyboard_technique": 4.8100000000000005,
           "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.273,
-          "piano_hammer": 2.62,
+          "grand_piano_brand": 0.3045,
+          "piano_hammer": 2.5975,
           "piano_rim": -0.035,
-          "piano_soundboard": 1.17,
+          "piano_soundboard": 0.9749999999999999,
           "piano_pinblock": -0.05,
           "piano_plate": -0.05,
           "piano_pitch_standard": -0.035

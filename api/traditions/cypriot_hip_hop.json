@@ -5,7 +5,7 @@
   "lineage": "Cypriot hip hop includes locally rooted and diasporic language and production branches. The selected Ayia Napa branch follows English-Cypriot rapper/producer A!MS, formerly A.M. Sniper, and his rap-and-melodic crossover practice.",
   "recipe": "classic modern cypriot hip hop, mc Rhythm, intl hip hop branch. rap, echo word punctuation. pitched chopped sampler, low mid rich spectrum cedar classical nylon-string guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 311,
-  "score": 47.307,
+  "score": 47.347,
   "config": {
     "traditions": [
       "cypriot_hip_hop"
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 5.5,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.213,
           "sampler_workflow": 6.25,
           "sampler_classic_context": 13.194999999999999
         }
@@ -74,16 +74,16 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "double_top_cl",
-          "string_classical": "nylon_high_cl",
-          "attack_technique_cl": "tirando_cl"
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
           "acoustic_technique": -0.2185,
           "string_tuning": 0,
-          "top_wood_classical": 1.4955,
-          "bracing_classical": 0.276,
-          "string_classical": 0.6,
-          "attack_technique_cl": 0
+          "top_wood_classical": 1.2435,
+          "bracing_classical": 0.40199999999999997,
+          "string_classical": 0.604,
+          "attack_technique_cl": 0.054
         }
       }
     ],

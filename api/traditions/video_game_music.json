@@ -5,7 +5,7 @@
   "lineage": "Interactive score composed for game hardware, from the 1980 arcade and 1983-1994 console chip era — Koichi Sugiyama, Nobuo Uematsu, Koji Kondo and Yuzo Koshiro writing three-to-eight-voice PSG and FM parts under strict polyphony and memory limits — through the CD and streamed-audio era after 1995; the persistent markers are short seamlessly loopable cues, fast arpeggiated pseudo-chords standing in for missing voices, wide leaps and rapid modal modulation to stay memorable at 120-160 BPM, and layered or branching arrangements that respond to player state.",
   "recipe": "classic Asian mid-1980s video game music, experimental Elec, retro aesthetic branch, pop rock synthpop, western modern art music metropopolis post-minimalism. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, singing lead digital subtractive, field textural sampler, plain gut lamb gut whole lamb method sitka spruce hard rock maple violin orchestral, yamaha xeno modern Japanese heavy one piece matched to monette horn legato trumpet, synthetic timpani, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 897,
-  "score": 224.065,
+  "score": 224.14,
   "config": {
     "traditions": [
       "video_game_music",
@@ -23,7 +23,7 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 9.959999999999999,
+          "electronic_technique": 10.004999999999999,
           "fm_algorithm": 2.145,
           "fm_modulator_ratio": 0,
           "fm_polyphony": 1.3,
@@ -39,7 +39,7 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 9.959999999999999,
+          "electronic_technique": 10.004999999999999,
           "wt_position": 2.4050000000000002,
           "wt_family": 1.8850000000000002,
           "wt_polyphony": 1.3
@@ -54,7 +54,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 9.959999999999999,
+          "electronic_technique": 10.004999999999999,
           "poly_archetypes": 5.2,
           "poly_voices": 0.24,
           "poly_maker_lineage": 2.535
@@ -68,7 +68,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 9.959999999999999,
+          "electronic_technique": 10.004999999999999,
           "va_archetypes": 0.35,
           "digital_subtractive_context": 21.97
         }
@@ -131,7 +131,7 @@
         "scores": {
           "wind_articulation": 1.25,
           "brass_size": 0.65,
-          "trumpet_mouthpiece": 6.215,
+          "trumpet_mouthpiece": 6.0649999999999995,
           "brass_mute": 1.25,
           "trumpet_technique": 1.25,
           "trumpet_bell_metal": 0.195,
@@ -161,7 +161,7 @@
         },
         "scores": {
           "choir_size": 8.58,
-          "choir_polyphonic_configuration": 2.675,
+          "choir_polyphonic_configuration": 2.7199999999999998,
           "choir_regional_canonical_configuration": 3.6399999999999997,
           "choir_ensemble_repertoire": 2.66
         }

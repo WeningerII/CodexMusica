@@ -2,10 +2,10 @@
   "id": "kazakh_indie",
   "name": "Kazakh indie",
   "family": "vernacular",
-  "lineage": "Documented initial solo performance and prior solo songwriter practice of Galymzhan Moldanazar, Almaty, February2015. In a firsthand interview, collaborator Ivan Trevino describes their first meeting in Chaz Martin’s living room: Moldanazar sat, played his guitar and softly sang a song before the subsequent joint rehearsals. The artist separately describes his usual earlier practice as singing with his guitar. This complete solo practice is selected, not an instrument-stripped version of later Akpen Birge with Break of Reality, the New York recording, or the later Moldanazar band. Exactly one singer and one guitar; song title at the initial encounter is not supplied. No listening or exact original guitar construction is claimed. Authored intimate acoustic songwriter rendition preserves sole accompanied voice and guitar. A steel-string OM with mahogany top/back/sides, phosphor-bronze strings, standard guitar tuning and flatpicked melodic accompaniment is an editorial realization of the positively documented guitar role, not an assertion of source model, material, strings or exact gesture. Source-unspecified voice physiology, single natural lead and controlled live room are authored defaults. No global temperament or original capture hardware is asserted.",
-  "recipe": "classic kazakh indie, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
-  "recipe_chars": 217,
-  "score": 25.669,
+  "lineage": "Kazakh indie connects independent songwriters and bands within Kazakhstan’s contemporary music scene. Kazakh-language songs circulate through intimate performances, recorded releases and collaborations that cross folk, rock and electronic approaches.",
+  "recipe": "classic kazakh indie, ballad Poetry. acoustic guitar. live tracking.",
+  "recipe_chars": 68,
+  "score": 0.34,
   "config": {
     "traditions": [
       "kazakh_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 11.418999999999999,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.6,
-          "voice_multitrack_stack": 5.199999999999999,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 2.6,
-          "acoustic_om_technique": 1.25
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.05
         }
       }
     ],

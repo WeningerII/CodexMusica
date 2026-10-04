@@ -2,10 +2,10 @@
   "id": "swedish_rock_and_roll",
   "name": "Swedish rock-and-roll",
   "family": "rock",
-  "lineage": "Swedish rock-and-roll is represented here by The Riptide Rats — Waves of Steel. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic swedish rock-and-roll, distorted Rock, regional branch. marshall plexi amp British rock amp nickel plated steel nickel nickel plated humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 355,
-  "score": 49.651,
+  "lineage": "Swedish rock-and-roll includes local continuations of early rock-and-roll, surf and guitar-led dance music.",
+  "recipe": "classic swedish rock-and-roll, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 314,
+  "score": 51.87,
   "config": {
     "traditions": [
       "swedish_rock_and_roll"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.15000000000000002,
-          "amp_make": 6.5,
+          "amp_make": 7.41,
           "body_wood": 0.273,
           "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.168,
           "pickup_winding": 0.147,
-          "string_material": 1.2730000000000001,
-          "bridge": 1.4785,
+          "string_material": 0.273,
+          "bridge": 0.1785,
           "scale_length": 0.8190000000000001,
-          "string_gauge": 1.51,
+          "string_gauge": 0.21000000000000002,
           "finish": 0,
-          "string_tuning": 0.363
+          "string_tuning": 0.063
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.865,
           "body_wood": 0.0315,
           "pickup_config": 0.063,
-          "string_type": 16.575,
+          "string_type": 18.85,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.3,
+          "drum_technique": 14.799999999999999,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       }

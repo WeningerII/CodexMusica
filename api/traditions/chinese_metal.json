@@ -5,7 +5,7 @@
   "lineage": "Chinese metal includes varied regional and stylistic practices. Tang Dynasty supplies this selected guitar-centered branch: heavy-metal lead/rhythm guitars, bass, drums and melodic singing, informed by Chinese musical and poetic traditions. Co-founder Kaiser Kuo describes the band’s Beijing beginnings and mutual exchange between Chinese music and Western metal. This authored four-role model emphasizes sustained electric lead guitar without assuming that Chinese identity requires traditional acoustic instruments or one universal vocal method.",
   "recipe": "classic modern chinese metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. humbucker electric guitar, electric bass, double bass rapid double strokes bronze bell bronze machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 418,
-  "score": 43.82,
+  "score": 40.258,
   "config": {
     "traditions": [
       "chinese_metal"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 1.56,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6315000000000001,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.222,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.5775,
-          "scale_length": 1.155,
+          "bridge": 0.6315000000000001,
+          "scale_length": 1.2630000000000001,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.7649999999999998
+          "string_tuning": 0.063
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6315000000000001,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.8699999999999999,
-          "fretted_or_not": 0.7019999999999998,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.222,
+          "fretted_or_not": 0,
+          "bass_technique": 3.862,
           "electric_bass_string_configuration": 0
         }
       },
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.6315000000000001,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.42,
-          "shell_thickness": 0.7019999999999998,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": 1.0999999999999999,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.7225,
+          "cymbal_lathing": 4.0205,
           "cymbal_finish": 0
         }
       },
@@ -120,7 +120,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
+          "voice_effort": 0.108,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 4.800000000000001,
@@ -128,11 +128,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 3.38,
-          "voice_ensemble_config": 1.7895,
+          "voice_ensemble_config": 1.5375,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_pitch_organization": 0.5684999999999999,
+          "voice_processing_chain": 1.5194999999999999,
+          "voice_multitrack_stack": 2.864
         }
       }
     ],

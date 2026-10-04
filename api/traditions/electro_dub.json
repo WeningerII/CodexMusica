@@ -2,10 +2,10 @@
   "id": "electro_dub",
   "name": "Electro dub",
   "family": "electronic",
-  "lineage": "Electro dub is represented here by Dub Engine — documented Bologna synth, vocal and dub-effects core. This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic electro dub, electronic Dance. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital analog bucket-brigade delay.",
-  "recipe_chars": 224,
-  "score": 1.671,
+  "lineage": "Electro dub brings synthesizer-led production and electronic performance into the echo-rich mixing practices of dub. It connects roots-derived rhythm with steppers and other bass-oriented styles.",
+  "recipe": "classic electro dub, electronic Dance. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital roland RE-201 space echo.",
+  "recipe_chars": 221,
+  "score": 1.895,
   "config": {
     "traditions": [
       "electro_dub"
@@ -15,15 +15,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "poly_archetypes": 0.105,
+          "electronic_technique": 0.26,
+          "poly_archetypes": 0,
           "poly_voices": 0,
-          "poly_maker_lineage": -0.035
+          "poly_maker_lineage": -0.05
         }
       },
       {
@@ -62,13 +62,16 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3705
+          "voice_multitrack_stack": 0.38549999999999995
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
       "voice": [
         "voice_register",
@@ -103,7 +106,7 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
-      "analog_delay"
+      "fx_roland_space_echo"
     ]
   },
   "source": {
@@ -126,7 +129,10 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electronic_technique": "electronic_lead_line"
+      "electronic_technique": "electronic_lead_line",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",
@@ -136,7 +142,7 @@
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box",
     "chain_fx": [
-      "analog_delay"
+      "fx_roland_space_echo"
     ]
   }
 }

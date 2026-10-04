@@ -2,39 +2,92 @@
   "id": "hard_industrial_techno",
   "name": "Hard Industrial Techno",
   "family": "electronic",
-  "lineage": "Definition Of Hard Techno — Hard Industrial Signature Pack published sample demonstrations. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
-  "recipe": "classic hard industrial techno, electronic Dance, techno branch. software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 189,
-  "score": 0,
+  "lineage": "Hard industrial techno combines forceful techno rhythms with distorted, metallic and noise-rich electronic sound. Its production emphasizes pressure, repetition and abrasive contrast.",
+  "recipe": "classic hard industrial techno, electronic Dance, techno branch. drum machine analog, modular synth, sampler.",
+  "recipe_chars": 109,
+  "score": 9.877,
   "config": {
     "traditions": [
       "hard_industrial_techno"
     ],
     "instruments": [
       {
-        "id": "software_sample_playback",
+        "id": "drum_machine_analog",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "kick_voice": 0.18,
+          "snare_voice": 0,
+          "hat_voice": 1,
+          "shuffle_quantize": -0.035
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_random",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "mod_voltage_source": 0,
+          "mod_patch_density": 0.354,
+          "mod_lineage": 0.5775
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 8.2
         }
       }
     ],
     "pinned": {
-      "software_sample_playback": [
-        "software_sample_playback_identity"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
-    "room": "treated_studio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -43,16 +96,20 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
     "parts": {
-      "software_sample_playback_identity": "software_sample_playback_digital"
+      "electronic_technique": "electronic_glitch_textural",
+      "sampler_archetypes": "emu_sp1200",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_microsampling_glitch",
+      "sampler_classic_context": "sampler_classic_industrial",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "mod_voltage_source": "mod_random",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "vietnamese_trap",
   "name": "Vietnamese trap",
   "family": "hip_hop",
-  "lineage": "Vietnamese trap is represented by HUSTLANG Robber’s produced rap branch, including His Story and the HUSTLANG collective established in Ho Chi Minh City. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
-  "recipe": "classic modern vietnamese trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler drum machine, a 440 modern pitch us standard grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 301,
-  "score": 30.155,
+  "lineage": "Vietnamese trap draws contemporary trap production into local rap networks, including the HUSTLANG collective.",
+  "recipe": "classic modern vietnamese trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. pitched sub bass 808 style legato glide sampler drum machine, grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 310,
+  "score": 21.238,
   "config": {
     "traditions": [
       "vietnamese_trap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 10.659999999999998,
+          "voice_quality": 8.125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.4225,
+          "voice_speech_song": 8.06,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.39
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.03899999999999999
         }
       },
       {
@@ -59,35 +59,35 @@
           "sample_processing": "sample_808_legato_slides"
         },
         "scores": {
-          "electronic_technique": 2.6890000000000005,
+          "electronic_technique": 2.539,
           "sample_bitdepth": 0,
-          "sample_swing": -0.05,
-          "sample_processing": 0.78
+          "sample_swing": 0.75,
+          "sample_processing": 1.17
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
+          "keyboard_technique": "keyboard_minimalist_repeated",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.78,
-          "piano_hammer": -0.035,
-          "piano_rim": 0.6499999999999999,
-          "piano_soundboard": 0.26,
-          "piano_pinblock": 0.26,
-          "piano_plate": 0.289,
-          "piano_pitch_standard": 2.015
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0,
+          "piano_hammer": -0.07,
+          "piano_rim": 0.26,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],
@@ -114,6 +114,17 @@
         "sample_bitdepth",
         "sample_swing",
         "sample_processing"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "studio_auteur_home_pro",
@@ -153,7 +164,16 @@
       "voice_effort": "effort_moderate",
       "sample_bitdepth": "twenty_four_bit",
       "sample_swing": "tight_swing",
-      "sample_processing": "sample_808_legato_slides"
+      "sample_processing": "sample_808_legato_slides",
+      "keyboard_technique": "keyboard_minimalist_repeated",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -2,10 +2,10 @@
   "id": "italian_electronica",
   "name": "Italian electronica",
   "family": "electronic",
-  "lineage": "Italian electronica is represented by Clap! Clap! — selected Desert Stone field-recording and programmed core. One documented branch receives an authored present-day studio realization.",
+  "lineage": "Italian electronica connects independent electronic production with sound design, environmental recordings and varied rhythmic influences.",
   "recipe": "classic italian electronica, experimental Elec, idm glitch branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 189,
-  "score": 3.39,
+  "score": 5.704,
   "config": {
     "traditions": [
       "italian_electronica"
@@ -17,19 +17,22 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "chopped_break"
         },
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.0735,
-          "sample_swing": 3.25,
-          "sample_processing": 0.1365
+          "sample_swing": 5.75,
+          "sample_processing": -0.05
         }
       }
     ],
     "pinned": {
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "chopped_break"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

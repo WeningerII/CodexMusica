@@ -2,10 +2,10 @@
   "id": "north_alabama_indie",
   "name": "North Alabama indie",
   "family": "rock",
-  "lineage": "Dweeby — The Dweepee (2024), complete EP credited ensemble. Authored contemporary indie-rock rendition of the full credited EP palette. Source-general guitar and bass are realized as clean-strummed alder/maple humbucker electric guitar and locked fingerstyle alder dual-single-coil bass; these are editorial timbral choices, not observed source hardware. Maple stick-played kit uses coherent machine-hammered traditionally finished cymbals. Bare percussion stays source-unspecified auxiliary rather than invented tambourine. Explicit piano uses coherent SteinwayD nine-foot construction and block-chord pop touch, all authored rather than measured. Three named singers receive a neutral-physiology live-group rendition, not a claim of original simultaneous takes or absence of overdubs. Controlled room, omitted capture apparatus and omitted global tuning are editorial.",
-  "recipe": "classic mid-2020s north alabama indie, distorted Rock, alternative branch. group vocals, live take. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, credited auxiliary percussion. live tracking.",
-  "recipe_chars": 410,
-  "score": 110.048,
+  "lineage": "North Alabama indie connects independent musicians around Huntsville, the Tennessee Valley and neighboring northern Alabama communities. Local radio, venues and collaborations support varied rock and song-oriented projects.",
+  "recipe": "classic north alabama indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 303,
+  "score": 38.934,
   "config": {
     "traditions": [
       "north_alabama_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.873,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 2.3,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.968000000000001,
+          "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 4.3095,
-          "neck_wood": 2.7049999999999996,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 2.273,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 4.3095,
+          "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 2.4500000000000006,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 9.5,
-          "drumhead": 1.4365,
+          "drum_technique": 8.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 6.0415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 15.3315,
-          "cymbal_lathing": 14.1365,
+          "cymbal_hammering": 8.681499999999998,
+          "cymbal_lathing": 8.786499999999998,
           "cymbal_finish": 0
         }
       },
@@ -151,15 +151,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 5.800000000000001,
-          "grand_piano_size": 1.4365,
+          "keyboard_technique": -0.1,
+          "grand_piano_size": 0.1365,
           "grand_piano_brand": 0,
-          "piano_hammer": 8.19,
-          "piano_rim": 8.19,
+          "piano_hammer": 4.42,
+          "piano_rim": 4.42,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 3.863,
-          "piano_plate": 1.3365,
-          "piano_pitch_standard": 3.9644999999999992
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
+          "piano_pitch_standard": -0.035
         }
       },
       {

@@ -2,10 +2,10 @@
   "id": "comedy_rock",
   "name": "Comedy rock",
   "family": "rock_punk",
-  "lineage": "A comedy-oriented rock discovery cluster including Tenacious D, Weird Al Yankovic and other performers. This default selects Tenacious D’s original acoustic-duo branch: guitar-driven songs, paired voices and deliberately theatrical rock presentation.",
+  "lineage": "Comedy rock brings humorous writing and theatrical performance into rock songcraft. Original comic songs, parody and exaggerated rock gestures appear in formats ranging from acoustic duos to amplified full bands.",
   "recipe": "classic comedy rock, distorted Rock, alternative branch. unprocessed natural acoustic. dreadnought acoustic guitar. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 208,
-  "score": 3.097,
+  "score": 1.897,
   "config": {
     "traditions": [
       "comedy_rock"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 0.3,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.468,
-          "voice_multitrack_stack": 0.3
+          "voice_processing_chain": 1.168,
+          "voice_multitrack_stack": 0
         }
       },
       {
@@ -60,7 +60,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 0.2,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
           "top_wood": 0.105,
           "back_sides": 0.27299999999999996,

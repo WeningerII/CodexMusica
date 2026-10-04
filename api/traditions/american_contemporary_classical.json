@@ -2,10 +2,10 @@
   "id": "american_contemporary_classical",
   "name": "American contemporary classical",
   "family": "classical",
-  "lineage": "American contemporary classical is represented here by Philip Glass / Michael Riesman — The Hours (Solo Piano), Orange Mountain Music (2004). This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-2000s american contemporary classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 276,
-  "score": 81.802,
+  "lineage": "American contemporary classical music includes concert composition shaped by minimalism and many other modern approaches. Works circulate through solo, chamber, vocal and larger-ensemble performance.",
+  "recipe": "classic american contemporary classical, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 249,
+  "score": 78.877,
   "config": {
     "traditions": [
       "american_contemporary_classical"
@@ -16,30 +16,38 @@
         "slots": {
           "keyboard_technique": "keyboard_minimalist_repeated",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.3675,
-          "grand_piano_brand": 2.4364999999999997,
-          "piano_hammer": 14.32175,
-          "piano_rim": 12.3045,
-          "piano_soundboard": 12,
-          "piano_pinblock": 12.467249999999998,
-          "piano_plate": 13.78125,
-          "piano_pitch_standard": 14.17325
+          "keyboard_technique": 0.25,
+          "grand_piano_size": 0.571,
+          "grand_piano_brand": 0.4095,
+          "piano_hammer": 13.75,
+          "piano_rim": 14.13175,
+          "piano_soundboard": 13.75,
+          "piano_pinblock": 13.75,
+          "piano_plate": 13.75,
+          "piano_pitch_standard": 8.515
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -61,7 +69,15 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "keyboard_technique": "keyboard_minimalist_repeated"
+      "keyboard_technique": "keyboard_minimalist_repeated",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

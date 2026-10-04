@@ -2,10 +2,10 @@
   "id": "belgian_post_rock",
   "name": "Belgian post-rock",
   "family": "rock_punk",
-  "lineage": "Belgian post-rock is represented here by We Stood Like Kings. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic belgian post-rock, distorted Rock, experimental branch. soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 394,
-  "score": 52.972,
+  "lineage": "Belgian post-rock includes piano-led instrumental ensembles working with guitar texture and dynamic rhythm.",
+  "recipe": "classic belgian post-rock, distorted Rock, experimental branch. soft felt lacquer voiced 17 ply hard rock maple grand piano, marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 29.88,
   "config": {
     "traditions": [
       "belgian_post_rock"
@@ -15,25 +15,25 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_minimalist_repeated",
-          "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "yamaha_cfx",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": 0.289,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.378,
-          "piano_hammer": 4.8100000000000005,
-          "piano_rim": 6.5,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": 0.26,
-          "piano_plate": 0.26,
-          "piano_pitch_standard": 0.325
+          "grand_piano_size": 0.0315,
+          "grand_piano_brand": 0.03899999999999999,
+          "piano_hammer": 4.42,
+          "piano_rim": 4.42,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -43,51 +43,51 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 4.8100000000000005,
+          "amp_make": 4.42,
           "body_wood": 0.5565,
-          "neck_wood": 0.378,
-          "fretboard": 0.378,
-          "pickup_magnet": 0.147,
-          "pickup_winding": 0.39,
-          "string_material": 0.378,
-          "bridge": 1.69,
-          "scale_length": 0.9975,
-          "string_gauge": 1.69,
-          "finish": 0.1365,
-          "string_tuning": 0.39
+          "neck_wood": 0.39,
+          "fretboard": 0.063,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.147,
+          "string_material": 0.39,
+          "bridge": 0.27099999999999996,
+          "scale_length": 0,
+          "string_gauge": 0.20799999999999996,
+          "finish": 0,
+          "string_tuning": 0.03899999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.265,
-          "body_wood": 0.126,
-          "pickup_config": 0.1785,
-          "string_type": 12.35,
-          "scale_length_b": 0.273,
-          "fretted_or_not": 0.03899999999999999,
+          "amp_make": 4.875,
+          "body_wood": 0.5565,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -96,11 +96,11 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.5,
+          "drum_technique": 8.75,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
@@ -108,14 +108,38 @@
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -146,7 +170,30 @@
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "keyboard_technique": "keyboard_minimalist_repeated"
+      "keyboard_technique": "keyboard_minimalist_repeated",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -2,10 +2,10 @@
   "id": "dansktop",
   "name": "Dansktop",
   "family": "pop",
-  "lineage": "Complete Kandis five-person band practice in the presenter’s2025 roster reproduced on its27March2026 dance-evening listing: Johnny Hansen guitar/lead vocal, Jens Erik Jensen keyboard/vocal, Mads Hyldahl lead guitar/vocal, Frank Thøgersen drums/vocal and Ole Svendsen bass/vocal. Five positively named singers and five sound families; one guitar family card aggregates two players. The advertised three total hours of band performance are the scope, with explicitly separate DJ intermissions excluded. Dated2025 roster is not silently relabeled as independently measured2026 personnel. Exact set list and original equipment remain unknown. Representative authored contemporary pop-band rendition retains all five sound families and five credited singers. The two source-unspecified guitars are realized by one aggregate clean-strummed electric humbucker guitar card; bass as modern fretted dual-single-coil fingerstyle, keyboard as neutral architecture-unspecified electronic keyboard, drums as acoustic stick-played kit. Woods, strings, pickups, hardware and techniques are authored compatible choices, not measured artist equipment. Controlled live room is an authored recording environment; optional signal chain and global tuning omitted. Broad functionalSong/pop represents an explicitly authored functional-harmonic verse/refrain rendition of the documented popular-song band repertoire, not measured source harmony or form. Live-group vocals retain all five people with unknown actual interval relationships; one-take no-overdub stacking is an authored combined rendition, not a source recording fact. Neutral voice physiology and pitch retained. Authored block melodic/chordal keyboard does not infer an organ or synthesizer architecture.",
-  "recipe": "classic dansktop, functional Song. group vocals, unprocessed natural acoustic, live take. conventional tuning standard pitch clean strummed humbucker electric guitar, melodic chordal electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, pocket fingerstyle locked electric bass. live tracking.",
-  "recipe_chars": 349,
-  "score": 63.638,
+  "lineage": "Dansktop connects Danish popular songs, dance bands and broadcasting traditions. Singers and groups circulate accessible melodies through recordings, social dancing and public performances.",
+  "recipe": "classic dansktop, functional Song. humbucker electric guitar, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electric bass. live tracking.",
+  "recipe_chars": 214,
+  "score": 9.513,
   "config": {
     "traditions": [
       "dansktop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.472999999999999,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.299999999999999,
+          "electric_technique": 2.45,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.054,
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -93,7 +93,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 2.6
+          "keyboard_technique": 0
         }
       },
       {
@@ -113,15 +113,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.254,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
-          "bearing_edges": 1.354,
+          "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 0.13000000000000003,
-          "cymbal_hammering": 13.004,
-          "cymbal_lathing": 12.95,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 2.454,
+          "cymbal_lathing": 2.7,
           "cymbal_finish": 0
         }
       },
@@ -144,7 +144,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       }

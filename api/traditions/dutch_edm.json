@@ -2,10 +2,10 @@
   "id": "dutch_edm",
   "name": "Dutch edm",
   "family": "electronic",
-  "lineage": "Dutch edm is represented here by Jay Hardway — documented instrumental synth-and-sampling studio branch. This is one documented branch with an authored present-day studio realization.",
+  "lineage": "Dutch EDM connects producers and performers across house, progressive, big-room and other electronic dance styles. Instrumental club tracks and collaborations with singers are both important parts of the field.",
   "recipe": "classic dutch edm, electronic Dance. analog poly synth, layered sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 152,
-  "score": 20.84,
+  "score": 20.226,
   "config": {
     "traditions": [
       "dutch_edm"
@@ -15,14 +15,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 0.105,
-          "poly_voices": 0,
+          "poly_voices": 0.2475,
           "poly_maker_lineage": -0.035
         }
       },
@@ -30,17 +30,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_s1000",
+          "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 5.75,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": 5.699999999999999,
-          "sampler_classic_context": 9.49
+          "sampler_archetypes": 0.21,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": 5.313,
+          "sampler_classic_context": 14.43
         }
       }
     ],

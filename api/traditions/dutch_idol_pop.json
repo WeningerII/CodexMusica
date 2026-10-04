@@ -2,10 +2,10 @@
   "id": "dutch_idol_pop",
   "name": "Dutch idol pop",
   "family": "pop",
-  "lineage": "Dutch idol pop is represented here by Ivar Oosterloo — singer-guitarist branch. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Dutch idol pop connects singers emerging through televised talent contests with contemporary Dutch popular songwriting.",
   "recipe": "classic dutch idol pop, functional Song, europop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 262,
-  "score": 11.124,
+  "score": 11.408,
   "config": {
     "traditions": [
       "dutch_idol_pop"
@@ -21,7 +21,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 8.2,
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
           "top_wood": 0.273,
           "back_sides": 0.105,
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1905,
-          "voice_multitrack_stack": 0.3
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.354
         }
       }
     ],

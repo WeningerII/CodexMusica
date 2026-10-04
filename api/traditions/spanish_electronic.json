@@ -2,10 +2,10 @@
   "id": "spanish_electronic",
   "name": "Spanish electronic",
   "family": "electronic",
-  "lineage": "Spanish electronic is represented by I am Dive — Mount Eerv synth-and-voice core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic spanish electronic, experimental Elec. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 204,
-  "score": 1.307,
+  "lineage": "Spanish electronic music includes independent songwriters and producers working between electronic texture, ambient sound and popular-song forms.",
+  "recipe": "classic spanish electronic, experimental Elec. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 166,
+  "score": 3.52,
   "config": {
     "traditions": [
       "spanish_electronic"
@@ -20,7 +20,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 2.7815,
           "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
           "poly_maker_lineage": -0.05
@@ -58,17 +58,20 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.0995000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.1575
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 0.126
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
       "voice": [
         "voice_register",
@@ -124,7 +127,10 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

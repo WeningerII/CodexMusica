@@ -2,10 +2,10 @@
   "id": "australian_alternative_pop",
   "name": "Australian alternative pop",
   "family": "pop",
-  "lineage": "Australian alternative pop is represented here by Family Fold — Ashfield Skyline selected solo-lead core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic australian alternative pop, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 376,
-  "score": 37.68,
+  "lineage": "Australian alternative pop brings independent songwriting together with guitar-band and keyboard-based textures.",
+  "recipe": "classic australian alternative pop, functional Song, pop rock branch. solo with instrumental accompaniment. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 338,
+  "score": 31.385,
   "config": {
     "traditions": [
       "australian_alternative_pop"
@@ -22,7 +22,7 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 1.4365,
+          "bridge": 0.2415,
           "scale_length": 0.6405000000000001,
-          "string_gauge": 1.4995,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -62,7 +62,7 @@
           "pickup_config": 0.3045,
           "string_type": 4.875,
           "scale_length_b": 0.168,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 12.9415,
+          "drumhead": 11.4415,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.1575
+          "voice_multitrack_stack": 0.1575
         }
       },
       {

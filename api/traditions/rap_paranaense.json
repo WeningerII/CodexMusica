@@ -2,10 +2,10 @@
   "id": "rap_paranaense",
   "name": "Rap paranaense",
   "family": "hip_hop",
-  "lineage": "Paraná rap includes Londrina producer DJ Samu AKA Suguiura’s MC collaborations, scratch performances and sampled production.",
-  "recipe": "classic modern rap paranaense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 337,
-  "score": 31.594,
+  "lineage": "Hip-hop communities in the Brazilian state of Paraná, including connected MC and DJ networks in Londrina and Umuarama.",
+  "recipe": "classic modern rap paranaense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 34.371,
   "config": {
     "traditions": [
       "rap_paranaense"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 13.065000000000001,
+          "voice_quality": 13.325,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.309999999999999,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 11.569999999999999,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.522
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -57,8 +57,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 3.2,
-          "turntable_technique": 2.488
+          "electronic_technique": 4.1499999999999995,
+          "turntable_technique": 4.438
         }
       }
     ],

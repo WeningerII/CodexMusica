@@ -5,7 +5,7 @@
   "lineage": "Late-1970s American punk offshoot (Los Angeles, Akron, New York, 1977-1981) in which cheap monophonic synthesizers, combo organs and primitive drum machines replaced guitars entirely — codified by The Screamers, Suicide, Nervous Gender and The Units, running 140-170 BPM with buzzing sawtooth ostinati, no cymbals, hammering eighth-note machine pulses and shouted, hectoring, close-miked vocals delivered flat and unmelodic.",
   "recipe": "classic European 1977-1981 synthpunk, distorted Rock, punk branch, pop rock synthpop, industrial noise experimental electric minimal synth new romanticism. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, psychedelic foregrounded organ driven rock block chord combo organ, drum machine analog, ampeg svt amp rock bass amp ernie ball slinky electric bass. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 597,
-  "score": 252.405,
+  "score": 252.54,
   "config": {
     "traditions": [
       "synthpunk",
@@ -62,7 +62,7 @@
           "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
-          "electronic_technique": 10.735000000000001,
+          "electronic_technique": 10.780000000000001,
           "mono_oscillator": 0.24,
           "mono_filter": 0.435,
           "mono_archetypes": 0.845,
@@ -119,7 +119,7 @@
           "pickup_config": 0.285,
           "string_type": 13.162500000000001,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.15,
+          "fretted_or_not": 0.195,
           "bass_technique": 18.445,
           "electric_bass_string_configuration": 0
         }
@@ -133,7 +133,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 10.735000000000001,
+          "electronic_technique": 10.780000000000001,
           "poly_archetypes": 5.265000000000001,
           "poly_voices": 0.24,
           "poly_maker_lineage": 3.38

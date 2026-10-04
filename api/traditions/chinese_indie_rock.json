@@ -2,10 +2,10 @@
   "id": "chinese_indie_rock",
   "name": "Chinese indie rock",
   "family": "rock_punk",
-  "lineage": "A broad Chinese indie/alternative discovery roster that includes contemporary bands and established experimental rock figures. This default selects Cui Jian’s documented electric-rock and suona combination, rather than treating the label as a strict independent-label business category.",
+  "lineage": "Chinese indie rock spans guitar bands, alternative songwriting and experimental ensembles connected through local scenes and independent listening networks. Artists such as Cui Jian, Second Hand Rose and Hedgehog illustrate its varied approaches to electric rock and local musical resources.",
   "recipe": "classic chinese indie rock, distorted Rock, regional branch. solo with instrumental accompaniment, single lead single track no stacking. projecting rock context melodic suona, single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, American blackface tube, parallel compression, parametric EQ. 24-bit digital low-gain overdrive.",
   "recipe_chars": 468,
-  "score": 48.982,
+  "score": 44.643,
   "config": {
     "traditions": [
       "chinese_indie_rock"
@@ -19,8 +19,8 @@
           "suona_body": "suona_rosewood_copper"
         },
         "scores": {
-          "suona_size": 0.2,
-          "suona_context": 7.02,
+          "suona_size": -0.1,
+          "suona_context": 6.24,
           "suona_body": -0.05
         }
       },
@@ -42,7 +42,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 0.26,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.273,
@@ -96,16 +96,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 12.79275,
+          "drum_technique": 11.29275,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.3,
+          "shell_wood": 0,
           "shell_thickness": 0.10575,
           "bearing_edges": 0.273,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 12.786499999999998,
-          "cymbal_lathing": 12.755749999999999,
+          "cymbal_alloy": 0.7999999999999998,
+          "cymbal_hammering": 11.286499999999998,
+          "cymbal_lathing": 11.255749999999999,
           "cymbal_finish": 0
         }
       },
@@ -140,7 +140,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.17925000000000002,
+          "voice_speech_song": 0.39,
           "voice_ensemble_config": 1.3515000000000004,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.08549999999999999,

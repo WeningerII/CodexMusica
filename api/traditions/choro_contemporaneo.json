@@ -5,7 +5,7 @@
   "lineage": "Paula Borghi — ten solo-guitar works of Maurício Carrilho. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic choro contemporâneo, art Music. classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 169,
-  "score": 0.803,
+  "score": 1.066,
   "config": {
     "traditions": [
       "choro_contemporaneo"
@@ -24,8 +24,8 @@
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 0.1365,
-          "bracing_classical": 0.1365,
+          "top_wood_classical": 0.189,
+          "bracing_classical": 0.34650000000000003,
           "string_classical": 0.39,
           "attack_technique_cl": 0.39
         }

@@ -2,10 +2,10 @@
   "id": "brazilian_rockabilly",
   "name": "Brazilian rockabilly",
   "family": "rock_punk",
-  "lineage": "Brazilian rockabilly is represented here by Coke Luxe — 2017 artist lineup. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic late-2010s brazilian rockabilly, distorted Rock, classic branch. Fender champ amp low wattage studio grit basswood humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 290,
-  "score": 24.688,
+  "lineage": "Brazilian rockabilly continues early rock-and-roll practices through local bands and revival scenes.",
+  "recipe": "classic brazilian rockabilly, distorted Rock, classic branch. Fender tweed amp American 50s amp tweed breakup humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 277,
+  "score": 16.1,
   "config": {
     "traditions": [
       "brazilian_rockabilly"
@@ -15,44 +15,44 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_american_fender_tweed",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 7.609499999999999,
-          "body_wood": 1.04025,
-          "neck_wood": 0.5257499999999999,
-          "fretboard": 0.0945,
-          "pickup_magnet": 0.1365,
-          "pickup_winding": 1.95,
-          "string_material": 0.1365,
-          "bridge": 1.69,
-          "scale_length": 1.0515,
-          "string_gauge": 1.68575,
-          "finish": 0.3045,
-          "string_tuning": 0.38175
+          "amp_make": 7.114000000000001,
+          "body_wood": 0.9974999999999998,
+          "neck_wood": 0.0945,
+          "fretboard": 0,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.03899999999999999,
+          "string_material": 0.0945,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 0.0315,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "upright_bass",
         "slots": {
           "upright_strings": "gut_upright",
-          "upright_play": "slap_upright"
+          "upright_play": "pizz_upright"
         },
         "scores": {
           "upright_strings": 0.1365,
-          "upright_play": 2.7359999999999998
+          "upright_play": -0.05
         }
       },
       {
@@ -63,8 +63,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.813,
-          "drumhead": 0.5257499999999999,
+          "drum_technique": 6.313,
+          "drumhead": 0.483,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -86,7 +86,8 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -100,18 +101,33 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.231
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.39,
+          "voice_tessitura": 0
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
       ],
       "drum_kit": [
         "drum_technique",
@@ -133,7 +149,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ]
     },
     "room": "treated_studio",
@@ -174,7 +191,20 @@
       "electric_technique": "electric_clean_strummed",
       "string_tuning": "standard_tuning",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "upright_strings": "gut_upright",
+      "upright_play": "pizz_upright"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

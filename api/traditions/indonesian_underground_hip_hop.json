@@ -2,10 +2,10 @@
   "id": "indonesian_underground_hip_hop",
   "name": "Indonesian Underground Hip Hop",
   "family": "hip_hop",
-  "lineage": "Morgue Vanguard — complete Membebaskan Hujan Dari Tirani Puisi single (5June2024). Detailed construction and technique are authored realizations, not exact source models: clean-strummed single-coil guitar and fingerstyle fretted electric bass share alder; Prophet-5 five-voice Sequential pad realizes the credited generic synthesizer; yellow-brass Selmer alto with medium reed and lyrical legato realizes generic saxophone. Source does not specify actual pickup, synth architecture or saxophone size. Samples retain architecture/source-neutral owner, including the positively identified drum break without assigning a live kit. Optional global tuning is omitted because sampled source pitch is not established. Voice physiology and delivery remain source-unspecified; one lead does not establish exact overdub count. Neutral axes and studio chain are editorial choices.",
-  "recipe": "classic indonesian underground hip hop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. credited samples unspecified, alder conventional tuning standard pitch clean strummed single coil electric guitar, alder fingerstyle locked electric bass, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth, alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris lyrical saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 575,
-  "score": 35.77,
+  "lineage": "Indonesian underground hip-hop grows through independent labels, MC networks and self-directed production. Morgue Vanguard’s work connects Bandung rap with sample-based experimentation and broader instrumental collaborations.",
+  "recipe": "classic indonesian underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
+  "recipe_chars": 198,
+  "score": 43.853,
   "config": {
     "traditions": [
       "indonesian_underground_hip_hop"
@@ -15,7 +15,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 14.105,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,114 +43,28 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 12.23,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 4.8,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "credited_samples_unspecified",
+        "id": "sampler_drum_machine",
         "slots": {
-          "credited_samples_identity": "credited_samples_source_unspecified"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "credited_samples_identity": 0
-        }
-      },
-      {
-        "id": "electric_guitar_single_coil",
-        "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder",
-          "neck_wood": "maple",
-          "fretboard": "rosewood_fb",
-          "pickup_magnet": "alnico_2",
-          "string_material": "pure_nickel",
-          "string_gauge": "g_10",
-          "bridge": "two_point_trem",
-          "scale_length": "scale_fender",
-          "finish": "nitro",
-          "string_tuning": "standard_tuning",
-          "single_coil_pickup_construction": "single_coil_construction_unspecified"
-        },
-        "scores": {
-          "electric_technique": 6.300000000000001,
-          "amp_make": 0,
-          "body_wood": 1.3,
-          "neck_wood": 0.2415,
-          "fretboard": -0.05,
-          "pickup_magnet": 0,
-          "string_material": 0.105,
-          "string_gauge": 0.147,
-          "bridge": 0.1785,
-          "scale_length": 0,
-          "finish": 0,
-          "string_tuning": 2.6,
-          "single_coil_pickup_construction": 0
-        }
-      },
-      {
-        "id": "electric_bass",
-        "slots": {
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder",
-          "pickup_config": "split_coil",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
-        },
-        "scores": {
-          "amp_make": 0,
-          "body_wood": 1.3,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0,
-          "bass_technique": 1.15,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
-        },
-        "scores": {
-          "electronic_technique": 1.2315,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": 4.532500000000001
-        }
-      },
-      {
-        "id": "saxophone",
-        "slots": {
-          "wind_articulation": "wind_cool_lyrical",
-          "sax_size": "alto_sax",
-          "sax_reed": "medium_reed",
-          "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_cool_lyrical",
-          "sax_maker_school": "sax_selmer_mark_vi"
-        },
-        "scores": {
-          "wind_articulation": 1.5230000000000001,
-          "sax_size": 2.9595000000000002,
-          "sax_reed": 0,
-          "sax_body_alloy": 2.6785000000000005,
-          "sax_mouthpiece": 0,
-          "sax_technique": 1.5230000000000001,
-          "sax_maker_school": 1.56
+          "electronic_technique": 5.608,
+          "sample_bitdepth": 0.105,
+          "sample_swing": 9.1,
+          "sample_processing": 0.105
         }
       }
     ],
@@ -174,69 +88,32 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "credited_samples_unspecified": [
-        "credited_samples_identity"
-      ],
-      "electric_guitar_single_coil": [
-        "electric_technique",
-        "amp_make",
-        "body_wood",
-        "neck_wood",
-        "fretboard",
-        "pickup_magnet",
-        "string_material",
-        "string_gauge",
-        "bridge",
-        "scale_length",
-        "finish",
-        "string_tuning",
-        "single_coil_pickup_construction"
-      ],
-      "electric_bass": [
-        "amp_make",
-        "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
-      ],
-      "analog_poly_synth": [
+      "sampler_drum_machine": [
         "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
-      ],
-      "saxophone": [
-        "wind_articulation",
-        "sax_size",
-        "sax_reed",
-        "sax_body_alloy",
-        "sax_mouthpiece",
-        "sax_technique",
-        "sax_maker_school"
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -245,51 +122,18 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "credited_samples_identity": "credited_samples_source_unspecified",
-      "electric_technique": "electric_clean_strummed",
-      "amp_make": "amp_unspecified",
-      "body_wood": "alder",
-      "neck_wood": "maple",
-      "fretboard": "rosewood_fb",
-      "pickup_magnet": "alnico_2",
-      "string_material": "pure_nickel",
-      "string_gauge": "g_10",
-      "bridge": "two_point_trem",
-      "scale_length": "scale_fender",
-      "finish": "nitro",
-      "string_tuning": "standard_tuning",
-      "single_coil_pickup_construction": "single_coil_construction_unspecified",
-      "pickup_config": "split_coil",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "bass_technique": "fingerstyle_locked",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "electronic_technique": "electronic_pad_drone",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith",
-      "wind_articulation": "wind_cool_lyrical",
-      "sax_size": "alto_sax",
-      "sax_reed": "medium_reed",
-      "sax_body_alloy": "yellow_brass_sax",
-      "sax_mouthpiece": "hard_rubber_mp",
-      "sax_technique": "sax_cool_lyrical",
-      "sax_maker_school": "sax_selmer_mark_vi"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "one_shots_layered"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

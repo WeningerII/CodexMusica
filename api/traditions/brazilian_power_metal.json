@@ -2,10 +2,10 @@
   "id": "brazilian_power_metal",
   "name": "Brazilian power metal",
   "family": "rock_punk",
-  "lineage": "Brazilian metal practice documented by Angra’s own musicians, with this entry selecting the power metal branch rather than treating all national metal as one sound.",
-  "recipe": "classic modern brazilian power metal, distorted Rock, power branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. modern metal basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 427,
-  "score": 28.458,
+  "lineage": "Brazilian power metal combines the speed and melodic emphasis of power metal with local heavy-music scenes. Bands such as Angra bring progressive, symphonic and Brazilian influences into a guitar-led metal foundation.",
+  "recipe": "classic modern brazilian power metal, distorted Rock, power branch. equal tempered, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, electric bass, sticks backbeat drum kit, melodic orchestral imitation pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 489,
+  "score": 36.328,
   "config": {
     "traditions": [
       "brazilian_power_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_overdriven_lead",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -29,25 +29,25 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.26,
-          "amp_make": 0,
-          "body_wood": 7.54,
-          "neck_wood": 0.063,
-          "fretboard": 0.168,
-          "pickup_magnet": 0.3045,
+          "electric_technique": 0.6365,
+          "amp_make": 6.955000000000001,
+          "body_wood": 7.15,
+          "neck_wood": 0.0315,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.2415,
           "pickup_winding": 0.0735,
-          "string_material": 0.063,
+          "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.49349999999999994,
+          "string_gauge": 0.1785,
           "finish": 0.0315,
-          "string_tuning": 0.252
+          "string_tuning": 0.063
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 0.168,
+          "amp_make": 2.275,
+          "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 0.063,
+          "string_type": 0.0315,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 4.0360000000000005,
+          "bass_technique": 4.3045,
           "electric_bass_string_configuration": 0
         }
       },
@@ -107,16 +107,16 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 3.873500000000001,
+          "voice_microtone": 3.573500000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.0315,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.5565
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.0315,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1995
         }
       },
       {
@@ -129,18 +129,17 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 0.313,
+          "electronic_technique": 0.325,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 0.7149999999999999,
-          "sampler_classic_context": 0.25
+          "sampler_workflow": 2.015,
+          "sampler_classic_context": -0.05
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "pickup_magnet",
         "string_material",
         "bridge",
@@ -148,7 +147,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "pickup_config",
         "string_type",
         "scale_length_b",
@@ -233,15 +231,14 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "drumhead": "double_coated",
       "drum_kit_kick_pedal": "dk_kick_double",
-      "electronic_technique": "electronic_sustained_layering",
       "sampler_archetypes": "akai_s1000",
       "sampler_bit_depth": "sampler_sixteen_bit",
       "sampler_workflow": "sampler_one_shot_pitched",
-      "sampler_classic_context": "sampler_classic_pop_production"
+      "sampler_classic_context": "sampler_classic_pop_production",
+      "electronic_technique": "electronic_sustained_layering"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -2,10 +2,10 @@
   "id": "brazilian_edm",
   "name": "Brazilian edm",
   "family": "electronic",
-  "lineage": "Brazilian edm is represented by Pedro — Liminalia programmed-vocal core. This documented branch is realized as an authored present-day arrangement.",
+  "lineage": "Brazilian EDM connects Brazilian electronic dance producers with club music, pop songwriting and online listening communities.",
   "recipe": "classic brazilian edm, electronic Dance. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 201,
-  "score": 7.484,
+  "score": 10.889,
   "config": {
     "traditions": [
       "brazilian_edm"
@@ -17,13 +17,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 6.25,
-          "sample_processing": 0.1365
+          "sample_bitdepth": 0.126,
+          "sample_swing": 9.5,
+          "sample_processing": 0
         }
       },
       {
@@ -58,15 +58,21 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.1969999999999998,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.063
         }
       }
     ],
     "pinned": {
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
       "voice": [
         "voice_register",
         "voice_quality",
@@ -120,7 +126,11 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead"
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -5,7 +5,7 @@
   "lineage": "Spanish-language melancholic trap crystallized in San Juan, Medellín and Madrid around 2016-2019 through Bad Bunny's early SoundCloud sides, Duki and Cazzu — 130-145 BPM half-time trap with rolled hi-hats and long 808 glides, minor-key detuned piano or guitar loops soaked in reverb, and heavily Auto-Tuned confessional vocals about heartbreak and dissociation delivered in a slurred, near-spoken register",
   "recipe": "classic 2016-2019 trap triste, mc Rhythm, reggaeton branch, us hip hop modern, tropical song functional song dark plugg dream plugg. vocal fry, rap, straight onset, interlocked note trading. chorus detuned thickener across stack multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, modern bright beech laminated maple laminated European tradition sitka spruce grand piano, cedar concert modern carbon fiber classical nylon-string guitar, low sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 703,
-  "score": 256.335,
+  "score": 256.29,
   "config": {
     "traditions": [
       "trap_triste",
@@ -55,14 +55,14 @@
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_5_part_cluster",
+          "multitrack_stack_density": "multitrack_density_unison_double",
           "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 0.435,
+          "multitrack_stack_density": 0.39,
           "multitrack_stack_era_aesthetic": 0.4549999999999999,
-          "multitrack_stack_processing": 2.9899999999999998
+          "multitrack_stack_processing": 3.0349999999999997
         }
       },
       {
@@ -113,7 +113,7 @@
           "piano_hammer": 7.085000000000001,
           "piano_rim": 6.340000000000001,
           "piano_soundboard": 5.600000000000001,
-          "piano_pinblock": 5.970000000000001,
+          "piano_pinblock": 5.925000000000001,
           "piano_plate": 7.085000000000001,
           "piano_pitch_standard": 12.74
         }

@@ -3,14 +3,14 @@
   "name": "African Heavy Metal",
   "family": "rock",
   "lineage": "Continental African metal scenes formed from the late 1980s onward in Botswana, Angola, Kenya, Madagascar and South Africa, codified by Wrust, Skinflint, Overthrust and the Gaborone leather-cowboy subculture — NWOBHM and thrash templates at 120-190 BPM with downtuned humbucker guitars and double-kick drumming, but with Setswana, Swahili or Portuguese lyrics, local praise-song melodic contours and occasional talking drum or call-and-response chant layered over the riff.",
-  "recipe": "classic Southern African 1987-1989 african heavy metal, distorted Rock, metal branch, thrash metal, regional distorted rock metal paraguayo canadian rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 703,
-  "score": 295.172,
+  "recipe": "classic Southern African 1987-1989 african heavy metal, distorted Rock, metal branch, thrash metal, regional distorted rock canadian rock chinese indie rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 716,
+  "score": 306.865,
   "config": {
     "traditions": [
       "african_heavy_metal",
-      "metal_paraguayo",
-      "canadian_rock"
+      "canadian_rock",
+      "chinese_indie_rock"
     ],
     "instruments": [
       {
@@ -20,30 +20,30 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 26.494999999999997,
-          "amp_make": 15.079999999999998,
-          "body_wood": 9.814999999999998,
-          "neck_wood": 0.195,
-          "fretboard": 0.6300000000000001,
-          "pickup_magnet": 0.195,
-          "pickup_winding": 0.6,
-          "string_material": 0.39,
-          "bridge": 0.845,
-          "scale_length": 10.009999999999998,
-          "string_gauge": 0.8,
+          "electric_technique": 22.275000000000002,
+          "amp_make": 14.18,
+          "body_wood": 7.409999999999999,
+          "neck_wood": 0.7800000000000001,
+          "fretboard": 0.9750000000000001,
+          "pickup_magnet": 1.4249999999999996,
+          "pickup_winding": 0.3,
+          "string_material": 0.195,
+          "bridge": 0.8850000000000001,
+          "scale_length": 7.409999999999999,
+          "string_gauge": 1.1700000000000002,
           "finish": 0,
-          "string_tuning": 18.654999999999998
+          "string_tuning": 17.419999999999998
         }
       },
       {
@@ -53,19 +53,19 @@
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.775,
-          "body_wood": 0.195,
-          "pickup_config": 1.11,
-          "string_type": 19.43,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.3,
-          "bass_technique": 16.439999999999998,
+          "amp_make": 10.335,
+          "body_wood": 1.9499999999999997,
+          "pickup_config": 1.17,
+          "string_type": 22.28,
+          "scale_length_b": 0.7800000000000001,
+          "fretted_or_not": 0.39,
+          "bass_technique": 19.335,
           "electric_bass_string_configuration": 0
         }
       },
@@ -73,12 +73,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16.25,
-          "drumhead": 0.4875,
+          "drum_technique": 19.25,
+          "drumhead": 0.8850000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -89,7 +89,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -97,42 +97,42 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 15.944999999999993,
-          "voice_quality": 7.54,
+          "voice_register": 19.369999999999997,
+          "voice_quality": 5.46,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.755,
-          "voice_articulation": 13.909999999999998,
-          "voice_microtone": 16.449999999999996,
-          "voice_tradition": 15.059999999999999,
-          "voice_mechanism_compound": 25.65,
+          "voice_vibrato": 2.1449999999999996,
+          "voice_articulation": 17.16,
+          "voice_microtone": 19.404999999999998,
+          "voice_tradition": 14.609999999999998,
+          "voice_mechanism_compound": 21.729999999999997,
           "voice_estill_quality": 3.6400000000000006,
-          "voice_speech_song": 16.25,
-          "voice_ensemble_config": 14.819999999999999,
-          "voice_ornament_system": 0.135,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 5.095,
-          "voice_multitrack_stack": 3.835000000000001
+          "voice_speech_song": 18.46,
+          "voice_ensemble_config": 18.525,
+          "voice_ornament_system": 0.06499999999999999,
+          "voice_pitch_organization": 0.39499999999999996,
+          "voice_processing_chain": 4.04,
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
         "id": "talking_drum",
         "slots": {
           "talking_drum_origin": "gangan_yoruba",
-          "talking_drum_context": "talking_drum_praise",
+          "talking_drum_context": "talking_drum_juju",
           "talking_drum_shell_wood": "talking_drum_iroko_alt",
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
           "talking_drum_origin": 0.195,
-          "talking_drum_context": 0.5399999999999999,
-          "talking_drum_shell_wood": 2.8999999999999995,
+          "talking_drum_context": 0.845,
+          "talking_drum_shell_wood": 3.3999999999999995,
           "talking_drum_head": 1.69
         }
       }

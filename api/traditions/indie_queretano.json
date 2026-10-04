@@ -2,10 +2,10 @@
   "id": "indie_queretano",
   "name": "Indie queretano",
   "family": "rock",
-  "lineage": "¿qué saben los pájaros? — kazak, complete original2025single. All three credited bass contributors share one family card; this does not assert three simultaneous basses or independent printed gestures. Two singers receive an authored live duet; actual overdubbing and harmony are unknown. Generic guitar becomes an explicitly authored alder/maple clean-strummed humbucker and bass a dual-single-coil fingerstyle realization. Positively credited synths receive an authored sustained five-voice Prophet-5-type sound using coherent existing model/voice-count/manufacturer pins; source does not identify analog versus digital architecture, polyphony, maker or pad technique, so none is claimed as actual session fact. This differs from bare keyboards: a synthesizer role is positively credited. Maple stick-played kit and machine-hammered traditionally finished cymbals are authored. Room is an authored controlled studio realization; global tuning and capture apparatus omitted.",
-  "recipe": "classic indie queretano, distorted Rock, alternative branch. duet, live take. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth. live tracking.",
-  "recipe_chars": 365,
-  "score": 62.676,
+  "lineage": "Querétaro indie connects regional independent rock and pop practice with the wider Mexican scene. Guitar songwriting and psychedelic or electronic colors coexist in locally produced recordings and collaborative projects.",
+  "recipe": "classic indie queretano, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth. live tracking.",
+  "recipe_chars": 226,
+  "score": 37.702,
   "config": {
     "traditions": [
       "indie_queretano"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 1.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.468,
+          "electric_technique": 2.6180000000000003,
           "amp_make": 0,
-          "body_wood": 1.69,
-          "neck_wood": 2.7049999999999996,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.2730000000000001,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.69,
+          "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.5,
-          "drumhead": 1.4365,
+          "drum_technique": 8.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.7415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 11.831499999999998,
-          "cymbal_lathing": 9.3365,
+          "cymbal_hammering": 11.231499999999999,
+          "cymbal_lathing": 11.3365,
           "cymbal_finish": 0
         }
       },
@@ -146,10 +146,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.5000000000000004,
+          "electronic_technique": 0.2,
           "poly_archetypes": 0.1365,
-          "poly_voices": 1.3,
-          "poly_maker_lineage": 3.3150000000000004
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
         }
       }
     ],

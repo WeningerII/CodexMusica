@@ -2,10 +2,10 @@
   "id": "umea_indie",
   "name": "Umeå Indie",
   "family": "rock",
-  "lineage": "Maha Sohona — complete artist-published current live trio arrangement. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic umeå indie, distorted Rock. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mahogany maple conventional tuning standard pitch humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 443,
-  "score": 53.509,
+  "lineage": "Independent music from Umeå in northern Sweden encompasses several rock and pop approaches. Maha Sohona exemplifies a heavy psychedelic strand, with fuzz guitar and expansive space-rock passages.",
+  "recipe": "classic umeå indie, distorted Rock. solo with instrumental accompaniment. fuzzed riff driven humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 239,
+  "score": 59.564,
   "config": {
     "traditions": [
       "umea_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.78,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 1.089,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,27 +70,27 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.5315,
+          "electric_technique": 3.2315,
           "amp_make": 0,
-          "body_wood": 1.2,
-          "neck_wood": 0.6,
-          "fretboard": 0.25,
+          "body_wood": 0.0315,
+          "neck_wood": 0,
+          "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0.3,
-          "scale_length": 0.3,
-          "string_gauge": 1.69,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 2.0365
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.2,
-          "pickup_config": 0,
+          "body_wood": 0.0315,
+          "pickup_config": 0.063,
           "string_type": 0,
-          "scale_length_b": 0.6,
-          "fretted_or_not": 0.3,
-          "bass_technique": 8.854999999999999,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 12.055,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.799999999999999,
-          "drumhead": 2.0365,
+          "drum_technique": 12,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.6365,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
-          "cymbal_alloy": 0.13000000000000003,
-          "cymbal_hammering": 8.399999999999999,
-          "cymbal_lathing": 8.731499999999997,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 14.45,
+          "cymbal_lathing": 14.481499999999999,
           "cymbal_finish": 0
         }
       }
@@ -197,15 +197,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -214,7 +214,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -235,8 +235,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_fuzz_riff",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +246,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -264,12 +264,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Mononome — Sherán (2018), documented sample-built instrumental program. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-2010s greek downtempo, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 162,
-  "score": 5.575,
+  "score": 5.848,
   "config": {
     "traditions": [
       "greek_downtempo"
@@ -21,10 +21,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 0.49999999999999994,
+          "electronic_technique": 0.5315,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": 0.25,
+          "sampler_bit_depth": 0.21,
+          "sampler_workflow": 0.2815,
           "sampler_classic_context": 4.874999999999999
         }
       }

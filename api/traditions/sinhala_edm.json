@@ -2,28 +2,58 @@
   "id": "sinhala_edm",
   "name": "Sinhala EDM",
   "family": "electronic",
-  "lineage": "DJ Mass — entire specially commissioned Bandwagon Mix090 embedded in the MARQUEE Singapore resident-DJ feature published26November2019. The commissioning publisher explicitly requested resident mixes and embeds this named DJ edition immediately after Mass’s first-person interview. The exact linked Mixcloud object resolves but its parsed body is empty: duration, tracklist and medium remain unknown, and no selected excerpt or exhaustive invented tracklist is substituted. This is the whole published DJ performance, with every embedded musical, vocal and effect layer retained by the neutral playback/mixing role. The performer describes open-format mainstream EDM with trap at this venue; this selected diaspora performance is not claimed exclusively Sinhala-language or exclusively Sinhala EDM repertoire. One credited mixer does not determine embedded or live singer headcounts. Existing source-unspecified DJ playback/mixing identity preserves an actual commissioned mixed performance, not an opaque finished studio song substituted for its instrumental palette. Controlled live-room listening presentation and neutral axes are authored; no exact equipment, turntable/CDJ model, source booth, measured tempo, global tuning or tracking construction is inferred. ElectronicDance/electronic parent follows positive electronic dance practice.",
-  "recipe": "classic sinhala edm, electronic Dance. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 85,
-  "score": 0,
+  "lineage": "Sinhala EDM connects Sri Lankan and diasporic producers, DJs and audiences with contemporary electronic dance music. Sinhala-associated songs and regional collaborations circulate alongside wider international club styles.",
+  "recipe": "classic sinhala edm, electronic Dance. analog poly synth, drum machine analog. live tracking.",
+  "recipe_chars": 93,
+  "score": 3.13,
   "config": {
     "traditions": [
       "sinhala_edm"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.07,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 3.25
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -43,7 +73,14 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_lead_line",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true
   }

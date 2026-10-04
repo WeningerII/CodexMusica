@@ -2,10 +2,10 @@
   "id": "jazz_chileno",
   "name": "Jazz chileno",
   "family": "jazz",
-  "lineage": "Chilean jazz musicians and diaspora; selected Aldana chordless trio",
-  "recipe": "classic modern jazz chileno, improv On Frame, American jazz branch. selmer mark vi canonical 1954 1974 jazz paris saxophone, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 352,
-  "score": 56.105,
+  "lineage": "Jazz chileno encompasses Chilean musicians, local scenes and diaspora collaborations working in jazz composition and improvisation. Modern small-group approaches connect melodic development with rhythmic dialogue and international exchange.",
+  "recipe": "classic modern jazz chileno, improv On Frame, American jazz branch. yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris saxophone, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 381,
+  "score": 78.803,
   "config": {
     "traditions": [
       "jazz_chileno"
@@ -26,10 +26,10 @@
           "wind_articulation": -0.05,
           "sax_size": 0.19500000000000003,
           "sax_reed": 0.105,
-          "sax_body_alloy": -0.07,
+          "sax_body_alloy": 2.9450000000000003,
           "sax_mouthpiece": 0,
           "sax_technique": -0.05,
-          "sax_maker_school": 13.130000000000003
+          "sax_maker_school": 15.209999999999999
         }
       },
       {
@@ -39,8 +39,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.18749999999999997,
-          "upright_play": 11.25
+          "upright_strings": 0.063,
+          "upright_play": 13.75
         }
       },
       {
@@ -59,16 +59,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.190000000000001,
+          "drum_technique": 11.699999999999998,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0735,
-          "shell_thickness": 0,
+          "shell_thickness": 0.042749999999999996,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.0735,
-          "cymbal_alloy": 11.173499999999997,
-          "cymbal_hammering": 11.641,
-          "cymbal_lathing": -0.10500000000000001,
+          "snare_wires": 0.3735,
+          "cymbal_alloy": 13.815999999999997,
+          "cymbal_hammering": 14.141,
+          "cymbal_lathing": 2.8267499999999997,
           "cymbal_finish": 0
         }
       }

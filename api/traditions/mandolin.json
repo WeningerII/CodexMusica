@@ -2,10 +2,10 @@
   "id": "mandolin",
   "name": "Mandolin",
   "family": "classical",
-  "lineage": "Chris Thile — Bach: Sonatas and Partitas Vol.1 (2013), solo mandolin. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2010s mandolin, art Music, western early branch. low mid rich spectrum phosphor bronze bronze mandolin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 216,
-  "score": 0.873,
+  "lineage": "Mandolin repertoire centers on a small plucked lute whose paired strings support clear melody, ringing chords and rapid repeated-note articulation.",
+  "recipe": "classic mandolin, art Music. mandolin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 137,
+  "score": 0.158,
   "config": {
     "traditions": [
       "mandolin"
@@ -24,14 +24,14 @@
           "mandolin_pickup": "mandolin_no_pickup"
         },
         "scores": {
-          "acoustic_technique": -0.1,
-          "mandolin_shape": -0.035,
-          "mandolin_top": -0.035,
-          "mandolin_back": -0.035,
-          "mandolin_bracing": -0.035,
-          "mandolin_strings": 1.0815,
-          "mandolin_fingerboard": 0,
-          "mandolin_pickup": 0.0315
+          "acoustic_technique": 0.2,
+          "mandolin_shape": -0.05,
+          "mandolin_top": -0.05,
+          "mandolin_back": -0.05,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 0,
+          "mandolin_fingerboard": 0.063,
+          "mandolin_pickup": 0.0945
         }
       }
     ],

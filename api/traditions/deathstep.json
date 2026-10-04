@@ -2,55 +2,91 @@
   "id": "deathstep",
   "name": "Deathstep",
   "family": "electronic",
-  "lineage": "Code: Pandorum — Condemned Pt.1, complete1:00:58 creator-uploaded mix. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic deathstep, bass System. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 162,
-  "score": 0.032,
+  "lineage": "Deathstep develops within the heavier edges of dubstep and electronic bass music. Producers such as Code: Pandorum connect cinematic menace, dense sound design and emphatic rhythmic impact in a distinct production and club community.",
+  "recipe": "classic deathstep, bass System. wavetable synth, sampler. treated studio.",
+  "recipe_chars": 73,
+  "score": 5.175,
   "config": {
     "traditions": [
       "deathstep"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "wavetable_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_glitch_textural",
+          "wt_position": "wt_static",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.0315
+          "electronic_technique": -0.1,
+          "wt_position": 0.1725,
+          "wt_family": 0.054,
+          "wt_polyphony": 0.1425
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.17099999999999999,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 4.9399999999999995
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "wavetable_synth": [
+        "electronic_technique",
+        "wt_position",
+        "wt_family",
+        "wt_polyphony"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
+    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_glitch_textural",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "wt_position": "wt_static",
+      "wt_family": "wt_industrial",
+      "wt_polyphony": "wt_mono"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

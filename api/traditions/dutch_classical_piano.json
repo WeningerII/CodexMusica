@@ -2,10 +2,10 @@
   "id": "dutch_classical_piano",
   "name": "Dutch classical piano",
   "family": "classical",
-  "lineage": "Dutch classical piano is represented by Hannes Minnaar — Bach Goldberg Variations. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic dutch classical piano, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 257,
-  "score": 66.556,
+  "lineage": "Dutch classical piano connects recital and educational traditions with historical and contemporary concert repertoire. Performers interpret a broad international canon alongside music associated with local composers and institutions.",
+  "recipe": "classic dutch classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 266,
+  "score": 61.937,
   "config": {
     "traditions": [
       "dutch_classical_piano"
@@ -15,25 +15,25 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 8.61,
-          "grand_piano_size": 0.6105,
-          "grand_piano_brand": 0.7155,
-          "piano_hammer": 10.659999999999998,
-          "piano_rim": 9.878,
-          "piano_soundboard": 9.1635,
-          "piano_pinblock": 8.305,
-          "piano_plate": 8.665,
-          "piano_pitch_standard": 9.948999999999998
+          "keyboard_technique": 7.554,
+          "grand_piano_size": 1.2429999999999999,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 9.685,
+          "piano_rim": 8.3635,
+          "piano_soundboard": 8.6865,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.8805000000000005,
+          "piano_pitch_standard": 9.6695
         }
       }
     ],

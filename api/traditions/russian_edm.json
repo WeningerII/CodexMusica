@@ -2,10 +2,10 @@
   "id": "russian_edm",
   "name": "Russian EDM",
   "family": "electronic",
-  "lineage": "Russian EDM is represented here by ARTY and Audien — Never Letting Go synth layers and Karra hook. This is a documented branch with an authored present-day studio realization.",
+  "lineage": "Russian EDM includes internationally circulating producers working with layered electronic dance arrangements and popular vocal hooks.",
   "recipe": "classic russian edm, electronic Dance. solo with instrumental accompaniment. digital subtractive, organ preset rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 232,
-  "score": 11.01,
+  "score": 9.758,
   "config": {
     "traditions": [
       "russian_edm"
@@ -19,9 +19,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": -0.035,
           "va_archetypes": 0,
-          "digital_subtractive_context": 3.769999999999999
+          "digital_subtractive_context": 2.8600000000000003
         }
       },
       {
@@ -33,9 +33,9 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "rompler_preset_bank": 5.699999999999999,
-          "rompler_context": -0.05,
+          "electronic_technique": -0.035,
+          "rompler_preset_bank": 4.95,
+          "rompler_context": -0.035,
           "rompler_lineage": 0
         }
       },
@@ -75,7 +75,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.363
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Ivadobe — artist-documented Valencian instrumental post-rock ensemble.",
   "recipe": "classic música valenciana, distorted Rock, experimental branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 294,
-  "score": 34.18,
+  "score": 34.274,
   "config": {
     "traditions": [
       "musica_valenciana"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 0.2315,
           "amp_make": 0,
-          "body_wood": 0.063,
-          "neck_wood": 0.063,
+          "body_wood": 0.0945,
+          "neck_wood": 0.0945,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.126,
-          "string_gauge": 0,
+          "scale_length": 0.1575,
+          "string_gauge": 0.0735,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.0945,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -88,9 +88,9 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.063,
           "shell_thickness": 0,
-          "bearing_edges": 0.9029999999999999,
+          "bearing_edges": 0.7664999999999998,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.1685,
           "cymbal_hammering": 10.994499999999999,
           "cymbal_lathing": 10.931499999999998,
           "cymbal_finish": 0
