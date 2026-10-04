@@ -1,0 +1,415 @@
+{
+  "status": "PASS_SOURCE_AND_GLOBAL_SEMANTIC_QUALIFICATION",
+  "candidate": "/workspace/genre-continuation/research/next-additions-projection461/v3/candidate-safe19.json",
+  "packet_sha256": "de6f5dda45b080a00f83958077f17a551ae112d42d88109bfbe9b3364d089b2e",
+  "baseline_commit": "3a83f3f311ce63caae7111396c242150f0b8d06b",
+  "baseline_root": "/tmp/CodexMusica-next043",
+  "before": {
+    "traditions": 6746,
+    "instruments": 1653
+  },
+  "after": {
+    "traditions": 6765,
+    "instruments": 1658
+  },
+  "new_entries": 19,
+  "new_dependencies": 5,
+  "old_owner_preservation": "All1653 merged owner objects byte-identical before/after candidate injection. Existing instruments/family/engine/schema source unchanged.",
+  "source_approval": "All19 exact packet and independent peer hashes in immutable candidate provenance. Exact immutable5 allocation field values/types checked. Canonical atlas region corrections isolated and all19 validatorPASS.",
+  "browser_review": {
+    "formats": 76,
+    "controls": 329,
+    "runtime": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/safe19-new-runtime.json",
+    "runtime_sha256": "d5ca0051c48d9e39fba431ee9c8eef4811da2dddda9a28afb487ae24a678ddc5",
+    "literal_review": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/browser-literal-review461.json",
+    "result": "All19 target browser strings and compiled API fullconfigs/recipes exactly equal previously read combined21 targets; source-compatible individual literal review preserved."
+  },
+  "coverage": {
+    "api": {
+      "total_definitions": 6746,
+      "affected_graphs": 35,
+      "replayed": 38,
+      "unchanged_graphs": 6711,
+      "coverage": "ALL"
+    },
+    "fixture": {
+      "total_definitions": 1174,
+      "affected_graphs": 17,
+      "replayed": 19,
+      "unchanged_graphs": 1157,
+      "coverage": "ALL"
+    }
+  },
+  "explicit_compatible_differences": [
+    {
+      "id": "odia_pop",
+      "index": null,
+      "all_config_differences": [
+        {
+          "path": "/instruments/0/scores/voice_register",
+          "before": 12.504999999999994,
+          "after": 12.654999999999994
+        },
+        {
+          "path": "/instruments/0/scores/voice_vibrato",
+          "before": 3.530000000000001,
+          "after": 3.575000000000001
+        },
+        {
+          "path": "/instruments/1/scores/free_reed_technique",
+          "before": 4.330000000000001,
+          "after": 4.375000000000001
+        },
+        {
+          "path": "/instruments/1/scores/harmonium_voicing",
+          "before": 2.8999999999999995,
+          "after": 3.05
+        },
+        {
+          "path": "/instruments/2/scores/dholak_tensioning",
+          "before": 0.845,
+          "after": 0.885
+        },
+        {
+          "path": "/instruments/2/scores/dholak_use",
+          "before": 2.43,
+          "after": 2.5200000000000005
+        },
+        {
+          "path": "/instruments/2/slots/dholak_tensioning",
+          "before": "dholak_rope_tuning",
+          "after": "dholak_bolt_tuned"
+        },
+        {
+          "path": "/instruments/4/scores/wind_articulation",
+          "before": 4.380000000000001,
+          "after": 4.425000000000001
+        },
+        {
+          "path": "/instruments/5/scores/tabla_bayan",
+          "before": 2.2499999999999996,
+          "after": 2.3999999999999995
+        },
+        {
+          "path": "/instruments/6/scores/electronic_technique",
+          "before": 12.204999999999998,
+          "after": 12.399999999999999
+        },
+        {
+          "path": "/instruments/6/scores/rompler_preset_bank",
+          "before": 12.395,
+          "after": 12.065
+        }
+      ],
+      "musical_differences": [
+        {
+          "path": "/instruments/2/slots/dholak_tensioning",
+          "before": "dholak_rope_tuning",
+          "after": "dholak_bolt_tuned"
+        }
+      ],
+      "recipe_changed": false,
+      "before_recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry haryanvi ragni mappila paattu. thick, breath veiled tone, straight note core, interlocked note trading. reed straight harmonium indian, traditional low fundamental tuning sheesham mango dholak, mardala, kerala bamboo alternative south indian foundational concert bansuri melodic bansuri, indian rosewood rosewood clay tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "after_recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry haryanvi ragni mappila paattu. thick, breath veiled tone, straight note core, interlocked note trading. reed straight harmonium indian, traditional low fundamental tuning sheesham mango dholak, mardala, kerala bamboo alternative south indian foundational concert bansuri melodic bansuri, indian rosewood rosewood clay tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "status": "REQUIRES_SOURCE_QUALIFICATION"
+    },
+    {
+      "id": "desi_pop",
+      "index": null,
+      "all_config_differences": [
+        {
+          "path": "/instruments/0/scores/voice_multitrack_stack",
+          "before": 6.630000000000001,
+          "after": 6.61125
+        },
+        {
+          "path": "/instruments/0/scores/voice_quality",
+          "before": 12.524249999999999,
+          "after": 12.537749999999997
+        },
+        {
+          "path": "/instruments/0/scores/voice_register",
+          "before": 14.29225,
+          "after": 14.040249999999999
+        },
+        {
+          "path": "/instruments/0/scores/voice_tradition",
+          "before": 15.3925,
+          "after": 15.2275
+        },
+        {
+          "path": "/instruments/2/scores/dholak_head",
+          "before": 0.7215,
+          "after": 0.8714999999999999
+        },
+        {
+          "path": "/instruments/2/scores/dholak_tensioning",
+          "before": 0.7215,
+          "after": 0.8714999999999999
+        },
+        {
+          "path": "/instruments/3/scores/tumbi_construction",
+          "before": 0.90675,
+          "after": 1.05675
+        },
+        {
+          "path": "/instruments/5/scores/electronic_technique",
+          "before": 13.559249999999999,
+          "after": 13.72275
+        },
+        {
+          "path": "/instruments/5/scores/poly_archetypes",
+          "before": 0.5759999999999998,
+          "after": 0.5444999999999999
+        },
+        {
+          "path": "/instruments/5/scores/poly_voices",
+          "before": 0.19274999999999998,
+          "after": 0.23775000000000002
+        },
+        {
+          "path": "/instruments/6/scores/pickup_config",
+          "before": 0.7215,
+          "after": 0.9764999999999999
+        },
+        {
+          "path": "/instruments/6/scores/scale_length_b",
+          "before": 0.8115000000000001,
+          "after": 1.0065000000000002
+        },
+        {
+          "path": "/instruments/6/scores/string_type",
+          "before": 0.7215,
+          "after": 0.8714999999999999
+        },
+        {
+          "path": "/instruments/7/scores/multitrack_stack_density",
+          "before": 0.26925,
+          "after": 0.13274999999999998
+        },
+        {
+          "path": "/instruments/7/scores/multitrack_stack_era_aesthetic",
+          "before": 5.162000000000001,
+          "after": 5.057
+        }
+      ],
+      "musical_differences": [],
+      "recipe_changed": true,
+      "before_recipe": "classic South Asian mid-1990s desi pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. extended whistle, declaimed, straight onset, interlocked note trading. dhol, dholak, steel single string canonical Punjabi ornamented tumbi, harmonium indian, singing lead analog poly synth, layered sub heavy electric bass, late 1980s reverb saturated bus stack multitrack vocal stack. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+      "after_recipe": "classic South Asian mid-1990s desi pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. extended whistle, declaimed, straight onset, interlocked note trading. dhol, dholak, synthetic steel single string canonical Punjabi ornamented tumbi, harmonium indian, singing lead analog poly synth, layered sub heavy electric bass, late 1980s reverb saturated bus stack multitrack vocal stack. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+      "status": "REQUIRES_SOURCE_QUALIFICATION"
+    },
+    {
+      "id": "pakistani_pop",
+      "index": null,
+      "all_config_differences": [
+        {
+          "path": "/instruments/0/scores/voice_quality",
+          "before": 13.131499999999997,
+          "after": 13.176499999999997
+        },
+        {
+          "path": "/instruments/0/scores/voice_register",
+          "before": 17.488999999999994,
+          "after": 17.638999999999992
+        },
+        {
+          "path": "/instruments/0/scores/voice_tradition",
+          "before": 15.465374999999998,
+          "after": 15.121874999999998
+        },
+        {
+          "path": "/instruments/1/scores/amp_make",
+          "before": 1.605,
+          "after": 1.5
+        },
+        {
+          "path": "/instruments/1/scores/bridge",
+          "before": 0.7665,
+          "after": 0.78
+        },
+        {
+          "path": "/instruments/1/scores/fretboard",
+          "before": 0.045,
+          "after": 0.105
+        },
+        {
+          "path": "/instruments/1/scores/string_material",
+          "before": 0,
+          "after": 0.105
+        },
+        {
+          "path": "/instruments/1/slots/fretboard",
+          "before": "ebony_fb",
+          "after": "pau_ferro_fb"
+        },
+        {
+          "path": "/instruments/1/slots/string_material",
+          "before": "pure_nickel",
+          "after": "nickel_plated"
+        },
+        {
+          "path": "/instruments/2/scores/amp_make",
+          "before": 1.605,
+          "after": 1.589
+        },
+        {
+          "path": "/instruments/2/scores/pickup_config",
+          "before": 0.7215,
+          "after": 0.84
+        },
+        {
+          "path": "/instruments/2/scores/scale_length_b",
+          "before": 0.9352500000000001,
+          "after": 0.9937500000000001
+        },
+        {
+          "path": "/instruments/2/scores/string_type",
+          "before": 4,
+          "after": 4.105
+        },
+        {
+          "path": "/instruments/2/slots/amp_make",
+          "before": "amp_british_late_60s_marshall_plexi",
+          "after": "amp_american_ampeg_svt"
+        },
+        {
+          "path": "/instruments/3/scores/electronic_technique",
+          "before": 13.524,
+          "after": 13.719
+        },
+        {
+          "path": "/instruments/3/scores/poly_archetypes",
+          "before": 1.9165,
+          "after": 1.885
+        },
+        {
+          "path": "/instruments/3/scores/poly_maker_lineage",
+          "before": 1.103,
+          "after": 1.04
+        },
+        {
+          "path": "/instruments/4/scores/tabla_bayan",
+          "before": 0.3,
+          "after": 0.358
+        },
+        {
+          "path": "/instruments/4/slots/tabla_bayan",
+          "before": "copper_bayan",
+          "after": "clay_bayan"
+        },
+        {
+          "path": "/instruments/5/scores/dholak_head",
+          "before": 0.7215,
+          "after": 0.735
+        },
+        {
+          "path": "/instruments/5/scores/dholak_tensioning",
+          "before": 0.8452500000000001,
+          "after": 0.85875
+        }
+      ],
+      "musical_differences": [
+        {
+          "path": "/instruments/1/slots/fretboard",
+          "before": "ebony_fb",
+          "after": "pau_ferro_fb"
+        },
+        {
+          "path": "/instruments/1/slots/string_material",
+          "before": "pure_nickel",
+          "after": "nickel_plated"
+        },
+        {
+          "path": "/instruments/2/slots/amp_make",
+          "before": "amp_british_late_60s_marshall_plexi",
+          "after": "amp_american_ampeg_svt"
+        },
+        {
+          "path": "/instruments/4/slots/tabla_bayan",
+          "before": "copper_bayan",
+          "after": "clay_bayan"
+        }
+      ],
+      "recipe_changed": false,
+      "before_recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. thick, declaimed, straight note core, interlocked note trading. clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, ringing pitched indian rosewood rosewood tabla, dholak, harmonium indian, late 1970s thirds fifths octaves 16 24 track multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+      "after_recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. thick, declaimed, straight note core, interlocked note trading. clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, ringing pitched indian rosewood rosewood tabla, dholak, harmonium indian, late 1970s thirds fifths octaves 16 24 track multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+      "status": "REQUIRES_SOURCE_QUALIFICATION"
+    },
+    {
+      "id": "indian_folk_lok_geet",
+      "index": null,
+      "all_config_differences": [
+        {
+          "path": "/instruments/0/scores/voice_tradition",
+          "before": 29.083625,
+          "after": 28.863125000000004
+        },
+        {
+          "path": "/instruments/0/scores/voice_vibrato",
+          "before": 5.770625,
+          "after": 5.815625
+        },
+        {
+          "path": "/instruments/2/scores/harmonium_use",
+          "before": 2.9677499999999997,
+          "after": 2.930625
+        },
+        {
+          "path": "/instruments/3/scores/manjira_form",
+          "before": 1.105,
+          "after": 1.06375
+        },
+        {
+          "path": "/instruments/4/scores/nagara_indian_context",
+          "before": 0.386625,
+          "after": 0.3
+        },
+        {
+          "path": "/instruments/4/scores/nagara_indian_shell",
+          "before": 0.03712499999999999,
+          "after": 0
+        },
+        {
+          "path": "/instruments/4/slots/nagara_indian_shell",
+          "before": "nagara_indian_metal",
+          "after": "nagara_indian_clay"
+        },
+        {
+          "path": "/instruments/5/scores/bansuri_ornament",
+          "before": 4.237124999999999,
+          "after": 4.199999999999999
+        }
+      ],
+      "musical_differences": [
+        {
+          "path": "/instruments/4/slots/nagara_indian_shell",
+          "before": "nagara_indian_metal",
+          "after": "nagara_indian_clay"
+        }
+      ],
+      "recipe_changed": false,
+      "before_recipe": "classic mid-1950s indian folk, field Work, south Asian branch, south Asian domestic rhythm, south Asian wedding, south Asian nursery rhyme bhojpuri lok geet himalayan folk. thick, breath veiled tone, slow rate, interlocked note trading. dholak, vocal male straight harmonium nagara indian, small steady tala keeping manjira, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gourd bamboo canonical bengali ornamented ektara, hearth tongs chimta. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "after_recipe": "classic mid-1950s indian folk, field Work, south Asian branch, south Asian domestic rhythm, south Asian wedding, south Asian nursery rhyme bhojpuri lok geet himalayan folk. thick, breath veiled tone, slow rate, interlocked note trading. dholak, vocal male straight harmonium nagara indian, small steady tala keeping manjira, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gourd bamboo canonical bengali ornamented ektara, hearth tongs chimta. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "status": "REQUIRES_SOURCE_QUALIFICATION"
+    }
+  ],
+  "semantic_difference_basis": {
+    "report": "/workspace/genre-continuation/research/next-additions-projection461/qualification-axis23/semantic-delta-review461.json",
+    "sha256": "673cf794fc1585a90b743443079b4f53bba80eed78ff200a998996c3da929e44",
+    "scope": "Exactly six same unconstrained physical alternatives across OdiaPop/PakistaniPop/IndianFolkLokGeet; Desi synthetic word refers alreadyselected synthetic-shell tumbi. No foreign vocal/arrangement drift accepted."
+  },
+  "deferred_source_approved_ids": [
+    "cumbia",
+    "funk_das_antigas"
+  ],
+  "deferred_reason": "Full21 changes TexasConjunto to Vedic-three-tone/beatboxing and Bossbeat to unsupported quarter-comma vocal pitch. Source-approved additions retained immutable; root assigned principled existing-row repairs, no synthetic score adjustment. Removing both restores allthree old counterexample configs/recipes exactly.",
+  "full21_preserved": "/workspace/genre-continuation/research/next-additions-projection461/v3/candidate-atlas-corrected.json",
+  "full21_report": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v3-043/replay-comparison.json",
+  "not_claimed": [
+    "No production writes",
+    "No regenerated static API build",
+    "No snapshot update",
+    "No entire original regression execution; complete originalfixture graph plus affected actual replays used"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice007-vintage-swedish-pop.json",
+  "packet_sha256": "f9b68a89a2d0fafb867a67028223d018d3d21f2ccdce63c8db3c60e46085cbba",
+  "reviewer": "source_audit",
+  "baseline": "/workspace/CodexMusica-qualified041",
+  "baseline_commit": "453cd0f1",
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/vintage-swedish-independent-runtime.json",
+  "immutable_fields": "All five match ordinal1936 exactly.",
+  "source_review": "Fresh indexed original scholarly PDF15030search0 reproduces1920s–40s popular sheet-music piano settings and connected revue/film/radio circulation; institutional author biography15030view0 authenticates original archival research. Theatre15035view1 independently confirms present revival field and full big-band/strings/vocal-trio branch. That separate programme is not the selected piano-song practice, so no positively credited same-performance roles are omitted.",
+  "category_review": "Full classic_swedish_pop read including broad historic scope beyond ABBA representative. Actual requested corpus15035view0 aligns earlier revue/crooner/film-schlager network; later crossovers prevent absolute date cutoff. Positive historical practice and revival institutions establish narrower discovery specialization with acknowledged overlap. Full dansband read: dedicated later couple-dance band field not equal to this broader earlier entertainment repertory.",
+  "controls": "20 applicable owning controls protected,1653 old owners preserved; no new dependencies or shared changes.",
+  "render_review": "Four actual browser/connector formats421max independently equal. wabi-rustic lexicon is plain soft-attack intimate aesthetic, not a Japanese historical lineage assertion; compatible authored domestic vocal rendition. Affectionate upright piano likewise intimate warmth, no invented wind mechanism or orchestra. Actual compiled API search+translate remains single vintage_swedish_pop context, functionalSong, correct20pins, zero pin errors.",
+  "photo_review": "Generic LOW recording context and exact inherited023 URL/SHA/bytes/dimensions remain coherent. Fresh personal Commons14995view3 independently confirmsCCBY2.5 and creator/crop; no new binary-download assertion.",
+  "repository_mutation": false
+}

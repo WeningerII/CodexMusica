@@ -1,0 +1,597 @@
+{
+  "status": "UNAPPLIED_ONE_BOUNDED_METHODIST_SCOPE_REFINEMENT",
+  "baseline_commit": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "merged_tree_equivalent": "7ed80fbcc14597af3cdefff1e683ed4a30ffd7c1",
+  "old_proposal": "/workspace/genre-continuation/checkpoint480-frozen/research119/qualification/original-three-data-proposal119.json",
+  "entries": [
+    {
+      "id": "gospel_quartet_male",
+      "before": {
+        "tradition": {
+          "id": "gospel_quartet_male",
+          "name": "Gospel quartet (male)",
+          "family": "global",
+          "lineage": "Black-American male-quartet gospel tradition that emerged from late-19th-century Fisk Jubilee Singers university choirs and the parallel post-WWI Black Church male-quartet tradition \u2014 codified through the Golden Gate Quartet (the pre-WWII quartet, founded 1934), the Soul Stirrers (where Sam Cooke fronted before his secular pop crossover), the Dixie Hummingbirds, the Mighty Clouds of Joy, the Swan Silvertones, the Five Blind Boys of Alabama, the Pilgrim Travelers \u2014 most active 1930s-60s, with the modern continuation through the Williams Brothers and the broader gospel-quartet circuit",
+          "instruments": [
+            "voice",
+            "choir_ensemble",
+            "grand_piano",
+            "tonewheel_organ",
+            "electric_bass",
+            "drum_kit",
+            "tambourine_orch"
+          ],
+          "room": "southern_black_church_gospel_choir",
+          "chain_mic": "mic_u47_tube_neumann",
+          "chain_pre": "pre_tube_german_v72",
+          "chain_medium": "tape_15ips",
+          "chain_console": "console_german_tube_50s",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_vari_mu",
+          "chain_eq": "eq_passive_program_pultec",
+          "parts": {
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "la_bella_flats_motown",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_motown",
+            "drumhead": "single_coated",
+            "drum_technique": "sticks_motown",
+            "voice_register": "mix_voice",
+            "voice_quality": "chest_mix_belt_voice",
+            "voice_speech_song": "voice_melismatic_singing",
+            "voice_tradition": "gospel_pentecostal_tradition",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+            "voice_microtone": "tempered_voice",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_estill_quality": "voice_estill_belt",
+            "voice_vibrato": "fast_vibrato",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "choir_size": "gospel_choir",
+            "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
+            "keyboard_technique": "keyboard_gospel_chord_runs",
+            "piano_pitch_standard": "a_440_modern",
+            "drawbar_setting": "gospel_drawbars",
+            "rotary_speed": "fast_tremolo",
+            "tonewheel_model": "tonewheel_hammond_b3",
+            "tambourine_orch_jingle": "tambourine_orch_brass",
+            "tambourine_orch_context": "tambourine_orch_orch"
+          },
+          "chain_amp_bass": "amp_american_ampeg_b15",
+          "chain_archetype": "arch_late60s_us_multitrack",
+          "chain_amp": "amp_ampeg_b15_bass"
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel.blackGospel",
+          "axes": {
+            "harm": 2,
+            "pitch": 1,
+            "ornament": 2,
+            "meter": 1,
+            "density": 1,
+            "transmission": 1,
+            "improv": 1,
+            "soundTech": 0,
+            "intensity": 2,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Black-American male-quartet gospel tradition; four-voice tight-harmony lead-and-background vocal arrangement, ecstatic-falsetto soloist, hand-clapping tambourine accompaniment, hard-gospel touring scene.",
+          "exemplars": [
+            "The Mighty Clouds of Joy",
+            "The Dixie Hummingbirds",
+            "The Soul Stirrers"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "ritualDevotional.christianGospel.southernGospel"
+          ]
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "gospel_quartet_male",
+          "name": "Gospel quartet (male)",
+          "family": "global",
+          "lineage": "Black-American male-quartet gospel tradition that emerged from late-19th-century Fisk Jubilee Singers university choirs and the parallel post-WWI Black Church male-quartet tradition \u2014 codified through the Golden Gate Quartet (the pre-WWII quartet, founded 1934), the Soul Stirrers (where Sam Cooke fronted before his secular pop crossover), the Dixie Hummingbirds, the Mighty Clouds of Joy, the Swan Silvertones, the Five Blind Boys of Alabama, the Pilgrim Travelers \u2014 most active 1930s-60s, with the modern continuation through the Williams Brothers and the broader gospel-quartet circuit",
+          "instruments": [
+            "voice",
+            "choir_ensemble",
+            "grand_piano",
+            "tonewheel_organ",
+            "electric_bass",
+            "drum_kit",
+            "tambourine_orch"
+          ],
+          "room": "southern_black_church_gospel_choir",
+          "chain_mic": "mic_u47_tube_neumann",
+          "chain_pre": "pre_tube_german_v72",
+          "chain_medium": "tape_15ips",
+          "chain_console": "console_german_tube_50s",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_vari_mu",
+          "chain_eq": "eq_passive_program_pultec",
+          "parts": {
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "la_bella_flats_motown",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_motown",
+            "drumhead": "single_coated",
+            "drum_technique": "sticks_motown",
+            "voice_register": "mix_voice",
+            "voice_quality": "chest_mix_belt_voice",
+            "voice_speech_song": "voice_melismatic_singing",
+            "voice_tradition": "gospel_pentecostal_tradition",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_microtone": "tempered_voice",
+            "voice_ornament_system": "voice_ornament_gospel_runs",
+            "voice_estill_quality": "voice_estill_belt",
+            "voice_vibrato": "fast_vibrato",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "choir_size": "mens_chorus",
+            "choir_ensemble_repertoire": "choir_ensemble_sacred_global",
+            "keyboard_technique": "keyboard_gospel_chord_runs",
+            "piano_pitch_standard": "a_440_modern",
+            "drawbar_setting": "gospel_drawbars",
+            "rotary_speed": "fast_tremolo",
+            "tonewheel_model": "tonewheel_hammond_b3",
+            "tambourine_orch_jingle": "tambourine_orch_brass",
+            "tambourine_orch_context": "tambourine_orch_orch",
+            "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+            "choir_regional_canonical_configuration": "choir_regional_none",
+            "voice_articulation": "melisma_voice",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_projected"
+          },
+          "chain_amp_bass": "amp_american_ampeg_b15",
+          "chain_archetype": "arch_late60s_us_multitrack",
+          "chain_amp": "amp_ampeg_b15_bass",
+          "pin_parts": true
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel.blackGospel",
+          "axes": {
+            "harm": 2,
+            "pitch": 1,
+            "ornament": 2,
+            "meter": 1,
+            "density": 1,
+            "transmission": 1,
+            "improv": 1,
+            "soundTech": 0,
+            "intensity": 2,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Black-American male-quartet gospel tradition; four-voice tight-harmony lead-and-background vocal arrangement, ecstatic-falsetto soloist, hand-clapping tambourine accompaniment, hard-gospel touring scene.",
+          "exemplars": [
+            "The Mighty Clouds of Joy",
+            "The Dixie Hummingbirds",
+            "The Soul Stirrers"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "ritualDevotional.christianGospel.southernGospel"
+          ]
+        }
+      },
+      "decision": "SOURCE_SUPPORTED_DATA_REPAIR_PROPOSAL_UNAPPLIED",
+      "reason": "Four-part African-American sacred quartet branch: homophonic group harmony, expressive lead and responses, natural ensemble recording. No listed Sardinian/Andean regional configuration applies. Voice and choir cards retain original lead/background roles without asserting an extra fifth performer.",
+      "sources": [
+        {
+          "url": "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/ritual-and-worship/african-american-gospel/",
+          "ref": "turn15171search5",
+          "historical_reference": "turn14292search4"
+        }
+      ],
+      "default_review": {
+        "scope": "Explicit original declared part choices plus source-supported named choir/vocal controls; not a full physical gear audit. Roster, parent, axes, room, chain and prose unchanged.",
+        "protection": "Latest parent instruction confirms user authorization for named original-three data repairs. No engine/schema changes; changes remain unapplied pending current baseline/global qualification.",
+        "status": "PENDING_CURRENT_BASELINE_REPLAY"
+      }
+    },
+    {
+      "id": "methodist_hymnody",
+      "before": {
+        "tradition": {
+          "id": "methodist_hymnody",
+          "name": "Methodist hymnody (18th-century English Protestant)",
+          "family": "classical",
+          "lineage": "English Protestant hymn tradition codified through the 6,500+ hymn texts of Charles Wesley (1707-1788) and the canonical Methodist hymn-book A Collection of Hymns for the use of the People called Methodists (1780, John Wesley editor). The Methodist tradition emphasizes intensely personal-devotional content (the \"warmed heart\" theme), strong congregational singing as central liturgical practice, and the use of vernacular-popular-tune adaptations alongside specifically-composed Methodist hymn-tunes. Major influence on the broader English-speaking-world Protestant hymnody.",
+          "instruments": [
+            "voice",
+            "choir_ensemble",
+            "pipe_organ"
+          ],
+          "room": "cathedral",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "tube_pre",
+          "chain_medium": "tape_15ips",
+          "chain_console": "colored",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_la2a_optical",
+          "chain_eq": "eq_passive_program_pultec",
+          "parts": {
+            "voice_register": "head_voice",
+            "voice_quality": "opera_voice",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_tradition": "baroque_ornamental_tradition",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+            "voice_microtone": "tempered_voice",
+            "voice_ornament_system": "voice_ornament_bel_canto",
+            "voice_estill_quality": "voice_estill_opera",
+            "voice_vibrato": "fast_vibrato",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "choir_size": "chamber_choir",
+            "choir_ensemble_repertoire": "choir_ensemble_renaissance",
+            "keyboard_technique": "keyboard_classical_legato",
+            "pipe_organ_class": "pipe_organ_romantic",
+            "pipe_organ_context": "pipe_organ_liturgical",
+            "pipe_organ_voicing_school": "pipe_organ_henry_willis",
+            "pipe_organ_pipe_alloy": "pipe_organ_spotted_metal_50_50",
+            "pipe_organ_temperament": "pipe_organ_equal_temperament",
+            "pipe_organ_action": "pipe_organ_electric_pneumatic"
+          },
+          "chain_archetype": "arch_70s_uk_class_a_rock"
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 1,
+            "pitch": 1,
+            "ornament": 1,
+            "meter": 0,
+            "density": 2,
+            "transmission": 2,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": -2,
+            "cyclicity": 0
+          },
+          "description": "English Protestant hymn tradition codified through the 6,500+ hymn texts of Charles Wesley (1707-1788) and the canonical Methodist hymn-book A Collection of Hymns for the use of the People called Methodists (1780, John Wesley editor). The Methodist tradition emphasizes intensely personal-devotional content (the \"warmed heart\" theme), strong congregational singing as central liturgical practice, and the use of vernacular-popular-tune adaptations alongside specifically-composed Methodist hymn-tunes. Major influence on the broader English-speaking-world Protestant hymnody.",
+          "exemplars": [
+            "Charles Wesley",
+            "John Wesley",
+            "William Gardiner Sacred Melodies",
+            "Methodist Hymn Book editions",
+            "Hymns Ancient & Modern crossover"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "artMusic.westernCommonPractice"
+          ]
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "methodist_hymnody",
+          "name": "Methodist hymnody (18th-century English Protestant)",
+          "family": "classical",
+          "lineage": "English Protestant hymn tradition codified through the 6,500+ hymn texts of Charles Wesley (1707-1788) and the canonical Methodist hymn-book A Collection of Hymns for the use of the People called Methodists (1780, John Wesley editor). The Methodist tradition emphasizes intensely personal-devotional content (the \"warmed heart\" theme), strong congregational singing as central liturgical practice, and the use of vernacular-popular-tune adaptations alongside specifically-composed Methodist hymn-tunes. Major influence on the broader English-speaking-world Protestant hymnody.",
+          "instruments": [
+            "voice",
+            "choir_ensemble",
+            "pipe_organ"
+          ],
+          "room": "cathedral",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "tube_pre",
+          "chain_medium": "tape_15ips",
+          "chain_console": "colored",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_la2a_optical",
+          "chain_eq": "eq_passive_program_pultec",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_ensemble_config": "voice_ensemble_homophonic_block",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_microtone": "tempered_voice",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "choir_size": "chamber_choir",
+            "choir_ensemble_repertoire": "choir_ensemble_sacred_global",
+            "keyboard_technique": "keyboard_classical_legato",
+            "pipe_organ_class": "pipe_organ_romantic",
+            "pipe_organ_context": "pipe_organ_liturgical",
+            "pipe_organ_voicing_school": "pipe_organ_henry_willis",
+            "pipe_organ_pipe_alloy": "pipe_organ_spotted_metal_50_50",
+            "pipe_organ_temperament": "pipe_organ_equal_temperament",
+            "pipe_organ_action": "pipe_organ_electric_pneumatic",
+            "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+            "choir_regional_canonical_configuration": "choir_regional_none",
+            "voice_articulation": "legato_voice",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate"
+          },
+          "chain_archetype": "arch_70s_uk_class_a_rock",
+          "pin_parts": true
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 1,
+            "pitch": 1,
+            "ornament": 1,
+            "meter": 0,
+            "density": 2,
+            "transmission": 2,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": -2,
+            "cyclicity": 0
+          },
+          "description": "English Protestant hymn tradition codified through the 6,500+ hymn texts of Charles Wesley (1707-1788) and the canonical Methodist hymn-book A Collection of Hymns for the use of the People called Methodists (1780, John Wesley editor). The Methodist tradition emphasizes intensely personal-devotional content (the \"warmed heart\" theme), strong congregational singing as central liturgical practice, and the use of vernacular-popular-tune adaptations alongside specifically-composed Methodist hymn-tunes. Major influence on the broader English-speaking-world Protestant hymnody.",
+          "exemplars": [
+            "Charles Wesley",
+            "John Wesley",
+            "William Gardiner Sacred Melodies",
+            "Methodist Hymn Book editions",
+            "Hymns Ancient & Modern crossover"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "artMusic.westernCommonPractice"
+          ]
+        }
+      },
+      "decision": "SOURCE_SUPPORTED_DATA_REPAIR_PROPOSAL_UNAPPLIED",
+      "reason": "Representative harmonized Methodist hymn singing: aligned communal text and rhythm rather than hocket, bel-canto ornament, Georgian drone, or Sardinian overtone parts. Existing SATB option describes an authored harmonized choir branch; no claim every congregation sings four parts. Individual register and physiological school remain unspecified because communal directions do not establish them. Preserve the original chamber-choir size: corrected homophonic topology and non-regional four-part hymn practice do not require changing ensemble size. The institutional sources support communal/chordal hymn singing but do not prescribe a new headcount.",
+      "sources": [
+        {
+          "url": "https://www.wsumc.net/wesley_rules.html",
+          "ref": "turn14292search10",
+          "historical_reference": "turn14292search10"
+        },
+        {
+          "url": "https://www.umc.org/content/wesleys-take-the-web-directions-for-singing",
+          "ref": "turn15169view1",
+          "historical_reference": "turn14292search0"
+        },
+        {
+          "url": "https://www.umcdiscipleship.org/resources/history-of-hymns-maker-in-whom-we-live",
+          "ref": "turn15171search3",
+          "supports": "Institutional Methodist hymn history expressly identifies familiar four-part setting; representative harmonized branch, not universal congregation headcount."
+        }
+      ],
+      "default_review": {
+        "scope": "Explicit original declared part choices plus source-supported named choir/vocal controls; not a full physical gear audit. Roster, parent, axes, room, chain and prose unchanged.",
+        "protection": "Latest parent instruction confirms user authorization for named original-three data repairs. No engine/schema changes; changes remain unapplied pending current baseline/global qualification.",
+        "status": "PENDING_CURRENT_BASELINE_REPLAY",
+        "bounded_refinement": "One source-scope narrowing only: remove unnecessary chamber_choir\u2192mixed_4_part_satb size change. No room, production chain or parameter search."
+      }
+    },
+    {
+      "id": "groove_metal",
+      "before": {
+        "tradition": {
+          "id": "groove_metal",
+          "name": "Groove metal",
+          "family": "rock_punk",
+          "lineage": "Late-1980s-and-1990s heavy-metal subgenre emerging from thrash metal's tempo-deceleration into mid-tempo headbanging-groove rhythmic foundation. Pantera (post-1990 reinvention from glam-metal origins) inaugurated the canonical groove-metal sound through Cowboys from Hell (1990) and Vulgar Display of Power (1992); Sepultura (post-1991 Arise reinvention), Machine Head, and Lamb of God (2000s extension) constitute the broader canonical roster.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "bay_area_thrash_metal_studio",
+          "chain_mic": "mic_sm57_dynamic_shure",
+          "chain_pre": "pre_neve_1073_input",
+          "chain_medium": "tape_30ips",
+          "chain_console": "console_british_inline_80s",
+          "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+          "chain_status": "researched_studio",
+          "chain_amp_guitar": "amp_mesa_dual_rectifier",
+          "chain_amp_bass": "amp_american_ampeg_svt",
+          "chain_fx": [
+            "fx_tube_screamer"
+          ],
+          "chain_comp": "comp_smart_c1_bus",
+          "chain_eq": "eq_console_surgical",
+          "parts": {
+            "pickup_magnet": "ceramic_h",
+            "string_material": "stainless_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_fender_h",
+            "electric_technique": "electric_palm_muted_chug",
+            "pickup_config": "humbucker_mm",
+            "string_type": "roundwound_s",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "drumhead": "double_coated",
+            "drum_technique": "sticks_rock",
+            "voice_register": "chest_voice",
+            "voice_quality": "pressed_phonation_voice",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_tradition": "modern_pop_vocal_training",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+            "voice_microtone": "tempered_voice",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_estill_quality": "voice_estill_speech",
+            "voice_vibrato": "slow_vibrato",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "string_tuning": "standard_tuning"
+          },
+          "chain_archetype": "arch_80s_late_analog_majorrock",
+          "chain_amp": "amp_mesa_dual_rectifier"
+        },
+        "extras": {
+          "parent": "distortedRock.metal.thrash",
+          "axes": {
+            "harm": 0,
+            "pitch": 1,
+            "ornament": 1,
+            "meter": 1,
+            "density": 2,
+            "transmission": 1,
+            "improv": 1,
+            "soundTech": 0,
+            "intensity": 2,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": 2,
+            "cyclicity": 1
+          },
+          "description": "Late-1980s-and-1990s heavy-metal subgenre emerging from thrash metal's tempo-deceleration into mid-tempo headbanging-groove rhythmic foundation. Pantera (post-1990 reinvention from glam-metal origins) inaugurated the canonical groove-metal sound through Cowboys from Hell (1990) and Vulgar Display of Power (1992); Sepultura (post-1991 Arise reinvention), Machine Head, and Lamb of God (2000s extension) constitute the broader canonical roster.",
+          "exemplars": [
+            "Pantera",
+            "Sepultura (Arise era)",
+            "Machine Head",
+            "Lamb of God",
+            "Devildriver",
+            "White Zombie"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "distortedRock.metal.death"
+          ]
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "groove_metal",
+          "name": "Groove metal",
+          "family": "rock_punk",
+          "lineage": "Late-1980s-and-1990s heavy-metal subgenre emerging from thrash metal's tempo-deceleration into mid-tempo headbanging-groove rhythmic foundation. Pantera (post-1990 reinvention from glam-metal origins) inaugurated the canonical groove-metal sound through Cowboys from Hell (1990) and Vulgar Display of Power (1992); Sepultura (post-1991 Arise reinvention), Machine Head, and Lamb of God (2000s extension) constitute the broader canonical roster.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "bay_area_thrash_metal_studio",
+          "chain_mic": "mic_sm57_dynamic_shure",
+          "chain_pre": "pre_neve_1073_input",
+          "chain_medium": "tape_30ips",
+          "chain_console": "console_british_inline_80s",
+          "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+          "chain_status": "researched_studio",
+          "chain_amp_guitar": "amp_mesa_dual_rectifier",
+          "chain_amp_bass": "amp_american_ampeg_svt",
+          "chain_fx": [
+            "fx_tube_screamer"
+          ],
+          "chain_comp": "comp_smart_c1_bus",
+          "chain_eq": "eq_console_surgical",
+          "parts": {
+            "pickup_magnet": "ceramic_h",
+            "string_material": "stainless_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_fender_h",
+            "electric_technique": "electric_palm_muted_chug",
+            "pickup_config": "humbucker_mm",
+            "string_type": "roundwound_s",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "drumhead": "double_coated",
+            "drum_technique": "sticks_rock",
+            "voice_register": "chest_voice",
+            "voice_quality": "pressed_phonation_voice",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_tradition": "modern_pop_vocal_training",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+            "voice_microtone": "tempered_voice",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_estill_quality": "voice_estill_speech",
+            "voice_vibrato": "slow_vibrato",
+            "voice_mechanism_compound": "voice_mechanism_single_source",
+            "string_tuning": "standard_tuning",
+            "voice_articulation": "marcato_voice",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_projected"
+          },
+          "chain_archetype": "arch_80s_late_analog_majorrock",
+          "chain_amp": "amp_mesa_dual_rectifier",
+          "pin_parts": true
+        },
+        "extras": {
+          "parent": "distortedRock.metal.thrash",
+          "axes": {
+            "harm": 0,
+            "pitch": 1,
+            "ornament": 1,
+            "meter": 1,
+            "density": 2,
+            "transmission": 1,
+            "improv": 1,
+            "soundTech": 0,
+            "intensity": 2,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": 2,
+            "cyclicity": 1
+          },
+          "description": "Late-1980s-and-1990s heavy-metal subgenre emerging from thrash metal's tempo-deceleration into mid-tempo headbanging-groove rhythmic foundation. Pantera (post-1990 reinvention from glam-metal origins) inaugurated the canonical groove-metal sound through Cowboys from Hell (1990) and Vulgar Display of Power (1992); Sepultura (post-1991 Arise reinvention), Machine Head, and Lamb of God (2000s extension) constitute the broader canonical roster.",
+          "exemplars": [
+            "Pantera",
+            "Sepultura (Arise era)",
+            "Machine Head",
+            "Lamb of God",
+            "Devildriver",
+            "White Zombie"
+          ],
+          "status": "documented",
+          "crossRefs": [
+            "distortedRock.metal.death"
+          ]
+        }
+      },
+      "decision": "SOURCE_SUPPORTED_DATA_REPAIR_PROPOSAL_UNAPPLIED",
+      "reason": "Retain original documented sticks-rock backbeat and metal vocal/guitar/bass choices under explicit schema pinning. Drummer firsthand practice supports forceful stick attack and heavy groove; brushes are not introduced. Projected articulated vocal realization preserves existing syllabic pressed source branch.",
+      "sources": [
+        {
+          "url": "https://www.moderndrummer.com/2018/06/vinnie-paul-the-king-of-thrash-metal-drumming/",
+          "ref": "turn15169view2",
+          "historical_reference": "turn14292search2"
+        }
+      ],
+      "default_review": {
+        "scope": "Explicit original declared part choices plus source-supported named choir/vocal controls; not a full physical gear audit. Roster, parent, axes, room, chain and prose unchanged.",
+        "protection": "Latest parent instruction confirms user authorization for named original-three data repairs. No engine/schema changes; changes remain unapplied pending current baseline/global qualification.",
+        "status": "PENDING_CURRENT_BASELINE_REPLAY"
+      }
+    }
+  ],
+  "prior_proposal": "/workspace/genre-continuation/original-three-current119/proposal.json"
+}

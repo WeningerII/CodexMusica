@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice006-ho-munda-architecture-clarified.json",
+  "sha256": "c401f0a30dab1b043408a7cba8776712775f1880aae26b663d6c1d72c6563d9c",
+  "packet_sha256": "c401f0a30dab1b043408a7cba8776712775f1880aae26b663d6c1d72c6563d9c",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "ho_munda",
+  "immutable_allocation": {
+    "source_label": "ho munda",
+    "source_url": "https://everynoise.com/engenremap-homunda.html",
+    "suggested_id": "ho_munda",
+    "allocation_ordinal": 3433,
+    "allocation_group_id": "138"
+  },
+  "source_review": {
+    "finding": "Fresh NCPA full programme turn15258view1 retains communal seasonal songs, flute and named percussion. Government Ho ethnography turn15258search2 explicitly identifies dama one membrane, dumang two membranes and rutu flute; Deeney dictionary turn15258search1 independently confirms rutu. Filmmaker own account turn15258view0 identifies kettle form, coordinated drummers and communal dance. Distinct broader fiddle/bell ritual inventories not claimed part of every dance ensemble.",
+    "urls": [
+      "https://www.ncpamumbai.com/news/the-legacy-of-folk-forms/",
+      "https://www.ncpamumbai.com/event/living-traditions-festival-of-jharkhand-day-1/",
+      "https://ccrtindia.gov.in/wp-content/fellowship_research_project/TribalSongsOdisha.pdf",
+      "https://tribal.nic.in/repository/ViewDoc.aspx?RepositoryNo=TRI28-08-2017121607&file=Docs%2FTRI28-08-2017121607.pdf",
+      "https://endangeredlanguages.com/node/110017/printable/print",
+      "https://michaelyorke.org/wp-content/uploads/2023/08/ENGLISH-HO-VOCABULARY-by-JOHN-DEENEY.pdf"
+    ]
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "santali_pop",
+      "indian_folk_lok_geet"
+    ],
+    "finding": "Positive Ho community repertoire and Singhbhum institutional attribution distinguish this from neighboring Santal and broader pan-regional Indian folk fields. Regional interaction admitted. Wedding parent is scoped to the positively documented communal wedding-dance branch, not every Ho ritual or an invented religious classification."
+  },
+  "source_limits": [
+    "Authored representative genre branch, not exact master roster, headcount or gear specification.",
+    "Supersedes flute-only held proposal only after independently restoring all positive role classes. Original remains preserved. New dependency global integration qualification remains separate from per-candidate PASS."
+  ],
+  "representative_practice": "Representative sung Ho community-dance branch, using all positive NCPA role classes: communal voice, bamboo flute, dama kettle drum and dumang double-headed drum. Government ethnography and the Ho vocabulary identify rutu as flute; NCPA’s loose percussion grouping is not interpreted as an additional drum. No precise performer count, voice range, flute holes, drum shell material, membrane species, dimensions, tuning, hand-versus-stick stroke or recording apparatus is inferred. Drum architecture and membrane counts are positively documented; striking excitation follows the explicit drummer/beat descriptions. Field acoustics are an authored community setting, not a measured Mumbai recording. Other documented Ho ritual branches use fiddle, bells or other drums; this chosen dance branch does not claim to exhaust all Ho musical practice. Existing voice controls retain source-neutral physiology and accompanied group identity; melodic syllabic delivery is an authored seasonal-song realization, not a transcription. Communal singing is realized as a live ensemble with no overdub stack, not a known recording-session claim. Punctuated syllabic seasonal-song articulation is authored; the generated clapping-and-syllabicizing adjective must be reviewed as a delivery description, not evidence of an added handclap instrument.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 26,
+    "pinned_parts": 26,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": false,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader.",
+    "new_instruments": [
+      "ho_dama_kettle_drum",
+      "ho_dumang_double_headed_drum"
+    ],
+    "candidate_owner_count": 1655,
+    "new_owner_review": "Independent original mergeFamilyParts applied before original browser/API loading. Three meaningful physical dimensions per drum retain known architecture/membranes/striking without fabricated shell material, tuning or hand/stick technique. Frozen known struck/double-headed descriptors and acoustic transduction retained. No existing owner modified; all26 pins survive full-staple original API config. Root-reserved distinct cultural identities, not copies created to evade prefacing."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Clapping-and-syllabicizing lexicon is a punctuated syllabic delivery association; source-backed communal dance songs support authored one-note-per-syllable live group singing, not a new handclap card. Tags/compact distinctly retain both named drums and bamboo flute; rich/prose compress shared drum noun without deleting underlying cards. Double-headed and struck now preserve positive physical knowledge, with material/skin/stroke unknown. No foreign repertoire or unsupported electronic treatment.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/ho-full-runtime.json",
+    "runtime_sha256": "c1cb6828d98a560b7428d1d7b5a869350cdc45314f0eea24bd2080cd84602b20"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes.",
+  "atlas_review": {
+    "status": "PASS",
+    "geo": [
+      22.553,
+      85.802,
+      "Singhbhum",
+      "South Asia"
+    ],
+    "policy": "scripts/_atlas_regions.js actual canonical region/place-only validator"
+  }
+}

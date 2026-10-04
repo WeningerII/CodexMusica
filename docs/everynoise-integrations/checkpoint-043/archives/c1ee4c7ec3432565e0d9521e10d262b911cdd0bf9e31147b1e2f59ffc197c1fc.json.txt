@@ -1,0 +1,197 @@
+{
+  "entries": [
+    {
+      "source_label": "classic bulgarian pop",
+      "source_url": "https://everynoise.com/engenremap-classicbulgarianpop.html",
+      "suggested_id": "classic_bulgarian_pop",
+      "allocation_ordinal": 1630,
+      "allocation_group_id": "066",
+      "id": "classic_bulgarian_pop",
+      "status": "READY_FOR_INDEPENDENT_BOUNDARY_REVIEW",
+      "tradition": {
+        "id": "classic_bulgarian_pop",
+        "name": "Classic Bulgarian Pop",
+        "family": "pop",
+        "lineage": "Bulgarian estrada developed through radio, conservatory training and state-supported popular-song festivals in the second half of the twentieth century. The Golden Orpheus and Melody of the Year circuits connected singers, composers and arrangers, leaving a repertoire that continues to be performed and revisited.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Expressive lead melodies and lyrical songcraft connect intimate guitar-accompanied songs with larger dance-band and orchestral settings. Romantic, reflective and brighter popular songs share a historical recording and festival culture, with arrangements varying widely across artists.",
+        "exemplars": [
+          "Maria Neykova",
+          "Lili Ivanova",
+          "Yordanka Hristova",
+          "Bogdana Karadocheva"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        42.6977,
+        23.3219,
+        "Sofia",
+        "Europe"
+      ],
+      "geo_rationale": "Approximate broadcasting and conservatory community anchor, not the location of every festival or source recording.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "classic_bulgarian_pop",
+          "name": "Classic Bulgarian Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15093view3 confirms Fergusson original, Binksternet crop and CC BY2.5.",
+          "fresh_review_ref": "turn15093view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15093view3"
+        ],
+        "fresh_rights_review": "Fresh15093view3 rights; exact historical023 binary/visual receipt unchanged, no current download."
+      },
+      "model_policy": "Representative intimate singer-and-guitar branch supported by the national broadcaster’s archival artist testimony about guitar and singing, alongside positively documented larger orchestral settings. This does not reconstruct the film soundtrack or remove roles from a named orchestral concert. One accompanied syllabic lead, functional-harmonic verse–chorus–bridge organization, standard-tuned all-mahogany steel-string dreadnought with80/20strings and flatpicked chord support are authored choices, not a claim about original guitar construction, master personnel or universal song form. The brisk present-day rendition is one possible popular-song treatment, not a claim that Neykova’s reflective Dvama recording is fast. Live room and natural single-lead capture are authored; physiology unspecified.",
+      "neighbor_distinction": "Full existing bulgarian_pop encompasses national melodic songwriting and contemporary performance, not merely Lyubo Kirov or one band. The proposed narrower historical field is positively described by Bulgarian National Radio as the distinct estrada/festival and state-production culture of the socialist period, now historical rather than current everyday pop. It is not only an arbitrary old-release cutoff: conservatory training, national radio archives, Golden Orpheus and Melody of the Year define the circulation and professional community. Russian estrada overlaps the state-stage institutional model but is a different linguistic/national repertoire. Primary institutional terminology provides the scope; exact creator map is currently inaccessible, so no artist membership is asserted. Independent peer must judge this field-to-label bridge, not infer exclusivity from the acoustic arrangement.",
+      "sources": [
+        {
+          "url": "https://old-news.bnr.bg/radiobulgaria/post/100234577/radioistoriya-na-bylgarskata-zabavna-pesen",
+          "title": "BNR radio history of Bulgarian popular song",
+          "support_notes": "Fresh indexed15115search0 defines historical estrada field and its institutional era; direct15124view2 later failed."
+        },
+        {
+          "url": "https://archives.bnr.bg/archives/post/402699/maria_neykova",
+          "title": "BNR Archive Maria Neykova retrospective with artist testimony",
+          "support_notes": "Fresh full15124view1: conservatory/Golden Orpheus/Melody of Year professional field; own testimony about guitar and singing supports representative intimate branch. Separate orchestral appearances remain broader practice, not reconstructed here."
+        },
+        {
+          "url": "https://old-news.bnr.bg/radiobulgaria/post/100235498/radioistoriya-na-bylgarskata-estradna-pesen-4",
+          "title": "BNR institutional history, part4",
+          "support_notes": "Fresh15115search3 describes state institutions organizing and producing musical estrada and two named competitions."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15115search0",
+        "turn15115search3",
+        "turn15124view1"
+      ],
+      "source_scope_limitation": "Genre-practice profile, not a complete film or festival master. Broader orchestral/band branches retained in public prose.",
+      "source_retrieval_caveat": "BNR full archival page directly reproduced; historical field article indexed primary reproduced after direct failure. Exact creator map failed403/timeout; no membership assertion or audio audition."
+    }
+  ],
+  "instrument_dependencies": []
+}

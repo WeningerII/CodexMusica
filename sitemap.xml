@@ -6755,6 +6755,25 @@
   <url><loc>https://codexmusica.com/api/traditions/maimouna.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/musique_urbaine_brazzaville.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/reading.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/minimal_melodic_techno.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/drill_dominicano.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/lithuanian_trap.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/middle_east_hip_hop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nz_gangsta_rap.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/rap_criolo.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/turkce_trap_metal.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/classic_bulgarian_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/vintage_swedish_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/fotbollslatar.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/gaita.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/grave_wave.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/ho_munda.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/jain_bhajan.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/lai_hla.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/marathi_balgeet.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/muzica_maramureseana.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/necrotrap.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/rave.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/choir_ensemble.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/griot_voice.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/pansori_voice.json</loc></url>
@@ -8408,4 +8427,9 @@
   <url><loc>https://codexmusica.com/api/instruments/tbal_mauritanian.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/lukembi_congolese.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/recorded_appliance_sound.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/produced_808_bass.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/ho_dama_kettle_drum.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/ho_dumang_double_headed_drum.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/zongora_maramures.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/doba_maramures.json</loc></url>
 </urlset>

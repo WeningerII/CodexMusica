@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "candidate": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field45/practice002-minimal-melodic-techno.json",
+  "sha256": "be27c643eb39660d50d2c17236dfed611b233507aa0d827e8da6b0718f8908f4",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "controls": 1,
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/minimal-melodic-techno-runtime117.json",
+  "semantic_review": "Named historical melodic-minimal production trajectory is independently evidenced by Bjork and Traumer, bridging Traum/Border Community to the positive creator corpus. Narrow overlapping specialization within full melodic techno; not mood adjective alone. Issued Hungry Music whole DJ programme supports selector branch without reducing separate live piano/machines/guitar practice.",
+  "literal_review": "All four original browser outputs individually read and agree with compiled protected configuration. Minimal DJ up-tempo is authored dance pacing; Lai Hla up-tempo syllabic voice and cheery flatpicked guitar are coherent participatory song gestures, not unsupported instruments or cultural mechanisms. No new dependencies or old-owner edits.",
+  "metadata": "Immutable five fields checked exactly; 13 axes complete; generic microphone LOW context correctly labeled; geo regional enum corrected for Lai Hla.",
+  "rights": "Fresh Commons turn15093view3 confirms Fergusson original, Binksternet crop, CC BY2.5. Exact historical023 URL/SHA/33015 bytes/250x720 and original visual receipt preserved, no new download or viewing claimed.",
+  "primary_refs": [
+    "turn15093view0",
+    "turn15093view2",
+    "turn15094search0",
+    "turn15094search1",
+    "turn15094view0",
+    "turn15094view1"
+  ],
+  "sources": [
+    "https://electronicgroove.com/series/premieres/harald-bjork-lust-kranglan-broadcast/",
+    "https://xlr8r.com/features/20-questions-traumer/",
+    "https://www.amnusique.fr/interview-8-joachim-pastor/",
+    "https://www.6amgroup.co/interview-global-vibe-radio-144-feat-hungry-music-worakls-nto-joachim-pastor/",
+    "https://hungrymusic.fr/story/",
+    "https://open.spotify.com/embed/playlist/0O5O7OKpXKZkWUBRVFAJ1g"
+  ],
+  "limitations": "No independent audio audition or exact source gear measurements. Browser/API validity checked against frozen453cd0f1 only. Full current relevant neighboring records read; source scope broader than a single exemplar."
+}

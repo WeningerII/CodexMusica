@@ -40474,5 +40474,24 @@
     8,
     "Norway",
     "Europe"
-  ]
+  ],
+  "minimal_melodic_techno": [52.52,13.405,"Berlin","Europe"],
+  "drill_dominicano": [18.4861,-69.9312,"Santo Domingo","Latin America & Caribbean"],
+  "lithuanian_trap": [54.6872,25.2797,"Vilnius","Europe"],
+  "middle_east_hip_hop": [25.2048,55.2708,"Dubai","Middle East"],
+  "nz_gangsta_rap": [-36.962,174.873,"Ōtara","Oceania & Pacific"],
+  "rap_criolo": [38.7223,-9.1393,"Lisbon","Europe"],
+  "turkce_trap_metal": [39.9334,32.8597,"Ankara","Middle East"],
+  "classic_bulgarian_pop": [42.6977,23.3219,"Sofia","Europe"],
+  "vintage_swedish_pop": [59.3293,18.0686,"Stockholm","Europe"],
+  "fotbollslatar": [59.3293,18.0686,"Stockholm","Europe"],
+  "gaita": [42.8782,-8.5448,"Santiago de Compostela","Europe"],
+  "grave_wave": [40.7128,-74.006,"New York","North America"],
+  "ho_munda": [22.553,85.802,"Singhbhum","South Asia"],
+  "jain_bhajan": [22.3,71.2,"Gujarat","South Asia"],
+  "lai_hla": [22.6458,93.605,"Hakha","Southeast Asia"],
+  "marathi_balgeet": [19.1075,72.8263,"Mumbai","South Asia"],
+  "muzica_maramureseana": [47.653,24.35,"Săliștea de Sus","Europe"],
+  "necrotrap": [47.1625,19.5033,"Hungary","Europe"],
+  "rave": [51.5074,-0.1278,"London","Europe"]
 }

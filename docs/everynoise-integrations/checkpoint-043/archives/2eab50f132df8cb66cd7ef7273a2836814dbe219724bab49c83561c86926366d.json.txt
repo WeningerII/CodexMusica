@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice007-necrotrap-808-production-repaired.json",
+  "sha256": "fffbd180ff2bb3ebc9faa1eb2fc8efdb364e51133346b1fceded2b5f6b8245e0",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "supersedes_review_only": "necrotrap-independent-review117.json original bounded generic-beat HOLD remains historical",
+  "sources": [
+    {
+      "url": "https://www.soundbetter.com/profiles/596182-slxndxr",
+      "ref": "turn15220view0",
+      "finding": "Firsthand producer positively names necrotrap, 808 clipping, master soft clipping and named community peers."
+    },
+    {
+      "url": "https://supremepr.us/artist-interviews/fxcy/omeany2/",
+      "ref": "turn15220view1",
+      "finding": "First-person promotional artist account confirms screaming and named necrotrap/trap-metal practice; provenance candid."
+    },
+    {
+      "url": "https://open.spotify.com/embed/playlist/5U9DKTJsoG7y7HYwjTtkZh",
+      "ref": "turn15268view0",
+      "finding": "Full creator corpus fresh; Gorejit item2/34 and FXCY/Tigaro19 directly match primary community."
+    }
+  ],
+  "boundary": "Full dark_trap/horrorcore/necrogrind records read. Contemporary self-named necrotrap producer network overlaps dark trap and horrorcore but is not identified merely through horror subject matter, different rapper or presumed guitar. Distinct creator/community scope accepted, no exclusive sonic grammar.",
+  "dependency": "Independent original raw-family merge1653→1654 preserves all1653 old owners deep-equal. Three local controls retain real808low-bass identity, authored decay and positively sourced clipping without inventing Roland hardware or sample/synth generator. All descriptors exist frozen DF. Separate programmed percussion retains remaining beat role.",
+  "controls": 21,
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/necrotrap-repaired-runtime117.json",
+  "literal_review": "All four original browser formats and compiled protected configuration inspected. Rich/tags explicitly long-decay low clipped sub-bass; scream-pressure rhythmic voice and programmed drums retained. Up-tempo/bodacious denote compatible authored energetic behavior, not exact measured tempo. Short formats necessarily abbreviate controls but do not contradict them. No fake live guitar or unrelated cultural mechanism.",
+  "metadata_photo": "Five immutable fields match. Top/nested dependency manifest identical and instrument identity correct. Two exact historical image receipts unchanged; fresh Commons15257view2 confirms author/crop/CCBY2.5; LOW generic microphone context, no fresh binary/visual claim.",
+  "changes_requested": []
+}

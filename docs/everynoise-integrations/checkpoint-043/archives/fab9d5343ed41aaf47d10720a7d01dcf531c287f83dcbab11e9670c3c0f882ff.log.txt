@@ -1,0 +1,13 @@
+REGRESSION: 0/1 fixture(s) match snapshot.
+
+── DIFFS (1) ──
+
+✗ methodist_hymnody
+  expected: classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.
+  actual:   classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. continuous-phonation, equal tempered, one note per syllable, all voices same rhythm. sacred liturgical global choir ensemble, henry willis canonical English victorian 1850s 1900 spotted metal 50 50 canonical mixtures bright historical electric pneumatic canonical 20th century American legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.
+
+To accept these changes, run:
+  node scripts/regression_recipes.js --update
+Or for a single fixture:
+  node scripts/regression_recipes.js --update --fixture=<id>
+

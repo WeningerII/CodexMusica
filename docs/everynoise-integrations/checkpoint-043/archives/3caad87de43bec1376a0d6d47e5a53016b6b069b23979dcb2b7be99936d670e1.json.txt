@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "reviewer": "research_116",
+  "checked_at": "2026-10-04T07:13:48.997859+00:00",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-475.json",
+  "packet_sha256": "79f03608e99bc3296d61619e70063a704f7c224a48d6f85a6d325bd4f91cb0d1",
+  "baseline": "/workspace/CodexMusica-qualified041",
+  "baseline_head": "453cd0f1",
+  "source_review": {
+    "urls": [
+      "https://www.researchgate.net/publication/263306033_Cape_Verdean_Creole_and_the_Politics_of_Scene-Making_in_Lisbon_Portugal",
+      "https://www.buala.org/pt/cara-a-cara/lisboa-nas-ruas-entrevista-com-o-rapper-chullage"
+    ],
+    "fresh_refs": [
+      "turn15066view1",
+      "turn15068view1",
+      "turn15068view2",
+      "turn15068view0"
+    ],
+    "judgment": "Original Kriolu fieldwork directly distinguishes linguistic/diasporic scene-making from national tuga while preserving overlap. Bass samples and beat producers support the representative rap/backing branch; a cappella and melodic alternatives are not denied."
+  },
+  "practice_review": "Representative single rhythmic rap lead and produced backing are justified without asserting a particular master roster, hardware, exact source physiology or universal style. Authored natural capture and treated studio are coherent. No new physical identities.",
+  "mechanics": {
+    "owning_controls": 18,
+    "all_protected": true,
+    "compiled_api_pin_errors": [],
+    "preserved_existing_owners": 1653,
+    "runtime_receipt": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-475-peer116-runtime.json"
+  },
+  "literal_review": "All four browser/connector formats read. Spoken-flowing/no-pitch agrees with the selected rap branch, not a claim every performance is unpitched. Frosty backing is a compatible authored production affect, not an inferred source mechanism. Compiled API output also read; no named foreign culture or extra instrument.",
+  "photo_review": {
+    "fresh_ref": "turn15066view3 / turn15068view3",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5",
+    "scope": "Generic LOW microphone context; exact historical 250px preview receipt retained, no new byte download or visual inspection asserted."
+  },
+  "immutable_metadata": {
+    "source_label": "rap criolo",
+    "source_url": "https://everynoise.com/engenremap-rapcriolo.html",
+    "suggested_id": "rap_criolo",
+    "allocation_ordinal": 475,
+    "allocation_group_id": "019"
+  },
+  "limitations": [
+    "No audio audition or exact master reconstruction.",
+    "Photo bytes and visual observation are inherited historical receipts.",
+    "Future main reconciliation remains required."
+  ]
+}

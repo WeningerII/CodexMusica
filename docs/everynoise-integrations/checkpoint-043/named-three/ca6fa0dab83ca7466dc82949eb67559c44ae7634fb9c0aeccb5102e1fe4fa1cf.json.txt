@@ -1,0 +1,42 @@
+{
+  "status": "PASS_TARGETED_PARTIAL_DATA_CORRECTIONS_NOT_APPLIED",
+  "baseline": "251545a3451647afa77af76dd47a4640c760a288",
+  "targets": [
+    "gospel_quartet_male",
+    "methodist_hymnody",
+    "groove_metal"
+  ],
+  "actual_replays": {
+    "api": 341,
+    "fixture_definitions": 102
+  },
+  "coverage": {
+    "source_head": "251545a3451647afa77af76dd47a4640c760a288",
+    "api_all": 6746,
+    "old_api_graph_ids": 6725,
+    "new_targets_all_replayed": 21,
+    "api_affected_replayed": 341,
+    "fixtures_all": 1174,
+    "fixture_affected_replayed": 102,
+    "graph_unchanged": "Onlythreeexistingparts/pin_parts change; everygraph-definingfield unchanged. New21 allreplayed conservatively."
+  },
+  "changes": "Only three intended targets differ in API and fixture recipes/configs; all other replayed contexts including all21 new additions equal before. No engine/schema/snapshot/source writes.",
+  "methodist_refinement": "Preserves original chamber_choir size; removes unnecessary new ensemble-size choice that introduced swinging. Homophonic nonregional sacred choral topology remains.",
+  "remaining_inherited_limitations": [
+    "Gospel bass samul-percussive descriptor remains unchanged; no claim complete genre default repair.",
+    "Groove two-stepping guitar/prancing bass and fast-thrash room remain unchanged.",
+    "Methodist later organ construction versus eighteenth-century origin wording remains inherited historical ambiguity."
+  ],
+  "sources": "../primary-search-raw.json; original exact source references preserved in proposal.",
+  "evidence_sha256": {
+    "proposal.json": "c4afebfcbaf7fbfdecf46f42d127da6c187fea0540dd4cbda9aa8e2c52617aca",
+    "comparison.json": "470497bd8f94f77e3f95d15a24414dc6972948755a954b6aead5fbee14a2a190",
+    "coverage.json": "284f02ef8e8a8c235229473a4351c32f48ef50ab61b1a15a671049e46d2ee9e7",
+    "exact-before-guard.json": "16d93eec3aeee31cc3ae60e0ecd00cb62f399374123d116d0b836c9e1d93a1e1",
+    "global-api-before.json": "5626375be92951ed87193f8630f62553e78125f0ff3feee8e921090c42142506",
+    "global-api-after.json": "4a440ed725c63ca0c951180b75e8de0162ee53fdca1b25c17d793d821c03fc91",
+    "global-fixture-before.json": "7ef15d223167a9436192add4e97c289a1f49aa68c89420885f8871a58712d5e1",
+    "global-fixture-after.json": "30ce59a7481dae2c60cf4a0064d47cbf9b8423237743e7568d354089069eb178"
+  },
+  "next_step": "Root may review three exact intended fixture changes individually for later checkpoint; no blanket snapshot authorization."
+}

@@ -1,0 +1,193 @@
+{
+  "entries": [
+    {
+      "source_label": "lai hla",
+      "source_url": "https://everynoise.com/engenremap-laihla.html",
+      "suggested_id": "lai_hla",
+      "allocation_ordinal": 3660,
+      "allocation_group_id": "147",
+      "id": "lai_hla",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "lai_hla",
+        "name": "Lai Hla",
+        "family": "vernacular",
+        "lineage": "Lai hla connects Chin song communities through local-language repertoire, recordings and everyday music-making. Hakha Chin lyric and chord collections bring contemporary songs, patriotic material and Christian repertoire into shared channels of learning and performance.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "A clear sung melody and guitar chords support an intimate, portable song setting. Repeated sections make lyrics easy to learn and share, while the wider repertoire also circulates through gospel groups, popular recordings and electronic arrangements.",
+        "exemplars": [
+          "David Lai",
+          "James Tluang",
+          "Bawi Hum",
+          "Lian Lian"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        22.6458,
+        93.605,
+        "Hakha",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Approximate regional language-community anchor in Hakha, not a claim of a single origin, present performer location or exclusive geographic extent.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lai_hla",
+          "name": "Lai Hla",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn14908view2 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn14908view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14908view2"
+        ],
+        "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
+      },
+      "model_policy": "Representative voice-and-guitar learning/performance branch directly supported by the community publisher’s Hakha Chin lyric-and-guitar-chord practice. The broader creator corpus includes contemporary, devotional and neighboring-language recordings; it is not defined as acoustic-only. Solo accompanied syllabic singing and a functional-harmonic verse–chorus–bridge realization are authored, not measured song form. Flatpicked standard-tuned steel-string dreadnought with all-mahogany body and80/20strings is an explicit representative construction, not an asserted David Lai instrument. Live-room presentation and moderate effort are authored; no exact physiology or voice count claimed. All22 controls protected. A brisk syllabic rendition is authored for the contemporary participatory-song branch, not an asserted tempo for every hymn or recording.",
+      "neighbor_distinction": "Burmese pop and Myanmar indie are broad national/language or independent-scene fields and may share artists with Lai Hla; their actual full records do not define Chin/Hakha song transmission as their whole scope. Myanmar gospel overlaps the Christian strand but Laihla community resources also explicitly encompass patriotic and contemporary nonexclusive repertoire. Mizo pop is a neighboring related-language field, not asserted culturally isolated; the actual named Lai/Hakha Chin resource and creator corpus supply this particular community axis. No distinct universal instrumentation or exclusive artist membership is claimed.",
+      "sources": [
+        {
+          "url": "https://apps.apple.com/no/app/laihla-lyrics/id6479561333?l=nb",
+          "title": "Laihla Lyrics — developer community resource description",
+          "support_notes": "Publisher directly describes Chin/Hakha song heritage, multiple repertoire categories, singers, guitar chords and community learning tools. Supports representative singing-with-guitar practice, not source recording personnel.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5nv4lr6p6likzx61NLCQEY",
+          "title": "The Sound of Lai Hla — exact creator playlist",
+          "support_notes": "Full100 creator corpus includes David Lai, James Tluang and a broad Chin song network. Lian Lian Me & My Guitar Live item21 further supports acoustic practice without establishing exact instrument construction.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15012view0",
+        "turn15010view1",
+        "turn15011view1"
+      ],
+      "source_scope_limitation": "Community genre-practice profile rather than an individual master. Karaoke and produced recordings remain documented alternative settings; this selected learning/performance realization uses singing and guitar. The unverified machine podcast transcript is not used as instrumental evidence.",
+      "source_retrieval_caveat": "Both community publisher App Store text and complete creator embed directly retrieved. Exact guitar species, string alloy and flatpick choice are explicitly authored, not source observations."
+    }
+  ]
+}

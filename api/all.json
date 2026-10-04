@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-04",
-  "count": 6746,
+  "count": 6765,
   "items": [
     {
       "id": "honky_tonk",
@@ -2647,8 +2647,8 @@
       "id": "gospel_quartet_male",
       "name": "Gospel quartet (male)",
       "family": "global",
-      "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 945
+      "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. multi note runs per syllable, equal tempered, gospel pentecostal, belt quality high larynx thick fold. sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sticks pocket drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 822
     },
     {
       "id": "contemporary_urban_gospel",
@@ -5104,8 +5104,8 @@
       "id": "methodist_hymnody",
       "name": "Methodist hymnody (18th-century English Protestant)",
       "family": "classical",
-      "recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 822
+      "recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. continuous-phonation, equal tempered, one note per syllable, all voices same rhythm. sacred liturgical global choir ensemble, henry willis canonical English victorian 1850s 1900 spotted metal 50 50 canonical mixtures bright historical electric pneumatic canonical 20th century American legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 647
     },
     {
       "id": "shakers_singing",
@@ -5391,8 +5391,8 @@
       "id": "groove_metal",
       "name": "Groove metal",
       "family": "rock_punk",
-      "recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
-      "recipe_chars": 688
+      "recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, slow rate, equal tempered, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "recipe_chars": 669
     },
     {
       "id": "industrial_metal",
@@ -9745,8 +9745,8 @@
       "id": "desi_pop",
       "name": "Desi Pop (Indipop)",
       "family": "pop",
-      "recipe": "classic South Asian mid-1990s desi pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. extended whistle, declaimed, straight onset, interlocked note trading. dhol, dholak, steel single string canonical Punjabi ornamented tumbi, harmonium indian, singing lead analog poly synth, layered sub heavy electric bass, late 1980s reverb saturated bus stack multitrack vocal stack. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
-      "recipe_chars": 643
+      "recipe": "classic South Asian mid-1990s desi pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. extended whistle, declaimed, straight onset, interlocked note trading. dhol, dholak, synthetic steel single string canonical Punjabi ornamented tumbi, harmonium indian, singing lead analog poly synth, layered sub heavy electric bass, late 1980s reverb saturated bus stack multitrack vocal stack. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+      "recipe_chars": 653
     },
     {
       "id": "desi_trap",
@@ -47225,6 +47225,139 @@
       "family": "global",
       "recipe": "classic reading, experimental Elec, ambient branch. upright piano. live tracking.",
       "recipe_chars": 81
+    },
+    {
+      "id": "minimal_melodic_techno",
+      "name": "Minimal Melodic Techno",
+      "family": "electronic",
+      "recipe": "classic mid-2000s minimal melodic techno, electronic Dance, techno branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 121
+    },
+    {
+      "id": "drill_dominicano",
+      "name": "Drill Dominicano",
+      "family": "hip_hop",
+      "recipe": "classic drill dominicano, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 169
+    },
+    {
+      "id": "lithuanian_trap",
+      "name": "Lithuanian Trap",
+      "family": "hip_hop",
+      "recipe": "classic lithuanian trap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch. credited beat unspecified. treated studio.",
+      "recipe_chars": 130
+    },
+    {
+      "id": "middle_east_hip_hop",
+      "name": "Middle East Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic middle east hip hop, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 172
+    },
+    {
+      "id": "nz_gangsta_rap",
+      "name": "NZ Gangsta Rap",
+      "family": "hip_hop",
+      "recipe": "classic nz gangsta rap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "rap_criolo",
+      "name": "Rap Criolo",
+      "family": "hip_hop",
+      "recipe": "classic rap criolo, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 163
+    },
+    {
+      "id": "turkce_trap_metal",
+      "name": "Türkçe Trap Metal",
+      "family": "hip_hop",
+      "recipe": "classic türkçe trap metal, mc Rhythm, intl hip hop branch. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. produced 808 bass, credited programmed drums unspecified. treated studio.",
+      "recipe_chars": 211
+    },
+    {
+      "id": "classic_bulgarian_pop",
+      "name": "Classic Bulgarian Pop",
+      "family": "pop",
+      "recipe": "classic classic bulgarian pop, functional Song. one note per syllable, solo with instrumental accompaniment. dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 152
+    },
+    {
+      "id": "vintage_swedish_pop",
+      "name": "Vintage Swedish Pop",
+      "family": "pop",
+      "recipe": "classic vintage swedish pop, functional Song. one note per syllable, single lead single track no stacking. block chord upright piano. parlor.",
+      "recipe_chars": 141
+    },
+    {
+      "id": "fotbollslatar",
+      "name": "Fotbollslåtar",
+      "family": "vernacular",
+      "recipe": "classic fotbollslåtar, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. upright piano. parlor.",
+      "recipe_chars": 161
+    },
+    {
+      "id": "gaita",
+      "name": "Gaita",
+      "family": "global",
+      "recipe": "classic gaita, drone Modal, wind pipe branch. gaita galega three drone alborada boxwood canonical galician gaita galega. field recording.",
+      "recipe_chars": 137
+    },
+    {
+      "id": "grave_wave",
+      "name": "Grave Wave",
+      "family": "electronic",
+      "recipe": "classic 2007-2009 grave wave, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 94
+    },
+    {
+      "id": "ho_munda",
+      "name": "Ho Munda",
+      "family": "global",
+      "recipe": "classic ho munda, wedding. one note per syllable. bamboo credited bamboo flute unspecified, ho dama kettle ho dumang double headed drum. field recording.",
+      "recipe_chars": 153
+    },
+    {
+      "id": "jain_bhajan",
+      "name": "Jain bhajan",
+      "family": "global",
+      "recipe": "classic jain bhajan, praise Song, indian subcontinent branch. small note groups per syllable, solo with instrumental accompaniment. pitched indian rosewood rosewood tabla, tanpura. shoebox concert hall.",
+      "recipe_chars": 202
+    },
+    {
+      "id": "lai_hla",
+      "name": "Lai Hla",
+      "family": "vernacular",
+      "recipe": "classic lai hla, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 176
+    },
+    {
+      "id": "marathi_balgeet",
+      "name": "Marathi Balgeet",
+      "family": "vernacular",
+      "recipe": "classic marathi balgeet, nursery Rhyme, south Asian branch. hand clap. live tracking.",
+      "recipe_chars": 85
+    },
+    {
+      "id": "muzica_maramureseana",
+      "name": "Muzică Maramureșeană",
+      "family": "vernacular",
+      "recipe": "classic muzică maramureșeană, improv On Frame. solo with instrumental accompaniment. fiddle, zongora doba maramures. live tracking.",
+      "recipe_chars": 131
+    },
+    {
+      "id": "necrotrap",
+      "name": "Necrotrap",
+      "family": "hip_hop",
+      "recipe": "classic necrotrap, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sub bass low clipped produced 808 bass, credited programmed drums unspecified. live tracking.",
+      "recipe_chars": 197
+    },
+    {
+      "id": "rave",
+      "name": "Rave",
+      "family": "electronic",
+      "recipe": "classic 1987-1989 rave, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 88
     }
   ]
 }

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "candidate": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice005-lai-hla-geo-corrected.json",
+  "sha256": "5dc7077ec788eb789d74903ef5db49d99c16fa58fbc34b40ffe956bc8c0892e1",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "controls": 22,
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/lai-hla-runtime117.json",
+  "semantic_review": "Chin/Hakha community resource directly documents lyrics, guitar chords, singing and learning across patriotic, Christian and contemporary repertoire. This is a supported portable genre-practice branch, not a reduction of a produced master. Positive named language/community scope differs from national Burmese pop/Myanmar indie, devotional Myanmar gospel, and neighboring Mizo pop while acknowledging overlap.",
+  "literal_review": "All four original browser outputs individually read and agree with compiled protected configuration. Minimal DJ up-tempo is authored dance pacing; Lai Hla up-tempo syllabic voice and cheery flatpicked guitar are coherent participatory song gestures, not unsupported instruments or cultural mechanisms. No new dependencies or old-owner edits.",
+  "metadata": "Immutable five fields checked exactly; 13 axes complete; generic microphone LOW context correctly labeled; geo regional enum corrected for Lai Hla.",
+  "rights": "Fresh Commons turn15093view3 confirms Fergusson original, Binksternet crop, CC BY2.5. Exact historical023 URL/SHA/33015 bytes/250x720 and original visual receipt preserved, no new download or viewing claimed.",
+  "primary_refs": [
+    "turn15093view0",
+    "turn15093view2",
+    "turn15094search0",
+    "turn15094search1",
+    "turn15094view0",
+    "turn15094view1"
+  ],
+  "sources": [
+    "https://apps.apple.com/no/app/laihla-lyrics/id6479561333?l=nb",
+    "https://open.spotify.com/embed/playlist/5nv4lr6p6likzx61NLCQEY"
+  ],
+  "limitations": "No independent audio audition or exact source gear measurements. Browser/API validity checked against frozen453cd0f1 only. Full current relevant neighboring records read; source scope broader than a single exemplar."
+}

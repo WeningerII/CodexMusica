@@ -1,0 +1,142 @@
+{
+  "id": "doba_maramures",
+  "name": "Dobă (Maramureș drum)",
+  "short": "Dobă",
+  "family": "percussion",
+  "class": "doba_maramures",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "description": "Maramureș regional double-headed drum supporting the fiddle and zongoră ensemble. Form, resonator, membrane construction and stroke remain separate controls; no Anatolian davul or kick-pedal identity is imported.",
+  "sources": [
+    "https://www.icr.ro/pagini/o-cetera-o-zongora-o-doba-ionu-lu-grigore-zis-paganini-la-icr",
+    "https://sitevechi.muzeultaranuluiroman.ro/mtr-event-archive/hori-stravechi-din-tara-lapusului-si-a-maramuresului-en.html",
+    "https://mek.oszk.hu/06300/06351/06351.htm"
+  ],
+  "parts": [
+    {
+      "id": "doba_form",
+      "name": "Drum form",
+      "variants": [
+        {
+          "id": "doba_double_headed_medium",
+          "name": "Medium-sized double-headed drum",
+          "default": true,
+          "descriptors": [
+            "double-headed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "doba_shell",
+      "name": "Resonator construction",
+      "variants": [
+        {
+          "id": "doba_shell_unspecified",
+          "name": "Resonator material and exact dimensions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "doba_heads",
+      "name": "Membrane construction",
+      "variants": [
+        {
+          "id": "doba_heads_unspecified",
+          "name": "Two tensioned sounding surfaces; composition unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "doba_stroke",
+      "name": "Playing gesture",
+      "variants": [
+        {
+          "id": "doba_stick_pulse",
+          "name": "Authored stick-struck rhythmic support",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "rhythmic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "doba_form",
+      "name": "Drum form",
+      "variants": [
+        {
+          "id": "doba_double_headed_medium",
+          "name": "Medium-sized double-headed drum",
+          "default": true,
+          "descriptors": [
+            "double-headed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "doba_shell",
+      "name": "Resonator construction",
+      "variants": [
+        {
+          "id": "doba_shell_unspecified",
+          "name": "Resonator material and exact dimensions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "doba_heads",
+      "name": "Membrane construction",
+      "variants": [
+        {
+          "id": "doba_heads_unspecified",
+          "name": "Two tensioned sounding surfaces; composition unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "doba_stroke",
+      "name": "Playing gesture",
+      "variants": [
+        {
+          "id": "doba_stick_pulse",
+          "name": "Authored stick-struck rhythmic support",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "rhythmic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

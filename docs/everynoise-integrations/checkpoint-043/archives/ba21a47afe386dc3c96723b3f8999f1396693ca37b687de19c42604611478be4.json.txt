@@ -1,0 +1,1584 @@
+{
+  "status": "SOURCE_REVIEWED_NOT_RUNTIME_QUALIFIED",
+  "baseline_commit": "8576f053c4c8f85274b39cc6a0e4fe2af31a0781",
+  "baseline_root": "/workspace/CodexMusica-consolidated041",
+  "original_packet": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+  "original_packet_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+  "entries": [
+    {
+      "id": "german_literature",
+      "before": {
+        "tradition": {
+          "id": "german_literature",
+          "name": "German Literature",
+          "family": "vernacular",
+          "lineage": "Franz Kafka — Die Verwandlung, read by Ulrich Matthes (Argon2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.narration",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Publisher identifies German-language literary audiobook, sole reader and unabridged edition. Spoken delivery, no invented instrumental accompaniment. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Franz Kafka — Die Verwandlung, read by Ulrich Matthes (Argon2013)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "german_literature",
+          "name": "German Literature",
+          "family": "vernacular",
+          "lineage": "German literature in spoken performance brings written works into audiobook and live-reading traditions. Narrators use expressive timing and changing vocal emphasis to shape prose for listeners.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.narration",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A single speaking voice can carry a work through pauses, characterful phrasing and narrative momentum. Musical accompaniment is optional rather than necessary to the literary delivery.",
+          "exemplars": [
+            "Franz Kafka",
+            "Ulrich Matthes"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "SOURCE_REVIEWED_PUBLIC_ONLY_PENDING_RUNTIME_AND_CAUSAL_QUALIFICATION",
+      "reason": "Fresh publisher identifies Kafka literary work, unabridged audiobook and Ulrich Matthes as reader. General expressive narration profile is supported without a named-session or gear claim. Environment and tuning proposals excluded.",
+      "sources": [
+        {
+          "url": "https://www.argon-verlag.de/hoerbuch/franz-kafka-die-verwandlung-9783732402359",
+          "title": "Franz Kafka — Die Verwandlung, read by Ulrich Matthes (Argon2013)",
+          "support_notes": "Publisher identifies German-language literary audiobook, sole reader and unabridged edition. Spoken delivery, no invented instrumental accompaniment.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/69eKo1hKxQTZwMbrqrrATV",
+          "title": "The Sound of German Literature",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "fresh_source_refs": [
+        "turn15365view0"
+      ],
+      "changed_paths": [
+        "tradition.lineage",
+        "extras.description",
+        "extras.exemplars"
+      ],
+      "before_sha256": "02c41ce1050f8d1cb3d9b8161aa5a50c4942747c0215479dfeed51698f8f5b5b",
+      "original_full_proposal": {
+        "path": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+        "file_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+        "row_sha256": "b2b80e15b70b95f6d76f8beb60a20f90e864809f7dbb92577d547a546e6282d5"
+      },
+      "excluded_original_changes": [
+        "tradition.room",
+        "tradition.tuning",
+        "tradition.chain_mic",
+        "tradition.chain_pre",
+        "tradition.chain_console",
+        "tradition.chain_comp",
+        "tradition.chain_eq",
+        "tradition.chain_medium",
+        "tradition.chain_status"
+      ],
+      "default_review": {
+        "status": "UNCHANGED_BASELINE_NOT_NEWLY_QUALIFIED",
+        "reason": "Every musical, taxonomy, axis and signature field exactly retained from frozen042. Historical source and control/render limitations remain. Public text can still affect compiler selection; no global or per-row render PASS claimed."
+      },
+      "repair_evidence": {
+        "original_default_review": {
+          "policy": "Individually reviewed preserved primary genre/practice sources and owning parts. Public genre history/style replaces detailed source-session text, with all former evidence preserved. Instrument roles form a source-positive representative branch; physical settings are authored rather than measured source gear. Remove global equal temperament from spoken narration. An authored concert presentation for choral groups, or live-room literary reading, is a meaningful representative alternative to dead-booth recording. Keep all physical and vocal controls; no historical venue claim.",
+          "instrumentation_changed": false,
+          "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+        },
+        "original_full_reason": "Only exact-before chronological approved steps beyond merged main; no unreviewed musical edits.",
+        "original_provenance": [
+          {
+            "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-010.json",
+            "packet_sha256": "649b9da60d02a71f4aaef65a12d93229e8e5041cd06994ecaa15efc673cc6a89",
+            "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-010-root-review.json",
+            "checked_at": "2026-10-04T02:52:43.686706+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "id": "modern_chamber_music",
+      "before": {
+        "tradition": {
+          "id": "modern_chamber_music",
+          "name": "Modern chamber music",
+          "family": "classical",
+          "lineage": "Splinter Reeds — Michael Gordon: Tall Grass (2022), Dark Currents recording (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "english_horn",
+            "clarinet",
+            "saxophone",
+            "bass_clarinet",
+            "bassoon"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "wind_articulation": "wind_continuous_legato",
+            "english_horn_school": "english_horn_american",
+            "english_horn_context": "english_horn_orch_solo",
+            "english_horn_body_wood": "english_horn_grenadilla",
+            "clarinet_body": "grenadilla_clarinet",
+            "clarinet_size": "a_clarinet",
+            "clarinet_reed": "medium_clarinet_reed",
+            "clarinet_articulation": "tongued_clarinet",
+            "sax_size": "alto_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_continuous_legato",
+            "sax_maker_school": "sax_selmer_mark_vi",
+            "bass_clarinet_range": "bass_clarinet_to_low_c",
+            "bass_clarinet_style": "bass_clarinet_classical_legato",
+            "bassoon_school": "bassoon_heckel",
+            "bassoon_body_wood": "bassoon_maple_canonical",
+            "bassoon_reed": "bassoon_glotin_cane",
+            "bassoon_context": "bassoon_orch"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernModern",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Issuing label explicitly describes modern chamber music. The selected complete Tall Grass composition has a five-wind scoring confirmed by IRCAM, with the recording credits identifying Kyle Bruckmann (English horn), Bill Kalinkos (clarinet), Nicki Roman (saxophone), Jeff Anderle (bass clarinet) and Dana Jessen (bassoon). IRCAM specifies alto saxophone. No singer is included in the instrumental score. Complete Tall Grass score and recording branch only. The separate Antenna Studies composition on the same album has found sounds; those roles are not silently removed from that work or attributed to Tall Grass. This contemporary commissioned reed-quintet branch differs from historical chamber repertoire and does not define all modern chamber music as woodwind-only. Alto saxophone is positively scored; A clarinet, low-C bass clarinet, American English-horn school, Heckel bassoon, Selmer saxophone and continuous-legato ensemble articulation with a tongued clarinet starting articulation are authored existing-catalog choices, not claims about performer hardware or the full score technique vocabulary. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Splinter Reeds — Michael Gordon: Tall Grass (2022), Dark Currents recording (2024)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "modern_chamber_music",
+          "name": "Modern chamber music",
+          "family": "classical",
+          "lineage": "Contemporary composed music for small, independently voiced ensembles.",
+          "instruments": [
+            "english_horn",
+            "clarinet",
+            "saxophone",
+            "bass_clarinet",
+            "bassoon"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "wind_articulation": "wind_continuous_legato",
+            "english_horn_school": "english_horn_american",
+            "english_horn_context": "english_horn_orch_solo",
+            "english_horn_body_wood": "english_horn_grenadilla",
+            "clarinet_body": "grenadilla_clarinet",
+            "clarinet_size": "a_clarinet",
+            "clarinet_reed": "medium_clarinet_reed",
+            "clarinet_articulation": "tongued_clarinet",
+            "sax_size": "alto_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_continuous_legato",
+            "sax_maker_school": "sax_selmer_mark_vi",
+            "bass_clarinet_range": "bass_clarinet_to_low_c",
+            "bass_clarinet_style": "bass_clarinet_classical_legato",
+            "bassoon_school": "bassoon_heckel",
+            "bassoon_body_wood": "bassoon_maple_canonical",
+            "bassoon_reed": "bassoon_glotin_cane",
+            "bassoon_context": "bassoon_orch"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernModern",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Modern chamber music develops close ensemble dialogue through new instrumental combinations, timbral contrasts and rhythmic structures. Reed quintets are one branch within a field that also embraces strings, mixed ensembles and expanded techniques.",
+          "exemplars": [
+            "Splinter Reeds — Michael Gordon: Tall Grass (2022), Dark Currents recording (2024)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "SOURCE_REVIEWED_PUBLIC_ONLY_PENDING_RUNTIME_AND_CAUSAL_QUALIFICATION",
+      "reason": "Artist-issued reed-quintet release explicitly explores modern chamber composition, close ensemble dialogue and changing timbre. Profile correctly makes reed quintets one branch, not the whole field. Room and chain changes excluded.",
+      "sources": [
+        {
+          "url": "https://splinterreeds5.bandcamp.com/album/dark-currents",
+          "title": "Splinter Reeds — Michael Gordon: Tall Grass (2022), Dark Currents recording (2024)",
+          "support_notes": "Issuing label explicitly describes modern chamber music. The selected complete Tall Grass composition has a five-wind scoring confirmed by IRCAM, with the recording credits identifying Kyle Bruckmann (English horn), Bill Kalinkos (clarinet), Nicki Roman (saxophone), Jeff Anderle (bass clarinet) and Dana Jessen (bassoon). IRCAM specifies alto saxophone. No singer is included in the instrumental score.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://medias.ircam.fr/en/work/tall-grass",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Institutional work record gives complete five-instrument scoring, including alto saxophone, and identifies Splinter Reeds as commissioner and premiere ensemble.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://splinterreeds5.bandcamp.com/album/dark-currents",
+          "title": "Splinter Reeds — Michael Gordon: Tall Grass (2022), Dark Currents recording (2024)",
+          "support_notes": "Issuing label explicitly describes modern chamber music. The selected complete Tall Grass composition has a five-wind scoring confirmed by IRCAM, with the recording credits identifying Kyle Bruckmann (English horn), Bill Kalinkos (clarinet), Nicki Roman (saxophone), Jeff Anderle (bass clarinet) and Dana Jessen (bassoon). IRCAM specifies alto saxophone. No singer is included in the instrumental score.",
+          "checked_date": "2026-10-04",
+          "retrieval_ref": "turn14123view3"
+        }
+      ],
+      "fresh_source_refs": [
+        "turn15365view1",
+        "turn15367view4"
+      ],
+      "changed_paths": [
+        "tradition.lineage",
+        "extras.description"
+      ],
+      "before_sha256": "7f8e3d9c53baf96281560adbe13f8b2ac93ef3e6b24323f78cb6e3fa9605d2de",
+      "original_full_proposal": {
+        "path": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+        "file_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+        "row_sha256": "e4f865211f113e4427138b658e8b678f0211a737cb7f5cca9e326544b99964cf"
+      },
+      "excluded_original_changes": [
+        "tradition.room",
+        "tradition.chain_mic",
+        "tradition.chain_pre",
+        "tradition.chain_console",
+        "tradition.chain_comp",
+        "tradition.chain_eq",
+        "tradition.chain_medium",
+        "tradition.chain_status"
+      ],
+      "default_review": {
+        "status": "UNCHANGED_BASELINE_NOT_NEWLY_QUALIFIED",
+        "reason": "Every musical, taxonomy, axis and signature field exactly retained from frozen042. Historical source and control/render limitations remain. Public text can still affect compiler selection; no global or per-row render PASS claimed."
+      },
+      "repair_evidence": {
+        "original_default_review": "Retain complete representative reed quintet. Authored recital hall and classical connected ensemble articulation fit contemporary concert practice; tongued clarinet can articulate connected phrases, not an assertion of uninterrupted airflow on every player. No actual room/model claim. Owning applicability check requires original shared continuous-legato option: classical-legato is not applicable to saxophone, so it is not selected. The existing tongued clarinet represents note onsets within connected phrasing.",
+        "original_full_reason": "Replace narrow recording dossier with general genre history/style; retain sources separately.",
+        "original_provenance": {
+          "packet": "/workspace/genre-continuation/repairs-next-2765/review117/qualified-main2765-full-020-030.json",
+          "packet_sha256": "6a5ef447b2777188946d8bd6c995509caba9e67ac539861f46521a56e8653580",
+          "receipt": "/workspace/genre-continuation/repairs-next-2765/review117/qualified-main2765-53-reconciliation.json",
+          "receipt_sha256": "172aa7ef5835d8cfd628332bb278f4df72dc005b8808aab4fbfe1f231bc8fce9"
+        }
+      }
+    },
+    {
+      "id": "celtic_metal",
+      "before": {
+        "tradition": {
+          "family": "rock_punk",
+          "instruments": [
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "voice",
+            "tin_whistle",
+            "fiddle"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_archetype": "arch_modern_pro_daw_studio",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_active_parametric",
+          "chain_medium": "digital_high",
+          "chain_fx": [
+            "plate_reverb"
+          ],
+          "chain_status": "authored_representative_recording_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_articulation": "shouted_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_overdriven_scream",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_plate_reverb_medium",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "electric_technique": "electric_tremolo_picking",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "ebony_fb_h",
+            "pickup_magnet": "ceramic_h",
+            "pickup_winding": "high_wind",
+            "string_material": "stainless_h",
+            "bridge": "stoptail",
+            "scale_length": "scale_fender_h",
+            "string_gauge": "g_10_hum",
+            "finish": "poly_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_s",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "amp_make": "amp_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "birch_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "double_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_double",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "wind_articulation": "wind_folk_melodic",
+            "whistle_key": "d_whistle",
+            "whistle_ornament": "cut_ornament",
+            "whistle_body_material": "whistle_brass_canonical",
+            "bowed_technique": "bowed_celtic_session",
+            "fiddle_strings": "steel_core",
+            "fiddle_bow": "light_rosin",
+            "fiddle_mute": "no_mute",
+            "fiddle_articulation": "arco",
+            "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+          },
+          "name": "Celtic metal",
+          "lineage": "Celtic metal combines metal-band practice with selected Celtic musical material and instruments rather than one standardized ethnic sound. Cruachan’s Irish branch supplies the model here: electric guitars, bass and drums interact with tin-whistle and fiddle lines, with a harsh vocal layer. Keith Fay describes sustained folk/metal integration, while recording interviews document studio expansion with folk instruments and strings. This authored six-role reduction retains both acoustic melody instruments instead of substituting a generic synthesizer for them.",
+          "id": "celtic_metal"
+        },
+        "extras": {
+          "parent": "distortedRock.metal.folkMetal",
+          "axes": {
+            "harm": 1,
+            "pitch": 0,
+            "ornament": 2,
+            "meter": 0,
+            "density": 2,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 2,
+            "voice": 1,
+            "timbre": 1,
+            "percussion": 2,
+            "cyclicity": 1
+          },
+          "description": "Celtic metal combines metal-band practice with selected Celtic musical material and instruments rather than one standardized ethnic sound. Cruachan’s Irish branch supplies the model here: electric guitars, bass and drums interact with tin-whistle and fiddle lines, with a harsh vocal layer. Keith Fay describes sustained folk/metal integration, while recording interviews document studio expansion with folk instruments and strings. This authored six-role reduction retains both acoustic melody instruments instead of substituting a generic synthesizer for them.",
+          "exemplars": [
+            "Cruachan — Irish folk/metal branch around Blood for the Blood God (2014)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "family": "rock_punk",
+          "instruments": [
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "voice",
+            "tin_whistle",
+            "fiddle"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_archetype": "arch_modern_pro_daw_studio",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_active_parametric",
+          "chain_medium": "digital_high",
+          "chain_fx": [
+            "plate_reverb"
+          ],
+          "chain_status": "authored_representative_recording_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_articulation": "shouted_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_overdriven_scream",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_plate_reverb_medium",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "electric_technique": "electric_tremolo_picking",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "ebony_fb_h",
+            "pickup_magnet": "ceramic_h",
+            "pickup_winding": "high_wind",
+            "string_material": "stainless_h",
+            "bridge": "stoptail",
+            "scale_length": "scale_fender_h",
+            "string_gauge": "g_10_hum",
+            "finish": "poly_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_s",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "amp_make": "amp_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "birch_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "double_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_double",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "wind_articulation": "wind_folk_melodic",
+            "whistle_key": "d_whistle",
+            "whistle_ornament": "cut_ornament",
+            "whistle_body_material": "whistle_brass_canonical",
+            "bowed_technique": "bowed_celtic_session",
+            "fiddle_strings": "steel_core",
+            "fiddle_bow": "light_rosin",
+            "fiddle_mute": "no_mute",
+            "fiddle_articulation": "arco",
+            "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+          },
+          "name": "Celtic metal",
+          "lineage": "Celtic metal combines metal-band practice with selected Celtic musical material. Cruachan exemplify an Irish strand in which folk melody and instrumental roles remain central to the arrangement rather than appearing only as brief decoration.",
+          "id": "celtic_metal"
+        },
+        "extras": {
+          "parent": "distortedRock.metal.folkMetal",
+          "axes": {
+            "harm": 1,
+            "pitch": 0,
+            "ornament": 2,
+            "meter": 0,
+            "density": 2,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 2,
+            "voice": 1,
+            "timbre": 1,
+            "percussion": 2,
+            "cyclicity": 1
+          },
+          "description": "Distorted guitar riffs, assertive bass and drums interact with whistle and fiddle melodies. Harsh vocals contrast with ornamented acoustic lines, while folk phrasing and metal rhythmic weight shape the ensemble.",
+          "exemplars": [
+            "Cruachan"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "SOURCE_REVIEWED_PUBLIC_ONLY_PENDING_RUNTIME_AND_CAUSAL_QUALIFICATION",
+      "reason": "Label explicitly documents Celtic music/history integrated into Irish metal. Existing primary interviews retained for whistle/fiddle and harsh-vocal branch. Concise folk/metal interaction is supported; no register, bass-construction or tuning changes are included.",
+      "sources": [
+        {
+          "url": "https://www.trollzorn.de/en/trollzorn-records/cruachan/",
+          "title": "Trollzorn: Cruachan label profile",
+          "support_notes": "Primary label establishes the Irish band’s deliberate Celtic music/history incorporation.",
+          "checked_date": "2026-09-30"
+        },
+        {
+          "url": "https://irishmetalarchive.com/interview-cruachan-frontman-keith-fay/",
+          "title": "Keith Fay: Irish Metal Archive interview, 2015",
+          "support_notes": "First-person account explains full-time folk/metal integration and tin-whistle role rather than an isolated decorative folk break.",
+          "checked_date": "2026-09-30"
+        },
+        {
+          "url": "https://www.folk-metal.nl/2017/11/cruachan-interview/",
+          "title": "Keith Fay: recording and songwriting interview, 2017",
+          "support_notes": "Direct musician account documents further keyboard/folk-instrument and violin/cello additions during studio recording.",
+          "checked_date": "2026-09-30"
+        },
+        {
+          "url": "https://metalinvader.net/en/interview-with-cruachan/",
+          "title": "Keith Fay: Blood for the Blood God recording interview",
+          "support_notes": "Primary account establishes Trackmix studio and separately recorded bagpipe contribution from Kyiv; bagpipes are an optional omitted layer, not misclassified as tin whistle.",
+          "checked_date": "2026-09-30"
+        },
+        {
+          "url": "https://www.metal-archives.com/albums/Cruachan/Blood_for_the_Blood_God/476752",
+          "title": "Cruachan album personnel record",
+          "support_notes": "Secondary album credits corroborate guitar, electric bass, drums, violin and tin/low whistle; used alongside direct practice interviews.",
+          "checked_date": "2026-09-30"
+        },
+        {
+          "url": "https://cruachan1.bandcamp.com/album/blood-for-the-blood-god",
+          "title": "Cruachan: artist-controlled album release",
+          "support_notes": "Confirms album identity and Dublin artist anchor; audio and artwork are not reused.",
+          "checked_date": "2026-09-30"
+        }
+      ],
+      "fresh_source_refs": [
+        "turn15365view2",
+        "turn15367view5"
+      ],
+      "changed_paths": [
+        "tradition.lineage",
+        "extras.description",
+        "extras.exemplars"
+      ],
+      "before_sha256": "92d90033dd9f889509eb37f94b03635deb37ad05e78ff404bf2de950d69e34d9",
+      "original_full_proposal": {
+        "path": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+        "file_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+        "row_sha256": "8bf80dc2b970c1b86a0740d14d80beb4cec14fb1ec3595f28597fab899900800"
+      },
+      "excluded_original_changes": [
+        "tradition.tuning",
+        "tradition.parts"
+      ],
+      "default_review": {
+        "status": "UNCHANGED_BASELINE_NOT_NEWLY_QUALIFIED",
+        "reason": "Every musical, taxonomy, axis and signature field exactly retained from frozen042. Historical source and control/render limitations remain. Public text can still affect compiler selection; no global or per-row render PASS claimed."
+      },
+      "repair_evidence": {
+        "original_default_review": {
+          "status": "individually_reviewed_pending_runtime",
+          "rationale": "Individually reviewed field history/style and source-supported roles. Public prose describes genre practice rather than a recording dossier. Preserve meaningful physical controls and every role in the representative branch; unspecified global tuning omitted, source-specific identities retained. Complete meaningful bass controls with deliberate aggressive picked metal realization; saturation color is musically intended, not exact original rig assertion. Preserve source folk fiddle and whistle gestures. Broader genre palette need not reproduce every guest on one album; archival bagpipe/studio-string additions remain evidence rather than false mandatory full-album claim."
+        },
+        "original_full_reason": "Restore concise genre-level descriptions, correct positive vocal roles and complete meaningful construction controls.",
+        "original_provenance": {
+          "packet": "/workspace/genre-continuation/repairs-next-2765/review116/ready005-main-bound-nine.json",
+          "packet_sha256": "9a47b8ba5f8c51d6055de7d9e7f6efa178b1ac21218f09738a7b88389616d8f4",
+          "receipt": "/workspace/genre-continuation/repairs-next-2765/review116/main-binding-independent-review.json",
+          "receipt_sha256": "663ee7c22c0b2787e357c957f32e400fcef9e31104325997d20aafaafdf5de49"
+        }
+      }
+    },
+    {
+      "id": "italian_hip_hop",
+      "before": {
+        "tradition": {
+          "id": "italian_hip_hop",
+          "name": "Italian hip hop",
+          "family": "hip_hop",
+          "lineage": "Italian hip hop includes DJ/MC, sample-based and live-band branches. Jovanotti’s rap/funk work with bassist Saturnino supplies the selected live-band recording approach.",
+          "instruments": [
+            "voice",
+            "electric_bass",
+            "drum_kit",
+            "electric_guitar_single_coil",
+            "grand_piano",
+            "congas"
+          ],
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "bass_technique": "fingerstyle_locked",
+            "drum_technique": "sticks_rock",
+            "electric_technique": "electric_chicken_scratch",
+            "string_tuning": "standard_tuning",
+            "keyboard_technique": "keyboard_block_chord_pop"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": -1,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Rhythmic verses and melodic hooks sit on a played electric-bass groove with drums, electric guitar, piano and hand percussion. These roles follow the documented Jovanotti band lineup; congas are an authored realization of the credited percussion role, not a claim about every album session. The model represents the rap/funk branch rather than all later pop material or all Italian rap.",
+          "exemplars": [
+            "Jovanotti",
+            "Saturnino",
+            "Riccardo Onori",
+            "Pier Foschi"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "italian_hip_hop",
+          "name": "Italian hip hop",
+          "family": "hip_hop",
+          "lineage": "Italian hip-hop includes DJ-and-MC scenes, sample-based production and live-band approaches. Jovanotti and bassist Saturnino exemplify a rap/funk strand built around played rhythmic interplay.",
+          "instruments": [
+            "voice",
+            "electric_bass",
+            "drum_kit",
+            "electric_guitar_single_coil",
+            "grand_piano",
+            "congas"
+          ],
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "bass_technique": "fingerstyle_locked",
+            "drum_technique": "sticks_rock",
+            "electric_technique": "electric_chicken_scratch",
+            "string_tuning": "standard_tuning",
+            "keyboard_technique": "keyboard_block_chord_pop"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": -1,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Rhythmic verses and melodic hooks sit above bass, drums, electric guitar, piano and hand percussion. Clipped guitar figures and repeating keyboard chords interact with the vocal cadence.",
+          "exemplars": [
+            "Jovanotti",
+            "Saturnino",
+            "Riccardo Onori",
+            "Pier Foschi"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "SOURCE_REVIEWED_PUBLIC_ONLY_PENDING_RUNTIME_AND_CAUSAL_QUALIFICATION",
+      "reason": "Fresh firsthand Jovanotti statements establish live funk and Brazilian/Cuban percussion interplay. Representative six-family description does not claim full Roma roster: trumpet, trombone and saxophone credits remain in evidence. Physical-default completion and tuning removal excluded.",
+      "sources": [
+        {
+          "url": "https://cafebabel.com/it/article/jovanotti-il-pop-la-politica-e-la-madonna-5ae00549f723b35a145ddd3a/index.html",
+          "title": "CafeBabel: Jovanotti interview",
+          "support_notes": "Artist describes his 1990s work as hip-hop/funk, naming its rap crossover repertoire.",
+          "checked_date": "2026-09-30"
+        },
+        {
+          "url": "https://www.tgcom24.mediaset.it/spettacolo/articoli/129728/jovanotti-il-cd-della-mia-band-.shtml",
+          "title": "Tgcom24: Jovanotti and his band",
+          "support_notes": "Documents bass, guitar, drums, percussion and piano personnel in the band project.",
+          "checked_date": "2026-09-30"
+        },
+        {
+          "url": "https://www.ilgiorno.it/milano/cronaca/saturnino-il-mio-basso-ha-un-timbro-unico-51ddc8ad",
+          "title": "Il Giorno: Saturnino instrument interview",
+          "support_notes": "Direct bassist account establishes the played electric-bass role and Milan studio collaboration; exact custom bass materials are not generalized.",
+          "checked_date": "2026-09-30"
+        }
+      ],
+      "fresh_source_refs": [
+        "turn15367view2",
+        "turn15369view2"
+      ],
+      "changed_paths": [
+        "tradition.lineage",
+        "extras.description"
+      ],
+      "before_sha256": "962aa21fc819499e4d95e67949548d9e88d1df4761ee473f35f09259e74ab5c4",
+      "original_full_proposal": {
+        "path": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+        "file_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+        "row_sha256": "4507cf24f80e51145f204a0539fd6a50ce4c2a4b0ac071d835135a72ca748a80"
+      },
+      "excluded_original_changes": [
+        "tradition.tuning",
+        "tradition.parts"
+      ],
+      "default_review": {
+        "status": "UNCHANGED_BASELINE_NOT_NEWLY_QUALIFIED",
+        "reason": "Every musical, taxonomy, axis and signature field exactly retained from frozen042. Historical source and control/render limitations remain. Public text can still affect compiler selection; no global or per-row render PASS claimed."
+      },
+      "repair_evidence": {
+        "original_default_review": {
+          "status": "individually_reviewed_pending_runtime",
+          "rationale": "Individually reviewed field history, style and meaningful performance roles; concise public sound replaces named session/gear dossier retained in evidence. The six modeled role families remain in this representative genre arrangement; the source album’s additional trumpet, trombone and saxophone credits remain evidence and are not claimed reproduced by this default. Omit unsupported global tuning; representative construction does not claim exact source hardware. Complete meaningful bass controls with intended fingerstyle attack retained. Coherent9footD and hand-played conga construction complete existing instrument defaults; congas are authored percussion color, not exact source drum identification.",
+          "historical_overbroad_sentence": "All evidenced roles remain."
+        },
+        "original_full_reason": "Restore concise historical/style descriptions and meaningful physical defaults while retaining sound roles and explicit output limitations.",
+        "original_provenance": {
+          "packet": "/workspace/genre-continuation/repairs-next-2765/review116/ready009-four-rap-practices.json",
+          "packet_sha256": "f175722f0ac2e54535c4c47435fd8801d4521ddc937608955958a2c0dbfc55a0",
+          "receipt": "/workspace/genre-continuation/repairs-next-2765/review116/ready009-independent-review.json",
+          "receipt_sha256": "dc582bbfc15d35d8ea48a90b68aff4578d6b4faa47cc3464b809432187d87dac"
+        }
+      }
+    },
+    {
+      "id": "new_comedy",
+      "before": {
+        "tradition": {
+          "id": "new_comedy",
+          "name": "New Comedy",
+          "family": "vernacular",
+          "lineage": "Nick Griffin — I Like Being Around Gay Guys, Cheer Up track16 (2019). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.stagePerformance",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Exact creator New Comedy playlist item7 is Nick Griffin’s I Like Being Around Gay Guys. Authorized label lists the identical title as Cheer Up track16, identifies stand-up comedy and the Comedy Cellar New York show. Distributor lists Nick Griffin as the sole performer. The selected comic monologue has one speaker and zero singers. Exact selected spoken track, not the complete audiovisual special or album. Album track1 explicitly names accordion and track2 is an introduction; neither belongs to the selected track16 monologue scope. Audience response is not an additional credited performer. New Comedy is the creator’s named discovery subset, not a claimed era boundary or a category disjoint from broad standup_comedy. It also does not impose the clean-content restriction of clean_comedy. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Nick Griffin — I Like Being Around Gay Guys, Cheer Up track16 (2019)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "new_comedy",
+          "name": "New Comedy",
+          "family": "vernacular",
+          "lineage": "Contemporary stand-up comedy and newly circulating comic performance.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.stagePerformance",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "New comedy foregrounds the timing, phrasing and changing perspective of a speaking performer. Observational stories and tightly shaped jokes develop through pauses, emphasis and audience engagement, with the solo voice carrying the performance.",
+          "exemplars": [
+            "Nick Griffin — I Like Being Around Gay Guys, Cheer Up track16 (2019)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "SOURCE_REVIEWED_PUBLIC_ONLY_PENDING_RUNTIME_AND_CAUSAL_QUALIFICATION",
+      "reason": "Artist biography confirms sustained stand-up practice, Comedy Cellar and Cheer Up. Concise speaking-performance profile is supported. Tuning removal is separate and excluded; no claim to establish category uniqueness anew.",
+      "sources": [
+        {
+          "url": "https://comedydynamics.bandcamp.com/album/cheer-up",
+          "title": "Nick Griffin — I Like Being Around Gay Guys, Cheer Up track16 (2019)",
+          "support_notes": "Authorized full track listing identifies exact selected track16, standup tag and Comedy Cellar/New York show; track1 accordion and track2 introduction explicitly outside selected scope.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.comedydynamics.com/catalog/nick-griffin-cheer-up/",
+          "title": "Corroborating primary source",
+          "support_notes": "Distributor identifies sole star Nick Griffin and Comedy Cellar show, with audio-release links.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7y6c38VZYmqMEFcLflCxy1?theme=0",
+          "title": "Corroborating primary source",
+          "support_notes": "Exact creator New Comedy playlist item7 Nick Griffin with identical selected track title.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://nickgriffin.net/bio.html",
+          "title": "Corroborating primary source",
+          "support_notes": "Artist own biography links Cheer Up and documents New York Comedy Cellar practice.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://comedydynamics.bandcamp.com/album/cheer-up",
+          "retrieval_ref": "turn14452view4",
+          "checked_date": "2026-10-04",
+          "support_notes": "Fresh primary source read, with full retained album evidence kept separately from concise general profile."
+        }
+      ],
+      "fresh_source_refs": [
+        "turn15367view3",
+        "turn15369view3"
+      ],
+      "changed_paths": [
+        "tradition.lineage",
+        "extras.description"
+      ],
+      "before_sha256": "20f0adc8cfb1d3d578634af6b022a3b547bcc68245c4614117e77bc6961aa567",
+      "original_full_proposal": {
+        "path": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+        "file_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+        "row_sha256": "98f01539cef8ea7c709224da55fff4eb3b04aec8c91e452693c1d09f2776e672"
+      },
+      "excluded_original_changes": [
+        "tradition.tuning"
+      ],
+      "default_review": {
+        "status": "UNCHANGED_BASELINE_NOT_NEWLY_QUALIFIED",
+        "reason": "Every musical, taxonomy, axis and signature field exactly retained from frozen042. Historical source and control/render limitations remain. Public text can still affect compiler selection; no global or per-row render PASS claimed."
+      },
+      "repair_evidence": {
+        "original_default_review": "Preserve pure unpitched solo speech and17 vocal controls; remove inapplicable optional equal temperament.",
+        "original_full_reason": "Restore positive general musical history and style; retain detailed source personnel and production limitations in evidence.",
+        "original_provenance": {
+          "packet": "/workspace/genre-continuation/repairs-next-2765/review024/approved-batch006.json",
+          "packet_sha256": "ad7d447c3aa6c8288535f0a1fc806637190919e814d4dccab792924e855b2f67",
+          "receipt": "/workspace/genre-continuation/repairs-next-2765/review024/qualification-batch006.json",
+          "receipt_sha256": "050e30cad4a76a5df7e12198f74f55cba0a4327dfd3673008738e0fe81b828ba"
+        }
+      }
+    },
+    {
+      "id": "psalms",
+      "before": {
+        "tradition": {
+          "id": "psalms",
+          "name": "Psalms",
+          "family": "vernacular",
+          "lineage": "The Psalms Sung — Psalm139 to Highland Cathedral (A Capella),2017 single. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Creator-issued release identifies the complete 2017 single as a cappella; distributed metadata dates it November11 and gives2:17. The artist project explicitly presents congregational and choral psalm singing, with Scottish and Irish Reformed psalter sources. The genre creator playlist names this exact single first, establishing the Psalms category directly. One voice-family card retains the complete unaccompanied vocal scope, rather than omitting documented instrumental accompaniment. Selected English-language Reformed metrical psalm repertoire is one documented branch of a broader text/repertoire category, not an assertion that all psalms are Christian, English, unaccompanied or Scottish. It differs from generic church music by its Book-of-Psalms text basis; no equivalence with Hebrew cantillation, Gaelic lined-out practice, or all hymns is asserted. The exact number, names and scored divisions of this recording's singers are unreported: remain unknown, with no fictional SATB, choir headcount or solo singer claim. Live group and no-overdub settings are representative authored ensemble choices informed by the project's congregational/choral practice, not measured recording/session facts. Neutral register, training, mechanism, pitch organization and ornament stay source-unspecified. Scotland is an editorial repertoire anchor supported by the project's named Scottish psalters, not a recording address. A later2024 accompanied recording with a similar title is a distinct release and is not used as this2017 single's roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "The Psalms Sung — Psalm139 to Highland Cathedral (A Capella),2017 single"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "psalms",
+          "name": "Psalms",
+          "family": "vernacular",
+          "lineage": "Psalms sets biblical psalm texts in devotional singing traditions.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Metrical congregational and choral singing is one prominent branch. Unaccompanied voices carry the text together, as in the Scottish and Irish Reformed psalter practice of The Psalms Sung.",
+          "exemplars": [
+            "The Psalms Sung"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "SOURCE_REVIEWED_PUBLIC_ONLY_PENDING_RUNTIME_AND_CAUSAL_QUALIFICATION",
+      "reason": "Fresh indexed project pages explicitly document a-cappella congregational/choral psalm singing and multiple psalters. Prose makes metrical unaccompanied singing one branch. Direct homepage failed; indexed primary suffices this narrow prose review. Voice, room and tuning proposals excluded.",
+      "sources": [
+        {
+          "url": "https://distrokid.com/hyperfollow/thepsalmssung/b8oy",
+          "title": "The Psalms Sung — Psalm139 to Highland Cathedral (A Capella),2017 single",
+          "support_notes": "Creator-issued release identifies the complete 2017 single as a cappella; distributed metadata dates it November11 and gives2:17. The artist project explicitly presents congregational and choral psalm singing, with Scottish and Irish Reformed psalter sources. The genre creator playlist names this exact single first, establishing the Psalms category directly. One voice-family card retains the complete unaccompanied vocal scope, rather than omitting documented instrumental accompaniment.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6womysPFEFvgnyyaVOIn0I?theme=0",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Genre creator playlist The Sound of Psalms item1 names exact2017 a cappella single; turn4352view1.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://thepsalmssung.org/",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Project primary explicitly congregational and choral Psalm singing, multiple Scottish/Irish psalters; turn4341view1.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://music.apple.com/us/album/psalm-139-to-highland-cathedral-a-capella-single/1312423577",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Creator-distributor linked metadata confirms2017single; turn4354view1.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "fresh_source_refs": [
+        "turn15367search0",
+        "turn15367search1",
+        "turn15367search3",
+        "turn15367search5"
+      ],
+      "changed_paths": [
+        "tradition.lineage",
+        "extras.description",
+        "extras.exemplars"
+      ],
+      "before_sha256": "2f694864ba0f860f95814cc587ef39f5f80d5bfab53ac3b391d3784db6c023e9",
+      "original_full_proposal": {
+        "path": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+        "file_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+        "row_sha256": "40d8593cca23d89dbc1d2262c2f7cfd77056618459bd671a432d5df77673095e"
+      },
+      "excluded_original_changes": [
+        "tradition.room",
+        "tradition.tuning",
+        "tradition.parts"
+      ],
+      "default_review": {
+        "status": "UNCHANGED_BASELINE_NOT_NEWLY_QUALIFIED",
+        "reason": "Every musical, taxonomy, axis and signature field exactly retained from frozen042. Historical source and control/render limitations remain. Public text can still affect compiler selection; no global or per-row render PASS claimed."
+      },
+      "repair_evidence": {
+        "original_default_review": {
+          "decision": "PASS",
+          "reason": "Preserve documented practice and meaningful controls; exact recording/score dossiers remain in evidence. Authored connected choral phrasing in a recital acoustic supports communal psalm singing without claiming original staging or measured temperament. Physiology remains unspecified.",
+          "owning_control_audit": [
+            {
+              "instrument": "voice",
+              "part": "voice_register",
+              "selection": "voice_register_source_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_quality",
+              "selection": "voice_quality_source_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_vocal_tract",
+              "selection": "tract_neutral",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_effort",
+              "selection": "effort_moderate",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_vibrato",
+              "selection": "voice_vibrato_local_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_articulation",
+              "selection": "legato_voice",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_microtone",
+              "selection": "voice_microtone_local_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_tradition",
+              "selection": "voice_tradition_source_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_mechanism_compound",
+              "selection": "voice_mechanism_compound_source_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_estill_quality",
+              "selection": "voice_estill_quality_source_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_speech_song",
+              "selection": "voice_speech_song_local_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_ensemble_config",
+              "selection": "voice_ensemble_live_group",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_ornament_system",
+              "selection": "voice_ornament_system_source_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_pitch_organization",
+              "selection": "voice_pitch_source_unspecified",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_processing_chain",
+              "selection": "voice_processing_unprocessed",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_multitrack_stack",
+              "selection": "voice_multitrack_live_ensemble",
+              "status": "protected_pin"
+            },
+            {
+              "instrument": "voice",
+              "part": "voice_tessitura",
+              "selection": "voice_tessitura_source_unspecified",
+              "status": "protected_pin"
+            }
+          ],
+          "runtime": "packet021-runtime.json",
+          "semantic_review": "All four literal formats read. Psalms connected choral phrasing and spacious recital acoustic yield huge voice as spatial affect; no unrelated culture or physiological claim. All17 controls preserved, unknown global temperament omitted."
+        },
+        "original_full_reason": "Restore concise genre history and sound profile; preserve detailed source and prior default evidence.",
+        "original_provenance": {
+          "packet": "/workspace/genre-continuation/repairs-next-2765/review024/approved-batch006.json",
+          "packet_sha256": "ad7d447c3aa6c8288535f0a1fc806637190919e814d4dccab792924e855b2f67",
+          "receipt": "/workspace/genre-continuation/repairs-next-2765/review024/qualification-batch006.json",
+          "receipt_sha256": "050e30cad4a76a5df7e12198f74f55cba0a4327dfd3673008738e0fe81b828ba"
+        }
+      }
+    },
+    {
+      "id": "balkan_beats",
+      "before": {
+        "tradition": {
+          "id": "balkan_beats",
+          "name": "Balkan beats",
+          "family": "electronic",
+          "lineage": "Balkan beats: Robert Šoko — BalkanBeats Berlin. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+          "instruments": [
+            "sampler_drum_machine"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "sample_bitdepth": "sixteen_bit",
+            "sample_swing": "mid_swing"
+          }
+        },
+        "extras": {
+          "parent": "electronicDance.continental",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 2,
+            "density": 1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 2,
+            "intensity": 1,
+            "voice": -2,
+            "timbre": 1,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Balkan-beats dance remix production, anchored to Robert Šoko’s Berlin club practice of mixing traditional Balkan tunes with electronic beats. A sampler models beat programming and sampled brass/folk material; this branch does not posit live brass players or singers.",
+          "exemplars": "Robert Šoko — BalkanBeats Berlin",
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "balkan_beats",
+          "name": "Balkan beats",
+          "family": "electronic",
+          "lineage": "BalkanBeats developed in Berlin club culture through the mixing and remixing of Balkan folk and brass-band material with electronic dance rhythms.",
+          "instruments": [
+            "sampler_drum_machine"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "sample_bitdepth": "sixteen_bit",
+            "sample_swing": "mid_swing"
+          }
+        },
+        "extras": {
+          "parent": "electronicDance.continental",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 2,
+            "density": 1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 2,
+            "intensity": 1,
+            "voice": -2,
+            "timbre": 1,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "DJs connect traditional melodies, brass-band energy and contemporary beats into continuous dance-floor programmes. The field includes recorded mixing as well as production and live-band crossovers.",
+          "exemplars": "Robert Šoko — BalkanBeats Berlin",
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "SOURCE_REVIEWED_PUBLIC_ONLY_PENDING_RUNTIME_AND_CAUSAL_QUALIFICATION",
+      "reason": "Founder manifesto and issuing label support Berlin dance-floor mixing of Balkan folk/brass material with electronic grooves, also surf/swing. Broad public description is valid alongside retained production-branch sampler; this prose-only candidate does not claim the existing sampler is a documented DJ rig. Proposed neutral-DJ substitution remains separately archived, not silently discarded.",
+      "sources": [
+        {
+          "url": "https://balkanbeats.eu/manifesto/",
+          "title": "BalkanBeats — manifesto",
+          "support_notes": "Founder describes starting BalkanBeats in Berlin in 1993, mixing original and remixed traditional Balkan music for dance floors.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.piranha.de/piranha/robert_soko",
+          "title": "Piranha — Robert Soko",
+          "support_notes": "Label describes Balkan brass/folk melodies and electronic beats in Šoko’s remix practice.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "fresh_source_refs": [
+        "turn15367view0",
+        "turn15367view1",
+        "turn15369view1"
+      ],
+      "changed_paths": [
+        "tradition.lineage",
+        "extras.description"
+      ],
+      "before_sha256": "915d69315b6f8bc03d0d2977b5878ec9940995f7b42fec88268e6760d77c8f58",
+      "original_full_proposal": {
+        "path": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+        "file_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+        "row_sha256": "b5366d8e7878156423501b309fe75b01f30ec63de16f11170f35d2880b99bfed"
+      },
+      "excluded_original_changes": [
+        "tradition.instruments",
+        "tradition.tuning",
+        "tradition.parts"
+      ],
+      "default_review": {
+        "status": "UNCHANGED_BASELINE_NOT_NEWLY_QUALIFIED",
+        "reason": "Every musical, taxonomy, axis and signature field exactly retained from frozen042. Historical source and control/render limitations remain. Public text can still affect compiler selection; no global or per-row render PASS claimed."
+      },
+      "repair_evidence": {
+        "original_default_review": {
+          "decision": "PASS",
+          "reason": "Replace invented sampler construction with source-positive DJ playback/mixing practice. The whole mixed programme includes embedded folk/brass/vocal/electronic material; no live instrument subtraction or source hardware claim. Pin sole existing neutral identity.",
+          "owning_control_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "part": "dj_playback_mixing_identity",
+              "selection": "dj_playback_mixing_source_unspecified",
+              "status": "protected_pin"
+            }
+          ],
+          "control_errors": [],
+          "runtime": "packet002-runtime.json",
+          "semantic_review": "All four formats street-pulsing DJ playback/mixing match intentionally energetic dance-floor presentation, not an acoustic sustained-instrument claim. Sole neutral identity protected; actual first-person DJ practice supports replacement of invented16bit/swing sampler architecture; unknown mixed-programme tuning omitted."
+        },
+        "original_full_reason": "Restore genre-level history and sound; preserve original recording/personnel and source audit in before/evidence.",
+        "original_provenance": {
+          "packet": "/workspace/genre-continuation/repairs-next-2765/review-sourceaudit/approved-015-seven-actual-main.json",
+          "packet_sha256": "0c2670598626b3a36a0d17d0ddc05d95ff2c7c9196efede82f067c2542f8b47f",
+          "receipt": "/workspace/genre-continuation/repairs-next-2765/review-sourceaudit/approved-015-seven-actual-main-review.json",
+          "receipt_sha256": "1646c47fc324329542eb266494bf0b7449d88a83ce882ad53e1d22b872e56e3d"
+        }
+      }
+    }
+  ],
+  "scope": "Seven disjoint public-only alternatives to mixed proposals; all original proposals preserved. No production or registry mutation."
+}

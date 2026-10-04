@@ -1,0 +1,148 @@
+{
+  "id": "necrotrap",
+  "name": "Necrotrap",
+  "family": "hip_hop",
+  "lineage": "Necrotrap is an online underground rap field connecting dark trap production, abrasive low bass and screamed delivery. Its producers and performers circulate through small internet networks alongside dark trap and trap metal. Distortion and clipped 808 sounds are prominent options rather than a requirement for every release.",
+  "recipe": "classic necrotrap, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sub bass low clipped produced 808 bass, credited programmed drums unspecified. live tracking.",
+  "recipe_chars": 197,
+  "score": 16.392,
+  "config": {
+    "traditions": [
+      "necrotrap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_overdriven_scream",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 5.525,
+          "voice_vocal_tract": 0,
+          "voice_effort": -0.10500000000000001,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.39,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 5.46,
+          "voice_ensemble_config": 0.819,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.27299999999999996,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "produced_808_bass",
+        "slots": {
+          "produced_808_bass_identity": "produced_808_bass_low_bass",
+          "produced_808_bass_decay": "produced_808_bass_long_decay",
+          "produced_808_bass_processing": "produced_808_bass_soft_clipped"
+        },
+        "scores": {
+          "produced_808_bass_identity": 2.936,
+          "produced_808_bass_decay": 0,
+          "produced_808_bass_processing": 1
+        }
+      },
+      {
+        "id": "credited_programmed_drums_unspecified",
+        "slots": {
+          "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+        },
+        "scores": {
+          "credited_programmed_drums_identity": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "produced_808_bass": [
+        "produced_808_bass_identity",
+        "produced_808_bass_decay",
+        "produced_808_bass_processing"
+      ],
+      "credited_programmed_drums_unspecified": [
+        "credited_programmed_drums_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "rap_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_overdriven_scream",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "spoken_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "produced_808_bass_identity": "produced_808_bass_low_bass",
+      "produced_808_bass_decay": "produced_808_bass_long_decay",
+      "produced_808_bass_processing": "produced_808_bass_soft_clipped",
+      "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+    },
+    "pin_parts": true
+  }
+}

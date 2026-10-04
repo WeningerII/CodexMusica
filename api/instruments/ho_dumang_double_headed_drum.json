@@ -1,0 +1,127 @@
+{
+  "id": "ho_dumang_double_headed_drum",
+  "name": "Ho dumang double-headed drum",
+  "short": "Ho dumang double-headed drum",
+  "family": "percussion",
+  "class": "ho_dumang_double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "description": "A Ho double-headed drum, sounded by striking the stretched membranes at the two ends of its resonating body.",
+  "sources": [
+    "https://tribal.nic.in/repository/ViewDoc.aspx?RepositoryNo=TRI28-08-2017121607&file=Docs%2FTRI28-08-2017121607.pdf",
+    "https://endangeredlanguages.com/node/110017/printable/print"
+  ],
+  "parts": [
+    {
+      "id": "ho_dumang_double_headed_drum_construction",
+      "name": "construction",
+      "variants": [
+        {
+          "id": "ho_dumang_double_headed_drum_construction_documented",
+          "name": "Double-ended drum body; shell material and dimensions unspecified",
+          "default": true,
+          "descriptors": [
+            "double-headed"
+          ],
+          "match_tokens": [
+            "double-headed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ho_dumang_double_headed_drum_membranes",
+      "name": "membranes",
+      "variants": [
+        {
+          "id": "ho_dumang_double_headed_drum_membranes_documented",
+          "name": "Two stretched membranes; skin species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "membranophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ho_dumang_double_headed_drum_excitation",
+      "name": "excitation",
+      "variants": [
+        {
+          "id": "ho_dumang_double_headed_drum_excitation_documented",
+          "name": "Struck drum; hand or stick choice and stroke pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "struck"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ho_dumang_double_headed_drum_construction",
+      "name": "construction",
+      "variants": [
+        {
+          "id": "ho_dumang_double_headed_drum_construction_documented",
+          "name": "Double-ended drum body; shell material and dimensions unspecified",
+          "default": true,
+          "descriptors": [
+            "double-headed"
+          ],
+          "match_tokens": [
+            "double-headed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ho_dumang_double_headed_drum_membranes",
+      "name": "membranes",
+      "variants": [
+        {
+          "id": "ho_dumang_double_headed_drum_membranes_documented",
+          "name": "Two stretched membranes; skin species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "membranophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ho_dumang_double_headed_drum_excitation",
+      "name": "excitation",
+      "variants": [
+        {
+          "id": "ho_dumang_double_headed_drum_excitation_documented",
+          "name": "Struck drum; hand or stick choice and stroke pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "struck"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

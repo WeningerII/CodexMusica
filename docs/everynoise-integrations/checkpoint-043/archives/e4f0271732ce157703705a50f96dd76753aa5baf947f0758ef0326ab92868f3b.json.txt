@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "reviewer": "research_116",
+  "checked_at": "2026-10-04T07:13:48.997321+00:00",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-382.json",
+  "packet_sha256": "c7671238f6e49cc3a5daffdaf89ed131cf4c47550faa1dfc2e74594e9680a4d6",
+  "baseline": "/workspace/CodexMusica-qualified041",
+  "baseline_head": "453cd0f1",
+  "source_review": {
+    "urls": [
+      "https://www.lrt.lt/naujienos/kultura/12/926050/vaiper-vitalijus-despotin-stiprybes-jauniems-muzikantams-jie-turi-sunkia-uzduoti"
+    ],
+    "fresh_refs": [
+      "turn15066view0"
+    ],
+    "judgment": "LRT participating producer explicitly describes Lithuanian trap as a developing younger scene and his own trap-related releases. The full existing Lithuanian hip-hop national field remains broader; no exclusion based solely on its G&G exemplar."
+  },
+  "practice_review": "Representative single rhythmic rap lead and produced backing are justified without asserting a particular master roster, hardware, exact source physiology or universal style. Authored natural capture and treated studio are coherent. No new physical identities.",
+  "mechanics": {
+    "owning_controls": 18,
+    "all_protected": true,
+    "compiled_api_pin_errors": [],
+    "preserved_existing_owners": 1653,
+    "runtime_receipt": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-382-peer116-runtime.json"
+  },
+  "literal_review": "All four browser/connector formats read. Spoken-flowing/no-pitch agrees with the selected rap branch, not a claim every performance is unpitched. Frosty backing is a compatible authored production affect, not an inferred source mechanism. Compiled API output also read; no named foreign culture or extra instrument.",
+  "photo_review": {
+    "fresh_ref": "turn15066view3 / turn15068view3",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5",
+    "scope": "Generic LOW microphone context; exact historical 250px preview receipt retained, no new byte download or visual inspection asserted."
+  },
+  "immutable_metadata": {
+    "source_label": "lithuanian trap",
+    "source_url": "https://everynoise.com/engenremap-lithuaniantrap.html",
+    "suggested_id": "lithuanian_trap",
+    "allocation_ordinal": 382,
+    "allocation_group_id": "016"
+  },
+  "limitations": [
+    "No audio audition or exact master reconstruction.",
+    "Photo bytes and visual observation are inherited historical receipts.",
+    "Future main reconciliation remains required."
+  ]
+}
