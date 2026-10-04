@@ -191,7 +191,7 @@ def test_scope_is_declared_and_readable():
     print("\n5. the declared scope")
 
     check("CLAUDE.md, README.md and quality/METHOD.md are all in scope",
-          set(PROSE_DOCS) >= {"CLAUDE.md", "README.md", "quality/METHOD.md"},
+          set(PROSE_DOCS) >= {"HANDBOOK.md", "README.md", "quality/METHOD.md"},
           "PROSE_DOCS is %s" % (PROSE_DOCS,))
     check("REPO_PATH_EXISTS is asked of exactly those three and no RESULTS "
           "document — it answers 29 FALSE over the wider set, and a gate that "
@@ -385,7 +385,7 @@ CAPACITY_MUTANTS = [
      f"is **{_CAP_DEPTH}**, held by **{_CAP_COUNT}** famil" + _CAP_NOUN,
      f"is **{_CAP_DEPTH}**, held by **{_CAP_WRONG_COUNT}** famil" + _CAP_NOUN,
      "the spelled holder count wrong while its named holder stays right"),
-    ("CLAUDE.md",
+    ("HANDBOOK.md",
      f"chain is {_CAP_DEPTH}, held by {_CAP_COUNT}",
      f"chain is {_CAP_DEPTH + 1}, held by {_CAP_COUNT}",
      "the claimed depth moved while the actual holder remains named"),

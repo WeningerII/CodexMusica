@@ -161,7 +161,7 @@ def s4_scope_is_declared_and_claude_md_is_out_named():
     # that would charge a legitimate doctrine-17 form, so the document is
     # out BY DECLARATION — and this check measures that the ladder is
     # still there, so the exclusion cannot outlive its reason in silence.
-    root_claude = os.path.join(VF.ROOT, "CLAUDE.md")
+    root_claude = os.path.join(VF.ROOT, "HANDBOOK.md")
     with open(root_claude, encoding="utf-8") as f:
         text = f.read()
     check("§4 the reason is still true: CLAUDE.md's doctrine-7 ladder "

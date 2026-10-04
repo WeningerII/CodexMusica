@@ -96,3 +96,7 @@ lyric-harness/quality/results/capacity_followup_2026-09-21
 
 # Generated image pyramid: compact manifests and hashed build receipts.
 assets/earth-tiles
+
+# lyric-harness/map: trace.json and ran.json are written by map/trace.mjs and
+# map/build.py and byte-compared by `map/build.py --check`; a reflow would churn them.
+lyric-harness/map/*.json

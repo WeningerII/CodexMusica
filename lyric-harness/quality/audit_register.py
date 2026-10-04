@@ -120,7 +120,7 @@ if ROOT not in sys.path:
 
 MISSING_MD = os.path.join(ROOT, "MISSING.md")
 CANON_MD = os.path.join(HERE, "RHYME_CANON.md")
-CLAUDE_MD = os.path.join(ROOT, "CLAUDE.md")
+CLAUDE_MD = os.path.join(ROOT, "HANDBOOK.md")
 
 CONFIRMED = "CONFIRMED"
 MOVED = "MOVED"
@@ -1286,7 +1286,7 @@ def _f1_claim(entries):
     this file's own `_k1_claims` (whose docstring records being bitten on
     2026-08-11) and `quality/verify_doctrines.py`, which derives the doctrine
     run from the `<!-- DOCTRINE-BLOCK -->` markers and the known-gaps list from
-    CLAUDE.md's own heading rather than from a remembered range -- CLAUDE.md
+    HANDBOOK.md's own heading rather than from a remembered range -- HANDBOOK.md
     cites that as the reason entry 10 "was defined the moment it was written
     and no third repin of a hardcoded range was possible".  `PINNED`'s
     exclusion 1 below already states the rule as this instrument's POLICY; it
@@ -1425,10 +1425,10 @@ def _d_rhyme_constraints():
 def _d_doctrine_count():
     """The doctrine run spans TWO files and is delimited, so count it that way.
 
-    This claim used to read `^\\d+\\. \\*\\*` out of CLAUDE.md alone and compare
+    This claim used to read `^\\d+\\. \\*\\*` out of HANDBOOK.md alone and compare
     against 76, and it was wrong twice over after the 2026-08-11 split. It
     missed the 75 doctrines that moved to `quality/METHOD.md`, and the bare
-    regex over CLAUDE.md also swept in the SEVEN `Known gaps` items, which use
+    regex over HANDBOOK.md also swept in the SEVEN `Known gaps` items, which use
     the same markdown shape, are cited as `known gap N`, and were never part of
     the doctrine numbering. Both files delimit their run with
     `<!-- DOCTRINE-BLOCK -->` markers precisely so a counter can tell the two
@@ -1437,7 +1437,7 @@ def _d_doctrine_count():
     drift from it. An auditor with its own private parser of the thing it
     audits is the `gabay higaad` shape one layer down.
 
-    CLAUDE.md's own invariant is the standard: the union must be exactly 1-95
+    HANDBOOK.md's own invariant is the standard: the union must be exactly 1-95
     with no number defined in both files.
     """
     try:
@@ -1446,7 +1446,7 @@ def _d_doctrine_count():
     except Exception as e:                       # noqa: BLE001
         return UNVERIFIABLE, \
             "cannot read the doctrine runs: %s: %s" % (type(e).__name__, e), \
-            "95 doctrines across CLAUDE.md + quality/METHOD.md"
+            "95 doctrines across HANDBOOK.md + quality/METHOD.md"
     per_file = collections.Counter(h for hs in defs.values() for h in hs)
     n = len(defs)
     dup = sorted(k for k, hs in defs.items() if len(hs) > 1)
@@ -1458,24 +1458,24 @@ def _d_doctrine_count():
     bare = len(re.findall(r"^\d+\. \*\*", claude, re.M))
     detail = ("%d doctrines between the <!-- DOCTRINE-BLOCK --> markers: "
               "%s. Contiguous 1-%d: %s. Defined twice: %s. "
-              "CLAUDE.md's bare `^N. **` count is %d, i.e. %d doctrines plus "
+              "HANDBOOK.md's bare `^N. **` count is %d, i.e. %d doctrines plus "
               "the %d `Known gaps` items, which are a SEPARATE numbering "
-              "(cited as `known gap N`) and are what the old CLAUDE.md-only "
+              "(cited as `known gap N`) and are what the old HANDBOOK.md-only "
               "regex was counting into this figure."
               % (n,
                  ", ".join("%s %d" % (f, c) for f, c in sorted(per_file.items())),
                  max(run) if run else 0,
                  "yes" if contiguous else "NO, missing %s" % gaps,
                  dup or "none",
-                 bare, per_file.get("CLAUDE.md", 0),
-                 bare - per_file.get("CLAUDE.md", 0)))
+                 bare, per_file.get("HANDBOOK.md", 0),
+                 bare - per_file.get("HANDBOOK.md", 0)))
     ok = (n == 95 and not dup and contiguous
-          and per_file.get("CLAUDE.md") == 20
+          and per_file.get("HANDBOOK.md") == 20
           and per_file.get("quality/METHOD.md") == 75)
     return (CONFIRMED if ok else MOVED), detail, \
-        ("95 doctrines, one global numbering, 20 in CLAUDE.md and 75 in "
+        ("95 doctrines, one global numbering, 20 in HANDBOOK.md and 75 in "
          "quality/METHOD.md (MISSING.md L-5's `102 numbered items` is this 95 "
-         "plus CLAUDE.md's 7 `Known gaps` rows; the entry's struck-through 76 "
+         "plus HANDBOOK.md's 7 `Known gaps` rows; the entry's struck-through 76 "
          "predates the split)")
 
 
@@ -1496,7 +1496,7 @@ def _census_counts(mod, phon, tokens_of):
 
     ONE function, read by the derivation row AND by `check()`, so the printed
     number and the pinned number cannot drift apart -- the same reason
-    `unread_final_piece` is one predicate rather than two (CLAUDE.md, hyphen
+    `unread_final_piece` is one predicate rather than two (HANDBOOK.md, hyphen
     splitting x3).
     """
     agg = {"total": 0, "read": 0, "refused": 0, "defective": 0}
@@ -1612,7 +1612,7 @@ def _d_malay_ong_ok():
     internally consistent, `-ung`/`-uk` at zero against `-ong`/`-ok` -- is
     quoted with a different pair of numbers in every place it appears:
 
-        CLAUDE.md doctrine 70   14 and 12 distinct types
+        HANDBOOK.md doctrine 70   14 and 12 distinct types
         MISSING.md M-3          28 types and 14/15
         the corpus file header  25 and 24 tokens
 
@@ -1638,7 +1638,7 @@ def _d_malay_ong_ok():
         "-ong %d tokens / %d types, -ok %d tokens / %d types, -ung %d, -uk %d. "
         "The ZEROS reproduce and they carry doctrine 70's whole argument. The "
         "comparison figures match none of the three values on record "
-        "(CLAUDE.md 14/12 types, MISSING M-3 28/14-15 types, the corpus header "
+        "(HANDBOOK.md 14/12 types, MISSING M-3 28/14-15 types, the corpus header "
         "25/24 tokens)."
         % (got["ong"][0], got["ong"][1], got["ok"][0], got["ok"][1],
            got["ung"][0], got["uk"][0])), \
@@ -1675,7 +1675,7 @@ DERIVATIONS = [
     Claim("D20", "F-1", "phonology modules", None, _d_phonologies, "quality/audit_register.py"),
     Claim("D21", "M-15", "traditions populated", None, _d_traditions_populated, "quality/audit_register.py"),
     Claim("D22", "M-16", "rhyme_constraints", 1325, _d_rhyme_constraints, "quality/audit_register.py"),
-    Claim("D23", "L-5", "doctrines (CLAUDE.md + METHOD.md)", 95,
+    Claim("D23", "L-5", "doctrines (HANDBOOK.md + METHOD.md)", 95,
           _d_doctrine_count, "python3 quality/verify_doctrines.py"),
     Claim("D24", "M-4", "Finnish unreadable census", 155, _d_fin_census,
           "quality/audit_register.py --slow", slow=True),
@@ -1683,7 +1683,7 @@ DERIVATIONS = [
           "quality/audit_register.py --slow", slow=True),
     Claim("D26", "M-3 / doctrine 70", "Malay -ong/-ok inventory", 14, _d_malay_ong_ok,
           "quality/audit_register.py",
-          note="a CLAUDE.md doctrine whose evidentiary number reproduces nowhere"),
+          note="a HANDBOOK.md doctrine whose evidentiary number reproduces nowhere"),
 ]
 
 
@@ -1895,7 +1895,7 @@ def _find_survey_array():
 
     What this function returns is the residue: the named structures whose every
     recorded source is THIS PROJECT -- a `quality/phonology/*` module, a
-    CLAUDE.md doctrine, "from memory", or "my characterisation". Those are the
+    HANDBOOK.md doctrine, "from memory", or "my characterisation". Those are the
     `gabay higaad` class, and they are the deliverable.
     """
     txt = open(CANON_MD, encoding="utf-8").read() if os.path.exists(CANON_MD) else ""
@@ -2735,7 +2735,7 @@ def main(argv=None):
             print("     %d named survey entries recovered from the transcripts"
                   % sa["entries_recovered"])
             print("     of those, %d record NO source but this project "
-                  "(a phonology module, a CLAUDE.md doctrine, or 'from memory')"
+                  "(a phonology module, a HANDBOOK.md doctrine, or 'from memory')"
                   % len(sa["entries_sourced_only_to_this_project"]))
             print("     ^^ BOTH FIGURES ARE SUPERSEDED BY §4b AND ARE KEPT SO "
                   "THE DEFECT STAYS DEMONSTRABLE.")

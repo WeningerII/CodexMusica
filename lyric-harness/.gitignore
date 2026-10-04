@@ -43,3 +43,7 @@ data/labels/**/.*_cache/
 data/labels/**/*_cache/
 data/labels/**/*.err
 data/labels/**/__pycache__/
+
+# lyric map: raw profiles and the profiled trace (map/build.py --from-profile reads them)
+map/.prof/
+map/trace-profile.json

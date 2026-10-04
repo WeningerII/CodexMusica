@@ -523,7 +523,7 @@ def report(name, obs, nulls, n, ana=None):
 
 def series_rows(fi, rels, cache):
     """Heads for one series point, over `quality/readability.py`'s `read_lines`
-    -- the one apparatus filter this repo has (CLAUDE.md's own centralization
+    -- the one apparatus filter this repo has (HANDBOOK.md's own centralization
     note), not a fourth spelling of `#`/`---`/`[`. Cached per FILE because
     `literary7` and `kivi` share fin_aleksis_kivi.txt and tokenizing it twice
     would be paid for on every CI run.
