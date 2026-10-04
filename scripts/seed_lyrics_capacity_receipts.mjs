@@ -29,8 +29,16 @@ for (let i = 0; i < store.maxPayloadRecords; i++) {
   };
 }
 const live = [...store.records.values()].filter((record) => record.state !== 'retired');
-if (store.bytes < 0.95 * store.maxBytes)
-  throw new Error('Retained workload did not reach95% of the declared byte ceiling');
+// A store holds one whole record allowance (`maxRecordBytes`) free for the
+// next admission, so what it can retain while still admitting work is
+// `maxBytes - maxRecordBytes`. ~~95% of `maxBytes`~~ until 2026-10-04, when
+// MAX_RECORD_BYTES rose from 8 to 18 MiB (mcp/job_store.js) and this fill
+// reached 93.6% of the whole ceiling: all a store that admits work can hold.
+const reachable = store.maxBytes - store.maxRecordBytes;
+if (store.bytes < 0.95 * reachable)
+  throw new Error(
+    'Retained workload did not reach 95% of the byte ceiling a store can hold while admitting work'
+  );
 fs.writeFileSync(
   manifest,
   JSON.stringify({
@@ -38,6 +46,7 @@ fs.writeFileSync(
     ...last,
     bytes: store.bytes,
     max_bytes: store.maxBytes,
+    max_record_bytes: store.maxRecordBytes,
     records: store.records.size,
     payload_records: live.length,
     max_records: store.maxRecords,

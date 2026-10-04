@@ -208,7 +208,14 @@ def runtime_evidence_failures(record, *, local=False, require_concurrent=True):
     if any(not number(record.get(key)) or not 0 <= record[key] <= STARTUP_SECONDS for key in ('startup_s', 'recovery_s')):
         failures.append('actual server startup/recovery exceeded its declared deadline')
     receipt = record.get('receipts', {})
-    if not number(receipt.get('max_bytes')) or receipt['max_bytes'] <= 0 or not number(receipt.get('bytes')) or not .95 * receipt['max_bytes'] <= receipt['bytes'] <= receipt['max_bytes']:
+    # 95% of what the store can hold while admitting work: its ceiling less the
+    # one record allowance it keeps free (scripts/seed_lyrics_capacity_receipts.mjs).
+    # ~~.95 * receipt['max_bytes']~~ until 2026-10-04 (MAX_RECORD_BYTES 8 -> 18 MiB).
+    if (not number(receipt.get('max_bytes')) or receipt['max_bytes'] <= 0
+            or not number(receipt.get('max_record_bytes'))
+            or not 0 <= receipt['max_record_bytes'] < receipt['max_bytes']
+            or not number(receipt.get('bytes'))
+            or not .95 * (receipt['max_bytes'] - receipt['max_record_bytes']) <= receipt['bytes'] <= receipt['max_bytes']):
         failures.append('retained receipt workload did not reach the declared byte load')
     if require_concurrent and (type(record.get('concurrent_replays')) is not int or record['concurrent_replays'] < 1):
         failures.append('actual Node replay/serialization did not overlap the Python measurement')
