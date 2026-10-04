@@ -2,10 +2,10 @@
   "id": "musique_comorienne",
   "name": "Musique Comorienne",
   "family": "jazz",
-  "lineage": "Nawal Afro Jazz Taarab Project (2026) explicitly renews Comorian taarab. Complete album credits: Mohamed Issa Matona oud/violin/cello/accordion; Fadhil Mohamed Mtuteke darbuka; Suleiman Makame Haji electric piano; Lumie Lumii bass; Miraji Husein Mgunda drums; Nassor Amour Abdallah qanun; Nawal lead voice/daf/bongos/gambusi; backing singers Patricia Hillary Shembiluchor, Siti Mharam and Regina Juma Shabani; guests Didier Malherbe saxophone and Sahil Abdulkarim guitar. Four singers and all15families retained.",
-  "recipe": "classic mid-2020s musique comorienne, improv On Frame, fusion branch. group vocals, live take. oud, oil varnish amber tinted modern setup longer neck longer fingerboard violin orchestral, synthetic oil varnish amber tinted modern setup pirastro cellisto cello, accordion, hands layered darbuka, rhodes electric, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, qanun, walnut bent frame canonical Persian daf, hands layered bongos, comorian gambusi, yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 721,
-  "score": 144.142,
+  "lineage": "Music of Comoros, connecting island song traditions with the wider Indian Ocean musical world.",
+  "recipe": "classic musique comorienne, improv On Frame, fusion branch. oud, violin orchestral, cello, accordion, darbuka, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, electric bass, bronze bell bronze brushes-and-sticks drum kit, qanun, walnut bent frame canonical Persian daf, bongos, comorian gambusi, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, singing indian rosewood rosewood acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 674,
+  "score": 63.822,
   "config": {
     "traditions": [
       "musique_comorienne"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.78,
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -66,10 +66,10 @@
         "scores": {
           "plucked_traditional_technique": -0.15000000000000002,
           "oud_school": 0.1365,
-          "oud_strings": 0.39,
-          "oud_pick": 0.39,
+          "oud_strings": 0.378,
+          "oud_pick": 0.1365,
           "oud_body_wood": 0.6825000000000001,
-          "oud_soundboard_wood": 0.39,
+          "oud_soundboard_wood": 0.546,
           "oud_string_material": 0.6825000000000001
         }
       },
@@ -91,13 +91,13 @@
           "bowed_technique": -0.05,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
-          "orch_back_wood": 0.26,
-          "orch_varnish": 1.4499999999999997,
-          "orch_setup_period": 4.3055,
+          "orch_back_wood": -0.07,
+          "orch_varnish": -0.1,
+          "orch_setup_period": -0.07,
           "orch_bow": 0,
-          "orch_bow_stick": 1.7779999999999996,
-          "orch_articulation": 0.39,
-          "orch_rosin": 1.7649999999999997
+          "orch_bow_stick": -0.10500000000000001,
+          "orch_articulation": 0.168,
+          "orch_rosin": -0.07
         }
       },
       {
@@ -115,14 +115,14 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "cello_strings": 1.17,
+          "cello_strings": 0.315,
           "cello_top_wood": -0.07,
-          "cello_back_wood": 0.26,
-          "cello_varnish": 1.4499999999999997,
-          "cello_setup_period": 4.3055,
+          "cello_back_wood": -0.07,
+          "cello_varnish": -0.1,
+          "cello_setup_period": -0.07,
           "cello_bow_grip": 0.378,
-          "cello_rosin": 2.75,
-          "cello_bow_stick": 1.7779999999999996
+          "cello_rosin": -0.1,
+          "cello_bow_stick": -0.10500000000000001
         }
       },
       {
@@ -139,9 +139,9 @@
         "scores": {
           "free_reed_technique": -0.10500000000000001,
           "accordion_reed_material": 0.5145,
-          "musette_offset": 0.3,
+          "musette_offset": 0,
           "reed_config": 0,
-          "bellows": 0.3,
+          "bellows": 0,
           "voicing_chamber": 0,
           "accordion_maker_school": 0.6825000000000001
         }
@@ -155,9 +155,9 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 4.055000000000001,
+          "percussion_technique": -0.07,
           "darbuka_material": 0.546,
-          "darbuka_skin": 0.78,
+          "darbuka_skin": 0.861,
           "darbuka_regional_style": 0.6825000000000001
         }
       },
@@ -173,11 +173,11 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "rhodes_model": 14.886499999999996,
+          "rhodes_model": 7.136499999999999,
           "rhodes_use": 0.1365,
-          "rhodes_tine_material": 0.39,
-          "rhodes_hammer_tip": 0.39,
-          "rhodes_pickup_position": 0.39
+          "rhodes_tine_material": 1.2285000000000001,
+          "rhodes_hammer_tip": 1.7745000000000002,
+          "rhodes_pickup_position": 1.092
         }
       },
       {
@@ -219,16 +219,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 21.059999999999995,
+          "drum_technique": 10.01,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.6,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.78,
+          "bearing_edges": 0.8294999999999999,
           "snare_wires": 0,
-          "cymbal_alloy": 19.9,
-          "cymbal_hammering": 1.4,
-          "cymbal_lathing": 1.9999999999999998,
+          "cymbal_alloy": 11.649999999999999,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0
         }
       },
@@ -245,12 +245,12 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.15000000000000002,
-          "qanun_strings": 0.39,
-          "qanun_levers": 0.78,
+          "qanun_strings": 0.378,
+          "qanun_levers": 0.315,
           "qanun_pick": 0.8925,
-          "qanun_body_wood": 0.39,
+          "qanun_body_wood": 0.546,
           "qanun_bridge_skin": 0.546,
-          "qanun_string_material": 0.78
+          "qanun_string_material": 0.315
         }
       },
       {
@@ -279,10 +279,10 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 4.055000000000001,
-          "bongos_skin": 0.325,
+          "percussion_technique": -0.07,
+          "bongos_skin": -0.035,
           "bongos_context": 0.21000000000000002,
-          "bongos_shell_wood": 0.39
+          "bongos_shell_wood": 0.546
         }
       },
       {
@@ -291,7 +291,7 @@
           "comorian_gambusi_form": "comorian_gambusi_nawal_four_string"
         },
         "scores": {
-          "comorian_gambusi_form": 0
+          "comorian_gambusi_form": 0.3
         }
       },
       {
@@ -307,12 +307,12 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": 0.325,
+          "sax_size": -0.035,
           "sax_reed": 0,
-          "sax_body_alloy": 1.7965,
-          "sax_mouthpiece": 0.3,
-          "sax_technique": 14.749999999999996,
-          "sax_maker_school": 19.109999999999992
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0,
+          "sax_technique": 6.999999999999999,
+          "sax_maker_school": 9.034999999999998
         }
       },
       {
@@ -327,8 +327,8 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.035,
-          "string_acoustic": 0.39,
+          "back_sides": 1.2349999999999999,
+          "string_acoustic": 0.1365,
           "acoustic_om_technique": -0.25
         }
       }

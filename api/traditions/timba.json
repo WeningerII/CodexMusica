@@ -5,7 +5,7 @@
   "lineage": "Havana dance-band style consolidated between 1988 and 1995 by NG La Banda under José Luis Cortés, then Charanga Habanera and Los Van Van, layering funk and jazz harmony over Cuban son structures — extended, fully arranged cuerpo sections giving way to open montuno/despelote passages, tumbadora and timbales driving a broken, marcha-heavy groove around a shifting 2-3 or 3-2 son clave, virtuosic bass tumbaos that abandon the anticipated bass, dense brass punches, and a shouted, slangy lead vocal traded with coro.",
   "recipe": "classic Caribbean late-1980s timba, groove Percussion, son salsa branch, rumba Cuban, Latin jazz improv on frame descarga ethio-jazz. thick, breath veiled tone, straight onset, interlocked note trading. driving open tone tumbadora, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, a 415 Baroque pitch grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, vintage ambassador asymmetric brushes-and-sticks drum kit. Cuban state recording 1962-present mid tier estudios areito havana. shure SM57.",
   "recipe_chars": 996,
-  "score": 509.602,
+  "score": 510.008,
   "config": {
     "traditions": [
       "timba",
@@ -99,7 +99,7 @@
           "piano_soundboard": 0.5199999999999999,
           "piano_pinblock": 0.06499999999999999,
           "piano_plate": 0.39499999999999996,
-          "piano_pitch_standard": 5.664999999999999
+          "piano_pitch_standard": 5.725
         }
       },
       {
@@ -157,7 +157,7 @@
         },
         "scores": {
           "wind_articulation": 3.4774999999999996,
-          "sax_size": 2.23,
+          "sax_size": 2.2750000000000004,
           "sax_reed": 2.2350000000000003,
           "sax_body_alloy": 18.82,
           "sax_mouthpiece": 2.2350000000000003,
@@ -190,10 +190,10 @@
           "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.615,
+          "voice_vibrato": 17.764999999999997,
           "voice_articulation": 16.314999999999998,
           "voice_microtone": 18.004999999999995,
-          "voice_tradition": 21.405,
+          "voice_tradition": 21.555,
           "voice_mechanism_compound": 4.615,
           "voice_estill_quality": 6.175000000000001,
           "voice_speech_song": 17.874999999999996,

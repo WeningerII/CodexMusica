@@ -1,0 +1,187 @@
+{
+  "entries": [
+    {
+      "source_label": "sunset lounge",
+      "source_url": "https://everynoise.com/engenremap-sunsetlounge.html",
+      "suggested_id": "sunset_lounge",
+      "allocation_ordinal": 4360,
+      "allocation_group_id": "175",
+      "id": "sunset_lounge",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "sunset_lounge",
+        "name": "Sunset Lounge",
+        "family": "electronic",
+        "lineage": "Sunset lounge connects Ibiza sunset listening with later chill-out radio and compilation culture. Selectors combine relaxed house, ambient music and lounge songs, adapting the atmosphere to evening gatherings and quieter listening.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.house",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Unhurried transitions join instrumental grooves and vocal tracks, balancing soft dance pulses with spacious textures. The house-oriented selection branch can give way to beatless ambient listening without defining one fixed ensemble or tempo for the whole field.",
+        "exemplars": [
+          "Café del Mar"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.9807,
+        1.3003,
+        "Sant Antoni de Portmany",
+        "Europe"
+      ],
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.bigfm.de/webradio/sunset-lounge",
+          "title": "Broadcaster own Sunset Lounge practice description",
+          "support_notes": "Fresh15448search0 full: smooth transitions, evening Ibiza house and CaféDelMar classics, night ambient, daytime chillout. Named field and actual curated-playback practice, not guessed studio roles."
+        },
+        {
+          "url": "https://cafedelmar.com/about",
+          "title": "Café del Mar own institutional history",
+          "support_notes": "Prior14635 firsthand institution source documents sunset music/DJ practice; preserved original historical receipt in ledger."
+        }
+      ],
+      "neighbor_distinction": "Full Balearic Beat already includes eclectic Ibiza DJ practice and relaxed production; SunsetLounge overlaps it strongly as a named sunset/listening and broadcasting tag. Current lounge_music/exotica describe narrower mid-century mood-record traditions, not all contemporary sunset broadcasts. No exclusive new genre essence or automatic synonymy is asserted. Positive exact-name broadcaster practice supports the requested label without requiring a novel institution.",
+      "model_policy": "Representative sunset house-selection branch of the named broadcast/DJ practice. Keep complete recorded vocal/instrumental layers inside honest DJ selection/playback owner; do not manufacture separate live players from an opaque programme. Hardware, crossfade settings and embedded singer headcount unspecified. Furnished parlor is a deliberate relaxed domestic listening realization, not an assertion of actual broadcast studio or original Ibiza performance space. No universal BPM, temperament or exclusive house claim; ambient and sung repertoire remain in broad profile.",
+      "authored_render_scope": "Representative sunset house-selection branch of the named broadcast/DJ practice. Keep complete recorded vocal/instrumental layers inside honest DJ selection/playback owner; do not manufacture separate live players from an opaque programme. Hardware, crossfade settings and embedded singer headcount unspecified. Furnished parlor is a deliberate relaxed domestic listening realization, not an assertion of actual broadcast studio or original Ibiza performance space. No universal BPM, temperament or exclusive house claim; ambient and sung repertoire remain in broad profile. Original wabi-rustic is interpreted as the deliberately soft, plush, plain playback/listening aesthetic supported by this furnished room; not a Japanese repertoire claim or a requirement that the house selection be beat-free.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Representative sunset house-selection branch of the named broadcast/DJ practice. Keep complete recorded vocal/instrumental layers inside honest DJ selection/playback owner; do not manufacture separate live players from an opaque programme. Hardware, crossfade settings and embedded singer headcount unspecified. Furnished parlor is a deliberate relaxed domestic listening realization, not an assertion of actual broadcast studio or original Ibiza performance space. No universal BPM, temperament or exclusive house claim; ambient and sung repertoire remain in broad profile."
+        }
+      ],
+      "instrument_role_audit": {
+        "dj_playback_mixing_unspecified": "Positive documented representative performance/selection practice; no original-master reconstruction."
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "Every applicable owning control protected; no collision."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "scope": "No additional live voice cards; embedded recorded voices and actual live singer count unspecified."
+      },
+      "source_scope_limitation": "Named-label coverage with candid overlap; genre-level representative branch, not claim unique sound or exhaustive fixed orchestra.",
+      "source_retrieval_caveat": "Fresh broadcaster source and historical institution receipt identified in sources; no audition or exact hardware/tracklist claim.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "sunset_lounge",
+          "name": "Sunset Lounge",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic audio recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh15461view3 confirms original/crop attribution and CC BY2.5.",
+          "fresh_review_ref": "turn15461view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15461view3"
+        ],
+        "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

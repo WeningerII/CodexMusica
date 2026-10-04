@@ -5,7 +5,7 @@
   "lineage": "Dweilorkesten are Dutch festive wind-and-percussion bands heard at carnival, sporting events and other public celebrations. Local associations sustain a participatory performance tradition with flexible instrumentation and familiar popular repertoire.",
   "recipe": "classic dweilorkest, carnival Processional. trumpet, saxophone, trombone, sousaphone, credited auxiliary percussion. live tracking.",
   "recipe_chars": 131,
-  "score": 0.573,
+  "score": 0.728,
   "config": {
     "traditions": [
       "dweilorkest"
@@ -28,7 +28,7 @@
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
           "trumpet_technique": -0.10500000000000001,
-          "trumpet_bell_metal": 0.3315,
+          "trumpet_bell_metal": 0.363,
           "trumpet_maker_school": 0
         }
       },
@@ -47,8 +47,8 @@
           "wind_articulation": -0.10500000000000001,
           "sax_size": -0.05,
           "sax_reed": 0,
-          "sax_body_alloy": 0.2315,
-          "sax_mouthpiece": 0.3,
+          "sax_body_alloy": 0.26,
+          "sax_mouthpiece": 0.3315,
           "sax_technique": -0.15000000000000002,
           "sax_maker_school": -0.1
         }
@@ -69,8 +69,8 @@
           "trombone_type": -0.05,
           "trombone_mouthpiece": -0.1,
           "trombone_mute": 0,
-          "trombone_technique": 0.34875,
-          "trombone_bell_metal": 0.3315,
+          "trombone_technique": 0.38025,
+          "trombone_bell_metal": 0.363,
           "trombone_maker_school": 0
         }
       },

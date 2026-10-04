@@ -1,0 +1,50 @@
+{
+  "id": "underground_amapiano",
+  "name": "Underground Amapiano",
+  "family": "electronic",
+  "lineage": "Underground amapiano circulates through producer networks, specialist selections and club communities in South Africa and abroad. Selectors connect vocal tracks, weighty bass grooves and spacious instrumental arrangements, bringing less widely circulated work into conversation with established releases.",
+  "recipe": "classic underground amapiano, electronic Dance, African dance branch. dj playback mixing unspecified. shoebox concert hall.",
+  "recipe_chars": 123,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "underground_amapiano"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

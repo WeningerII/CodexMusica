@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice017-dakke-dak-controls-corrected.json",
+  "packet_sha256": "c5cb5049c175efeadc86361512a7e887c226056194829d04d52ec4b6788969ba",
+  "reviewer": "source_audit",
+  "baseline": "/workspace/CodexMusica-qualified041",
+  "baseline_commit": "453cd0f1",
+  "primary_evidence": {
+    "raw": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/dakke-dak-peer-primary-raw.json",
+    "refs": [
+      "turn15502view0",
+      "turn15502view1",
+      "turn15502view2",
+      "turn15502view3",
+      "turn15502view4"
+    ],
+    "findings": [
+      "Official agency positively describes clever punchlines over dance-floor beats; venue explicitly electronic rap and high-tempo Copenhagen live practice.",
+      "Firsthand interview names Johny Cola and dakke-dak; exact creator programme confirms Johny Cola/Finn Pind and Specktors.",
+      "Representative rap-led practice is positively scoped, not a claim of complete selected concert or sung-hook exclusion."
+    ]
+  },
+  "boundary_review": {
+    "full_neighbors": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/dakke-full-neighbors.json",
+    "finding": "Danish hip hop/pop/electronic overlap candidly; original named party tag has primary use and faithful practice. Norwegian commissioned russelater and Nordic danspunk do not establish lexical equivalence. No invented exclusive timbre required."
+  },
+  "validation": {
+    "immutable_five_fields": "exact",
+    "atlas": "Copenhagen, Europe valid",
+    "owners_preserved": 1653,
+    "protected_controls": 18,
+    "unprotected_controls": 0,
+    "browser_and_connector_four_formats": "exact agreement",
+    "max_chars": 275,
+    "compiled_api_pin_errors": [],
+    "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/dakke-dak-peer-runtime.json",
+    "literal_semantics": "Up-tempo rhythmic speech fits high-tempo party rap; bodacious explicitly bold/brash/fun swing is coherent with the authored lightly syncopated backing. No source funk ancestry or hardware claim inferred. Speech is a selected rap branch, not all broader repertoire.",
+    "photo": "Fresh Commons15502view4 confirms CC BY2.5/Iain Fergusson and existing crop. Exact historical URL, SHA, dimensions and historical reviewer receipt retained, no new download or visual claim."
+  },
+  "limitations": [
+    "Generic beat retains documented backing without unsupported subarchitecture. All-zero axes remain conservative authored settings, not measured genre values. No integration or registry mutation."
+  ]
+}

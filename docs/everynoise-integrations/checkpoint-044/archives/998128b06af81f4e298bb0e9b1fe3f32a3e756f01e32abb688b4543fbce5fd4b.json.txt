@@ -1,0 +1,1906 @@
+{
+  "entries": [
+    {
+      "source_label": "oeteldonk",
+      "source_url": "https://everynoise.com/engenremap-oeteldonk.html",
+      "suggested_id": "oeteldonk",
+      "allocation_ordinal": 4065,
+      "allocation_group_id": "163",
+      "id": "oeteldonk",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "oeteldonk",
+        "name": "Oeteldonk",
+        "family": "global",
+        "lineage": "Oeteldonk music belongs to the carnival culture of ’s-Hertogenbosch, sustained by local clubs, song competitions and community celebrations. New carnival songs join familiar refrains in the Kwèkfestijn and a shared repertoire associated with the city’s festive identity.",
+        "instruments": [
+          "voice",
+          "trumpet",
+          "trombone",
+          "saxophone_section_alto_tenor",
+          "baritone_horn_bb",
+          "tuba",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42",
+          "alto_tenor_section_articulation": "alto_tenor_section_articulation_short",
+          "baritone_horn_bb_identity": "baritone_horn_bb_scored",
+          "tuba_pitch": "tuba_bbb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "carnivalProcessional",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Projecting voices, memorable refrains and lively wind-band responses invite collective participation. Trumpets, trombones, saxophones and low brass combine with rhythmic percussion, while humorous texts and theatrical presentation animate the songs.",
+        "exemplars": [
+          "Wim Kersten",
+          "De Twee Pinten",
+          "Van Alles Wè"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        51.6978,
+        5.3037,
+        "'s-Hertogenbosch",
+        "Europe"
+      ],
+      "geo_rationale": "Oeteldonk is the official carnival community of Den Bosch; geographic anchor names its city, not a measured recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Oeteldonk is the positively documented Den Bosch carnival repertoire community: its own institution describes150–200clubs, annual original-song Kwèkfestijn competition with60-plus entrants and eleven issued finalists, plus a separate accompanied children festival. Exact creator map includes Wim Kersten, De Twee Pinten, Van Alles Wè and many named local carnival clubs. The arranger explicitly tags this medley Oeteldonk, connecting the edition to the institutional repertoire rather than merely a Dutch place of birth. Existing dweilorkest already covers Dutch festive wind/percussion bands across carnival and other events, without fixed instrumentation; Oeteldonk overlaps that ensemble practice but names a specific songwriting/festival/repertoire network that also includes singers and children performances. Existing dutch_pop/classic_dutch_pop cover broad national popular-music histories, and levenslied the sentimental song tradition; these remain inclusive overlapping umbrellas rather than categories limited to their current exemplars. Accepted carnaval_limburg is a different positively documented regional carnival network, not all Dutch carnival. British brass-band contest practice is not an alias: this edition retains saxophones and Dutch carnival repertoire. The issued wind-only arrangement is a representative branch, not the proposed category boundary by itself.",
+      "classification_evidence": "Oeteldonk is the positively documented Den Bosch carnival repertoire community: its own institution describes150–200clubs, annual original-song Kwèkfestijn competition with60-plus entrants and eleven issued finalists, plus a separate accompanied children festival. Exact creator map includes Wim Kersten, De Twee Pinten, Van Alles Wè and many named local carnival clubs. The arranger explicitly tags this medley Oeteldonk, connecting the edition to the institutional repertoire rather than merely a Dutch place of birth. Existing dweilorkest already covers Dutch festive wind/percussion bands across carnival and other events, without fixed instrumentation; Oeteldonk overlaps that ensemble practice but names a specific songwriting/festival/repertoire network that also includes singers and children performances. Existing dutch_pop/classic_dutch_pop cover broad national popular-music histories, and levenslied the sentimental song tradition; these remain inclusive overlapping umbrellas rather than categories limited to their current exemplars. Accepted carnaval_limburg is a different positively documented regional carnival network, not all Dutch carnival. British brass-band contest practice is not an alias: this edition retains saxophones and Dutch carnival repertoire. The issued wind-only arrangement is a representative branch, not the proposed category boundary by itself.",
+      "model_policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored.",
+      "source_scope_limitation": "Historical source programme preserved; public profile and defaults represent broader genre practice.",
+      "source_retrieval_caveat": "Full arranger publication and official community page directly read. Public first-trumpet PDF inspected; complete purchased set not acquired. Creator full map directly read12713view0; later repeat403 is disclosed rather than replaced with a fabricated capture.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored."
+        },
+        {
+          "instrument": "trumpet",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored."
+        },
+        {
+          "instrument": "trombone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "trombone_type": "tenor_trombone",
+            "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+            "trombone_mute": "no_mute_trb",
+            "trombone_technique": "big_band_punch",
+            "trombone_bell_metal": "trombone_yellow_brass",
+            "trombone_maker_school": "trombone_bach_42"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored."
+        },
+        {
+          "instrument": "saxophone_section_alto_tenor",
+          "parts": {
+            "alto_tenor_section_articulation": "alto_tenor_section_articulation_short"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored."
+        },
+        {
+          "instrument": "baritone_horn_bb",
+          "parts": {
+            "baritone_horn_bb_identity": "baritone_horn_bb_scored"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored."
+        },
+        {
+          "instrument": "tuba",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "tuba_pitch": "tuba_bbb",
+            "tuba_context": "tuba_brass_band",
+            "tuba_bell_metal": "tuba_yellow_brass",
+            "tuba_valve_system": "tuba_rotary_german",
+            "tuba_maker_school": "tuba_miraphone_german"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "22 owning controls/20 unique flat keys all protected; shared wind articulation same valid punchy value for all three owners."
+      },
+      "sources": [
+        {
+          "url": "https://www.funkapel.nl/?p=1652",
+          "support_notes": "Bart Coolen/Funkapel Berlicum — complete issued Bloemetjesgordijn–Onze ouwe Sint-Jan carnival-band medley arrangement, published27February2024. The arranger explicitly supplies trumpet, trombone, alto saxophone, baritone, tenor saxophone and B-flat bass parts plus a conductor score, and explicitly excludes percussion parts. Preserve all six sounding instrument types as five family cards, with alto and tenor retained together. Source generally specifies multiple trumpet/trombone/alto lines and single baritone/tenor/B-flat-bass lines, but exact musician counts and optional doubling remain unknown. The public first-trumpet preview spans the complete medley in one page, ending at bar55; all purchased remaining parts were not inspected. This is a complete independently issued instrumental wind arrangement, not a claim that a sung original recording or live carnival performance lacks singers or percussion. No sounding voice part is issued in this selected edition. Conductor notation is not an additional sounding instrument.",
+          "retrieval_ref": "turn12709view0"
+        },
+        {
+          "url": "https://www.funkapel.nl/wp-content/uploads/bloemetjesgordijn-trompet1.pdf",
+          "support_notes": "Actual first-trumpet notation preview, named Bart Coolen medley, alternating6/8 and common time; remaining parts only publisher-specified.",
+          "retrieval_ref": "turn12713view1;turn12716view0"
+        },
+        {
+          "url": "https://scholen.oeteldonk.org/oeteldonkse-muziek-juf-of-meester/",
+          "support_notes": "Institutional definition of local club/songwriting/issued festival repertoire and children accompanied singing.",
+          "retrieval_ref": "turn12709view2"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-oeteldonk.html",
+          "support_notes": "Exact creator field names Wim Kersten/De Twee Pinten/Van Alles Wè and community clubs; selected score is publisher-tagged local repertoire, no claim Funkapel is exact creator member.",
+          "retrieval_ref": "turn12713view0"
+        },
+        {
+          "url": "https://www.oeteldonk.org/clubkes/inschrijven-en-reglementen/kwekfestijn/regelement-kwekfestijn",
+          "title": "Institutional Kwèkfestijn rules",
+          "support_notes": "Fresh13690search3 live singing/accompaniment and traditional wind-instrument repertoire."
+        },
+        {
+          "url": "https://tp-music.nl/arrangementen/dweilorkest",
+          "title": "Composer Ton Peters: Oeteldonk arrangements",
+          "support_notes": "Fresh13692search0 standard trumpet/trombone/bass/baritone/alto-sax plus snare,cymbals,bass-drum percussion; names local Kwèkfestijn repertoire."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "oeteldonk",
+          "name": "Oeteldonk",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context, not a depicted carnival ensemble, wind instrument, singer or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12718view1 confirms Iain Fergusson/Binksternet CC BY2.5/crop; exact historical023 byte and visual receipt inherited.",
+          "fresh_review_ref": "turn12718view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12718view1"
+        ]
+      },
+      "verification_status": "Original22 effective owning controls/20 flat pins,1638 unchanged original owners and all four actual formats pass; max910characters, full five cards retained. Fresh rights/historical photo receipts pass. Pending independent review.",
+      "primary_retrieval_refs": [
+        "turn12709view0",
+        "turn12713view1",
+        "turn12709view2",
+        "turn12713view0"
+      ],
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "oeteldonk",
+            "name": "Oeteldonk",
+            "family": "global",
+            "lineage": "Bart Coolen/Funkapel Berlicum — complete issued Bloemetjesgordijn–Onze ouwe Sint-Jan carnival-band medley arrangement, published27February2024. The arranger explicitly supplies trumpet, trombone, alto saxophone, baritone, tenor saxophone and B-flat bass parts plus a conductor score, and explicitly excludes percussion parts. Preserve all six sounding instrument types as five family cards, with alto and tenor retained together. Source generally specifies multiple trumpet/trombone/alto lines and single baritone/tenor/B-flat-bass lines, but exact musician counts and optional doubling remain unknown. The public first-trumpet preview spans the complete medley in one page, ending at bar55; all purchased remaining parts were not inspected. This is a complete independently issued instrumental wind arrangement, not a claim that a sung original recording or live carnival performance lacks singers or percussion. No sounding voice part is issued in this selected edition. Conductor notation is not an additional sounding instrument. CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted.",
+            "instruments": [
+              "trumpet",
+              "trombone",
+              "saxophone_section_alto_tenor",
+              "baritone_horn_bb",
+              "tuba"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "wind_articulation": "wind_punchy_ensemble",
+              "brass_size": "trumpet_b_flat",
+              "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+              "brass_mute": "no_mute_brass",
+              "trumpet_technique": "trumpet_punchy_ensemble",
+              "trumpet_bell_metal": "trumpet_yellow_brass",
+              "trumpet_maker_school": "trumpet_bach_stradivarius",
+              "trombone_type": "tenor_trombone",
+              "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+              "trombone_mute": "no_mute_trb",
+              "trombone_technique": "big_band_punch",
+              "trombone_bell_metal": "trombone_yellow_brass",
+              "trombone_maker_school": "trombone_bach_42",
+              "alto_tenor_section_articulation": "alto_tenor_section_articulation_short",
+              "baritone_horn_bb_identity": "baritone_horn_bb_scored",
+              "tuba_pitch": "tuba_bbb",
+              "tuba_context": "tuba_brass_band",
+              "tuba_bell_metal": "tuba_yellow_brass",
+              "tuba_valve_system": "tuba_rotary_german",
+              "tuba_maker_school": "tuba_miraphone_german"
+            }
+          },
+          "extras": {
+            "parent": "carnivalProcessional",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Bart Coolen/Funkapel Berlicum — complete issued Bloemetjesgordijn–Onze ouwe Sint-Jan carnival-band medley arrangement, published27February2024. The arranger explicitly supplies trumpet, trombone, alto saxophone, baritone, tenor saxophone and B-flat bass parts plus a conductor score, and explicitly excludes percussion parts. Preserve all six sounding instrument types as five family cards, with alto and tenor retained together. Source generally specifies multiple trumpet/trombone/alto lines and single baritone/tenor/B-flat-bass lines, but exact musician counts and optional doubling remain unknown. The public first-trumpet preview spans the complete medley in one page, ending at bar55; all purchased remaining parts were not inspected. This is a complete independently issued instrumental wind arrangement, not a claim that a sung original recording or live carnival performance lacks singers or percussion. No sounding voice part is issued in this selected edition. Conductor notation is not an additional sounding instrument. Oeteldonk is the positively documented Den Bosch carnival repertoire community: its own institution describes150–200clubs, annual original-song Kwèkfestijn competition with60-plus entrants and eleven issued finalists, plus a separate accompanied children festival. Exact creator map includes Wim Kersten, De Twee Pinten, Van Alles Wè and many named local carnival clubs. The arranger explicitly tags this medley Oeteldonk, connecting the edition to the institutional repertoire rather than merely a Dutch place of birth. Existing dweilorkest already covers Dutch festive wind/percussion bands across carnival and other events, without fixed instrumentation; Oeteldonk overlaps that ensemble practice but names a specific songwriting/festival/repertoire network that also includes singers and children performances. Existing dutch_pop/classic_dutch_pop cover broad national popular-music histories, and levenslied the sentimental song tradition; these remain inclusive overlapping umbrellas rather than categories limited to their current exemplars. Accepted carnaval_limburg is a different positively documented regional carnival network, not all Dutch carnival. British brass-band contest practice is not an alias: this edition retains saxophones and Dutch carnival repertoire. The issued wind-only arrangement is a representative branch, not the proposed category boundary by itself. CarnivalProcessional reflects positively documented Dutch carnival-band repertoire and festive public use, not an inferred classical lineage merely because notation exists. Exact trumpet, trombone, baritone and bass hardware are unspecified in the source; B-flat open Bach-style trumpet, open tenor Bach-style trombone, B-flat baritone horn and B-flat Miraphone-style rotary tuba are candid authored constructions. Yellow-brass bells and standard mouthpieces are editorial choices, not measured publisher instruments. Shared punchy wind articulation and short alto/tenor saxophone attacks articulate the festive medley; trombone big-band-punch names an authored sectional attack, not American-jazz membership. Both saxophone sizes remain explicit in the aggregate original owner. All original applicable controls are pinned; shared wind articulation has the same applicable value in trumpet/trombone/tuba. Controlled live-room acoustics are authored, with no claimed original capture chain or global temperament. No percussion or voice is arbitrarily removed from a sounding source: their absence is limited to this separately issued wind-score edition. The up-tempo cue is an authored brisk festive rendition, not a measured performance tempo. Existing tuba brass-band context carries a British-tradition descriptor for that chosen instrument usage, while the repertoire and geographic field remain Dutch; no British ensemble or historical lineage is asserted.",
+            "exemplars": [
+              "Bart Coolen/Funkapel — Bloemetjesgordijn–Onze ouwe Sint-Jan (complete instrumental wind arrangement)"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore sung carnival participation and percussion instead of restricting the whole genre to one wind-only score. Own Kwèkfestijn rules require live singing and wind-playable songs; composer Ton Peters supplies snare/cymbals/bass-drum parts for Oeteldonk repertoire. Existing full kit is a candid compact seated realization of that percussion layer, not a claim the source marching players use one kit or that the old score contained these parts. All eleven kit construction controls and seventeen vocal controls retained alongside full winds. Brisk phrasing and lively group singing are authored.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-17.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "trumpet": "trumpet",
+          "trombone": "trombone",
+          "saxophone_section_alto_tenor": "saxophone_section_alto_tenor",
+          "baritone_horn_bb": "baritone_horn_bb",
+          "tuba": "tuba"
+        },
+        "vocal_count_audit": {
+          "count": 0,
+          "basis": "Selected issued complete wind arrangement lists six wind types and conductor score, no voice part; no claim about original songs or actual carnival crowds."
+        },
+        "scope": "Original documentary source only, not current representative default."
+      }
+    },
+    {
+      "source_label": "old school nederhop",
+      "source_url": "https://everynoise.com/engenremap-oldschoolnederhop.html",
+      "suggested_id": "old_school_nederhop",
+      "allocation_ordinal": 4072,
+      "allocation_group_id": "163",
+      "status": "genre_profile_pending_peer",
+      "id": "old_school_nederhop",
+      "tradition": {
+        "id": "old_school_nederhop",
+        "name": "Old School Nederhop",
+        "family": "hip_hop",
+        "lineage": "Old School Nederhop connects the pioneers of Dutch-language hip-hop with an enduring community of MCs, DJs and listeners. Acts such as Extince and Osdorp Posse helped establish local language, storytelling and identity within hip-hop’s international circulation.",
+        "instruments": [
+          "voice",
+          "turntable"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Direct rhythmic delivery, sampled beats, turntable cuts and recurring hooks shape a sound centered on flow and wordplay. Live MC-and-DJ exchange and boom-bap production remain important reference points.",
+        "exemplars": [
+          "Extince",
+          "Osdorp Posse"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        52.3667,
+        4.8811,
+        "Amsterdam",
+        "Europe"
+      ],
+      "geo_rationale": "Promoter Melkweg Amsterdam identifies the selected announced programme; editorial venue anchor, not unique origin of Nederhop.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.melkweg.nl/nl/agenda/extince-19-03-2027/",
+          "title": "Promoter complete announced rap/turntable programme",
+          "support_notes": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11827view1"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-oldschoolnederhop.html",
+          "title": "Exact creator category membership",
+          "support_notes": "Extince line8, Ouderkerk Kaffers line36; historical national field, not exact performance credits.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11824view0"
+        },
+        {
+          "url": "https://www.houhetzout.nl/en/hou-het-zout/",
+          "title": "First-person old-school/true-school Dutch community",
+          "support_notes": "Hosts identify oldschool/true-school community, boom-bap/storytelling/turntablism, pioneer MC Drieman and ongoing intergenerational programmes. Not used to add hosts to selected concert.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11803view0"
+        },
+        {
+          "url": "https://eu.technics.com/dj/artista/dj-dns/",
+          "title": "Manufacturer artist profile",
+          "support_notes": "DNS turntablism/scratching and work with Extince; separate Decks and Drums ensemble not transferred. Indexed full primary after direct timeout.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11826search1; turn11844search0"
+        }
+      ],
+      "neighbor_distinction": "Old School Nederhop is the historically anchored Dutch hip-hop pioneer repertoire and its continuing revival/turntablist community, within the broader Netherlands hip-hop field. Exact creator category includes Extince, Osdorp Posse, Brainpower, Def Rhymz and Ouderkerk Kaffers. The promoter explicitly presents pioneer-era repertoire and history brought into current live energy, while first-person Hou Het Zout documents a continuing old-school/true-school community led by Ouderkerk Kaffers veteran MC Drieman, with boom-bap, storytelling, turntablism and intergenerational transmission. This is positive institutional continuity beyond simply an older release date. Full existing dutch_hip_hop explicitly covers Netherlands scenes broadly and is not limited to its De Jeugd synth example; it already includes this heritage. The narrower historical community overlaps that umbrella, without renaming it. Existing old_school_hip_hop is explicitly the formative New York field, not every international early rap history; Dutch Rap Pop is a crossover songwriting field, not synonymous with this pioneer community. Current revival performance is not falsely dated1995 and no rigid universal sonic/age cutoff is asserted.",
+      "model_policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the representative MC/turntable setup and all nineteen controls. Directly documented scratching and sampled-passage treatment are meaningful genre practice, not source-unknown DJ reduction. Authored theatrical vocal projection is an affect, not cabaret instrumentation or a different genre.",
+      "classification_evidence": {
+        "mode": "exact_creator_plus_promoter_pioneer_repertoire_and_firsthand_continuing_community",
+        "url": "https://furia.com/everynoise_public/engenremap-oldschoolnederhop.html",
+        "matched_artist": "Extince",
+        "note": "Old School Nederhop is the historically anchored Dutch hip-hop pioneer repertoire and its continuing revival/turntablist community, within the broader Netherlands hip-hop field. Exact creator category includes Extince, Osdorp Posse, Brainpower, Def Rhymz and Ouderkerk Kaffers. The promoter explicitly presents pioneer-era repertoire and history brought into current live energy, while first-person Hou Het Zout documents a continuing old-school/true-school community led by Ouderkerk Kaffers veteran MC Drieman, with boom-bap, storytelling, turntablism and intergenerational transmission. This is positive institutional continuity beyond simply an older release date. Full existing dutch_hip_hop explicitly covers Netherlands scenes broadly and is not limited to its De Jeugd synth example; it already includes this heritage. The narrower historical community overlaps that umbrella, without renaming it. Existing old_school_hip_hop is explicitly the formative New York field, not every international early rap history; Dutch Rap Pop is a crossover songwriting field, not synonymous with this pioneer community. Current revival performance is not falsely dated1995 and no rigid universal sonic/age cutoff is asserted."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the representative MC/turntable setup and all nineteen controls. Directly documented scratching and sampled-passage treatment are meaningful genre practice, not source-unknown DJ reduction. Authored theatrical vocal projection is an affect, not cabaret instrumentation or a different genre."
+        },
+        {
+          "instrument": "turntable",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "turntable_technique": "turntable_scratch"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the representative MC/turntable setup and all nineteen controls. Directly documented scratching and sampled-passage treatment are meaningful genre practice, not source-unknown DJ reduction. Authored theatrical vocal projection is an affect, not cabaret instrumentation or a different genre."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "Seventeen original voice controls and both original turntable controls explicitly pinned; no shared-key collision or fallback.",
+      "dependency_audit": "No new owners; all1638 existing definitions retained.",
+      "verification_status": "Author original-loader 19 protected parts, 1638 unchanged owners, exact historical photo and four actual app formats PASS; editorial affect disclosed for independent judgment. No final integrated CI claim.",
+      "source_scope_limitation": "Historical source programme preserved; public profile and defaults represent broader genre practice.",
+      "primary_retrieval_refs": [
+        "turn11827view1",
+        "turn11824view0",
+        "turn11803view0",
+        "turn11826search1; turn11844search0"
+      ],
+      "source_retrieval_caveat": "Melkweg promoter programme was directly retrieved. Manufacturer-hosted DJ DNS artist profile was recovered through indexed primary text after direct retrieval failed; it supports turntablism practice without identifying the equipment of the future Melkweg event.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "old_school_nederhop",
+          "name": "Old School Nederhop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Extince, DJ DNS or actual source stage/deck hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11621view3 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 bytes/visual receipt reused, no fresh download.",
+          "fresh_review_ref": "turn11621view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11621view3"
+        ]
+      },
+      "source_access_limitation": "Public promoter programme/category/first-person community read; manufacturer profile indexed after timeout. Future programme not observed; detailed timetable not yet final. Exact historical photo bytes inherited.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "old_school_nederhop",
+            "name": "Old School Nederhop",
+            "family": "hip_hop",
+            "lineage": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported. Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people.",
+            "instruments": [
+              "voice",
+              "turntable"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_rhythmic_spoken_flow",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electronic_technique": "electronic_sample_chopped",
+              "turntable_technique": "turntable_scratch"
+            }
+          },
+          "extras": {
+            "parent": "mcRhythm",
+            "axes": {
+              "harm": 0,
+              "pitch": -1,
+              "ornament": 0,
+              "meter": 1,
+              "density": 1,
+              "transmission": 0,
+              "improv": 1,
+              "soundTech": 1,
+              "intensity": 1,
+              "voice": 2,
+              "timbre": 0,
+              "percussion": 2,
+              "cyclicity": 1
+            },
+            "description": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported. Old School Nederhop is the historically anchored Dutch hip-hop pioneer repertoire and its continuing revival/turntablist community, within the broader Netherlands hip-hop field. Exact creator category includes Extince, Osdorp Posse, Brainpower, Def Rhymz and Ouderkerk Kaffers. The promoter explicitly presents pioneer-era repertoire and history brought into current live energy, while first-person Hou Het Zout documents a continuing old-school/true-school community led by Ouderkerk Kaffers veteran MC Drieman, with boom-bap, storytelling, turntablism and intergenerational transmission. This is positive institutional continuity beyond simply an older release date. Full existing dutch_hip_hop explicitly covers Netherlands scenes broadly and is not limited to its De Jeugd synth example; it already includes this heritage. The narrower historical community overlaps that umbrella, without renaming it. Existing old_school_hip_hop is explicitly the formative New York field, not every international early rap history; Dutch Rap Pop is a crossover songwriting field, not synonymous with this pioneer community. Current revival performance is not falsely dated1995 and no rigid universal sonic/age cutoff is asserted. Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people.",
+            "exemplars": [
+              "Extince / DJ DNS — whole announced Melkweg30 jaar Spraakwater programme"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the representative MC/turntable setup and all nineteen controls. Directly documented scratching and sampled-passage treatment are meaningful genre practice, not source-unknown DJ reduction. Authored theatrical vocal projection is an affect, not cabaret instrumentation or a different genre.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-4-metadata-corrected.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "rationale": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported.",
+          "selected_scope": "Whole two-person announced Melkweg2027 programme",
+          "roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Extince rap",
+              "authored_realization": "Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people."
+            },
+            {
+              "instrument": "turntable",
+              "source_role": "DJ DNS turntable performance",
+              "authored_realization": "Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people."
+            }
+          ],
+          "omissions": "No positively announced role omitted; other DNS projects are separate."
+        },
+        "vocal_count_audit": {
+          "credited_selected_singers": [
+            "Extince — rap"
+          ],
+          "selected_count": 1,
+          "count_basis": "One named live MC; no count inferred for embedded records.",
+          "decision": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported."
+        },
+        "scope": "Original documentary source only, not current representative default."
+      }
+    },
+    {
+      "source_label": "rumba",
+      "source_url": "https://everynoise.com/engenremap-rumba.html",
+      "suggested_id": "rumba",
+      "allocation_ordinal": 4227,
+      "allocation_group_id": "170",
+      "id": "rumba",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "rumba",
+        "name": "Rumba (Spanish popular song)",
+        "family": "vernacular",
+        "lineage": "Spanish popular rumba developed through intersecting Romani, Catalan and urban musical communities, drawing on Afro-Cuban rhythmic exchange and flamenco-related guitar practice. Peret, Los Chichos and the Gipsy Kings helped carry its danceable songs into wider popular circulation.",
+        "instruments": [
+          "voice",
+          "flamenco_guitar"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "flamenco_body": "flamenco_blanca_cypress",
+          "flamenco_features": "flamenco_low_action_golpe_plate",
+          "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Propulsive strummed guitar, expressive singing and recurring refrains drive the music. Hand percussion, bass and contemporary band arrangements can extend its rhythmic foundation, while guitar flourishes and vocal responses maintain a communal, celebratory character.",
+        "exemplars": [
+          "Peret",
+          "Los Chichos",
+          "Gipsy Kings"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.6766,
+        4.6278,
+        "Arles",
+        "Europe"
+      ],
+      "geo_rationale": "Artist-owned history identifies formation in Arles; editorial repertoire-artist anchor, not claimed score publication/recording place or exclusive rumba origin.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The immutable rumba label is interpreted through its actual creator corpus as the Spanish popular rumba and cross-border Gitano rumba field, not as an unqualified world umbrella merging Cuban and Congolese traditions. Display qualification makes this explicit. The creator includes Los Chunguitos, Los Chichos, Las Grecas, Peret and Gipsy Kings; Bamboleo itself appears at71. Instituto Cervantes programmes rumba across Peret/GatoPerez and LosChichos/LosChunguitos, extending to newer rock, rap, pop and techno mixtures. The artists own history specifically identifies Bamboleo with Rumba Gitano and Spanish Romani connections in southern France. Existing rumba_catalana positively covers the Barcelona Catalan Gitano tradition and overlaps Peret, its rhythms and descendants; it is not merely one exemplar, and the selected French Gitano branch shares Catalan ancestry. The broader institutional popular-rumba field also encompasses non-Barcelona Spanish branches and newer mixtures, rather than excluding Catalan rumba. Existing nuevo_flamenco covers a wider cross-style flamenco-fusion current, overlapping some artists but not synonymous with rumba repertoire and its community. Full Cuban rumba/yambu/columbia and Congolese/Lingala rumba records have different defined historical practices; their name overlap does not establish equivalence. A solo keyboard edition is one positively issued rendition of this repertoire, not the usual ensemble or a claim the whole field is instrumental.",
+      "classification_evidence": "The immutable rumba label is interpreted through its actual creator corpus as the Spanish popular rumba and cross-border Gitano rumba field, not as an unqualified world umbrella merging Cuban and Congolese traditions. Display qualification makes this explicit. The creator includes Los Chunguitos, Los Chichos, Las Grecas, Peret and Gipsy Kings; Bamboleo itself appears at71. Instituto Cervantes programmes rumba across Peret/GatoPerez and LosChichos/LosChunguitos, extending to newer rock, rap, pop and techno mixtures. The artists own history specifically identifies Bamboleo with Rumba Gitano and Spanish Romani connections in southern France. Existing rumba_catalana positively covers the Barcelona Catalan Gitano tradition and overlaps Peret, its rhythms and descendants; it is not merely one exemplar, and the selected French Gitano branch shares Catalan ancestry. The broader institutional popular-rumba field also encompasses non-Barcelona Spanish branches and newer mixtures, rather than excluding Catalan rumba. Existing nuevo_flamenco covers a wider cross-style flamenco-fusion current, overlapping some artists but not synonymous with rumba repertoire and its community. Full Cuban rumba/yambu/columbia and Congolese/Lingala rumba records have different defined historical practices; their name overlap does not establish equivalence. A solo keyboard edition is one positively issued rendition of this repertoire, not the usual ensemble or a claim the whole field is instrumental.",
+      "model_policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore the positively documented sung flamenco-guitar core instead of compulsory solo-piano cover. Full seventeen voice controls and three actual flamenco-guitar construction/technique controls retained. Cypress body, low action/golpe plate and rasgueado/picado gesture are representative authored physical choices. Core voice and guitar do not exclude wider band/percussion practices. Functional-harmonic verse–chorus–bridge describes this representative popular-song arrangement, not every traditional rumba form.",
+      "source_scope_limitation": "Historical source programme preserved; public profile and defaults represent broader genre practice.",
+      "source_retrieval_caveat": "All three primary catalogue/artist/institution pages directly retrieved; exact creator full programme read. Paid notation not inspected. GipsyKings own historical page is an older retrospective, not treated as current complete lineup.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore the positively documented sung flamenco-guitar core instead of compulsory solo-piano cover. Full seventeen voice controls and three actual flamenco-guitar construction/technique controls retained. Cypress body, low action/golpe plate and rasgueado/picado gesture are representative authored physical choices. Core voice and guitar do not exclude wider band/percussion practices. Functional-harmonic verse–chorus–bridge describes this representative popular-song arrangement, not every traditional rumba form."
+        },
+        {
+          "instrument": "flamenco_guitar",
+          "parts": {
+            "flamenco_body": "flamenco_blanca_cypress",
+            "flamenco_features": "flamenco_low_action_golpe_plate",
+            "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore the positively documented sung flamenco-guitar core instead of compulsory solo-piano cover. Full seventeen voice controls and three actual flamenco-guitar construction/technique controls retained. Cypress body, low action/golpe plate and rasgueado/picado gesture are representative authored physical choices. Core voice and guitar do not exclude wider band/percussion practices. Functional-harmonic verse–chorus–bridge describes this representative popular-song arrangement, not every traditional rumba form."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All three applicable original upright controls explicitly pinned."
+      },
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/gipsy-kings/bamboleo/MN0056746",
+          "title": "Licensed complete four-page piano solo edition",
+          "support_notes": "Bamboleo — complete four-page instrumental piano-solo edition MN0056746, licensed through Musicnotes with Sony/ATV publishing administration. The publisher expressly identifies solo piano, no lyrics, E minor and a quick bright beat marking. Preserve one piano and zero vocal roles for this separate issued edition. The original Gipsy Kings vocal/guitar ensemble and the distinct nine-page piano/vocal/guitar edition MN0056761 are not silently stripped from a purported recording reconstruction: they are different arrangements. Only publisher catalogue metadata was read; paid full notation was not downloaded, and no exact voicing, bar count or audition is asserted.",
+          "retrieval_ref": "turn12099view1"
+        },
+        {
+          "url": "https://www.gipsykings.com/about",
+          "title": "Artist-owned Rumba Gitano history and Bamboleo identity",
+          "support_notes": "Explicit selected composition within RumbaGitano; Arles and SpanishRomani/Catalan heritage. No complete recording roster inferred.",
+          "retrieval_ref": "turn12099view0"
+        },
+        {
+          "url": "https://toulouse.cervantes.es/FichasCultura/Ficha115468_43_1.htm",
+          "title": "Institutional Spanish popular-rumba repertoire field",
+          "support_notes": "Own documentary programme unites Peret/GatoPerez/LosChichos/LosChunguitos and newer rock/rap/pop/techno mixtures. Used for category scope, not music-performance palette.",
+          "retrieval_ref": "turn12102view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3BfEgQqVomK4wv9cYD2k6o",
+          "title": "Exact creator Rumba field and composition bridge",
+          "support_notes": "GipsyKings Bamboleo item71, alongside multiple Spanish popular-rumba branches; score is a different rendition of exact composition.",
+          "retrieval_ref": "turn12095view0"
+        },
+        {
+          "url": "https://www.gipsykings.com/about",
+          "title": "Artist-owned Rumba Gitano practice",
+          "support_notes": "Fresh13690search0 explicitly connects rumba rhythm, flamenco guitars and powerful vocals; supports generic representative core rather than piano-cover-only default."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "rumba",
+          "name": "Rumba (Spanish popular song)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not a piano depiction, the Gipsy Kings or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11976view0 confirms Iain Fergusson/Binksternet CC BY2.5; exact023bytes and original visual receipt inherited.",
+          "fresh_review_ref": "turn11976view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11976view0"
+        ]
+      },
+      "verification_status": "Original-loader three applicable upright controls protected,zero fallbacks,1638existing owners unchanged; exact historical photo receipt and all four actual browser/connector formats PASS. Independent source/category peer pending; no integratedCI claim.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "rumba",
+            "name": "Rumba (Spanish popular song)",
+            "family": "vernacular",
+            "lineage": "Bamboleo — complete four-page instrumental piano-solo edition MN0056746, licensed through Musicnotes with Sony/ATV publishing administration. The publisher expressly identifies solo piano, no lyrics, E minor and a quick bright beat marking. Preserve one piano and zero vocal roles for this separate issued edition. The original Gipsy Kings vocal/guitar ensemble and the distinct nine-page piano/vocal/guitar edition MN0056761 are not silently stripped from a purported recording reconstruction: they are different arrangements. Only publisher catalogue metadata was read; paid full notation was not downloaded, and no exact voicing, bar count or audition is asserted. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the popular rumba composition; it is not a measured transcription of the four-page edition layout. Standard-size studio upright and rhythmic block-chord pop touch are coherent authored piano choices where the licensed edition leaves construction unspecified, preserving melody and harmonic accompaniment within one instrument. Brisk bright execution follows the publisher tempo character without assigning a universal rumba BPM. A controlled live room is authored, not the original source venue. No global tuning or capture apparatus is inferred; no flamenco guitar, palmas or sung part is added to the expressly solo-piano edition. Printed notation alone does not recategorize this popular song as classical art music.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Bamboleo — complete four-page instrumental piano-solo edition MN0056746, licensed through Musicnotes with Sony/ATV publishing administration. The publisher expressly identifies solo piano, no lyrics, E minor and a quick bright beat marking. Preserve one piano and zero vocal roles for this separate issued edition. The original Gipsy Kings vocal/guitar ensemble and the distinct nine-page piano/vocal/guitar edition MN0056761 are not silently stripped from a purported recording reconstruction: they are different arrangements. Only publisher catalogue metadata was read; paid full notation was not downloaded, and no exact voicing, bar count or audition is asserted. The immutable rumba label is interpreted through its actual creator corpus as the Spanish popular rumba and cross-border Gitano rumba field, not as an unqualified world umbrella merging Cuban and Congolese traditions. Display qualification makes this explicit. The creator includes Los Chunguitos, Los Chichos, Las Grecas, Peret and Gipsy Kings; Bamboleo itself appears at71. Instituto Cervantes programmes rumba across Peret/GatoPerez and LosChichos/LosChunguitos, extending to newer rock, rap, pop and techno mixtures. The artists own history specifically identifies Bamboleo with Rumba Gitano and Spanish Romani connections in southern France. Existing rumba_catalana positively covers the Barcelona Catalan Gitano tradition and overlaps Peret, its rhythms and descendants; it is not merely one exemplar, and the selected French Gitano branch shares Catalan ancestry. The broader institutional popular-rumba field also encompasses non-Barcelona Spanish branches and newer mixtures, rather than excluding Catalan rumba. Existing nuevo_flamenco covers a wider cross-style flamenco-fusion current, overlapping some artists but not synonymous with rumba repertoire and its community. Full Cuban rumba/yambu/columbia and Congolese/Lingala rumba records have different defined historical practices; their name overlap does not establish equivalence. A solo keyboard edition is one positively issued rendition of this repertoire, not the usual ensemble or a claim the whole field is instrumental. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the popular rumba composition; it is not a measured transcription of the four-page edition layout. Standard-size studio upright and rhythmic block-chord pop touch are coherent authored piano choices where the licensed edition leaves construction unspecified, preserving melody and harmonic accompaniment within one instrument. Brisk bright execution follows the publisher tempo character without assigning a universal rumba BPM. A controlled live room is authored, not the original source venue. No global tuning or capture apparatus is inferred; no flamenco guitar, palmas or sung part is added to the expressly solo-piano edition. Printed notation alone does not recategorize this popular song as classical art music.",
+            "exemplars": [
+              "Bamboleo — complete licensed piano solo edition MN0056746"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Restore the positively documented sung flamenco-guitar core instead of compulsory solo-piano cover. Full seventeen voice controls and three actual flamenco-guitar construction/technique controls retained. Cypress body, low action/golpe plate and rasgueado/picado gesture are representative authored physical choices. Core voice and guitar do not exclude wider band/percussion practices. Functional-harmonic verse–chorus–bridge describes this representative popular-song arrangement, not every traditional rumba form.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-8.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "upright_piano": "Complete solo-piano edition; upright construction/voicing authored, source piano subtype unspecified."
+        },
+        "vocal_count_audit": {
+          "count": 0,
+          "basis": "Explicit Instrumental Solo piano edition without lyrics, not original vocal recording."
+        },
+        "scope": "Original documentary source only, not current representative default."
+      }
+    },
+    {
+      "source_label": "russian indie",
+      "source_url": "https://everynoise.com/engenremap-russianindie.html",
+      "suggested_id": "russian_indie",
+      "allocation_ordinal": 4231,
+      "allocation_group_id": "170",
+      "id": "russian_indie",
+      "tradition": {
+        "id": "russian_indie",
+        "name": "Russian Indie",
+        "family": "rock",
+        "lineage": "Russian indie develops through independent bands, labels and performance networks, encompassing guitar music, electronic pop and other self-directed approaches. Local scenes and international exchange have shaped diverse Russian-language and instrumental repertoires.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Melodic vocals, interlocking guitars, bass and drums often support compact songs and contrasting textures. Synthesizers and electronic production open additional directions, ranging from restrained intimacy to forceful rhythmic interplay.",
+        "exemplars": [
+          "ЯРЯДОМ",
+          "Le Vent d’Est"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        55.7558,
+        37.6173,
+        "Moscow",
+        "Europe"
+      ],
+      "geo_rationale": "Issuer profile and track production credits identify Moscow; editorial production-community anchor, not inference about all performers residence.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Russian Indie is modeled as the broader independent music community and production/distribution field, with this issuer explicitly tagging the selected release russian indie as well as indie pop/rock. The existing russian_indie_rock full record is a broad overlapping rock field, not limited to Hospital or an English-language era; it already includes guitar-band practice like this selected rendition. The proposed wider community boundary is supported independently by Biasioli’s original fieldwork with42 practitioners, which studies independent music as a social/institutional field rather than one rock sound, and by firsthand duo testimony identifying Russian indie alongside synth-pop/EBM and software production. Those contextual electronic roles are NOT transferred into the selected four-family recording. Russian indie pop, post-punk, synth-pop, Russian rock and Russian electronic categories overlap, but style-specific fields do not by themselves exhaust the wider independent community. No state-opposition, language, generation or anti-commercial purity is imposed universally. Exact EveryNoise artist membership is not asserted; positive exact issuer category tagging plus firsthand wider-field evidence supplies the bridge.",
+      "classification_evidence": "Russian Indie is modeled as the broader independent music community and production/distribution field, with this issuer explicitly tagging the selected release russian indie as well as indie pop/rock. The existing russian_indie_rock full record is a broad overlapping rock field, not limited to Hospital or an English-language era; it already includes guitar-band practice like this selected rendition. The proposed wider community boundary is supported independently by Biasioli’s original fieldwork with42 practitioners, which studies independent music as a social/institutional field rather than one rock sound, and by firsthand duo testimony identifying Russian indie alongside synth-pop/EBM and software production. Those contextual electronic roles are NOT transferred into the selected four-family recording. Russian indie pop, post-punk, synth-pop, Russian rock and Russian electronic categories overlap, but style-specific fields do not by themselves exhaust the wider independent community. No state-opposition, language, generation or anti-commercial purity is imposed universally. Exact EveryNoise artist membership is not asserted; positive exact issuer category tagging plus firsthand wider-field evidence supplies the bridge.",
+      "model_policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the full guitar/bass/drum song-band core and forty-nine controls as a representative branch within the wider independent field. Two-part vocal arrangement is representative, not a fixed band or genre headcount. Authored clean guitar, locked bass, stick kit and functional-harmonic verse–chorus–bridge remain coherent choices.",
+      "sources": [
+        {
+          "url": "https://splosh-splosh.bandcamp.com/track/--14",
+          "support_notes": "ЯРЯДОМ — complete separately issued Решения single, released19August2019 by Splosh. Exact track credits name Vladimir Salyuk lead voice/lead guitar, Dmitriy Kolesnikov backing voice/rhythm guitar, Dmitriy Ponomaryov bass and Stas Dikiy drums. Four people, two singers, four instrument families, both guitar parts retained through one guitar family card. Engineering/mixing/mastering/photo personnel are not additional performing roles. No abbreviated biography or other album palette substitutes for this complete track credit block. Exact issuer russian-indie tag; Moscow profile.",
+          "retrieval_ref": "turn12526view0"
+        },
+        {
+          "url": "https://api.pageplace.de/preview/DT0400.9781040369401_A50616679/preview-9781040369401_A50616679.pdf",
+          "support_notes": "Biasioli2025 original ethnographic study,42 practitioner interviews2016–2019; broad independent social/production field. Category context only, not recording credits.",
+          "retrieval_ref": "turn12526view2"
+        },
+        {
+          "url": "https://www.whitelight-whiteheat.com/le-vent-dest-interview/",
+          "support_notes": "2019 firsthand duo interview explicitly discusses Russian indie scene and synth-pop/EBM/software production. Context only; selected track has no synthesized role in its full credits.",
+          "retrieval_ref": "turn12530search0"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the full guitar/bass/drum song-band core and forty-nine controls as a representative branch within the wider independent field. Two-part vocal arrangement is representative, not a fixed band or genre headcount. Authored clean guitar, locked bass, stick kit and functional-harmonic verse–chorus–bridge remain coherent choices."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the full guitar/bass/drum song-band core and forty-nine controls as a representative branch within the wider independent field. Two-part vocal arrangement is representative, not a fixed band or genre headcount. Authored clean guitar, locked bass, stick kit and functional-harmonic verse–chorus–bridge remain coherent choices."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the full guitar/bass/drum song-band core and forty-nine controls as a representative branch within the wider independent field. Two-part vocal arrangement is representative, not a fixed band or genre headcount. Authored clean guitar, locked bass, stick kit and functional-harmonic verse–chorus–bridge remain coherent choices."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "hand_random_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the full guitar/bass/drum song-band core and forty-nine controls as a representative branch within the wider independent field. Two-part vocal arrangement is representative, not a fixed band or genre headcount. Authored clean guitar, locked bass, stick kit and functional-harmonic verse–chorus–bridge remain coherent choices."
+        }
+      ],
+      "dependency_audit": "Four existing instrument families; no new dependency or shared edit.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "Shared alder value applicable to guitar and bass; all applicable owning parts protected, no unpinned fallback.",
+      "primary_retrieval_refs": [
+        "turn12526view0",
+        "turn12526view2",
+        "turn12530search0"
+      ],
+      "source_retrieval_caveat": "Full label-issued track credits/category read directly; wider-field researcher preview and firsthand duo interview read directly/indexed respectively. No recording audition or exact EveryNoise artist membership claimed.",
+      "source_scope_limitation": "Historical source programme preserved; public profile and defaults represent broader genre practice.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "russian_indie",
+          "name": "Russian Indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not ЯРЯДОМ performers or actual track-session equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12477view0 confirms Iain Fergusson/Binksternet CC BY2.5 and prior crop; exact023 historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn12477view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12477view0"
+        ]
+      },
+      "verification_status": "Original author preflight PASS:49 applicable owning parts47 flat pins, zero fallback/errors,1638 existing owners unchanged, all four browser/connector formats equal and within1000 characters; independent peer pending.",
+      "status": "genre_profile_pending_peer",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "russian_indie",
+            "name": "Russian Indie",
+            "family": "rock",
+            "lineage": "ЯРЯДОМ — complete separately issued Решения single, released19August2019 by Splosh. Exact track credits name Vladimir Salyuk lead voice/lead guitar, Dmitriy Kolesnikov backing voice/rhythm guitar, Dmitriy Ponomaryov bass and Stas Dikiy drums. Four people, two singers, four instrument families, both guitar parts retained through one guitar family card. Engineering/mixing/mastering/photo personnel are not additional performing roles. No abbreviated biography or other album palette substitutes for this complete track credit block. Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_duet",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "medium_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "hand_random_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "ЯРЯДОМ — complete separately issued Решения single, released19August2019 by Splosh. Exact track credits name Vladimir Salyuk lead voice/lead guitar, Dmitriy Kolesnikov backing voice/rhythm guitar, Dmitriy Ponomaryov bass and Stas Dikiy drums. Four people, two singers, four instrument families, both guitar parts retained through one guitar family card. Engineering/mixing/mastering/photo personnel are not additional performing roles. No abbreviated biography or other album palette substitutes for this complete track credit block. Russian Indie is modeled as the broader independent music community and production/distribution field, with this issuer explicitly tagging the selected release russian indie as well as indie pop/rock. The existing russian_indie_rock full record is a broad overlapping rock field, not limited to Hospital or an English-language era; it already includes guitar-band practice like this selected rendition. The proposed wider community boundary is supported independently by Biasioli’s original fieldwork with42 practitioners, which studies independent music as a social/institutional field rather than one rock sound, and by firsthand duo testimony identifying Russian indie alongside synth-pop/EBM and software production. Those contextual electronic roles are NOT transferred into the selected four-family recording. Russian indie pop, post-punk, synth-pop, Russian rock and Russian electronic categories overlap, but style-specific fields do not by themselves exhaust the wider independent community. No state-opposition, language, generation or anti-commercial purity is imposed universally. Exact EveryNoise artist membership is not asserted; positive exact issuer category tagging plus firsthand wider-field evidence supplies the bridge. Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take.",
+            "exemplars": [
+              "ЯРЯДОМ — Решения (2019 full issued single)"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the full guitar/bass/drum song-band core and forty-nine controls as a representative branch within the wider independent field. Two-part vocal arrangement is representative, not a fixed band or genre headcount. Authored clean guitar, locked bass, stick kit and functional-harmonic verse–chorus–bridge remain coherent choices.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-14.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "voice": "Two named voices, lead plus backing.",
+          "electric_guitar_humbucker": "Two named guitarists; exact electric architecture authored from generic source guitar roles.",
+          "electric_bass": "Ponomaryov bass; authored generic electric setup.",
+          "drum_kit": "Dikiy drums; complete kit role retained."
+        },
+        "vocal_count_audit": {
+          "count": 2,
+          "basis": "Exact track names Salyuk lead and Kolesnikov backing voice."
+        },
+        "scope": "Original documentary source only, not current representative default."
+      }
+    },
+    {
+      "source_label": "sound",
+      "source_url": "https://everynoise.com/engenremap-sound.html",
+      "suggested_id": "sound",
+      "allocation_ordinal": 4317,
+      "allocation_group_id": "173",
+      "id": "sound",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "sound",
+        "name": "Sound",
+        "family": "electronic",
+        "lineage": "Sound-centered listening brings environmental recordings, sustained noise and everyday sonic textures into deliberately chosen listening environments. Household appliances, weather and other continuous sources circulate as recordings whose interest lies in texture and duration rather than conventional songs.",
+        "instruments": [
+          "recorded_appliance_sound"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "recorded_appliance_source": "recorded_appliance_hairdryer",
+          "recorded_appliance_envelope": "recorded_appliance_gradual_fade"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Steady broadband textures, slowly changing layers and gradual fades can create a continuous auditory background. Pitch, pulse and human voices are optional rather than defining elements, and recordings vary widely in source and spectral character.",
+        "exemplars": [
+          "Fade Away Sleep Sounds"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.5816,
+        -121.4944,
+        "Sacramento",
+        "North America"
+      ],
+      "geo_rationale": "First-party developer disclosure identifies company Sacramento address; editorial current issuer anchor, not2008 capture location or artist birthplace.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Sound here denotes a functional nonmusical listening field spanning environmental, appliance and colored-noise programmes, positively documented by the exact creator roster and the original Airoldi et al empirical study of reception-defined appliance/nature sound clusters. The study establishes situational sound-listening organization independently of this one producer; it does not claim its YouTube clusters are exactly the Spotify category. Fade Away Sleep Sounds appears in the exact creator roster, supplying the selected-source bridge. Existing field_recording is autonomous aesthetic phonographic practice and can overlap in recorded materials; sound_effects covers effects broadly, not only its selected collage. Sound is not a synonym for either recording technique or effects use. Existing white_noise/pink_noise/color_noise concern spectral/source types; this field crosses those types and natural/appliance origins. Existing sleep is the broader listening function including composed music; this is an overlapping nonmusical programme field with relaxation, masking and sleep uses, not a claim sleep excludes sounds. Existing soundscape_composition/sound_art describe environmental composition or installation practices, while noise/noise_music are artistic noise fields rather than automatic aliases for all appliance noise. No distinction is based on this particular hairdryer or merely a different artist. No health or therapeutic efficacy is endorsed.",
+      "classification_evidence": "Sound here denotes a functional nonmusical listening field spanning environmental, appliance and colored-noise programmes, positively documented by the exact creator roster and the original Airoldi et al empirical study of reception-defined appliance/nature sound clusters. The study establishes situational sound-listening organization independently of this one producer; it does not claim its YouTube clusters are exactly the Spotify category. Fade Away Sleep Sounds appears in the exact creator roster, supplying the selected-source bridge. Existing field_recording is autonomous aesthetic phonographic practice and can overlap in recorded materials; sound_effects covers effects broadly, not only its selected collage. Sound is not a synonym for either recording technique or effects use. Existing white_noise/pink_noise/color_noise concern spectral/source types; this field crosses those types and natural/appliance origins. Existing sleep is the broader listening function including composed music; this is an overlapping nonmusical programme field with relaxation, masking and sleep uses, not a claim sleep excludes sounds. Existing soundscape_composition/sound_art describe environmental composition or installation practices, while noise/noise_music are artistic noise fields rather than automatic aliases for all appliance noise. No distinction is based on this particular hairdryer or merely a different artist. No health or therapeutic efficacy is endorsed.",
+      "model_policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the meaningful recorded-appliance identity and gradual-fade processing controls as one representative environmental-noise branch. The broader field also includes natural and other everyday sources; no particular59-minute edition, device brand, spectral measurement or health effect defines the genre. Existing dry reproduction setting remains an authored listening choice.",
+      "source_scope_limitation": "Historical source programme preserved; public profile and defaults represent broader genre practice.",
+      "source_retrieval_caveat": "US Apple complete issuer album freshly accessible; Singapore URL failed. Founder interview first-person statements separate production facts from unendorsed health claims. Creator same artist, potentially different sound programme. Research is original empirical evidence, not exact creator taxonomy certification.",
+      "primary_retrieval_refs": [
+        "turn13105view0",
+        "turn13105view1",
+        "turn13112view0",
+        "turn13073view0",
+        "turn13074view0",
+        "turn13114search2",
+        "turn13114search8"
+      ],
+      "sources": [
+        {
+          "url": "https://mommabraga.com/2016/09/05/giving-parents-and-babies-a-better-night-sleep-with-fade-away-sleep-sounds/",
+          "checked_date": "2026-10-03",
+          "support_notes": "First-person founder actual appliance recording and full-track slow fade; no efficacy transferred."
+        },
+        {
+          "url": "https://music.apple.com/us/album/hair-dryer-sounds-white-noise/841150665",
+          "checked_date": "2026-10-03",
+          "support_notes": "Exact complete issued one59-minute programme copyrightKevinHale."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0uhfs6RxB1VkLp17K35Ssh",
+          "checked_date": "2026-10-03",
+          "support_notes": "Exact Sound field, FadeAwaySleepSounds member; broad environmental/noise roster."
+        },
+        {
+          "url": "https://kclpure.kcl.ac.uk/ws/portalfiles/portal/78051692/Follow_the_Algorithm_AIROLDI_Publishedonline13May2016_GREEN_AAM_CC_BY_NC_ND_.pdf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Original empirical situational listening clusters: independently supports reception-defined sound field, not exact Spotify partition."
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?hl=en_ZA&id=app.emergent.androidaabbuildb269943e",
+          "checked_date": "2026-10-03",
+          "support_notes": "First-party current issuer city only; no street address needed in data."
+        },
+        {
+          "url": "https://open.spotify.com/artist/5c7VpP33FVLibHz6LKoUgZ",
+          "checked_date": "2026-10-03",
+          "support_notes": "Own profile confirms household-appliance and nature source recordings."
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "recorded_appliance_sound",
+          "parts": {
+            "recorded_appliance_source": "recorded_appliance_hairdryer",
+            "recorded_appliance_envelope": "recorded_appliance_gradual_fade"
+          },
+          "policy": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the meaningful recorded-appliance identity and gradual-fade processing controls as one representative environmental-noise branch. The broader field also includes natural and other everyday sources; no particular59-minute edition, device brand, spectral measurement or health effect defines the genre. Existing dry reproduction setting remains an authored listening choice."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [
+          "recorded_appliance_sound"
+        ],
+        "reused_instruments": []
+      },
+      "flat_pin_resolution": {
+        "rule": "Two source/processing controls protected; no shared keys."
+      },
+      "verification_status": "Original pipeline verified: two applicable protected controls, no fallback, four actual output formats, 1638 existing owners preserved unchanged; independent review pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "sound",
+          "name": "Sound",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a hairdryer depiction, Kevin Hale or actual capture equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13048view0 confirms original Iain Fergusson/Binksternet crop CC BY2.5; inherited023 exact bytes unchanged.",
+          "fresh_review_ref": "turn13048view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13048view0"
+        ],
+        "fresh_rights_review": "Fresh13048view0 rights/context only, no new download or visual claim."
+      },
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "sound",
+            "name": "Sound",
+            "family": "electronic",
+            "lineage": "Fade Away Sleep Sounds — complete Hair Dryer Sounds (White Noise), one59-minute issued recording,1June2008, copyright Kevin Hale. Founder firsthand interview identifies personally recorded household-appliance sounds and a gradual fade to silence at the end of every track; own artist profile confirms household-appliance/nature recordings. Scope is this complete recorded hairdryer sound and fade, not the newer mixed meditation/affirmation app. No musical instrument, spoken guidance or singing is positively credited; incidental embedded human sounds are not asserted impossible. Hairdryer make, motor speed, heater setting, microphone, recording location and edit equipment remain unknown. White Noise is the marketed subtitle, not laboratory proof of flat spectral density. No audition claimed. Ambient-and-drone parent is a scoped listening-environment/beatless texture realization, not a claim electronic synthesis or artistic field-recording identity. Existing schema isolated recorded-appliance owner preserves actual source and the positively stated gradual-fade processing; no fictional sampler, synth, noise generator or measured device controls. All numerical routing axes are neutral authored coordinates, not source measurements. No tuning, meter, pitch, singer or capture apparatus is imposed. Treated studio is an authored reproduction setting, not the source capture site. The full59-minute source remains selected; duration is evidence rather than unsupported engine parameter. The rendered frosty wording describes the explicitly authored dry, clean, close listening presentation; it does not measure the original recording spectrum, identify a cold appliance, or assert thermal or health effects.",
+            "instruments": [
+              "recorded_appliance_sound"
+            ],
+            "room": "treated_studio",
+            "pin_parts": true,
+            "parts": {
+              "recorded_appliance_source": "recorded_appliance_hairdryer",
+              "recorded_appliance_envelope": "recorded_appliance_gradual_fade"
+            }
+          },
+          "extras": {
+            "parent": "experimentalElec.ambient",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Fade Away Sleep Sounds — complete Hair Dryer Sounds (White Noise), one59-minute issued recording,1June2008, copyright Kevin Hale. Founder firsthand interview identifies personally recorded household-appliance sounds and a gradual fade to silence at the end of every track; own artist profile confirms household-appliance/nature recordings. Scope is this complete recorded hairdryer sound and fade, not the newer mixed meditation/affirmation app. No musical instrument, spoken guidance or singing is positively credited; incidental embedded human sounds are not asserted impossible. Hairdryer make, motor speed, heater setting, microphone, recording location and edit equipment remain unknown. White Noise is the marketed subtitle, not laboratory proof of flat spectral density. No audition claimed. Sound here denotes a functional nonmusical listening field spanning environmental, appliance and colored-noise programmes, positively documented by the exact creator roster and the original Airoldi et al empirical study of reception-defined appliance/nature sound clusters. The study establishes situational sound-listening organization independently of this one producer; it does not claim its YouTube clusters are exactly the Spotify category. Fade Away Sleep Sounds appears in the exact creator roster, supplying the selected-source bridge. Existing field_recording is autonomous aesthetic phonographic practice and can overlap in recorded materials; sound_effects covers effects broadly, not only its selected collage. Sound is not a synonym for either recording technique or effects use. Existing white_noise/pink_noise/color_noise concern spectral/source types; this field crosses those types and natural/appliance origins. Existing sleep is the broader listening function including composed music; this is an overlapping nonmusical programme field with relaxation, masking and sleep uses, not a claim sleep excludes sounds. Existing soundscape_composition/sound_art describe environmental composition or installation practices, while noise/noise_music are artistic noise fields rather than automatic aliases for all appliance noise. No distinction is based on this particular hairdryer or merely a different artist. No health or therapeutic efficacy is endorsed. Ambient-and-drone parent is a scoped listening-environment/beatless texture realization, not a claim electronic synthesis or artistic field-recording identity. Existing schema isolated recorded-appliance owner preserves actual source and the positively stated gradual-fade processing; no fictional sampler, synth, noise generator or measured device controls. All numerical routing axes are neutral authored coordinates, not source measurements. No tuning, meter, pitch, singer or capture apparatus is imposed. Treated studio is an authored reproduction setting, not the source capture site. The full59-minute source remains selected; duration is evidence rather than unsupported engine parameter. The rendered frosty wording describes the explicitly authored dry, clean, close listening presentation; it does not measure the original recording spectrum, identify a cold appliance, or assert thermal or health effects.",
+            "exemplars": [
+              "Fade Away Sleep Sounds — Hair Dryer Sounds (White Noise),2008 complete59-minute release"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Replace recording/edition dossier with concise positive genre history and style. Original full source and programme audits remain historical evidence, not universal roster or duration requirements. Retain the meaningful recorded-appliance identity and gradual-fade processing controls as one representative environmental-noise branch. The broader field also includes natural and other everyday sources; no particular59-minute edition, device brand, spectral measurement or health effect defines the genre. Existing dry reproduction setting remains an authored listening choice.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-20.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "scope": "Fade Away Sleep Sounds — complete Hair Dryer Sounds (White Noise), one59-minute issued recording,1June2008, copyright Kevin Hale. Founder firsthand interview identifies personally recorded household-appliance sounds and a gradual fade to silence at the end of every track; own artist profile confirms household-appliance/nature recordings. Scope is this complete recorded hairdryer sound and fade, not the newer mixed meditation/affirmation app. No musical instrument, spoken guidance or singing is positively credited; incidental embedded human sounds are not asserted impossible. Hairdryer make, motor speed, heater setting, microphone, recording location and edit equipment remain unknown. White Noise is the marketed subtitle, not laboratory proof of flat spectral density. No audition claimed.",
+          "roles": {
+            "recorded_appliance_sound": "Recorded hairdryer operation with slow end fade; device/capture hardware unknown."
+          },
+          "authored_defaults": "Ambient-and-drone parent is a scoped listening-environment/beatless texture realization, not a claim electronic synthesis or artistic field-recording identity. Existing schema isolated recorded-appliance owner preserves actual source and the positively stated gradual-fade processing; no fictional sampler, synth, noise generator or measured device controls. All numerical routing axes are neutral authored coordinates, not source measurements. No tuning, meter, pitch, singer or capture apparatus is imposed. Treated studio is an authored reproduction setting, not the source capture site. The full59-minute source remains selected; duration is evidence rather than unsupported engine parameter."
+        },
+        "vocal_count_audit": {
+          "selected_singers": 0,
+          "decision": "No positively credited singer or spoken guidance in selected appliance programme; incidental embedded voices unknown, not asserted absent by audition."
+        },
+        "scope": "Original documentary source only, not current representative default."
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "recorded_appliance_sound",
+        "name": "Recorded household-appliance sound",
+        "short": "Recorded appliance sound",
+        "family": "electronic",
+        "class": "environmental_recording",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "recorded_appliance_source",
+            "name": "Documented recorded source",
+            "variants": [
+              {
+                "id": "recorded_appliance_hairdryer",
+                "name": "Recorded hairdryer operation; model and operating settings unspecified",
+                "default": true,
+                "descriptors": [
+                  "environmental",
+                  "field-recording"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "recorded_appliance_envelope",
+            "name": "Documented programme ending",
+            "variants": [
+              {
+                "id": "recorded_appliance_gradual_fade",
+                "name": "Gradual fade to silence at programme end",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Actual recorded household-appliance operation, preserving source identity and positive end-fade treatment. No assumed noise synthesis, sample-keyboard performance or device specifications. Neutral authored routing coordinates. Source facts support selected hairdryer variant; other appliance types not silently generalized.",
+        "sources": [
+          "https://mommabraga.com/2016/09/05/giving-parents-and-babies-a-better-night-sleep-with-fade-away-sleep-sounds/",
+          "https://music.apple.com/us/album/hair-dryer-sounds-white-noise/841150665",
+          "https://open.spotify.com/artist/5c7VpP33FVLibHz6LKoUgZ"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "recorded_appliance_sound",
+        "name": "Recorded household-appliance sound",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic microphone recording context, not a hairdryer depiction, Kevin Hale or actual capture equipment.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "recorded_appliance_sound",
+          "name": "Recorded household-appliance sound",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a hairdryer depiction, Kevin Hale or actual capture equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13048view0 confirms original Iain Fergusson/Binksternet crop CC BY2.5; inherited023 exact bytes unchanged.",
+          "fresh_review_ref": "turn13048view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13048view0"
+        ],
+        "fresh_rights_review": "Fresh13048view0 rights/context only, no new download or visual claim."
+      },
+      "sources": [
+        "https://mommabraga.com/2016/09/05/giving-parents-and-babies-a-better-night-sleep-with-fade-away-sleep-sounds/",
+        "https://music.apple.com/us/album/hair-dryer-sounds-white-noise/841150665",
+        "https://open.spotify.com/artist/5c7VpP33FVLibHz6LKoUgZ"
+      ],
+      "dependency_rationale": "Existing rain/whale environmental owners have different sources, environmental collage asserts combined recordings, incidental ambience is not this foreground appliance programme. Genuine source identity and documented fade require isolated accurate data, not a duplicated instrument to escape a preface."
+    }
+  ]
+}

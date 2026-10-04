@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice014-healing-hz.json",
+  "packet_sha256": "37b9b9aec97969a66cf9cda080424145c7c37ad065792d7327ea9af40c80731b",
+  "reviewer": "source_audit",
+  "baseline": {
+    "path": "/workspace/CodexMusica-qualified041",
+    "head": "453cd0f1",
+    "owners": 1653
+  },
+  "primary_review": {
+    "issuer": "Fresh turn15437view0 reproduces nine individually issued hand-tuned Z3000 direct sine recordings; the tenth multitone bonus is expressly outside the one-signal realization. Edmonton positively stated. Medical/chakra/DNA claims are not adopted.",
+    "field": "Fresh turn15437view1 actual producer studio supports pure-tone, paired-tone, pulse and noise frequency-listening methods. Exact creator programme turn15437view2 includes multiple frequencies and binaural/delta labels. Selected issuer membership is not asserted.",
+    "boundary": "Full tone, 528hz,432hz and binaural reviewed: broad marketed frequency-listening field overlaps sustained pitch, individual target frequencies and paired-tone methods. Positive named creator field and actual producer practice support the umbrella; no exclusive timbre or clinical effect is needed or claimed."
+  },
+  "metadata": {
+    "immutable_five_fields": "exact",
+    "atlas": "Edmonton / North America valid, source profile location",
+    "signature_tokens": "explicit empty entry-level"
+  },
+  "rights": {
+    "fresh_ref": "turn15447view0",
+    "license": "CC BY 2.5",
+    "credit": "Iain Fergusson; crop by Binksternet",
+    "receipt": "Historical exact250px URL/SHA/33015bytes/250x720 and visual receipt retained, not claimed newly downloaded. Generic microphone is contextual, not direct-sine capture apparatus."
+  },
+  "runtime": {
+    "evidence": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/healing-hz-peer-runtime.json",
+    "protected_controls": 1,
+    "formats": 4,
+    "max_chars": 162,
+    "owners_preserved": 1653,
+    "compiled_api": "actual seed/search/translation passed, zero pin errors",
+    "literal_review": "Austere analog-sine oscillator with beat-free, pure-tone, sustained-tone, drone-like descriptors faithfully expresses the selected steady tone branch. Controlled live-room presentation is authored, not microphone measurement. No global tuning/beat/voice added."
+  },
+  "remaining_blockers": []
+}

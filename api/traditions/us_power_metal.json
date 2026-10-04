@@ -5,7 +5,7 @@
   "lineage": "US power metal developed through heavy-metal and NWOBHM influences, emphasizing weighty riffs and strong melodic singing.",
   "recipe": "classic us power metal, distorted Rock, power branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 433,
-  "score": 33.813,
+  "score": 33.687,
   "config": {
     "traditions": [
       "us_power_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.5575,
           "finish": 0,
-          "string_tuning": 0.228
+          "string_tuning": 0.1965
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.1965,
+          "drumhead": 0.165,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.49350000000000005,
+          "voice_multitrack_stack": 0.43050000000000005,
           "voice_tessitura": 0
         }
       },

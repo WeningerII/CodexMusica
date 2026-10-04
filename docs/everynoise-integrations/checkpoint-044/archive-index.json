@@ -1,0 +1,767 @@
+{
+  "checkpoint": 44,
+  "status": "PASS_LOCAL_SOURCE_BUILD_AND_VALIDATION",
+  "files": [
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/actual-artifact-review-root.json",
+      "archive": "archives/08cde7f13f79fd09fce89978e61482e27ad99063e54f518ee152f5af18e87329.json.txt",
+      "sha256": "08cde7f13f79fd09fce89978e61482e27ad99063e54f518ee152f5af18e87329",
+      "bytes": 7008
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/actual-audit461.log",
+      "archive": "archives/ed8ec99241dbf8edfed484f79b2a30a460aea7cef7e2e32b0e8ee8835ea6f598.log.txt",
+      "sha256": "ed8ec99241dbf8edfed484f79b2a30a460aea7cef7e2e32b0e8ee8835ea6f598",
+      "bytes": 6895
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/actual044-audit.json",
+      "archive": "archives/f17c5a0e09b6ad90e7c15a8112d2aa55539a7252d4b05b3a082dc5eb9adcceca.json.txt",
+      "sha256": "f17c5a0e09b6ad90e7c15a8112d2aa55539a7252d4b05b3a082dc5eb9adcceca",
+      "bytes": 6902
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/actual044-payload-hashes.json",
+      "archive": "archives/d5daf8de02f785bc017d96cbcd7e637f999abd00394d3c24069a64c4b91448a9.json.txt",
+      "sha256": "d5daf8de02f785bc017d96cbcd7e637f999abd00394d3c24069a64c4b91448a9",
+      "bytes": 600610
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/app_recipe_regression.log",
+      "archive": "archives/5fd7d7bc65e6dbfcbec7146ee60e47995cfa7488df6fffb7ded2abd5620cf5b2.log.txt",
+      "sha256": "5fd7d7bc65e6dbfcbec7146ee60e47995cfa7488df6fffb7ded2abd5620cf5b2",
+      "bytes": 281
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/atlas-geo.log",
+      "archive": "archives/a9acc9ebec8988d5a15b98c4fff52a5d2cbabb07ffc03715164efef75a95e786.log.txt",
+      "sha256": "a9acc9ebec8988d5a15b98c4fff52a5d2cbabb07ffc03715164efef75a95e786",
+      "bytes": 145
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/atlas-tree.log",
+      "archive": "archives/09f49f76d62882fc69f7955c4f5ab184b048ea3f2cb454da86c04f8685f88e57.log.txt",
+      "sha256": "09f49f76d62882fc69f7955c4f5ab184b048ea3f2cb454da86c04f8685f88e57",
+      "bytes": 135
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/build-api.log",
+      "archive": "archives/2710d2e2bcf1cc63cd80a8568aeb80096c4eaa241fab440940037692b6ce5163.log.txt",
+      "sha256": "2710d2e2bcf1cc63cd80a8568aeb80096c4eaa241fab440940037692b6ce5163",
+      "bytes": 1572
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/build-discovery.log",
+      "archive": "archives/08d1c14d70a8f74f587abb167c139f196f8fba4f285795c399b0869bae2fd168.log.txt",
+      "sha256": "08d1c14d70a8f74f587abb167c139f196f8fba4f285795c399b0869bae2fd168",
+      "bytes": 123
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/build-html.log",
+      "archive": "archives/b31b2d277923d321d1d7bb0ed0f0338a1e656e7fdb17c542aa227a561684bf8f.log.txt",
+      "sha256": "b31b2d277923d321d1d7bb0ed0f0338a1e656e7fdb17c542aa227a561684bf8f",
+      "bytes": 851
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/build-state.json",
+      "archive": "archives/4ba4440ac5c9ad3057c279581e93c4954f4bebe674f843c9e27da9121ed64fc8.json.txt",
+      "sha256": "4ba4440ac5c9ad3057c279581e93c4954f4bebe674f843c9e27da9121ed64fc8",
+      "bytes": 2128
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check-api.log",
+      "archive": "archives/8036f0a494a1de0f6f41e70336d2f1a536ebe6e644c99cfe80be8215ed77be35.log.txt",
+      "sha256": "8036f0a494a1de0f6f41e70336d2f1a536ebe6e644c99cfe80be8215ed77be35",
+      "bytes": 362
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check-atlas.log",
+      "archive": "archives/0d0150a93c28d285101424ae709ebec3dc8c4d6d1464a893a1fa27d8303bdc88.log.txt",
+      "sha256": "0d0150a93c28d285101424ae709ebec3dc8c4d6d1464a893a1fa27d8303bdc88",
+      "bytes": 2721
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_lazy_app.log",
+      "archive": "archives/1e66d091d6067a9eb10af5d22763da58d0e6e03501d0b911e545b1db47c27e16.log.txt",
+      "sha256": "1e66d091d6067a9eb10af5d22763da58d0e6e03501d0b911e545b1db47c27e16",
+      "bytes": 919
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_minified_equivalence.log",
+      "archive": "archives/bfb71bc19546b532ad47bbcdf9f0622444f5a41d2859967004c284fe735dd34f.log.txt",
+      "sha256": "bfb71bc19546b532ad47bbcdf9f0622444f5a41d2859967004c284fe735dd34f",
+      "bytes": 311
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_slot_picks.log",
+      "archive": "archives/6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56.log.txt",
+      "sha256": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+      "bytes": 30
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/descriptor-frequency.log",
+      "archive": "archives/eb394254f0c0d47961244bb8f9ca505a437b91204a534c364f3059b3a54abf83.log.txt",
+      "sha256": "eb394254f0c0d47961244bb8f9ca505a437b91204a534c364f3059b3a54abf83",
+      "bytes": 402
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/docs-check.log",
+      "archive": "archives/d416a57bcddec13c739235d4437715872d34f7b7c4c343490ddb68af25169e2c.log.txt",
+      "sha256": "d416a57bcddec13c739235d4437715872d34f7b7c4c343490ddb68af25169e2c",
+      "bytes": 450
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/docs-fix.log",
+      "archive": "archives/9364efed55ab7f0004946b9b0c30c87c652c5e38aaa554398a754221892f1b84.log.txt",
+      "sha256": "9364efed55ab7f0004946b9b0c30c87c652c5e38aaa554398a754221892f1b84",
+      "bytes": 5209
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/duplicates.log",
+      "archive": "archives/966c04af549440c90310622384961a6182773380554671362e35188dbcee83a2.log.txt",
+      "sha256": "966c04af549440c90310622384961a6182773380554671362e35188dbcee83a2",
+      "bytes": 69527
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/equivalence.log",
+      "archive": "archives/b3327af264f23e93760272d2c037cfee9c827c89ad4c4c5bfc36368368afb50f.log.txt",
+      "sha256": "b3327af264f23e93760272d2c037cfee9c827c89ad4c4c5bfc36368368afb50f",
+      "bytes": 338
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/evidence-format.log",
+      "archive": "archives/0d123a44571901929e796f8fc6f7be01538e95181a791173acdcc105d8da7886.log.txt",
+      "sha256": "0d123a44571901929e796f8fc6f7be01538e95181a791173acdcc105d8da7886",
+      "bytes": 63
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/format-check.log",
+      "archive": "archives/3cc82d99d9217b2cfa8a9515c004198d1a0d20cf1917d6f10daf4d044f8b3a8e.log.txt",
+      "sha256": "3cc82d99d9217b2cfa8a9515c004198d1a0d20cf1917d6f10daf4d044f8b3a8e",
+      "bytes": 84
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/frozen16-integration.json",
+      "archive": "archives/ac91d5eedef0fb0760c1503e9efa3be2bdf259ca3179ede88ce910156b111d00.json.txt",
+      "sha256": "ac91d5eedef0fb0760c1503e9efa3be2bdf259ca3179ede88ce910156b111d00",
+      "bytes": 728616
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/integrated-projection-review461.json",
+      "archive": "archives/b48d9fd239114d6aa8957d837181b1a68a2507140899e5a2e0fd66ba3074311e.json.txt",
+      "sha256": "b48d9fd239114d6aa8957d837181b1a68a2507140899e5a2e0fd66ba3074311e",
+      "bytes": 949
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/jersey-snapshot-review.json",
+      "archive": "archives/4f965b02e1be41ca8c25c1add6af8bf4bb21a458cd10d839877512528f1a0881.json.txt",
+      "sha256": "4f965b02e1be41ca8c25c1add6af8bf4bb21a458cd10d839877512528f1a0881",
+      "bytes": 1703
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/jersey-targeted-regression.log",
+      "archive": "archives/853a720b089598d3b0e3cf22b2064df6a2c01a36b260156b33bf787c0e793c07.log.txt",
+      "sha256": "853a720b089598d3b0e3cf22b2064df6a2c01a36b260156b33bf787c0e793c07",
+      "bytes": 44
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/jersey-targeted-update.log",
+      "archive": "archives/40ca4128649d36a2d8fe0c346e86a817ddacb88c668af445b50f51710cc548f1.log.txt",
+      "sha256": "40ca4128649d36a2d8fe0c346e86a817ddacb88c668af445b50f51710cc548f1",
+      "bytes": 97
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/lint.log",
+      "archive": "archives/fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57.log.txt",
+      "sha256": "fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57",
+      "bytes": 251
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/new-owner-api-verification.json",
+      "archive": "archives/e5383638c25c2cb24ba6f37613247461f073b9d7ab1da1056a8b7a04dd22c3d7.json.txt",
+      "sha256": "e5383638c25c2cb24ba6f37613247461f073b9d7ab1da1056a8b7a04dd22c3d7",
+      "bytes": 554
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/regression-final.log",
+      "archive": "archives/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.log.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/regression-initial-default-mode.log",
+      "archive": "archives/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.log.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/regression-snapshot-before.json",
+      "archive": "archives/c1d056a3da5e511214c57f05425340ad47b7a9acd73a22cfac584eab118c956f.json.txt",
+      "sha256": "c1d056a3da5e511214c57f05425340ad47b7a9acd73a22cfac584eab118c956f",
+      "bytes": 775205
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/regression.log",
+      "archive": "archives/0a0dad027cff41ef2853d8170037a41c473fa235d9a51379d6f834bdfd5abe68.log.txt",
+      "sha256": "0a0dad027cff41ef2853d8170037a41c473fa235d9a51379d6f834bdfd5abe68",
+      "bytes": 1284
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/regression_prefaces.log",
+      "archive": "archives/bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc.log.txt",
+      "sha256": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+      "bytes": 31
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/repair-integration-report.json",
+      "archive": "archives/c3ab88e098ee1fd4e0ffa383ba129eb6363a621326834ff6130e49e64b1af9ee.json.txt",
+      "sha256": "c3ab88e098ee1fd4e0ffa383ba129eb6363a621326834ff6130e49e64b1af9ee",
+      "bytes": 631
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/signature-tokens.log",
+      "archive": "archives/8b78decea5728595412e5f4f53b9eb1b405d6b2245bee1db8ffc336bea530b92.log.txt",
+      "sha256": "8b78decea5728595412e5f4f53b9eb1b405d6b2245bee1db8ffc336bea530b92",
+      "bytes": 352
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/signatures-check.log",
+      "archive": "archives/12f606a992725aed011f17c04e46c5198cfcf1b184913502a46b5781bf92440f.log.txt",
+      "sha256": "12f606a992725aed011f17c04e46c5198cfcf1b184913502a46b5781bf92440f",
+      "bytes": 70
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/signatures.log",
+      "archive": "archives/041ccf69c93808a5a993139ea75d45787ee7c4370fd6c23e9ec5befc11d9211c.log.txt",
+      "sha256": "041ccf69c93808a5a993139ea75d45787ee7c4370fd6c23e9ec5befc11d9211c",
+      "bytes": 73
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/supporting-check-results.json",
+      "archive": "archives/be80edab4b997430bfc7751bc84e5f24f79d3cb2eb8d9d4b6387093363540942.json.txt",
+      "sha256": "be80edab4b997430bfc7751bc84e5f24f79d3cb2eb8d9d4b6387093363540942",
+      "bytes": 412
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/validate-integrated.log",
+      "archive": "archives/eda09c12c4d4917597ddf42b534fb31244fa3f949fefc6141d926a33e0bc83ad.log.txt",
+      "sha256": "eda09c12c4d4917597ddf42b534fb31244fa3f949fefc6141d926a33e0bc83ad",
+      "bytes": 137
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-005-root-review.json",
+      "archive": "archives/bf7aafc34be654439593ccec20125fce3f4efd03740c4f59573b664e5b6bf586.json.txt",
+      "sha256": "bf7aafc34be654439593ccec20125fce3f4efd03740c4f59573b664e5b6bf586",
+      "bytes": 943
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-005.json",
+      "archive": "archives/998128b06af81f4e298bb0e9b1fe3f32a3e756f01e32abb688b4543fbce5fd4b.json.txt",
+      "sha256": "998128b06af81f4e298bb0e9b1fe3f32a3e756f01e32abb688b4543fbce5fd4b",
+      "bytes": 156099
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/candidate.json",
+      "archive": "archives/1ae2290c4bb97976d67c86911fc1a29b9d132f1af6457988258951fe7667a331.json.txt",
+      "sha256": "1ae2290c4bb97976d67c86911fc1a29b9d132f1af6457988258951fe7667a331",
+      "bytes": 3822918
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/combined-proof.json",
+      "archive": "archives/ec182b6a979c483c9b0af845d2e7639e5933affa44cf0deb138cc4894fddfa76.json.txt",
+      "sha256": "ec182b6a979c483c9b0af845d2e7639e5933affa44cf0deb138cc4894fddfa76",
+      "bytes": 480254
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/qualified-api-overrides.json",
+      "archive": "archives/0ea01bf8305d00bc00bc7c42c9f6081996c98df85d2873af89c3e6328072deba.json.txt",
+      "sha256": "0ea01bf8305d00bc00bc7c42c9f6081996c98df85d2873af89c3e6328072deba",
+      "bytes": 732458
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/qualified-fixture-overrides.json",
+      "archive": "archives/9226078cdbb4d242726fab89cd89b279244338719ad2ca7929bdfb71cb1aca11.json.txt",
+      "sha256": "9226078cdbb4d242726fab89cd89b279244338719ad2ca7929bdfb71cb1aca11",
+      "bytes": 13741
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/source-preservation.json",
+      "archive": "archives/46bd973cdbaeaff411eecf7c0425dc8e42ac20e011644307f4a5e5d85549795a.json.txt",
+      "sha256": "46bd973cdbaeaff411eecf7c0425dc8e42ac20e011644307f4a5e5d85549795a",
+      "bytes": 473
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/source-reconciliation.json",
+      "archive": "archives/13cb6e3ff861f76811bd1b2b585fae88745577b0480cf79d07105c979903aae8.json.txt",
+      "sha256": "13cb6e3ff861f76811bd1b2b585fae88745577b0480cf79d07105c979903aae8",
+      "bytes": 524
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/standalone197-review119.json",
+      "archive": "archives/64fe552548450cedd7f77dd82d029239851a265557d9bf70742368aafbdc708e.json.txt",
+      "sha256": "64fe552548450cedd7f77dd82d029239851a265557d9bf70742368aafbdc708e",
+      "bytes": 1979
+    },
+    {
+      "source": "/workspace/genre-continuation/research/held16-research117/chhattisgarhi-pop-independent-review116.json",
+      "archive": "archives/93e739455cdc45d6228f51f3cdfe1e1e377a31459699345d36973c71e58feae8.json.txt",
+      "sha256": "93e739455cdc45d6228f51f3cdfe1e1e377a31459699345d36973c71e58feae8",
+      "bytes": 3167
+    },
+    {
+      "source": "/workspace/genre-continuation/research/held16-research117/chhattisgarhi_pop-live-realization-scope-final.json",
+      "archive": "archives/1970bc72caf79a3034c0d4be41b732daad718b196f13a6b0707e0e5f34f6d37d.json.txt",
+      "sha256": "1970bc72caf79a3034c0d4be41b732daad718b196f13a6b0707e0e5f34f6d37d",
+      "bytes": 27207
+    },
+    {
+      "source": "/workspace/genre-continuation/research/held16-research117/malayalam_hip_hop-cassette-final.json",
+      "archive": "archives/d5d7c3f86b1aaa98c7d01eced461e537f21d39ac5625d023534f843ee6e70b0b.json.txt",
+      "sha256": "d5d7c3f86b1aaa98c7d01eced461e537f21d39ac5625d023534f843ee6e70b0b",
+      "bytes": 57488
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/api-affected-ids.json",
+      "archive": "archives/51d6b35b5fcd574dcff3c74276b25b273537a73483cf79c525a946770d267ad6.json.txt",
+      "sha256": "51d6b35b5fcd574dcff3c74276b25b273537a73483cf79c525a946770d267ad6",
+      "bytes": 1940
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/api-baseline-replays.json",
+      "archive": "archives/e89b0cf0be82cf1a76cd4df7fdb2bdebc24804f264de35115e4a409880dff708.json.txt",
+      "sha256": "e89b0cf0be82cf1a76cd4df7fdb2bdebc24804f264de35115e4a409880dff708",
+      "bytes": 596381
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/api-candidate-graph.json",
+      "archive": "archives/439b90bbe3e8512d8e61b80698eb527080010d6755eb73294afd2afb4cbd0641.json.txt",
+      "sha256": "439b90bbe3e8512d8e61b80698eb527080010d6755eb73294afd2afb4cbd0641",
+      "bytes": 7217226
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/api-candidate-replays.json",
+      "archive": "archives/d5108acba6f248db25d92fb47b0e86b54269e5084a1a109c5d3e807f8327c278.json.txt",
+      "sha256": "d5108acba6f248db25d92fb47b0e86b54269e5084a1a109c5d3e807f8327c278",
+      "bytes": 596375
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/api-causal-ids.json",
+      "archive": "archives/c305bfb46462e65b0df72d62eea60a21d18ce4642c7e7f8c11f43b567dafd3d2.json.txt",
+      "sha256": "c305bfb46462e65b0df72d62eea60a21d18ce4642c7e7f8c11f43b567dafd3d2",
+      "bytes": 118875
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/baseline-source-binding.json",
+      "archive": "archives/cbd3e0a47066569cbb386e8a952796773e995903feb2c5e70326c3f32e37df5c.json.txt",
+      "sha256": "cbd3e0a47066569cbb386e8a952796773e995903feb2c5e70326c3f32e37df5c",
+      "bytes": 272
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/candidate.json",
+      "archive": "archives/0d786fd4c67290ed0bc5b293b074bd07507f1fb9f5c6373688a4cac120093227.json.txt",
+      "sha256": "0d786fd4c67290ed0bc5b293b074bd07507f1fb9f5c6373688a4cac120093227",
+      "bytes": 4169806
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/collateral-semantic-review461.json",
+      "archive": "archives/672af5b1757787ee29e123d70b3909721a564da913e76b578db5d80c1ce8cea1.json.txt",
+      "sha256": "672af5b1757787ee29e123d70b3909721a564da913e76b578db5d80c1ce8cea1",
+      "bytes": 1560
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/fixture-affected-indexes.json",
+      "archive": "archives/c1dcb107451180a8514446ebc66e673d404fa238f9724f751381753c62c7b3dc.json.txt",
+      "sha256": "c1dcb107451180a8514446ebc66e673d404fa238f9724f751381753c62c7b3dc",
+      "bytes": 154
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/fixture-baseline-replays.json",
+      "archive": "archives/20a218c3231c4c9101fc5cdb36510c1aac703fcb487d305f08d60363b707e7c6.json.txt",
+      "sha256": "20a218c3231c4c9101fc5cdb36510c1aac703fcb487d305f08d60363b707e7c6",
+      "bytes": 328046
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/fixture-candidate-graph.json",
+      "archive": "archives/700e8a8c8bbfede364c1f5559c9d244d81a39b0bb1877b6179ade4d6b2357a6e.json.txt",
+      "sha256": "700e8a8c8bbfede364c1f5559c9d244d81a39b0bb1877b6179ade4d6b2357a6e",
+      "bytes": 1908534
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/fixture-candidate-replays.json",
+      "archive": "archives/985366eda67e6abe7341c36e4f9bcf26ba0b238055af979c38022089be6b0ef2.json.txt",
+      "sha256": "985366eda67e6abe7341c36e4f9bcf26ba0b238055af979c38022089be6b0ef2",
+      "bytes": 327237
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/graph-coverage.json",
+      "archive": "archives/ea20f63d069c7a4ba943c8008445077a2884a0eb5a4c14c919d0bb52908199a4.json.txt",
+      "sha256": "ea20f63d069c7a4ba943c8008445077a2884a0eb5a4c14c919d0bb52908199a4",
+      "bytes": 3440
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/joint197-safe16-qualification461.json",
+      "archive": "archives/baf32ae45d276029c91ffc7d3f9dff9b8c41c81a3318f78a846b9006734d150f.json.txt",
+      "sha256": "baf32ae45d276029c91ffc7d3f9dff9b8c41c81a3318f78a846b9006734d150f",
+      "bytes": 11261
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/new-combined-runtime.json",
+      "archive": "archives/26b027184315bf6a070735158b7cc9e910aa7e5d9ce2089df075e16429022724.json.txt",
+      "sha256": "26b027184315bf6a070735158b7cc9e910aa7e5d9ce2089df075e16429022724",
+      "bytes": 117998
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/new-target-comparison.json",
+      "archive": "archives/6b60ce25338db8ba332620db0095b6c80702fec35d4682fd4f8bafd6b6e449ea.json.txt",
+      "sha256": "6b60ce25338db8ba332620db0095b6c80702fec35d4682fd4f8bafd6b6e449ea",
+      "bytes": 3349
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/replay-comparison.json",
+      "archive": "archives/d1fafb5b853b00a39ab39040d504bed6ec6fa2b2bf9a20d864e0538b61b4ff20.json.txt",
+      "sha256": "d1fafb5b853b00a39ab39040d504bed6ec6fa2b2bf9a20d864e0538b61b4ff20",
+      "bytes": 206832
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/source-evidence-bindings.json",
+      "archive": "archives/54a9e5f26943a5e950d2630b94687ca4c253a139e38917b90debb9011fe379d3.json.txt",
+      "sha256": "54a9e5f26943a5e950d2630b94687ca4c253a139e38917b90debb9011fe379d3",
+      "bytes": 9982
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/source-preservation.json",
+      "archive": "archives/39a8c45dd5049f76997ca65367a58ceced6f0ccbb21531a3df20119f7a59808e.json.txt",
+      "sha256": "39a8c45dd5049f76997ca65367a58ceced6f0ccbb21531a3df20119f7a59808e",
+      "bytes": 376
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-v5-043/joint-two-concerns-review461.json",
+      "archive": "archives/e83f5bba2405359561be60da6978c7b0c92e933de54f9827db757bd73ff03bb3.json.txt",
+      "sha256": "e83f5bba2405359561be60da6978c7b0c92e933de54f9827db757bd73ff03bb3",
+      "bytes": 226
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v5-043/collateral-semantic-provisional461.json",
+      "archive": "archives/f18ea51860d023d2f1c7dfafdc0241b55d5a5b515eac0fc151430b630cd8d057.json.txt",
+      "sha256": "f18ea51860d023d2f1c7dfafdc0241b55d5a5b515eac0fc151430b630cd8d057",
+      "bytes": 10650
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/v5/candidate-safe16.json",
+      "archive": "archives/a8af1098e1cebf13313efe22434ca6132b484750566c1202fd5d044dfbfb2d09.json.txt",
+      "sha256": "a8af1098e1cebf13313efe22434ca6132b484750566c1202fd5d044dfbfb2d09",
+      "bytes": 728094
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next-additions-projection461/v5/candidate18.json",
+      "archive": "archives/9a33970762e5086c123601d4e39cf542817f012822034ca31eb9d398bd24a05a.json.txt",
+      "sha256": "9a33970762e5086c123601d4e39cf542817f012822034ca31eb9d398bd24a05a",
+      "bytes": 726975
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice002-south-african-soulful-deep-house-metadata-final024.json",
+      "archive": "archives/d5596b0f501977951b9c5759a4f297cfd19c6d26b750bb7bf5db5e5289c4d8ee.json.txt",
+      "sha256": "d5596b0f501977951b9c5759a4f297cfd19c6d26b750bb7bf5db5e5289c4d8ee",
+      "bytes": 23494
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice003-deep-dubstep-independent-review-sourceaudit.json",
+      "archive": "archives/e2340fd1b22b05f36ac2938ddc923ba0f3e30ac976065f96ecdd9af3015ea79a.json.txt",
+      "sha256": "e2340fd1b22b05f36ac2938ddc923ba0f3e30ac976065f96ecdd9af3015ea79a",
+      "bytes": 2860
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice003-deep-dubstep-qualified024.json",
+      "archive": "archives/ab87027eb8417bd5860a6c8825f5eb2b8db4d0dc9047e9bd7d7cf9adcd193016.json.txt",
+      "sha256": "ab87027eb8417bd5860a6c8825f5eb2b8db4d0dc9047e9bd7d7cf9adcd193016",
+      "bytes": 12711
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice014-healing-hz-independent-review-sourceaudit.json",
+      "archive": "archives/b1c828c1606cb2fffee2ef17fc811dad0a06575611b73de92cf173b5469919f4.json.txt",
+      "sha256": "b1c828c1606cb2fffee2ef17fc811dad0a06575611b73de92cf173b5469919f4",
+      "bytes": 2418
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice014-healing-hz.json",
+      "archive": "archives/37b9b9aec97969a66cf9cda080424145c7c37ad065792d7327ea9af40c80731b.json.txt",
+      "sha256": "37b9b9aec97969a66cf9cda080424145c7c37ad065792d7327ea9af40c80731b",
+      "bytes": 12179
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice015-hopebeat-arrangement-clarified-independent-review-sourceaudit.json",
+      "archive": "archives/e4d26f3eabe49a75522701b356ddff01525dfdd34d98c4f8a79a45e15c592ce7.json.txt",
+      "sha256": "e4d26f3eabe49a75522701b356ddff01525dfdd34d98c4f8a79a45e15c592ce7",
+      "bytes": 3057
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice015-hopebeat-arrangement-clarified.json",
+      "archive": "archives/f52dc3d386947370d48edc7387e953834f5795d20ec4fe6c617b9d6723f72ea9.json.txt",
+      "sha256": "f52dc3d386947370d48edc7387e953834f5795d20ec4fe6c617b9d6723f72ea9",
+      "bytes": 14679
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice017-dakke-dak-controls-corrected.json",
+      "archive": "archives/c5cb5049c175efeadc86361512a7e887c226056194829d04d52ec4b6788969ba.json.txt",
+      "sha256": "c5cb5049c175efeadc86361512a7e887c226056194829d04d52ec4b6788969ba",
+      "bytes": 12633
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice017-dakke-dak-independent-review-sourceaudit.json",
+      "archive": "archives/d99bbdded7e1bade2362c368330962ce13c437491b843dc7c60cfe90768b8b72.json.txt",
+      "sha256": "d99bbdded7e1bade2362c368330962ce13c437491b843dc7c60cfe90768b8b72",
+      "bytes": 2673
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/modern-downshift-independent-review117.json",
+      "archive": "archives/63a7d641c8fb70bc225fbee6a11c350858ec483be2f44b777fb3a06c758b5101.json.txt",
+      "sha256": "63a7d641c8fb70bc225fbee6a11c350858ec483be2f44b777fb3a06c758b5101",
+      "bytes": 2455
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/sa-soulful-independent-review117.json",
+      "archive": "archives/bfb830270ab9f1ece72658a7f32de87d1ff978e2c7daa110e4bf14a73b5a92b6.json.txt",
+      "sha256": "bfb830270ab9f1ece72658a7f32de87d1ff978e2c7daa110e4bf14a73b5a92b6",
+      "bytes": 2502
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3815-final.json",
+      "archive": "archives/a62f4d612d396673cceff8da39b66af8b08357bf9a69c35b6f425edfa2a3d591.json.txt",
+      "sha256": "a62f4d612d396673cceff8da39b66af8b08357bf9a69c35b6f425edfa2a3d591",
+      "bytes": 11938
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4002-final.json",
+      "archive": "archives/fd305f5f0932cd128067affa5d42bf29c692c740143428fce4212047ac8a6747.json.txt",
+      "sha256": "fd305f5f0932cd128067affa5d42bf29c692c740143428fce4212047ac8a6747",
+      "bytes": 11963
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4040-articulation-clarified.json",
+      "archive": "archives/6a21c0c5f8fe016187ef25df40161cceae5c129e71d00a4d758917f458912a45.json.txt",
+      "sha256": "6a21c0c5f8fe016187ef25df40161cceae5c129e71d00a4d758917f458912a45",
+      "bytes": 16731
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4040-independent-review116.json",
+      "archive": "archives/fbbd7551241c30e2c197bf130dcc3c140a4abaaed1cbff6d15b388152bbf9de5.json.txt",
+      "sha256": "fbbd7551241c30e2c197bf130dcc3c140a4abaaed1cbff6d15b388152bbf9de5",
+      "bytes": 2667
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4360-final.json",
+      "archive": "archives/59a48fbd795009a693b4c31d0aa0baf2184934650b4cf416c1cbe4f90f557fe3.json.txt",
+      "sha256": "59a48fbd795009a693b4c31d0aa0baf2184934650b4cf416c1cbe4f90f557fe3",
+      "bytes": 11594
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/3815-independent-review461.json",
+      "archive": "archives/3cd852648806ffde069a5df5157bca002ddd77a0eb1d179840fbc953e481f84a.json.txt",
+      "sha256": "3cd852648806ffde069a5df5157bca002ddd77a0eb1d179840fbc953e481f84a",
+      "bytes": 1964
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4002-independent-review461.json",
+      "archive": "archives/2ca3f1314bbb5b9adcd62caadfe63ea098cee829c312eb851470d8027b1b05ae.json.txt",
+      "sha256": "2ca3f1314bbb5b9adcd62caadfe63ea098cee829c312eb851470d8027b1b05ae",
+      "bytes": 2444
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4360-independent-review461.json",
+      "archive": "archives/285765d0273fc6918a1b13377f6f252517ff690cca427f32f1d8356bae454724.json.txt",
+      "sha256": "285765d0273fc6918a1b13377f6f252517ff690cca427f32f1d8356bae454724",
+      "bytes": 2016
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4474-scope-reassessment-pass461.json",
+      "archive": "archives/694b7293b6856ee9d1215012350c99ae144d69c01d2cc45e1d36376036d34812.json.txt",
+      "sha256": "694b7293b6856ee9d1215012350c99ae144d69c01d2cc45e1d36376036d34812",
+      "bytes": 2653
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/malayalam-cassette-independent-review461.json",
+      "archive": "archives/b5e85dba844672a9a44dcb1f7cd6dc1731c74e4521eed77c45b5f66453aa6701.json.txt",
+      "sha256": "b5e85dba844672a9a44dcb1f7cd6dc1731c74e4521eed77c45b5f66453aa6701",
+      "bytes": 3827
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice015-underground-amapiano.json",
+      "archive": "archives/bf45ebe49e89f64f4da727f88b01f4fcbde4c2d0562acbf4845dd933c8e5edea.json.txt",
+      "sha256": "bf45ebe49e89f64f4da727f88b01f4fcbde4c2d0562acbf4845dd933c8e5edea",
+      "bytes": 14301
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice016-swazi-traditional-independent-review116.json",
+      "archive": "archives/6c95cf90eb4795fde0c3a0f301354d5e2249f7534c893e97f6e6d7628e53b55a.json.txt",
+      "sha256": "6c95cf90eb4795fde0c3a0f301354d5e2249f7534c893e97f6e6d7628e53b55a",
+      "bytes": 2822
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice016-swazi-traditional-signature-corrected.json",
+      "archive": "archives/bf2d66bc2bcbd8727bdc9d8c3ff39d46dbbb04f24f10158d167556203bce0c95.json.txt",
+      "sha256": "bf2d66bc2bcbd8727bdc9d8c3ff39d46dbbb04f24f10158d167556203bce0c95",
+      "bytes": 17080
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice017-modern-downshift.json",
+      "archive": "archives/982e51d24c7a45e00169f23e56793f273ddd08459adf149c5db5fdc240225bf5.json.txt",
+      "sha256": "982e51d24c7a45e00169f23e56793f273ddd08459adf149c5db5fdc240225bf5",
+      "bytes": 15583
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice018-louvor-independent-review116.json",
+      "archive": "archives/0f5465ed2c8ad00a523911a210dfadc412bf667dae2230455df04a45217105eb.json.txt",
+      "sha256": "0f5465ed2c8ad00a523911a210dfadc412bf667dae2230455df04a45217105eb",
+      "bytes": 2655
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice018-louvor-pacing-clarified.json",
+      "archive": "archives/e27f22a1768b01299bb931e4dd00432e57449162472274cf3fd68f58142915b0.json.txt",
+      "sha256": "e27f22a1768b01299bb931e4dd00432e57449162472274cf3fd68f58142915b0",
+      "bytes": 15157
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/build-state.json",
+      "archive": "archives/d26ebda4f79c1c5912691e0b11373df737943c63c5fb5e5a87075335c89f7c8b.json.txt",
+      "sha256": "d26ebda4f79c1c5912691e0b11373df737943c63c5fb5e5a87075335c89f7c8b",
+      "bytes": 4105
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_app_parity.log",
+      "archive": "archives/994d6a14fceb4b93480e622f3cae9babddbeda6c9502866917b7a20f8080b42c.log.txt",
+      "sha256": "994d6a14fceb4b93480e622f3cae9babddbeda6c9502866917b7a20f8080b42c",
+      "bytes": 312
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_connector_contract.log",
+      "archive": "archives/24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02.log.txt",
+      "sha256": "24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02",
+      "bytes": 6573
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_connector_parity.log",
+      "archive": "archives/e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a.log.txt",
+      "sha256": "e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a",
+      "bytes": 1894
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_edit_differential.log",
+      "archive": "archives/40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571.log.txt",
+      "sha256": "40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571",
+      "bytes": 634
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_edit_parity.log",
+      "archive": "archives/25a349a516805a6ff8a26bef3be12b1bad960a67d0bc2eb95a9ce4787fec9984.log.txt",
+      "sha256": "25a349a516805a6ff8a26bef3be12b1bad960a67d0bc2eb95a9ce4787fec9984",
+      "bytes": 994
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_minified_equivalence.log",
+      "archive": "archives/2247dd5a9d4d49bd25586fa8dd426d763d741d0648b2ba9b5d4f288ed682b95b.log.txt",
+      "sha256": "2247dd5a9d4d49bd25586fa8dd426d763d741d0648b2ba9b5d4f288ed682b95b",
+      "bytes": 765
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_mobile_layout.log",
+      "archive": "archives/791bd69430fade875a65bd3d40bc2879ee6b223c83c0a5e657ab27e95774183d.log.txt",
+      "sha256": "791bd69430fade875a65bd3d40bc2879ee6b223c83c0a5e657ab27e95774183d",
+      "bytes": 225
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_name_isolation.log",
+      "archive": "archives/464ab863d6636674df1180fe6331b3be28fe210b2463512cfb6bf422ef1dac25.log.txt",
+      "sha256": "464ab863d6636674df1180fe6331b3be28fe210b2463512cfb6bf422ef1dac25",
+      "bytes": 205
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_publish_guard.log",
+      "archive": "archives/3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91.log.txt",
+      "sha256": "3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91",
+      "bytes": 315
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/check_workspace_ops.log",
+      "archive": "archives/408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36.log.txt",
+      "sha256": "408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36",
+      "bytes": 3501
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/docs-final-corrected.log",
+      "archive": "archives/c76566bd019cb999dffa9bafd18540a91d4b1cb0be2e173b0e60dc570e715118.log.txt",
+      "sha256": "c76566bd019cb999dffa9bafd18540a91d4b1cb0be2e173b0e60dc570e715118",
+      "bytes": 450
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/docs-final.log",
+      "archive": "archives/6957cc44e88c1fbce7578b50ba6c4345450a79b0327e72a8bc1fd56a3e3fdecf.log.txt",
+      "sha256": "6957cc44e88c1fbce7578b50ba6c4345450a79b0327e72a8bc1fd56a3e3fdecf",
+      "bytes": 787
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/eval_capabilities.log",
+      "archive": "archives/c2dbc65c2e58d9d315c9bef8ef96902c0f20aca77e3ab34762c1b6aa28a35f0c.log.txt",
+      "sha256": "c2dbc65c2e58d9d315c9bef8ef96902c0f20aca77e3ab34762c1b6aa28a35f0c",
+      "bytes": 2406
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/final-scope-review461.json",
+      "archive": "archives/7b299aa9d159dc529023e4dab2973ce8838419f0efeaf51dbb50c310a969ffff.json.txt",
+      "sha256": "7b299aa9d159dc529023e4dab2973ce8838419f0efeaf51dbb50c310a969ffff",
+      "bytes": 15148
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/format-check.log",
+      "archive": "archives/9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd.log.txt",
+      "sha256": "9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd",
+      "bytes": 335
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/regression-final.log",
+      "archive": "archives/ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18.log.txt",
+      "sha256": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+      "bytes": 50
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/supporting-check-results.json",
+      "archive": "archives/03b7e8f19ebc7ef78c116b0ef14fc547b235579f0fb2698063c61d8a35fdeedf.json.txt",
+      "sha256": "03b7e8f19ebc7ef78c116b0ef14fc547b235579f0fb2698063c61d8a35fdeedf",
+      "bytes": 1270
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/archive-format-final.log",
+      "archive": "archives/3dd2d8560c13d8c07521c8e66f4a996e2eded0fbe79a2912a1e28b6e78f9162c.log.txt",
+      "sha256": "3dd2d8560c13d8c07521c8e66f4a996e2eded0fbe79a2912a1e28b6e78f9162c",
+      "bytes": 68
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/archive-format.log",
+      "archive": "archives/ae38f4f7905504681597fa5f96cc204d0fa625a531309d9397e9a926c1f8759b.log.txt",
+      "sha256": "ae38f4f7905504681597fa5f96cc204d0fa625a531309d9397e9a926c1f8759b",
+      "bytes": 80
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint044/format-final.log",
+      "archive": "archives/9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd.log.txt",
+      "sha256": "9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd",
+      "bytes": 335
+    }
+  ],
+  "records": 124,
+  "unique_archives": 122,
+  "archive_hash_validation": "PASS",
+  "qualification_summary": {
+    "repairs": 197,
+    "additions": 16,
+    "new_owners": 1,
+    "built_traditions": 6781,
+    "built_instruments": 1659,
+    "unexpected_actual_api_differences": 0,
+    "original_regression_after_exact_reviewed_update": "1149/1149",
+    "mobile_assertions": 223,
+    "supporting_checks_passed": 15,
+    "old_owner_payloads_byte_equal": 1658,
+    "preserved_repair_holds": 118,
+    "new_deferred_additions": ["groove_room", "chill_breakcore"]
+  }
+}

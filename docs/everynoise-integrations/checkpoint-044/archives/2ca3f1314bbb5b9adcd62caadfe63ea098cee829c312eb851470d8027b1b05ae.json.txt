@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4002-final.json",
+  "packet_sha256": "fd305f5f0932cd128067affa5d42bf29c692c740143428fce4212047ac8a6747",
+  "reviewer": "review461",
+  "baseline": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+  "primary_sources": [
+    {
+      "url": "https://soundcloud.com/livinproof/new-jack-smooth",
+      "ref": "turn15484search0",
+      "finding": "Fresh complete indexed own programme description positively identifies named mix and Teddy Riley/Babyface repertoire, new jack swing/smooth R&B and slow-jam/house-party selection practice; direct endpoint robots blocked candidly."
+    },
+    {
+      "url": "https://ci.nii.ac.jp/ncid/BA84156163",
+      "ref": "turn15484view0",
+      "finding": "Full institutional catalog1996 SBM compilation and Teddy Bear New Jack Smooth mix(no rap) confirms historical named remix usage."
+    }
+  ],
+  "category": "Full new_jack_swing/quiet_storm/smooth_soul records inspected. Overlapping named selection/remix tag positively supported, no exclusive sound or automatic alias asserted. No invented modern-bedroom origin. General R&B-song repertoire and explicit authored verse-chorus-bridge framing support functionalSong.soulRb.",
+  "palette": "Actual practitioner DJ mix retains all recorded voices/instruments within playback; no opaque album masquerading as constructed mix, no unknown additional live players inferred.",
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4002-runtime.json",
+  "controls": 1,
+  "literal_review": "All four browser strings plus full compiled API config/recipe inspected. Amplified layered playback and soft/plush parlor chain coherent with mellow listening branch; wabi-rustic is generic authored texture here, not Japanese repertoire or absence of dance beats. No added vocalist/instrument or source tempo assertion.",
+  "preservation": "1658 old owners unchanged; no new dependency.",
+  "immutable_five_fields": "Exact values and types pass",
+  "atlas": "Original validator returns no errors",
+  "rights": "Generic recording microphone LOW, CC BY2.5 Iain Fergusson/Binksternet attribution; historical023 bytes/visual evidence retained, current rights source independently verified15413view2.",
+  "limits": "Individual source/default approval only; combined global qualification pending.",
+  "mutations": "None"
+}

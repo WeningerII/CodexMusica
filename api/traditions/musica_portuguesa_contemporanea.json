@@ -2,10 +2,10 @@
   "id": "musica_portuguesa_contemporanea",
   "name": "Música Portuguesa Contemporânea",
   "family": "global",
-  "lineage": "Norberto Lobo — Solo, Teatro São Luiz Picadeiro Fest2026 published concert program. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic música portuguesa contemporânea, improv On Frame. conventional tuning standard pitch humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 218,
-  "score": 3.78,
+  "lineage": "Contemporary Portuguese music, including exploratory instrumental composition and improvisation.",
+  "recipe": "classic música portuguesa contemporânea, improv On Frame. humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 183,
+  "score": 1.134,
   "config": {
     "traditions": [
       "musica_portuguesa_contemporanea"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.44999999999999996,
+          "electric_technique": -0.15000000000000002,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,
@@ -39,9 +39,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 0.756,
           "finish": 0,
-          "string_tuning": 1.69
+          "string_tuning": 0.5775
         }
       }
     ],

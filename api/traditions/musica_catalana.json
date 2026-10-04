@@ -2,10 +2,10 @@
   "id": "musica_catalana",
   "name": "Música Catalana",
   "family": "vernacular",
-  "lineage": "Gemma Humet — Miralls, complete solo voice-and-piano stage program. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic música catalana, ballad Poetry. solo with instrumental accompaniment. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 244,
-  "score": 10.085,
+  "lineage": "Catalan music, encompassing traditional and contemporary song, instrumental practice and popular expression.",
+  "recipe": "classic música catalana, ballad Poetry. solo with instrumental accompaniment. grand piano. live tracking.",
+  "recipe_chars": 105,
+  "score": 2.734,
   "config": {
     "traditions": [
       "musica_catalana"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 2.08,
+          "voice_speech_song": 0.40950000000000003,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -69,12 +69,12 @@
           "keyboard_technique": 0.39999999999999997,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
-          "piano_hammer": 0.7,
-          "piano_rim": 0.9999999999999998,
-          "piano_soundboard": 0.7,
-          "piano_pinblock": 1.9999999999999998,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 1.1049999999999998
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],
@@ -110,15 +110,15 @@
         "piano_pitch_standard"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -127,7 +127,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -156,12 +156,6 @@
       "piano_plate": "gray_iron_full_perimeter_plate",
       "piano_pitch_standard": "a_440_modern"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

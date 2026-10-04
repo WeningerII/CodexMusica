@@ -2,10 +2,10 @@
   "id": "new_england_experimental",
   "name": "New England Experimental",
   "family": "jazz",
-  "lineage": "Nmperign — documented acoustic duo practice at Non-Event. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic new england experimental, improv On Frame, jam free branch. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, controlled legato trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 276,
-  "score": 11.394,
+  "lineage": "New England’s experimental music community, spanning free improvisation, abstract sound and new composition.",
+  "recipe": "classic new england experimental, improv On Frame, jam free branch. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 258,
+  "score": 6.449,
   "config": {
     "traditions": [
       "new_england_experimental"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "wind_articulation": 0.26,
-          "sax_size": 0.3,
+          "sax_size": 0,
           "sax_reed": 0,
-          "sax_body_alloy": 0.7314999999999999,
+          "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.1365,
-          "sax_technique": 3.5500000000000003,
-          "sax_maker_school": 3.2945
+          "sax_technique": 2.5,
+          "sax_maker_school": 2.5445
         }
       },
       {
@@ -46,11 +46,11 @@
         "scores": {
           "wind_articulation": 0.26,
           "brass_size": 0.39,
-          "trumpet_mouthpiece": 0.7,
+          "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
-          "trumpet_technique": 1.0499999999999998,
-          "trumpet_bell_metal": 0.3315,
-          "trumpet_maker_school": 0.39
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 0.0315,
+          "trumpet_maker_school": 0.5459999999999999
         }
       }
     ],

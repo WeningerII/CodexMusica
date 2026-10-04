@@ -2,10 +2,10 @@
   "id": "neurostep",
   "name": "Neurostep",
   "family": "electronic",
-  "lineage": "Sample Tools by Cr2 — NEUROSTEP, documented audio-sample production palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "Bass-centered electronic production at the intersection of dubstep, neurofunk and glitch-oriented music.",
   "recipe": "classic neurostep, bass System. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 139,
-  "score": 8.576,
+  "score": 2.543,
   "config": {
     "traditions": [
       "neurostep"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "electronic_technique": -0.094375,
-          "sampler_archetypes": 0.76875,
-          "sampler_bit_depth": 0.39,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.1005,
           "sampler_workflow": 0.2315,
-          "sampler_classic_context": 7.2799999999999985
+          "sampler_classic_context": 2.34
         }
       }
     ],

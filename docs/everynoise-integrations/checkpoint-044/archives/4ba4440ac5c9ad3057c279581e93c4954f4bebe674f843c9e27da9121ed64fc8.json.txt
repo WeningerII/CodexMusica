@@ -1,0 +1,44 @@
+{
+  "status": "SOURCE_FROZEN_API_AND_REGRESSION_RUNNING",
+  "base": "075e974eaae127572d18401788c9f007937609d9",
+  "qualified_base": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+  "tree_identical": true,
+  "traditions": 6781,
+  "instruments": 1659,
+  "repairs": 197,
+  "additions": 16,
+  "old_owner_preservation": 1658,
+  "source_hashes": {
+    "references/02_instruments.js": "bf1d4ab71beecf16c2105fd4fdc8c0e07631923950a760d112ec09d69354e62e",
+    "references/05_traditions.js": "4334f66ad6ae27b0a77e94a1c219a70983f1f836efd026a84d1712c46a00d4b4",
+    "references/06_extras.js": "7d7fec2fbd03b4de527ad22213c04e8f6fb9f15db72afcd1a48211ccd2239208",
+    "data/geo.json": "be22b271a1b9eb5ee890da42e02e2f10a857973fa0e4ac55fa83e417a88b1e93",
+    "references/_tradition_signatures.json": "65c9a0aa2b47182957e38b41b6045739f50b68f9c6e7c7515e106a3d01054562",
+    "references/_image_manifest.json": "59081177f9aa1207ae1b3288eb57334a1d36a3d468ce8420691da5637c2d9555"
+  },
+  "source_commit": "fda8afc03cd6b9c0af3482ae1c780f8c8b7ee3db",
+  "branch": "codex/genres-repairs-next044",
+  "worktree": "/tmp/CodexMusica-next044",
+  "api_session": 32489,
+  "regression_session": 65759,
+  "build_command": "node scripts/build_static_api.js --jobs=2",
+  "regression_command": "REGRESSION_SERIAL=1 node scripts/regression_recipes.js",
+  "snapshot_changes": false,
+  "approved_projection": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/candidate.json",
+  "qualification": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/joint197-safe16-qualification461.json",
+  "aborted_initial_default_mode": {
+    "session": 94465,
+    "reason": "Explicit serial environment required; default worker-pool run stopped before result",
+    "log": "regression-initial-default-mode.log"
+  },
+  "regression_result": {
+    "exit_code": 1,
+    "matched": 1148,
+    "total": 1149,
+    "changed": [
+      "jersey_club"
+    ],
+    "qualification": "Exact previously reviewed optional related-style delta",
+    "snapshot": "UNCHANGED_PENDING_SPECIFIC_ROOT_INTENT"
+  }
+}

@@ -2,10 +2,10 @@
   "id": "neotango",
   "name": "Neotango",
   "family": "jazz",
-  "lineage": "Pablo Aslan Trio — La Boca Blues2022 complete trio recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic neotango, improv On Frame. upright bass, bellows articulated bandoneon, tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 232,
-  "score": 15.727,
+  "lineage": "Contemporary tango approaches that extend the dance tradition through improvisation and new ensemble treatments.",
+  "recipe": "classic neotango, improv On Frame. upright bass, bellows articulated bandoneon, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 191,
+  "score": 8.651,
   "config": {
     "traditions": [
       "neotango"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "upright_strings": 0,
-          "upright_play": 4
+          "upright_play": 3.25
         }
       },
       {
@@ -32,8 +32,8 @@
           "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
         },
         "scores": {
-          "free_reed_technique": 3.5814999999999997,
-          "bandoneon_action": 1.563,
+          "free_reed_technique": 3.9815,
+          "bandoneon_action": 1.663,
           "bandoneon_use": 0,
           "bandoneon_maker_school": -0.05,
           "bandoneon_reed_material": 0
@@ -53,15 +53,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.75,
+          "keyboard_technique": -0.05,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.0315,
-          "piano_hammer": 0.7,
-          "piano_rim": 0.826,
-          "piano_soundboard": 0.7,
-          "piano_pinblock": 2.5999999999999996,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 0.325
+          "piano_hammer": -0.1,
+          "piano_rim": -0.07,
+          "piano_soundboard": 0.2,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

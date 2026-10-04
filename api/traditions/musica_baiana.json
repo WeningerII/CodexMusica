@@ -2,10 +2,10 @@
   "id": "musica_baiana",
   "name": "Música Baiana",
   "family": "pop",
-  "lineage": "Lívia Mattos Trio — current touring formation and announced ALICE 4 November 2026 lineup. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic mid-2020s música baiana, groove Percussion, Latin am branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. accordion, bass line jazz-trained yellow brass canonical orchestral miraphone canonical German orchestral tuba, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 487,
-  "score": 28.186,
+  "lineage": "Music of Bahia, encompassing regional popular traditions and contemporary cross-style performance.",
+  "recipe": "classic música baiana, groove Percussion, Latin am branch. one note per syllable, single lead single track no stacking. accordion, bass line jazz-trained rotary valves canonical German orchestral miraphone canonical German orchestral tuba, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 459,
+  "score": 16.26,
   "config": {
     "traditions": [
       "musica_baiana"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 1.17,
+          "voice_speech_song": 1.2705,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3045,
-          "voice_multitrack_stack": 0.78,
+          "voice_multitrack_stack": 0.7770000000000001,
           "voice_tessitura": 0
         }
       },
@@ -64,8 +64,8 @@
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 0.2,
-          "accordion_reed_material": 0.39,
+          "free_reed_technique": -0.1,
+          "accordion_reed_material": 0.16799999999999998,
           "musette_offset": 0.1365,
           "reed_config": 0,
           "bellows": 0.1365,
@@ -86,9 +86,9 @@
         "scores": {
           "wind_articulation": -0.10500000000000001,
           "tuba_pitch": 0,
-          "tuba_context": 1.17,
-          "tuba_bell_metal": 1.1865,
-          "tuba_valve_system": 0.39,
+          "tuba_context": 1.4385,
+          "tuba_bell_metal": 0.39,
+          "tuba_valve_system": 1.1865,
           "tuba_maker_school": 1.1865
         }
       },
@@ -108,16 +108,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.789999999999996,
-          "drumhead": 1.405,
+          "drum_technique": 2.34,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.005,
+          "shell_wood": 0.39,
           "shell_thickness": 0,
           "bearing_edges": 0.27299999999999996,
           "snare_wires": 0,
           "cymbal_alloy": 0.10000000000000002,
           "cymbal_hammering": 3.0195000000000003,
-          "cymbal_lathing": 2.8680000000000003,
+          "cymbal_lathing": 2.5680000000000005,
           "cymbal_finish": 0
         }
       },

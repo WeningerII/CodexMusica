@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice017-modern-downshift.json",
+  "sha256": "982e51d24c7a45e00169f23e56793f273ddd08459adf149c5db5fdc240225bf5",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "immutable_five": "exact match",
+  "sources": [
+    {
+      "url": "https://open.spotify.com/embed/playlist/1LwkgEPHJYlvhv1YjwVGY2",
+      "assessment": "Fresh exact creator playlist15461view1 item50 Tracenine; full100 read."
+    },
+    {
+      "url": "https://indiemusicpeople.com/artist.aspx?ID=50586",
+      "assessment": "Retained unmodified primary15455view0 independently read full profile lines2-22 and57; fresh direct timed out15461view0, disclosed."
+    },
+    {
+      "url": "https://fastball-music.bandcamp.com/album/breaking-silence",
+      "assessment": "Fresh issuer15461view2 confirms modern/groovy rock-metal and exact ReadyToRoll title."
+    }
+  ],
+  "boundary": "Full actual hard_rock,alternative_rock,alternative_metal,modern_rock records read. Meaningful named discovery corpus with explicit artist bridge and faithful rock branch; overlap candid, no exclusive new movement claim and no positive semantic equivalence proof. Meets clarified named-label coverage criterion.",
+  "roles": "Historical primary explicitly two guitars,bass,drums and all four singing; all retained by family cards without forcing current lineup/session identity.",
+  "controls": 49,
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/modern-downshift-runtime117.json",
+  "literal_review": "All four original outputs read. Punctuated syllabic group singing compatible with heavy melodic hooks; clapping prefix does not require extra handclap instrument. Cheery guitar/confident locked bass/trudging backbeat coherent authored forceful band. No unrelated culture or added sound role. Compiled original configuration retains every pin and four families.",
+  "rights": "Fresh Commons15461view3 confirms CC BY2.5/IainFergusson/Binksternet crop; exact historical023 URL/hash/250x720/33015 receipts preserved, no new byte or visual claim.",
+  "mutations": "none; no dependencies or shared-owner edits",
+  "limitations": [
+    "Individual candidate qualification only; no combined regression claim.",
+    "Historical artist raw receipt reviewed; fresh direct profile retrieval timed out."
+  ]
+}

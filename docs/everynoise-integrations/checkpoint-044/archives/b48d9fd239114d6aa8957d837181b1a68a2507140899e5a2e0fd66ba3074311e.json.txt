@@ -1,0 +1,19 @@
+{
+  "status": "PASS_EXACT_APPROVED_PROJECTION",
+  "base": "075e974eaae127572d18401788c9f007937609d9",
+  "qualified_base": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+  "tree_identical": true,
+  "traditions": 6781,
+  "instruments": 1659,
+  "repairs": 197,
+  "additions": 16,
+  "old_owner_preservation": 1658,
+  "source_hashes": {
+    "references/02_instruments.js": "bf1d4ab71beecf16c2105fd4fdc8c0e07631923950a760d112ec09d69354e62e",
+    "references/05_traditions.js": "4334f66ad6ae27b0a77e94a1c219a70983f1f836efd026a84d1712c46a00d4b4",
+    "references/06_extras.js": "7d7fec2fbd03b4de527ad22213c04e8f6fb9f15db72afcd1a48211ccd2239208",
+    "data/geo.json": "be22b271a1b9eb5ee890da42e02e2f10a857973fa0e4ac55fa83e417a88b1e93",
+    "references/_tradition_signatures.json": "65c9a0aa2b47182957e38b41b6045739f50b68f9c6e7c7515e106a3d01054562",
+    "references/_image_manifest.json": "59081177f9aa1207ae1b3288eb57334a1d36a3d468ce8420691da5637c2d9555"
+  }
+}

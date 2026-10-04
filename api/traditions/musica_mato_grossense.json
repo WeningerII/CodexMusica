@@ -2,10 +2,10 @@
   "id": "musica_mato_grossense",
   "name": "Música mato-grossense",
   "family": "rock",
-  "lineage": "Astral Comedy — hug me, fighter (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s música mato-grossense, distorted Rock, alternative branch. solo with instrumental accompaniment. acoustic guitar, electric bass, midi programmed sound unspecified, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 366,
-  "score": 16.494,
+  "lineage": "Music of Mato Grosso, encompassing regional traditions and contemporary independent song.",
+  "recipe": "classic música mato-grossense, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. acoustic guitar, electric bass, midi programmed sound unspecified, soft felt lacquer voiced 17 ply hard rock maple grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 388,
+  "score": 14.658,
   "config": {
     "traditions": [
       "musica_mato_grossense"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }
       },
@@ -65,8 +65,8 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
-          "string_acoustic": 0.39,
-          "acoustic_om_technique": 0.5499999999999998
+          "string_acoustic": 0.714,
+          "acoustic_om_technique": -0.25
         }
       },
       {
@@ -99,7 +99,7 @@
           "electronic_technique": "midi_programmed_event_sequence"
         },
         "scores": {
-          "midi_programmed_sound_identity": 0.6,
+          "midi_programmed_sound_identity": 0.3,
           "electronic_technique": 0
         }
       },
@@ -118,14 +118,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.39,
+          "grand_piano_size": 0.1365,
           "grand_piano_brand": 0,
-          "piano_hammer": 4.29,
-          "piano_rim": 4.29,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": 1.263,
-          "piano_plate": 0.26,
-          "piano_pitch_standard": 1.1049999999999998
+          "piano_hammer": 4.16,
+          "piano_rim": 4.16,
+          "piano_soundboard": 0.7945,
+          "piano_pinblock": 0.7629999999999999,
+          "piano_plate": 0.8365,
+          "piano_pitch_standard": 0.975
         }
       },
       {
@@ -137,10 +137,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.49999999999999994,
-          "poly_archetypes": 0.39,
-          "poly_voices": 0.3,
-          "poly_maker_lineage": 0.325
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0.1365,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.035
         }
       }
     ],

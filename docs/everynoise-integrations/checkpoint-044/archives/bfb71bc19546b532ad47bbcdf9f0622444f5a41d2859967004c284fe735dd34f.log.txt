@@ -1,0 +1,4 @@
+Building the embedded app twice — unminified and minified…
+Built /tmp/codex_min_off_522346.html (23,657,425 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)

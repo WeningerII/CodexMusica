@@ -5,7 +5,7 @@
   "lineage": "Symphonic rock develops progressive rock through expansive arrangements and orchestral or keyboard-derived colours.",
   "recipe": "classic symphonic rock, distorted Rock, progressive rock branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 78.472,
+  "score": 78.167,
   "config": {
     "traditions": [
       "symphonic_rock"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.0735,
           "pickup_winding": 0.2415,
           "string_material": 0.7769999999999999,
-          "bridge": 0.378,
+          "bridge": 0.2415,
           "scale_length": 1.3230000000000002,
-          "string_gauge": 0.378,
+          "string_gauge": 0.2415,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.063
         }
       },
       {

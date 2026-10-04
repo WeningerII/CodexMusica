@@ -5,7 +5,7 @@
   "lineage": "Murky Red — Time Doesn’t Matter (2012), vocal/guitar-band core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2010s crossover prog, distorted Rock, progressive rock branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 330,
-  "score": 34.182,
+  "score": 34.014,
   "config": {
     "traditions": [
       "crossover_prog"
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.168,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.678,
+          "string_gauge": 1.5415,
           "finish": 0,
-          "string_tuning": 1.3945
+          "string_tuning": 1.363
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.168,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 8.25,
-          "drumhead": 1.3945,
+          "drumhead": 1.363,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.489,
+          "shell_wood": 1.4575,
           "shell_thickness": 0,
           "bearing_edges": 0.8505,
           "snare_wires": 0,

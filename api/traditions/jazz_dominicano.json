@@ -5,7 +5,7 @@
   "lineage": "Dominican jazz musicians; selected Michel Camilo solo piano",
   "recipe": "classic modern jazz dominicano, improv On Frame, Latin jazz branch. grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 225,
-  "score": 1.544,
+  "score": 1.484,
   "config": {
     "traditions": [
       "jazz_dominicano"
@@ -26,13 +26,13 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.363,
+          "grand_piano_size": 0.3315,
           "grand_piano_brand": 0.0315,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
-          "piano_plate": 0.26,
+          "piano_plate": 0.2315,
           "piano_pitch_standard": 0.325
         }
       }

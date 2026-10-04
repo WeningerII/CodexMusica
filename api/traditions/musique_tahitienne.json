@@ -2,10 +2,10 @@
   "id": "musique_tahitienne",
   "name": "Musique tahitienne",
   "family": "global",
-  "lineage": "Teiva LC — Orureraa (2025), complete credited single from Hitireva Tuamoo. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s musique tahitienne, groove Percussion. acoustic guitar, electric bass, credited auxiliary percussion, vivo tahitian, ukulele. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 242,
-  "score": 3.275,
+  "lineage": "Tahitian music, connecting island song and dance traditions with contemporary popular ensembles.",
+  "recipe": "classic musique tahitienne, groove Percussion. group vocals, live take. acoustic guitar, electric bass, credited auxiliary percussion, vivo tahitian, ukulele. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 257,
+  "score": 3.47,
   "config": {
     "traditions": [
       "musique_tahitienne"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.092,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.6824999999999999,
           "voice_tessitura": 0
         }
       },
@@ -107,7 +107,7 @@
           "vivo_tahitian_form": "vivo_tahitian_bamboo_nasal"
         },
         "scores": {
-          "vivo_tahitian_form": 0.0315
+          "vivo_tahitian_form": 0.6315
         }
       },
       {
@@ -118,9 +118,9 @@
           "ukulele_wood": "ukulele_koa"
         },
         "scores": {
-          "ukulele_size": 0.7,
-          "ukulele_style": 1.323,
-          "ukulele_wood": 0.75
+          "ukulele_size": -0.1,
+          "ukulele_style": 1.5230000000000001,
+          "ukulele_wood": -0.05
         }
       }
     ],

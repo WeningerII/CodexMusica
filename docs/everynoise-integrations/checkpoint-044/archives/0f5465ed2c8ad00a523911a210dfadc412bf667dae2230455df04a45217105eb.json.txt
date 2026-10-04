@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice018-louvor-pacing-clarified.json",
+  "sha256": "e27f22a1768b01299bb931e4dd00432e57449162472274cf3fd68f58142915b0",
+  "reviewer": "research116",
+  "timestamp_utc": "2026-10-04T08:51:22.357844+00:00",
+  "source_review": {
+    "urls": [
+      "https://open.spotify.com/embed/playlist/1gT67GuBr4HCKNNhhq6Gnc",
+      "https://open.spotify.com/intl-pt/album/7eyh17FYjbLM1nOJNRWd9T",
+      "https://www.novotempo.com/gravadora-novo-tempo-lanca-historias-de-louvor-e-adoracao-novo-projeto-do-pastor-e-maestro-williams-costa-junior/",
+      "https://www.novotempo.com/historia/",
+      "https://open.spotify.com/embed/album/7eyh17FYjbLM1nOJNRWd9T"
+    ],
+    "refs": [
+      "turn15475view0",
+      "turn15475view1",
+      "turn15475view2",
+      "turn15477view0"
+    ],
+    "finding": "Full100 original creator programme contains Laura Morena15; issuer distributed single explicitly Piano e Voz,4:27, Laura Morena/Silmar Correia/Novo Tempo. Separate own institutional article establishes multigenerational Louvor/Adoração practice; its orchestra is not silently removed from the distinct piano/voice arrangement branch. Genre-practice model does not claim exact master reconstruction."
+  },
+  "category_review": "Full Brazilian Gospel, Adventista, Brazilian CCM and Louvor ICM read. Overlap explicitly preserved; positive named creator field and issuer practice qualify without requiring a new exclusive community. Christian devotional function fits actual sacred parent.",
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice018-peer116-runtime.json",
+  "checks": {
+    "immutable_five_fields": true,
+    "protected_controls": 20,
+    "old_owners_preserved": 1653,
+    "compiled_pin_errors": [],
+    "four_formats_max": 410,
+    "signature_tokens": [],
+    "geo": [
+      -23.3053,
+      -45.9658,
+      "Jacareí",
+      "Latin America & Caribbean"
+    ]
+  },
+  "literal_review": "Four literal outputs individually read: small-note-group singing, plain solo accompanied stack, refined chordal upright and controlled live room. Up-tempo vocal explicitly authored brisk praise rendition, not tempo of original edition; source function allows it. No foreign cultural identity or omitted positive piano/voice role.",
+  "photo_review": "Fresh Commons15477view1 confirms Iain Fergusson/Binksternet crop and CC BY2.5 attribution. Exact historical023 preview dimensions250x720,33015bytes/SHA7a97 retained without new byte/visual claim. LOW generic microphone context does not claim artist gear."
+}

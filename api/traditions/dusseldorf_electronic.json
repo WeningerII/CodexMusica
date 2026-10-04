@@ -5,7 +5,7 @@
   "lineage": "Düsseldorf electronic music draws on a long history of electronic experimentation and independent production. Contemporary musicians continue to connect instrumental performance with new ways of generating and processing sound.",
   "recipe": "classic dusseldorf electronic, experimental Elec, idm glitch branch. a 440 modern pitch us standard grand piano, sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 201,
-  "score": 3.069,
+  "score": 3.016,
   "config": {
     "traditions": [
       "dusseldorf_electronic"
@@ -31,9 +31,9 @@
           "piano_hammer": -0.07,
           "piano_rim": 0.26,
           "piano_soundboard": -0.07,
-          "piano_pinblock": -0.07,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 1.2349999999999999
+          "piano_pitch_standard": 1.2125
         }
       },
       {

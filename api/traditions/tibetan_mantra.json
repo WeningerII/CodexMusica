@@ -5,7 +5,7 @@
   "lineage": "Tibetan Buddhist mantra practice centres on repeated sacred syllables, including Om Mani Padme Hum. It extends from devotional recitation and chant to contemporary meditative musical arrangements.",
   "recipe": "classic East Asian tibetan mantra, ritual Devotional. metrical pitched chant fixed rhythm, single lead single track no stacking. tibetan gompa assembly hall.",
   "recipe_chars": 157,
-  "score": 2.593,
+  "score": 2.562,
   "config": {
     "traditions": [
       "tibetan_mantra"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.8085,
+          "voice_multitrack_stack": 0.7769999999999999,
           "voice_tessitura": 0
         }
       }

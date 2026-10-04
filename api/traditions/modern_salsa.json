@@ -2,10 +2,10 @@
   "id": "modern_salsa",
   "name": "Modern salsa",
   "family": "global",
-  "lineage": "Ola Fresca — Elixir (2015), complete album credits. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s modern salsa, groove Percussion, son salsa branch. mule hide canonical Cuban premium oak staved canonical Cuban conga family multi register, pandero source shaker source guayo source agogo source unspecified, timbales stick played, mule hide canonical Cuban son premium oak staved canonical Cuban bongos, montuno lift coro section cencerro, tenor standard standard backbore trombone, bach stradivarius 180 canonical American orchestral student friendly trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, electric bass, maracas, guiro, low fundamental tuning rosewood claves. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 723,
-  "score": 60.719,
+  "lineage": "Contemporary salsa, renewing son-derived dance-band practice through new compositions, arrangements and cross-style influences.",
+  "recipe": "classic modern salsa, groove Percussion, son salsa branch. mule hide canonical Cuban premium oak staved canonical Cuban conga family multi register, pandero source shaker source guayo source agogo source unspecified, timbales stick played, mule hide canonical Cuban son premium oak staved canonical Cuban bongos, montuno lift coro section cencerro, bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, bach stradivarius 180 canonical American orchestral student friendly trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, electric bass, maracas, guiro, claves. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 725,
+  "score": 54.398,
   "config": {
     "traditions": [
       "modern_salsa"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.168,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "conga_complement": 0.4095,
-          "percussion_technique": -0.1,
-          "conga_skin": 3.5100000000000002,
-          "conga_shell_wood": 3.12
+          "percussion_technique": 0.2,
+          "conga_skin": 2.34,
+          "conga_shell_wood": 2.34
         }
       },
       {
@@ -82,7 +82,7 @@
           "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
         },
         "scores": {
-          "shaker_source_unspecified_identity": 0.5145000000000001
+          "shaker_source_unspecified_identity": 0.39
         }
       },
       {
@@ -91,7 +91,7 @@
           "guayo_source_unspecified_identity": "guayo_source_unspecified_named_role"
         },
         "scores": {
-          "guayo_source_unspecified_identity": 0.5145000000000001
+          "guayo_source_unspecified_identity": 0.39
         }
       },
       {
@@ -111,8 +111,8 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "timbales_playing": 0.5145000000000001,
-          "timbales_shell": 0.3,
+          "timbales_playing": 0.39,
+          "timbales_shell": 0,
           "timbales_context": 0.1365
         }
       },
@@ -125,10 +125,10 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": -0.1,
-          "bongos_skin": 10.335,
+          "percussion_technique": 0.2,
+          "bongos_skin": 11.439999999999998,
           "bongos_context": 0.0315,
-          "bongos_shell_wood": 3.12
+          "bongos_shell_wood": 2.34
         }
       },
       {
@@ -157,12 +157,12 @@
         },
         "scores": {
           "wind_articulation": -0.10500000000000001,
-          "trombone_type": 0.75,
-          "trombone_mouthpiece": 3.5,
+          "trombone_type": -0.05,
+          "trombone_mouthpiece": 3.2,
           "trombone_mute": 0,
-          "trombone_technique": 0.9555,
-          "trombone_bell_metal": 0.5459999999999999,
-          "trombone_maker_school": 0.39
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 1.0395000000000003
         }
       },
       {
@@ -182,7 +182,7 @@
           "trumpet_mouthpiece": 3.2,
           "brass_mute": 0,
           "trumpet_technique": -0.10500000000000001,
-          "trumpet_bell_metal": 0.5459999999999999,
+          "trumpet_bell_metal": 0.39,
           "trumpet_maker_school": 1.0395000000000003
         }
       },
@@ -200,15 +200,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.25,
+          "keyboard_technique": -0.05,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.27299999999999996,
           "piano_hammer": 3.2,
           "piano_rim": 3.2,
           "piano_soundboard": 3.305,
-          "piano_pinblock": 4.605,
+          "piano_pinblock": 4.305000000000001,
           "piano_plate": 3.2,
-          "piano_pitch_standard": 3.781
+          "piano_pitch_standard": 3.481
         }
       },
       {
@@ -230,7 +230,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -241,7 +241,7 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.3315,
+          "maracas_construction": 0.0315,
           "maracas_filling": 0.0315
         }
       },
@@ -252,7 +252,7 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 0.3315,
+          "guiro_origin": 0.0315,
           "guiro_striker": 0.1365
         }
       },
@@ -263,8 +263,8 @@
           "claves_wood": "claves_rosewood"
         },
         "scores": {
-          "claves_pattern": 0.39,
-          "claves_wood": 1.55
+          "claves_pattern": 0.273,
+          "claves_wood": -0.05
         }
       }
     ],

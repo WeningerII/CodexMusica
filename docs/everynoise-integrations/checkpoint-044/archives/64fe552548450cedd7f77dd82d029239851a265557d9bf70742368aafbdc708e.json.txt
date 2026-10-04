@@ -1,0 +1,31 @@
+{
+  "status": "PASS197_ON_ACTUAL043",
+  "baseline_commit": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+  "repairs": 197,
+  "held_original_proposals_preserved": 118,
+  "full_api_graph": 6765,
+  "full_fixture_definitions": 1174,
+  "api_replays": 484,
+  "fixture_replays": 50,
+  "intended_source_configs": 102,
+  "compatible_collateral_configs": 9,
+  "baseline_equal_replayed_api": 373,
+  "fixture_config_alternatives": 3,
+  "fixture_recipe_changes": 0,
+  "new_delta_versus042_qualification": "Only corrected Methodist recipe/config inherited from043, preserved exactly; no new197 drift.483other affected recipes byte-identical.",
+  "source_preserved": "All6568 outside rows and1658 owners unchanged; named3 and updatedfixture source untouched.",
+  "next": "Joint197+18 additions not yet qualified; do not substitute standalone evidence for combined approval.",
+  "hashes": {
+    "candidate.json": "1ae2290c4bb97976d67c86911fc1a29b9d132f1af6457988258951fe7667a331",
+    "source-reconciliation.json": "13cb6e3ff861f76811bd1b2b585fae88745577b0480cf79d07105c979903aae8",
+    "source-preservation.json": "46bd973cdbaeaff411eecf7c0425dc8e42ac20e011644307f4a5e5d85549795a",
+    "graph-and-fixture-reconciliation.json": "d6c93c9452fe1e358806c7aaf887cf2e06c3eb3dd05bad715f9629aebdf69950",
+    "target-reconciliation.json": "00cfbfd14ef2d6bf75e775a64addfd06d357a7e9b630fd8c37140be49b5c7313",
+    "baseline-configs.json": "4e8080ef9448d8ee90bdbb9a687e9df4eeeea6c5613d778895cc0c46e48e0303",
+    "combined-proof.json": "ec182b6a979c483c9b0af845d2e7639e5933affa44cf0deb138cc4894fddfa76",
+    "recipe-reconciliation.json": "8ca79d1dfbbac05adfd82c17a760ac8ea8b9b4975f34c0d616ef6a9176c77321",
+    "qualified-api-overrides.json": "0ea01bf8305d00bc00bc7c42c9f6081996c98df85d2873af89c3e6328072deba",
+    "qualified-fixture-overrides.json": "9226078cdbb4d242726fab89cd89b279244338719ad2ca7929bdfb71cb1aca11",
+    "validator.log": "fe718205d27bf164ff7e911eca200900aee829819b8f1ca32acdc2e0e41dd5e1"
+  }
+}

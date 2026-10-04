@@ -2,10 +2,10 @@
   "id": "palestinian_traditional",
   "name": "Palestinian Traditional",
   "family": "global",
-  "lineage": "Nizar Rohana — Safa (2024), complete solo-oud album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s palestinian traditional, art Music, middle eastern classical branch. nylon plastic pyramid arab school oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 224,
-  "score": 10.065,
+  "lineage": "Palestinian musical traditions carried through family practice, regional repertoire and contemporary performers.",
+  "recipe": "classic palestinian traditional, art Music, middle eastern classical branch. nylon plastic pyramid arab school oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 214,
+  "score": 9.85,
   "config": {
     "traditions": [
       "palestinian_traditional"
@@ -26,10 +26,10 @@
           "plucked_traditional_technique": 3.75,
           "oud_school": 0.567,
           "oud_strings": 1.95,
-          "oud_pick": 1.0679999999999998,
-          "oud_body_wood": 0.78,
-          "oud_soundboard_wood": 0.78,
-          "oud_string_material": 1.17
+          "oud_pick": 1.168,
+          "oud_body_wood": 0.546,
+          "oud_soundboard_wood": 0.546,
+          "oud_string_material": 1.3229999999999997
         }
       }
     ],

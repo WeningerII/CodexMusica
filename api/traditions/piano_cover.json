@@ -2,10 +2,10 @@
   "id": "piano_cover",
   "name": "Piano Cover",
   "family": "pop_rock",
-  "lineage": "Rausch — Solo Piano Collection (2025), complete nine-piece instrumental release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s piano cover, functional Song, pop rock branch. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 230,
-  "score": 20.98,
+  "lineage": "Piano reinterpretations of previously existing songs and instrumental repertoire.",
+  "recipe": "classic piano cover, functional Song, pop rock branch. soft felt lacquer voiced 17 ply hard rock maple arpeggiated grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 226,
+  "score": 7.557,
   "config": {
     "traditions": [
       "piano_cover"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 4.555000000000001,
-          "grand_piano_size": 0.39,
+          "keyboard_technique": 3.805,
+          "grand_piano_size": 0.0945,
           "grand_piano_brand": 0.2625,
-          "piano_hammer": 4.029999999999999,
-          "piano_rim": 5.720000000000001,
-          "piano_soundboard": 0.9099999999999999,
-          "piano_pinblock": 2.063,
-          "piano_plate": 1.063,
-          "piano_pitch_standard": 1.9859999999999998
+          "piano_hammer": 1.8199999999999998,
+          "piano_rim": 1.8199999999999998,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

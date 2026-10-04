@@ -2,10 +2,10 @@
   "id": "musica_guerrerense",
   "name": "Musica Guerrerense",
   "family": "vernacular",
-  "lineage": "Antonio Rivera — La Malagueña Guerrerense, Sones of Mexico track201. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Regional music of Guerrero, Mexico, including locally transmitted son and verse-centered song.",
   "recipe": "classic musica guerrerense, ballad Poetry. solo with instrumental accompaniment. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 209,
-  "score": 3.777,
+  "score": 4.258,
   "config": {
     "traditions": [
       "musica_guerrerense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.40950000000000003,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 1.56,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

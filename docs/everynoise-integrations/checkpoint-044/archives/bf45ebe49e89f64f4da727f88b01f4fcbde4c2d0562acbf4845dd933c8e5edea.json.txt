@@ -1,0 +1,193 @@
+{
+  "entries": [
+    {
+      "source_label": "underground amapiano",
+      "source_url": "https://everynoise.com/engenremap-undergroundamapiano.html",
+      "suggested_id": "underground_amapiano",
+      "allocation_ordinal": 4474,
+      "allocation_group_id": "179",
+      "id": "underground_amapiano",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "underground_amapiano",
+        "name": "Underground Amapiano",
+        "family": "electronic",
+        "lineage": "Underground amapiano circulates through producer networks, specialist selections and club communities in South Africa and abroad. Selectors connect vocal tracks, weighty bass grooves and spacious instrumental arrangements, bringing less widely circulated work into conversation with established releases.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.africanDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "Vocal refrains, deep bass figures and roomy rhythmic layers move through extended selections. DJs link tracks into a continuous groove, while specialist circulation connects emerging producers with the wider amapiano audience.",
+        "exemplars": [
+          "Sfarzo Rtee",
+          "Officixl RSA",
+          "Bongza",
+          "Nicky Summers — specialist DJ selections"
+        ],
+        "status": "documented",
+        "crossRefs": [],
+        "signature_tokens": []
+      },
+      "geo": [
+        -26.2041,
+        28.0473,
+        "Johannesburg",
+        "Africa"
+      ],
+      "geo_rationale": "Approximate South African metropolitan field anchor within documented amapiano origins and circulation; the selected first-person DJ also works in London. No specific session location is asserted.",
+      "sources": [
+        {
+          "url": "https://open.spotify.com/embed/playlist/60u9ZHJHOBYU7yPFB3fJX1",
+          "support_notes": "Exact creator titled corpus, direct15427view0, instrumental and vocal releases alongside shared established contributors; no strict popularity threshold inferred."
+        },
+        {
+          "url": "https://www.stampthewax.com/2022/11/09/a-brief-history-of-underground-amapiano/",
+          "support_notes": "Full firsthand15423view1 interview and commissioned DJ set: specialist underground-amapiano selections, recorded vocals/heavy bass and performance practice. Embedded mix link currently failed; exact duration or full tracklist not claimed."
+        },
+        {
+          "url": "https://nkc.productions/marcusdamon.html",
+          "support_notes": "Firsthand producer interview independently documents UK underground-amapiano and Afro-house collaborative circulation; contextual geography beyond South Africa, not selected performance roster."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15427view0",
+        "turn15423view1",
+        "turn15421search2"
+      ],
+      "model_policy": "Representative specialist DJ selection and mixing practice, positively documented in Nicky Summers’s first-person underground-amapiano interview and commissioned set. Existing whole DJ-playback/mixing owner retains the playback and mixing operation with all recorded voices, bass, keyboards and percussion embedded in the selected records; no live singers, players or exact deck/software model are invented. This is a genuine DJ practice, not an attempt to identify stems inside finished music. A spacious shoebox-hall listening presentation is an authored optional environment, not the measured Jazz Cafe or a claimed recording location. No tempo measurement or extra live source is asserted. The recorded producer field is wider than this performance branch; production roles described in contextual prose are not newly performed by the DJ.",
+      "authored_render_scope": "Representative specialist DJ selection and mixing practice, positively documented in Nicky Summers’s first-person underground-amapiano interview and commissioned set. Existing whole DJ-playback/mixing owner retains the playback and mixing operation with all recorded voices, bass, keyboards and percussion embedded in the selected records; no live singers, players or exact deck/software model are invented. This is a genuine DJ practice, not an attempt to identify stems inside finished music. A spacious shoebox-hall listening presentation is an authored optional environment, not the measured Jazz Cafe or a claimed recording location. No tempo measurement or extra live source is asserted. The recorded producer field is wider than this performance branch; production roles described in contextual prose are not newly performed by the DJ.",
+      "neighbor_distinction": "The full existing Amapiano definition already includes bass, keyboards, vocals, DJ blending and digital community distribution, including underground roots; it is not merely a commercial-hit or named-artist exemplar. Underground Amapiano is the creator’s narrower discovery grouping of producers and their circulation, corroborated by a first-person specialist selector’s use of the same field label. It overlaps the broad genre, including established contributors, rather than imposing an invented hard sound or popularity threshold. The exact corpus includes Sfarzo Rtee, KMAT, Officixl RSA, Bongza and other networks alongside shared Kabza/Maphorisa collaborators. Gospel Amapiano is the separate devotional-function subset, not a synonym for this nonexclusive discovery grouping. Afro house and deep house remain broader or neighboring dance-production lineages; the selected DJ practice crosses those influences without redefining them.",
+      "classification_evidence": "The full existing Amapiano definition already includes bass, keyboards, vocals, DJ blending and digital community distribution, including underground roots; it is not merely a commercial-hit or named-artist exemplar. Underground Amapiano is the creator’s narrower discovery grouping of producers and their circulation, corroborated by a first-person specialist selector’s use of the same field label. It overlaps the broad genre, including established contributors, rather than imposing an invented hard sound or popularity threshold. The exact corpus includes Sfarzo Rtee, KMAT, Officixl RSA, Bongza and other networks alongside shared Kabza/Maphorisa collaborators. Gospel Amapiano is the separate devotional-function subset, not a synonym for this nonexclusive discovery grouping. Afro house and deep house remain broader or neighboring dance-production lineages; the selected DJ practice crosses those influences without redefining them.",
+      "source_scope_limitation": "Documented genre-level DJ practice, not a claimed complete decoded tracklist or production-stem reconstruction. Embedded recorded singers and musicians remain unknown within DJ playback.",
+      "source_retrieval_caveat": "Exact creator playlist and full participant interview retrieved. Original map403 and embedded Mixcloud click failed; those failures do not supply any duration or tracklist claims.",
+      "instrument_role_audit": {
+        "dj_playback_mixing_unspecified": "Source-positive selecting and mixing records, including embedded vocal/instrumental material; no new live roles."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Representative specialist DJ selection and mixing practice, positively documented in Nicky Summers’s first-person underground-amapiano interview and commissioned set. Existing whole DJ-playback/mixing owner retains the playback and mixing operation with all recorded voices, bass, keyboards and percussion embedded in the selected records; no live singers, players or exact deck/software model are invented. This is a genuine DJ practice, not an attempt to identify stems inside finished music. A spacious shoebox-hall listening presentation is an authored optional environment, not the measured Jazz Cafe or a claimed recording location. No tempo measurement or extra live source is asserted. The recorded producer field is wider than this performance branch; production roles described in contextual prose are not newly performed by the DJ."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "underground_amapiano",
+          "name": "Underground Amapiano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic audio recording context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15196view0 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn15196view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15196view0"
+        ],
+        "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
+      }
+    }
+  ]
+}

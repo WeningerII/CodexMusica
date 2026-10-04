@@ -2,10 +2,10 @@
   "id": "musica_gaucha_tradicionalista",
   "name": "Musica Gaucha Tradicionalista",
   "family": "vernacular",
-  "lineage": "Murilo Finger — voice-and-guitar traditionalist show, Sapiranga9September2017. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Traditionalist music of Rio Grande do Sul, sustaining gaúcho regional identity through song, dance and community gatherings.",
   "recipe": "classic musica gaucha tradicionalista, ballad Poetry. solo with instrumental accompaniment. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 220,
-  "score": 3.817,
+  "score": 3.516,
   "config": {
     "traditions": [
       "musica_gaucha_tradicionalista"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

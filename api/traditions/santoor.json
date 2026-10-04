@@ -2,10 +2,10 @@
   "id": "santoor",
   "name": "Santoor",
   "family": "classical",
-  "lineage": "Kunal Gunjal and Amit Kavthekar — When Time Stood Still (Reprise), complete 2026 album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s santoor, improv On Frame, indian classical improv branch. steel modern santoor canonical lineage santoor, indian rosewood rosewood brass tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 260,
-  "score": 21.647,
+  "lineage": "Santoor-led Hindustani music develops raga melody on a hammered string instrument.",
+  "recipe": "classic santoor, improv On Frame, indian classical improv branch. steel modern santoor canonical lineage santoor, pitched indian rosewood rosewood tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 252,
+  "score": 18.003,
   "config": {
     "traditions": [
       "santoor"
@@ -22,12 +22,12 @@
           "santoor_lineage": "santoor_shivkumar_sharma_canon"
         },
         "scores": {
-          "plucked_traditional_technique": 7.136499999999999,
+          "plucked_traditional_technique": 6.3865,
           "santoor_courses": 0,
-          "santoor_mallets": 0.39,
-          "santoor_strings": 3.6399999999999997,
-          "santoor_body_wood": 0.3,
-          "santoor_lineage": 2.47
+          "santoor_mallets": 0.1365,
+          "santoor_strings": 3.25,
+          "santoor_body_wood": 0,
+          "santoor_lineage": 2.9899999999999998
         }
       },
       {
@@ -38,8 +38,8 @@
           "tabla_syahi": "fresh_syahi"
         },
         "scores": {
-          "tabla_dayan": 6.305000000000001,
-          "tabla_bayan": 1.405,
+          "tabla_dayan": 5.135,
+          "tabla_bayan": 0.105,
           "tabla_syahi": 0
         }
       }

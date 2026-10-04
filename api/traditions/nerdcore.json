@@ -5,7 +5,7 @@
   "lineage": "US hip-hop subgenre named by MC Frontalot in 2000 and consolidated online through Nerdcore Hip-Hop compilations and Rhyme Torrents (2004-2008), built on bedroom-DAW boom-bap and chiptune-derived beats at 85-100 BPM with dense, high-syllable-count rapping about programming, gaming, and science-fiction, delivered with deliberately unaffected diction over 8-bit square-wave and SID-chip sample sources.",
   "recipe": "classic 2004-2008 nerdcore, mc Rhythm, experimental branch, us hip hop modern, retro aesthetic experimental electric, us hip hop conscious rap jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, low sub bass analog poly low sub bass wavetable synth, behringer rd 8 modern clone analog circuit reproduction TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 489,
-  "score": 299.265,
+  "score": 299.28,
   "config": {
     "traditions": [
       "nerdcore",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 12.434999999999993,
-          "voice_quality": 34.644999999999996,
+          "voice_quality": 34.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.457499999999998,
@@ -44,7 +44,7 @@
           "voice_tradition": 13.759999999999998,
           "voice_mechanism_compound": 4.874999999999999,
           "voice_estill_quality": 6.4399999999999995,
-          "voice_speech_song": 32.83,
+          "voice_speech_song": 32.739999999999995,
           "voice_ensemble_config": 19.955,
           "voice_ornament_system": 7.735000000000001,
           "voice_pitch_organization": 0.7499999999999998,
@@ -61,7 +61,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 12.344999999999999,
+          "electronic_technique": 12.299999999999999,
           "sample_bitdepth": 2.9250000000000003,
           "sample_swing": 20.475,
           "sample_processing": 1.5550000000000002
@@ -90,7 +90,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 12.98,
+          "tr808_voice": 13.025,
           "drum_machine_808_context": 2.41,
           "tr808_production_origin": 2.0149999999999997
         }

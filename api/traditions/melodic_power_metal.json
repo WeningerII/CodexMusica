@@ -5,7 +5,7 @@
   "lineage": "Melodic power metal combines fast ensemble drive with clean singing and memorable guitar-and-keyboard themes; Sonata Arctica is a notable example.",
   "recipe": "classic melodic power metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 466,
-  "score": 44.805,
+  "score": 44.679,
   "config": {
     "traditions": [
       "melodic_power_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.501,
           "finish": 0,
-          "string_tuning": 0.22275
+          "string_tuning": 0.19125
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.19125,
+          "drumhead": 0.15975,
           "drum_kit_kick_pedal": 0.78
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.12825,
-          "voice_multitrack_stack": 0.49350000000000005
+          "voice_multitrack_stack": 0.43050000000000005
         }
       },
       {

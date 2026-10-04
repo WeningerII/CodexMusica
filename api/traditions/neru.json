@@ -2,10 +2,10 @@
   "id": "neru",
   "name": "Neru",
   "family": "electronic",
-  "lineage": "University of Tokyo Cyberforest — Funadaike Pond, Chiba: Sound of crickets in the dead of night (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s neru, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 184,
-  "score": 15.671,
+  "lineage": "Japanese sleep-oriented listening, including quiet environmental soundscapes.",
+  "recipe": "classic neru, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 172,
+  "score": 10.668,
   "config": {
     "traditions": [
       "neru"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 6.239145833333334,
-          "sampler_archetypes": 0.855,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 6.496875,
-          "sampler_classic_context": 1.69
+          "electronic_technique": 4.331145833333333,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.3095,
+          "sampler_workflow": 4.788875000000001,
+          "sampler_classic_context": 1.2732083333333335
         }
       }
     ],

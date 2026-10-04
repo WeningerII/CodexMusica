@@ -5,7 +5,7 @@
   "lineage": "Italian-language trap formed in Milan and Rome 2015-2017 around the Dark Polo Gang, Sfera Ebbasta and producer Charlie Charles — 130-145 BPM half-time beats with rolled hi-hats, glassy detuned bell and plucked-synth loops over long 808 slides, heavily Auto-Tuned melodic delivery exploiting Italian open vowels, and ad-lib-saturated hooks mixing Milanese slang with English tags",
   "recipe": "classic 2015-2017 trap italiana, mc Rhythm, intl hip hop branch, us hip hop modern, europop functional song dark plugg detroit trap. thick, rap, straight onset, interlocked note trading. 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, low sub bass wavetable low sub bass analog poly synth, glockenspiel. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 647,
-  "score": 226.832,
+  "score": 226.787,
   "config": {
     "traditions": [
       "trap_italiana",
@@ -43,7 +43,7 @@
           "voice_microtone": 18.65499999999999,
           "voice_tradition": 9.165000000000001,
           "voice_mechanism_compound": 6.11,
-          "voice_estill_quality": 9.319999999999999,
+          "voice_estill_quality": 9.274999999999999,
           "voice_speech_song": 17.29,
           "voice_ensemble_config": 16.89999999999999,
           "voice_ornament_system": 7.1499999999999995,
@@ -73,7 +73,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.080000000000001,
+          "tr808_voice": 7.125000000000001,
           "drum_machine_808_context": 3.055,
           "tr808_production_origin": 2.8600000000000003
         }
@@ -87,7 +87,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 6.945000000000001,
+          "electronic_technique": 6.900000000000001,
           "sample_bitdepth": 3.5100000000000002,
           "sample_swing": 10.92,
           "sample_processing": 2.34

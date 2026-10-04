@@ -2,10 +2,10 @@
   "id": "musica_nicaraguense",
   "name": "Música nicaragüense",
   "family": "global",
-  "lineage": "Ceshia Ubau — De Primeras Veces (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s música nicaragüense, functional Song. group vocals, live take. classical nylon-string guitar, cajon peruano, European maple bosnian source flamed figure double bass, tres cubano, live room natural hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 324,
-  "score": 12.117,
+  "lineage": "Music of Nicaragua, encompassing regional traditions and contemporary song across varied ensembles.",
+  "recipe": "classic música nicaragüense, functional Song. group vocals. classical nylon-string guitar, cajon peruano, double bass, tres cubano, hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 241,
+  "score": 3.943,
   "config": {
     "traditions": [
       "musica_nicaraguense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
+          "voice_ensemble_config": 0.546,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.7364999999999999,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.6999999999999997,
+          "acoustic_technique": 0.25,
           "string_tuning": 0,
-          "top_wood_classical": 0.78,
-          "bracing_classical": 0.546,
+          "top_wood_classical": 0.40950000000000003,
+          "bracing_classical": 0.39,
           "string_classical": 0,
           "attack_technique_cl": 0
         }
@@ -78,7 +78,7 @@
           "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
         },
         "scores": {
-          "cajon_peruano_construction": 0.8999999999999999,
+          "cajon_peruano_construction": 0,
           "cajon_peruano_role": 0
         }
       },
@@ -101,11 +101,11 @@
           "bass_size": 0,
           "bass_strings": 0,
           "bass_top_wood": -0.1,
-          "bass_back_wood": 2.1000000000000005,
+          "bass_back_wood": -0.1,
           "bass_varnish": -0.1,
-          "bass_setup_period": 0.49999999999999994,
-          "bass_play": -0.05,
-          "bass_rosin": 0.49999999999999994,
+          "bass_setup_period": 0.2,
+          "bass_play": 0.5499999999999999,
+          "bass_rosin": 0.2,
           "bass_bow_stick": -0.15000000000000002
         }
       },
@@ -119,10 +119,10 @@
           "tres_cubano_strings": "tres_cubano_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
-          "tres_courses": 0.75,
+          "plucked_traditional_technique": 0.325,
+          "tres_courses": -0.05,
           "tres_cubano_context": 0.39,
-          "tres_cubano_body_wood": 0.8999999999999999,
+          "tres_cubano_body_wood": 0,
           "tres_cubano_strings": 0
         }
       },
@@ -133,8 +133,8 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.78,
-          "clap_capture": 1.6
+          "clap_technique": 0.546,
+          "clap_capture": 0
         }
       }
     ],

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3815-final.json",
+  "packet_sha256": "a62f4d612d396673cceff8da39b66af8b08357bf9a69c35b6f425edfa2a3d591",
+  "reviewer": "review461",
+  "baseline": "12c8438a50527b5df6ba8eb63a880a9fc025b78d",
+  "source_refs": [
+    "turn15478view0",
+    "turn15479view2",
+    "turn15479view3"
+  ],
+  "source_and_category_review": "Publisher complete12-song piano-solo edition HL00313185 supports representative keyboard arrangement. University explicitly classifies My Romance as Movie Tunes and Show Tunes: positive named repertoire usage with candid overlap, not proof of synonymy. Full existing Hollywood/Show Tunes scopes read without limiting either to their exemplary arrangements. Authored block-chord upright and functional verse-chorus-bridge framing remain general film-song rendition, no omitted original soundtrack voices.",
+  "immutable_five_fields": "Exact values/types match allocation",
+  "atlas": "Original validateEntry returns no errors",
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/3815-runtime.json",
+  "controls": 3,
+  "literal_review": "All four original browser outputs and compiled API config/recipe personally inspected. Refined upright emits common accessible block-chord/hammer low-mid profile; coherent authored solo arrangement with no extra orchestra.",
+  "owner_preservation": "All1658 existing merged owners unchanged, no new dependencies",
+  "rights": "Generic microphone LOW context; same historical023 bytes/visual receipt accurately inherited. Commons attribution/license independently reproduced turn15413view2; no current byte-download/visual claim.",
+  "limitations": "Source-level approval; future combined global qualification still required. No paid score or audio audition claimed.",
+  "mutations": "No source, registered report, registry or repository edits."
+}

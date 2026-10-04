@@ -4758,6 +4758,22 @@ const TRADITION_SIGNATURES = {
   'muzica_maramureseana': [],
   'necrotrap': [],
   'rave': [],
+  'south_african_soulful_deep_house': [],
+  'deep_dubstep': [],
+  'malayalam_hip_hop': [],
+  'chhattisgarhi_pop': [],
+  'dakke_dak': [],
+  'healing_hz': [],
+  'hopebeat': [],
+  'louvor': [],
+  'modern_downshift': [],
+  'movie_tunes': [],
+  'new_jack_smooth': [],
+  'nova_musica_amazonense': [],
+  'oeteldonk': [],
+  'sunset_lounge': [],
+  'swazi_traditional': [],
+  'underground_amapiano': [],
 };
 
 // ---- Catalog: the tradition data layer ----

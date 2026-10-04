@@ -2,10 +2,10 @@
   "id": "cypriot_pop",
   "name": "Cypriot pop",
   "family": "pop",
-  "lineage": "Cypriot pop is represented here by Alkinoos Ioannidis — guitar-and-voice solo branch. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Cypriot pop connects the island’s singers and songwriters with Greek-language, local and international popular styles.",
   "recipe": "classic cypriot pop, functional Song, europop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 259,
-  "score": 12.018,
+  "score": 11.018,
   "config": {
     "traditions": [
       "cypriot_pop"
@@ -60,11 +60,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.054
+          "voice_multitrack_stack": 0.354
         }
       }
     ],

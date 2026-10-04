@@ -2,10 +2,10 @@
   "id": "french_synthpop",
   "name": "French synthpop",
   "family": "pop",
-  "lineage": "French synthpop is represented here by Minuit Machine — Infrarouge (2019). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic late-2010s french synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 287,
-  "score": 4.652,
+  "lineage": "French synthpop connects melodic electronic songwriting with independent French synth and post-punk scenes.",
+  "recipe": "classic french synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 276,
+  "score": 7.968,
   "config": {
     "traditions": [
       "french_synthpop"
@@ -37,7 +37,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "sample_bitdepth": 0.1365,
-          "sample_swing": -0.035,
+          "sample_swing": 3.2815,
           "sample_processing": 0
         }
       },

@@ -2,10 +2,10 @@
   "id": "musica_campineira",
   "name": "Música Campineira",
   "family": "pop",
-  "lineage": "Maria Beraldo — Eu Te Amo, complete 4:24 track from Cavala (2018), the exact creator-playlist selection. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic late-2010s música campineira, functional Song. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch single coil electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 293,
-  "score": 11.34,
+  "lineage": "Music associated with Campinas, including contemporary songwriting and experimental popular expression.",
+  "recipe": "classic música campineira, functional Song. solo with instrumental accompaniment. clean strummed single coil electric guitar. live tracking.",
+  "recipe_chars": 140,
+  "score": 6.71,
   "config": {
     "traditions": [
       "musica_campineira"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.95,
+          "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 2.8000000000000003,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 2.75,
+          "electric_technique": 3.2,
           "amp_make": 0,
-          "body_wood": 0.3,
-          "neck_wood": 0.3,
+          "body_wood": 0,
+          "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "string_material": 0,
-          "string_gauge": 1.6,
+          "string_gauge": 0.7,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 1.3,
+          "string_tuning": 0,
           "single_coil_pickup_construction": 0
         }
       }
@@ -122,15 +122,15 @@
         "single_coil_pickup_construction"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -139,7 +139,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -172,12 +172,6 @@
       "string_tuning": "standard_tuning",
       "single_coil_pickup_construction": "single_coil_construction_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

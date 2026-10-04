@@ -5,7 +5,7 @@
   "lineage": "Automatism — Immersion, complete six-track2020album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic swedish prog, distorted Rock, progressive rock branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 357,
-  "score": 38.1,
+  "score": 37.9,
   "config": {
     "traditions": [
       "swedish_prog"
@@ -39,9 +39,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.9780000000000002,
+          "string_gauge": 1.8415000000000001,
           "finish": 0,
-          "string_tuning": 0.0945
+          "string_tuning": 0.063
         }
       },
       {
@@ -84,9 +84,9 @@
         },
         "scores": {
           "drum_technique": 11.5,
-          "drumhead": 0.0945,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.189,
+          "shell_wood": 0.1575,
           "shell_thickness": 0,
           "bearing_edges": 0.8505,
           "snare_wires": 0,
@@ -113,7 +113,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.0315,
-          "keyboard_technique": 0.0945
+          "keyboard_technique": 0.126
         }
       }
     ],

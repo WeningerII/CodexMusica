@@ -1,0 +1,17 @@
+=== Edit parity: app reconfigureAfterPartEdit vs connector set_variant ===
+  117 (tradition, instrument, part) case(s)
+
+
+  cases where the cascade moved something else: 25/117
+  branch coverage: 39 material (cascade), 78 non-material
+  spread: 11 instrument families, largest voice at 19/117, preface locked on 58
+  post-edit renders compared: 468 (4 formats × cases)
+
+=== Preface parity: app commitPrefaceChange vs connector set_preface ===
+  117 preface edit(s) compared, 47 of which reshaped parts (0 refused by the connector and skipped)
+
+=== Environment parity: app field write vs connector set_environment ===
+  ✓ the app still writes room/tuning/chain by plain assignment
+  117 single-card, 117 multi-select add, 117 clear and 117 card-less roster edit(s) compared (58 with a bare card first)
+
+EDIT PARITY: PASS — set_variant, set_preface and set_environment each reshape the card identically in both surfaces, and all 2808 post-edit renders are byte-identical across every format.

@@ -1,0 +1,120 @@
+{
+  "status": "PASS_ALL_TARGETS_EXACT_REVIEWED_OUTPUTS",
+  "entries": [
+    {
+      "id": "south_african_soulful_deep_house",
+      "controls": 1,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "deep_dubstep",
+      "controls": 1,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "malayalam_hip_hop",
+      "controls": 22,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "chhattisgarhi_pop",
+      "controls": 20,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "dakke_dak",
+      "controls": 18,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "healing_hz",
+      "controls": 1,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "hopebeat",
+      "controls": 43,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "louvor",
+      "controls": 20,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "modern_downshift",
+      "controls": 49,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "movie_tunes",
+      "controls": 3,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "new_jack_smooth",
+      "controls": 1,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "nova_musica_amazonense",
+      "controls": 22,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "oeteldonk",
+      "controls": 50,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "sunset_lounge",
+      "controls": 1,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "swazi_traditional",
+      "controls": 17,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    },
+    {
+      "id": "underground_amapiano",
+      "controls": 1,
+      "four_browser_outputs_identical": true,
+      "compiled_config_identical": true,
+      "compiled_recipe_identical": true
+    }
+  ],
+  "controls": 270,
+  "browser_formats": 64,
+  "source_literal_review": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v5-043/new-target-literal-review461.json"
+}

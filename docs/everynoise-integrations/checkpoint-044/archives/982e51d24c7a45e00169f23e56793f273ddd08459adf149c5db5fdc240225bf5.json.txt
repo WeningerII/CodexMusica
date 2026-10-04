@@ -1,0 +1,232 @@
+{
+  "entries": [
+    {
+      "source_label": "modern downshift",
+      "source_url": "https://everynoise.com/engenremap-moderndownshift.html",
+      "suggested_id": "modern_downshift",
+      "allocation_ordinal": 3794,
+      "allocation_group_id": "152",
+      "id": "modern_downshift",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "modern_downshift",
+        "name": "Modern Downshift",
+        "family": "rock",
+        "lineage": "Modern Downshift is a discovery field around independent heavy and melodic rock. Amplified riffs, forceful rhythm sections and memorable sung hooks connect bands working across hard rock, alternative metal and post-grunge.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_power_chord",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "amp_make": "amp_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.alternative",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "description": "Melodic voices rise over electric-guitar hooks, bass and a firm drum backbeat. Rhythmic weight and accessible refrains meet in arrangements that move between tightly locked riffs and more open vocal passages.",
+        "exemplars": [
+          "Tracenine",
+          "Seven Story Drop",
+          "Vistalance"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.3616,
+        -80.3144,
+        "Cambridge",
+        "North America"
+      ],
+      "geo_rationale": "Artist-owned page places representative Tracenine practice in Cambridge, Ontario; not a birthplace claim for the international discovery field.",
+      "signature_tokens": [],
+      "model_policy": "Representative amplified melodic hard-rock band practice documented by Tracenine’s own artist page and issuing label. The historical artist profile names two guitarists, bass and drums, all four also vocalists; both guitars and all voices remain represented within their family cards. This is an editable genre branch, not an exact reconstruction of Ready to Roll or a claim about every creator-list entry. Authored power-chord strumming, locked fingerstyle bass, rock sticks and projected syllabic group singing express the positive heavy-hooked band practice. Guitar alder/maple/rosewood, nickel strings and humbucker setup; fretted long-scale roundwound soapbar bass; maple coated-head kit with felt pedal and traditional-finish hand-hammered B20 cymbals are authored physical choices, not measured artist equipment. Controlled live room is editorial. No fixed singer range, vocal school, album overdub count, tuning or source tempo is invented. The shared applicable amp_make is pinned source-unspecified for both electric owners; no manufacturer identity or chain is invented.",
+      "authored_render_scope": "Representative amplified melodic hard-rock band practice documented by Tracenine’s own artist page and issuing label. The historical artist profile names two guitarists, bass and drums, all four also vocalists; both guitars and all voices remain represented within their family cards. This is an editable genre branch, not an exact reconstruction of Ready to Roll or a claim about every creator-list entry. Authored power-chord strumming, locked fingerstyle bass, rock sticks and projected syllabic group singing express the positive heavy-hooked band practice. Guitar alder/maple/rosewood, nickel strings and humbucker setup; fretted long-scale roundwound soapbar bass; maple coated-head kit with felt pedal and traditional-finish hand-hammered B20 cymbals are authored physical choices, not measured artist equipment. Controlled live room is editorial. No fixed singer range, vocal school, album overdub count, tuning or source tempo is invented. The shared applicable amp_make is pinned source-unspecified for both electric owners; no manufacturer identity or chain is invented.",
+      "neighbor_distinction": "Full hard_rock covers the foundational amplified riff/song idiom; full alternative_rock covers a broad independent-to-mainstream guitar tradition, and alternative_metal its heavy crossover. Full modern_rock already includes contemporary alternative guitar-band hooks and strong textures. Modern Downshift is an explicitly named creator discovery classification within this overlapping terrain, not a claim of exclusive instrumentation or an independent historical movement. Actual creator item50 is Tracenine Ready to Roll, positively bound to the artist’s own melodic heavy-rock practice. The broad playlist also contains other circulation and artist-resolution entries, so no universal slow tempo, ambient synthesis, uniform tuning or one-band definition is imposed. Separate taxonomy identity plus source-supported practice supports this requested field; no synonym/equivalence is inferred from shared artists.",
+      "classification_evidence": "Full hard_rock covers the foundational amplified riff/song idiom; full alternative_rock covers a broad independent-to-mainstream guitar tradition, and alternative_metal its heavy crossover. Full modern_rock already includes contemporary alternative guitar-band hooks and strong textures. Modern Downshift is an explicitly named creator discovery classification within this overlapping terrain, not a claim of exclusive instrumentation or an independent historical movement. Actual creator item50 is Tracenine Ready to Roll, positively bound to the artist’s own melodic heavy-rock practice. The broad playlist also contains other circulation and artist-resolution entries, so no universal slow tempo, ambient synthesis, uniform tuning or one-band definition is imposed. Separate taxonomy identity plus source-supported practice supports this requested field; no synonym/equivalence is inferred from shared artists.",
+      "source_scope_limitation": "Historical artist-owned band profile is representative practice; later bass-player personnel differ, so no exact present-day or recording roster is claimed. No generated aggregator genre definitions adopted.",
+      "sources": [
+        {
+          "url": "https://open.spotify.com/embed/playlist/1LwkgEPHJYlvhv1YjwVGY2",
+          "note": "Fresh15453view0 exact creator100, Tracenine item50; full corpus read."
+        },
+        {
+          "url": "https://indiemusicpeople.com/artist.aspx?ID=50586",
+          "note": "Fresh15455view0 actual artist-account historical heavy/melodic rock practice, four singers/two guitars/bass/drums and Cambridge."
+        },
+        {
+          "url": "https://fastball-music.bandcamp.com/album/breaking-silence",
+          "note": "Fresh15455view1 issuer identifies modern/groovy rock-metal and energetic repertoire; source practice corroboration, not claim universal album inventory."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15453view0",
+        "turn15455view0",
+        "turn15455view1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "modern_downshift",
+          "name": "Modern Downshift",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15447view0 confirms CC BY2.5 and original/crop attribution; historical exact bytes and visual receipt retained.",
+          "fresh_review_ref": "turn15447view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15447view0"
+        ],
+        "fresh_rights_review": "Fresh15447view0 rights only; historical download and visual receipt unchanged."
+      },
+      "dependency_audit": {
+        "new": [],
+        "baseline_existing": 1653
+      },
+      "instrument_role_audit": {
+        "voice": "Four positive singing roles in historical profile; one live group card, exact overlap/stack unmeasured.",
+        "electric_guitar_humbucker": "Two positive guitars, one family card; construction and chordal realization authored.",
+        "electric_bass": "One positive bass role; authored source-compatible fretted electric.",
+        "drum_kit": "Positive drum-set role retained with all applicable controls."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

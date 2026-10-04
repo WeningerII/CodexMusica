@@ -2,10 +2,10 @@
   "id": "smooth_soul",
   "name": "Smooth soul",
   "family": "blues_gospel",
-  "lineage": "Smooth soul emphasizes melodic hooks, romantic ballad delivery and polished arrangements with funk-derived rhythm. Al Green’s early-1970s recordings provide a representative branch.",
-  "recipe": "classic 1970-1973 smooth soul, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 455,
-  "score": 27.556,
+  "lineage": "Smooth soul emphasizes melodic hooks, romantic vocal delivery and polished arrangements shaped by funk-derived rhythm. Performers such as Al Green connect expressive phrasing with supple rhythm sections and sustained keyboard colors.",
+  "recipe": "classic modern smooth soul, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 452,
+  "score": 28.607,
   "config": {
     "traditions": [
       "smooth_soul"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.28912499999999997
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -68,7 +68,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 3.2371250000000003,
+          "electric_technique": 5.287125,
           "amp_make": 0,
           "body_wood": 0.33599999999999997,
           "neck_wood": 0.2415,
@@ -102,7 +102,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0.0735,
-          "bass_technique": 12.7,
+          "bass_technique": 11.2,
           "electric_bass_string_configuration": 0
         }
       },
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.45,
+          "drum_technique": 8.7,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }
@@ -131,7 +131,7 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "drawbar_setting": -0.05,
+          "drawbar_setting": 0.95,
           "rotary_speed": -0.1,
           "percussion_setting": 0,
           "tonewheel_model": -1.5049999999999997,

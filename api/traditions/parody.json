@@ -2,10 +2,10 @@
   "id": "parody",
   "name": "Parody",
   "family": "pop_rock",
-  "lineage": "Jenton — Finding My Sound, The Silly Stuff (The Parody Album),2011. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s parody, ballad Poetry, anglo singer song branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. fingerpicked acoustic guitar, European maple bosnian source flamed figure pirastro cellisto cello specific cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 387,
-  "score": 16.062,
+  "lineage": "Comic musical imitation of recognizable songs, performers and stylistic conventions.",
+  "recipe": "classic parody, ballad Poetry, anglo singer song branch. solo with instrumental accompaniment, single lead single track no stacking. fingerpicked acoustic guitar, cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 268,
+  "score": 6.463,
   "config": {
     "traditions": [
       "parody"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.56,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.17,
-          "voice_multitrack_stack": 1.17,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 2.3714999999999997,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0.276,
-          "acoustic_om_technique": 4.0545
+          "acoustic_om_technique": 2.3545
         }
       },
       {
@@ -83,15 +83,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 0.313,
-          "cello_strings": 0.39,
+          "bowed_technique": -0.035,
+          "cello_strings": 0.1395,
           "cello_top_wood": -0.07,
-          "cello_back_wood": 1.95,
-          "cello_varnish": 0.7,
-          "cello_setup_period": 0.9099999999999999,
+          "cello_back_wood": -0.07,
+          "cello_varnish": -0.1,
+          "cello_setup_period": -0.07,
           "cello_bow_grip": 0.7064999999999999,
-          "cello_rosin": 2.122,
-          "cello_bow_stick": 0.8449999999999999
+          "cello_rosin": -0.07,
+          "cello_bow_stick": -0.10500000000000001
         }
       }
     ],
