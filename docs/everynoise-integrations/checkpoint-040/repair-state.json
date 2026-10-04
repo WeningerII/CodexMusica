@@ -1,11 +1,11 @@
 {
   "status": "LOCAL_REVIEWED_DATA_REPAIRS_NOT_FINAL_BUILD_OR_CI",
-  "updated_at": "2026-10-04T01:46:38.304Z",
+  "updated_at": "2026-10-04T01:52:59.406Z",
   "baseline_head": "2541e078c9f4326c2d75826779813d933a27f1bb",
   "historical_merged_additions": 3900,
   "repair_review_scope": 3900,
-  "locally_applied_repairs": 1765,
-  "substantive_default_changes": 1145,
+  "locally_applied_repairs": 1890,
+  "substantive_default_changes": 1161,
   "original_traditions_and_extras_preserved": 2638,
   "applied": [
     {
@@ -10722,6 +10722,156 @@
       "defaults_changed": true
     },
     {
+      "id": "quebec_hardcore",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "quebec_punk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "romanian_punk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_emo",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_hardcore",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_pop_punk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_post_punk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_punk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_punk_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_screamo",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+      "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed.json",
+          "packet_sha256": "d36078a0b29b97b7788713f417b65408b29a3d32cfe6baff4bbd97648f0df19c",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet079-reviewed-root-review.json",
+          "checked_at": "2026-10-04T01:50:03.692350+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
       "id": "ghanaian_pop",
       "packet": "/workspace/genre-continuation/repairs-20261003/research117/ghanaian-pop-electronic-followup.json",
       "packet_sha256": "110bb1fe9559ebfe0f5269d450c3d0529d8c82a3a292f7b4e5f673c4732ed3cc",
@@ -11899,6 +12049,1506 @@
           "packet_sha256": "2a9de3454fa67003c03bce5f1706e8f2e5ecccc7d3da0875b54da418b9259744",
           "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-003-root-review.json",
           "checked_at": "2026-10-04T01:46:03.638984+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "italian_classical_guitar",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "italian_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "italian_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "italian_opera",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "italian_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "italian_renaissance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "japanese_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "japanese_classical_performance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "japanese_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "korean_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "latin_american_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "nordic_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "norwegian_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "new_zealand_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "japanese_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "korean_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "nordic_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "mexican_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "latin_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "oriental_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "korean_classical_performance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "polish_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "polish_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "polish_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "portuguese_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+      "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004.json",
+          "packet_sha256": "9b3e661e5ae5f590d98f1341e88f5e059154fb71e09c328b22ff4062670bc978",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-004-root-review.json",
+          "checked_at": "2026-10-04T01:50:39.522244+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "portuguese_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "romanian_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "romanian_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "russian_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "spanish_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "spanish_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "swedish_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "polish_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "school_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "spanish_renaissance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "string_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "spanish_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "russian_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "russian_modern_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "german_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "french_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "german_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "french_opera",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "german_opera",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "french_renaissance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "german_renaissance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "oxford_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "japanese_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "latin_american_baroque",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "man_s_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+      "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005.json",
+          "packet_sha256": "cedd5f3f45aee0a2f614c906c64eca1c83640d1568289986a7fa3d47eea2771b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-005-root-review.json",
+          "checked_at": "2026-10-04T01:50:41.555065+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "men_s_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "modern_string_quartet",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "neo_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "nordic_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "opera",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "opera_chorus",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "orchestral_performance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "pops_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "russian_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "swedish_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "russian_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "south_african_choral",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "sda_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "swiss_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "swiss_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "ukrainian_choir",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "ukrainian_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "swedish_contemporary_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "taiwan_classical_performance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "turkish_classical_performance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "ukrainian_classical",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "ukrainian_classical_piano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "vintage_classical_singing",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "youth_orchestra",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+      "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006.json",
+          "packet_sha256": "fb33be938e4986517ff3933e9f799775e51efea1b5ef6a97984116c710affb7b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-006-root-review.json",
+          "checked_at": "2026-10-04T01:52:53.124660+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "afrikaans_folk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "ainu_folk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "alberta_country",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "alternative_country",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "alternative_americana",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "arab_folk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "austin_americana",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "austin_singer_songwriter",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "algerian_folk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "bahamian_folk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "alternative_metalcore",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "kosovan_folk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "swiss_country",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "afrikaans_gospel",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "argentine_reggae",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "australian_reggae_fusion",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "australian_ska",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "brazilian_ska",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "chinese_reggae",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "czsk_reggae",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "dub_reggae",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "east_coast_reggae",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "australian_blues",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "euskal_reggae",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "finnish_reggae",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+      "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+      "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007.json",
+          "packet_sha256": "d05a05683da90f008d901aa53e09779e9882b7664f7711d33849eccab61c8521",
+          "review": "/workspace/genre-continuation/repairs-20261003/research117/public-prose-only-007-root-review.json",
+          "checked_at": "2026-10-04T01:52:55.053000+00:00"
         }
       ],
       "defaults_changed": false
@@ -26668,6 +28318,231 @@
         }
       ],
       "defaults_changed": false
+    },
+    {
+      "id": "musiqi_ye_zanan",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+      "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+          "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+          "checked_at": "2026-10-04T01:52:27.566618+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "musique_alsacienne",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+      "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+          "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+          "checked_at": "2026-10-04T01:52:27.566618+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "musique_centrafricaine",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+      "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+          "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+          "checked_at": "2026-10-04T01:52:27.566618+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "musique_mahoraise",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+      "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+          "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+          "checked_at": "2026-10-04T01:52:27.566618+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "musique_militaire",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+      "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+          "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+          "checked_at": "2026-10-04T01:52:27.566618+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "musique_tchadienne",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+      "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+          "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+          "checked_at": "2026-10-04T01:52:27.566618+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "musique_traditionnelle_comorienne",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+      "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+          "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+          "checked_at": "2026-10-04T01:52:27.566618+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "musique_urbaine_kinshasa",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+      "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055.json",
+          "packet_sha256": "ef3ff938fd67ab32f6a923d1ecd69b6f41ee0ccbeee97c744b801cfcc8ce6f66",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-055-root-review.json",
+          "checked_at": "2026-10-04T01:52:27.566618+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "muzica_bisericeasca",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+      "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+          "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+          "checked_at": "2026-10-04T01:52:28.997911+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "muzica_crestina",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+      "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+          "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+          "checked_at": "2026-10-04T01:52:28.997911+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "muzica_moldoveneasca",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+      "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+          "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+          "checked_at": "2026-10-04T01:52:28.997911+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "muzika_lyeladim",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+      "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+          "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+          "checked_at": "2026-10-04T01:52:28.997911+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "nederlandse_hardstyle",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+      "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+          "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+          "checked_at": "2026-10-04T01:52:28.997911+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "nederreggae",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+      "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+          "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+          "checked_at": "2026-10-04T01:52:28.997911+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "nephop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+      "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056.json",
+          "packet_sha256": "3e4ddfe100471d3169d5591d960ba2127a673315322676777fbacb0f8a48f0d8",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-056-root-review.json",
+          "checked_at": "2026-10-04T01:52:28.997911+00:00"
+        }
+      ],
+      "defaults_changed": true
     }
   ]
 }
