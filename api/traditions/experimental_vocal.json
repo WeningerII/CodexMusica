@@ -2,10 +2,10 @@
   "id": "experimental_vocal",
   "name": "Experimental vocal",
   "family": "electronic",
-  "lineage": "Jaap Blonk — Ingletwist Fragments (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s experimental vocal, experimental Elec. solo with instrumental accompaniment, single lead single track no stacking. analog mono synth, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 261,
-  "score": 6.241,
+  "lineage": "Experimental vocal music explores the voice as sound as well as language. Improvisers combine phonetic gestures, unusual phrasing and electronic treatments in varied solo and collaborative settings.",
+  "recipe": "classic experimental vocal, experimental Elec. solo with instrumental accompaniment. analog mono synth, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 4.206,
   "config": {
     "traditions": [
       "experimental_vocal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.9135,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21,
-          "voice_multitrack_stack": 0.726,
+          "voice_multitrack_stack": 0.126,
           "voice_tessitura": 0
         }
       },
@@ -62,10 +62,10 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 0.49999999999999994,
-          "mono_oscillator": 1.305,
-          "mono_filter": 1.41,
-          "mono_archetypes": 0.39,
+          "electronic_technique": 0.2,
+          "mono_oscillator": 0.39,
+          "mono_filter": 0.39,
+          "mono_archetypes": 0.105,
           "mono_maker_lineage": -0.05
         }
       },
@@ -79,11 +79,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 0.5315,
+          "electronic_technique": -0.07,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
           "sampler_workflow": -0.035,
-          "sampler_classic_context": 0.39
+          "sampler_classic_context": 1.3
         }
       }
     ],

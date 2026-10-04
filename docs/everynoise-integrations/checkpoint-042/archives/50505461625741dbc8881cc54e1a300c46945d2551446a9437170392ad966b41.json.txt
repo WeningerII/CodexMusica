@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-622.json",
+  "sha256": "9435bbea88ed3bfacb6e4c0cdd2b45772f9622295062018bd7b573d7ede9c3ea",
+  "packet_sha256": "9435bbea88ed3bfacb6e4c0cdd2b45772f9622295062018bd7b573d7ede9c3ea",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "ua_trap",
+  "immutable_allocation": {
+    "source_label": "ua trap",
+    "source_url": "https://everynoise.com/engenremap-uatrap.html",
+    "suggested_id": "ua_trap",
+    "allocation_ordinal": 622,
+    "allocation_group_id": "025"
+  },
+  "source_review": {
+    "finding": "Fresh NUAM curator14981view0 explicitly pairs Ukrainian trap and UA TRAP and describes continuing national release network. Firsthand GGrizzie14981view1 and AveKucher14984view0 interviews document local trap communities, studio/beatmaker collaborations, rapped delivery and language changes. Representative rap/produced beat supported without exact album reconstruction.",
+    "urls": [
+      "https://www.nuam.club/p/44",
+      "https://rap.ua/trep-tse-destruktyv-meni-hochetsya-tvoryty-a-ne-rujnuvaty-velyke-interv-yu-z-g-grizzie/",
+      "https://rap.ua/ya-ne-bachu-sered-freshmeniv-osobystostej-dumka-yakyh-meni-vazhlyva-velyke-interv-yu-z-avekucher/"
+    ]
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "ukrainian_hip_hop",
+      "trap"
+    ],
+    "finding": "Ukrainian hip-hop is explicitly broader than its Kalush folk-flute exemplar. Named UA trap is a positively curated national stylistic/release-community subset; global trap also overlaps, not excluded by nationality. No claimed unique instrument grammar or universal absence of folk crossover."
+  },
+  "source_limits": [
+    "Representative spoken rap branch, not a reconstruction of the cited albums or claim every trap vocal lacks pitch."
+  ],
+  "representative_practice": "Genre-level authored rhythmic spoken lead plus producer-supplied beat, supported by firsthand production descriptions. The broad beat identity retains the backing role without inventing a sampler, synthesizer, bass instrument or original studio device. Single lead, natural capture and dead room are authored representative choices, not source-wide headcount or exact master claims. Melodic and expanded branches remain acknowledged.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 18,
+    "pinned_parts": 18,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Spoken-flowing/no-pitch is coherent with the deliberately rapped branch; solo-with-instrumental-accompaniment accurately retains the beat. Frosty lexicon denotes clean/clinical brightness, compatible with authored dry production and not an invented instrumental mechanism. Dead-booth capture is authored. No synthetic vocal processing, added singers/instruments, tuning, measured tempo, or cultural performance technique appears. Compiled classic wording is generic template style, not evidence of a historical period.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/candidate-622-runtime.json",
+    "runtime_sha256": "56bba0e3fd8e63c2a8c01bcb18473159ea58b77ea6529132a0d26db6f25f92a2"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes."
+}

@@ -1,0 +1,14 @@
+{
+  "head": "7ed80fbcc14597af3cdefff1e683ed4a30ffd7c1",
+  "run": 37184087851,
+  "attempt": 2,
+  "status": "completed",
+  "conclusion": "success",
+  "completed_at": "2026-10-04T07:44:36Z",
+  "url": "https://github.com/WeningerII/CodexMusica/actions/runs/37184087851",
+  "job_url": "https://github.com/WeningerII/CodexMusica/actions/runs/37184087851/job/111387121715",
+  "local_runs": 2,
+  "local_assertions_each": 223,
+  "viewports_each": 8,
+  "assessment": "Transient detached-element interaction supported by unchanged local and CI passes; exact race not proven. No UI, engine or test edits."
+}

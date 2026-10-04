@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 5.2,
-          "voice_ensemble_config": 0.126,
+          "voice_ensemble_config": 0.0945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.0945,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -62,10 +62,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 0.25,
+          "electronic_technique": 0.2815,
           "sampler_archetypes": 1.5,
           "sampler_bit_depth": -0.05,
-          "sampler_workflow": 0.2,
+          "sampler_workflow": 0.2315,
           "sampler_classic_context": 8.319999999999999
         }
       }

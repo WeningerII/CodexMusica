@@ -2,10 +2,10 @@
   "id": "beats",
   "name": "Beats",
   "family": "global",
-  "lineage": "The Equation Beats and Yovenek — MPC-Size Vol 1. Representative authored present-day studio arrangement for one documented release branch. Primary sources establish roles, locality and the category relationship. Guitar body and pickup design, bass construction, keyboard synthesis and drum-machine architecture, amp choice, room, chain, technique, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts or universal genre traits.",
+  "lineage": "Instrumental hip-hop beats turn drum programming, sample manipulation and bass-focused arrangement into standalone tracks as well as vocal backing.",
   "recipe": "classic beats, mc Rhythm. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 146,
-  "score": 1.633,
+  "score": 4.508,
   "config": {
     "traditions": [
       "beats"
@@ -20,9 +20,9 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.46299999999999997,
-          "sample_bitdepth": 0.39,
-          "sample_swing": 0.78,
+          "electronic_technique": 1.8445,
+          "sample_bitdepth": 0.063,
+          "sample_swing": 2.6,
           "sample_processing": 0
         }
       }

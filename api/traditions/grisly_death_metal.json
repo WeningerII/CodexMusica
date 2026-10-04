@@ -5,7 +5,7 @@
   "lineage": "Grisly death metal brings together death-metal bands associated with forceful riffs and a dark, aggressive sound. The discovery field overlaps wider death-metal traditions rather than prescribing a unique instrumental technique.",
   "recipe": "classic grisly death metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 384,
-  "score": 60.129,
+  "score": 60.339,
   "config": {
     "traditions": [
       "grisly_death_metal"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.223875,
+          "voice_processing_chain": 0.10012499999999999,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -70,19 +70,19 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 14.457125,
+          "electric_technique": 14.531375,
           "amp_make": 6.955000000000001,
           "body_wood": 7.15,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.614625,
           "fretboard": 0.315,
           "pickup_magnet": 0.33375,
-          "pickup_winding": 0.27299999999999996,
+          "pickup_winding": 0.310125,
           "string_material": 0.105,
-          "bridge": 0.5775,
+          "bridge": 0.614625,
           "scale_length": 7.15,
-          "string_gauge": 0.7875,
+          "string_gauge": 0.824625,
           "finish": 0.105,
-          "string_tuning": 0.160875
+          "string_tuning": 0.12374999999999999
         }
       },
       {
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.155,
+          "body_wood": 1.2292500000000002,
           "pickup_config": 0.39,
           "string_type": 4.875,
-          "scale_length_b": 0.609,
+          "scale_length_b": 0.646125,
           "fretted_or_not": 0.1995,
           "bass_technique": 4.063,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.651,
+          "drumhead": 0.688125,
           "drum_kit_kick_pedal": 0
         }
       }

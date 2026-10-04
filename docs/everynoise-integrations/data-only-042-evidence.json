@@ -33,10 +33,7 @@
           "fresh_review_ref": "turn14925view1"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -48,10 +45,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -67,9 +61,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -83,9 +75,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14925view1"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14925view1"],
         "fresh_rights_review": "Fresh14925view1 rights; exact historical023 binary/visual receipt retained without new download claim."
       },
       "id": "deep_progressive_house",
@@ -100,9 +90,7 @@
         "name": "Deep Progressive House",
         "family": "electronic",
         "lineage": "Deep progressive house cultivates the restrained, groove-led side of progressive dance music through specialist labels, remix networks and gradual DJ programming. Pads, rolling bass and detailed percussion build atmosphere without requiring a large festival climax.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -127,21 +115,11 @@
           "cyclicity": 0
         },
         "description": "Long transitions let bass movement, percussion and atmospheric layers develop together. Selectors connect tracks through pacing and texture, often placing these sounds in the earlier, deeper portions of extended sets.",
-        "exemplars": [
-          "GMJ",
-          "Alex O’Rion",
-          "Dowden",
-          "Deep Down Music"
-        ],
+        "exemplars": ["GMJ", "Alex O’Rion", "Dowden", "Deep Down Music"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        43.6532,
-        -79.3832,
-        "Toronto",
-        "North America"
-      ],
+      "geo": [43.6532, -79.3832, "Toronto", "North America"],
       "geo_rationale": "Firsthand founder identifies Toronto base; editorial label-network anchor, not exclusive origin of the international field.",
       "signature_tokens": [],
       "model_policy": "Representative documented DJ selection/mixing practice, positively described by the label founder and accompanied by his published Progressive Astronaut mix. This does not turn an opaque produced master into a sampler. All embedded bass, pad, percussion and occasional vocal material remains in the selected recordings; no physical generator, live singer count, source decks or track inventory is guessed. Controlled live-room presentation is authored. No global tuning. Production itself is a separate documented branch, retained in history rather than reconstructed as source hardware.",
@@ -186,10 +164,7 @@
         "name": "Assamese Hip Hop",
         "family": "hip_hop",
         "lineage": "Assamese hip-hop connects local language, urban experience and independent production in Assam. Guwahati and other regional communities adapt rap to Assamese expression while maintaining exchanges with English, Hindi and wider Indian hip-hop.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -231,10 +206,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic verses, personal stories and locally inflected language meet producer-made backing. Flows can emphasize direct speech, punchlines and recurring hooks, while electronic beats leave room for the voice.",
-        "exemplars": [
-          "J’97",
-          "Minimi"
-        ],
+        "exemplars": ["J’97", "Minimi"],
         "status": "documented",
         "crossRefs": []
       },
@@ -270,10 +242,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -285,10 +254,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -304,9 +270,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -320,9 +284,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "assamese hip hop",
@@ -332,12 +294,7 @@
       "allocation_group_id": "009",
       "id": "assamese_hip_hop",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        26.1445,
-        91.7362,
-        "Guwahati",
-        "South Asia"
-      ],
+      "geo": [26.1445, 91.7362, "Guwahati", "South Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -349,10 +306,7 @@
           "support_notes": "Primary community/practitioner evidence, general genre-practice scope."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14889view0",
-        "turn14911view0"
-      ],
+      "primary_retrieval_refs": ["turn14889view0", "turn14911view0"],
       "neighbor_distinction": "Firsthand J’97 account establishes Guwahati rap and deliberate Assamese-language work; Minimi official biography establishes original Assamese verses and continuing producer partnership. This is a genre-level accompanied rap branch, not an assertion of the exact J’97 album or a reconstruction of any Minimi recording. The full desi_hip_hop umbrella is transnational and multilingual, not only its Mumbai exemplar. Assamese hip-hop is a positively documented regional-language community within that umbrella, distinct from Assamese pop and borgeet devotional repertoire without claiming language purity.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -413,10 +367,7 @@
         "name": "Azeri Rap",
         "family": "hip_hop",
         "lineage": "Azeri rap connects Azerbaijan’s MCs, producers and DJs through recordings, concerts and battle culture. Underground crews and mainstream platforms support a scene where lyric writing, rhythmic delivery and public performance carry distinct local identities.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -458,11 +409,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic verses and pointed lines work against supplied beats. Battle performances emphasize flow and verbal impact; unaccompanied rounds and broader recorded-song approaches extend beyond this beat-backed branch.",
-        "exemplars": [
-          "REMO",
-          "Okaber",
-          "Cəza22"
-        ],
+        "exemplars": ["REMO", "Okaber", "Cəza22"],
         "status": "documented",
         "crossRefs": []
       },
@@ -498,10 +445,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -513,10 +457,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -532,9 +473,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -548,9 +487,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "azeri rap",
@@ -560,12 +497,7 @@
       "allocation_group_id": "009",
       "id": "azeri_rap",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        40.4093,
-        49.8671,
-        "Baku",
-        "Caucasus & Central Asia"
-      ],
+      "geo": [40.4093, 49.8671, "Baku", "Caucasus & Central Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -573,9 +505,7 @@
           "support_notes": "Firsthand community and rap-and-beat practice evidence."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14931view0"
-      ],
+      "primary_retrieval_refs": ["turn14931view0"],
       "neighbor_distinction": "The organizer directly identifies Azerbaijani rap and its MC/producer/DJ community. It documents both acappella and beat rounds; this representative accompanied rap branch is not a reconstruction of the full event, its separate warm-up DJs or all contestants. Azeri pop is a broader popular-song field, while Azeri traditional and Azerbaijani mugham have separate historical repertoires. The full Caucasian folk regional composite does not encompass every contemporary style made in the Caucasus. Local rap is positively named, not inferred merely from location.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -636,10 +566,7 @@
         "name": "Canadian Drill",
         "family": "hip_hop",
         "lineage": "Canadian drill brings a drill-oriented rap practice into Canadian scenes and their international connections. Artists can combine local experience with Caribbean language and rhythm, extending the style through migration and exchange rather than one uniform national accent.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -681,9 +608,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic verses meet drill production, leaving room for distinctive cadence and language. Direct rap delivery can coexist with dancehall-inflected or melodic approaches; the backing supplies the rhythmic and tonal bed.",
-        "exemplars": [
-          "Skiifall"
-        ],
+        "exemplars": ["Skiifall"],
         "status": "documented",
         "crossRefs": []
       },
@@ -719,10 +644,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -734,10 +656,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -753,9 +672,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -769,9 +686,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "canadian drill",
@@ -781,12 +696,7 @@
       "allocation_group_id": "010",
       "id": "canadian_drill",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        45.5019,
-        -73.5674,
-        "Montreal",
-        "North America"
-      ],
+      "geo": [45.5019, -73.5674, "Montreal", "North America"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -794,9 +704,7 @@
           "support_notes": "Primary firsthand or institutional genre-practice evidence."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14966view2"
-      ],
+      "primary_retrieval_refs": ["turn14966view2"],
       "neighbor_distinction": "Firsthand Skiifall interview positively establishes a Canadian drill practice and its cross-border exchange. Existing canadian_hip_hop explicitly covers a cross-era multilingual national scene, not only Shad; drill is a narrower stylistic branch. Toronto rap is a local all-style community, not all Canadian drill. This Montreal branch is positively supported without claiming that a single artist exhausts the field or that separate BADBADNOTGOOD live-band collaboration has only two roles.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -857,10 +765,7 @@
         "name": "Gulf Hip Hop",
         "family": "hip_hop",
         "lineage": "Gulf hip-hop connects rappers, producers and audiences across the Arabian Peninsula and its diasporas. Local and migrant communities develop Arabic, English and bilingual expression through home studios, radio, online circulation and regional collaboration.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -902,11 +807,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic verses sit over producer-shaped beats and bass-led accompaniment. Sparse grooves leave room for language, flow and personal storytelling; other branches incorporate scratching, melodic hooks or regional instrumental colours.",
-        "exemplars": [
-          "Icekream",
-          "DBoy",
-          "Hotline"
-        ],
+        "exemplars": ["Icekream", "DBoy", "Hotline"],
         "status": "documented",
         "crossRefs": []
       },
@@ -942,10 +843,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -957,10 +855,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -976,9 +871,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -992,9 +885,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "gulf hip hop",
@@ -1004,12 +895,7 @@
       "allocation_group_id": "013",
       "id": "gulf_hip_hop",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        25.2048,
-        55.2708,
-        "Dubai",
-        "Middle East"
-      ],
+      "geo": [25.2048, 55.2708, "Dubai", "Middle East"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -1025,10 +911,7 @@
           "support_notes": "Fresh author14887view2 opened this URL and redirected to337042; reviewer14914search0 independently recovered full indexed original URL. Alternate primary retrieval route only."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14887view2",
-        "turn14889view1"
-      ],
+      "primary_retrieval_refs": ["turn14887view2", "turn14889view1"],
       "neighbor_distinction": "The full existing arabic_hip_hop covers Arabic-language rap across regions and is not limited to DAM. Gulf hip-hop is a positively documented regional community spanning local and migrant artists, including English-language work, rather than a synonym for all Arabic rap. It overlaps national scenes and wider Middle East hip hop; Bahrain/Gulf firsthand community history and an Emirati producer account support the regional field. Khaliji Gulf popular song remains a different song-based field, not defined here merely by Gulf geography.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -1089,10 +972,7 @@
         "name": "Indonesian Trap",
         "family": "hip_hop",
         "lineage": "Indonesian trap develops within the country’s hip-hop networks through locally shaped flows, online production and exchanges with international rap. Performers use Indonesian and English, with playful, confrontational and personal approaches coexisting.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -1134,9 +1014,7 @@
           "cyclicity": 0
         },
         "description": "Staccato rap and memorable hooks move over sparse, bass-led programmed beats. Gaps, rhythmic accents and electronic melodic fragments give the voice room, while producers and performers vary the balance between direct delivery and melodic inflection.",
-        "exemplars": [
-          "Ramengvrl"
-        ],
+        "exemplars": ["Ramengvrl"],
         "status": "documented",
         "crossRefs": []
       },
@@ -1172,10 +1050,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1187,10 +1062,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1206,9 +1078,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1222,9 +1092,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "indonesian trap",
@@ -1234,12 +1102,7 @@
       "allocation_group_id": "014",
       "id": "indonesian_trap",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        -6.2088,
-        106.8456,
-        "Jakarta",
-        "Southeast Asia"
-      ],
+      "geo": [-6.2088, 106.8456, "Jakarta", "Southeast Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -1251,10 +1114,7 @@
           "support_notes": "Fresh firsthand community/production evidence; genre-practice scope, not exact master reconstruction."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14888search0",
-        "turn14887view1"
-      ],
+      "primary_retrieval_refs": ["turn14888search0", "turn14887view1"],
       "neighbor_distinction": "The whole existing indonesian_hip_hop encompasses local and diasporic rap, not just its Rich Brian example; indonesian_underground_hip_hop is an independent production/community field rather than exclusively boom bap. Trap is a positively named stylistic branch within these overlapping Indonesian networks. Ramengvrl firsthand discussion and DJ Mag explicit trap classification support this branch. Existing Indonesian emo rap intersects trap sonics but foregrounds a distinct emo-related expressive community; no exclusive artists or language boundary asserted.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -1315,10 +1175,7 @@
         "name": "Kyrgyz Hip Hop",
         "family": "hip_hop",
         "lineage": "Kyrgyz hip-hop developed through cassette exchange, urban parties, independent studios and battle-rap communities. Russian- and Kyrgyz-language artists connect Bishkek networks with audiences across the country and beyond.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -1360,12 +1217,7 @@
           "cyclicity": 0
         },
         "description": "Rapped verses and hooks ride supplied beats, with flexible flow and local language shaping the delivery. Battles, patriotic songs, personal narratives and club-oriented recordings form different strands of the scene.",
-        "exemplars": [
-          "AP Clan",
-          "Belyi",
-          "Begish",
-          "Bayastan"
-        ],
+        "exemplars": ["AP Clan", "Belyi", "Begish", "Bayastan"],
         "status": "documented",
         "crossRefs": []
       },
@@ -1401,10 +1253,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1416,10 +1265,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1435,9 +1281,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1451,9 +1295,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "kyrgyz hip hop",
@@ -1463,12 +1305,7 @@
       "allocation_group_id": "015",
       "id": "kyrgyz_hip_hop",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        42.8746,
-        74.5698,
-        "Bishkek",
-        "Caucasus & Central Asia"
-      ],
+      "geo": [42.8746, 74.5698, "Bishkek", "Caucasus & Central Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -1480,10 +1317,7 @@
           "support_notes": "Primary community/practitioner evidence, general genre-practice scope."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14911search0",
-        "turn14899search13"
-      ],
+      "primary_retrieval_refs": ["turn14911search0", "turn14899search13"],
       "neighbor_distinction": "Original researcher reportage positively documents Kyrgyz/Russian rap communities, supplied beats and local studios; no unaccompanied inference from the group named Acapella. The full central_asian_hip_hop spans countries and languages, not only Kazakhstan. Kyrgyz hip-hop is its positively documented national community subset; Kyrgyz pop, Manas recitation and traditional instrumental practices remain distinct overlapping cultural contexts, not interchangeable by nationality.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -1544,10 +1378,7 @@
         "name": "Myanmar Hip Hop",
         "family": "hip_hop",
         "lineage": "Myanmar hip-hop grew through local rap collectives, home recording and informal circulation before expanding into concerts, studios and online networks. Artists adapt international influences to Burmese-language expression, local experience and changing relationships with audiences and censorship.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -1589,11 +1420,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic vocal lines meet assembled beats and bass-led backing. Direct speech, hooks and contrasting flows carry personal and social subjects; sampling, electronic production and popular-song crossover broaden the sound.",
-        "exemplars": [
-          "ACID",
-          "One Way",
-          "Ye Yint"
-        ],
+        "exemplars": ["ACID", "One Way", "Ye Yint"],
         "status": "documented",
         "crossRefs": []
       },
@@ -1629,10 +1456,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1644,10 +1468,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1663,9 +1484,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1679,9 +1498,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "myanmar hip hop",
@@ -1691,12 +1508,7 @@
       "allocation_group_id": "017",
       "id": "myanmar_hip_hop",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        16.8409,
-        96.1735,
-        "Yangon",
-        "Southeast Asia"
-      ],
+      "geo": [16.8409, 96.1735, "Yangon", "Southeast Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -1708,10 +1520,7 @@
           "support_notes": "Primary community/practitioner evidence, general genre-practice scope."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14900view1",
-        "turn14900view2"
-      ],
+      "primary_retrieval_refs": ["turn14900view1", "turn14900view2"],
       "neighbor_distinction": "Firsthand reporting documents voice/rhythm, separately recorded beats and words, computer beatmaking and producer/MC networks. This supports a representative rap-and-beat branch without reconstructing a whole ACID/One Way album or removing any documented role from such an album. The full Burmese pop category is broader popular song; Myanmar hip-hop is a positively named rap community. Myanmar indie, gospel and mahagita have different style/function lineages; no assertion that hip-hop lacks melodic or pop crossover.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -1772,10 +1581,7 @@
         "name": "Pinoy Drill",
         "family": "hip_hop",
         "lineage": "Pinoy drill is a drill-oriented branch of Philippine hip-hop, connecting local MCs and producers with an international rap style. Groups such as O Side Mafia have established a visible place for it within the wider Filipino rap community.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -1817,9 +1623,7 @@
           "cyclicity": 0
         },
         "description": "Measured rap delivery and forceful produced backing give verses their weight. Boasts, punchlines and repeated phrases work through rhythmic space, with tracks moving between street-oriented listening and club circulation.",
-        "exemplars": [
-          "O Side Mafia"
-        ],
+        "exemplars": ["O Side Mafia"],
         "status": "documented",
         "crossRefs": []
       },
@@ -1855,10 +1659,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1870,10 +1671,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1889,9 +1687,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1905,9 +1701,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "pinoy drill",
@@ -1917,12 +1711,7 @@
       "allocation_group_id": "018",
       "id": "pinoy_drill",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        14.5995,
-        120.9842,
-        "Manila",
-        "Southeast Asia"
-      ],
+      "geo": [14.5995, 120.9842, "Manila", "Southeast Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -1930,9 +1719,7 @@
           "support_notes": "Primary firsthand or institutional genre-practice evidence."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14966view1"
-      ],
+      "primary_retrieval_refs": ["turn14966view1"],
       "neighbor_distinction": "FlipTop is a primary Philippine hip-hop institution and explicitly identifies Pinoy drill, its rap delivery and beat accompaniment. Existing pinoy_hip_hop is the whole national/diasporic umbrella, not just its Ruby Ibarra exemplar. Existing pinoy_trap describes the broader Atlanta-derived Filipino trap field; drill is a named overlapping stylistic branch, not merely another artist in the same unrestricted category. The model is a representative individual verse, not the full O COAST group recording.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -1993,10 +1780,7 @@
         "name": "Sichuanese Hip Hop",
         "family": "hip_hop",
         "lineage": "Sichuanese hip-hop links local dialect, neighborhood identity and producer networks in Sichuan, with Chengdu’s rap collectives an important center. Artists bring regional speech rhythms into a wider Chinese and international hip-hop conversation.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -2038,10 +1822,7 @@
           "cyclicity": 0
         },
         "description": "Locally inflected rap flows move over producer-made beats and repeating musical figures. Trap influence, older hip-hop references and melodic crossover coexist, while the cadence and vocabulary of Sichuanese speech remain a distinctive resource.",
-        "exemplars": [
-          "Higher Brothers",
-          "CDC"
-        ],
+        "exemplars": ["Higher Brothers", "CDC"],
         "status": "documented",
         "crossRefs": []
       },
@@ -2077,10 +1858,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2092,10 +1870,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2111,9 +1886,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2127,9 +1900,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "sichuanese hip hop",
@@ -2139,12 +1910,7 @@
       "allocation_group_id": "023",
       "id": "sichuanese_hip_hop",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        30.5728,
-        104.0668,
-        "Chengdu",
-        "East Asia"
-      ],
+      "geo": [30.5728, 104.0668, "Chengdu", "East Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -2152,9 +1918,7 @@
           "support_notes": "Firsthand community and rap-and-beat practice evidence."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14931view1"
-      ],
+      "primary_retrieval_refs": ["turn14931view1"],
       "neighbor_distinction": "Firsthand interviews explicitly identify the Sichuanese dialect, CDC community, producer collaboration and voice-over-beat practice. This is a representative individual rap verse, not a reduction of a specific four-MC Higher Brothers master. The whole existing chinese_hip_hop already includes Chengdu and Higher Brothers and is not excluded from this narrower regional-language community. Distinction rests on positively documented dialect and local network, not a different instrument palette. Sichuan opera is a separate theatrical tradition, not a synonym based on geography.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -2215,10 +1979,7 @@
         "name": "Thai Trap",
         "family": "hip_hop",
         "lineage": "Thai trap developed within Thailand’s rap and beatmaking networks, where online communities connect young producers and vocalists. International trap influences intersect with Thai expression and a scene open to newer electronic and local musical ideas.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -2260,11 +2021,7 @@
           "cyclicity": 0
         },
         "description": "Rap leads move across producer-built backing, with hooks and electronic textures varying by artist. Collaboration between beatmakers and MCs supports both direct verse-led tracks and more melodic crossover approaches.",
-        "exemplars": [
-          "YoungOhm",
-          "Younggu",
-          "pvazzy"
-        ],
+        "exemplars": ["YoungOhm", "Younggu", "pvazzy"],
         "status": "documented",
         "crossRefs": []
       },
@@ -2300,10 +2057,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2315,10 +2069,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2334,9 +2085,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2350,9 +2099,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "thai trap",
@@ -2362,12 +2109,7 @@
       "allocation_group_id": "024",
       "id": "thai_trap",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        13.6906,
-        100.484,
-        "Chom Thong, Bangkok",
-        "Southeast Asia"
-      ],
+      "geo": [13.6906, 100.484, "Chom Thong, Bangkok", "Southeast Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -2379,10 +2121,7 @@
           "support_notes": "Primary firsthand or institutional genre-practice evidence."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14966view0",
-        "turn14962search7"
-      ],
+      "primary_retrieval_refs": ["turn14966view0", "turn14962search7"],
       "neighbor_distinction": "Firsthand pvazzy interview documents rap over produced beats and the named Thai Trap community; issuer press release separately labels Thai-Trap Hip-Hop. Existing thai_hip_hop is the whole national field, not only MILLI/NINO or one technique. This is a named stylistic/community branch within it. The model does not pretend to reproduce VKL’s specific Jersey-club/3cha fusion, which has additional positively named instruments; those roles are not removed from that recording.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -2443,10 +2182,7 @@
         "name": "UA Trap",
         "family": "hip_hop",
         "lineage": "UA trap is Ukrainian trap: a network of rappers and beatmakers within the country’s broader hip-hop scene. Local studio collaboration and online release culture connect established trap influences with Ukrainian expression and changing language choices.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -2488,10 +2224,7 @@
           "cyclicity": 0
         },
         "description": "Rap phrases, repeated hooks and beat-led production carry the music. Vocal character and rhythmic space take varied forms, from sparse delivery to more melodic or plugg-influenced approaches.",
-        "exemplars": [
-          "G Grizzie",
-          "Clonnex"
-        ],
+        "exemplars": ["G Grizzie", "Clonnex"],
         "status": "documented",
         "crossRefs": []
       },
@@ -2527,10 +2260,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2542,10 +2272,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2561,9 +2288,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2577,9 +2302,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "ua trap",
@@ -2589,12 +2312,7 @@
       "allocation_group_id": "025",
       "id": "ua_trap",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        49.8397,
-        24.0297,
-        "Lviv",
-        "Europe"
-      ],
+      "geo": [49.8397, 24.0297, "Lviv", "Europe"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -2676,10 +2394,7 @@
         "name": "Gaddiyali Pop",
         "family": "pop",
         "lineage": "Gaddiyali pop brings Gaddi-language song into regional recording, music-video and concert networks. In Kangra and Chamba, performers connect inherited lyrics and cultural identity with contemporary popular presentation.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -2721,11 +2436,7 @@
           "cyclicity": 0
         },
         "description": "Sung melodies and recurring refrains meet dance-oriented backing. Folk and devotional material can enter contemporary productions, while live cultural and ritual performances retain other arrangements and functions.",
-        "exemplars": [
-          "Poonam Bhardwaj",
-          "Ishant Bhardwaj",
-          "Sunil Rana"
-        ],
+        "exemplars": ["Poonam Bhardwaj", "Ishant Bhardwaj", "Sunil Rana"],
         "status": "documented",
         "crossRefs": []
       },
@@ -2761,10 +2472,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2776,10 +2484,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2795,9 +2500,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2811,9 +2514,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "gaddiyali pop",
@@ -2823,12 +2524,7 @@
       "allocation_group_id": "069",
       "id": "gaddiyali_pop",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        32.219,
-        76.3234,
-        "Dharamsala",
-        "South Asia"
-      ],
+      "geo": [32.219, 76.3234, "Dharamsala", "South Asia"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -2836,11 +2532,7 @@
           "support_notes": "Anja Wagner original field research and singer interviews; pages92 and94 explicitly distinguish pop/disco song production from ritual instrumentation."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14942view0",
-        "turn14944view1",
-        "turn14945view0"
-      ],
+      "primary_retrieval_refs": ["turn14942view0", "turn14944view1", "turn14945view0"],
       "neighbor_distinction": "Gaddi linguistic and production community is positively established by fieldwork. The full existing himachali_pop is a wider regional umbrella, not only its rock exemplar. This narrower community overlaps Himachali popular music without claiming separate ethnicity for every performer or excluding multilingual crossover. The model represents the documented disco/pop-backed singing branch, not the separately described nuala ensemble.",
       "model_policy": "Authored representative sung dance-pop branch: a syllabic melodic lead over produced backing of unspecified mechanism, with functional-harmonic verse–chorus–bridge organization as an arrangement choice, not a measured source form. Single-lead capture, untreated natural voice and controlled studio are authored; physiology, original headcount and actual studio equipment remain unspecified. Complete backing is retained through the existing credited-beat owner; the distinct ritual ensemble is not being reconstructed.",
       "source_scope_limitation": "Authored representative sung dance-pop branch: a syllabic melodic lead over produced backing of unspecified mechanism, with functional-harmonic verse–chorus–bridge organization as an arrangement choice, not a measured source form. Single-lead capture, untreated natural voice and controlled studio are authored; physiology, original headcount and actual studio equipment remain unspecified. Complete backing is retained through the existing credited-beat owner; the distinct ritual ensemble is not being reconstructed.",
@@ -2909,10 +2601,7 @@
         "name": "Pop Romantico",
         "family": "pop",
         "lineage": "Pop romántico foregrounds intimate relationships and emotive melodic songwriting within Spanish-language pop. Its flexible arrangements span ballads and newer acoustic or produced pop rather than requiring one historical orchestral formula.",
-        "instruments": [
-          "voice",
-          "acoustic_guitar_dread"
-        ],
+        "instruments": ["voice", "acoustic_guitar_dread"],
         "room": "parlor",
         "pin_parts": true,
         "parts": {
@@ -2958,20 +2647,11 @@
           "cyclicity": 0
         },
         "description": "A close melodic vocal and guitar accompaniment can expose the personal address of the lyric. Repeated harmonic patterns support memorable refrains, while changes in phrasing and dynamics give emotional contrast.",
-        "exemplars": [
-          "Consuelo Schuster",
-          "Alexia Naomi",
-          "Ariztía"
-        ],
+        "exemplars": ["Consuelo Schuster", "Alexia Naomi", "Ariztía"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        -33.4489,
-        -70.6693,
-        "Santiago",
-        "Latin America & Caribbean"
-      ],
+      "geo": [-33.4489, -70.6693, "Santiago", "Latin America & Caribbean"],
       "geo_rationale": "Editorial anchor for the positively documented Chilean branch of a wider Spanish-language field; not the origin of all romantic pop.",
       "signature_tokens": [],
       "model_policy": "Representative intimate songwriter branch based on Alexia Naomi’s firsthand account of composing the whole song with guitar. Not a reconstruction of the produced Pedazos de mí recording, and not the full Ariztía concert. One accompanied sung lead with connected phrasing is authored; source-unspecified vocal physiology/register/ornament retained. Mahogany-top/back dreadnought with phosphor-bronze strings, standard tuning and chord-melody accompaniment is an authored warm acoustic realization of unspecified guitar, not observed wood or strings. Parlor acoustics and an unprocessed single lead are new recording choices. Functional-harmonic verse–chorus–bridge organization is explicitly authored, not measured source-song form.",
@@ -2994,11 +2674,7 @@
           "support_notes": "Fresh14912search0 full institutional interview acknowledges ballads alongside other pop aesthetics."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14893view2",
-        "turn14892search12",
-        "turn14912search0"
-      ],
+      "primary_retrieval_refs": ["turn14893view2", "turn14892search12", "turn14912search0"],
       "classification_evidence": "Actual latin_ballad describes the historically codified slow, orchestrated pan-Hispanic balada; this romantic-pop field overlaps those songs but also includes the updated resources and varied pop aesthetics expressly described in the Schuster and Ariztía institutional interviews. Actual latin_pop is the larger language/production umbrella and includes this branch. This distinction rests on positively named romantic songwriting practice, not one different exemplar or an exclusion of all ballads. No geographical exclusivity is claimed.",
       "source_retrieval_caveat": "Direct first-person Alexia source read; indexed full Schuster/Ariztía source passages preserved. Exact creator map direct failure14912view0 is not inferred membership.",
       "photo": {
@@ -3033,10 +2709,7 @@
           "fresh_review_ref": "turn14898view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3048,10 +2721,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3067,9 +2737,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3083,9 +2751,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14898view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14898view0"],
         "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
       },
       "dependency_audit": {
@@ -3109,11 +2775,7 @@
         "name": "Sepedi Pop",
         "family": "pop",
         "lineage": "Sepedi pop connects Northern Sotho-language songwriting with Limpopo popular-music networks. Manyalo performers and contemporary Afro-pop producers bring local vocal expression into amplified keyboard and beat-based arrangements.",
-        "instruments": [
-          "voice",
-          "electronic_keyboard_unspecified",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "electronic_keyboard_unspecified", "credited_beat_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3157,19 +2819,11 @@
           "cyclicity": 0
         },
         "description": "Sung phrases and memorable refrains sit above melodic keyboard support and a rhythmic backing. Wedding-oriented Manyalo and contemporary Afro-pop offer overlapping branches with different performance settings and lyrical purposes.",
-        "exemplars": [
-          "Pleasure tša Manyalo",
-          "John Lundun"
-        ],
+        "exemplars": ["Pleasure tša Manyalo", "John Lundun"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        -23.9045,
-        29.4689,
-        "Polokwane",
-        "Africa"
-      ],
+      "geo": [-23.9045, 29.4689, "Polokwane", "Africa"],
       "geo_rationale": "Editorial regional anchor in the documented Limpopo music network; not a claimed recording location.",
       "signature_tokens": [],
       "model_policy": "Representative keyboard-and-beat-backed vocal practice, not a transcription of a named master or festival. A solo accompanied singer and single lead are authored staffing choices; no source-wide headcount is asserted. Syllabic singing, moderate effort, neutral physiology, source-unspecified register/ornament/pitch system and melodic/chordal keyboard support are deliberate representative defaults. Beat production is separately retained from keyboard harmony, while their hardware, generator and possible performer doubling remain unspecified. The source producer explicitly describes making beats with keyboard; the beat owner does not assert separate hardware. Controlled live-room presentation and lively concert pacing are authored. Functional-harmonic verse–chorus–bridge organization is a new rendition choice, not measured form of Marobalo or a universal Manyalo structure. No global tuning or exact signal chain is inferred.",
@@ -3192,11 +2846,7 @@
           "support_notes": "Fresh full14898search0 includes singer Morayks, Marobalo nominations and keyboard production; not an exact song-layer inventory."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14890search0",
-        "turn14898search1",
-        "turn14898search0"
-      ],
+      "primary_retrieval_refs": ["turn14890search0", "turn14898search1", "turn14898search0"],
       "classification_evidence": "This language-centered Limpopo popular-song field is broader than wedding-specific Manyalo practice and differs from the existing mbaqanga record’s specific township-jive lineage/configuration. Sesotho hip hop concerns another Sotho language and MC-centered practice; Lesotho traditional, famo, mohobelo and litolobonya describe Basotho instrumental/dance fields. Overlap with Southern African pop and contemporary dance production is explicit, not sonic exclusivity.",
       "source_retrieval_caveat": "Indexed full primary passages retained; announced Manyalo event direct fetch failed. No original audio analysis or undisclosed equipment inference.",
       "photo": {
@@ -3231,10 +2881,7 @@
           "fresh_review_ref": "turn14898view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3246,10 +2893,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3265,9 +2909,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3281,9 +2923,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14898view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14898view0"],
         "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
       },
       "dependency_audit": {
@@ -3306,10 +2946,7 @@
         "name": "Thai Viral Pop",
         "family": "pop",
         "lineage": "Thai viral pop circulates through short-form video, fan participation and streaming discovery. Catchy Thai-language songs cross pop, R&B, soul and hip-hop networks, with successful hooks receiving new arrangements and performance versions.",
-        "instruments": [
-          "voice",
-          "upright_piano"
-        ],
+        "instruments": ["voice", "upright_piano"],
         "room": "parlor",
         "pin_parts": true,
         "parts": {
@@ -3353,19 +2990,11 @@
           "cyclicity": 0
         },
         "description": "A voice-and-piano rendition gives a circulating pop hook a more intimate setting. Melodic phrases remain foregrounded over chordal accompaniment, while contrasting sections make room for changes of mood and emphasis.",
-        "exemplars": [
-          "BLVCKHEART",
-          "TimeThai"
-        ],
+        "exemplars": ["BLVCKHEART", "TimeThai"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        13.7563,
-        100.5018,
-        "Bangkok",
-        "Southeast Asia"
-      ],
+      "geo": [13.7563, 100.5018, "Bangkok", "Southeast Asia"],
       "geo_rationale": "Editorial Thai music-industry anchor, not a measured piano-session location.",
       "signature_tokens": [],
       "model_policy": "Authored voice-and-piano branch supported by the issuer’s separately published Piano Version and positive artist vocal/pop identity. This is not a claim to transcribe every sounding layer of that recording or the original saxophone-featured master. Standard upright size, studio piano use, block-chord accompaniment, connected syllabic singing, single accompanied lead and unprocessed capture are deliberate new rendition choices; actual piano subtype, exact headcount, vocal physiology, tuning and source signal chain are unknown. Parlor acoustics express an intimate re-arrangement. Functional-harmonic verse–chorus–bridge organization is authored, not a measured original score. Source artist-specific saxophone solo belongs the original production, not a universal viral-pop instrument requirement.",
@@ -3433,10 +3062,7 @@
           "fresh_review_ref": "turn14898view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3448,10 +3074,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3467,9 +3090,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3483,9 +3104,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14898view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14898view0"],
         "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
       },
       "dependency_audit": {
@@ -3558,21 +3177,11 @@
           "cyclicity": 0
         },
         "description": "Sung phrases and melodic keyboard figures meet a produced rhythmic backing. Flute can answer or color the vocal line, while repeated hooks and electronically arranged beats give familiar melodies a new dance-oriented setting.",
-        "exemplars": [
-          "Kejoo Beats",
-          "Beyto Beats",
-          "SORE BEATZ",
-          "Faruk Aydın"
-        ],
+        "exemplars": ["Kejoo Beats", "Beyto Beats", "SORE BEATZ", "Faruk Aydın"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        37.9144,
-        40.2306,
-        "Diyarbakır",
-        "Asia"
-      ],
+      "geo": [37.9144, 40.2306, "Diyarbakır", "Asia"],
       "geo_rationale": "Approximate land anchor in the Kurdish cultural region, not a claim that this transnational discovery field originated in one city or that the selected producer resides there.",
       "photo": {
         "manifest": {
@@ -3606,10 +3215,7 @@
           "fresh_review_ref": "turn14908view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3621,10 +3227,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3640,9 +3243,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3656,9 +3257,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14908view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14908view2"],
         "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
       },
       "model_policy": "Representative sung-keyboard-flute remix branch with the positively documented trap-rhythm production retained as a credited produced beat. The producer describes bringing a viral traditional vocal into the studio and blending it with modern backing and trap rhythms, and explicitly credits keyboard and flute. The profile is not a transcription or complete recreation of that recording. Solo accompanied syllabic singing, moderate effort, melodic/chordal keyboard and live-room presentation are authored musical choices. Flute subtype, keyboard architecture, beat hardware and inner sound layers remain unspecified rather than invented. Every applicable existing control is protected; no master is represented as a playback instrument.",
@@ -3706,9 +3305,7 @@
         "name": "Lo-Fi Latino",
         "family": "electronic",
         "lineage": "Lo-fi latino connects producers across Latin America, Spain and the diaspora through relaxed instrumental beat making. Latin melodies, rhythms and recorded fragments meet the intimate textures of lo-fi hip-hop.",
-        "instruments": [
-          "sampler_classic"
-        ],
+        "instruments": ["sampler_classic"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -3737,20 +3334,11 @@
           "cyclicity": 0
         },
         "description": "Layered sample phrases bring melodic fragments, bass and percussion into repeating grooves. Soft-edged recording textures and unhurried pacing leave room for regional musical references, with sampled voices appearing alongside instrumental material.",
-        "exemplars": [
-          "Flora Vida",
-          "Palmasur",
-          "Brimlo"
-        ],
+        "exemplars": ["Flora Vida", "Palmasur", "Brimlo"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        34.0522,
-        -118.2437,
-        "Los Angeles",
-        "North America"
-      ],
+      "geo": [34.0522, -118.2437, "Los Angeles", "North America"],
       "geo_rationale": "Explicit Acrylic label headquarters and Brimlo Boyle Heights production hub; representative transnational network anchor, not origin of every Latin lo-fi practice.",
       "photo": {
         "manifest": {
@@ -3784,10 +3372,7 @@
           "fresh_review_ref": "turn14908view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3799,10 +3384,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3818,9 +3400,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3834,9 +3414,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14908view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14908view2"],
         "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
       },
       "model_policy": "Representative sample-based production branch supported by the issuer/management and production-library evidence, not a reconstruction of a finished Brimlo track or compilation. One sampler retains all positively listed sampled guitar, bass, drums, piano, synth and vocal loops as sample-source roles; no live acoustic players or singer headcount is asserted. E-mu SP-1200-style12-bit grain, sample slicing and layered phrase workflow are coherent authored hardware/technique choices, not identified artist equipment. Loops include melodic as well as percussive sound; no claim purely rhythmic or beat-free. Downtempo listening rendition, controlled studio and no global tuning are deliberate.",
@@ -3861,11 +3439,7 @@
           "checked_date": "2026-10-04"
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14927view0",
-        "turn14922view0",
-        "turn14927view1"
-      ],
+      "primary_retrieval_refs": ["turn14927view0", "turn14922view0", "turn14927view1"],
       "source_scope_limitation": "An authored production arrangement from positively documented sample practices. It is not claimed as a full mastered-recording transcription. Sampled-vocal presence retained; performer counts and live/digital generation behind source samples remain unspecified.",
       "source_retrieval_caveat": "All three cited primary pages freshly read. Exact creator membership not newly claimed; named field supported directly by issuer and producer-management practice.",
       "signature_tokens": []
@@ -3883,10 +3457,7 @@
         "name": "Maïmouna",
         "family": "hip_hop",
         "lineage": "Maïmouna emerged in Abidjan around 2021 as a playful meeting of rap and coupé-décalé. Also called the mouvement des enfants, it links youthful rap delivery with social dancing and the city’s club and maquis culture.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3928,20 +3499,11 @@
           "cyclicity": 0
         },
         "description": "Rhythmic verses and teasing hooks ride a dance-oriented produced beat. Vocal energy, rhythmic repetition and movement connect the rapper to the gathering; arrangements range from spare instrumentals to layered productions.",
-        "exemplars": [
-          "Jr La Mélo",
-          "Didi B",
-          "Ste Milano"
-        ],
+        "exemplars": ["Jr La Mélo", "Didi B", "Ste Milano"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        5.36,
-        -4.0083,
-        "Abidjan",
-        "Africa"
-      ],
+      "geo": [5.36, -4.0083, "Abidjan", "Africa"],
       "geo_rationale": "Firsthand anthropological report and producer own profile locate the named practice in Abidjan.",
       "photo": {
         "manifest": {
@@ -3975,10 +3537,7 @@
           "fresh_review_ref": "turn14908view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3990,10 +3549,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4009,9 +3565,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4025,9 +3579,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14908view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14908view2"],
         "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
       },
       "model_policy": "Representative rapper-and-produced-beat arrangement of the source-described dance-rap practice. The producer explicitly offers Maïmouna rap instrumentals; all backing is retained as an unspecified credited beat, not a named sampler, synth, drum machine, or opaque recording-player substitute. This is a genre-level authored accompaniment, not reconstruction of that instrumental master. Solo accompanied lead, moderate effort, rhythmic spoken flow and unprocessed voice are meaningful representative choices; physiology, pitch organization, beat-generation hardware and exact layered sound count are unspecified. The live-room treatment is authored, not an observed venue. No global pitch tuning is imposed.",
@@ -4046,10 +3598,7 @@
           "checked_date": "2026-10-04"
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14907view0",
-        "turn14920view1"
-      ],
+      "primary_retrieval_refs": ["turn14907view0", "turn14920view1"],
       "source_scope_limitation": "Genre-level representative voice and produced backing, not an assertion of a complete particular concert or mastered track. Exact performer count, equipment and internal beat layers are unknown and not invented.",
       "source_retrieval_caveat": "Creator map direct attempt turn14920view0 timed out. Positive named field comes independently from firsthand artist/ethnographic and producer primary evidence; no fabricated fresh creator roster.",
       "signature_tokens": []
@@ -4067,10 +3616,7 @@
         "name": "Musique urbaine Brazzaville",
         "family": "global",
         "lineage": "Contemporary urban music in the Republic of the Congo connects rap, slam and popular dance-song communities through Brazzaville, recording studios, festivals and online networks.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -4112,12 +3658,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic speech, melodic hooks and produced beats circulate alongside local dance rhythms and rumba-derived approaches. Artists move between rap, slam, Afro-pop and other popular forms, making this a shared regional scene rather than a single instrumental formula. A rapper over a produced beat represents one active branch.",
-        "exemplars": [
-          "Jessy B",
-          "Paterne Maestro",
-          "Tidiane Mario",
-          "Mwasi Moyindo"
-        ],
+        "exemplars": ["Jessy B", "Paterne Maestro", "Tidiane Mario", "Mwasi Moyindo"],
         "status": "documented",
         "crossRefs": []
       },
@@ -4153,10 +3694,7 @@
           "fresh_review_ref": "turn13649view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4168,10 +3706,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4187,9 +3722,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4204,9 +3737,7 @@
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
         "fresh_rights_review": "Fresh turn13649view0; historical exact image receipt retained.",
-        "fresh_rights_retrieval_refs": [
-          "turn13649view0"
-        ]
+        "fresh_rights_retrieval_refs": ["turn13649view0"]
       },
       "resolved_parts_audit": [
         {
@@ -4240,12 +3771,7 @@
           "policy": "Genre-level MC plus produced-beat branch supported by first-person practitioners in a documented cross-style urban community. Beatmaking is positively described, precise sound generators and hardware are not. The existing neutral beat owner preserves this production role without inventing a synthesizer or sampler. Accompanied solo rhythmic speech and a controlled room are authored realization choices, not a claim about every artist or an exact master. All17 vocal controls plus beat identity remain explicit. Functional-harmonic popular-song organization with verse, recurring hook and contrasting bridge is an authored option for this representative rendition, not a transcription or universal claim about every rap or slam performance."
         }
       ],
-      "geo": [
-        -4.2634,
-        15.2429,
-        "Brazzaville",
-        "Africa"
-      ],
+      "geo": [-4.2634, 15.2429, "Brazzaville", "Africa"],
       "geo_rationale": "Documented regional community anchor, not exclusive artist birthplace.",
       "signature_tokens": [],
       "model_policy": "Genre-level MC plus produced-beat branch supported by first-person practitioners in a documented cross-style urban community. Beatmaking is positively described, precise sound generators and hardware are not. The existing neutral beat owner preserves this production role without inventing a synthesizer or sampler. Accompanied solo rhythmic speech and a controlled room are authored realization choices, not a claim about every artist or an exact master. All17 vocal controls plus beat identity remain explicit. Functional-harmonic popular-song organization with verse, recurring hook and contrasting bridge is an authored option for this representative rendition, not a transcription or universal claim about every rap or slam performance.",
@@ -4267,10 +3793,7 @@
         {
           "url": "https://talents2kin.com/lemergence-du-congo-brazzaville-vit-a-travers-les-rythmes-de-la-musique-urbaine-tribune-de-niamba-malafi/",
           "kind": "firsthand_practitioner_and_industry_interviews",
-          "retrieval_refs": [
-            "turn13645view0",
-            "turn13647view0"
-          ],
+          "retrieval_refs": ["turn13645view0", "turn13647view0"],
           "finding": "Direct Jessy B/Mwasi Moyindo/label-manager testimony identifies Congo-Brazzaville cross-style urban scene and beatmaking/recording work."
         },
         {
@@ -4284,9 +3807,7 @@
         "original_packet": "/tmp/batch041/qualified-frozen194.json",
         "original_packet_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
         "before_parent": "functionalSong.africanPop",
-        "before_crossRefs": [
-          "mcRhythm.intlHipHop"
-        ],
+        "before_crossRefs": ["mcRhythm.intlHipHop"],
         "scope": "Only taxonomy parent/crossRefs and corresponding classification rationale/provenance changed. Source facts, instruments, protected controls, photo, tuning, room and dependencies preserved.",
         "prior_classification_evidence": "Fresh firsthand practitioner/industry testimony in Niamba Malafi publication identifies rap, slam, Afrobeat and ndombolo in one Congo-Brazzaville network; Jessy B and Mwasi Moyindo directly describe their community, with beatmaking and production explicitly named. Broad African popular-song parent represents the full cross-style field, MC cross-reference the default branch. Functional-harmonic popular-song organization with verse, recurring hook and contrasting bridge is an authored option for this representative rendition, not a transcription or universal claim about every rap or slam performance."
       }
@@ -4304,9 +3825,7 @@
         "name": "Reading",
         "family": "global",
         "lineage": "Music for reading is a functional listening field cultivated by composers, publishers and playlist curators. Quiet piano, ambient textures and restrained instrumental arrangements provide a continuous backdrop to books and other sustained reading.",
-        "instruments": [
-          "upright_piano"
-        ],
+        "instruments": ["upright_piano"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -4337,12 +3856,7 @@
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        60,
-        8,
-        "Norway",
-        "Europe"
-      ],
+      "geo": [60, 8, "Norway", "Europe"],
       "geo_rationale": "Approximate Norwegian land anchor for documented composer-publisher example; reading music is international, not confined to Norway.",
       "model_policy": "Representative quiet solo-piano branch of music made and curated for reading. Issuer explicitly identifies solo piano and reading use; standard studio upright is an authored instrument construction, connected legato/pedal-resonant phrases preserve low-interruption musical continuity. No exact original piano mechanism, measured tempo, improved comprehension or medical benefit asserted. Full three controls retained; live-room is authored. Environmental ambient parent reflects subordinate listening texture, consistent with existing acoustic new-age piano, not synthetic generation.",
       "neighbor_distinction": "Full background_music is the broad subordinate-listening umbrella; reading is a positively marketed and curated use-context subset, not an exclusion from it. Full focus_beats specifies instrumental beat-making for concentration, while reading can use quiet nonbeat solo piano or ambient material. Queued Focus spans general concentration; reading specifically centers sustained book/text engagement. New Age Piano describes a musical-production lineage rather than this use-context across styles. Exact overlap is acknowledged; no claim the same piano music cannot serve several functions.",
@@ -4372,9 +3886,7 @@
         "basis": "Positively instrumental solo-piano representative branch, not whole-field exclusion."
       },
       "instrument_role_audit": {
-        "roles": [
-          "piano"
-        ],
+        "roles": ["piano"],
         "basis": "Publisher solo-piano reading practice"
       },
       "resolved_parts_audit": [
@@ -4428,10 +3940,7 @@
           "fresh_review_ref": "turn14117view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4443,10 +3952,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4462,9 +3968,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4478,9 +3982,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14117view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14117view2"],
         "fresh_rights_review": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim."
       },
       "signature_tokens": [],
@@ -4489,9 +3991,7 @@
         "original_packet": "/tmp/batch041/qualified-frozen194.json",
         "original_packet_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
         "before_parent": "experimentalElec.ambient",
-        "before_crossRefs": [
-          "experimentalElec"
-        ],
+        "before_crossRefs": ["experimentalElec"],
         "scope": "Only taxonomy parent/crossRefs and corresponding classification rationale/provenance changed. Source facts, instruments, protected controls, photo, tuning, room and dependencies preserved."
       }
     }

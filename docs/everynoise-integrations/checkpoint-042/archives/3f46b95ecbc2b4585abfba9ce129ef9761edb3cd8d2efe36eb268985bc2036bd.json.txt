@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "reviewer": "recover_024",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice002-lo-fi-latino.json",
+  "sha256": "3421731606d032688d3c3aba22a526afab8eb10e3d6cbca97f4853a98f826f2e",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "fresh_primary_refs": [
+    "turn14932view1",
+    "turn14935view3",
+    "turn14935view4",
+    "turn14937view1"
+  ],
+  "category_source_and_default_review": "Full lo_fi, chill_beats and lo_fi_brasileiro read. Issuer positively organizes transnational Latin production community, including Latin America/Spain/USA, overlapping but wider than Brazilian field. Management documents Latin sampling; sample-library source expressly includes all guitar/bass/drum/piano/synth/vocal materials. One controllable sampler represents that production branch, not opaque whole-master playback. Authored SP1200-style12bit layered/chopped workflow coherent. Instrumental hip-hop backing branch is retained without inventing a live rapper.",
+  "literal_output_review": "Concrete-precise lexicon means individually audible sample grains; positive slicing and layered sample practice support it. No tempo conflict or omitted sampled source role.",
+  "validation": {
+    "protected_owning_controls": 5,
+    "unowned_or_invalid_flat_parts": 0,
+    "axes_count": 13,
+    "browser_connector_parity_all_four_formats": true,
+    "max_chars": 206,
+    "compiled_api_only_requested_tradition": true,
+    "compiled_api_pin_errors": [],
+    "existing_instrument_records_unchanged": true,
+    "receipt": "practice002-independent-runtime024.json"
+  },
+  "photo_review": {
+    "fresh_rights_ref": "turn14925view1",
+    "license": "CC BY2.5; Iain Fergusson original/Binksternet crop",
+    "historical_source": "data-only-023-evidence.json:baps",
+    "exact_url_hash_dimensions_bytes_match": true,
+    "context": "LOW generic recording microphone, no source performer/instrument depiction claim",
+    "new_download_or_visual_claim": false
+  },
+  "immutable_review": "Original candidate read only; SHA bound, id/tradition id/photo id and thirteen axes checked. Source identity/ordinal/name/palette and all public/evidence fields unchanged by reviewer. No dependencies or registry edits.",
+  "limitations": [
+    "Primary statements about promotion and metrics remain issuer-attributed.",
+    "Representative genre-level practice qualification, not exhaustive reconstruction of any master recording."
+  ]
+}

@@ -2,10 +2,10 @@
   "id": "hangoskonyvek",
   "name": "Hangoskonyvek",
   "family": "vernacular",
-  "lineage": "Rejtő Jenő — A tizennégy karátos autó, Rudolf Péter2006 audiobook. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Hangoskönyvek brings Hungarian-language books into narrated listening. Publishers and readers adapt literary works for sustained spoken performance.",
   "recipe": "classic hangoskonyvek, spoken Word, narration branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 152,
-  "score": 1.147,
+  "score": 1.005,
   "config": {
     "traditions": [
       "hangoskonyvek"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.231,
+          "voice_speech_song": 0.3165,
+          "voice_ensemble_config": 0.2535,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.2985,
           "voice_tessitura": 0
         }
       }
@@ -84,13 +84,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",

@@ -2,10 +2,10 @@
   "id": "euskal_indie",
   "name": "Euskal indie",
   "family": "vernacular",
-  "lineage": "Napoka Iria — Poortstraat 58 (2008). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2000s euskal indie, ballad Poetry. unprocessed natural acoustic. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 206,
-  "score": 3.988,
+  "lineage": "Euskal indie connects Basque independent musicians through songwriting, recordings and shared audiences. Acoustic duos are one strand within a wider field of band and electronic approaches.",
+  "recipe": "classic euskal indie, ballad Poetry. unprocessed natural acoustic. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 195,
+  "score": 3.588,
   "config": {
     "traditions": [
       "euskal_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.8999999999999999,
+          "voice_processing_chain": 1.3,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -66,7 +66,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0,
-          "acoustic_om_technique": 3.1229999999999998
+          "acoustic_om_technique": 2.323
         }
       }
     ],

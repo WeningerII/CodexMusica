@@ -2,10 +2,10 @@
   "id": "icelandic_experimental",
   "name": "Icelandic experimental",
   "family": "electronic",
-  "lineage": "Hekla — documented solo theremin-and-voice practice, Athens Epidaurus Festival 2023. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s icelandic experimental, experimental Elec. solo with instrumental accompaniment. moog music etherwave canonical modern reissue 1996 present theremin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 268,
-  "score": 7.087,
+  "lineage": "Icelandic experimental music connects performers exploring unusual combinations of sound, instruments and production. Voice and theremin provide one intimate approach within a much wider creative field.",
+  "recipe": "classic icelandic experimental, experimental Elec. moog music etherwave canonical modern reissue 1996 present theremin. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 224,
+  "score": 3.442,
   "config": {
     "traditions": [
       "icelandic_experimental"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.47,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.126,
           "voice_tessitura": 0
         }
       },
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 0.2315,
-          "theremin_model": 0.975,
+          "theremin_model": 1.2349999999999999,
           "theremin_technique": -0.05,
-          "theremin_lineage": 2.8600000000000003
+          "theremin_lineage": 1.3
         }
       }
     ],
@@ -95,7 +95,7 @@
         "theremin_lineage"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "transformerless",
@@ -105,14 +105,12 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",

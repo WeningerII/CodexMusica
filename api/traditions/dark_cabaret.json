@@ -2,10 +2,10 @@
   "id": "dark_cabaret",
   "name": "Dark cabaret",
   "family": "pop",
-  "lineage": "Sparkbird — The Light That Comes Through (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s dark cabaret, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, European maple bosnian source flamed figure cello, flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 450,
-  "score": 50.522,
+  "lineage": "Dark cabaret combines theatrical songwriting with shadowed moods and contrasting popular-music textures. Contemporary performers bring cabaret-related expression into folk-pop, chamber and band arrangements.",
+  "recipe": "classic dark cabaret, functional Song, pop rock branch. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple block chord grand piano, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, cello, flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 373,
+  "score": 47.791,
   "config": {
     "traditions": [
       "dark_cabaret"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2285000000000001,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.7575,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 8.141,
+          "keyboard_technique": 9.141,
           "grand_piano_size": 0.0945,
           "grand_piano_brand": 0.2625,
           "piano_hammer": 1.8199999999999998,
-          "piano_rim": 2.21,
+          "piano_rim": 1.8199999999999998,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.263,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.07,
           "piano_pitch_standard": -0.035
         }
@@ -117,15 +117,15 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.3,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.168,
           "snare_wires": 0,
-          "cymbal_alloy": 1.505,
-          "cymbal_hammering": 11.712499999999999,
-          "cymbal_lathing": 11.639,
+          "cymbal_alloy": 1.9049999999999998,
+          "cymbal_hammering": 12.712499999999999,
+          "cymbal_lathing": 12.639,
           "cymbal_finish": 0
         }
       },
@@ -146,11 +146,11 @@
           "bowed_technique": -0.05,
           "cello_strings": 0.19949999999999998,
           "cello_top_wood": -0.07,
-          "cello_back_wood": 1.5315,
+          "cello_back_wood": -0.07,
           "cello_varnish": -0.1,
-          "cello_setup_period": 0.6499999999999999,
+          "cello_setup_period": 0.26,
           "cello_bow_grip": 0.0315,
-          "cello_rosin": 0.5315,
+          "cello_rosin": 0.2315,
           "cello_bow_stick": -0.10500000000000001
         }
       },

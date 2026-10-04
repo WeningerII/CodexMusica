@@ -5,7 +5,7 @@
   "lineage": "Greek underground rap develops through independent artists, producers and local networks. Its repertoire includes boom-bap and alternative approaches without being limited to a single beat-making method.",
   "recipe": "classic greek underground rap, mc Rhythm. rap, rhythmic spoken flow no pitch. sampler drum machine. live tracking.",
   "recipe_chars": 114,
-  "score": 20.105,
+  "score": 20.672,
   "config": {
     "traditions": [
       "greek_underground_rap"
@@ -62,8 +62,8 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "sample_bitdepth": 0.126,
-          "sample_swing": 1.9229999999999998,
+          "sample_bitdepth": 0.063,
+          "sample_swing": 2.553,
           "sample_processing": 0
         }
       }

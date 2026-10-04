@@ -5,7 +5,7 @@
   "lineage": "Recorded prank-call comedy, developed through character voices, improvised exchanges and edited telephone conversations.",
   "recipe": "classic prank, spoken Word. human voice ensemble unspecified. treated studio.",
   "recipe_chars": 77,
-  "score": 0.452,
+  "score": 0.357,
   "config": {
     "traditions": [
       "prank"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.42000000000000004,
+          "voice_speech_song": 0.3255,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

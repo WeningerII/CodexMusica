@@ -2,10 +2,10 @@
   "id": "icelandic_indie",
   "name": "Icelandic indie",
   "family": "pop",
-  "lineage": "Sóley — Circles, accordion version recorded 2018 and released 2021. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s icelandic indie, functional Song. solo with instrumental accompaniment. accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 200,
-  "score": 1.019,
+  "lineage": "Icelandic indie connects independent songwriters, bands and recording communities. Intimate acoustic reinterpretations form one strand within a wider range of local approaches.",
+  "recipe": "classic icelandic indie, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 219,
+  "score": 2.207,
   "config": {
     "traditions": [
       "icelandic_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6825000000000001,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

@@ -2,10 +2,10 @@
   "id": "greek_indie",
   "name": "Greek Indie",
   "family": "pop",
-  "lineage": "Hume Assine — complete issued Crying, featuring Anna Paspati, track5 of The Sweetest Sound(2020). The album credits its base performers Anna Paspati(voice), Alexios Antonopoulos(drums), and Hume Assine(synthesizers, keyboards and programming). Additional guitars are expressly restricted to tracks2/6/7, brass to2, and bouzouki to8, so these are not imported into track5. All five base role families are retained. This is the complete selected song with the publisher-specified base lineup, not a reconstruction of the whole twelve-track album or a claim every base role sounds continuously. The separately titled guest performers on other songs are not inferred additional singers here. Authored contemporary song rendition: one credited singer, acoustic stick drumkit, architecture-neutral credited synthesizer, separate neutral keyboard, and source-unspecified programmed sound. Programming is positive source sound-generation/arrangement credit, not assumed MIDI, sampling, drum programming or playback of a finished master. Neutral keyboard and synth preserve separately listed roles without claiming two specific devices. Drum construction is a coherent authored modern kit, not measured source models; voice physiology, tessitura and pitch organization unspecified. Solo-accompanied/single-lead represents the sole named singer, not a claim that original recording never doubles a take. Functional-harmonic song form is explicitly authored from the published lyrical song, not an analytical claim of source harmonic transcription. Room representative; global tuning and optional chain omitted. Spacious concert-hall listening rendition is authored for the source-classified downtempo/chillout song, not a measurement of the original room or tempo.",
-  "recipe": "classic early-2020s greek indie, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. maple machine hammered symmetric pattern organized rows full lathed drum kit, credited synthesizer electronic keyboard credited programming unspecified. shoebox concert hall.",
-  "recipe_chars": 330,
-  "score": 41.184,
+  "lineage": "Greek indie connects independent artists and creative networks in Greece across electronic and band-based styles. Songwriting, studio experimentation and local releases contribute to a varied field.",
+  "recipe": "classic greek indie, functional Song. single lead single track no stacking. machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited synthesizer electronic keyboard credited programming unspecified. shoebox concert hall.",
+  "recipe_chars": 262,
+  "score": 9.359,
   "config": {
     "traditions": [
       "greek_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.4715,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 5.424,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -68,16 +68,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 2.3865,
-          "drumhead": 1.3,
+          "drum_technique": -0.035,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.654,
+          "shell_wood": 0.754,
           "shell_thickness": 0,
-          "bearing_edges": 1.354,
+          "bearing_edges": 0.054,
           "snare_wires": 0.7,
           "cymbal_alloy": 0.6499999999999998,
-          "cymbal_hammering": 10.304,
-          "cymbal_lathing": 10.25,
+          "cymbal_hammering": 2.454,
+          "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 0
         }
       },
@@ -98,7 +98,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.3
         }
       },
       {

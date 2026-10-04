@@ -1,0 +1,2076 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 held entries; exact-current public prose only; musical/output holds explicitly retained",
+  "entries": [
+    {
+      "id": "ethereal_gothic",
+      "before": {
+        "tradition": {
+          "id": "ethereal_gothic",
+          "name": "Ethereal gothic",
+          "family": "rock_punk",
+          "lineage": "Spider Lilies — official-site four-person live branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "drum_kit",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.gothicRock",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Official band page names Stacey Campbell voice, Chad VanPelt guitar, Mike K. Johnson live drums and Tom Lynch keyboard; variable live lineup has two to four people. The creator genre playlist positively includes Spider Lilies. Creator-defined ethereal-gothic artist neighborhood distinct from generic gothic rock. Select the explicitly described four-person live configuration; exclude optional violin and unenumerated electronic composition layers. Keyboard is realized with an authored analog polysynth, and humbuckers are authored guitar construction, not documented artist equipment. Artist page describes its own lineup without a claimed 2026 performance date. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Spider Lilies — official-site four-person live branch"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "ethereal_gothic",
+          "name": "Ethereal gothic",
+          "family": "rock_punk",
+          "lineage": "Ethereal gothic connects atmospheric song with gothic-rock and related electronic communities. Voices and layered instrumental colours can soften or expand the weight of an amplified band.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "drum_kit",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.gothicRock",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing, guitar, drums and sustained keyboard textures can form a contrasting ensemble. Melodic phrases stand against broader layers, with the balance between acoustic attack and electronic sustain varying across performers.",
+          "exemplars": [
+            "Spider Lilies"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://spiderliliesmusic.com/",
+          "title": "Spider Lilies — official-site four-person live branch",
+          "support_notes": "Official band page names Stacey Campbell voice, Chad VanPelt guitar, Mike K. Johnson live drums and Tom Lynch keyboard; variable live lineup has two to four people. The creator genre playlist positively includes Spider Lilies.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6iwDMCdMvLI3ACfh5UWXlB",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "The Sound of Ethereal Gothic by The Sounds of Spotify includes Spider Lilies: Soft Green Eyes. Membership supports artist category, not that recording instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported kora-cascading electric guitar; full keyboard/guitar/drum/voice branch retained.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-candidate.json",
+        "proposal_sha256": "3f7baabdf33d6efe51f1f7d7ef9651c2e00a40d748122dc871cee33811d078d1",
+        "current_before_sha256": "e6aba8796d6a657b2e7263c009bf97f8daad02a43a9235ba5178a2b21fd805db",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Official band page names Stacey Campbell voice, Chad VanPelt guitar, Mike K. Johnson live drums and Tom Lynch keyboard; variable live lineup has two to four people. The creator genre playlist positively includes Spider Lilies. Creator-defined ethereal-gothic artist neighborhood distinct from generic gothic rock. Select the explicitly described four-person live configuration; exclude optional violin and unenumerated electronic composition layers. Keyboard is realized with an authored analog polysynth, and humbuckers are authored guitar construction, not documented artist equipment. Artist page describes its own lineup without a claimed 2026 performance date.",
+            "instrumental_evidence": "https://spiderliliesmusic.com/",
+            "photo_context": "Generic recording microphone context only. Does not depict a selected musical instrument, named artist, source location, actual recording equipment or complete lineup; notably not Blonk’s credited Neumann Bottle microphone."
+          }
+        }
+      }
+    },
+    {
+      "id": "euskal_indie",
+      "before": {
+        "tradition": {
+          "id": "euskal_indie",
+          "name": "Euskal indie",
+          "family": "vernacular",
+          "lineage": "Napoka Iria — Poortstraat 58 (2008). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_om"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "string_tuning": "standard_tuning",
+            "top_wood": "sitka_om",
+            "back_sides": "rosewood_bs_om",
+            "string_acoustic": "phosphor_om",
+            "acoustic_om_technique": "om_fingerpicked"
+          }
+        },
+        "extras": {
+          "parent": "balladPoetry",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Artist release credits Miren Narbaiza with voice and guitar and Ander Mujika with guitar and backing vocals. Acoustic and euskal tags; creator Euskal Indie playlist positively includes Napoka Iria. Recording is explicitly Barcelona July2008; artist profile Elgoibar. Creator-defined Basque independent artist scene distinct from broad Euskal Musica and generic folk. One acoustic-guitar card represents the two documented guitar parts in an authored all-acoustic realization, not a claim of one guitarist or measured guitar construction. Both named singers retained. Elgoibar is artist-locality context, not the documented Barcelona recording location. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Napoka Iria — Poortstraat 58 (2008)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "euskal_indie",
+          "name": "Euskal indie",
+          "family": "vernacular",
+          "lineage": "Euskal indie connects Basque independent musicians through songwriting, recordings and shared audiences. Acoustic duos are one strand within a wider field of band and electronic approaches.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_om"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "string_tuning": "standard_tuning",
+            "top_wood": "sitka_om",
+            "back_sides": "rosewood_bs_om",
+            "string_acoustic": "phosphor_om",
+            "acoustic_om_technique": "om_fingerpicked"
+          }
+        },
+        "extras": {
+          "parent": "balladPoetry",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Lead and supporting voices can combine with interlocking acoustic-guitar parts. Plucked detail and changes in vocal emphasis support the words and recurring melodic ideas.",
+          "exemplars": [
+            "Napoka Iria"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://napokairia.bandcamp.com/album/poortstraat-58",
+          "title": "Napoka Iria — Poortstraat 58 (2008)",
+          "support_notes": "Artist release credits Miren Narbaiza with voice and guitar and Ander Mujika with guitar and backing vocals. Acoustic and euskal tags; creator Euskal Indie playlist positively includes Napoka Iria. Recording is explicitly Barcelona July2008; artist profile Elgoibar.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/10ZdPLIr6c2dFAALbRAFhG",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "The Sound of Euskal Indie positively includes Napoka Iria Ibiltzeko gertu and Disonantziak; artist category only, not this earlier release instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported kora-cascading acoustic guitar.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-candidate.json",
+        "proposal_sha256": "3f7baabdf33d6efe51f1f7d7ef9651c2e00a40d748122dc871cee33811d078d1",
+        "current_before_sha256": "25b989043cbd98b4386e5139ef5f83c41a36342cf9f02d0c00d149e43c60828b",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist release credits Miren Narbaiza with voice and guitar and Ander Mujika with guitar and backing vocals. Acoustic and euskal tags; creator Euskal Indie playlist positively includes Napoka Iria. Recording is explicitly Barcelona July2008; artist profile Elgoibar. Creator-defined Basque independent artist scene distinct from broad Euskal Musica and generic folk. One acoustic-guitar card represents the two documented guitar parts in an authored all-acoustic realization, not a claim of one guitarist or measured guitar construction. Both named singers retained. Elgoibar is artist-locality context, not the documented Barcelona recording location.",
+            "instrumental_evidence": "https://napokairia.bandcamp.com/album/poortstraat-58",
+            "photo_context": "Generic recording microphone context only; not a depicted musical instrument, artist, actual source equipment or source location."
+          }
+        }
+      }
+    },
+    {
+      "id": "euskal_musica",
+      "before": {
+        "tradition": {
+          "id": "euskal_musica",
+          "name": "Euskal musica",
+          "family": "vernacular",
+          "lineage": "MICE — MICE (2017), documented studio band core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "analog_poly_synth",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist credits Miren Narbaiza voice/guitar/drums, Ilargi Agirre drums, and Joseba Baleztena voice/bass/guitar/keyboard/percussion. Recorded at Atala studio in Bera with Iñigo Irazoki. Creator Euskal Musica playlist includes MICE Buelteri eusten. Broad creator-defined Basque-language popular-music umbrella, broader than Euskal Indie or a particular traditional dance. Selected studio voice/guitar/bass/keyboard/drum core; exclude unspecified auxiliary percussion without inventing its instrument. Guitar and keyboard types are authored humbucker and polysynth realizations of generic credited roles. Two named singers and three musicians; shared guitar/drum cards represent credited players without claiming simultaneous parts on every song. Bera is documented recording town. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "MICE — MICE (2017), documented studio band core"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "euskal_musica",
+          "name": "Euskal musica",
+          "family": "vernacular",
+          "lineage": "Euskal musica encompasses Basque-language musical activity across popular and other performance traditions. Contemporary guitar-band songwriting forms one part of a broader shared-language repertoire.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "analog_poly_synth",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Voices, guitars, bass and drums can meet keyboard textures in a song-led band arrangement. Different performers add other instruments or production colours, linking contrasting approaches through the repertoire and language.",
+          "exemplars": [
+            "MICE"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://micenaiz.bandcamp.com/album/mice",
+          "title": "MICE — MICE (2017), documented studio band core",
+          "support_notes": "Artist credits Miren Narbaiza voice/guitar/drums, Ilargi Agirre drums, and Joseba Baleztena voice/bass/guitar/keyboard/percussion. Recorded at Atala studio in Bera with Iñigo Irazoki. Creator Euskal Musica playlist includes MICE Buelteri eusten.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4fLE9MkUAcauwyK84mkhl8",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "The Sound of Euskal Musica includes MICE Buelteri eusten from this release.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported kora guitar and samul bass; broad source-positive band remains.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-candidate.json",
+        "proposal_sha256": "3f7baabdf33d6efe51f1f7d7ef9651c2e00a40d748122dc871cee33811d078d1",
+        "current_before_sha256": "60c2fc0bed76678769a55daf451088934c5a44f21f8b4fff4876301677354397",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist credits Miren Narbaiza voice/guitar/drums, Ilargi Agirre drums, and Joseba Baleztena voice/bass/guitar/keyboard/percussion. Recorded at Atala studio in Bera with Iñigo Irazoki. Creator Euskal Musica playlist includes MICE Buelteri eusten. Broad creator-defined Basque-language popular-music umbrella, broader than Euskal Indie or a particular traditional dance. Selected studio voice/guitar/bass/keyboard/drum core; exclude unspecified auxiliary percussion without inventing its instrument. Guitar and keyboard types are authored humbucker and polysynth realizations of generic credited roles. Two named singers and three musicians; shared guitar/drum cards represent credited players without claiming simultaneous parts on every song. Bera is documented recording town.",
+            "instrumental_evidence": "https://micenaiz.bandcamp.com/album/mice",
+            "photo_context": "Generic recording microphone context only; not a depicted musical instrument, artist, actual source equipment or source location."
+          }
+        }
+      }
+    },
+    {
+      "id": "experimental",
+      "before": {
+        "tradition": {
+          "id": "experimental",
+          "name": "Experimental",
+          "family": "electronic",
+          "lineage": "Eli Keszler — Bunnylovr original soundtrack (2026), multi-instrumental studio core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "grand_piano",
+            "analog_poly_synth",
+            "electric_guitar_humbucker",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "drum_technique": "brushes_and_sticks",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist and issuing-label page explicitly tags experimental and avant garde, describes an ambient textural film score, and credits all performed music to Keszler: piano, synthesizers, guitar, drums and percussion, recorded at Easy7thStudio New York. Broad experimental practice, distinct from instrument-specific experimental guitar/percussion and genre-specific experimental rock. Selected documented multi-instrumental piano/synth/guitar/drum core; unspecified auxiliary percussion excluded. Modern grand, analog polysynth and humbucker guitar are authored realizations, not actual source models. No vocalist selected: published all-performed-music credits enumerate instrumental roles only. New York City is documented recording locality. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored sustained piano arpeggiation and brushes/sticks realize the documented ambient textural direction without claiming transcription.",
+          "exemplars": [
+            "Eli Keszler — Bunnylovr original soundtrack (2026), multi-instrumental studio core"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "experimental",
+          "name": "Experimental",
+          "family": "electronic",
+          "lineage": "Experimental music brings unconventional sound relationships and working methods into composition, improvisation and recording. Acoustic instruments and electronic processes can interact without one fixed ensemble or form.",
+          "instruments": [
+            "grand_piano",
+            "analog_poly_synth",
+            "electric_guitar_humbucker",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "drum_technique": "brushes_and_sticks",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Piano, synthesizer, guitar and percussion can supply contrasting attacks and resonances. Changes in texture, repetition and density shape a representative mixed-instrument setting.",
+          "exemplars": [
+            "Eli Keszler"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://elikeszler.bandcamp.com/album/bunnylovr-original-motion-picture-soundtrack",
+          "title": "Eli Keszler — Bunnylovr original soundtrack (2026), multi-instrumental studio core",
+          "support_notes": "Artist and issuing-label page explicitly tags experimental and avant garde, describes an ambient textural film score, and credits all performed music to Keszler: piano, synthesizers, guitar, drums and percussion, recorded at Easy7thStudio New York.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported kora guitar within mixed experimental instrument palette.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-candidate.json",
+        "proposal_sha256": "3f7baabdf33d6efe51f1f7d7ef9651c2e00a40d748122dc871cee33811d078d1",
+        "current_before_sha256": "a80588f3933a3ccdb370847d7c328507912d298143890df2c3f208f3bcd6acf3",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist and issuing-label page explicitly tags experimental and avant garde, describes an ambient textural film score, and credits all performed music to Keszler: piano, synthesizers, guitar, drums and percussion, recorded at Easy7thStudio New York. Broad experimental practice, distinct from instrument-specific experimental guitar/percussion and genre-specific experimental rock. Selected documented multi-instrumental piano/synth/guitar/drum core; unspecified auxiliary percussion excluded. Modern grand, analog polysynth and humbucker guitar are authored realizations, not actual source models. No vocalist selected: published all-performed-music credits enumerate instrumental roles only. New York City is documented recording locality.",
+            "instrumental_evidence": "https://elikeszler.bandcamp.com/album/bunnylovr-original-motion-picture-soundtrack",
+            "photo_context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+          }
+        }
+      }
+    },
+    {
+      "id": "experimental_guitar",
+      "before": {
+        "tradition": {
+          "id": "experimental_guitar",
+          "name": "Experimental guitar",
+          "family": "vernacular",
+          "lineage": "Sir Richard Bishop — Tangier Sessions (2015), solo acoustic-guitar branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "acoustic_guitar_om"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "string_tuning": "standard_tuning",
+            "top_wood": "sitka_om",
+            "back_sides": "rosewood_bs_om",
+            "string_acoustic": "phosphor_om",
+            "acoustic_om_technique": "om_fingerpicked"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.stringImprov",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Artist release identifies experimental solo guitarist, acoustic-guitar tag, seven guitar pieces made after acquiring a guitar and reaching Tangier. Label Drag City independently repeats that album account. Instrument-centered experimental solo-guitar category, not all experimental music or traditional Moroccan repertoire. Selected one-guitar instrumental core; modern OM construction, steel strings and fingerpicking are authored realization, not identification of the unusual source guitar. Tangier is the documented album context, not artist origin. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Sir Richard Bishop — Tangier Sessions (2015), solo acoustic-guitar branch"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "experimental_guitar",
+          "name": "Experimental guitar",
+          "family": "vernacular",
+          "lineage": "Experimental guitar practice explores unfamiliar relationships among technique, resonance and musical form. Acoustic solo work sits alongside electric, processed and ensemble approaches.",
+          "instruments": [
+            "acoustic_guitar_om"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "string_tuning": "standard_tuning",
+            "top_wood": "sitka_om",
+            "back_sides": "rosewood_bs_om",
+            "string_acoustic": "phosphor_om",
+            "acoustic_om_technique": "om_fingerpicked"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.stringImprov",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "A single guitar can connect melodic fragments with shifting patterns and resonances. Plucked detail and changing emphasis allow the instrument to carry both foreground lines and surrounding texture.",
+          "exemplars": [
+            "Sir Richard Bishop"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://sirrichardbishop.bandcamp.com/album/tangier-sessions",
+          "title": "Sir Richard Bishop — Tangier Sessions (2015), solo acoustic-guitar branch",
+          "support_notes": "Artist release identifies experimental solo guitarist, acoustic-guitar tag, seven guitar pieces made after acquiring a guitar and reaching Tangier. Label Drag City independently repeats that album account.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.dragcity.com/products/tangier-sessions",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Issuing label confirms solo artist and guitar-centered Tangier album context.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported kora-cascading guitar; experimental label alone does not establish this specific tradition.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-007-candidate.json",
+        "proposal_sha256": "3f7baabdf33d6efe51f1f7d7ef9651c2e00a40d748122dc871cee33811d078d1",
+        "current_before_sha256": "6d7fb8dc2e1a7ac4d5d89cf566af6eebba65fbcecc0b1c0620c9c8566a323a9d",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist release identifies experimental solo guitarist, acoustic-guitar tag, seven guitar pieces made after acquiring a guitar and reaching Tangier. Label Drag City independently repeats that album account. Instrument-centered experimental solo-guitar category, not all experimental music or traditional Moroccan repertoire. Selected one-guitar instrumental core; modern OM construction, steel strings and fingerpicking are authored realization, not identification of the unusual source guitar. Tangier is the documented album context, not artist origin.",
+            "instrumental_evidence": "https://sirrichardbishop.bandcamp.com/album/tangier-sessions",
+            "photo_context": "Generic recording microphone context only. Does not depict a selected musical instrument, named artist, source location, actual recording equipment or complete lineup; notably not Blonk’s credited Neumann Bottle microphone."
+          }
+        }
+      }
+    },
+    {
+      "id": "experimental_vocal",
+      "before": {
+        "tradition": {
+          "id": "experimental_vocal",
+          "name": "Experimental vocal",
+          "family": "electronic",
+          "lineage": "Jaap Blonk — Ingletwist Fragments (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "analog_mono_synth",
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_sample_chopped",
+            "mono_oscillator": "mono_voltage_controlled",
+            "mono_filter": "moog_ladder",
+            "mono_archetypes": "minimoog",
+            "mono_maker_lineage": "mono_moog_robert",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_one_shot_pitched",
+            "sampler_classic_context": "sampler_classic_post"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Artist describes his improvised gibberish vocals, analog-only electronics, and short appearances of recorded computer-generated voices on each track. Creator experimental-vocal playlist positively includes Jaap Blonk. Vocal-led experimental category distinct from unaccompanied sound poetry: this documented branch combines a human voice, analog electronics and recorded synthetic speech. Analog monosynth is authored realization of unspecified analog equipment; sampler is authored playback of the explicitly recorded computer voices, not a claim about source hardware. One human vocalist; synthetic speech does not count as additional humans. Arnhem is the artist profile location. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored short recorded computer-speech clips play as untransposed one-shots at original pitch; sample-chopped is the sampler playback technique selector, not a claim of source beat slicing. Monosynth uses its existing lead-line default because the shared sample-chopped pin is inapplicable to its owning part.",
+          "exemplars": [
+            "Jaap Blonk — Ingletwist Fragments (2021)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "experimental_vocal",
+          "name": "Experimental vocal",
+          "family": "electronic",
+          "lineage": "Experimental vocal music explores the voice as sound as well as language. Improvisers combine phonetic gestures, unusual phrasing and electronic treatments in varied solo and collaborative settings.",
+          "instruments": [
+            "voice",
+            "analog_mono_synth",
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_sample_chopped",
+            "mono_oscillator": "mono_voltage_controlled",
+            "mono_filter": "moog_ladder",
+            "mono_archetypes": "minimoog",
+            "mono_maker_lineage": "mono_moog_robert",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_one_shot_pitched",
+            "sampler_classic_context": "sampler_classic_post"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "A human voice can interact with analog synthesis and recorded synthetic speech. Contrasts between live utterance, short recorded fragments and electronic lines create a changing dialogue.",
+          "exemplars": [
+            "Jaap Blonk"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://jaapblonk.bandcamp.com/album/ingletwist-fragments",
+          "title": "Jaap Blonk — Ingletwist Fragments (2021)",
+          "support_notes": "Artist describes his improvised gibberish vocals, analog-only electronics, and short appearances of recorded computer-generated voices on each track. Creator experimental-vocal playlist positively includes Jaap Blonk.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0nN0oPt34YcHQoqkfHHubG",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "The Sound of Experimental Vocal includes Jaap Blonk in Quiet Neighbours Moaning and Of Strange Abductors; artist category only.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Known invalid shared electronic_technique sample_chopped for analog_mono_synth; unsupported psy-pulsing synth. Imported fallback is not protected.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-candidate.json",
+        "proposal_sha256": "641621d70a8ed501e063a096b580fc9cd9e6ef047372e05e70d2a2fb7cdd99c5",
+        "current_before_sha256": "ea0db9edc0891a0fb8930f0be96947621c7bbde5cfdc7f97c41febc08a7e8e1c",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist describes his improvised gibberish vocals, analog-only electronics, and short appearances of recorded computer-generated voices on each track. Creator experimental-vocal playlist positively includes Jaap Blonk. Vocal-led experimental category distinct from unaccompanied sound poetry: this documented branch combines a human voice, analog electronics and recorded synthetic speech. Analog monosynth is authored realization of unspecified analog equipment; sampler is authored playback of the explicitly recorded computer voices, not a claim about source hardware. One human vocalist; synthetic speech does not count as additional humans. Arnhem is the artist profile location.",
+            "instrumental_evidence": "https://jaapblonk.bandcamp.com/album/ingletwist-fragments",
+            "photo_context": "Generic recording-microphone context only; not a depicted musical instrument, artist, source location, actual equipment or complete lineup."
+          }
+        }
+      }
+    },
+    {
+      "id": "finnish_experimental",
+      "before": {
+        "tradition": {
+          "id": "finnish_experimental",
+          "name": "Finnish experimental",
+          "family": "electronic",
+          "lineage": "Lau Nau — Puutarhassa (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "modular_synth",
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electronic_technique": "electronic_pad_drone",
+            "mod_voltage_source": "mod_keyboard",
+            "mod_patch_density": "mod_simple_patch",
+            "mod_lineage": "mod_moog_east_coast",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_field_recordings",
+            "sampler_classic_context": "sampler_classic_post"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec.musiqueConcrete",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Artist describes a 2020 garden performance combining modular synthesizer and simultaneous field recording, released with related material recorded at the same island location. Composer and recordist Laura Naukkarinen credits Kimito Island. Her own profile identifies Finnish electroacoustic experimentation. Selected instrumental electroacoustic garden-performance branch. Sampler is an authored playback realization of recorded environmental sound, not a claim about source capture hardware. Ambient birds and bees are recorded material, not human singers. Does not import voice or acoustic instruments from artist broader practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Lau Nau — Puutarhassa (2022)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "finnish_experimental",
+          "name": "Finnish experimental",
+          "family": "electronic",
+          "lineage": "Finnish experimental music brings composers, improvisers and recording artists into varied acoustic and electronic practices. Electroacoustic work can connect synthesized sound with listening to the surrounding environment.",
+          "instruments": [
+            "modular_synth",
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electronic_technique": "electronic_pad_drone",
+            "mod_voltage_source": "mod_keyboard",
+            "mod_patch_density": "mod_simple_patch",
+            "mod_lineage": "mod_moog_east_coast",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_field_recordings",
+            "sampler_classic_context": "sampler_classic_post"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec.musiqueConcrete",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Modular synthesis and recorded environmental sound can form overlapping layers. Changes in texture and the relationship between electronic tones and captured surroundings guide a representative arrangement.",
+          "exemplars": [
+            "Lau Nau"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://launau.bandcamp.com/album/puutarhassa",
+          "title": "Lau Nau — Puutarhassa (2022)",
+          "support_notes": "Artist describes a 2020 garden performance combining modular synthesizer and simultaneous field recording, released with related material recorded at the same island location. Composer and recordist Laura Naukkarinen credits Kimito Island. Her own profile identifies Finnish electroacoustic experimentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Known invalid shared electronic_technique pad_drone for sampler; fallback is not protected. No fake per-owner override or dropped field recordings.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-candidate.json",
+        "proposal_sha256": "641621d70a8ed501e063a096b580fc9cd9e6ef047372e05e70d2a2fb7cdd99c5",
+        "current_before_sha256": "68a2626ffc048933b7817696eca92bdf143ed29077eba662ec1afb2a2f4e8322",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist describes a 2020 garden performance combining modular synthesizer and simultaneous field recording, released with related material recorded at the same island location. Composer and recordist Laura Naukkarinen credits Kimito Island. Her own profile identifies Finnish electroacoustic experimentation. Selected instrumental electroacoustic garden-performance branch. Sampler is an authored playback realization of recorded environmental sound, not a claim about source capture hardware. Ambient birds and bees are recorded material, not human singers. Does not import voice or acoustic instruments from artist broader practice.",
+            "instrumental_evidence": "https://launau.bandcamp.com/album/puutarhassa",
+            "photo_context": "Selected instrument-family context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+            "authored_playback_note": "Flat electronic_pad_drone pin applies only to modular synth. Sampler imports original electronic_sample_chopped unpinned; unchanged compiled optimizer selects valid electronic_glitch_textural. Field recordings, 24-bit modern playback and postproduction are an authored realization, not capture hardware or exact unedited reconstruction. No per-instrument override or protection claim."
+          }
+        }
+      }
+    },
+    {
+      "id": "fallen_angel",
+      "before": {
+        "tradition": {
+          "id": "fallen_angel",
+          "name": "Fallen angel",
+          "family": "rock_punk",
+          "lineage": "Mercy Isle — Undying Fire (2016), guest-free core tracks. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "analog_poly_synth",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.metal.symphonic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist release credits Kassandra Novell vocals/growls, Chad Novell bass/vocals, Joop de Rooij keys, Ywe van der Pol drums and Sebas Honing guitar on all but Saying Goodbye. Creator fallen-angel playlist includes Mercy Isle Wake Up. Creator-defined fallen-angel artist cluster distinct from all symphonic or gothic metal. Select tracks1,2,3,5,6,7,10; exclude If I Could, Saying Goodbye and Come to Me with extra flautist, singer, strings/synth or choir. Two credited core singers; keyboard and guitar construction are authored realizations. United States country-level representative point follows the artist tag; the band describes itself as American-Dutch, so no city or exclusively American origin is claimed. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Mercy Isle — Undying Fire (2016), guest-free core tracks"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "fallen_angel",
+          "name": "Fallen angel",
+          "family": "rock_punk",
+          "lineage": "Fallen angel gathers a listening community around melodic, gothic and symphonic-metal performers. Dramatic singing and amplified instrumental layers connect related bands without one fixed arrangement.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "analog_poly_synth",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_power_chord",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.metal.symphonic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Contrasting voices can meet guitars, bass, drums and keyboard atmosphere. Heavy chordal figures and melodic passages give the ensemble room for changes in intensity.",
+          "exemplars": [
+            "Mercy Isle"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://mercyisle.bandcamp.com/album/undying-fire",
+          "title": "Mercy Isle — Undying Fire (2016), guest-free core tracks",
+          "support_notes": "Artist release credits Kassandra Novell vocals/growls, Chad Novell bass/vocals, Joop de Rooij keys, Ywe van der Pol drums and Sebas Honing guitar on all but Saying Goodbye. Creator fallen-angel playlist includes Mercy Isle Wake Up.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5Voot6Qf3OJX5KukZ1dn4n",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "The Sound of Fallen Angel by The Sounds of Spotify includes Mercy Isle Wake Up.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported kora guitar and samul bass.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-candidate.json",
+        "proposal_sha256": "641621d70a8ed501e063a096b580fc9cd9e6ef047372e05e70d2a2fb7cdd99c5",
+        "current_before_sha256": "ee0df5c0307a4c99f8db9eac58ab8d720387a414ce82154062501e13e49193f6",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist release credits Kassandra Novell vocals/growls, Chad Novell bass/vocals, Joop de Rooij keys, Ywe van der Pol drums and Sebas Honing guitar on all but Saying Goodbye. Creator fallen-angel playlist includes Mercy Isle Wake Up. Creator-defined fallen-angel artist cluster distinct from all symphonic or gothic metal. Select tracks1,2,3,5,6,7,10; exclude If I Could, Saying Goodbye and Come to Me with extra flautist, singer, strings/synth or choir. Two credited core singers; keyboard and guitar construction are authored realizations. United States country-level representative point follows the artist tag; the band describes itself as American-Dutch, so no city or exclusively American origin is claimed.",
+            "instrumental_evidence": "https://mercyisle.bandcamp.com/album/undying-fire",
+            "photo_context": "Generic recording-microphone context only; not a depicted musical instrument, artist, source location, actual equipment or complete lineup."
+          }
+        }
+      }
+    },
+    {
+      "id": "firenze_indie",
+      "before": {
+        "tradition": {
+          "id": "firenze_indie",
+          "name": "Firenze indie",
+          "family": "rock",
+          "lineage": "Piqued Jacks — Shyest Kindred Spirit (Acoustic Single, 2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread",
+            "classical_nylon_string_guitar",
+            "electric_bass",
+            "drum_kit",
+            "violin_orchestral"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_fingerpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "top_wood_classical": "cedar_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "carbon_cl",
+            "attack_technique_cl": "tirando_cl",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "bowed_technique": "bowed_legato_classical",
+            "orch_strings": "synthetic_orch",
+            "orch_top_wood": "norway_spruce_alpine_violin",
+            "orch_back_wood": "bosnian_flamed_maple_violin",
+            "orch_varnish": "oil_amber_varnish_violin",
+            "orch_setup_period": "modern_setup_violin",
+            "orch_bow": "modern_bow",
+            "orch_bow_stick": "pernambuco_stick_orch",
+            "orch_articulation": "arco_orch",
+            "orch_rosin": "pirastro_gold_rosin_orch"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Artist credits E-King lead voice, Penguinsane acoustic guitar and backing voice, littleladle bass, ThEd0g drums, Grifo classical guitar and Waterfront Quintet violins. Artist identifies Florence and tags the release indie rock; creator Firenze Indie playlist includes Piqued Jacks. Selected acoustic single retains all credited instrument families and both named singers. A violin-family card aggregates the credited string contribution; the ensemble name is not treated as proof of five violinists. Dreadnought steel-string construction, electric bass model, playing methods and exact session settings are authored. No electric guitar, keyboards or extra voices imported from other releases. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Piqued Jacks — Shyest Kindred Spirit (Acoustic Single, 2016)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "firenze_indie",
+          "name": "Firenze indie",
+          "family": "rock",
+          "lineage": "Firenze indie connects independent bands and songwriters around Florence. Acoustic reinterpretations and fuller rock arrangements offer different approaches within the local scene.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread",
+            "classical_nylon_string_guitar",
+            "electric_bass",
+            "drum_kit",
+            "violin_orchestral"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_fingerpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "top_wood_classical": "cedar_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "carbon_cl",
+            "attack_technique_cl": "tirando_cl",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "bowed_technique": "bowed_legato_classical",
+            "orch_strings": "synthetic_orch",
+            "orch_top_wood": "norway_spruce_alpine_violin",
+            "orch_back_wood": "bosnian_flamed_maple_violin",
+            "orch_varnish": "oil_amber_varnish_violin",
+            "orch_setup_period": "modern_setup_violin",
+            "orch_bow": "modern_bow",
+            "orch_bow_stick": "pernambuco_stick_orch",
+            "orch_articulation": "arco_orch",
+            "orch_rosin": "pirastro_gold_rosin_orch"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Voices and steel-string or classical guitars can meet bass, drums and bowed strings. Plucked detail and sustained violin lines offer contrasting colours around the song.",
+          "exemplars": [
+            "Piqued Jacks"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://piquedjacks.bandcamp.com/track/shyest-kindred-spirit-acoustic-single",
+          "title": "Piqued Jacks — Shyest Kindred Spirit (Acoustic Single, 2016)",
+          "support_notes": "Artist credits E-King lead voice, Penguinsane acoustic guitar and backing voice, littleladle bass, ThEd0g drums, Grifo classical guitar and Waterfront Quintet violins. Artist identifies Florence and tags the release indie rock; creator Firenze Indie playlist includes Piqued Jacks.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6Lf0nQTwJHF2BIqZWI1KST",
+          "title": "The Sound of Firenze Indie",
+          "support_notes": "Item32 names Piqued Jacks; artist-category membership corroborates primary Florence/indie-rock tags.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported choro classical guitar and erhuang violin; positive string and both guitar families retained.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-candidate.json",
+        "proposal_sha256": "641621d70a8ed501e063a096b580fc9cd9e6ef047372e05e70d2a2fb7cdd99c5",
+        "current_before_sha256": "9a376fec596e91427a5e5726ce85c2551a19576ea4560d226a9ff0ea713f876f",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist credits E-King lead voice, Penguinsane acoustic guitar and backing voice, littleladle bass, ThEd0g drums, Grifo classical guitar and Waterfront Quintet violins. Artist identifies Florence and tags the release indie rock; creator Firenze Indie playlist includes Piqued Jacks. Selected acoustic single retains all credited instrument families and both named singers. A violin-family card aggregates the credited string contribution; the ensemble name is not treated as proof of five violinists. Dreadnought steel-string construction, electric bass model, playing methods and exact session settings are authored. No electric guitar, keyboards or extra voices imported from other releases.",
+            "instrumental_evidence": "https://piquedjacks.bandcamp.com/track/shyest-kindred-spirit-acoustic-single",
+            "photo_context": "Acoustic steel-string guitar context, not Piqued Jacks or their confirmed instrument model.",
+            "authored_guitar_method": "Both guitar cards use shared authored fingerpicking; classical card uses coherent tirando free strokes. This is a recording-recipe choice, not a claim source credits specify playing method."
+          }
+        }
+      }
+    },
+    {
+      "id": "fort_wayne_indie",
+      "before": {
+        "tradition": {
+          "id": "fort_wayne_indie",
+          "name": "Fort Wayne indie",
+          "family": "rock_punk",
+          "lineage": "Awäke By Noøn — Yellow Paint (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_fuzz_riff",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist identifies Fort Wayne punk/indie alternative practice. Album credits Shea Delzoppo voice, guitar and bass; Christian Delzoppo drums. Regional indie scene represented by its documented punk/alternative recording branch. One credited singer; recorded overdubs are not a claim about live band headcount. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Awäke By Noøn — Yellow Paint (2025)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "fort_wayne_indie",
+          "name": "Fort Wayne indie",
+          "family": "rock_punk",
+          "lineage": "Fort Wayne indie connects local independent musicians and recording projects. Punk-related and alternative guitar bands form one strand of this varied scene.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_fuzz_riff",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing and fuzzed guitar figures can meet bass and drums in a compact arrangement. Repeated melodic phrases and coordinated accents give songs rhythmic definition and contrast.",
+          "exemplars": [
+            "Awäke By Noøn"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://awakebynoon.bandcamp.com/album/yellow-paint",
+          "title": "Awäke By Noøn — Yellow Paint (2025)",
+          "support_notes": "Artist identifies Fort Wayne punk/indie alternative practice. Album credits Shea Delzoppo voice, guitar and bass; Christian Delzoppo drums.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Unsupported kora guitar and samul bass.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-008-candidate.json",
+        "proposal_sha256": "641621d70a8ed501e063a096b580fc9cd9e6ef047372e05e70d2a2fb7cdd99c5",
+        "current_before_sha256": "286f5737876487a9f22bea770615cee8e84c792fb3315ab46310d10b7b64a9fb",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist identifies Fort Wayne punk/indie alternative practice. Album credits Shea Delzoppo voice, guitar and bass; Christian Delzoppo drums. Regional indie scene represented by its documented punk/alternative recording branch. One credited singer; recorded overdubs are not a claim about live band headcount.",
+            "instrumental_evidence": "https://awakebynoon.bandcamp.com/album/yellow-paint",
+            "photo_context": "Selected instrument-family context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+          }
+        }
+      }
+    }
+  ]
+}

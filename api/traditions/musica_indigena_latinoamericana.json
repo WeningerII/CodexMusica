@@ -2,10 +2,10 @@
   "id": "musica_indigena_latinoamericana",
   "name": "Musica Indigena Latinoamericana",
   "family": "global",
-  "lineage": "Ye’kuana woman, Jiwitiña — Fertility Chant, Smithsonian anthology track21. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic musica indigena latinoamericana, ritual Devotional. solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 216,
-  "score": 2.379,
+  "lineage": "Indigenous musical traditions across Latin America, reflecting distinct languages, communities and ceremonial and social practices.",
+  "recipe": "classic musica indigena latinoamericana, ritual Devotional. live tracking.",
+  "recipe_chars": 74,
+  "score": 1.328,
   "config": {
     "traditions": [
       "musica_indigena_latinoamericana"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.6300000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
-          "voice_multitrack_stack": 1.17,
+          "voice_processing_chain": 0.15749999999999997,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       }
@@ -74,24 +74,22 @@
         "voice_tessitura"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -111,12 +109,6 @@
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

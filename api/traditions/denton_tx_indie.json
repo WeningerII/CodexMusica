@@ -2,10 +2,10 @@
   "id": "denton_tx_indie",
   "name": "Denton Tx Indie",
   "family": "rock_punk",
-  "lineage": "RTB2 — Live At Double Wide. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic denton tx indie, distorted Rock, alternative branch. duet, live take. humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 293,
-  "score": 17.794,
+  "lineage": "Denton, Texas indie grows through local independent performers and venues. Small guitar-driven groups offer one approach within the city’s broader musical activity.",
+  "recipe": "classic denton tx indie, distorted Rock, alternative branch. one note per syllable. humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 299,
+  "score": 18.27,
   "config": {
     "traditions": [
       "denton_tx_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 1,
+          "voice_speech_song": 1.6465,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 1,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 1.2945,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.39,
           "neck_wood": 0.5775,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.3
         }
       },
       {
@@ -108,7 +108,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": 0.7999999999999998,
           "cymbal_hammering": 3.6815,
           "cymbal_lathing": 3.7865,
           "cymbal_finish": 0

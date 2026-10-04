@@ -2,10 +2,10 @@
   "id": "harmonikka",
   "name": "Harmonikka",
   "family": "vernacular",
-  "lineage": "Veikko Ahvenainen — Muistoja Marseillesta in Konserttisooloja1955–2021. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2020s harmonikka, art Music. accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 152,
-  "score": 0.563,
+  "lineage": "Harmonikka connects Finnish accordion performers and repertoire across concert and popular traditions. Solo collections preserve composed pieces alongside dance-related melodic forms.",
+  "recipe": "classic harmonikka, art Music. hohner gola canonical premium German concert accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 185,
+  "score": 1.773,
   "config": {
     "traditions": [
       "harmonikka"
@@ -23,13 +23,13 @@
           "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": -0.1,
+          "free_reed_technique": 0.2,
           "accordion_reed_material": 0,
           "musette_offset": 0.1365,
           "reed_config": 0,
           "bellows": 0.1365,
           "voicing_chamber": 0,
-          "accordion_maker_school": 0.39
+          "accordion_maker_school": 1.3
         }
       }
     ],

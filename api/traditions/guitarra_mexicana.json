@@ -2,10 +2,10 @@
   "id": "guitarra_mexicana",
   "name": "Guitarra mexicana",
   "family": "vernacular",
-  "lineage": "Stefan Schyga — Guitarra Mexicana solo-guitar arrangements. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic guitarra mexicana, functional Song, Mexican branch. classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 189,
-  "score": 2.465,
+  "lineage": "Guitarra mexicana brings Mexican song repertoire and folk-related melodic ideas into guitar-centered performance. Solo arrangements connect that songbook with classical and other nylon-string approaches.",
+  "recipe": "classic guitarra mexicana, functional Song, Mexican branch. low mid rich spectrum nylon classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 217,
+  "score": 2.938,
   "config": {
     "traditions": [
       "guitarra_mexicana"
@@ -22,12 +22,12 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": -0.035,
+          "acoustic_technique": 0.325,
           "string_tuning": 0,
-          "top_wood_classical": 0.78,
+          "top_wood_classical": 0.39,
           "bracing_classical": 0.105,
-          "string_classical": 0.7149999999999999,
-          "attack_technique_cl": 0.8999999999999999
+          "string_classical": 1.1179999999999999,
+          "attack_technique_cl": 1
         }
       }
     ],

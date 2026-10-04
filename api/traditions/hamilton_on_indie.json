@@ -2,10 +2,10 @@
   "id": "hamilton_on_indie",
   "name": "Hamilton ON indie",
   "family": "rock_punk",
-  "lineage": "Basement Revolver — Audiotree Live (2017), session trio. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic late-2010s hamilton on indie, distorted Rock, alternative branch. one note per syllable, single lead single track no stacking. conventional tuning standard pitch arpeggiated clean humbucker electric guitar, electric bass, analog poly synth, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 425,
-  "score": 28.826,
+  "lineage": "Hamilton, Ontario indie connects independent bands and listeners through the city’s music scene. Guitar-based songwriting can meet atmospheric keyboard textures and understated singing.",
+  "recipe": "classic hamilton on indie, distorted Rock, alternative branch. one note per syllable. mahogany maple arpeggiated clean humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, analog poly synth, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 408,
+  "score": 24.326,
   "config": {
     "traditions": [
       "hamilton_on_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
+          "voice_speech_song": 1.3,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.78,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.0680000000000005,
+          "electric_technique": 5.0680000000000005,
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 1.3,
           "neck_wood": 0.5775,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0.5775,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 1.3,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -117,9 +117,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 0.2,
           "poly_archetypes": 0.1365,
-          "poly_voices": 0.3,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       },
@@ -139,16 +139,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4.5,
-          "drumhead": 1.4365,
+          "drum_technique": 3.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.5415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 4.431500000000001,
-          "cymbal_lathing": 4.5365,
+          "cymbal_hammering": 3.6815,
+          "cymbal_lathing": 3.7865,
           "cymbal_finish": 0
         }
       }

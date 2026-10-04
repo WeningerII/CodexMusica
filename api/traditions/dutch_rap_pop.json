@@ -5,7 +5,7 @@
   "lineage": "Dutch-language rap/pop crossover; selected Ronnie Flex piano-led songwriting branch",
   "recipe": "classic modern dutch rap pop, mc Rhythm, intl hip hop branch. rap. a 440 modern pitch us standard block chord grand piano, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 290,
-  "score": 27.396,
+  "score": 27.409,
   "config": {
     "traditions": [
       "dutch_rap_pop"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.0315,
+          "voice_speech_song": 0.15525,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.22274999999999995
+          "voice_multitrack_stack": 0.14849999999999997
         }
       },
       {
@@ -85,7 +85,7 @@
         },
         "scores": {
           "electronic_technique": 2.2371250000000003,
-          "sample_bitdepth": 0.142125,
+          "sample_bitdepth": 0.105,
           "sample_swing": 3.9,
           "sample_processing": 0.265875
         }

@@ -5,7 +5,7 @@
   "lineage": "50 Caliber — Internal Bleeding, complete original five-song mini-album (2002). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2000s uk beatdown, distorted Rock. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 401,
-  "score": 32.001,
+  "score": 32.45,
   "config": {
     "traditions": [
       "uk_beatdown"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.9944999999999999,
+          "voice_speech_song": 1.17,
           "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 1.6575,
+          "voice_processing_chain": 0.4095,
+          "voice_multitrack_stack": 1.689,
           "voice_tessitura": 0
         }
       },
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 2.05,
           "amp_make": 0,
-          "body_wood": 0.6,
+          "body_wood": 0.6315,
           "neck_wood": 0.3,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6,
+          "body_wood": 0.6315,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.3,

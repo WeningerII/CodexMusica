@@ -2,10 +2,10 @@
   "id": "indie_asturiana",
   "name": "Indie asturiana",
   "family": "rock",
-  "lineage": "Fee Reega — La Raptora (2014), complete album credit palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s indie asturiana, distorted Rock, alternative branch. unprocessed natural acoustic. acoustic conventional tuning standard pitch humbucker electric guitar, European maple bosnian source flamed figure viola classical, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, European maple bosnian source flamed figure cello, accordion, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 724,
-  "score": 47.74,
+  "lineage": "Indie asturiana connects independent performers and recording communities in Asturias. Songwriters combine acoustic and amplified instruments with varied chamber-like colours.",
+  "recipe": "classic indie asturiana, distorted Rock, alternative branch. unprocessed natural acoustic. acoustic humbucker electric guitar, viola classical, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, soft felt lacquer voiced 17 ply hard rock maple grand piano, cello, accordion, violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 553,
+  "score": 34.757,
   "config": {
     "traditions": [
       "indie_asturiana"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.0679999999999998,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 1.468,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "top_wood": 0,
           "back_sides": -0.05,
           "string_acoustic": 0.714,
-          "acoustic_om_technique": 0.5499999999999998
+          "acoustic_om_technique": -0.25
         }
       },
       {
@@ -97,9 +97,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
-          "string_tuning": 1.6
+          "string_tuning": 0
         }
       },
       {
@@ -120,11 +120,11 @@
           "viola_size": 0,
           "viola_strings": 0,
           "viola_top_wood": -0.1,
-          "viola_back_wood": 1.2,
+          "viola_back_wood": -0.1,
           "viola_varnish": -0.1,
           "viola_setup_period": 0.26,
           "viola_bow_stick": -0.15000000000000002,
-          "viola_rosin": 0.26
+          "viola_rosin": -0.07
         }
       },
       {
@@ -167,9 +167,9 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 1.7365000000000002,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.1415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
@@ -220,9 +220,9 @@
           "piano_hammer": 3.1200000000000006,
           "piano_rim": 3.1200000000000006,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.563,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.07,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -242,11 +242,11 @@
           "bowed_technique": -0.05,
           "cello_strings": 0.1365,
           "cello_top_wood": -0.07,
-          "cello_back_wood": 1.2,
+          "cello_back_wood": -0.1,
           "cello_varnish": -0.1,
           "cello_setup_period": 0.26,
           "cello_bow_grip": 0,
-          "cello_rosin": 0.26,
+          "cello_rosin": -0.07,
           "cello_bow_stick": -0.15000000000000002
         }
       },
@@ -262,7 +262,7 @@
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 0.8449999999999999,
+          "free_reed_technique": -0.10500000000000001,
           "accordion_reed_material": 0.4095,
           "musette_offset": 0.3045,
           "reed_config": 0,
@@ -289,7 +289,7 @@
           "bowed_technique": -0.05,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
-          "orch_back_wood": 1.2,
+          "orch_back_wood": -0.1,
           "orch_varnish": -0.1,
           "orch_setup_period": 0.26,
           "orch_bow": 0,

@@ -2,10 +2,10 @@
   "id": "mundart",
   "name": "Mundart",
   "family": "vernacular",
-  "lineage": "Flavian Graber — Kinoguetschin (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s mundart, ballad Poetry. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 172,
-  "score": 4.078,
+  "lineage": "Dialect songwriting in German-speaking communities, including Swiss-German acoustic folk and popular song.",
+  "recipe": "classic mundart, ballad Poetry. unprocessed natural acoustic. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 6.228,
   "config": {
     "traditions": [
       "mundart"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0,
-          "acoustic_om_technique": 3.1229999999999998
+          "acoustic_om_technique": 4.873
         }
       }
     ],

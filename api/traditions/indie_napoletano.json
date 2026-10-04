@@ -2,10 +2,10 @@
   "id": "indie_napoletano",
   "name": "Indie napoletano",
   "family": "vernacular",
-  "lineage": "Gnut — Hear My Voice #1 (2018), complete EP credits. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic late-2010s indie napoletano, ballad Poetry, chanson fado branch. one note per syllable, unprocessed natural acoustic. fingerpicked acoustic metal body three cone system national steel resonator guitar, electric bass, tuning stability 7 ply quartersawn maple grand piano, pump organ harmonium, acoustic only no pickup mandolin, mountain dulcimer, maple brushes-and-sticks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 487,
-  "score": 18.063,
+  "lineage": "Indie napoletano connects independent songwriters in Naples, including artists working in Neapolitan. Intimate acoustic writing coexists with fuller collaborative arrangements.",
+  "recipe": "classic indie napoletano, ballad Poetry, chanson fado branch. unprocessed natural acoustic. fingerpicked acoustic resonator guitar, electric bass, grand piano, pump organ harmonium, acoustic only no pickup mandolin, mountain dulcimer, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 7.56,
   "config": {
     "traditions": [
       "indie_napoletano"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6255000000000001,
-          "voice_ensemble_config": 0.2415,
+          "voice_speech_song": 0.49950000000000006,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.78,
-          "voice_multitrack_stack": 0.2415,
+          "voice_processing_chain": 1.6315,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0,
-          "acoustic_om_technique": 2.05
+          "acoustic_om_technique": 2.0814999999999997
         }
       },
       {
@@ -77,9 +77,9 @@
           "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
         },
         "scores": {
-          "resonator_body": 1.2945,
+          "resonator_body": 0.0315,
           "resonator_strings": 0,
-          "resonator_technique": 0
+          "resonator_technique": 0.0315
         }
       },
       {
@@ -125,9 +125,9 @@
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": 1.4729999999999999,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.07,
-          "piano_pitch_standard": 0.325
+          "piano_pitch_standard": 0.7149999999999999
         }
       },
       {
@@ -156,14 +156,14 @@
           "mandolin_pickup": "mandolin_no_pickup"
         },
         "scores": {
-          "acoustic_technique": 0.49999999999999994,
+          "acoustic_technique": -0.1,
           "mandolin_shape": -0.05,
           "mandolin_top": -0.05,
           "mandolin_back": -0.05,
           "mandolin_bracing": -0.035,
           "mandolin_strings": 0,
           "mandolin_fingerboard": 0,
-          "mandolin_pickup": 1.17
+          "mandolin_pickup": 1.69
         }
       },
       {
@@ -176,11 +176,11 @@
           "dulcimer_string_material": "dulcimer_steel_modern"
         },
         "scores": {
-          "acoustic_technique": 0.49999999999999994,
-          "dulcimer_strings": 0.399,
-          "dulcimer_tuning": 0.363,
+          "acoustic_technique": -0.1,
+          "dulcimer_strings": 0.3045,
+          "dulcimer_tuning": 0.0315,
           "dulcimer_body_wood": 0.1365,
-          "dulcimer_string_material": 0.39
+          "dulcimer_string_material": 0.1365
         }
       },
       {
@@ -199,10 +199,10 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.589999999999998,
-          "drumhead": 1.573,
+          "drum_technique": 0.6499999999999999,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.5955000000000001,
+          "shell_wood": 0.159,
           "shell_thickness": 0,
           "bearing_edges": 0.0225,
           "snare_wires": 0,

@@ -2,10 +2,10 @@
   "id": "indie_poptimism",
   "name": "Indie poptimism",
   "family": "pop",
-  "lineage": "MUNA — complete Tiny Desk session (2023). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic early-2020s indie poptimism, functional Song, pop rock branch. one note per syllable, group vocals, live take. strummed open chord ringing overtones mandolin, acoustic guitar, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, analog poly synth, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, viola classical, violin orchestral, cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 535,
-  "score": 62.694,
+  "lineage": "Indie poptimism connects independent pop performers and listeners around openly melodic, hook-centered songwriting. Electronic records and acoustic or chamber-like reinterpretations coexist within the field.",
+  "recipe": "classic indie poptimism, functional Song, pop rock branch. unprocessed natural acoustic. acoustic only no pickup strummed open chord ringing overtones mandolin, acoustic guitar, soft felt lacquer voiced 17 ply hard rock maple block chord grand piano, analog poly synth, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, viola classical, violin orchestral, cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 547,
+  "score": 58.474,
   "config": {
     "traditions": [
       "indie_poptimism"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.663,
-          "voice_ensemble_config": 1.17,
+          "voice_speech_song": 0.063,
+          "voice_ensemble_config": 0.441,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.9629999999999999,
+          "voice_processing_chain": 1.3315000000000001,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -65,14 +65,14 @@
           "mandolin_pickup": "mandolin_no_pickup"
         },
         "scores": {
-          "acoustic_technique": 8.1725,
+          "acoustic_technique": 9.9225,
           "mandolin_shape": -0.035,
           "mandolin_top": -0.035,
           "mandolin_back": -0.035,
           "mandolin_bracing": -0.035,
           "mandolin_strings": 0.3045,
           "mandolin_fingerboard": 0,
-          "mandolin_pickup": 0.3315
+          "mandolin_pickup": 1.3315000000000001
         }
       },
       {
@@ -89,7 +89,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0.3045,
-          "acoustic_om_technique": 0.5499999999999998
+          "acoustic_om_technique": -0.25
         }
       },
       {
@@ -106,15 +106,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 8.141,
+          "keyboard_technique": 9.891,
           "grand_piano_size": 0.0945,
           "grand_piano_brand": 0.2625,
           "piano_hammer": 1.8199999999999998,
-          "piano_rim": 2.6000000000000005,
+          "piano_rim": 1.8199999999999998,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.263,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.07,
-          "piano_pitch_standard": 1.1049999999999998
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -171,16 +171,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4.419999999999999,
-          "drumhead": 1.3,
+          "drum_technique": 3.25,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.3,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.168,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 11.712499999999999,
-          "cymbal_lathing": 11.639,
+          "cymbal_hammering": 13.462499999999999,
+          "cymbal_lathing": 13.389,
           "cymbal_finish": 0
         }
       },
@@ -211,11 +211,11 @@
           "viola_size": 0.0315,
           "viola_strings": 0.1365,
           "viola_top_wood": -0.07,
-          "viola_back_wood": 0.5315,
+          "viola_back_wood": -0.07,
           "viola_varnish": -0.1,
-          "viola_setup_period": 0.6499999999999999,
+          "viola_setup_period": 0.26,
           "viola_bow_stick": -0.10500000000000001,
-          "viola_rosin": 0.6499999999999999
+          "viola_rosin": -0.07
         }
       },
       {
@@ -236,12 +236,12 @@
           "bowed_technique": -0.05,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
-          "orch_back_wood": 0.5315,
+          "orch_back_wood": -0.07,
           "orch_varnish": -0.1,
-          "orch_setup_period": 0.6499999999999999,
+          "orch_setup_period": 0.26,
           "orch_bow": 0.231,
           "orch_bow_stick": -0.10500000000000001,
-          "orch_articulation": 0.47250000000000003,
+          "orch_articulation": 1.3,
           "orch_rosin": -0.07
         }
       },
@@ -262,11 +262,11 @@
           "bowed_technique": -0.05,
           "cello_strings": 0.19949999999999998,
           "cello_top_wood": -0.07,
-          "cello_back_wood": 0.5315,
+          "cello_back_wood": -0.07,
           "cello_varnish": -0.1,
-          "cello_setup_period": 0.6499999999999999,
+          "cello_setup_period": 0.26,
           "cello_bow_grip": 0.0315,
-          "cello_rosin": 0.2315,
+          "cello_rosin": -0.07,
           "cello_bow_stick": -0.10500000000000001
         }
       }

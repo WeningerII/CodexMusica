@@ -2,10 +2,10 @@
   "id": "deep_surf_music",
   "name": "Deep Surf Music",
   "family": "rock_punk",
-  "lineage": "The Thurston Lava Tube — 2003 instrumental quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2000s deep surf music, distorted Rock, surf rock branch. humbucker electric guitar, combo organ, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 314,
-  "score": 25.063,
+  "lineage": "Deep surf music explores instrumental surf-band repertoire beyond its best-known recordings. Guitar-led groups combine rhythmic playing with contrasting keyboard and rhythm-section textures.",
+  "recipe": "classic deep surf music, distorted Rock, surf rock branch. humbucker electric guitar, combo organ, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 302,
+  "score": 26.419,
   "config": {
     "traditions": [
       "deep_surf_music"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 2.5865,
           "amp_make": 0,
           "body_wood": 0.4095,
           "neck_wood": 0.1365,
@@ -39,7 +39,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.2415,
-          "string_gauge": 1.6315,
+          "string_gauge": 0.3315,
           "finish": 0,
           "string_tuning": 0.0315
         }

@@ -1,5 +1,5 @@
 {
-  "count": 6725,
+  "count": 6746,
   "items": [
     {
       "id": "honky_tonk",
@@ -40350,6 +40350,132 @@
       "name": "Chinese Talent Show",
       "family": "pop",
       "href": "traditions/chinese_talent_show.json"
+    },
+    {
+      "id": "deep_progressive_house",
+      "name": "Deep Progressive House",
+      "family": "electronic",
+      "href": "traditions/deep_progressive_house.json"
+    },
+    {
+      "id": "assamese_hip_hop",
+      "name": "Assamese Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/assamese_hip_hop.json"
+    },
+    {
+      "id": "azeri_rap",
+      "name": "Azeri Rap",
+      "family": "hip_hop",
+      "href": "traditions/azeri_rap.json"
+    },
+    {
+      "id": "canadian_drill",
+      "name": "Canadian Drill",
+      "family": "hip_hop",
+      "href": "traditions/canadian_drill.json"
+    },
+    {
+      "id": "gulf_hip_hop",
+      "name": "Gulf Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/gulf_hip_hop.json"
+    },
+    {
+      "id": "indonesian_trap",
+      "name": "Indonesian Trap",
+      "family": "hip_hop",
+      "href": "traditions/indonesian_trap.json"
+    },
+    {
+      "id": "kyrgyz_hip_hop",
+      "name": "Kyrgyz Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/kyrgyz_hip_hop.json"
+    },
+    {
+      "id": "myanmar_hip_hop",
+      "name": "Myanmar Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/myanmar_hip_hop.json"
+    },
+    {
+      "id": "pinoy_drill",
+      "name": "Pinoy Drill",
+      "family": "hip_hop",
+      "href": "traditions/pinoy_drill.json"
+    },
+    {
+      "id": "sichuanese_hip_hop",
+      "name": "Sichuanese Hip Hop",
+      "family": "hip_hop",
+      "href": "traditions/sichuanese_hip_hop.json"
+    },
+    {
+      "id": "thai_trap",
+      "name": "Thai Trap",
+      "family": "hip_hop",
+      "href": "traditions/thai_trap.json"
+    },
+    {
+      "id": "ua_trap",
+      "name": "UA Trap",
+      "family": "hip_hop",
+      "href": "traditions/ua_trap.json"
+    },
+    {
+      "id": "gaddiyali_pop",
+      "name": "Gaddiyali Pop",
+      "family": "pop",
+      "href": "traditions/gaddiyali_pop.json"
+    },
+    {
+      "id": "pop_romantico",
+      "name": "Pop Romantico",
+      "family": "pop",
+      "href": "traditions/pop_romantico.json"
+    },
+    {
+      "id": "sepedi_pop",
+      "name": "Sepedi Pop",
+      "family": "pop",
+      "href": "traditions/sepedi_pop.json"
+    },
+    {
+      "id": "thai_viral_pop",
+      "name": "Thai Viral Pop",
+      "family": "pop",
+      "href": "traditions/thai_viral_pop.json"
+    },
+    {
+      "id": "kurdish_remix",
+      "name": "Kurdish Remix",
+      "family": "electronic",
+      "href": "traditions/kurdish_remix.json"
+    },
+    {
+      "id": "lo_fi_latino",
+      "name": "Lo-Fi Latino",
+      "family": "electronic",
+      "href": "traditions/lo_fi_latino.json"
+    },
+    {
+      "id": "maimouna",
+      "name": "Maïmouna",
+      "family": "hip_hop",
+      "href": "traditions/maimouna.json"
+    },
+    {
+      "id": "musique_urbaine_brazzaville",
+      "name": "Musique urbaine Brazzaville",
+      "family": "global",
+      "href": "traditions/musique_urbaine_brazzaville.json"
+    },
+    {
+      "id": "reading",
+      "name": "Reading",
+      "family": "global",
+      "href": "traditions/reading.json"
     }
   ]
 }

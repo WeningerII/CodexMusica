@@ -1,0 +1,16 @@
+{
+  "status": "PASS_ROOT_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-015.json",
+  "packet_sha256": "5eb742642756891fb79a4fe46d524d7f5c0e7d2a4384fb53245e5a5c47f09934",
+  "ids": [
+    "harp",
+    "haur_kantak",
+    "high_tech_minimal"
+  ],
+  "checked_at": "2026-10-04T02:59:10.741730+00:00",
+  "checks": [
+    "Root individually read public profiles, source-practice rationale, default changes and all four actual outputs or byte-identical prior bodies. Fresh parity/ceiling and owning-control checks pass with zero gaps/orphans.",
+    "Handbells and harp concert resonance preserved; orchestral harp is instrument use/class, no additional ensemble. Audiobooks/motivation pure speech lose forced12TET. Basque child song keeps syllabic natural solo branch. HighTechMinimal corrects source-positive DJ practice without guessed hardware. Icelandic voice/theremin and Indian tabla/sarangi lose unsupported tuning and retain continuous pitches. NES/VRC6 instrumental soundtrack architecture retained. Hollywood excluded pending explicit romantic-orchestra descriptor ruling.",
+    "Separate continuation branch only, after frozen2354 build; final integrated checks pending."
+  ]
+}

@@ -5,7 +5,7 @@
   "lineage": "Maithili music draws on the language and literary traditions of Mithila, spanning devotional poetry, folk song and contemporary repertoire. Vidyapati’s Krishna poetry has also circulated through neighboring devotional singing traditions.",
   "recipe": "classic maithili, ritual Devotional. single lead single track no stacking. khol. live tracking.",
   "recipe_chars": 95,
-  "score": 6.402,
+  "score": 5.972,
   "config": {
     "traditions": [
       "maithili"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 1.2075,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.8085,
           "voice_tessitura": 0
         }
       },

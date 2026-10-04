@@ -2,10 +2,10 @@
   "id": "ethereal_gothic",
   "name": "Ethereal gothic",
   "family": "rock_punk",
-  "lineage": "Spider Lilies — official-site four-person live branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic ethereal gothic, distorted Rock, gothic rock branch. single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 356,
-  "score": 34.941,
+  "lineage": "Ethereal gothic connects atmospheric song with gothic-rock and related electronic communities. Voices and layered instrumental colours can soften or expand the weight of an amplified band.",
+  "recipe": "classic ethereal gothic, distorted Rock, gothic rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 371,
+  "score": 37.642,
   "config": {
     "traditions": [
       "ethereal_gothic"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.9615,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.3315,
           "voice_multitrack_stack": 0.8189999999999998,
           "voice_tessitura": 0
         }
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.6405,
+          "body_wood": 0.39,
           "neck_wood": 0.504,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -80,9 +80,9 @@
           "string_material": 0.105,
           "bridge": 0,
           "scale_length": 1.0079999999999998,
-          "string_gauge": 1.5835,
+          "string_gauge": 0.2835,
           "finish": 0.1365,
-          "string_tuning": 1.363
+          "string_tuning": 0.063
         }
       },
       {
@@ -101,16 +101,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.3445,
-          "drumhead": 1.5625,
+          "drum_technique": 10.0945,
+          "drumhead": 0.26249999999999996,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.5625,
+          "shell_wood": 0.26249999999999996,
           "shell_thickness": 0.0315,
           "bearing_edges": 0.1365,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 8.622499999999999,
-          "cymbal_lathing": 8.149999999999999,
+          "cymbal_hammering": 10.372499999999999,
+          "cymbal_lathing": 9.899999999999999,
           "cymbal_finish": 0
         }
       },
@@ -123,9 +123,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.26,
           "poly_archetypes": 0,
-          "poly_voices": 0.3,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       }

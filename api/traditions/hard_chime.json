@@ -2,10 +2,10 @@
   "id": "hard_chime",
   "name": "Hard Chime",
   "family": "pop_rock",
-  "lineage": "Sparklejet — Bar Guest2001 complete credited musical roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic hard chime, distorted Rock, alternative branch. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, french horn. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 288,
-  "score": 24.014,
+  "lineage": "Hard chime connects guitar-driven independent rock with melodic popular-song writing. Bands can retain a compact amplified core while adding contrasting instrumental colours.",
+  "recipe": "classic hard chime, distorted Rock, alternative branch. one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, french horn. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 322,
+  "score": 31.726,
   "config": {
     "traditions": [
       "hard_chime"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 0.273,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.21,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.441,
           "neck_wood": 0.5775,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -104,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 3.7,
+          "bass_technique": 6.2,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 6.25,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 1.0999999999999999,
-          "cymbal_hammering": 3.6815,
-          "cymbal_lathing": 3.7865,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 6.181500000000001,
+          "cymbal_lathing": 6.2865,
           "cymbal_finish": 0
         }
       },

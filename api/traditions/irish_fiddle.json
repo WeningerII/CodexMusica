@@ -2,10 +2,10 @@
   "id": "irish_fiddle",
   "name": "Irish fiddle",
   "family": "vernacular",
-  "lineage": "John McEvoy — The cave of the cats. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "Irish fiddle playing carries dance tunes through solo performance, ensembles and sessions. Regional and individual approaches shape a shared instrumental repertoire.",
   "recipe": "classic irish fiddle, improv On Frame, Celtic traditional branch. fiddle. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 172,
-  "score": 5.41,
+  "score": 4.11,
   "config": {
     "traditions": [
       "irish_fiddle"
@@ -25,7 +25,7 @@
           "bowed_technique": 3.7315,
           "fiddle_strings": 0.063,
           "fiddle_bow": 0,
-          "fiddle_mute": 1.405,
+          "fiddle_mute": 0.105,
           "fiddle_articulation": 0.21,
           "fiddle_string_configuration": 0
         }

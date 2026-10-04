@@ -2,10 +2,10 @@
   "id": "deathgrind",
   "name": "Deathgrind",
   "family": "rock_punk",
-  "lineage": "Thorazine — Seed the Black Sky (1999), selected vocal tracks 2, 5, 6 and 7. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Selected vocal tracks 2, 5, 6 and 7 have source lyrics supporting the single Shane Hawco lead. Excluded: tracks 1, 3, 4 and 9 with Jeff Taylor backing vocals, and the 22-second track 8, Static, whose vocal role is unverified.",
-  "recipe": "classic late-1990s deathgrind, distorted Rock, death branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch palm muted humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 401,
-  "score": 36.649,
+  "lineage": "Deathgrind joins death metal with grindcore’s compressed, forceful approach. Bands use dense riffs and abrupt changes to intensify short sections and driving ensemble interplay.",
+  "recipe": "classic deathgrind, distorted Rock, death branch. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 329,
+  "score": 25.47,
   "config": {
     "traditions": [
       "deathgrind"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 4.8629999999999995,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.5329999999999995,
+          "electric_technique": 6.683,
           "amp_make": 0,
           "body_wood": 0.903,
           "neck_wood": 0.8714999999999999,
@@ -80,9 +80,9 @@
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 1.743,
-          "string_gauge": 1.447,
+          "string_gauge": 0.147,
           "finish": 0.0315,
-          "string_tuning": 1.4260000000000002
+          "string_tuning": 0.126
         }
       },
       {
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.6885,
+          "drumhead": 0.38849999999999996,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6885,
+          "shell_wood": 0.38849999999999996,
           "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "bearing_edges": 0.44099999999999995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 4.45,
-          "cymbal_lathing": 4.4815000000000005,
+          "cymbal_hammering": 3.6500000000000004,
+          "cymbal_lathing": 3.6815,
           "cymbal_finish": 0
         }
       }

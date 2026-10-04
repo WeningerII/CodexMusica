@@ -5,7 +5,7 @@
   "lineage": "Swedish underground rap develops through independent MCs, producers and performance networks. Battle events such as the O-Zone series form one part of a broader recorded and live rap culture.",
   "recipe": "classic swedish underground rap, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. live tracking.",
   "recipe_chars": 154,
-  "score": 26.06,
+  "score": 26.452,
   "config": {
     "traditions": [
       "swedish_underground_rap"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 11.959,
+          "voice_quality": 12.025,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.341999999999999,
-          "voice_ensemble_config": 0.8924999999999998,
+          "voice_speech_song": 11.447,
+          "voice_ensemble_config": 0.819,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.33599999999999997,
+          "voice_multitrack_stack": 0.27299999999999996,
           "voice_tessitura": 0
         }
       },
@@ -62,8 +62,8 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "sample_bitdepth": 0.126,
-          "sample_swing": 1.113,
+          "sample_bitdepth": 0.063,
+          "sample_swing": 1.533,
           "sample_processing": 0
         }
       }

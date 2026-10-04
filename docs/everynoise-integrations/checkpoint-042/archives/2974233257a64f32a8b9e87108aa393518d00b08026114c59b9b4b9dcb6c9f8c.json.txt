@@ -1,0 +1,698 @@
+{
+  "owner": "sourceaudit",
+  "baseline": "2541e078c9f4326c2d75826779813d933a27f1bb",
+  "entries": [
+    {
+      "id": "rhythm_game",
+      "before": {
+        "tradition": {
+          "id": "rhythm_game",
+          "name": "Rhythm Game",
+          "family": "classical",
+          "lineage": "Sakuzyo — Altale, complete piano-solo score in Yamaha DEEMO Piano Collection GTP01097153, item13, published15June2019. Publisher explicitly gives composer/arranger Sakuzyo and piano solo. Selected scope is this whole published arrangement, not all18scores, the two separate four-hand items, original game soundtrack or recording hardware. Companion official CD credits Tomoko Asaka piano for Altale, corroborating the keyboard-only adaptation; publisher cautions score and CD differ in places. No paid score interior or audio audition claimed. Source piano subtype unspecified. A standard modern studio upright, block-chord pop articulation and shoebox recital hall are candid authored performance choices, not the original piano, score-wide articulation or measured venue. One pianist, no separately scored voice or additional instrument. No global temperament or recording apparatus claim. Broad artMusic locates only this publisher-described concert-program piano arrangement, not the whole rhythm-game field or all original electronic soundtracks.",
+          "instruments": [
+            "upright_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Sakuzyo — Altale, complete piano-solo score in Yamaha DEEMO Piano Collection GTP01097153, item13, published15June2019. Publisher explicitly gives composer/arranger Sakuzyo and piano solo. Selected scope is this whole published arrangement, not all18scores, the two separate four-hand items, original game soundtrack or recording hardware. Companion official CD credits Tomoko Asaka piano for Altale, corroborating the keyboard-only adaptation; publisher cautions score and CD differ in places. No paid score interior or audio audition claimed. Rhythm Game is the cross-publisher music-game repertoire and performance community whose musical timing becomes the play task. Rayark explicitly identifies DEEMO and its DJMAX collaboration as rhythm games; Yamaha separates gameplay-enabled pieces from non-playable story cues and identifies this complete piano concert adaptation. Exact creator playlist includes Altale by Sakuzyo at36 and xi/Cranky/ginkiha alongside Friday Night Funkin mod works, supporting repertoire/community correspondence without claiming one uniform sound. Existing video_game_music remains the broader interactive-score field including both chip and orchestral production: overlap is explicit, not restricted to old chips or Japanese composers. Existing bemani is the positively narrower Konami brand branch; Rayark DEEMO and Korean DJMAX supply actual other institutions rather than a different piano alone. Existing j_core is hardcore-techno/doujin stylistic lineage and overlaps some composers, not all rhythm-game composition or lyrical piano repertoire. Queued VGM Remix/Lo-fi VGM remain adaptation/production axes, not identical gameplay/community scope. Source piano subtype unspecified. A standard modern studio upright, block-chord pop articulation and shoebox recital hall are candid authored performance choices, not the original piano, score-wide articulation or measured venue. One pianist, no separately scored voice or additional instrument. No global temperament or recording apparatus claim. Broad artMusic locates only this publisher-described concert-program piano arrangement, not the whole rhythm-game field or all original electronic soundtracks.",
+          "exemplars": [
+            "Sakuzyo — Altale, complete Yamaha DEEMO piano-solo edition"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "rhythm_game",
+          "name": "Rhythm Game",
+          "family": "classical",
+          "lineage": "Rhythm-game music connects compositions and recordings to games organized around musical timing and player interaction. The repertoire spans electronic production, popular songs and instrumental themes, with independent arrangements extending beyond the game.",
+          "instruments": [
+            "upright_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Piano can present a melodic game theme through clear phrasing and harmonic contrasts. Other tracks use voices, ensembles or electronic textures, reflecting the field’s wide stylistic range.",
+          "exemplars": [
+            "Sakuzyo — Altale, complete Yamaha DEEMO piano-solo edition"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Retain a positively published instrumental game-theme piano branch; it is legitimate within the varied field and does not claim all rhythm-game music is piano or exclude sung/electronic repertoire. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary creator, publisher, collector and practice evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Retain a positively published instrumental game-theme piano branch; it is legitimate within the varied field and does not claim all rhythm-game music is piano or exclude sung/electronic repertoire. ",
+        "owning_control_review": {
+          "applicable": 3,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Rhythm Game, huge upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Rhythm Game, huge upright-piano, treated-concert-hall-shoebox.",
+          "tags": "Rhythm Game, huge upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Rhythm Game, huge upright piano · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "turkce_remix",
+      "before": {
+        "tradition": {
+          "id": "turkce_remix",
+          "name": "Türkçe remix",
+          "family": "electronic",
+          "lineage": "Emre Çağlar — complete Türkçe Remix Set2020 (Power Türk Adrenalin Mix2020), dated21March2020 in the title and uploaded23March2020. The DJ-owned upload identifies the mixer and supplies all19 remix selections, from Buray through Aydın Kurtoğlu. Retain the entire issued continuous DJ set and every embedded vocal/instrumental layer; no fragment or opaque individual studio master is substituted for performance. Exact deck count, playback medium, original production devices and embedded singer count remain unknown. Existing medium-unspecified DJ playback/mixing owner represents the actual complete mix, not reconstructed original studios. One protected identity part. No tuning, signal apparatus or additional live singer is inferred. Controlled treated-studio listening presentation is authored, not source-session acoustics. Broad electronicDance captures the positively named disco/club remix practice without forcing deep-house rhythm across the whole programme.",
+          "instruments": [
+            "dj_playback_mixing_unspecified"
+          ],
+          "room": "treated_studio",
+          "pin_parts": true,
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "electronicDance",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Emre Çağlar — complete Türkçe Remix Set2020 (Power Türk Adrenalin Mix2020), dated21March2020 in the title and uploaded23March2020. The DJ-owned upload identifies the mixer and supplies all19 remix selections, from Buray through Aydın Kurtoğlu. Retain the entire issued continuous DJ set and every embedded vocal/instrumental layer; no fragment or opaque individual studio master is substituted for performance. Exact deck count, playback medium, original production devices and embedded singer count remain unknown. Türkçe remix is a language/repertoire remix circulation field, crossing original Turkish pop, folk/arabesk and club productions. Exact creator catalogue includes club remixes, arabesk source songs and named remixers. The DJ primary19-selection set independently identifies the practice; firsthand PowerTürk presenter Barış Gören describes his long-running club/remix-radio work, and the broadcaster maintains a dedicated Turkish party DJ programme archive. Full existing turkish_pop already includes dance production and international aranjman history; it is the broader song industry, not identical to this subsequent-remix circulation field. Full turkish_deep_house and turkish_edm overlap its club branch but also include original productions, while remix repertoire is not restricted to deep house. No geographic exclusivity or selected-DJ membership in the creator playlist is asserted. Different performers alone are not the proposed boundary. Existing medium-unspecified DJ playback/mixing owner represents the actual complete mix, not reconstructed original studios. One protected identity part. No tuning, signal apparatus or additional live singer is inferred. Controlled treated-studio listening presentation is authored, not source-session acoustics. Broad electronicDance captures the positively named disco/club remix practice without forcing deep-house rhythm across the whole programme.",
+          "exemplars": [
+            "Emre Çağlar — Türkçe Remix Set2020, complete19-selection mix"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "turkce_remix",
+          "name": "Türkçe remix",
+          "family": "electronic",
+          "lineage": "Türkçe remix connects Turkish-language popular songs with remix production and club circulation. Producers and DJs reshape familiar vocal material through electronic arrangement and rhythmic treatment.",
+          "instruments": [
+            "voice",
+            "sampler_classic",
+            "drum_machine_analog"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "akai_mpc",
+            "sampler_bit_depth": "sampler_twelve_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_hiphop",
+            "kick_voice": "sine_burst_kick",
+            "snare_voice": "two_oscillator_snare",
+            "hat_voice": "square_summed_hat",
+            "shuffle_quantize": "straight_quantize"
+          }
+        },
+        "extras": {
+          "parent": "electronicDance",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Sung hooks meet layered samples and electronic percussion. Repeated phrases, changes in density and contrasting sections support a dance-oriented reworking of the song.",
+          "exemplars": [
+            "Emre Çağlar — Türkçe Remix Set2020, complete19-selection mix"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Restore a vocal sample-and-percussion remix production branch instead of DJ-only playback. Connected singing, layered sampled accompaniment and electronic percussion are authored arrangement choices, not exact reconstruction of all records in a mix. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary creator, publisher, collector and practice evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Restore a vocal sample-and-percussion remix production branch instead of DJ-only playback. Connected singing, layered sampled accompaniment and electronic percussion are authored arrangement choices, not exact reconstruction of all records in a mix. ",
+        "owning_control_review": {
+          "applicable": 26,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Türkçe remix, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, concrete-precise sampler: beat-suited breaks-and-loops looped swung layered sustained gritty foundational, immense analog-drum-machine: clappy rigid subby unusual analog-drift-character mechanical classic distinctive metallic modern, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Türkçe remix, huge voice, concrete-precise sampler, immense analog-drum-machine, treated-concert-hall-shoebox.",
+          "tags": "Türkçe remix, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, concrete-precise sampler: beat-suited breaks-and-loops looped swung layered sustained gritty foundational, immense analog-drum-machine: clappy rigid subby unusual analog-drift-character mechanical classic distinctive metallic modern, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Türkçe remix, huge voice · Treated concert hall (shoebox),\nconcrete-precise sampler · Treated concert hall (shoebox),\nimmense analog drum machine · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "ugandan_traditional",
+      "before": {
+        "tradition": {
+          "id": "ugandan_traditional",
+          "name": "Ugandan traditional",
+          "family": "vernacular",
+          "lineage": "Michael Mawoni — complete Hiwumbe Awumba (God Creates And Then Destroys), Smithsonian SFW40504_103, 2:34, issued2003. The issuer explicitly credits the same sole musician with lead vocals and adungu; retain both roles and one singer. This is the whole separately issued Nyole-language track, not an arbitrary layer from the wider Abayudaya album. The chorus, guitars, keyboards and drums on other album tracks are outside this complete selection. Broad ritualDevotional is scoped to this sacred song contemplating God and mortality, supported by the issuer sacred classification and collector transcription; it does not classify every Ugandan tradition as religious. Authored alto-register adungu with nylon strings/hide resonator and gentle devotional accompaniment. The existing church/liturgical setting is used for its nonsectarian devotional descriptors, not a claim of Christian worship. Alur in the instrument name describes its catalog instrument lineage, not the Nyole singer ethnicity. Exact harp size/string material are proposed physical defaults, not measured source facts. All17 original voice controls retained: one accompanied sung voice, source-unspecified physiology, neutral effort/tract, unprocessed single lead. No measured temperament, capture apparatus or extra singers invented. Spacious acoustic shoebox-hall listening setting is a proposed new rendition, not field-recording metadata.",
+          "instruments": [
+            "voice",
+            "adungu"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "adungu_size": "adungu_size_alto",
+            "adungu_setting": "adungu_setting_church",
+            "adungu_stringing": "adungu_stringing_nylon_hide"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Michael Mawoni — complete Hiwumbe Awumba (God Creates And Then Destroys), Smithsonian SFW40504_103, 2:34, issued2003. The issuer explicitly credits the same sole musician with lead vocals and adungu; retain both roles and one singer. This is the whole separately issued Nyole-language track, not an arbitrary layer from the wider Abayudaya album. The chorus, guitars, keyboards and drums on other album tracks are outside this complete selection. Ugandan traditional is the national heritage field spanning named local instrumental, sung, social and religious practices. The exact creator playlist includes royal drummers, embaire ensembles, Acholi performers, lullabies and Abayudaya communities; the collector-issued album explicitly locates Abayudaya repertoire in local Ugandan music. Selected Michael Mawoni membership in that playlist is not asserted. Full existing ugandan_pop is contemporary Kampala-linked Afropop, ugandan_hip_hop is Lugaflow, and ugandan_gospel is specifically Christian praise/worship; none exhausts this broader heritage field, which includes this Nyole-language Jewish sacred-song branch. Those categories can overlap traditional material, and are not restricted to their representative artists. Broad ritualDevotional is scoped to this sacred song contemplating God and mortality, supported by the issuer sacred classification and collector transcription; it does not classify every Ugandan tradition as religious. Authored alto-register adungu with nylon strings/hide resonator and gentle devotional accompaniment. The existing church/liturgical setting is used for its nonsectarian devotional descriptors, not a claim of Christian worship. Alur in the instrument name describes its catalog instrument lineage, not the Nyole singer ethnicity. Exact harp size/string material are proposed physical defaults, not measured source facts. All17 original voice controls retained: one accompanied sung voice, source-unspecified physiology, neutral effort/tract, unprocessed single lead. No measured temperament, capture apparatus or extra singers invented. Spacious acoustic shoebox-hall listening setting is a proposed new rendition, not field-recording metadata.",
+          "exemplars": [
+            "Michael Mawoni — Hiwumbe Awumba, complete2:34 issued track"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "ugandan_traditional",
+          "name": "Ugandan traditional",
+          "family": "vernacular",
+          "lineage": "Ugandan traditional music encompasses varied community repertoires and instrumental practices. Singing with adungu is one strand within a wider heritage of vocal, harp and ensemble performance.",
+          "instruments": [
+            "voice",
+            "adungu"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "adungu_size": "adungu_size_alto",
+            "adungu_setting": "adungu_setting_church",
+            "adungu_stringing": "adungu_stringing_nylon_hide"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A voice and plucked harp can share an intimate melodic and rhythmic texture. Repeated accompaniment supports expressive text, with sacred and secular contexts varying across communities and repertoire.",
+          "exemplars": [
+            "Michael Mawoni — Hiwumbe Awumba, complete2:34 issued track"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Retain documented sacred voice/adungu branch. Existing liturgical-context descriptive controls represent a devotional use, not a claim the Nyole Jewish source is Christian or ethnically Alur. Harp register/materials are authored physical choices. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary creator, publisher, collector and practice evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Retain documented sacred voice/adungu branch. Existing liturgical-context descriptive controls represent a devotional use, not a claim the Nyole Jewish source is Christian or ethnically Alur. Harp register/materials are authored physical choices. ",
+        "owning_control_review": {
+          "applicable": 20,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Ugandan traditional, huge voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, immense adungu: resonant-hide hymnal middle-voiced clear-toned taut gentle devotional rounded singing, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Ugandan traditional, huge voice, immense adungu, treated-concert-hall-shoebox.",
+          "tags": "Ugandan traditional, huge voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, immense adungu: resonant-hide hymnal middle-voiced clear-toned taut gentle devotional rounded singing, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Ugandan traditional, huge voice · Treated concert hall (shoebox),\nimmense adungu · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "ulkucu_sarkilar",
+      "before": {
+        "tradition": {
+          "id": "ulkucu_sarkilar",
+          "name": "Ülkücü Şarkılar",
+          "family": "vernacular",
+          "lineage": "Ozan Arif — complete self-described half-hour solo voice and bağlama intermission programmes on Black Sea theatre tours, circa1970–72. First-person interview distinguishes his own programme between the two play acts; actors and later separately described radio artists are outside that bounded solo practice. One human vocal performer and one self-played lute are retained. No archival recording, exact setlist or measured source sound is claimed. Broad balladPoetry scopes the documented lyric-centered solo bard practice. Authored medium mulberry-bowl steel-string bağlama with microtonal frets and ornamented melodic gesture; these construction and articulation choices are a proposed rendition, not measured source equipment. Existing aşık tradition fits the first-person bard practice without transferring Alevi ritual or unrelated named concert performers. All17 human voice controls retained, one accompanied lead with source-unspecified sung/spoken text-setting, physiology and pitch organization. No invented temperament or amplification circuitry. Spacious shoebox-hall listening presentation is editorial, not the historic theatre acoustics.",
+          "instruments": [
+            "voice",
+            "saz_baglama"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "plucked_traditional_technique": "plucked_ornamented_melodic",
+            "saz_size": "baglama_med",
+            "saz_frets": "saz_microtonal_frets",
+            "saz_body_wood": "saz_mulberry_body",
+            "saz_strings": "saz_steel_modern",
+            "saz_tradition": "saz_asik_tradition"
+          }
+        },
+        "extras": {
+          "parent": "balladPoetry",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Ozan Arif — complete self-described half-hour solo voice and bağlama intermission programmes on Black Sea theatre tours, circa1970–72. First-person interview distinguishes his own programme between the two play acts; actors and later separately described radio artists are outside that bounded solo practice. One human vocal performer and one self-played lute are retained. No archival recording, exact setlist or measured source sound is claimed. Ülkücü Şarkılar is a political-affiliation and circulation field, not a synonym for all Turkish folk or all bağlama playing. The firsthand interview documents Ülkü Ocakları associations, tours and topical poet performance. Exact creator playlist includes Ozan Arif plus group songs and marches, supporting a field broader than the selected solo bardic realization. Full existing turkish_folk includes Anatolian and Thracian village and bardic repertoire, and baglama_asik includes sung or declaimed self-accompaniment; both overlap this source but neither defines the particular nationalist movement network. No political endorsement or exclusive ethnicity is asserted. Broad balladPoetry scopes the documented lyric-centered solo bard practice. Authored medium mulberry-bowl steel-string bağlama with microtonal frets and ornamented melodic gesture; these construction and articulation choices are a proposed rendition, not measured source equipment. Existing aşık tradition fits the first-person bard practice without transferring Alevi ritual or unrelated named concert performers. All17 human voice controls retained, one accompanied lead with source-unspecified sung/spoken text-setting, physiology and pitch organization. No invented temperament or amplification circuitry. Spacious shoebox-hall listening presentation is editorial, not the historic theatre acoustics.",
+          "exemplars": [
+            "Ozan Arif — self-described solo theatre-intermission programmes,circa1970–72"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "ulkucu_sarkilar",
+          "name": "Ülkücü Şarkılar",
+          "family": "vernacular",
+          "lineage": "Ülkücü şarkılar connects songs and performers associated with Turkey’s nationalist movement and its audiences. Bardic and popular-song approaches circulate alongside varied recorded and public performances.",
+          "instruments": [
+            "voice",
+            "saz_baglama"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "plucked_traditional_technique": "plucked_ornamented_melodic",
+            "saz_size": "baglama_med",
+            "saz_frets": "saz_microtonal_frets",
+            "saz_body_wood": "saz_mulberry_body",
+            "saz_strings": "saz_steel_modern",
+            "saz_tradition": "saz_asik_tradition"
+          }
+        },
+        "extras": {
+          "parent": "balladPoetry",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Voice and bağlama can foreground text through ornamented melody and repeated accompaniment. Changes in vocal emphasis and plucked phrasing shape a lyric-centered bardic branch.",
+          "exemplars": [
+            "Ozan Arif — self-described solo theatre-intermission programmes,circa1970–72"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Retain positive voice/bağlama bard practice and full meaningful physical/vocal controls. No endorsement of political ideology or claim every repertoire item is performed solo is implied. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary creator, publisher, collector and practice evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Retain positive voice/bağlama bard practice and full meaningful physical/vocal controls. No endorsement of political ideology or claim every repertoire item is performed solo is implied. ",
+        "owning_control_review": {
+          "applicable": 23,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Ülkücü Şarkılar, huge voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, immense saz: steel-canonical-modern asik aşık-suited canonical-anatolian makam-correct wandering-bardic mulberry-bowl authentic microtonal ornamented traditional versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Ülkücü Şarkılar, huge voice, immense saz, treated-concert-hall-shoebox.",
+          "tags": "Ülkücü Şarkılar, huge voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, immense saz: steel-canonical-modern asik aşık-suited canonical-anatolian makam-correct wandering-bardic mulberry-bowl authentic microtonal ornamented traditional versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Ülkücü Şarkılar, huge voice · Treated concert hall (shoebox),\nimmense saz · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "underground_boom_bap",
+      "before": {
+        "tradition": {
+          "id": "underground_boom_bap",
+          "name": "Underground Boom Bap",
+          "family": "hip_hop",
+          "lineage": "DJ King Flow — complete first-hour Mixtape Addict86 programme issued by Scientific Sound Asia for17February2026: all25 listed music selections and the concluding Chris Christopher interview. Preserve both whole playback/mixing programme and the two named interview participants through a separate shared human speech card. Embedded musical singers/rappers remain unknown in number; two counts the interview participants, not all voices in the recordings. This is the whole separately headed first-hour programme, not the undocumented second broadcast hour or a handpicked subset. Broad mcRhythm.usHipHop scopes the documented MC-centered repertoire, with an explicitly transregional distribution network rather than invented single-city origin. Existing medium-unspecified DJ playback/mixing owner preserves complete recorded musical layers without inferred hardware or source studio inventory. Original voice owner retains all17 human controls for an authored two-person spoken conversation, source-unspecified physiology/pitch, neutral effort and no extra singers. Speech card identifies interview content, not proof it was live rather than prerecorded. Global tuning and capture apparatus omitted; spacious hall listening presentation editorial rather than broadcast-room reconstruction.",
+          "instruments": [
+            "dj_playback_mixing_unspecified",
+            "voice"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.usHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "DJ King Flow — complete first-hour Mixtape Addict86 programme issued by Scientific Sound Asia for17February2026: all25 listed music selections and the concluding Chris Christopher interview. Preserve both whole playback/mixing programme and the two named interview participants through a separate shared human speech card. Embedded musical singers/rappers remain unknown in number; two counts the interview participants, not all voices in the recordings. This is the whole separately headed first-hour programme, not the undocumented second broadcast hour or a handpicked subset. Underground Boom Bap is an independent artist, mixtape and radio-circulation field within wider boom bap. The issuing broadcaster explicitly documents Mixtape Addict as an independent-artist hub since2015 and calls this programme modern underground Boom Bap, spanning multiple regional scenes and contemporary emerging creators. Exact creator category includes Tone Spliff, SUBSTANCE810 and Pro Dillinger, all represented in this programme. Full existing boom_bap already includes2010-onward revival, so a newer date or different artist alone is not the distinction. The positive independent community/distribution practice narrows the broader production aesthetic. Queued new_jersey_underground_rap is one regional platform, overlapping but not identical to this transregional boom-bap-focused field. No claim all participants or every individual track exclusively fit this category. Broad mcRhythm.usHipHop scopes the documented MC-centered repertoire, with an explicitly transregional distribution network rather than invented single-city origin. Existing medium-unspecified DJ playback/mixing owner preserves complete recorded musical layers without inferred hardware or source studio inventory. Original voice owner retains all17 human controls for an authored two-person spoken conversation, source-unspecified physiology/pitch, neutral effort and no extra singers. Speech card identifies interview content, not proof it was live rather than prerecorded. Global tuning and capture apparatus omitted; spacious hall listening presentation editorial rather than broadcast-room reconstruction.",
+          "exemplars": [
+            "DJ King Flow — complete Mixtape Addict86 first hour and interview"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "underground_boom_bap",
+          "name": "Underground Boom Bap",
+          "family": "hip_hop",
+          "lineage": "Underground boom bap connects rappers, producers, independent releases and listening communities around sample-oriented hip-hop. Recordings and DJ circulation sustain a field that crosses cities and national borders.",
+          "instruments": [
+            "voice",
+            "sampler_classic"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "akai_mpc",
+            "sampler_bit_depth": "sampler_twelve_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_hiphop"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.usHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Rhythmic verses meet layered samples and recurring beats. Vocal flow and changes in loop texture provide contrast while the accompaniment maintains a stable rhythmic foundation.",
+          "exemplars": [
+            "DJ King Flow — complete Mixtape Addict86 first hour and interview"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Restore rap voice and sample-based beat production, not only radio playback and interview speech. Full original voice and sampler controls retained; no universal source artist count or device model claim. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original primary creator, publisher, collector and practice evidence preserved."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace source-edition, performer and audit dossier with concise positive genre history and style. Original source evidence remains in before. Representative branches are not universal ensembles or exact source hardware/recording reconstructions. Restore rap voice and sample-based beat production, not only radio playback and interview speech. Full original voice and sampler controls retained; no universal source artist count or device model claim. ",
+        "owning_control_review": {
+          "applicable": 22,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Underground Boom Bap, spoken-flowing voice: mc-flow rap rhythmic-speech rhythmic-spoken-flow-no-pitch single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syncopated-speech-rhythm unprocessed-natural-acoustic forward conversational, concrete-precise sampler: beat-suited breaks-and-loops looped swung layered sustained gritty foundational, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Underground Boom Bap, spoken-flowing voice, concrete-precise sampler, treated-live-room-reflective-but-controlled.",
+          "tags": "Underground Boom Bap, spoken-flowing voice: mc-flow rap rhythmic-speech rhythmic-spoken-flow-no-pitch single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syncopated-speech-rhythm unprocessed-natural-acoustic forward conversational, concrete-precise sampler: beat-suited breaks-and-loops looped swung layered sustained gritty foundational, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Underground Boom Bap, spoken-flowing voice · Treated live room (reflective but controlled),\nconcrete-precise sampler · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    }
+  ]
+}

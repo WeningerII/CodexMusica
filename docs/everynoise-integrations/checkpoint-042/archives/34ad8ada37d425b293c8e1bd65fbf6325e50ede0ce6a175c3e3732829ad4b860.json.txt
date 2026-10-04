@@ -1,0 +1,294 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 positions561–570; genre/data only",
+  "entries": [
+    {
+      "id": "indian_percussion",
+      "before": {
+        "tradition": {
+          "id": "indian_percussion",
+          "name": "Indian percussion",
+          "family": "classical",
+          "lineage": "Pandit Kishan Maharaj with Ramesh Mishra — Navras NRCD 0051, Queen Elizabeth Hall July 1995 recital. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "tabla",
+            "sarangi"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "tabla_dayan": "shisham_dayan",
+            "tabla_bayan": "brass_bayan",
+            "tabla_syahi": "fresh_syahi",
+            "bowed_technique": "bowed_microtonal_inflected",
+            "sarangi_belly": "goat_skin_sarangi",
+            "sarangi_taraf": "sarangi_35_strings",
+            "sarangi_bow": "horse_hair_loose",
+            "sarangi_main_strings": "sarangi_gut_main",
+            "sarangi_body_wood": "sarangi_tun_body"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.indianClassicalImprov",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "The Navras catalogue percussion section identifies NRCD 0051 as Kishan Maharaj live tabla solo at Queen Elizabeth Hall, London, July 1995, with Ramesh Mishra on sarangi. The accompanist independently lists this exact catalogue number on his own released-music page. Both positively documented instrumental roles are retained. Percussion-led Indian recital category, distinct from the entire Hindustani classical system or Indian instrumental music. Selected actual tabla recital includes its credited sarangi accompaniment. No singer is positively credited; a fixed human vocal count is not inferred, nor is occasional spoken bol recitation denied. London anchors the documented concert location, not the origin of Indian percussion. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Pandit Kishan Maharaj with Ramesh Mishra — Navras NRCD 0051, Queen Elizabeth Hall July 1995 recital"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "indian_percussion",
+          "name": "Indian percussion",
+          "family": "classical",
+          "lineage": "Indian percussion repertoire includes solo and ensemble traditions centered on rhythmic development. Tabla recitals can pair the featured percussionist with melodic accompaniment.",
+          "instruments": [
+            "tabla",
+            "sarangi"
+          ],
+          "room": "concert_hall_shoebox",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "tabla_dayan": "shisham_dayan",
+            "tabla_bayan": "brass_bayan",
+            "tabla_syahi": "fresh_syahi",
+            "bowed_technique": "bowed_microtonal_inflected",
+            "sarangi_belly": "goat_skin_sarangi",
+            "sarangi_taraf": "sarangi_35_strings",
+            "sarangi_bow": "horse_hair_loose",
+            "sarangi_main_strings": "sarangi_gut_main",
+            "sarangi_body_wood": "sarangi_tun_body"
+          }
+        },
+        "extras": {
+          "parent": "improvOnFrame.indianClassicalImprov",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Tabla patterns can unfold against a sarangi line, with changes in density, emphasis and response. Other regional percussion traditions and larger ensembles provide additional branches of the field.",
+          "exemplars": [
+            "Kishan Maharaj",
+            "Ramesh Mishra"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore concise genre profiles and review representative defaults with source precision preserved separately.",
+      "sources": [
+        {
+          "url": "https://sama.co.uk/wp-content/uploads/2022/08/Navras-Catalogue-2022.pdf",
+          "title": "Pandit Kishan Maharaj with Ramesh Mishra — Navras NRCD 0051, Queen Elizabeth Hall July 1995 recital",
+          "support_notes": "The Navras catalogue percussion section identifies NRCD 0051 as Kishan Maharaj live tabla solo at Queen Elizabeth Hall, London, July 1995, with Ramesh Mishra on sarangi. The accompanist independently lists this exact catalogue number on his own released-music page. Both positively documented instrumental roles are retained.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4a3VarAtSbgKDRDjfqhB93",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Exact named category playlist includes the selected artist; classification correspondence is artist-level, not a claim that this exact recording is in the playlist.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.rameshmisra.com/release.htm",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Performer primary released-music list confirms accompaniment on Navras NRCD 0051, Pandit Kishan Maharaj.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary genre/practice sources and actual owning controls. Restore concise public genre description while preserving all source dossiers. Physical choices are authored representative options, not historical measurements or universal genre requirements. Remove blanket twelve-tone equal temperament from Indian melodic/percussion practices; retain source instrument identities and meaningful construction controls. Authored concert recital space supports resonant tabla and sustained sarangi; source documents recital practice. No change to instrument identities or construction.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "rationale": "The Navras catalogue percussion section identifies NRCD 0051 as Kishan Maharaj live tabla solo at Queen Elizabeth Hall, London, July 1995, with Ramesh Mishra on sarangi. The accompanist independently lists this exact catalogue number on his own released-music page. Both positively documented instrumental roles are retained. Percussion-led Indian recital category, distinct from the entire Hindustani classical system or Indian instrumental music. Selected actual tabla recital includes its credited sarangi accompaniment. No singer is positively credited; a fixed human vocal count is not inferred, nor is occasional spoken bol recitation denied. London anchors the documented concert location, not the origin of Indian percussion.",
+          "instrumental_evidence": "https://sama.co.uk/wp-content/uploads/2022/08/Navras-Catalogue-2022.pdf",
+          "photo_context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+        }
+      }
+    },
+    {
+      "id": "indie_game_soundtrack",
+      "before": {
+        "tradition": {
+          "id": "indie_game_soundtrack",
+          "name": "Indie game soundtrack",
+          "family": "electronic",
+          "lineage": "Jake Kaufman — Strike the Earth! (Plains of Passage), Shovel Knight OST (2014). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+          "instruments": [
+            "nes_famicom_chip_system"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "nes_chip_architecture": "nes_chip_vrc6_eight",
+            "nes_chip_programming": "nes_chip_tracker_notes",
+            "nes_chip_output": "nes_chip_mono"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Composer release identifies the indie-game score and a compiled NES/Famicom playback version. Developer Yacht Club Games documents five basic channels plus three VRC6 channels, FamiTracker programming, mono output and note-programmed effects. Creator Indie Game Soundtrack playlist selects this exact instrumental track. Independently developed game soundtrack represented by the exact creator-selected Shovel Knight level theme. Distinct functional context from chiptune broadly; not a claim that all indie-game scores are electronic. The complete selected musical generator is the programmed NES/Famicom VRC6 chip system, without invented live guitar, drums or singers. This is the original score, not the separately released guest arrangement album. Artist profile supports Los Angeles. Developer explicitly reports mono and no external reverb; note-programmed echoes are not an added echo processor. Production-chain choices in this catalog arrangement are authored, not measured source mastering settings. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+          "exemplars": [
+            "Jake Kaufman — Strike the Earth! (Plains of Passage), Shovel Knight OST (2014)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "indie_game_soundtrack",
+          "name": "Indie game soundtrack",
+          "family": "electronic",
+          "lineage": "Indie game soundtracks connect composers with independently developed games and their listening communities. Chip-based composition forms one branch alongside orchestral, acoustic and other electronic approaches.",
+          "instruments": [
+            "nes_famicom_chip_system"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "nes_chip_architecture": "nes_chip_vrc6_eight",
+            "nes_chip_programming": "nes_chip_tracker_notes",
+            "nes_chip_output": "nes_chip_mono"
+          }
+        },
+        "extras": {
+          "parent": "experimentalElec",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "An NES/Famicom-style sound system can organize melodic, bass and rhythmic material across a small set of channels. Repeating motifs and programmed changes in texture support the changing pace of a game.",
+          "exemplars": [
+            "Jake Kaufman"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore concise genre profiles and review representative defaults with source precision preserved separately.",
+      "sources": [
+        {
+          "url": "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack",
+          "title": "Jake Kaufman — Strike the Earth! (Plains of Passage), Shovel Knight OST (2014)",
+          "support_notes": "Composer release identifies the indie-game score and a compiled NES/Famicom playback version. Developer Yacht Club Games documents five basic channels plus three VRC6 channels, FamiTracker programming, mono output and note-programmed effects. Creator Indie Game Soundtrack playlist selects this exact instrumental track.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+          "title": "Corroborating primary evidence",
+          "support_notes": "Developer first-person Sound limitations section: VRC6 adds three to five basic sound channels; FamiTracker produces executable NES/Famicom music; mastering EQ/compression, no reverb or stereo mixing; echoes programmed note by note.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/74xxbuuHJujl204kaRgsLk",
+          "title": "Corroborating primary evidence",
+          "support_notes": "Creator The Sound of Indie Game Soundtrack includes Jake Kaufman Strike the Earth! (Plains of Passage).",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary genre/practice sources and actual owning controls. Restore concise public genre description while preserving all source dossiers. Physical choices are authored representative options, not historical measurements or universal genre requirements. Existing8-channel NES/VRC6 architecture is a genuine chip-composition branch, not an assertion that all indie-game music is chiptune.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+        "original_instrument_role_audit": {
+          "rationale": "Composer release identifies the indie-game score and a compiled NES/Famicom playback version. Developer Yacht Club Games documents five basic channels plus three VRC6 channels, FamiTracker programming, mono output and note-programmed effects. Creator Indie Game Soundtrack playlist selects this exact instrumental track. Independently developed game soundtrack represented by the exact creator-selected Shovel Knight level theme. Distinct functional context from chiptune broadly; not a claim that all indie-game scores are electronic. The complete selected musical generator is the programmed NES/Famicom VRC6 chip system, without invented live guitar, drums or singers. This is the original score, not the separately released guest arrangement album. Artist profile supports Los Angeles. Developer explicitly reports mono and no external reverb; note-programmed echoes are not an added echo processor. Production-chain choices in this catalog arrangement are authored, not measured source mastering settings.",
+          "instrumental_evidence": "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack",
+          "photo_context": "Generic SM58 recording-context photograph only. It does not depict the NES/Famicom console, VRC6 chip, selected artist, actual source equipment or the new chip instrument. The source is a programmed electronic soundtrack, not microphone-recorded voice."
+        }
+      }
+    }
+  ]
+}

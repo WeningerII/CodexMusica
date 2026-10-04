@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-598.json",
+  "sha256": "8eb0bbbff88cdffa7afa31b9d2bd6523ee70f1bf4f115e8411096e9f93a7f72d",
+  "packet_sha256": "8eb0bbbff88cdffa7afa31b9d2bd6523ee70f1bf4f115e8411096e9f93a7f72d",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "thai_trap",
+  "immutable_allocation": {
+    "source_label": "thai trap",
+    "source_url": "https://everynoise.com/engenremap-thaitrap.html",
+    "suggested_id": "thai_trap",
+    "allocation_ordinal": 598,
+    "allocation_group_id": "024"
+  },
+  "source_review": {
+    "finding": "Fresh firsthand producer interview turn15003view1 explicitly documents Facebook Thai Trap community, rappers using producer beats and local independent labels. Issuer GMM statement turn15003view2 independently identifies Thai-Trap-Hip-Hop with Thai/Isan flow and trap beats. Specific phin/gong/conga crossover is not claimed as the representative master.",
+    "urls": [
+      "https://blaqlyte.com/2024/05/30/pvazzy-thai-producer-underground-rap-litty-clib-dha-vision/",
+      "https://www.thaipr.net/entertain/3677870"
+    ]
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "thai_hip_hop",
+      "trap"
+    ],
+    "finding": "Thai hip-hop remains the full national umbrella; the named Thai Trap community and producer practice substantiate a narrower intersection. Not merely nationality or a changed exemplar."
+  },
+  "source_limits": [
+    "Genre-level representative branch; no exact master, universal singer count or equipment claims."
+  ],
+  "representative_practice": "Genre-level authored rhythmic spoken lead plus producer-supplied beat, supported by firsthand production descriptions. The broad beat identity retains the backing role without inventing a sampler, synthesizer, bass instrument or original studio device. Single lead, natural capture and dead room are authored representative choices, not source-wide headcount or exact master claims. Melodic and expanded branches remain acknowledged.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 18,
+    "pinned_parts": 18,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Spoken-flowing/no-pitch is coherent with the deliberately rapped branch; solo-with-instrumental-accompaniment accurately retains the beat. Frosty lexicon denotes clean/clinical brightness, compatible with authored dry production and not an invented instrumental mechanism. Dead-booth capture is authored. No synthetic vocal processing, added singers/instruments, tuning, measured tempo, or cultural performance technique appears. Compiled classic wording is generic template style, not evidence of a historical period.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/candidate-598-runtime.json",
+    "runtime_sha256": "115dbe4a3cb0a4f4ab51f9d0afab30da2ce17f696640689a863bc998724e9c2a"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes."
+}

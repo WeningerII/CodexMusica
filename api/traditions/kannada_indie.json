@@ -2,10 +2,10 @@
   "id": "kannada_indie",
   "name": "Kannada Indie",
   "family": "rock",
-  "lineage": "Mysore Xpress — complete five-person band practice documented in Raghunandan S Rao’s April2022 interview: Raghunandan guitars and backing vocals, Pramod Nayak bass guitar, Zubin Paul vocals, Samrudh flute, Harshith Rao drums. Two singers and all five families retained. The source discusses their Karnataka live performances and independent originals around Made in Mysore. This models the entire named contemporary performing unit, not a claim that a studio EP or a later release has no guests. Neither current lineup nor exact single-session simultaneity is asserted. Authored rock rendition uses alder/maple single-coil electric guitar, clean-strummed standard-E nickel strings and a dual-single-coil alder electric bass with locked fingerstyle roundwounds. Source guitar/bass architecture is unspecified; these are coherent editorial choices, not measured hardware. The existing neutral flute owner preserves positively named flute without guessing bansuri, venu, metal construction or regional technique. Maple-shell coated-head kit with machine-hammered B20 traditionally finished cymbals is authored, not source inventory. Two named singers use unspecified physiology and interval relation, modeled as an authored live duet with no overdub stack; this does not assert the studio record was captured in one take. Controlled live room is authored, global tuning and capture apparatus omitted. Regional distortedRock branch reflects the source’s explicit indie-rock practice without asserting all Kannada Indie is rock.",
-  "recipe": "classic kannada indie, distorted Rock, regional branch. duet, live take. alder maple nickel plated steel nickel nickel plated single coil electric guitar, alder nickel roundwound fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, flute like credited flute unspecified. live tracking.",
-  "recipe_chars": 344,
-  "score": 104.032,
+  "lineage": "Kannada indie connects independent Kannada-language artists and Karnataka performance networks. Local originals draw on rock, popular songwriting and varied regional musical references.",
+  "recipe": "classic kannada indie, distorted Rock, regional branch. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited flute unspecified. live tracking.",
+  "recipe_chars": 232,
+  "score": 32.132,
   "config": {
     "traditions": [
       "kannada_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.499999999999999,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 5.499999999999999,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 3.3,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 2.663,
-          "neck_wood": 2.8729999999999998,
+          "body_wood": 0.063,
+          "neck_wood": 0.273,
           "fretboard": -0.05,
           "pickup_magnet": 0,
-          "string_material": 1.573,
+          "string_material": 0.273,
           "string_gauge": 0.9099999999999999,
           "bridge": 0.0315,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 2.6630000000000003,
+          "string_tuning": 0.063,
           "single_coil_pickup_construction": 0
         }
       },
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.663,
+          "body_wood": 0.063,
           "pickup_config": 0,
-          "string_type": 1.3,
-          "scale_length_b": 1.363,
-          "fretted_or_not": 1.363,
-          "bass_technique": 2.4500000000000006,
+          "string_type": 0,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0.063,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 17.499999999999996,
-          "drumhead": 1.3,
+          "drum_technique": 9.5,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 6.499999999999999,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.273,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 20.967999999999996,
-          "cymbal_lathing": 19.657499999999995,
+          "cymbal_alloy": 0.7999999999999998,
+          "cymbal_hammering": 9.567999999999998,
+          "cymbal_lathing": 9.5575,
           "cymbal_finish": 0
         }
       },
@@ -143,7 +143,7 @@
           "credited_flute_identity": "credited_flute_source_unspecified"
         },
         "scores": {
-          "credited_flute_identity": 3.8999999999999995
+          "credited_flute_identity": 0.3
         }
       }
     ],

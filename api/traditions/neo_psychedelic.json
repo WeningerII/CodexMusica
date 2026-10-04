@@ -2,10 +2,10 @@
   "id": "neo_psychedelic",
   "name": "Neo-Psychedelic",
   "family": "rock",
-  "lineage": "Düül Suns — Jealousy2025 exact track credits. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic neo-psychedelic, distorted Rock, experimental branch. one note per syllable. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 36.432,
+  "lineage": "Later psychedelic rock, drawing on exploratory guitar music and electronic studio color.",
+  "recipe": "classic neo-psychedelic, distorted Rock, experimental branch. one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified, analog poly synth. live tracking.",
+  "recipe_chars": 283,
+  "score": 33.175,
   "config": {
     "traditions": [
       "neo_psychedelic"
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,27 +70,27 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.9814999999999999,
+          "electric_technique": 0.18150000000000002,
           "amp_make": 0,
           "body_wood": 0.063,
-          "neck_wood": 0.063,
+          "neck_wood": 0.5459999999999999,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.126,
-          "string_gauge": 1.3,
+          "string_gauge": 0.7,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.5,
-          "drumhead": 1.363,
+          "drum_technique": 9.5,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.663,
-          "shell_thickness": 0,
+          "shell_wood": 0.063,
+          "shell_thickness": 0.3,
           "bearing_edges": 0.9029999999999999,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 8.494499999999999,
-          "cymbal_lathing": 8.731499999999997,
+          "cymbal_hammering": 9.494499999999999,
+          "cymbal_lathing": 9.431499999999998,
           "cymbal_finish": 0
         }
       },
@@ -157,10 +157,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.6499999999999999,
+          "electronic_technique": 0.26,
           "poly_archetypes": 0,
           "poly_voices": 0,
-          "poly_maker_lineage": 0.7149999999999999
+          "poly_maker_lineage": -0.035
         }
       }
     ],
@@ -233,15 +233,15 @@
         "poly_maker_lineage"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -250,7 +250,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -271,8 +271,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_arpeggiated_clean",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -282,7 +282,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -306,12 +306,6 @@
       "poly_voices": "poly_5_voice",
       "poly_maker_lineage": "poly_sequential_smith"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

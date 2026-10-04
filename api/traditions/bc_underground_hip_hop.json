@@ -5,7 +5,7 @@
   "lineage": "British Columbia underground hip-hop networks; selected Swollen Members / Rob the Viking reconstruction branch",
   "recipe": "classic modern bc underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sub bass analog synth, single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 329,
-  "score": 41.262,
+  "score": 41.208,
   "config": {
     "traditions": [
       "bc_underground_hip_hop"
@@ -37,7 +37,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.054,
+          "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

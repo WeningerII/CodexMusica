@@ -2,10 +2,10 @@
   "id": "musica_londrinense",
   "name": "Musica Londrinense",
   "family": "rock",
-  "lineage": "Yatrogenist — Widespread Disparagement (2022), complete album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2020s musica londrinense, distorted Rock, metal branch. one note per syllable. palm muted humbucker electric guitar, electric bass, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 253,
-  "score": 11.977,
+  "lineage": "Music of Londrina, including independent bands and contemporary heavy music.",
+  "recipe": "classic musica londrinense, distorted Rock, metal branch. one note per syllable. palm muted humbucker electric guitar, electric bass, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 241,
+  "score": 9.806,
   "config": {
     "traditions": [
       "musica_londrinense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.7349999999999999,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.105,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.105,
           "voice_tessitura": 0
         }
       },
@@ -80,7 +80,7 @@
           "string_material": 0.21,
           "bridge": 0.105,
           "scale_length": 1.155,
-          "string_gauge": 1.747,
+          "string_gauge": 0.147,
           "finish": 0.105,
           "string_tuning": 0.063
         }

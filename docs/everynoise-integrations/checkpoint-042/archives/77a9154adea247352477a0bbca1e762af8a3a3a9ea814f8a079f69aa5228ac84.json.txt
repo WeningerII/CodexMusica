@@ -1,0 +1,23 @@
+{
+  "status": "PASS_METADATA_RECOMMENDATION",
+  "policy": "/workspace/CodexMusica-qualified041/scripts/_atlas_regions.js",
+  "scope": "Only two geo fields; coordinates and every musical field unchanged. No repository write.",
+  "changes": [
+    {
+      "id": "thai_trap",
+      "path": "geo[2]",
+      "before": "Chom Thong, Bangkok",
+      "after": "Chom Thong",
+      "source": "https://blaqlyte.com/2024/05/30/pvazzy-thai-producer-underground-rap-litty-clib-dha-vision/",
+      "ref": "turn15262view0",
+      "basis": "Firsthand home studio and childhood location is explicitly Chom Thong. Comma suffix violates place-only policy and is not one offive permitted cross-region ambiguity exceptions."
+    },
+    {
+      "id": "kurdish_remix",
+      "path": "geo[3]",
+      "before": "Asia",
+      "after": "Middle East",
+      "basis": "Canonical REGION list and explicit CONTESTED.Turkey-wide rule. Existing Kurdish Dengbej and Kurdish Rock use sameDiyarbakir anchor in Middle East. Editorial broad regional bucket, not exclusive genre origin claim."
+    }
+  ]
+}

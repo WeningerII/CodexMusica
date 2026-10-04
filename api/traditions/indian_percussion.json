@@ -2,10 +2,10 @@
   "id": "indian_percussion",
   "name": "Indian percussion",
   "family": "classical",
-  "lineage": "Pandit Kishan Maharaj with Ramesh Mishra — Navras NRCD 0051, Queen Elizabeth Hall July 1995 recital. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-50s indian percussion, improv On Frame, indian classical improv branch. indian rosewood rosewood brass tabla, vocal imitating gut 3 main playing strings sarangi. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 274,
-  "score": 12.623,
+  "lineage": "Indian percussion repertoire includes solo and ensemble traditions centered on rhythmic development. Tabla recitals can pair the featured percussionist with melodic accompaniment.",
+  "recipe": "classic indian percussion, improv On Frame, indian classical improv branch. pitched indian rosewood rosewood tabla, sarangi. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 229,
+  "score": 10.78,
   "config": {
     "traditions": [
       "indian_percussion"
@@ -19,8 +19,8 @@
           "tabla_syahi": "fresh_syahi"
         },
         "scores": {
-          "tabla_dayan": 7.994999999999999,
-          "tabla_bayan": 1.405,
+          "tabla_dayan": 7.735,
+          "tabla_bayan": 0.105,
           "tabla_syahi": 0
         }
       },
@@ -35,11 +35,11 @@
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 0.6814999999999999,
-          "sarangi_belly": 0.39,
-          "sarangi_taraf": 0,
+          "bowed_technique": -0.11850000000000002,
+          "sarangi_belly": 2.2575,
+          "sarangi_taraf": 0.7,
           "sarangi_bow": 0.1365,
-          "sarangi_main_strings": 2.015,
+          "sarangi_main_strings": -0.035,
           "sarangi_body_wood": 0
         }
       }
@@ -59,7 +59,7 @@
         "sarangi_body_wood"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "transformerless",
@@ -69,14 +69,12 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "tabla_dayan": "shisham_dayan",
       "tabla_bayan": "brass_bayan",

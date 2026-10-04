@@ -2,10 +2,10 @@
   "id": "geinin_song",
   "name": "Geinin Song",
   "family": "vernacular",
-  "lineage": "Runny Noize — official2018 artist roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic geinin song, functional Song. group vocals. humbucker electric guitar, electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 202,
-  "score": 2.496,
+  "lineage": "Geinin song connects Japanese comedians with musical performance and song releases. Comic performers may work in bands or other popular-music settings, extending their activity beyond spoken routines.",
+  "recipe": "classic geinin song, functional Song. group vocals. humbucker electric guitar, electric bass, dark musical bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 234,
+  "score": 2.942,
   "config": {
     "traditions": [
       "geinin_song"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.2445,
+          "voice_speech_song": 0.39,
           "voice_ensemble_config": 0.507,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -127,11 +127,11 @@
           "drum_technique": -0.035,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.6,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": 1.2799999999999998,
           "cymbal_hammering": -0.15000000000000002,
           "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0

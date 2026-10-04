@@ -5,7 +5,7 @@
   "lineage": "Gambian hip-hop joins rap with local languages and transnational West African music networks. Artists such as Jizzle connect it with melodic song, dancehall and other contemporary regional approaches.",
   "recipe": "classic gambian hip hop, mc Rhythm. rap, rhythmic spoken flow no pitch. clean strummed humbucker electric guitar, electric bass, melodic chordal electronic keyboard unspecified, drum kit. live tracking.",
   "recipe_chars": 202,
-  "score": 25.961,
+  "score": 26.154,
   "config": {
     "traditions": [
       "gambian_hip_hop"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.629,
+          "voice_speech_song": 9.797,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },
@@ -100,9 +100,9 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0.126,
+          "pickup_config": 0.063,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.105,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -116,7 +116,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 1.0315
+          "keyboard_technique": 1
         }
       },
       {
@@ -136,11 +136,11 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0,
+          "drumhead": 0.105,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.126,
+          "bearing_edges": 0.063,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.10500000000000001,

@@ -2,10 +2,10 @@
   "id": "epic_doom",
   "name": "Epic doom",
   "family": "rock_punk",
-  "lineage": "Crypt Sermon — The Stygian Rose (2024), complete credited sextet palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s epic doom, distorted Rock, doom branch. single lead single track no stacking. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 380,
-  "score": 30.973,
+  "lineage": "Epic doom develops a grand, dramatic approach within doom metal. Heavy guitar-band textures and expansive vocal writing give sustained weight to melodic and narrative ideas.",
+  "recipe": "classic epic doom, distorted Rock, doom branch. power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 309,
+  "score": 28.347,
   "config": {
     "traditions": [
       "epic_doom"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.483,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.17,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 8.125,
+          "electric_technique": 10.790000000000001,
           "amp_make": 0,
-          "body_wood": 0.4305,
+          "body_wood": 0.39,
           "neck_wood": 0.36750000000000005,
           "fretboard": -0.035,
           "pickup_magnet": 0.1365,
@@ -80,9 +80,9 @@
           "string_material": 0.1365,
           "bridge": 0.1365,
           "scale_length": 0.7665,
-          "string_gauge": 1.4785,
+          "string_gauge": 0.1785,
           "finish": 0,
-          "string_tuning": 1.5625
+          "string_tuning": 0.26249999999999996
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.4305,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.357,
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.69,
+          "drumhead": 0.5354999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.999,
+          "shell_wood": 0.39899999999999997,
           "shell_thickness": 0,
           "bearing_edges": 0.2625,
           "snare_wires": 0,
@@ -146,9 +146,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 1.17,
           "poly_archetypes": 0,
-          "poly_voices": 0.39,
+          "poly_voices": 0.168,
           "poly_maker_lineage": -0.035
         }
       }

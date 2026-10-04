@@ -2,10 +2,10 @@
   "id": "massage",
   "name": "Massage",
   "family": "classical",
-  "lineage": "Roger Spees — Tranquility (2011), complete solo-piano album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s massage, improv On Frame. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 218,
-  "score": 17.694,
+  "lineage": "Relaxation-oriented listening music used in massage settings, including gentle improvised piano.",
+  "recipe": "classic massage, improv On Frame. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 16.095,
   "config": {
     "traditions": [
       "massage"
@@ -31,7 +31,7 @@
           "piano_hammer": 2.45,
           "piano_rim": 2.576,
           "piano_soundboard": 2.45,
-          "piano_pinblock": 4.6905,
+          "piano_pinblock": 3.0905000000000005,
           "piano_plate": 2.45,
           "piano_pitch_standard": 3.1464999999999996
         }

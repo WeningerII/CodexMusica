@@ -5,7 +5,7 @@
   "lineage": "Independent music from Umeå in northern Sweden encompasses several rock and pop approaches. Maha Sohona exemplifies a heavy psychedelic strand, with fuzz guitar and expansive space-rock passages.",
   "recipe": "classic umeå indie, distorted Rock. solo with instrumental accompaniment. fuzzed riff driven humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 239,
-  "score": 59.564,
+  "score": 59.774,
   "config": {
     "traditions": [
       "umea_indie"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 0.1575,
+          "voice_processing_chain": 0.4095,
+          "voice_multitrack_stack": 0.189,
           "voice_tessitura": 0
         }
       },

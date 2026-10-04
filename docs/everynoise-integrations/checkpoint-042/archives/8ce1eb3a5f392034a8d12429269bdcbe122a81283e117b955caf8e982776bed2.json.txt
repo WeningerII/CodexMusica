@@ -1,0 +1,233 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "kyrgyz_hip_hop",
+        "name": "Kyrgyz Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Kyrgyz hip-hop developed through cassette exchange, urban parties, independent studios and battle-rap communities. Russian- and Kyrgyz-language artists connect Bishkek networks with audiences across the country and beyond.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Rapped verses and hooks ride supplied beats, with flexible flow and local language shaping the delivery. Battles, patriotic songs, personal narratives and club-oriented recordings form different strands of the scene.",
+        "exemplars": [
+          "AP Clan",
+          "Belyi",
+          "Begish",
+          "Bayastan"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "kyrgyz_hip_hop",
+          "name": "Kyrgyz Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14889view2 confirms CC BY2.5 and crop credit; exact historical023 receipt retained.",
+          "fresh_review_ref": "turn14889view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14889view2"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
+      },
+      "source_label": "kyrgyz hip hop",
+      "source_url": "https://everynoise.com/engenremap-kyrgyzhiphop.html",
+      "suggested_id": "kyrgyz_hip_hop",
+      "allocation_ordinal": 373,
+      "allocation_group_id": "015",
+      "id": "kyrgyz_hip_hop",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "geo": [
+        42.8746,
+        74.5698,
+        "Bishkek",
+        "Caucasus & Central Asia"
+      ],
+      "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
+      "sources": [
+        {
+          "url": "https://www.new-east-archive.org/features/show/11655/rap-music-kyrgyzstan-self-sustaining-streaming",
+          "support_notes": "Primary community/practitioner evidence, general genre-practice scope."
+        },
+        {
+          "url": "https://www.ssoar.info/ssoar/bitstream/document/77001/1/ssoar-2021-coppenrath-Dreams_of_shooting_out_hip-hop.pdf",
+          "support_notes": "Primary community/practitioner evidence, general genre-practice scope."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14911search0",
+        "turn14899search13"
+      ],
+      "neighbor_distinction": "Original researcher reportage positively documents Kyrgyz/Russian rap communities, supplied beats and local studios; no unaccompanied inference from the group named Acapella. The full central_asian_hip_hop spans countries and languages, not only Kazakhstan. Kyrgyz hip-hop is its positively documented national community subset; Kyrgyz pop, Manas recitation and traditional instrumental practices remain distinct overlapping cultural contexts, not interchangeable by nationality.",
+      "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "authored_render_scope": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "source_retrieval_caveat": "Fresh primary text retrieved; no audio audition or exact master reconstruction claimed.",
+      "instrument_role_audit": {
+        "voice": "Rhythmic rap lead.",
+        "credited_beat_unspecified": "Produced rhythmic backing, including bass and other supplied elements; mechanism unspecified."
+      },
+      "vocal_count_audit": {
+        "representative_lead_cards": 1,
+        "actual_recording_headcount": "not asserted"
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

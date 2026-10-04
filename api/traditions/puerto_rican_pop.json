@@ -2,10 +2,10 @@
   "id": "puerto_rican_pop",
   "name": "Puerto Rican pop",
   "family": "pop",
-  "lineage": "Superaquello — Bien Gorgeous (2004). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2000s puerto rican pop, functional Song. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, 7 ply quartersawn maple block chord grand piano, korg m1 canonical 1988 1995 first mass market workstation 4mb pcm rom universal preset canon rompler workstation. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 406,
-  "score": 29.45,
+  "lineage": "Puerto Rican pop connects the island’s songwriters and recording communities with wider popular-music audiences. Independent groups combine guitar-based song, keyboards and contemporary production in varied ways.",
+  "recipe": "classic puerto rican pop, functional Song. group vocals. clean strummed humbucker electric guitar, electric bass, block chord grand piano, rompler workstation. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 258,
+  "score": 23.506,
   "config": {
     "traditions": [
       "puerto_rican_pop"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.546,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.199999999999999,
+          "electric_technique": 7.45,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
           "neck_wood": 0,
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.3,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -122,15 +122,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 7.199999999999999,
+          "keyboard_technique": 7.45,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
-          "piano_hammer": 0.2,
-          "piano_rim": 0.2,
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.2,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 0.7149999999999999
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -144,8 +144,8 @@
         "scores": {
           "electronic_technique": -0.05,
           "rompler_preset_bank": 0,
-          "rompler_context": 7.249999999999999,
-          "rompler_lineage": 1.55
+          "rompler_context": 7.5,
+          "rompler_lineage": -0.05
         }
       }
     ],

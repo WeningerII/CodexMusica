@@ -5,7 +5,7 @@
   "lineage": "Military rap is a hip-hop community shaped by service members and veterans, with songs addressing service, deployment, family and the return to civilian life. Recordings and performances connect artists with military and veteran audiences.",
   "recipe": "classic military rap, mc Rhythm. rhythmic spoken flow no pitch human voice ensemble credited beat unspecified. treated studio.",
   "recipe_chars": 126,
-  "score": 11.473,
+  "score": 11.578,
   "config": {
     "traditions": [
       "military_rap"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.441999999999998,
+          "voice_speech_song": 11.546999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

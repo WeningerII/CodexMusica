@@ -2,10 +2,10 @@
   "id": "deep_downtempo_fusion",
   "name": "Deep Downtempo Fusion",
   "family": "electronic",
-  "lineage": "Symbion Project — Backscatter (2019). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s deep downtempo fusion, experimental Elec, ambient branch. sustained pad analog poly synth, drum machine analog, koto. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 235,
-  "score": 5.314,
+  "lineage": "Deep downtempo fusion connects relaxed electronic production with contrasting instrumental and vocal colours. Layered textures and measured rhythmic movement allow acoustic timbres to interact with synthesized sound.",
+  "recipe": "classic deep downtempo fusion, experimental Elec, ambient branch. solo with instrumental accompaniment, unprocessed natural acoustic. sustained pad analog poly synth, drum machine analog, koto. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 292,
+  "score": 9.743,
   "config": {
     "traditions": [
       "deep_downtempo_fusion"
@@ -93,10 +93,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 3.819,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
+          "voice_processing_chain": 1.0945,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Australian surf rock includes song-oriented guitar bands combining direct rhythm with contrasting textures.",
   "recipe": "classic australian surf rock, distorted Rock, surf rock branch. solo with instrumental accompaniment. Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 333,
-  "score": 28.695,
+  "score": 28.391,
   "config": {
     "traditions": [
       "australian_surf_rock"
@@ -37,9 +37,9 @@
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.0315,
           "string_material": 0,
-          "bridge": 0.612,
+          "bridge": 0.47550000000000003,
           "scale_length": 0,
-          "string_gauge": 0.37050000000000005,
+          "string_gauge": 0.234,
           "finish": 0,
           "string_tuning": 0.054
         }
@@ -106,7 +106,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0.189,
+          "voice_ornament_system": 0.1575,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.39,

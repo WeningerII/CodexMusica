@@ -5,7 +5,7 @@
   "lineage": "Malayalam cover music reinterprets Malayalam-language songs, including familiar film repertoire, through new singers, arrangements and recording formats.",
   "recipe": "classic malayalam cover, functional Song. solo with instrumental accompaniment. electronic keyboard unspecified. live tracking.",
   "recipe_chars": 127,
-  "score": 1.768,
+  "score": 1.661,
   "config": {
     "traditions": [
       "malayalam_cover"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.2445,
+          "voice_speech_song": 0.1365,
           "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

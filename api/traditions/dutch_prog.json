@@ -2,10 +2,10 @@
   "id": "dutch_prog",
   "name": "Dutch prog",
   "family": "vernacular",
-  "lineage": "Sticky Wicked — Nightfall (2024) progressive jazz-rock album core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s dutch prog, improv On Frame, fusion branch. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, conventional tuning standard pitch humbucker electric guitar, electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 409,
-  "score": 53.125,
+  "lineage": "Dutch prog connects progressive rock musicians with related jazz-rock and exploratory band practices. Contrasting instrumental roles and extended arrangements support music beyond a single song format.",
+  "recipe": "classic dutch prog, improv On Frame, fusion branch. alto selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 378,
+  "score": 41.965,
   "config": {
     "traditions": [
       "dutch_prog"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": -0.035,
+          "sax_size": 1.2349999999999999,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
-          "sax_technique": 7.749999999999999,
-          "sax_maker_school": 10.009999999999998
+          "sax_technique": 6.25,
+          "sax_maker_school": 8.06
         }
       },
       {
@@ -50,7 +50,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7,
+          "electric_technique": -0.1,
           "amp_make": 0,
           "body_wood": 0.1365,
           "neck_wood": 0.1365,
@@ -60,9 +60,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.273,
-          "string_gauge": 1.3,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -104,16 +104,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4.855,
-          "drumhead": 1.3,
+          "drum_technique": 5.105,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.8294999999999999,
+          "bearing_edges": 1.3,
           "snare_wires": 0,
-          "cymbal_alloy": 11.399999999999999,
-          "cymbal_hammering": 5.45,
-          "cymbal_lathing": 5.45,
+          "cymbal_alloy": 9.9,
+          "cymbal_hammering": 4.9,
+          "cymbal_lathing": 4.9,
           "cymbal_finish": 0
         }
       },
@@ -126,7 +126,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.7314999999999999,
+          "electronic_technique": -0.07,
           "poly_archetypes": 0,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035

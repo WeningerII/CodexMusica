@@ -2,10 +2,10 @@
   "id": "indonesian_worship",
   "name": "Indonesian Worship",
   "family": "global",
-  "lineage": "JPCC Worship Choir — Bersinar Terang, complete official lyric-video edition issued8April2021 from the FOUND choir EP. Publisher credits Devina Karyasasmita lead vocal and Yehuda Manusama acoustic guitar; the named choir ensemble is retained in full with unknown headcount and unknown vocal layering. This is not reduced to the one named lead singer. Vocal arrangers Marthin and Denny Saba and producer Pongky Prasetyo are not invented additional performers. Other FOUND tracks have different credits and their electric guitar, drums, bass or strings are not transferred to this track. Complete published credited palette, not a listening-based assertion of waveform exclusivity; no duration invented. Authored present-day choir-and-acoustic-guitar sacred-song realization. The human-voice ensemble owner keeps lead plus choir while source headcount, tracking, physiology and registers remain unspecified. Small note-group singing is editorial phrasing, not a transcription of every syllable. Generic credited acoustic guitar becomes an all-mahogany steel-string dreadnought with phosphor-bronze strings, standard guitar tuning and flatpicked notes; these are authored construction/gesture choices, not measured source equipment. Controlled live room is editorial, not the measured Practice Room/Baritone studios credited by the publisher. Optional capture apparatus and global tuning are omitted. Christian sacred-song parent follows the explicit worship function, without inferring Pentecostal denomination.",
-  "recipe": "classic indonesian worship, ritual Devotional, christian gospel branch. small note groups per syllable neumatic singing small groups per syllable unprocessed natural acoustic human voice ensemble unspecified, mahogany phosphor bronze modern martin dreadnought acoustic guitar. live tracking.",
-  "recipe_chars": 291,
-  "score": 18.513,
+  "lineage": "Indonesian worship connects Christian devotional songs and musical communities in Indonesia. Choirs, soloists and groups circulate repertoire through churches, performances and recordings.",
+  "recipe": "classic indonesian worship, ritual Devotional, christian gospel branch. small note groups per syllable neumatic singing small groups per syllable human voice ensemble unspecified, dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 223,
+  "score": 2.613,
   "config": {
     "traditions": [
       "indonesian_worship"
@@ -43,10 +43,10 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.473,
+          "voice_speech_song": 1.573,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 4.199999999999999,
+          "voice_processing_chain": 0.3,
           "human_voice_ensemble_source_status": 0,
           "human_voice_tracking_source_status": 0,
           "voice_tessitura": 0
@@ -62,11 +62,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 1.2,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 5.04
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.8400000000000001
         }
       }
     ],

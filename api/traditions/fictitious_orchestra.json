@@ -5,7 +5,7 @@
   "lineage": "Liszt — complete Waldesrauschen, Henle HN479 solo-piano score; category playlist marketed Dieter Goldmann recording bridge. Complete published solo-piano Waldesrauschen from Henle HN479, the exact work listed under the marketed Dieter Goldmann credit in the category creator playlist. This is a score-based realization of that repertoire branch, not reconstruction or authentication of the playlist recording. No claim that an orchestra plays this solo work, that all category recordings are solo, or that the marketed credit identifies an actual performer. Nine-foot Steinway D, modern A440/equal temperament, classical legato and studio production are explicitly authored modern choices rather than historical recording facts.",
   "recipe": "classic fictitious orchestra, art Music, western common practice branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 245,
-  "score": 91.19,
+  "score": 90.769,
   "config": {
     "traditions": [
       "fictitious_orchestra"
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": 8.549999999999999,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 4.159999999999999,
+          "grand_piano_brand": 4.1345,
           "piano_hammer": 13.886499999999996,
           "piano_rim": 13.917999999999996,
           "piano_soundboard": 13.749999999999996,
-          "piano_pinblock": 13.983999999999996,
+          "piano_pinblock": 13.749999999999996,
           "piano_plate": 13.812999999999997,
-          "piano_pitch_standard": 8.738999999999999
+          "piano_pitch_standard": 8.576999999999998
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Ayarkhaan — four-person Khomus Universe/WOMEX booking-profile ensemble. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic yakut pop, drone Modal. group vocals, live take. nature mimicry imitative sakha concert khomus. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 202,
-  "score": 7.25,
+  "score": 7.282,
   "config": {
     "traditions": [
       "yakut_pop"
@@ -60,7 +60,7 @@
           "khomus_material": "khomus_forged_steel"
         },
         "scores": {
-          "sakha_concert_khomus_form": 0.3,
+          "sakha_concert_khomus_form": 0.3315,
           "khomus_technique": 1.65,
           "khomus_material": 0.75
         }

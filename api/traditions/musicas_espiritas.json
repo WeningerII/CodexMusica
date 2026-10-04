@@ -5,7 +5,7 @@
   "lineage": "Músicas espíritas connects Brazilian Spiritist artists, study groups and devotional performance. Songs circulate through concerts, recordings and religious education, engaging with reflection and Spiritist interpretations of spiritual life.",
   "recipe": "classic músicas espíritas, ritual Devotional. acoustic guitar. live tracking.",
   "recipe_chars": 77,
-  "score": 0.781,
+  "score": 0.786,
   "config": {
     "traditions": [
       "musicas_espiritas"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.189,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 0.363,
           "voice_multitrack_stack": 0.2205,
           "voice_tessitura": 0
         }
@@ -64,7 +64,7 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0,
+          "back_sides": 0.0315,
           "string_acoustic": 0.0315,
           "acoustic_om_technique": -0.05
         }

@@ -2,10 +2,10 @@
   "id": "polish_pop",
   "name": "Polish pop",
   "family": "vernacular",
-  "lineage": "Kwiat Jabłoni — 2023 Cosmopolite concert roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2020s polish pop, functional Song. parallel tone bars loar graduation strummed open chord ringing overtones mandolin, block chord grand piano, clean strummed humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 391,
-  "score": 23.224,
+  "lineage": "Polish pop encompasses contemporary popular-song communities and varied exchanges with folk, rock and electronic music. Performers develop different approaches to melody, accompaniment and lyrical expression.",
+  "recipe": "classic polish pop, functional Song. acoustic only no pickup strummed open chord ringing overtones mandolin, soft felt lacquer voiced 17 ply hard rock maple block chord grand piano, clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 427,
+  "score": 43.661,
   "config": {
     "traditions": [
       "polish_pop"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -65,14 +65,14 @@
           "mandolin_pickup": "mandolin_no_pickup"
         },
         "scores": {
-          "acoustic_technique": 3.2,
+          "acoustic_technique": 5.699999999999999,
           "mandolin_shape": -0.05,
           "mandolin_top": -0.05,
           "mandolin_back": -0.05,
-          "mandolin_bracing": 1.25,
-          "mandolin_strings": 0.3,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 0,
           "mandolin_fingerboard": 0,
-          "mandolin_pickup": 0.39
+          "mandolin_pickup": 1.638
         }
       },
       {
@@ -89,15 +89,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.2,
+          "keyboard_technique": 5.7,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.1905,
-          "piano_hammer": -0.07,
-          "piano_rim": -0.07,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 1.008,
+          "piano_rim": 1.17,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "piano_pitch_standard": 0.7149999999999999
         }
       },
       {
@@ -118,17 +118,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.2,
+          "electric_technique": 5.7,
           "amp_make": 0,
-          "body_wood": 0.3,
-          "neck_wood": 0.3,
-          "fretboard": 0.25,
+          "body_wood": 0,
+          "neck_wood": 0,
+          "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.054,
           "bridge": 0,
-          "scale_length": 0.3,
-          "string_gauge": 1.69,
+          "scale_length": 0,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -147,7 +147,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.3,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -172,16 +172,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
+          "drum_technique": 2.9364999999999997,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 1.4299999999999997,
-          "cymbal_hammering": 3.204,
-          "cymbal_lathing": 3.1500000000000004,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 8.553999999999998,
+          "cymbal_lathing": 8.499999999999998,
           "cymbal_finish": 0
         }
       }

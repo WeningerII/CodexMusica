@@ -5,7 +5,7 @@
   "lineage": "Malta’s hip-hop community brings together rap, DJ practice and beat production, with artists and labels connecting local performance and recording scenes.",
   "recipe": "classic maltese hip hop, mc Rhythm. clean strummed humbucker electric guitar, sampled chopped turntable, credited drum machine unspecified. live tracking.",
   "recipe_chars": 154,
-  "score": 12.47,
+  "score": 12.743,
   "config": {
     "traditions": [
       "maltese_hip_hop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.126,
+          "voice_ensemble_config": 0.0945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.0945,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -92,8 +92,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 3.0130000000000003,
-          "turntable_technique": 3.4225000000000003
+          "electronic_technique": 3.076,
+          "turntable_technique": 3.559
         }
       },
       {
@@ -105,7 +105,7 @@
         },
         "scores": {
           "credited_drum_machine_generator": 0,
-          "credited_drum_machine_pattern": 0.47250000000000003,
+          "credited_drum_machine_pattern": 0.609,
           "credited_drum_machine_interface": 0
         }
       }

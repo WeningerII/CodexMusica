@@ -1,0 +1,24 @@
+garage_rock:
+  ✓ seeds 5 cards
+  ✓ roster = tradition.instruments order
+  ✓ every card traditionId = garage_rock (no auto-staple)
+  ✓ header is primary-only "Garage rock, "
+  ✓ NO search staples in header
+  ✓ within 1000-char ceiling
+  ✓ hard ceiling: renderWorkspace(ceiling=MAX_SAFE) <= 1000
+  ✓ hard ceiling: translate(ceiling=MAX_SAFE) <= 1000
+  ✓ voice carries the tradition voice (belt / mid-1960s double-tracking)
+  ✓ names a preface on the anchor (voice)
+
+  recipe (998 chars):
+  Garage rock, evangelizing voice: mid-1960s-double-tracking-era-stack tape-offset-detimed-unison, rocking single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood, raging electric-bass: alder stainless-steel focused-low-end-decay, piercing drum-kit: backbeat sticks low-fundamental-tuning, rebellious tonewheel-organ: hammond-b3-canonical-1955-1975-jazz-gospel-rock-standard fast-tremolo leslie-122-canonical-6l6-tube-40w-rotary-hammond-matched, twelve-tone-equal-temperament: Western, concrete-basement: concrete modey slappy, dynamic-moving-coil: top-rolled-off-12k hyped-mids moving-coil, tube-vintage-character: headroom-modest even-harmonic-rich tube, optical-classic-la-2a-school: losangeles-2a 2h-rich long-attack-LDR-thermal, pultec-style-passive-program: pultec passive-LC-low-shelf-up simultaneous-boost-cut, analog-tape-15-ips: tape bias-bump-low-mid head-bump-narrow-format, colored-vintage-transformer-iron: transformer-iron iron-bus-saturation summing-bus-saturation.
+
+robustness sample:
+  ✓ afrobeat: header "Afrobeat, ", 994≤1000, 9 cards
+  ✓ outlaw_country: header "Outlaw country, ", 993≤1000, 8 cards
+  ✓ detroit_techno: header "Detroit techno, ", 997≤1000, 2 cards
+  ✓ bebop: header "Bebop, ", 1000≤1000, 5 cards
+  ✓ reggae_roots: header "Reggae roots, ", 991≤1000, 6 cards
+  ✓ gqom: header "Gqom, ", 993≤1000, 4 cards
+
+PASS

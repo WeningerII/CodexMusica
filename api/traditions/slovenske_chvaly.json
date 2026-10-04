@@ -5,7 +5,7 @@
   "lineage": "F6 — complete six-member Slovak/Romani praise-band practice documented in2010 interview. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic slovenské chvály, ritual Devotional. unprocessed natural acoustic. acoustic conventional tuning standard pitch humbucker electric guitar, tuning stability 7 ply quartersawn maple grand piano, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 424,
-  "score": 23.035,
+  "score": 23.152,
   "config": {
     "traditions": [
       "slovenske_chvaly"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.189,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.9944999999999999,
+          "voice_processing_chain": 0.9629999999999999,
           "voice_multitrack_stack": 0.2205,
           "voice_tessitura": 0
         }
@@ -120,8 +120,8 @@
           "grand_piano_size": 0.0315,
           "grand_piano_brand": 0.39,
           "piano_hammer": 0.2,
-          "piano_rim": 0.6259999999999999,
-          "piano_soundboard": -0.1,
+          "piano_rim": 0.6499999999999999,
+          "piano_soundboard": -0.07,
           "piano_pinblock": 1.56,
           "piano_plate": -0.07,
           "piano_pitch_standard": -0.035
@@ -135,7 +135,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.0315
+          "keyboard_technique": 0.0945
         }
       },
       {
@@ -186,7 +186,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 2.2,
-          "cymbal_lathing": 2.5315,
+          "cymbal_lathing": 2.563,
           "cymbal_finish": 0
         }
       }

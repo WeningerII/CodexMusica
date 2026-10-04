@@ -2,40 +2,28 @@
   "id": "high_tech_minimal",
   "name": "High-Tech Minimal",
   "family": "electronic",
-  "lineage": "Boris Brejcha — Cercle Arènes de Nîmes DJ-set performance scope. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic high-tech minimal, electronic Dance, techno branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 167,
-  "score": 3.938,
+  "lineage": "High-Tech Minimal connects Boris Brejcha’s electronic dance approach with club and DJ performance. Repeated patterns and changing layers organize extended listening and dance programmes.",
+  "recipe": "classic high-tech minimal, electronic Dance, techno branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 0,
   "config": {
     "traditions": [
       "high_tech_minimal"
     ],
     "instruments": [
       {
-        "id": "sampler_classic",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_edm"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.063,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 4.029999999999999
+          "dj_playback_mixing_identity": 0
         }
       }
     ],
     "pinned": {
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "treated_studio",
@@ -48,20 +36,14 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sustained_layering",
-      "sampler_archetypes": "akai_s1000",
-      "sampler_bit_depth": "sampler_sixteen_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_edm"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

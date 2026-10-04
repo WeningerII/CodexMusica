@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "reviewer": "recover_024",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice001-maimouna.json",
+  "sha256": "a8b7d09249573500ed82468618c04b4697884a7806172d4216a3e59bed0d1bb0",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "fresh_primary_refs": [
+    "turn14932view0",
+    "turn14935view2",
+    "turn14935search0"
+  ],
+  "category_source_and_default_review": "Full actual rap_ivoire and coupe_decale_ivorian read. Direct artist account positively names new rap/coupe-decale dance movement and its community, not an alias inferred from different artist. It is a branch within Ivorian rap and overlaps dance lineage candidly. Rap voice plus credited produced beat represents documented practice, with no hardware/master reconstruction claim.",
+  "literal_output_review": "Spoken-flowing matches rhythmic no-pitch rap. Up-tempo is compatible with an authored energetic dance branch; no exact original BPM claimed.",
+  "validation": {
+    "protected_owning_controls": 18,
+    "unowned_or_invalid_flat_parts": 0,
+    "axes_count": 13,
+    "browser_connector_parity_all_four_formats": true,
+    "max_chars": 337,
+    "compiled_api_only_requested_tradition": true,
+    "compiled_api_pin_errors": [],
+    "existing_instrument_records_unchanged": true,
+    "receipt": "practice001-independent-runtime024.json"
+  },
+  "photo_review": {
+    "fresh_rights_ref": "turn14925view1",
+    "license": "CC BY2.5; Iain Fergusson original/Binksternet crop",
+    "historical_source": "data-only-023-evidence.json:baps",
+    "exact_url_hash_dimensions_bytes_match": true,
+    "context": "LOW generic recording microphone, no source performer/instrument depiction claim",
+    "new_download_or_visual_claim": false
+  },
+  "immutable_review": "Original candidate read only; SHA bound, id/tradition id/photo id and thirteen axes checked. Source identity/ordinal/name/palette and all public/evidence fields unchanged by reviewer. No dependencies or registry edits.",
+  "limitations": [
+    "Primary statements about promotion and metrics remain issuer-attributed.",
+    "Representative genre-level practice qualification, not exhaustive reconstruction of any master recording."
+  ]
+}

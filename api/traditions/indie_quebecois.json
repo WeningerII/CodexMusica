@@ -2,10 +2,10 @@
   "id": "indie_quebecois",
   "name": "Indie québécois",
   "family": "vernacular",
-  "lineage": "Safia Nolin — Sous le vent featuring Pomme, Reprises Vol.3 (2026). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic mid-2020s indie québécois, ballad Poetry, chanson fado branch. one note per syllable, group vocals, live take. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 247,
-  "score": 6.266,
+  "lineage": "Indie québécois connects independent songwriters and listeners in Quebec, including francophone acoustic song. Intimate voices and collaborative reinterpretations sit within a wider scene of instrumental approaches.",
+  "recipe": "classic indie québécois, ballad Poetry, chanson fado branch. one note per syllable, group vocals, unprocessed natural acoustic, live take. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 267,
+  "score": 6.327,
   "config": {
     "traditions": [
       "indie_quebecois"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.9269999999999999,
+          "voice_speech_song": 0.717,
+          "voice_ensemble_config": 0.8955,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.8639999999999999,
+          "voice_processing_chain": 1.4365,
+          "voice_multitrack_stack": 0.8954999999999999,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0.0675,
-          "acoustic_om_technique": 3.5999999999999996
+          "acoustic_om_technique": 2.35
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "german_ccm",
   "name": "German Ccm",
   "family": "blues_gospel",
-  "lineage": "Albert Frey — Herr ich komme zu dir, Jochen Rieger four-part choir and piano edition. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic german ccm, ritual Devotional, christian gospel branch. one note per syllable. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 198,
-  "score": 1.081,
+  "lineage": "German CCM connects contemporary Christian songwriters, performers and audiences through recordings and shared repertoire. Choral arrangements provide one approach alongside solo and band-led performance.",
+  "recipe": "classic german ccm, ritual Devotional, christian gospel branch. one note per syllable, group vocals. one piece 17 ply hard rock maple grand piano. shoebox concert hall.",
+  "recipe_chars": 168,
+  "score": 4.678,
   "config": {
     "traditions": [
       "german_ccm"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6825000000000001,
-          "voice_ensemble_config": 0.2445,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.108,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.34800000000000003,
+          "grand_piano_size": 0.9099999999999999,
           "grand_piano_brand": 0.273,
           "piano_hammer": -0.1,
-          "piano_rim": -0.07,
+          "piano_rim": 1.17,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.07,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       }
     ],
@@ -110,15 +110,15 @@
         "piano_pitch_standard"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -127,7 +127,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -156,12 +156,6 @@
       "piano_plate": "gray_iron_full_perimeter_plate",
       "piano_pitch_standard": "a_440_modern"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

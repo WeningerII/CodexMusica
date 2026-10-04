@@ -1,0 +1,21 @@
+{
+  "status": "PASS_ROOT_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-073.json",
+  "packet_sha256": "8ee5199a7f6ba302460e139b0543cf025136625c7042ab5d227cdec63c954418",
+  "ids": [
+    "kannada_indie",
+    "kompa_chretien",
+    "korean_musicals",
+    "lagu_aceh",
+    "lagu_betawi",
+    "lagu_manado",
+    "louvor_icm",
+    "piratenmuziek"
+  ],
+  "checked_at": "2026-10-04T02:50:00.298904+00:00",
+  "checks": [
+    "Kompa authored saturated bass and punctuated group refrain compatible with amplified band; clapping label supplies generic syllabic articulation without extra emitted instrument. Korean musicals/Aceh/Manado restore singing; accompaniment is authored interpretation not claim about published piano edition. Kannada flute remains architecture unspecified. Betawi a cappella, Louvor hymn group and Piratenmuziek song branch retained. All eight public profiles read.",
+    "Root individually inspected all four literal formats or exact previously reviewed bodies; fresh original browser/connector parity and ceiling pass. Owning controls zero new gaps/orphans, zero inherited gaps. Original2638 guarded by apply.",
+    "Continued review branch after frozen2354 build: not included in snapshot under current artifact regeneration. Final integrated regression/build/CI pending."
+  ]
+}

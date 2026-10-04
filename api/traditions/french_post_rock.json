@@ -2,10 +2,10 @@
   "id": "french_post_rock",
   "name": "French post-rock",
   "family": "rock_punk",
-  "lineage": "French post-rock represented by Rennes quartet Totorro’s instrumental Home Alone/late2010s branch, which crosses into melodic math rock. The model keeps interlocking electric guitars, bass and drums and does not transfer the earlier screamo vocals into the later instrumental lineup.",
-  "recipe": "classic french post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital digital delay.",
-  "recipe_chars": 302,
-  "score": 32.436,
+  "lineage": "French post-rock includes instrumental bands whose writing overlaps with melodic math rock. Rennes group Totorro exemplify collective composition built around interlocking guitars, bass and drums.",
+  "recipe": "classic french post-rock, distorted Rock, experimental branch. single coil electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital digital delay.",
+  "recipe_chars": 305,
+  "score": 40.921,
   "config": {
     "traditions": [
       "french_post_rock"
@@ -15,31 +15,31 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "pine",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
           "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
-          "bridge": "two_point_trem",
-          "scale_length": "scale_gibson",
-          "finish": "oil_satin",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_fender",
+          "finish": "poly",
           "string_tuning": "standard_tuning",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.18150000000000002,
-          "amp_make": 6.11,
-          "body_wood": 0.7,
+          "electric_technique": -0.11850000000000002,
+          "amp_make": 0,
+          "body_wood": 0.063,
           "neck_wood": 0.5145,
-          "fretboard": 0.5145,
+          "fretboard": -0.035,
           "pickup_magnet": 0.105,
           "string_material": 0.5145,
-          "string_gauge": 0.860875,
-          "bridge": 0.42,
-          "scale_length": 0.126,
-          "finish": 0.1365,
+          "string_gauge": 0.063,
+          "bridge": 0.063,
+          "scale_length": 0.3,
+          "finish": 0,
           "string_tuning": 0.03712499999999999,
           "single_coil_pickup_construction": 0
         }
@@ -47,22 +47,22 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "swamp_ash_b",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
           "pickup_config": "dual_single",
           "string_type": "roundwound_s",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.865,
-          "body_wood": 0.21,
-          "pickup_config": 0,
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "pickup_config": 0.3,
           "string_type": 0.8714999999999999,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0,
+          "scale_length_b": 0.363,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -72,33 +72,69 @@
         "slots": {
           "drum_technique": "sticks_rock",
           "drumhead": "single_clear",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "shell_wood": "birch_shell"
+          "drum_kit_kick_pedal": "dk_kick_double",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 12,
+          "drum_technique": 11.25,
           "drumhead": 0.5145,
-          "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.5145
+          "drum_kit_kick_pedal": 1.69,
+          "shell_wood": 0.5145,
+          "shell_thickness": 0,
+          "bearing_edges": 0.8714999999999999,
+          "snare_wires": 0.3,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 11.244499999999999,
+          "cymbal_lathing": 11.481499999999999,
+          "cymbal_finish": 0
         }
       }
     ],
     "pinned": {
       "electric_guitar_single_coil": [
         "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
         "pickup_magnet",
         "string_material",
-        "string_tuning"
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning",
+        "single_coil_pickup_construction"
       ],
       "electric_bass": [
+        "amp_make",
+        "body_wood",
         "pickup_config",
         "string_type",
-        "bass_technique"
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
         "shell_wood",
-        "drumhead"
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
     "room": "live_room",
@@ -111,7 +147,6 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
@@ -119,7 +154,6 @@
     ]
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "live_room",
     "parts": {
       "electric_technique": "electric_arpeggiated_clean",
@@ -131,7 +165,27 @@
       "string_type": "roundwound_s",
       "drum_technique": "sticks_rock",
       "shell_wood": "birch_shell",
-      "drumhead": "single_clear"
+      "drumhead": "single_clear",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "string_gauge": "g_11",
+      "bridge": "hardtail",
+      "scale_length": "scale_fender",
+      "finish": "poly",
+      "single_coil_pickup_construction": "single_coil_construction_unspecified",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_double",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

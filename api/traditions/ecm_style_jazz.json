@@ -5,7 +5,7 @@
   "lineage": "Codified by Manfred Eicher and engineer Jan Erik Kongshaug at Oslo's Rainbow Studio from ECM's founding in 1969, it is a European chamber-jazz manner — slow to medium tempos, modal or folk-derived material, brushed or mallet-led drums, arco double bass, piano and saxophone recorded with long artificial and room reverb, wide dynamic range, minimal overdubbing and an editorial preference for space over density.",
   "recipe": "classic European late-1960s ecm-style jazz, improv On Frame, American jazz branch, western modern art music, ambient experimental electric classical guitar quartet deep soundtrack. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, steel carpathian spruce European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, vibraphone, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese legato jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright alder pau ferro single coil electric guitar. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 862,
-  "score": 322.22,
+  "score": 321.96,
   "config": {
     "traditions": [
       "ecm_style_jazz",
@@ -35,7 +35,7 @@
           "piano_soundboard": 10.625,
           "piano_pinblock": 9.775,
           "piano_plate": 12.025,
-          "piano_pitch_standard": 12.315000000000001
+          "piano_pitch_standard": 12.465
         }
       },
       {
@@ -51,7 +51,7 @@
         },
         "scores": {
           "wind_articulation": 4.074999999999999,
-          "sax_size": 0.195,
+          "sax_size": 0.65,
           "sax_reed": 1.035,
           "sax_body_alloy": 17.5,
           "sax_mouthpiece": 0.6299999999999999,
@@ -77,7 +77,7 @@
           "bowed_technique": 4.275,
           "bass_size": 1,
           "bass_strings": 2.8600000000000003,
-          "bass_top_wood": 6.164999999999999,
+          "bass_top_wood": 5.515,
           "bass_back_wood": 11.015,
           "bass_varnish": 9.625,
           "bass_setup_period": 13.175,
@@ -94,7 +94,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.729999999999997,
+          "drum_technique": 16.184999999999995,
           "drumhead": 17.5,
           "drum_kit_kick_pedal": 0
         }
@@ -160,7 +160,7 @@
           "fretboard": 1.6649999999999998,
           "pickup_magnet": 0.6299999999999999,
           "string_material": 1.6649999999999998,
-          "string_gauge": 2.6,
+          "string_gauge": 1.7550000000000001,
           "bridge": 2.8600000000000003,
           "scale_length": 0.585,
           "finish": 0,

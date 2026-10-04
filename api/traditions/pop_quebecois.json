@@ -2,10 +2,10 @@
   "id": "pop_quebecois",
   "name": "Pop quebecois",
   "family": "vernacular",
-  "lineage": "Ariane Roy — medium plaisir (2022), selected lead-vocal band core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Selected single-lead repertoire branch represented by Ce n’est pas de la chance; source credits assign Ariane Roy voice, with additional singers only on other named tracks. Excludes Fille à porter, Miracle, Apprendre encore, Eli, Kundah and Le paradis de l’amour from this branch. Instrumentation is an authored selection of positively credited album-level guitar, bass, drums, piano and synth timbres; not a reconstruction of every instrument on that specific track. Unspecified additional percussion is omitted. No one-singer claim for the whole album.",
-  "recipe": "classic early-2020s pop quebecois, functional Song. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, 17 ply hard rock maple a 440 modern pitch us standard grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 448,
-  "score": 33.041,
+  "lineage": "Pop québécois connects Québec’s popular-song writers, performers and recording scenes. Guitar-led, keyboard-based and electronic productions coexist with strong attention to vocal delivery and lyrics.",
+  "recipe": "classic pop quebecois, functional Song. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, block chord grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 367,
+  "score": 23.414,
   "config": {
     "traditions": [
       "pop_quebecois"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 8.324,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.95,
+          "electric_technique": 4.95,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,
@@ -80,7 +80,7 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -102,7 +102,7 @@
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.3,
+          "scale_length_b": 0,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 1.4299999999999997,
-          "cymbal_hammering": 3.954,
-          "cymbal_lathing": 3.9000000000000004,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 4.954000000000001,
+          "cymbal_lathing": 4.9,
           "cymbal_finish": 0
         }
       },
@@ -151,15 +151,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.95,
+          "keyboard_technique": 4.95,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.1905,
+          "grand_piano_brand": 0.39,
           "piano_hammer": -0.07,
-          "piano_rim": 1.524,
+          "piano_rim": -0.07,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 1.964
+          "piano_pitch_standard": -0.035
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Batak vocal-trio music joins three-part singing with popular-song accompaniment. Groups such as Trio Golden Heart helped circulate the style through recordings and community listening.",
   "recipe": "classic trio batak, functional Song. one note per syllable. dreadnought acoustic guitar. live tracking.",
   "recipe_chars": 103,
-  "score": 2.044,
+  "score": 1.937,
   "config": {
     "traditions": [
       "trio_batak"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.2445,
+          "voice_speech_song": 1.1365,
           "voice_ensemble_config": 0.4635,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

@@ -5,7 +5,7 @@
   "lineage": "Edinburgh’s metal scene includes progressive and post-metal bands such as DVNE.",
   "recipe": "classic modern edinburgh metal, distorted Rock, post metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 462,
-  "score": 59.368,
+  "score": 59.319,
   "config": {
     "traditions": [
       "edinburgh_metal"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.7815000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.054375,
-          "voice_multitrack_stack": 0.061875,
+          "voice_processing_chain": 0.024375,
+          "voice_multitrack_stack": 0.0375,
           "voice_tessitura": 0
         }
       },
@@ -104,7 +104,7 @@
           "string_type": 4.875,
           "scale_length_b": 0.305625,
           "fretted_or_not": 0.013125,
-          "bass_technique": 3.74275,
+          "bass_technique": 3.7483750000000002,
           "electric_bass_string_configuration": 0
         }
       },

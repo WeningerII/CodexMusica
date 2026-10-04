@@ -5,7 +5,7 @@
   "lineage": "Franz Kafka — Die Verwandlung, read by Ulrich Matthes (Argon2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic german literature, spoken Word, narration branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 156,
-  "score": 1.147,
+  "score": 1.17,
   "config": {
     "traditions": [
       "german_literature"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.231,
+          "voice_ensemble_config": 0.2535,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
