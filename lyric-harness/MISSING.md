@@ -1959,10 +1959,14 @@ Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
 > Cole, Lawlor, Weatherly...) and the eight music-hall names — a
 > **scanned-broadside problem, not a rights problem**. Every one is out of
 > copyright and lives on archive.org / Wikisource / LoC / Levy / Bodleian, all
-> egress-blocked. Also unmined and already on disk: ~250 further Scots
-> songwriters in Rogers's _Modern Scottish Minstrel_, ~86 unclaimed
+> egress-blocked. Also unmined and already on disk: ~~\~250 further Scots
+> songwriters in Rogers's _Modern Scottish Minstrel_,~~ ~86 unclaimed
 > refrain-bearing hymns in the Otterbein Hymnal, and all fourteen Gilbert &
 > Sullivan libretti in GITenberg 808 with ~349 machine-separable number headings.
+> **STALE NOTE CORRECTED 2026-10-04: Rogers's _Minstrel_ is no longer
+> unmined** — 244 `corpus/song/eng_celtic_msm_*.txt` files are staged from it
+> (GITenberg 22515). The Otterbein and Gilbert & Sullivan halves were not
+> re-checked here.
 
 ### K-1a · The printed record is BIASED AGAINST the chorus `OPEN` — sized 2026-08-21, and the concentration is WORSE than recorded
 **SIZED 2026-08-21 (re-measured under the shipped rule).** Corpus totals:
@@ -4672,8 +4676,13 @@ re-staging defect and it does edit a corpus file.
 
 **THIS ENTRY STAYS OPEN ON THE UNCHANGED GROUND**: the short-poem blind spot.
 `THE WOMEN FOLK` is a real double staging that one letter — `sarely` against
-`sairly` — keeps out of the census and therefore out of the registry, so the
-count is a floor and the registry inherits the floor.
+`sairly` — keeps out of the census ~~and therefore out of the registry, so the
+count is a floor and the registry inherits the floor~~, so the census count is
+a floor. **STALE NOTE CORRECTED 2026-10-04: the registry does NOT inherit
+this one** — `data/calibration_work_editions.json` declares the pair as
+`edition-work-061` (line 337 at weight 1, line 1469 at weight 0), so the work
+vote already counts it once. What stays open is the census's blind spot, not
+the count.
 
 **THE POPULATION, RE-MEASURED 2026-09-18 UNDER THE SAME RULE.** The census
 returns **29** pairs, not 28 — 28 `eng_` and 1 `cym_`. The figure is robust: it

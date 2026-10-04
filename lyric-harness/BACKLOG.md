@@ -1986,7 +1986,7 @@ by the residue below: A-1, M-54, M-79, M-120, M-139, K-6.
 | A-3 | PARTIAL | BUILD · S | plan, grade, CI | Scheme round-trip is tested to 30 sounds; nothing exercises `label()`'s fallthrough at song length. | A cheap test extension, not on the song path today. |
 | F-3 | OPEN | BUILD · M | corpus, phonology, grade | (i) no dialect tokeniser behind `build_stream(tokeniser=)` reading the `# orthography:` headers three dialect files carry; (ii) a sourced dialect phonology the repo lacks. | The orthography half has a seam and zero blast radius, against 8,008/553/1,666 dialect marks read two opposite wrong ways. |
 | M-5 | CLOSED | DONE | corpus, phonology | `Orthography.allograph_census` and corpus check G detect mixed `w`/`v`, with population counts and no text rewriting. | Closed 2026-09-15; the calibrated alliteration default is unchanged. |
-| K-1 | PARTIAL | BUILD · M | corpus | Tin Pan Alley and music-hall unstaged (egress-blocked); three on-disk bodies unmined (~250 Rogers Scots songwriters, ~86 Otterbein hymns, 14 G&S libretti with ~349 headings). | The on-disk headings are a staging sitting; the broadsides are a channel problem. |
+| K-1 | PARTIAL | BUILD · M | corpus | Tin Pan Alley and music-hall unstaged (egress-blocked); ~~three~~ **two** on-disk bodies unmined (~~\~250 Rogers Scots songwriters,~~ ~86 Otterbein hymns, 14 G&S libretti with ~349 headings); corrected 2026-10-04: Rogers is staged as 244 `eng_celtic_msm_*` files. | The on-disk headings are a staging sitting; the broadsides are a channel problem. |
 
 ### 3 · ASK-OWNER — 22 entries whose only blocker is a ruling
 
