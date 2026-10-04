@@ -5,7 +5,7 @@
   "lineage": "Pop nacional antigas revisits earlier Brazilian popular-song repertories across romantic pop, brega, soul and MPB. Radio hits and remembered refrains circulate through retrospective listening, reissues and contemporary performances that renew familiar songs.",
   "recipe": "classic pop nacional antigas, functional Song. solo with instrumental accompaniment. block chord upright piano. live tracking.",
   "recipe_chars": 126,
-  "score": 11.737,
+  "score": 12.123,
   "config": {
     "traditions": [
       "pop_nacional_antigas"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.6825000000000001,
+          "voice_ensemble_config": 1.014,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.054,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 7078,
+  "count": 7121,
   "items": [
     {
       "id": "honky_tonk",
@@ -49855,7 +49855,7 @@
       "parent": "groovePercussion.brazilian",
       "axes": [
         1,
-        2,
+        0,
         0,
         1,
         0,
@@ -69775,7 +69775,7 @@
       "id": "sega",
       "name": "Séga (Mauritian creole dance song)",
       "family": "global",
-      "lineage": "Creole dance song of Mauritius, Rodrigues and Réunion with slave-era roots, professionalized on record from the late 1950s by Ti Frère and Serge Lebrasse, built on the goatskin ravanne frame drum's driving triplet-inflected 6/8, the kayamb or maravanne rattle and triangle, a fast accelerando toward the closing 'séga tipik' break, and light strophic Kreol verses with call-and-response chorus.",
+      "lineage": "Continuing Mauritian creole dance-song and recorded séga practice, 1950-present. Creole dance song of Mauritius, Rodrigues and Réunion with slave-era roots, professionalized on record from the late 1950s by Ti Frère and Serge Lebrasse, built on the goatskin ravanne frame drum's driving triplet-inflected 6/8, the kayamb or maravanne rattle and triangle, a fast accelerando toward the closing 'séga tipik' break, and light strophic Kreol verses with call-and-response chorus.",
       "parent": "groovePercussion.centralEastSouthAfrican",
       "axes": [
         -1,
@@ -71321,7 +71321,7 @@
       "parent": "groovePercussion.brazilian.pagode",
       "axes": [
         1,
-        2,
+        0,
         0,
         2,
         0,
@@ -72484,7 +72484,7 @@
       "parent": "functionalSong.mexican",
       "axes": [
         0,
-        2,
+        -1,
         0,
         2,
         0,
@@ -76638,7 +76638,7 @@
       "parent": "carnivalProcessional.caribbean",
       "axes": [
         0,
-        2,
+        0,
         0,
         2,
         1,
@@ -100579,7 +100579,7 @@
       "parent": "mcRhythm.reggaeton",
       "axes": [
         -1,
-        2,
+        -1,
         0,
         2,
         0,
@@ -248722,6 +248722,1433 @@
         "DeeJay Froggy",
         "DJ Cillo",
         "Turbotronic"
+      ]
+    },
+    {
+      "id": "japanese_buddhist_chant",
+      "name": "Japanese Buddhist chant",
+      "family": "global",
+      "lineage": "Japanese Buddhist chant encompasses the vocal practices of Japan’s Buddhist schools and lay communities. Transmitted from continental Asia and developed through distinct temple lineages, it ranges from elaborate shōmyō to syllabic sutra recitation, ceremonial narratives and devotional hymns. Clergy and lay practitioners preserve these traditions through ritual, instruction and communal singing.",
+      "parent": "ritualDevotional.buddhist",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "description": "Voices carry sacred texts through sustained melodic phrases or measured syllabic recitation. Some rituals use bells, bowls, gongs and cymbals as signals, while vocal passages place the sound and meaning of the text at the centre of the practice.",
+      "exemplars": [
+        "Shōmyō, sutra recitation, kōshiki and goeika traditions"
+      ]
+    },
+    {
+      "id": "vintage_italian_soundtrack",
+      "name": "Vintage Italian Soundtrack",
+      "family": "global",
+      "lineage": "Vintage Italian soundtrack music draws on the film and studio archives of the 1960s–80s, where jazz, orchestral writing, pop, funk and psychedelic textures served comedy, crime, horror and other screen genres. Reissue and licensing communities around CAM Sugar and Sonor Music Editions have renewed circulation of this repertoire. Alongside orchestral scores, studio groups such as I Marc 4 supplied compact, groove-led themes built from guitar, organ, bass and drums.",
+      "parent": "groovePercussion.funkPercussive",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "tonewheel_organ"
+      ],
+      "description": "Short thematic cues move between memorable melody, rhythmic accompaniment and contrasting instrumental colours. Electric organ, guitar and a bass-and-drum rhythm section support the jazz-funk studio-combo strand, while the wider archival field also includes orchestral, electronic and vocal film music.",
+      "exemplars": [
+        "I Marc 4",
+        "Gianni Ferrio",
+        "Piero Umiliani",
+        "CAM Sugar",
+        "Sonor Music Editions"
+      ],
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "samba_moderno",
+      "name": "Samba Moderno",
+      "family": "vernacular",
+      "lineage": "Samba moderno follows the contemporary Rio singer-composer network nurtured by Lapa venues, Clube Renascença, Cacique de Ramos and projects such as Samba Social Clube and Festa da Raça. Artists including João Martins, Inácio Rios and Nego Álvaro carry older samba traditions into new compositions, collaborations and independent careers.",
+      "parent": "groovePercussion.brazilian.pagode",
+      "axes": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "cavaquinho",
+        "pandeiro",
+        "tan_tan_drum"
+      ],
+      "description": "Melodic singing and shared refrains interlock with compact cavaquinho or banjo accompaniment, guitar and layered hand percussion. New songs about affection, everyday life and social experience circulate between neighborhood rodas, studio releases and concert stages, retaining the rhythmic conversation of samba while developing individual poetic voices.",
+      "exemplars": [
+        "João Martins",
+        "Inácio Rios",
+        "Nego Álvaro",
+        "Samba do Trabalhador"
+      ],
+      "crossRefs": [
+        "functionalSong.brazilianSong"
+      ]
+    },
+    {
+      "id": "deep_hardtechno",
+      "name": "Deep Hardtechno",
+      "family": "electronic",
+      "lineage": "Deep hardtechno is a discovery label connecting hardtechno and schranz producers and their DJ circuits. Forceful percussion, repeated rhythmic material and driving electronic textures link releases, remixes and extended club sets.",
+      "parent": "electronicDance.techno",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Dense rhythmic pressure and repeated selections give the music a continuous forward motion. DJs combine recordings and transitions into longer performances; melody and vocal material vary across the repertoire.",
+      "exemplars": [
+        "Viper XXL",
+        "Tilthammer",
+        "DJ Emme"
+      ]
+    },
+    {
+      "id": "electropop",
+      "name": "Electropop",
+      "family": "electronic",
+      "lineage": "Electropop brings electronic production into melodic popular songwriting. Its overlapping synthpop and dance-pop networks connect synthesizer-led bands with solo singers, producers and club remixes. Contemporary artists carry these practices through albums, electronic-music festivals and digital discovery playlists.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "analog_poly_synth",
+        "drum_machine_analog",
+        "electronic_synthesis_sequencing_unspecified"
+      ],
+      "description": "Sung melodies and recurring hooks sit over sequenced rhythmic foundations and layered synthesizers. Live keyboard parts can interact with software sequences, while drum machines articulate a regular pulse. Studio production and rearranged live versions connect song-focused listening with dance-floor energy.",
+      "exemplars": [
+        "Robyn",
+        "Little Boots",
+        "Parralox"
+      ]
+    },
+    {
+      "id": "speedrun",
+      "name": "Speedrun",
+      "family": "electronic",
+      "lineage": "Speedrun is a discovery field linking energetic internet electronic music with independent games and online creator communities. Its repertoire includes Waterflame, Creo and Dimrain47, spanning melodic synthesis, sample-based arrangement and rhythm-led production rather than one fixed tempo or sound chip.",
+      "parent": "experimentalElec",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        2,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "software_sample_playback",
+        "wavetable_synth"
+      ],
+      "description": "Programmed sample layers carry rhythmic and pitched figures beneath clear synthetic melodies. Breakbeat motion, contrasting sections and game-oriented melodic hooks coexist with quieter pieces; the label does not imply that every track accompanies a timed run.",
+      "exemplars": [
+        "Waterflame",
+        "Creo",
+        "Dimrain47"
+      ]
+    },
+    {
+      "id": "kashmiri_hip_hop",
+      "name": "Kashmiri hip hop",
+      "family": "hip_hop",
+      "lineage": "Kashmiri hip hop connects rappers, producers and audiences in Kashmir and its diaspora. Artists such as MC Kash, Ahmer, SOS and their collaborators have developed a regional scene using Kashmiri, Urdu and other languages, with local experience and cultural memory shaping the writing.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "software_sample_playback"
+      ],
+      "description": "Rhythmic verses and changing flows meet sampled beats and repeated melodic fragments. Folk recordings and local poetic references can enter the production, while other songs draw on different instrumental and vocal approaches.",
+      "exemplars": [
+        "MC Kash",
+        "Ahmer",
+        "SOS",
+        "Prxphecy"
+      ]
+    },
+    {
+      "id": "sesotho_pop",
+      "name": "Sesotho Pop",
+      "family": "pop",
+      "lineage": "Sesotho popular music circulates across South Africa, Lesotho and Botswana, bringing Sesotho-language song into soul, township-pop and contemporary studio settings. Melodic singing and accessible recurring song forms coexist with newer rap and dance crossovers.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "software_sample_playback"
+      ],
+      "description": "A sung lead carries the text and tune over a repeating popular-song accompaniment. Performances range from amplified bands to singers using recorded backing tracks; this arrangement presents the latter branch with clear melodic phrasing and a steady groove.",
+      "exemplars": [
+        "Johnny Mokhali",
+        "Tsepo Tshola",
+        "Sankomota"
+      ]
+    },
+    {
+      "id": "vietnamese_pop",
+      "name": "Vietnamese Pop",
+      "family": "pop",
+      "lineage": "Vietnamese popular song connects domestic and overseas recording, performance and listening communities. Romantic melodies and familiar song repertories circulate through singers, amplified ensembles and instrumental reinterpretations, including piano arrangements of Trịnh Công Sơn’s songs.",
+      "parent": "functionalSong.eastAsianPop",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Melody and supportive harmony carry a familiar popular-song repertory through lyrical phrases and recurring sections. A solo-piano rendition brings the tune into the foreground, alongside the field’s sung ballads, band arrangements and studio productions.",
+      "exemplars": [
+        "Khánh Ly",
+        "Như Mai",
+        "Trịnh Công Sơn"
+      ]
+    },
+    {
+      "id": "griot",
+      "name": "Griot",
+      "family": "global",
+      "lineage": "Griots sustain West African oral-history, praise and musical traditions through inherited professional knowledge. Regional practices include Mandé jali lineages and other singer-historian traditions, combining remembered genealogies and narratives with sung praise and instrumental accompaniment.",
+      "parent": "balladPoetry.westAfricanGriot",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "griot_voice",
+        "balafon"
+      ],
+      "description": "Narrative delivery alternates with sung praise and instrumental interludes. Voice, phrasing and accompaniment vary by regional lineage and occasion; a Mandinka recital branch pairs a single jali narrator-singer with a small calabash-resonated wooden-key balafon.",
+      "exemplars": [
+        "Alhaji Fabala Kanuteh"
+      ]
+    },
+    {
+      "id": "instrumental_acoustic_guitar",
+      "name": "Instrumental acoustic guitar",
+      "family": "global",
+      "lineage": "Instrumental acoustic guitar brings melody, harmony and rhythmic movement into guitar-led compositions without sung text. Modern fingerstyle communities connect folk, jazz, popular and classical influences, with labels such as Candyrat supporting an international network of composers and performers.",
+      "parent": "artMusic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "acoustic_guitar_om"
+      ],
+      "description": "Independent bass notes, ringing chords and melodic lines share the instrument. Fingerpicked patterns, changes of register and dynamic accents shape pieces that range from reflective miniatures to rhythmically vigorous concert music."
+    },
+    {
+      "id": "musica_neoleonesa",
+      "name": "Música Neoleonesa",
+      "family": "vernacular",
+      "lineage": "Música neoleonesa encompasses the traditional repertories of Nuevo León, shaped by local social life and musical circulation across northeastern Mexico and Texas. Narrative romances, songs and dances coexist within a regional history whose accordion traditions became widely known through records and migration.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "accordion",
+        "bajo_sexto"
+      ],
+      "description": "Narrative singing can be shared by two voices over accordion melody and the resonant strumming of bajo sexto. The wider repertory also includes dance ensembles and other instrumental combinations; this intimate song setting emphasizes clear words, alternating phrases and a steady accompaniment.",
+      "exemplars": [
+        "Tirso Silguero Rivera",
+        "Guadalupe Salas Hernández"
+      ]
+    },
+    {
+      "id": "indie_viet",
+      "name": "Indie Việt",
+      "family": "pop",
+      "lineage": "Indie Việt connects Vietnamese independent songwriters and bands through small venues, self-released recordings and online audiences. Acoustic songwriting and guitar-band arrangements sit alongside electronic and experimental approaches, with artists building their own relationships with listeners.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Personal melodic lines and direct lyrics can be presented with a single guitar or expanded into layered band arrangements. The intimate songwriting branch pairs a clear sung lead with picked guitar figures, leaving space around the words and harmonic changes.",
+      "exemplars": [
+        "Ngọt",
+        "TRANG",
+        "Vũ."
+      ]
+    },
+    {
+      "id": "vintage_swoon",
+      "name": "Vintage Swoon",
+      "family": "pop",
+      "lineage": "Vintage swoon gathers mid-century romantic teen-pop singers and lesser-known records alongside early rock-and-roll performers. Clear melodic leads, vocal harmonies and compact song forms connect intimate ballads with brighter dance-band presentations.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "upright_piano",
+        "drum_kit"
+      ],
+      "description": "A melodic lead and backing voices carry short, memorable phrases over guitar, piano and a steady drum pulse. This compact band treatment represents the livelier side of a listening field that also includes gently arranged romantic songs.",
+      "exemplars": [
+        "Warren Williams",
+        "Rick Randell",
+        "Ralph Jerome"
+      ]
+    },
+    {
+      "id": "corridos_cristianos",
+      "name": "Corridos Cristianos",
+      "family": "vernacular",
+      "lineage": "Christian corrido performers adapt regional Mexican ballad and contemporary tumbado idioms to testimony, prayer and praise. The field includes original devotional songs and religious adaptations, circulating through community performance and popular recording networks.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "description": "Direct sung messages of faith ride the repeated chord patterns and melodic phrasing of regional Mexican song. This intimate branch uses voice and strummed guitar; requinto-led groups, bass support and larger regional ensembles belong to other branches.",
+      "exemplars": [
+        "Jymba",
+        "Ediel Hoo"
+      ],
+      "crossRefs": [
+        "functionalSong.tejanoBorder.corrido"
+      ]
+    },
+    {
+      "id": "concurso_de_talentos_argentino",
+      "name": "Concurso de Talentos Argentino",
+      "family": "pop",
+      "lineage": "Argentine televised singing competitions bring emerging performers together through auditions, coaching, live rounds and recorded releases. Their repertoire crosses popular song, rock and regional traditions, with contestants developing personal versions of familiar material.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "description": "The singer leads a recognizable melody while accompaniment supports a personal interpretation. An intimate voice-and-guitar arrangement is one established audition branch; ensemble-backed songs and duets extend the wider competition repertoire.",
+      "exemplars": [
+        "Julián Esion Kaplan",
+        "Francisco Benítez",
+        "Luz Gaggi"
+      ]
+    },
+    {
+      "id": "modern_country_pop",
+      "name": "Modern Country Pop",
+      "family": "pop",
+      "lineage": "Modern country pop connects narrative country songwriting with accessible pop hooks and contemporary recording. Songwriters move between intimate acoustic performance and fuller studio arrangements, retaining clear vocal stories while drawing on both country and pop influences.",
+      "parent": "functionalSong.country",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        -1,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Conversational sung verses and memorable refrains frame personal stories. Strummed acoustic chords offer a direct solo-performance setting, while the broader field also embraces bands, layered vocals and programmed pop production.",
+      "exemplars": [
+        "Chloe Styler",
+        "Sykamore"
+      ]
+    },
+    {
+      "id": "new_wave_pop",
+      "name": "New Wave Pop",
+      "family": "pop",
+      "lineage": "New wave pop gathers hook-led songwriting associated with new wave and its wider pop audience. Distinctive vocal personalities, guitar figures, synthesizers and danceable rhythms connect late-twentieth-century recordings with later live reinterpretations.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        -1,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "spoken_word_voice"
+      ],
+      "description": "Memorable vocal lines and concise refrains sit alongside sharply characterized guitar or keyboard textures. Acoustic reinterpretations bring ensemble harmonies and rhythmic guitar accompaniment forward, sometimes alternating songs with spoken recollections.",
+      "exemplars": [
+        "Toyah",
+        "ABC",
+        "Ultravox"
+      ]
+    },
+    {
+      "id": "kleine_hoerspiel",
+      "name": "Kleine Hörspiel",
+      "family": "global",
+      "lineage": "German-language children’s audio-drama adaptations bring film and family-story characters into recorded listening. Publishers circulate edited dialogue, narration, familiar music and sound effects through albums, audio cards and streaming libraries.",
+      "parent": "spokenWord",
+      "axes": [
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        -1
+      ],
+      "instruments": [
+        "spoken_dramatic_cast",
+        "software_sample_playback",
+        "credited_sound_effect_unspecified"
+      ],
+      "description": "Contrasting character voices and narration lead the story, with pauses and edits shaping dramatic pace. Recorded music and effects establish scenes and connect dialogue. Familiar family-film adaptations form a prominent part of the listening repertoire.",
+      "exemplars": [
+        "German Disney film audio adaptations",
+        "Susi und Strolch",
+        "Findet Nemo"
+      ]
+    },
+    {
+      "id": "malayalam_madh",
+      "name": "Malayalam Madh",
+      "family": "global",
+      "lineage": "Malayalam madh is a praise-song field in Kerala Muslim musical life, especially devotional address to the Prophet. Local-language texts circulate through community gatherings, religious institutions, song collections and contemporary recordings, alongside Arabic and other regional-language praise.",
+      "parent": "praiseSong.indianSubcontinent",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "tar_frame_drum"
+      ],
+      "description": "A leading voice and answering group carry devotional phrases over hand-played frame-drum rhythm. Repeated praise and coordinated accents support communal participation; unaccompanied singing and elaborately produced recordings provide other settings for the same devotional field.",
+      "exemplars": [
+        "Firdhous Kaliyaroad",
+        "Hisham Kochanoor",
+        "Suhail Koorad",
+        "Ma’din community praise singing"
+      ]
+    },
+    {
+      "id": "marci_brijuzi",
+      "name": "Marċi Brijużi",
+      "family": "folk",
+      "lineage": "Maltese festive marches circulate through local band societies and village feasts in Malta and Gozo. Composers shape buoyant tonal melodies into contrasting sections, often culminating in a trio, while clubs teach successive generations of wind and percussion players.",
+      "parent": "carnivalProcessional.european",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        2,
+        -1,
+        -1,
+        -2,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "clarinet_section_bb_eb",
+        "saxophone",
+        "trumpet",
+        "french_horn",
+        "trombone",
+        "baritone_horn_bb",
+        "euphonium",
+        "bass_drum",
+        "snare_drum",
+        "credited_cymbals"
+      ],
+      "description": "Bright upper clarinets and rounded lower winds alternate melodic statements over brass harmony and a steady drum-and-cymbal pulse. Contrasting strains and trio sections carry the celebratory motion of local festa processions.",
+      "exemplars": [
+        "Vincenzo Ciappara",
+        "Raymond Sciberras",
+        "John Mamo"
+      ]
+    },
+    {
+      "id": "world",
+      "name": "World",
+      "family": "vernacular",
+      "lineage": "World music became a shared record-industry category in1987, bringing international and roots recordings together for shops, press and audiences. Its repertoire spans regional traditional practices, contemporary popular styles and cross-cultural collaborations.",
+      "parent": "improvOnFrame",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "kora"
+      ],
+      "description": "The field encompasses many musical languages and ensembles rather than one universal rhythm or instrumentation. Solo kora improvisation is one established strand alongside vocal, dance and ensemble traditions from many regions.",
+      "exemplars": [
+        "Ballaké Sissoko",
+        "Seckou Keita"
+      ]
+    },
+    {
+      "id": "manipuri_pop",
+      "name": "Manipuri Pop",
+      "family": "pop",
+      "lineage": "Manipuri pop connects contemporary songwriting, music videos and regional film playback in Manipur. Singers draw on local melodic traditions while working with guitars, studio arrangements and popular-song forms. Acoustic singing and fuller produced songs coexist within the field.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "A melodic sung line moves over ringing guitar chords in an intimate acoustic branch. Short ornamental note groups and repeated song sections give the voice room to shape the lyric; larger studio arrangements extend the same repertoire into film and popular recordings.",
+      "exemplars": [
+        "Kenedy Khuman",
+        "Arbin Soibam",
+        "AJ Maisnam"
+      ]
+    },
+    {
+      "id": "deathgrass",
+      "name": "Deathgrass",
+      "family": "vernacular",
+      "lineage": "Deathgrass is a discovery label for an underground roots-music network crossing punk, old-time string bands and rough-edged country. Its artist corpus includes Urban Pioneers, Filthy Still and Mikey Classic, bringing acoustic picking, fiddle and earthy vocals into the orbit of punk and alternative Americana.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "banjo_5_string",
+        "fiddle",
+        "upright_bass",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Clawhammer banjo and fiddle carry quick melodic figures while slapped upright bass adds a percussive pulse. Sung lines and guitar chords connect the string-band texture to contemporary roots songwriting, with energetic performance shared across old-time, country and punk audiences.",
+      "exemplars": [
+        "Urban Pioneers",
+        "Filthy Still",
+        "Mikey Classic"
+      ]
+    },
+    {
+      "id": "venda_pop",
+      "name": "Venda Pop",
+      "family": "pop",
+      "lineage": "Venda popular music joins Tshivenda song and dance traditions with contemporary band and recorded-pop arrangements. Malende-derived melodic contours, recurring rhythmic figures and exchanges between a lead singer and responding voices remain important alongside newer folk-pop and electronic directions.",
+      "parent": "groovePercussion",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "A lead melody alternates with group responses above interlocking guitar and bass figures. Kick and hi-hat patterns carry a recurring dance pulse, adapting malende rhythmic relationships to a compact popular band.",
+      "exemplars": [
+        "Adziambei Band",
+        "Muneyi"
+      ]
+    },
+    {
+      "id": "chicago_mexican",
+      "name": "Chicago Mexican",
+      "family": "vernacular",
+      "lineage": "Chicago Mexican music grows through regional-Mexican bands, immigrant audiences and local dance venues. Norteño, cumbia, corrido and other Mexican repertories circulate through recordings, collaborations and live celebrations in the city’s musical community.",
+      "parent": "functionalSong.mexican",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "accordion",
+        "bajo_quinto",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Lead and supporting vocals exchange short phrases over accordion melodies and the ringing chord pulse of bajo quinto. Electric bass and drums anchor this compact norteño-facing dance-band branch within a wider Chicago scene that also includes brass bands and other regional-Mexican styles.",
+      "exemplars": [
+        "Grupo Vanguardia",
+        "Los Picudos",
+        "La Nueva Lexion"
+      ]
+    },
+    {
+      "id": "tavern",
+      "name": "Tavern",
+      "family": "vernacular",
+      "lineage": "Tavern gathers convivial historical-folk listening and performance, bringing Celtic tune arrangements together with medieval and Renaissance-inspired music. Contemporary performers range from intimate solo instrumentalists to theatrical dance ensembles.",
+      "parent": "improvOnFrame.celticTraditional",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "acoustic_guitar_om"
+      ],
+      "description": "Interwoven melody, bass and inner voices give the solo fingerstyle-guitar branch a lilting dance pulse. Reels, jigs and reflective tunes share the broader field with ensemble dances and historical-folk reinterpretations.",
+      "exemplars": [
+        "Anton Emery",
+        "Stary Olsa",
+        "Wolgemut"
+      ]
+    },
+    {
+      "id": "pop_catracho",
+      "name": "Pop Catracho",
+      "family": "pop",
+      "lineage": "Honduran popular-song performers connect locally rooted songwriting with tropical rhythms and wider Latin pop. Acoustic cantautores share audiences and recording networks with dance-oriented and urban acts.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Memorable sung phrases and recurring refrains lead the music. This acoustic branch pairs a direct melodic voice with ringing guitar chords, leaving space for the lyric; other branches use fuller bands, tropical percussion or electronic production.",
+      "exemplars": [
+        "Polache"
+      ]
+    },
+    {
+      "id": "cerkes_muzikleri",
+      "name": "Çerkes Müzikleri",
+      "family": "global",
+      "lineage": "Çerkes müzikleri in the Turkish diaspora connects North Caucasian song and dance repertories across Adyghe, Abaza and neighboring communities. Oral narratives, exile laments and dance melodies circulate through community performance and new multilingual stage arrangements.",
+      "parent": "improvOnFrame",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "choir_ensemble",
+        "panduri",
+        "kaval",
+        "accordion",
+        "credited_auxiliary_percussion"
+      ],
+      "description": "A sung narrative unfolds against plucked strings and polyphonic responses. Flute and free reeds extend the melodic colour, while percussion can shape a gradually intensifying dance pulse. Contemporary arrangements retain the repertory’s links to migration, memory and community gatherings.",
+      "exemplars": [
+        "Kardeş Türküler",
+        "Yevaz Zuber"
+      ]
+    },
+    {
+      "id": "funktronica",
+      "name": "funktronica",
+      "family": "electronic",
+      "lineage": "Funktronica brings funk grooves into electronic and independent pop production. Synthesizer bass, programmed rhythm, guitar and processed vocals can interact in compact arrangements, alongside more instrumental and dance-oriented recordings.",
+      "parent": "groovePercussion.funkPercussive",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "analog_synth",
+        "drum_machine_808"
+      ],
+      "description": "Electronic bass and a repeating drum pulse support syncopated guitar and effected singing. Sparse arrangements can leave the groove exposed, while unusual vocal treatments and handmade electronic sounds connect funk phrasing with experimental pop.",
+      "exemplars": [
+        "LA Priest"
+      ],
+      "crossRefs": [
+        "experimentalElec.popExperimental"
+      ]
+    },
+    {
+      "id": "spacewave",
+      "name": "Spacewave",
+      "family": "electronic",
+      "lineage": "Spacewave develops the cosmic and science-fiction strand of contemporary synth music. Producers connect retro electronic timbres with imagined voyages, orbital environments and cinematic storytelling, working across rhythmic synthwave and more atmospheric electronic settings.",
+      "parent": "experimentalElec.retroAesthetic",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_synth",
+        "jt4000_micro",
+        "software_virtual_analog_synth",
+        "software_sample_playback",
+        "credited_beat_unspecified"
+      ],
+      "description": "Analog and digital synthesizer melodies unfold above electronic pulses, with film samples adding narrative fragments in some productions. A melodic, rhythm-bearing studio branch sits alongside spacious and ambient approaches.",
+      "exemplars": [
+        "Dynatron",
+        "Stilz",
+        "SUNESIS"
+      ]
+    },
+    {
+      "id": "dark_black_metal",
+      "name": "Dark Black Metal",
+      "family": "rock",
+      "lineage": "Dark black metal is a practitioner-used description for black metal that emphasizes bleak atmosphere, dissonant melody and slower, doom-influenced passages. Forgotten Tomb used the related description Depressive Dark Black Metal while developing music that also drew on darkwave and later expanded toward sludge and heavier rock.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Arpeggiated guitar figures and uneasy melodic intervals alternate with heavier riffing, bass and measured drum patterns. Harsh vocals and sustained dark textures carry a mournful character, with changes of weight and pace rather than uninterrupted blast-beat intensity.",
+      "exemplars": [
+        "Forgotten Tomb"
+      ]
+    },
+    {
+      "id": "indonesian_lo_fi_pop",
+      "name": "Indonesian Lo-fi Pop",
+      "family": "pop",
+      "lineage": "Indonesian lo-fi pop connects intimate independent pop with acoustic songwriting and online home-recording culture. Soft vocals, small-scale arrangements and personal interpretations circulate alongside more layered studio productions, including work by Indonesian artists abroad.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "A mellow lead melody is supported by softly fingerpicked acoustic guitar. The intimate acoustic branch emphasizes lyrical phrasing and space around the voice; the wider discovery field also includes fuller electronic and band arrangements.",
+      "exemplars": [
+        "The Macarons Project"
+      ]
+    },
+    {
+      "id": "classic_sierreno",
+      "name": "Classic Sierreño",
+      "family": "global",
+      "lineage": "Classic sierreño gathers established regional Mexican song repertoires and the groups that carry them forward. Compact guitar ensembles and accordion-led variants support corridos, romantic songs and dance repertories, connecting older styles with new performances.",
+      "parent": "functionalSong.mexican",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar",
+        "electric_bass",
+        "accordion"
+      ],
+      "description": "Sung lines sit over interlocking chordal and melodic figures, with bass defining the recurring pulse. An accordion-led trio provides one longstanding branch; guitar duets and other small ensembles offer contrasting textures within the repertoire.",
+      "exemplars": [
+        "Los Reynaldos de la Sierra",
+        "Los Alteños de la Sierra",
+        "Dueto Bertín y Lalo"
+      ]
+    },
+    {
+      "id": "deep_norteno",
+      "name": "Deep Norteño",
+      "family": "global",
+      "lineage": "Deep Norteño gathers a deeper discovery cohort of norteño conjuntos from northern Mexico and cross-border communities. Accordion, bajo sexto and dance-band rhythm sections support songs, corridos, polkas, waltzes and cumbias, with saxophone prominent in the Ojinaga-associated branch.",
+      "parent": "functionalSong.tejanoBorder",
+      "axes": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "saxophone",
+        "accordion",
+        "bajo_sexto",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Sung melodies meet accordion phrases and saxophone countermelodies above strummed bajo sexto, electric bass and drums. Dance rhythms and familiar romantic or narrative repertoire connect small-band performance with regional venues and cross-border recordings.",
+      "exemplars": [
+        "Conjunto Sol de Ojinaga",
+        "Los Llaneros del Bravo",
+        "Conjunto Alameda de Oscar Padilla"
+      ]
+    },
+    {
+      "id": "vintage_western",
+      "name": "Vintage Western",
+      "family": "vernacular",
+      "lineage": "Vintage Western gathers archival country-and-western recordings across early rural song, hillbilly blues, western swing and related regional styles. Radio and commercial discs circulated vocal duets, dance bands and small acoustic groups whose repertoires crossed ballads, comic songs and blues.",
+      "parent": "balladPoetry",
+      "axes": [
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_parlor",
+        "harmonica"
+      ],
+      "description": "A small-group song branch places two voices over ringing guitar chords, with harmonica answering the sung line. Other recordings in the field use larger swinging ensembles, steel guitars or regional dance instrumentation; the historical repertoire extends beyond cowboy-themed lyrics alone.",
+      "exemplars": [
+        "Dave & Howard",
+        "Lone Star Playboys",
+        "Ocie Stockard"
+      ]
+    },
+    {
+      "id": "forro_manauara",
+      "name": "Forró Manauara",
+      "family": "vernacular",
+      "lineage": "Forró manauara grew through Manaus dance venues and local bands, combining northeastern forró with Amazonian popular-music circuits. From the1990s onward, musicians and DJs reworked electronic-band styles into a regional scene; later forró de galeral and forró-funk brought new audiences, slang and club influences.",
+      "parent": "groovePercussion.brazilian",
+      "axes": [
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified",
+        "accordion",
+        "zabumba",
+        "sampler_classic"
+      ],
+      "description": "Singing rides a firm dance pulse, with accordion figures, electric guitar and bass, drumkit and zabumba. Keyboard players shape much of the modern band texture, adding effects, sampled accents and cut-up voices. Repertoires move between xote, established forró songs and newer funk-influenced material within the city’s active dance circuit.",
+      "exemplars": [
+        "DJ Evandro Júnior",
+        "Ideal Banda",
+        "DJ K No Beat",
+        "Forró Festança",
+        "Gang do Forró"
+      ],
+      "crossRefs": [
+        "electronicDance"
+      ]
+    },
+    {
+      "id": "narodnozabavna",
+      "name": "Narodnozabavna",
+      "family": "global",
+      "lineage": "Narodnozabavna is Slovenian popular folk music heard at dances, weddings, family celebrations and festivals at home and across the diaspora. Since the mid-twentieth century, Avsenik-style wind ensembles and the accordion-led Slak tradition have shaped its polkas, waltzes and songs.",
+      "parent": "drinkingSong.european",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "accordion",
+        "acoustic_guitar_dread",
+        "upright_bass"
+      ],
+      "description": "Accordion melody and chordal accompaniment meet guitar rhythm, a moving bass foundation and ensemble singing. Repeating dance strains and alternating verses, refrains and instrumental passages carry a lively communal repertoire.",
+      "exemplars": [
+        "Ansambel Lojzeta Slaka",
+        "Ansambel bratov Avsenik"
+      ]
+    },
+    {
+      "id": "cryptic_black_metal",
+      "name": "Cryptic Black Metal",
+      "family": "rock",
+      "lineage": "Cryptic black metal is a practitioner-used description for occult and enigmatic strains of extreme black metal. Sar Isatum combines this vocabulary with ethereal and symphonic ambitions, drawing atmosphere from ominous riffing and an extreme guitar-band foundation.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Tremolo-picked distorted guitars, driven bass and rapid percussion support harsh vocals and dark, expansive moods. Arrangements may use keyboards and symphonic layers, while a core guitar-band branch preserves the same cryptic atmosphere through riffs and dynamics.",
+      "exemplars": [
+        "Sar Isatum"
+      ]
+    },
+    {
+      "id": "bleakgaze",
+      "name": "Bleakgaze",
+      "family": "rock",
+      "lineage": "Bleakgaze gathers introspective black-metal and atmospheric guitar music around artists including Thy Light, ColdWorld and Woods of Desolation. Its overlapping repertoire joins anguished vocals and heavy guitar textures with extended melody, melancholy and changes in instrumental density.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Sustained guitar textures and repeated melodic figures meet bass, drums and harsh, emotionally direct singing. Spacious passages and shifts in weight make room for reflective atmosphere alongside black-metal intensity.",
+      "exemplars": [
+        "Thy Light",
+        "ColdWorld",
+        "Woods of Desolation"
+      ]
+    },
+    {
+      "id": "pop_minang",
+      "name": "Pop Minang",
+      "family": "pop",
+      "lineage": "Minangkabau-language popular music from West Sumatra combines regional song traditions with changing dance-band and electronic arrangements. Recordings and migrant communities carry the repertoire beyond its home region, while wedding performances keep familiar songs in local circulation.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Melodic Minangkabau verses sit above keyboard melodies, chordal backing and repeating dance rhythms. In the organ-tunggal wedding branch, a singer works with an arranger keyboard that supplies programmed accompaniment and instrumental passages.",
+      "exemplars": [
+        "Elly Kasim",
+        "Orkes Gumarang"
+      ]
+    },
+    {
+      "id": "anime_phonk",
+      "name": "Anime Phonk",
+      "family": "electronic",
+      "lineage": "Anime phonk connects phonk production with anime imagery, character themes and online montage culture. Producers combine forceful low bass and electronic rhythms with melodic or metallic hooks and edited vocal phrases, overlapping drift phonk, glitch production and Brazilian funk crossovers.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "produced_808_bass",
+        "produced_cowbell",
+        "credited_synthesizer_unspecified",
+        "credited_programmed_drums_unspecified"
+      ],
+      "description": "Heavy low bass and programmed beats drive sharp cowbell patterns, bright synthesizer figures and stuttering vocal cuts. Drops and repeated fragments provide abrupt changes of energy for club playback and anime montage edits.",
+      "exemplars": [
+        "DJ LYNTRA",
+        "CYPARISS"
+      ]
+    },
+    {
+      "id": "hypnosis",
+      "name": "Hypnosis",
+      "family": "global",
+      "lineage": "Hypnosis recordings developed alongside self-hypnosis teaching and guided suggestion, circulating through cassettes, downloads and practitioner podcasts. The listening field brings together spoken programmes, affirmations and accompanying relaxation music; voice-only and music-backed editions coexist.",
+      "parent": "spokenWord.intimateVoice",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        0,
+        0,
+        0,
+        -2,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "A calmly paced voice directs attention through repeated phrases, pauses and suggestions. Some recordings use a musical bed, while others keep the spoken delivery unaccompanied. This representative voice-only branch leaves space around the words and avoids a fixed musical pulse.",
+      "exemplars": [
+        "Glenn Harrold",
+        "Anna Thompson",
+        "Bonnie Groessl",
+        "Dr. Liz Bonet"
+      ],
+      "crossRefs": [
+        "spokenWord"
       ]
     }
   ]

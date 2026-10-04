@@ -2,10 +2,10 @@
   "id": "sega",
   "name": "Séga (Mauritian creole dance song)",
   "family": "global",
-  "lineage": "Creole dance song of Mauritius, Rodrigues and Réunion with slave-era roots, professionalized on record from the late 1950s by Ti Frère and Serge Lebrasse, built on the goatskin ravanne frame drum's driving triplet-inflected 6/8, the kayamb or maravanne rattle and triangle, a fast accelerando toward the closing 'séga tipik' break, and light strophic Kreol verses with call-and-response chorus.",
-  "recipe": "classic East African 1957-1959 séga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, tropical song functional song fann at-tanbura cumbia argentina. light, breath veiled tone, fast rate, interlocked note trading. kayamba, parlor acoustic guitar, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, maracas, snappy to palm hand clap. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
-  "recipe_chars": 557,
-  "score": 150.225,
+  "lineage": "Continuing Mauritian creole dance-song and recorded séga practice, 1950-present. Creole dance song of Mauritius, Rodrigues and Réunion with slave-era roots, professionalized on record from the late 1950s by Ti Frère and Serge Lebrasse, built on the goatskin ravanne frame drum's driving triplet-inflected 6/8, the kayamb or maravanne rattle and triangle, a fast accelerando toward the closing 'séga tipik' break, and light strophic Kreol verses with call-and-response chorus.",
+  "recipe": "classic East African modern séga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, tropical song functional song fann at-tanbura cumbia argentina. light, breath veiled tone, fast rate, interlocked note trading. kayamba, parlor acoustic guitar, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, maracas, snappy to palm hand clap. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 554,
+  "score": 157.725,
   "config": {
     "traditions": [
       "sega",
@@ -39,13 +39,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.09,
-          "voice_articulation": 17.614999999999995,
-          "voice_microtone": 18.167499999999993,
+          "voice_articulation": 18.914999999999996,
+          "voice_microtone": 19.467499999999994,
           "voice_tradition": 12.1875,
           "voice_mechanism_compound": 4.68,
           "voice_estill_quality": 4.29,
-          "voice_speech_song": 25.544999999999995,
-          "voice_ensemble_config": 18.13499999999999,
+          "voice_speech_song": 28.144999999999992,
+          "voice_ensemble_config": 19.434999999999995,
           "voice_ornament_system": 4.975,
           "voice_pitch_organization": 3.6000000000000005,
           "voice_processing_chain": 3.6399999999999997,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "kayamba_fill": 1.9095,
-          "kayamba_technique": 4.29
+          "kayamba_technique": 5.29
         }
       },
       {

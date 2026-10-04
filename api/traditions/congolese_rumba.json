@@ -5,7 +5,7 @@
   "lineage": "1940s-1960s Congolese-Kinshasa-and-Brazzaville Cuban-rumba-influenced urban dance music — codified through Joseph Kabasele (Grand Kallé) and African Jazz (Indépendance Cha-Cha 1960, the de facto anthem of Congolese independence) and Luambo Makiadi (Franco) and OK Jazz; built on the GV series Cuban son 78 records that came to the Congo through Belgian colonial trade in the 1930s-40s, then reinterpreted through Congolese guitar-and-voice ensembles into a distinct genre",
   "recipe": "classic Central African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, breath veiled tone, straight onset, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
   "recipe_chars": 714,
-  "score": 304.285,
+  "score": 304.57,
   "config": {
     "traditions": [
       "congolese_rumba",
@@ -44,7 +44,7 @@
           "voice_tradition": 25.18749999999999,
           "voice_mechanism_compound": 4.745,
           "voice_estill_quality": 4.550000000000001,
-          "voice_speech_song": 31.455000000000005,
+          "voice_speech_song": 31.590000000000003,
           "voice_ensemble_config": 24.245000000000005,
           "voice_ornament_system": 1.3299999999999994,
           "voice_pitch_organization": 2.0250000000000004,
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.44000000000001,
+          "drum_technique": 27.590000000000007,
           "drumhead": 8.874999999999998,
           "drum_kit_kick_pedal": 0
         }

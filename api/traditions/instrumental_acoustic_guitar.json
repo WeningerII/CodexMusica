@@ -1,0 +1,66 @@
+{
+  "id": "instrumental_acoustic_guitar",
+  "name": "Instrumental acoustic guitar",
+  "family": "global",
+  "lineage": "Instrumental acoustic guitar brings melody, harmony and rhythmic movement into guitar-led compositions without sung text. Modern fingerstyle communities connect folk, jazz, popular and classical influences, with labels such as Candyrat supporting an international network of composers and performers.",
+  "recipe": "classic instrumental acoustic guitar, art Music. phosphor bronze bronze fingerpicked acoustic guitar. shoebox concert hall.",
+  "recipe_chars": 123,
+  "score": 5.518,
+  "config": {
+    "traditions": [
+      "instrumental_acoustic_guitar"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.7314999999999999,
+          "back_sides": 0.7549999999999999,
+          "string_acoustic": 1.4315,
+          "acoustic_om_technique": 2.6000000000000005
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "string_tuning": "standard_tuning",
+      "top_wood": "sitka_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_fingerpicked"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "id": "jt4000_micro",
+  "name": "JT-4000 Micro hybrid synthesizer",
+  "short": "JT-4000 hybrid synthesizer",
+  "family": "electronic",
+  "class": "jt4000_micro",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "description": "Four-voice hardware synthesizer with two digital analog-modelling oscillators per voice, analog filtering and a 12-bit output DAC. Touch keys, MIDI and an arpeggiator provide control; patch settings remain separately editable.",
+  "sources": [
+    "https://www.behringer.com/en/products/0722-ABR"
+  ],
+  "parts": [
+    {
+      "id": "jt4000_engine",
+      "name": "Generator architecture",
+      "variants": [
+        {
+          "id": "jt4000_hybrid_engine",
+          "name": "Digital analog-modelled oscillators through analog filter",
+          "default": true,
+          "descriptors": [
+            "digital",
+            "analog"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jt4000_oscillators",
+      "name": "Oscillator bank",
+      "variants": [
+        {
+          "id": "jt4000_two_per_voice",
+          "name": "Two analog-modelled oscillators per voice; waveform unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "jt4000_voice_count",
+      "name": "Voice allocation",
+      "variants": [
+        {
+          "id": "jt4000_four_voices",
+          "name": "Four-voice hardware polyphony",
+          "default": true,
+          "descriptors": [
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jt4000_dac",
+      "name": "Output conversion",
+      "variants": [
+        {
+          "id": "jt4000_twelve_bit_dac",
+          "name": "12-bit digital-to-analog output conversion",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "jt4000_filter",
+      "name": "Analog filter setting",
+      "variants": [
+        {
+          "id": "jt4000_filter_unspecified",
+          "name": "Analog filter; cutoff and resonance unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "jt4000_envelope",
+      "name": "Filter and amplifier envelopes",
+      "variants": [
+        {
+          "id": "jt4000_envelope_unspecified",
+          "name": "Filter/amplifier attack, decay, sustain and release settings unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "jt4000_gesture",
+      "name": "Playing or sequencing gesture",
+      "variants": [
+        {
+          "id": "jt4000_melodic_line",
+          "name": "Authored melodic line through touch keys or MIDI",
+          "default": true,
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ]
+        },
+        {
+          "id": "jt4000_arpeggio",
+          "name": "Authored arpeggiated pattern",
+          "default": false,
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jt4000_engine",
+      "name": "Generator architecture",
+      "variants": [
+        {
+          "id": "jt4000_hybrid_engine",
+          "name": "Digital analog-modelled oscillators through analog filter",
+          "default": true,
+          "descriptors": [
+            "digital",
+            "analog"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jt4000_oscillators",
+      "name": "Oscillator bank",
+      "variants": [
+        {
+          "id": "jt4000_two_per_voice",
+          "name": "Two analog-modelled oscillators per voice; waveform unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "jt4000_voice_count",
+      "name": "Voice allocation",
+      "variants": [
+        {
+          "id": "jt4000_four_voices",
+          "name": "Four-voice hardware polyphony",
+          "default": true,
+          "descriptors": [
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jt4000_dac",
+      "name": "Output conversion",
+      "variants": [
+        {
+          "id": "jt4000_twelve_bit_dac",
+          "name": "12-bit digital-to-analog output conversion",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "jt4000_filter",
+      "name": "Analog filter setting",
+      "variants": [
+        {
+          "id": "jt4000_filter_unspecified",
+          "name": "Analog filter; cutoff and resonance unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "jt4000_envelope",
+      "name": "Filter and amplifier envelopes",
+      "variants": [
+        {
+          "id": "jt4000_envelope_unspecified",
+          "name": "Filter/amplifier attack, decay, sustain and release settings unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "jt4000_gesture",
+      "name": "Playing or sequencing gesture",
+      "variants": [
+        {
+          "id": "jt4000_melodic_line",
+          "name": "Authored melodic line through touch keys or MIDI",
+          "default": true,
+          "descriptors": [
+            "lead",
+            "singing"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ]
+        },
+        {
+          "id": "jt4000_arpeggio",
+          "name": "Authored arpeggiated pattern",
+          "default": false,
+          "descriptors": [
+            "arpeggiated",
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic",
+            "arpeggio-decoration"
+          ]
+        }
+      ]
+    }
+  ]
+}

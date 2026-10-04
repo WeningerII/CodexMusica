@@ -64,10 +64,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 0.105
+          "software_sample_playback_identity": 0.105,
+          "software_sample_editing": 0
         }
       }
     ],
@@ -95,7 +97,8 @@
         "electronic_synthesis_sequencing_identity"
       ],
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ]
     },
     "room": "treated_studio",
@@ -133,7 +136,8 @@
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electronic_synthesis_sequencing_identity": "electronic_synthesis_sequencing_architecture_unspecified",
-      "software_sample_playback_identity": "software_sample_playback_digital"
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true
   }

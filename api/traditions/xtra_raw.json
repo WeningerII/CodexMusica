@@ -3,14 +3,14 @@
   "name": "Xtra Raw",
   "family": "electronic",
   "lineage": "A late-2010s Dutch offshoot of raw hardstyle, driven by producers such as Rebelion, Sub Sonik, Vertile and Sickmode on Gearbox and Dirty Workz — running 150-165 BPM with an extremely overdriven, screech-tailed reverse-bass kick, minor-key detuned lead screeches, heavy sidechained pumping, and drops whose energy comes from kick timbre and pitch bending rather than the euphoric melodies of classic hardstyle.",
-  "recipe": "classic 2017-2019 xtra raw, electronic Dance, hardstyle branch, techno electronic dance peak-time techno belgian techno. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. TR-909, low sub bass digital subtractive, low sub bass wavetable synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 510,
-  "score": 172.507,
+  "recipe": "classic 2017-2019 xtra raw, electronic Dance, hardstyle branch, techno electronic dance deep hardtechno peak-time techno. overdriven subglottal pressure, unrestrained, solo with instrumental accompaniment, single lead single track no stacking. TR-909, sub bass digital subtractive, sub bass wavetable synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 538,
+  "score": 64.947,
   "config": {
     "traditions": [
       "xtra_raw",
-      "peak_techno",
-      "belgian_techno"
+      "deep_hardtechno",
+      "peak_techno"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 2.5149999999999997,
-          "drum_machine_909_context": 2.08,
+          "tr909_voice": 1.265,
+          "drum_machine_909_context": 1.8850000000000002,
           "tr909_production_origin": 0.13499999999999998
         }
       },
@@ -34,9 +34,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.660000000000001,
+          "electronic_technique": 4.875000000000001,
           "va_archetypes": 0,
-          "digital_subtractive_context": 15.469999999999995
+          "digital_subtractive_context": 16.119999999999997
         }
       },
       {
@@ -48,8 +48,8 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 5.660000000000001,
-          "wt_position": 9.165000000000001,
+          "electronic_technique": 4.875000000000001,
+          "wt_position": 8.515,
           "wt_family": 0.345,
           "wt_polyphony": 1.24
         }
@@ -57,40 +57,42 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "flamenco_jondo_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_effort": "effort_overdriven_scream",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_tube_saturation",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 0.39,
-          "voice_quality": 5.46,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 1.7899999999999998,
-          "voice_articulation": 14.754999999999995,
-          "voice_microtone": 15.469999999999992,
-          "voice_tradition": 2.795,
-          "voice_mechanism_compound": 2.6649999999999996,
-          "voice_estill_quality": 2.4699999999999998,
-          "voice_speech_song": 16.444999999999993,
-          "voice_ensemble_config": 15.144999999999992,
-          "voice_ornament_system": 2.19,
-          "voice_pitch_organization": 2.400000000000001,
-          "voice_processing_chain": 17.715,
-          "voice_multitrack_stack": 9.23
+          "voice_effort": 1.2999999999999998,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.585,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.6649999999999996,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": -0.55,
+          "voice_multitrack_stack": 1.4949999999999999,
+          "voice_tessitura": 0
         }
       },
       {
@@ -102,13 +104,34 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
-          "sample_bitdepth": 0.5399999999999999,
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.39,
           "sample_swing": 16.855,
-          "sample_processing": 0.195
+          "sample_processing": 0.43499999999999994
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
     "room": "studio_auteur_home_pro",
     "archetype": "arch_festival_edm_itb",
     "inline_chain": {
@@ -128,6 +151,26 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_overdriven_scream",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "shouted_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_tube_saturation",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
     "chain_mic": "mic_sm7b_dynamic_shure",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_pumping",

@@ -5,7 +5,7 @@
   "lineage": "Música Sinaloense gathers popular repertoires associated with Sinaloa, including corridos, romantic song, norteño and guitar-led regional groups alongside the state’s celebrated wind bands. Contemporary artists connect local song traditions with pop-facing melodies and circulated recordings.",
   "recipe": "classic música sinaloense, functional Song. one note per syllable, solo with instrumental accompaniment. dreadnought acoustic guitar, accordion. live tracking.",
   "recipe_chars": 159,
-  "score": 7.278,
+  "score": 7.506,
   "config": {
     "traditions": [
       "musica_sinaloense"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.16899999999999998,
+          "voice_processing_chain": 0.35424999999999995,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 2.45,
+          "acoustic_technique": 2.49275,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,

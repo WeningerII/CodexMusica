@@ -1,5 +1,5 @@
 {
-  "count": 1667,
+  "count": 1671,
   "items": [
     {
       "id": "choir_ensemble",
@@ -10002,6 +10002,30 @@
       "name": "Dholki / nal",
       "family": "percussion",
       "href": "instruments/dholki_nal.json"
+    },
+    {
+      "id": "clarinet_section_bb_eb",
+      "name": "B-flat and E-flat clarinet section",
+      "family": "wind",
+      "href": "instruments/clarinet_section_bb_eb.json"
+    },
+    {
+      "id": "bajo_quinto",
+      "name": "Bajo quinto",
+      "family": "plucked_traditional",
+      "href": "instruments/bajo_quinto.json"
+    },
+    {
+      "id": "jt4000_micro",
+      "name": "JT-4000 Micro hybrid synthesizer",
+      "family": "electronic",
+      "href": "instruments/jt4000_micro.json"
+    },
+    {
+      "id": "software_virtual_analog_synth",
+      "name": "Software virtual-analog synthesizer",
+      "family": "electronic",
+      "href": "instruments/software_virtual_analog_synth.json"
     }
   ]
 }

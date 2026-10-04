@@ -49,10 +49,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "software_sample_playback_identity": 0,
+          "software_sample_editing": 0
         }
       }
     ],
@@ -71,7 +73,8 @@
         "sampler_classic_context"
       ],
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ]
     },
     "room": "treated_studio",
@@ -100,7 +103,8 @@
       "sampler_bit_depth": "sampler_sixteen_bit",
       "sampler_workflow": "sampler_loop_layered",
       "sampler_classic_context": "sampler_classic_edm",
-      "software_sample_playback_identity": "software_sample_playback_digital"
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",
