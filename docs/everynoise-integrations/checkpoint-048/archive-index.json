@@ -658,8 +658,64 @@
       "encoding": "gzip; exact original bytes",
       "original_bytes": 172,
       "compressed_bytes": 124
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/ancestry-review461.json",
+      "sha256": "1d84badba9b0a812a55073d54c5f7f071fed8689d2cba4b3718b391ce9885cb8",
+      "archive": "archives/1d84badba9b0a812a55073d54c5f7f071fed8689d2cba4b3718b391ce9885cb8.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 463,
+      "compressed_bytes": 310
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_app_parity.log",
+      "sha256": "80db2c72a09b3cbb65751eab2058dee2d0d9362844df8e6be5e8b8987749d515",
+      "archive": "archives/80db2c72a09b3cbb65751eab2058dee2d0d9362844df8e6be5e8b8987749d515.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 312,
+      "compressed_bytes": 202
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_edit_differential.log",
+      "sha256": "a9b72667c87cef4f152a7c8b4d312d8fde917bf6e849883114d69bd544be1975",
+      "archive": "archives/a9b72667c87cef4f152a7c8b4d312d8fde917bf6e849883114d69bd544be1975.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 65,
+      "compressed_bytes": 80
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_edit_parity.log",
+      "sha256": "6c23c08880b968a09a171a20e679cf5f02e0eb74c8ce108960069a43481be265",
+      "archive": "archives/6c23c08880b968a09a171a20e679cf5f02e0eb74c8ce108960069a43481be265.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 994,
+      "compressed_bytes": 555
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/evidence-format-final.log",
+      "sha256": "eb0e5d27d43d1cb2c15c26692f723d31fbc4a91078959efd7574dcff38547c6b",
+      "archive": "archives/eb0e5d27d43d1cb2c15c26692f723d31fbc4a91078959efd7574dcff38547c6b.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 80,
+      "compressed_bytes": 95
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-check-results.json",
+      "sha256": "0cf5d5d7b502ac015141721eb3963312fc413902ad346cb0ee633b1fda6d57c1",
+      "archive": "archives/0cf5d5d7b502ac015141721eb3963312fc413902ad346cb0ee633b1fda6d57c1.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 840,
+      "compressed_bytes": 221
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-driver.log",
+      "sha256": "b6c0ade0efe629ddb5733ada4b866eb832ffbfed85f29129cf6fa0a26cc15c5f",
+      "archive": "archives/b6c0ade0efe629ddb5733ada4b866eb832ffbfed85f29129cf6fa0a26cc15c5f.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 211,
+      "compressed_bytes": 132
     }
   ],
-  "records": 82,
+  "records": 89,
   "archive_hash_validation": "PASS"
 }

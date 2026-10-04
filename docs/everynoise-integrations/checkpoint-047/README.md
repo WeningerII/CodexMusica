@@ -1,6 +1,6 @@
 # Checkpoint 047
 
-**STATUS:** ACTED ON — source and generated artifacts frozen in draft PR489; historical checkpoint counts are preserved. Merge status is tracked separately.
+**STATUS:** SHIPPED — merged in PR489 at `2fda1a2d4991d4e5a139029a0422ba7080d3c130`; historical checkpoint counts are preserved.
 
 This candidate adds 27 reviewed genre profiles and one triple-fipple flute instrument, and applies 164 individually reviewed existing-profile repairs. The expected catalogue contains 6861 traditions and 1661 instruments. The original engine, schema and existing instrument definitions remain unchanged.
 
