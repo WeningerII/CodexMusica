@@ -1,0 +1,50 @@
+{
+  "id": "melbourne_bounce_international",
+  "name": "Melbourne Bounce International",
+  "family": "electronic",
+  "lineage": "Melbourne Bounce International connects the Melbourne-origin club sound with a wider network of touring DJs, remixes and festival releases. Australian contributors remain central alongside overseas producers, and the listening field overlaps electro house, big-room dance and adjacent harder styles.",
+  "recipe": "classic melbourne bounce international, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 118,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "melbourne_bounce_international"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

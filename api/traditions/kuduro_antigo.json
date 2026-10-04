@@ -1,0 +1,50 @@
+{
+  "id": "kuduro_antigo",
+  "name": "Kuduro Antigo",
+  "family": "electronic",
+  "lineage": "Kuduro antigo circulates older Angolan dance favourites through retrospective mixes and contemporary listening. The repertoire connects early Luanda producers and vocalists with subsequent generations and diaspora reinterpretations, rather than imposing one fixed decade or production technology.",
+  "recipe": "classic kuduro antigo, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 87,
+  "score": 0.063,
+  "config": {
+    "traditions": [
+      "kuduro_antigo"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Rave developed around collective electronic dance events and DJ culture, connecting acid house, techno, breakbeats and subsequent hard-dance scenes. Its late-1980s and 1990s British history sits within wider international club and sound-system exchanges, with later generations continually revisiting and reshaping the repertoire.",
   "recipe": "classic 1987-1989 rave, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 88,
-  "score": 0.063,
+  "score": 0.032,
   "config": {
     "traditions": [
       "rave"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0315
         }
       }
     ],

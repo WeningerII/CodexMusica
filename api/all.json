@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-04",
-  "count": 6806,
+  "count": 6834,
   "items": [
     {
       "id": "honky_tonk",
@@ -2108,15 +2108,15 @@
       "id": "polish_poezja_spiewana",
       "name": "Polish poezja śpiewana",
       "family": "global",
-      "recipe": "classic Central European mid-1950s polish poezja śpiewana, ballad Poetry, Slavic bard branch, chanson fado ballad poetry kundiman. thick, lament wail, slow rate, interlocked note trading. fingerpicked acoustic guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 509
+      "recipe": "classic Central European mid-1950s polish poezja śpiewana, ballad Poetry, Slavic bard branch, chanson fado ballad poetry chanson classique. thick, slow rate, interlocked note trading, equal tempered. low mid rich spectrum phosphor bronze bronze acoustic guitar, birch laminated maple laminated European spruce norway spruce European tradition grand piano. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 553
     },
     {
       "id": "czech_pisnicka",
       "name": "Czech písnička",
       "family": "global",
-      "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry kundiman. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 422
+      "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry chanson classique. thick, slow rate, interlocked note trading, equal tempered. low mid rich spectrum full phosphor bronze bronze acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 455
     },
     {
       "id": "south_slavic_kantautor",
@@ -11215,8 +11215,8 @@
       "id": "protovapor",
       "name": "Protovapor",
       "family": "electronic",
-      "recipe": "classic 2009-2011 protovapor, experimental Elec, retro aesthetic branch, lofi experimental electric, musique concrete experimental electric anime lo-fi latvian electronic. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, block chord tape replay keyboard, plucked short envelope analog poly synth, plucked short envelope digital subtractive, string machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 512
+      "recipe": "classic 2009-2011 protovapor, experimental Elec, retro aesthetic branch, lofi experimental electric, musique concrete experimental electric lo-fi product anime lo-fi. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, block chord tape replay keyboard, plucked short envelope analog poly synth, plucked short envelope digital subtractive, string machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 507
     },
     {
       "id": "british_folk_revival",
@@ -16500,8 +16500,8 @@
       "id": "outsider_house",
       "name": "Outsider House",
       "family": "electronic",
-      "recipe": "classic 2011-2015 outsider house, electronic Dance, lofi house branch, lofi experimental electric finnish electronic skweee. cheap paired with 303 chicago foundational TR-707, drum machine 606, analog mono synth, sampler drum machine, tape replay keyboard. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 364
+      "recipe": "classic 2011-2015 outsider house, electronic Dance, lofi house branch, lofi experimental electric finnish electronic. cheap paired with 303 chicago foundational TR-707, drum machine 606, analog mono synth, sampler drum machine, tape replay keyboard. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 357
     },
     {
       "id": "gospel_house",
@@ -16549,8 +16549,8 @@
       "id": "dark_folk",
       "name": "Dark Folk",
       "family": "vernacular",
-      "recipe": "classic North American 1984-1986 dark folk, ballad Poetry, britfolk branch, industrial noise experimental electric old school ebm futurepop. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, tubular bells, melodic straight piano accordion, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 733
+      "recipe": "classic North American 1984-1986 dark folk, ballad Poetry, britfolk branch, industrial noise experimental electric british industrial old school ebm. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, tubular bells, melodic straight piano accordion, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 742
     },
     {
       "id": "drone_folk",
@@ -18607,7 +18607,7 @@
       "id": "ritual_ambient",
       "name": "Ritual ambient",
       "family": "electronic",
-      "recipe": "classic modern ritual ambient, experimental Elec, ambient branch, industrial noise experimental electric death industrial italian industrial. interlocked note trading, neutral third half flat, opera quality low larynx anchored, ametrical pitched chant free rhythm. layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
+      "recipe": "classic modern ritual ambient, experimental Elec, ambient branch, industrial noise experimental electric death industrial british industrial. interlocked note trading, neutral third half flat, opera quality low larynx anchored, ametrical pitched chant free rhythm. layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
       "recipe_chars": 437
     },
     {
@@ -37171,8 +37171,8 @@
       "id": "indie_napoletano",
       "name": "Indie napoletano",
       "family": "vernacular",
-      "recipe": "classic indie napoletano, ballad Poetry, chanson fado branch. unprocessed natural acoustic. fingerpicked acoustic resonator guitar, electric bass, grand piano, pump organ harmonium, acoustic only no pickup mandolin, mountain dulcimer, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 343
+      "recipe": "classic indie napoletano, ballad Poetry, chanson fado branch. one note per syllable, unprocessed natural acoustic. fingerpicked acoustic resonator guitar, electric bass, grand piano, pump organ harmonium, acoustic only no pickup mandolin, mountain dulcimer, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 366
     },
     {
       "id": "indie_nordeste_argentino",
@@ -47645,6 +47645,202 @@
       "family": "vernacular",
       "recipe": "classic voetbal, functional Song. one note per syllable, solo with instrumental accompaniment. upright piano. live tracking.",
       "recipe_chars": 124
+    },
+    {
+      "id": "chill_phonk",
+      "name": "Chill Phonk",
+      "family": "hip_hop",
+      "recipe": "classic modern chill phonk, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment, chopped vocal sample rhythmic bed. sampler drum machine, sampler, credited sound effect unspecified. professional grade domestic 1980-present auteur-home-pro auteur home pro.",
+      "recipe_chars": 282
+    },
+    {
+      "id": "deep_progressive_rock",
+      "name": "Deep Progressive Rock",
+      "family": "rock",
+      "recipe": "classic deep progressive rock, distorted Rock, progressive rock branch. conversational, pure, equal tempered, solo with instrumental accompaniment. maple nickel plated steel nickel nickel plated steel single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, song supporting rock context neoprene rubber tips canonical Rhodes stage suitcase mid 1970s rhodes electric, Hammond b3 canonical 1955 1975 jazz gospel rock standard tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron. live tracking.",
+      "recipe_chars": 604
+    },
+    {
+      "id": "classic_k_pop",
+      "name": "Classic K-pop",
+      "family": "pop",
+      "recipe": "classic classic k-pop, functional Song, east Asian pop branch. upright piano. live tracking.",
+      "recipe_chars": 92
+    },
+    {
+      "id": "classic_turkish_pop",
+      "name": "Classic Turkish Pop",
+      "family": "pop",
+      "recipe": "classic classic turkish pop, functional Song, mid east n African pop branch. upright piano. live tracking.",
+      "recipe_chars": 106
+    },
+    {
+      "id": "vintage_spanish_pop",
+      "name": "Vintage Spanish Pop",
+      "family": "pop",
+      "recipe": "classic vintage spanish pop, functional Song. one note per syllable, solo with instrumental accompaniment. block chord upright piano. live tracking.",
+      "recipe_chars": 148
+    },
+    {
+      "id": "electro_bailando",
+      "name": "Electro Bailando",
+      "family": "electronic",
+      "recipe": "classic electro bailando, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 90
+    },
+    {
+      "id": "british_industrial",
+      "name": "British Industrial",
+      "family": "electronic",
+      "recipe": "classic british industrial, experimental Elec, industrial noise branch. dj playback mixing unspecified. treated studio.",
+      "recipe_chars": 119
+    },
+    {
+      "id": "christmas_product",
+      "name": "Christmas Product",
+      "family": "vernacular",
+      "recipe": "classic christmas product, functional Song. upright piano. parlor.",
+      "recipe_chars": 66
+    },
+    {
+      "id": "electrofox",
+      "name": "Electrofox",
+      "family": "electronic",
+      "recipe": "classic electrofox, functional Song. solo with instrumental accompaniment. single coil electric guitar, credited electronics unspecified. treated studio.",
+      "recipe_chars": 153
+    },
+    {
+      "id": "indie_triste",
+      "name": "Indie Triste",
+      "family": "pop",
+      "recipe": "classic indie triste, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar. parlor.",
+      "recipe_chars": 143
+    },
+    {
+      "id": "kuduro_antigo",
+      "name": "Kuduro Antigo",
+      "family": "electronic",
+      "recipe": "classic kuduro antigo, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 87
+    },
+    {
+      "id": "lo_fi_chill",
+      "name": "Lo-Fi Chill",
+      "family": "pop",
+      "recipe": "classic lo-fi chill, functional Song. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar. carpeted bedroom.",
+      "recipe_chars": 175
+    },
+    {
+      "id": "lo_fi_product",
+      "name": "Lo-Fi Product",
+      "family": "electronic",
+      "recipe": "classic lo-fi product, experimental Elec, lofi branch. credited beat unspecified. carpeted bedroom.",
+      "recipe_chars": 99
+    },
+    {
+      "id": "lo_fi_sleep",
+      "name": "Lo-Fi Sleep",
+      "family": "electronic",
+      "recipe": "classic lo-fi sleep, experimental Elec, lofi branch. credited beat unspecified. carpeted bedroom.",
+      "recipe_chars": 97
+    },
+    {
+      "id": "melbourne_bounce_international",
+      "name": "Melbourne Bounce International",
+      "family": "electronic",
+      "recipe": "classic melbourne bounce international, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 118
+    },
+    {
+      "id": "modern_bhajan",
+      "name": "Modern Bhajan",
+      "family": "vernacular",
+      "recipe": "classic modern bhajan, ritual Devotional, hindu branch. solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar, credited flute unspecified. live tracking.",
+      "recipe_chars": 195
+    },
+    {
+      "id": "modern_darkwave",
+      "name": "Modern Darkwave",
+      "family": "rock",
+      "recipe": "classic modern darkwave, functional Song. bass vi, credited synthesizer credited programmed drums unspecified. live tracking.",
+      "recipe_chars": 125
+    },
+    {
+      "id": "modern_goth",
+      "name": "Modern Goth",
+      "family": "rock",
+      "recipe": "classic modern goth, functional Song. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited synthesizer unspecified. live tracking.",
+      "recipe_chars": 218
+    },
+    {
+      "id": "nova_musica_maranhense",
+      "name": "Nova Música Maranhense",
+      "family": "vernacular",
+      "recipe": "classic nova música maranhense, functional Song, Brazilian song branch. solo with instrumental accompaniment. low mid rich spectrum cedar classical nylon-string guitar. live tracking.",
+      "recipe_chars": 183
+    },
+    {
+      "id": "old_school_bassline",
+      "name": "Old School Bassline",
+      "family": "electronic",
+      "recipe": "classic old school bassline, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 107
+    },
+    {
+      "id": "pixel",
+      "name": "Pixel",
+      "family": "pop",
+      "recipe": "classic pixel, functional Song. block chord upright piano. live tracking.",
+      "recipe_chars": 73
+    },
+    {
+      "id": "previa",
+      "name": "Previa",
+      "family": "electronic",
+      "recipe": "classic previa, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 80
+    },
+    {
+      "id": "psychokore",
+      "name": "Psychokore",
+      "family": "hip_hop",
+      "recipe": "classic psychokore, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. drum machine analog, analog mono synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "relaxative",
+      "name": "Relaxative",
+      "family": "classical",
+      "recipe": "classic relaxative, art Music. upright piano. live tracking.",
+      "recipe_chars": 60
+    },
+    {
+      "id": "romantico",
+      "name": "Romántico",
+      "family": "vernacular",
+      "recipe": "classic romántico, functional Song. upright piano. live tracking.",
+      "recipe_chars": 65
+    },
+    {
+      "id": "skinhead_oi",
+      "name": "Skinhead Oi",
+      "family": "rock_punk",
+      "recipe": "classic skinhead oi, distorted Rock, punk branch. one note per syllable, duet, live take. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 236
+    },
+    {
+      "id": "viet_remix",
+      "name": "Viet Remix",
+      "family": "electronic",
+      "recipe": "classic viet remix, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 98
+    },
+    {
+      "id": "vintage_chanson",
+      "name": "Vintage Chanson",
+      "family": "vernacular",
+      "recipe": "classic vintage chanson, ballad Poetry, chanson fado branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. upright piano. live tracking.",
+      "recipe_chars": 189
     }
   ]
 }

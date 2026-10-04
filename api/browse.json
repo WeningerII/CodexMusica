@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 6806,
+  "count": 6834,
   "items": [
     {
       "id": "honky_tonk",
@@ -240029,6 +240029,904 @@
         "Het Holland Hup Koor",
         "Red & White Crowd",
         "Lee Towers"
+      ]
+    },
+    {
+      "id": "chill_phonk",
+      "name": "Chill Phonk",
+      "family": "hip_hop",
+      "lineage": "Chill phonk names a mellower strand of internet phonk, linking lo-fi and trap-derived beats with sampled melodic material. Contemporary producers and sample libraries use the name across both relaxed, jazzy textures and darker, more forceful arrangements, within the wider circulation of phonk online.",
+      "parent": "mcRhythm",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "sampler_classic",
+        "credited_sound_effect_unspecified"
+      ],
+      "description": "Repeating sampled phrases, rounded programmed low end and a flexible rhythmic pocket support short vocal fragments. Jazz-colored loops and softened textures can coexist with dark effects and stronger drums; the name describes an adaptable listening mood rather than a fixed tempo or an exclusively instrumental format.",
+      "exemplars": [
+        "$werve",
+        "Seven Sounds"
+      ]
+    },
+    {
+      "id": "deep_progressive_rock",
+      "name": "Deep Progressive Rock",
+      "family": "rock",
+      "lineage": "Deep progressive rock is a practitioner-used designation within progressive and art rock. Atmospheric arrangements and shifting dynamics connect melodic songwriting with intricate rhythm, extended instrumental colours and contrasts between delicacy and weight.",
+      "parent": "distortedRock.progressiveRock",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "rhodes_electric",
+        "tonewheel_organ",
+        "mellotron"
+      ],
+      "description": "Clear singing and reverberant guitar arpeggios move across a dynamic bass-and-drum foundation. Electric piano, tonewheel organ and tape-replay keyboard colours fill the harmonic space, while changing textures and interlocking rhythms give the music an expansive, sometimes melancholy character.",
+      "exemplars": [
+        "HamaSaari"
+      ]
+    },
+    {
+      "id": "classic_k_pop",
+      "name": "Classic K-pop",
+      "family": "pop",
+      "lineage": "Classic K-pop gathers established Korean popular songs that remain familiar through covers, retrospective listening and new arrangements. The designation spans different historical selections: educational histories include earlier popular-song figures, while streaming research also identifies artists who began in the1990s and2000s.",
+      "parent": "functionalSong.eastAsianPop",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -2,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Memorable melodies and harmonic song structures connect lyrical ballads with rhythmic pop repertoire. Piano arrangements bring melodic contours and changing accompaniment into focus, carrying familiar songs beyond their original band or studio settings.",
+      "exemplars": [
+        "Yoo Jae-ha",
+        "Lee Moon-sae",
+        "Cho Yong-pil"
+      ]
+    },
+    {
+      "id": "classic_turkish_pop",
+      "name": "Classic Turkish Pop",
+      "family": "pop",
+      "lineage": "Classic Turkish pop revisits familiar popular songs through nostalgic concerts, reissues and new arrangements. Its repertoire crosses the aranjman era, Anatolian melodic influences and later Turkish songwriting, keeping older songs active in contemporary listening and performance.",
+      "parent": "functionalSong.midEastNAfricanPop",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -2,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Expressive melodies and clearly shaped song sections carry a repertoire that moves between reflective ballads and brighter rhythmic pop. Piano adaptations foreground the melodic line and supporting harmony, while band and orchestral renditions provide other colours within the same broad historical field.",
+      "exemplars": [
+        "Barış Manço",
+        "Ayten Alpman",
+        "Semiramis Pekkan"
+      ]
+    },
+    {
+      "id": "vintage_spanish_pop",
+      "name": "Vintage Spanish Pop",
+      "family": "pop",
+      "lineage": "Older Spanish popular-song culture connects stage entertainment, printed songs and commercial recordings. Cuplé, sentimental song and imported dance-song forms circulated through singers and publishers, while later revivals revisit that repertory in intimate and larger ensemble settings.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        -1,
+        0,
+        -1,
+        1,
+        -1,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "description": "Text-led singing carries romantic and theatrical expression over a clear chordal accompaniment. Voice and piano provide one compact setting; historical recordings also employ dance bands and orchestras, with varied rhythms and dramatic character.",
+      "exemplars": [
+        "Mario Visconti",
+        "Raquel Meller"
+      ]
+    },
+    {
+      "id": "electro_bailando",
+      "name": "Electro Bailando",
+      "family": "electronic",
+      "lineage": "Electro Bailando gathers Spanish-language Latin dance records around singers, DJs and producers. Electronic club rhythms meet melodic hooks, tropical dance influences and popular song, circulating through festivals, nightlife and remix communities.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Catchy Spanish vocal lines ride layered recorded dance rhythms. DJ selection and mixing sustain a lively floor pulse while singers address the audience, with tropical and urban-pop colours varying across the repertoire.",
+      "exemplars": [
+        "Juan Magán",
+        "Danny Romero",
+        "Kiko Rivera"
+      ]
+    },
+    {
+      "id": "british_industrial",
+      "name": "British Industrial",
+      "family": "electronic",
+      "lineage": "British industrial developed through DIY electronic experimentation, tape manipulation and confrontational performance in the1970s, with Sheffield and London networks central to its early circulation. Later musicians and selectors revisit that repertoire alongside its post-punk, electronic and dance continuations.",
+      "parent": "experimentalElec.industrialNoise",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Abrasive electronic textures, manipulated recordings and insistent rhythms connect a varied field ranging from noise experiments to song and dance forms. Retrospective mixed programmes are one way musicians present its continuing influence.",
+      "exemplars": [
+        "Cabaret Voltaire",
+        "Throbbing Gristle",
+        "Test Dept"
+      ]
+    },
+    {
+      "id": "christmas_product",
+      "name": "Christmas Product",
+      "family": "vernacular",
+      "lineage": "Christmas Product is a seasonal recording field gathering familiar holiday songs, carols and purpose-made festive listening. Commercial catalogues circulate vocal and instrumental versions across styles, from family singalongs to piano arrangements.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Recognizable seasonal melodies receive clear harmonic accompaniment and approachable phrasing. Piano versions form one branch of a varied catalogue that also includes singers, ensembles and dance-oriented holiday records.",
+      "exemplars": [
+        "Joshua David Harris",
+        "Christmas Piano Music",
+        "Mistletoe Singers"
+      ]
+    },
+    {
+      "id": "electrofox",
+      "name": "Electrofox",
+      "family": "electronic",
+      "lineage": "Electrofox gathers an indie-electronic listening community around songcraft, club-oriented production and new-wave affinities. Its artists connect independent bands, remix culture and electronic pop across French and international networks.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "credited_electronics_unspecified"
+      ],
+      "description": "Sung hooks and layered voices meet guitar figures and electronically constructed rhythms and textures. A clear studio sound can retain the character of an indie song while inviting dance-floor remixes.",
+      "exemplars": [
+        "Slove",
+        "Yuksek",
+        "Housse de Racket"
+      ]
+    },
+    {
+      "id": "indie_triste",
+      "name": "Indie Triste",
+      "family": "pop",
+      "lineage": "Indie triste gathers Spanish-language independent songs of longing, loss and intimate reflection. Home-grown singer-songwriter practices and online circulation connect acoustic folk-rooted performers with a wider range of restrained pop and alternative productions.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        -1,
+        1,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "A close singing voice and spare guitar figures can carry vulnerable words and recurring melodic ideas. Unhurried phrasing, space between attacks and a restrained texture give the acoustic branch its inward quality.",
+      "exemplars": [
+        "Kevin Kaarl",
+        "Daniel Quién",
+        "Ed Maverick"
+      ]
+    },
+    {
+      "id": "kuduro_antigo",
+      "name": "Kuduro Antigo",
+      "family": "electronic",
+      "lineage": "Kuduro antigo circulates older Angolan dance favourites through retrospective mixes and contemporary listening. The repertoire connects early Luanda producers and vocalists with subsequent generations and diaspora reinterpretations, rather than imposing one fixed decade or production technology.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Brisk electronic percussion, forceful vocal phrases and recurring dance hooks drive the music. Retrospective DJ selections bring older favourites into dialogue with later kuduro and diaspora dance records, preserving their changing voices and production textures.",
+      "exemplars": [
+        "Sebem",
+        "Tony Amado",
+        "Os Lambas",
+        "DJ Marfox"
+      ]
+    },
+    {
+      "id": "lo_fi_chill",
+      "name": "Lo-Fi Chill",
+      "family": "pop",
+      "lineage": "Lo-fi chill connects intimate internet songwriting with mellow hip-hop and pop production. Singers and producers exchange emotionally direct songs through online collaborations, with acoustic writing, soft beats and sampled voices forming overlapping strands.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Quietly delivered melodies and personal lyrics sit over simple guitar figures or softly layered beats. The acoustic songwriting branch keeps words and recurring melodic phrases close, while fuller productions add sampled material, electronic rhythms and collaborators.",
+      "exemplars": [
+        "Snøw",
+        "Ondi Vil",
+        "Monty Datta"
+      ]
+    },
+    {
+      "id": "lo_fi_product",
+      "name": "Lo-Fi Product",
+      "family": "electronic",
+      "lineage": "Lo-fi product is a discovery grouping around commercially circulated lo-fi listening catalogues, producer aliases and playlist brands. Independent beat makers and collaborative labels supply relaxed tracks for everyday listening, with original pieces, reinterpretations and purpose-led releases sharing the field.",
+      "parent": "experimentalElec.lofi",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        -1,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "credited_beat_unspecified"
+      ],
+      "description": "Produced beats and repeating textures support unobtrusive listening. Some catalogues emphasize mellow instrumental remakes, while others connect lo-fi hip-hop with sleep, study and other daily activities; no single production device or instrument lineup defines the whole grouping.",
+      "exemplars": [
+        "Lofi Fruits Music",
+        "lofi geek",
+        "Lofi Sleep"
+      ]
+    },
+    {
+      "id": "lo_fi_sleep",
+      "name": "Lo-Fi Sleep",
+      "family": "electronic",
+      "lineage": "Lo-fi sleep gathers gentle beat producers and listening communities around rest and quiet background listening. Short, restrained productions extend the relaxed side of lo-fi culture, with soft rhythmic repetition and uncluttered texture rather than a single compulsory instrument lineup.",
+      "parent": "experimentalElec.lofi",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        -2,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "credited_beat_unspecified"
+      ],
+      "description": "Calm produced beats provide an understated pulse and space for repeated textures. Low intensity and a close listening scale support a restful atmosphere; melodic sources and production methods vary between makers.",
+      "exemplars": [
+        "feelith.",
+        "Eamon Lee",
+        "Retrospectivous"
+      ]
+    },
+    {
+      "id": "melbourne_bounce_international",
+      "name": "Melbourne Bounce International",
+      "family": "electronic",
+      "lineage": "Melbourne Bounce International connects the Melbourne-origin club sound with a wider network of touring DJs, remixes and festival releases. Australian contributors remain central alongside overseas producers, and the listening field overlaps electro house, big-room dance and adjacent harder styles.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Punchy four-beat rhythms, bouncing bass and sharply cut hooks drive energetic club sets. DJ selections can move between Melbourne bounce, hard electro and big-room tracks, carrying recorded vocal and instrumental layers through bold transitions.",
+      "exemplars": [
+        "Slice N Dice",
+        "Matt Watkins",
+        "Uberjak’d",
+        "B3nte"
+      ]
+    },
+    {
+      "id": "modern_bhajan",
+      "name": "Modern Bhajan",
+      "family": "vernacular",
+      "lineage": "Modern bhajan brings Hindu devotional song into contemporary independent releases, music videos and streaming communities. Traditional praise texts and recurring invocations meet acoustic songwriting, amplified arrangements, electronic production and devotional rap.",
+      "parent": "ritualDevotional.hindu",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "credited_flute_unspecified"
+      ],
+      "description": "Devotional singing carries repeated names, refrains and melodic ornament through intimate acoustic settings and contemporary produced tracks. Guitar figures and flute responses support one gentle song-led branch, while the wider listening community also includes beats, rock textures and rap.",
+      "exemplars": [
+        "Agam Aggarwal",
+        "Hansraj Raghuwanshi",
+        "Narci"
+      ]
+    },
+    {
+      "id": "modern_darkwave",
+      "name": "Modern Darkwave",
+      "family": "rock",
+      "lineage": "A contemporary continuation and revival of darkwave, connecting post-punk songwriting with electronic dance pulses and gothic atmosphere. International club, festival and independent-label networks carry newer groups alongside the older darkwave repertoire.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "bass_vi",
+        "credited_synthesizer_unspecified",
+        "credited_programmed_drums_unspecified"
+      ],
+      "description": "Melancholic melodic vocals, articulated low-string lines and contrasting synthesizer textures sit above programmed dance pulses. Song-led band arrangements coexist with sparse electronic productions, noisier textures and club remixes.",
+      "exemplars": [
+        "Ash Code",
+        "Hapax",
+        "Geometric Vision"
+      ]
+    },
+    {
+      "id": "modern_goth",
+      "name": "Modern Goth",
+      "family": "rock",
+      "lineage": "Contemporary goth develops the post-punk and gothic-rock repertoire through active bands, independent releases, club audiences and international touring. Younger groups draw on earlier atmospheric rock and synth-pop while bringing new songwriting, social perspectives and production approaches.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_synthesizer_unspecified"
+      ],
+      "description": "Melodic vocals, prominent bass and rhythmic guitars combine with drums and electronic colour. Danceable momentum can sit beside melancholy, theatrical or politically engaged lyrics; guitar-led bands and more electronic arrangements share the contemporary goth circuit.",
+      "exemplars": [
+        "Vision Video",
+        "Ash Code",
+        "Nox Novacula"
+      ]
+    },
+    {
+      "id": "nova_musica_maranhense",
+      "name": "Nova Música Maranhense",
+      "family": "vernacular",
+      "lineage": "Nova música maranhense connects contemporary songwriters, bands and producers from Maranhão through festivals, recordings and local performance networks. Their work draws on regional song and dance traditions while engaging with wider Brazilian popular music.",
+      "parent": "functionalSong.brazilianSong",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "description": "An acoustic song branch places expressive melodic singing over a repeating guitar accompaniment. Other artists expand the regional repertoire through bands, electronic production and collaborations, bringing local imagery and rhythms into varied contemporary settings.",
+      "exemplars": [
+        "Núbia",
+        "Phill Veras",
+        "Chico Nô"
+      ]
+    },
+    {
+      "id": "old_school_bassline",
+      "name": "Old School Bassline",
+      "family": "electronic",
+      "lineage": "Old school bassline revisits the northern-English and Midlands club records that connected speed garage, four-to-the-floor beats, organ hooks and weighty bass movement. Niche-era DJs and subsequent reunion nights keep this repertoire circulating alongside newer bassline styles.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Bouncing bass figures, bright organ or vocal hooks and driving four-beat rhythms carry a communal dance-floor sound. DJ mixes preserve the contrast between darker garage-derived tracks and more melodic, house-leaning records; vocal and MC material varies across the repertoire.",
+      "exemplars": [
+        "DJ Q",
+        "Shaun Banger Scott",
+        "Jamie Duggan",
+        "Big Ang"
+      ]
+    },
+    {
+      "id": "pixel",
+      "name": "Pixel",
+      "family": "pop",
+      "lineage": "Online fan-song creators build original songs, parodies and arrangements around games, internet characters and shared fictional worlds. The Pixel discovery field connects catchy pop writing, playful storytelling and digitally circulated reinterpretations across these communities.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Memorable melodic hooks and clear chordal support carry songs associated with games and online fandom. Piano arrangements bring those melodies into an acoustic setting, alongside the field’s sung and electronically produced versions.",
+      "exemplars": [
+        "Derivakat",
+        "CG5",
+        "Amanda Fagan"
+      ]
+    },
+    {
+      "id": "previa",
+      "name": "Previa",
+      "family": "electronic",
+      "lineage": "Previa connects pre-party listening with a circulating repertoire of Latin dance edits, remixes and DJ sets. Familiar pop and urban hooks are recombined with cumbia, reggaeton and other club rhythms, moving between home gatherings, online releases and dancing.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Short recognisable hooks, rhythmic transitions and contrasting remixes keep the programme moving. DJs may connect cumbia, RKT, reggaeton and pop versions within one set, while recorded vocals and changing backing textures remain part of the mixed selections.",
+      "exemplars": [
+        "DJ Lauuh",
+        "DJ Roma",
+        "Dani Cejas"
+      ]
+    },
+    {
+      "id": "psychokore",
+      "name": "Psychokore",
+      "family": "hip_hop",
+      "lineage": "Psychokore is a German horror-rap branch associated with Blokkmonsta, Hirntot and related underground artists. Its deliberately theatrical narratives connect horrorcore with a stripped electronic sound drawing on Dirty South and EBM.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_analog",
+        "analog_mono_synth"
+      ],
+      "description": "Minimal electronic percussion and low synthesizer figures leave space for forceful narrative rap. Beats range from fast propulsion to slow menace, while fictional characters and exaggerated violence shape the storytelling. Collaborations connect the scene with wider German underground rap.",
+      "exemplars": [
+        "Blokkmonsta",
+        "Hirntot Posse",
+        "Perverz"
+      ]
+    },
+    {
+      "id": "relaxative",
+      "name": "Relaxative",
+      "family": "classical",
+      "lineage": "Relaxative groups gentle listening repertoire across contemporary piano, instrumental covers, lounge and atmospheric electronic music. Streaming discovery brings these different traditions together around relaxed listening rather than a single historical ensemble or technique.",
+      "parent": "artMusic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Clear melodic lines, softened dynamics and unhurried textures provide a calm listening character. Acoustic piano and guitar sit alongside jazz-derived arrangements and electronic mixes; this profile represents the composed solo-piano branch.",
+      "exemplars": [
+        "Martin Jacoby",
+        "Michael Marc",
+        "Piano Novel"
+      ]
+    },
+    {
+      "id": "romantico",
+      "name": "Romántico",
+      "family": "vernacular",
+      "lineage": "Romántico gathers instrumental interpretations of romantic songs and familiar melodies, especially Latin American boleros and popular standards. Piano, guitar, harp, saxophone and light-orchestra recordings share this listening field, carrying recognizable song melodies across different instrumental colours.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Familiar melodies sing through measured piano phrases and warm chordal support. Boleros, sentimental songs and international standards appear in intimate instrumental versions alongside fuller ensemble arrangements.",
+      "exemplars": [
+        "Pedro “Periquin” Castro",
+        "John Pazos and His Bolero Orchestra",
+        "Jorge Zapata"
+      ]
+    },
+    {
+      "id": "skinhead_oi",
+      "name": "Skinhead Oi",
+      "family": "rock_punk",
+      "lineage": "Skinhead Oi connects the street-punk tradition with skinhead audiences, bands and independent labels. Its continuing international community draws on older British and French Oi while sustaining direct songwriting, communal refrains and small-venue live performance.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        -1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Distorted guitar riffs, firm electric bass and a forceful drum backbeat support plainly delivered verses and memorable sung refrains. Lead and supporting voices can trade lines or join together; different bands retain melodic leads, rock-and-roll inflections or a harder punk attack.",
+      "exemplars": [
+        "Last Crusade",
+        "Crown Court"
+      ]
+    },
+    {
+      "id": "viet_remix",
+      "name": "Viet Remix",
+      "family": "electronic",
+      "lineage": "Viet remix circulates Vietnamese songs in remixed dance versions, nonstop DJ programmes and online listening communities. Pop ballads and older sentimental repertoire can acquire energetic electronic arrangements, while Vinahouse club practice forms a prominent overlapping branch.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "description": "Recognizable Vietnamese melodies and recorded vocals ride driving electronic rhythms and repeating dance hooks. Continuous mixes connect remade songs through transitions, while individual remixes range from club-oriented arrangements to faster social-media edits.",
+      "exemplars": [
+        "DJ Cannabin",
+        "Thế Phương VBK",
+        "DJ Thành Tu"
+      ]
+    },
+    {
+      "id": "vintage_chanson",
+      "name": "Vintage Chanson",
+      "family": "vernacular",
+      "lineage": "Vintage chanson gathers older French-language popular song from café-concert, cabaret, music hall and early recording culture. Comic portraits, sentimental melodies and dramatic narratives foreground the singer and the text, with accompaniment ranging from piano to small bands and orchestras.",
+      "parent": "balladPoetry.chansonFado",
+      "axes": [
+        1,
+        1,
+        -1,
+        0,
+        -1,
+        1,
+        -1,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "description": "Text-led solo singing carries humorous scenes, intimate sentiment and social observation. In the piano-accompanied branch, clear declamation and chordal support leave space for verbal inflection and changing dramatic character.",
+      "exemplars": [
+        "Berthe Sylva",
+        "Lucienne Boyer",
+        "Fréhel",
+        "Maurice Chevalier"
       ]
     }
   ]

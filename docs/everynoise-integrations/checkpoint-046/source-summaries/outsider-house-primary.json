@@ -1,0 +1,16 @@
+{
+  "status": "PUBLIC_PARAPHRASED_SOURCE_SUMMARY_LOCAL_RAW_PRESERVED",
+  "original_raw_sha256": "9744eb1f0037fc5c64d22bebec766a355a91ab65036cb6248ba05224308a90da",
+  "original_raw_bytes": 5940,
+  "sources": [
+    {
+      "url": "https://legowelt.org/723-2/",
+      "finding": "Legowelt describes the Pro-One as an analog monophonic synthesizer, discusses its bass capabilities, and includes his own performance. This supports a deliberately authored low monophonic-synth role; it does not identify equipment on a particular Outsider House recording."
+    },
+    {
+      "url": "https://legowelt.org/512-2/",
+      "finding": "The artist discusses an analog synthesizer and demonstrates his own playing. This corroborates his use of synthesis without establishing a universal genre configuration."
+    }
+  ],
+  "publication_policy": "Full third-party webpage/tool-response text remains local and is excluded from the public archive. The original qualification hashes and musical data are unchanged."
+}
