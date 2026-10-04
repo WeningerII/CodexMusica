@@ -1,0 +1,117 @@
+{
+  "id": "octapad_unspecified",
+  "name": "Octapad multipad percussion (model and sound routing unspecified)",
+  "short": "Octapad multipad percussion",
+  "family": "electronic",
+  "class": "octapad_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "description": "Positive Octapad multipad percussion role. Eight-trigger product-family layout; source model, surface material, generator, presets and external routing unknown. Independent physical layout, authored strike gesture and generator-uncertainty controls preserve what is known without turning the source into a drum kit or asserting SPD30 internal sound bank. Neutral axes are editorial placeholders, not acoustic measurements.",
+  "sources": [
+    "https://laranchada.com.ar/los-girasoles-lanzan-propuesta-para-el-mes-de-la-madre-y-reflexionan-sobre-la-crisis-en-la-musica-y-la-irrupcion-de-la-ia/",
+    "https://articles.roland.com/redefining-rhythm-a-history-of-roland-drums/"
+  ],
+  "parts": [
+    {
+      "id": "octapad_unspecified_layout",
+      "name": "Documented multipad layout",
+      "variants": [
+        {
+          "id": "octapad_unspecified_eight_pad_layout",
+          "name": "Eight-trigger Octapad layout; exact model and pad material unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "octapad_unspecified_playing",
+      "name": "Authored trigger gesture",
+      "variants": [
+        {
+          "id": "octapad_unspecified_stick_strikes",
+          "name": "Authored live stick-struck pad gesture; source strokes unspecified",
+          "default": true,
+          "descriptors": [
+            "sticks",
+            "struck"
+          ],
+          "match_tokens": [
+            "sticks",
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octapad_unspecified_sound_routing",
+      "name": "Sound-source and routing uncertainty",
+      "variants": [
+        {
+          "id": "octapad_unspecified_generator_unknown",
+          "name": "Internal or external sound generator and presets undocumented",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "octapad_unspecified_layout",
+      "name": "Documented multipad layout",
+      "variants": [
+        {
+          "id": "octapad_unspecified_eight_pad_layout",
+          "name": "Eight-trigger Octapad layout; exact model and pad material unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "octapad_unspecified_playing",
+      "name": "Authored trigger gesture",
+      "variants": [
+        {
+          "id": "octapad_unspecified_stick_strikes",
+          "name": "Authored live stick-struck pad gesture; source strokes unspecified",
+          "default": true,
+          "descriptors": [
+            "sticks",
+            "struck"
+          ],
+          "match_tokens": [
+            "sticks",
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octapad_unspecified_sound_routing",
+      "name": "Sound-source and routing uncertainty",
+      "variants": [
+        {
+          "id": "octapad_unspecified_generator_unknown",
+          "name": "Internal or external sound generator and presets undocumented",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

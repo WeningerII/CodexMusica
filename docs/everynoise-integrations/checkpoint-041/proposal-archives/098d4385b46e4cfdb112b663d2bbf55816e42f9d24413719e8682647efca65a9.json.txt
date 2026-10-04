@@ -1,0 +1,2565 @@
+{
+  "entries": [
+    {
+      "source_label": "pop flamenco",
+      "source_url": "https://everynoise.com/engenremap-popflamenco.html",
+      "suggested_id": "pop_flamenco",
+      "allocation_ordinal": 1839,
+      "allocation_group_id": "074",
+      "id": "pop_flamenco",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "pop_flamenco",
+        "name": "Pop Flamenco",
+        "family": "pop",
+        "lineage": "Pop flamenco brings flamenco-inflected expression into accessible Spanish popular-song writing and production.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Melodic hooks and expressive lead singing connect ballads and danceable material. Acoustic treatments may use piano or guitar accompaniment; the popular-song emphasis overlaps the wider Nuevo Flamenco fusion movement without defining a fixed compás for every song.",
+        "exemplars": [
+          "Niña Pastori",
+          "India Martínez"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        36.7213,
+        -4.4214,
+        "Málaga",
+        "Europe"
+      ],
+      "geo_rationale": "Artist own profile explicitly Málaga/Marbella and Costa del Sol; Málaga is the disclosed editorial practice anchor, not a recording location or exclusive genre origin.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Pop Flamenco is the positively named popular-song crossover and circulation field, with substantial overlap with Nuevo Flamenco, traditional flamenco artists and Spanish pop. It is not defined by a supposedly disjoint artist list or by this duo instrumentation. A contemporaneous1994 Music and Media firsthand interview with Compadres publisher Adrian Vogel explicitly distinguishes pop-flamenco popular-audience arrangements/production from the broader tradition-led Nuevo Flamenco innovation; Nuevos Medios founder Mario Pacheco discusses the overlapping movement, and the article itself identifies Rosario material crossing both. This is a documented practical distinction, not a timeless purity boundary or a claim Nuevo Flamenco excludes pop. The current duo expressly uses pop-flamenco for its acoustic popular repertoire, and the exact creator category includes its named repertoire artists Niña Pastori, Antonio Orozco, India Martínez, Vanesa Martín and Estopa. The duo itself is not claimed to appear in the creator sample. Full old nuevo_flamenco already includes pop production/jazz/Latin fusion; old flamenco itself distinguishes later pop/fusion from cante-foreground traditional practice. Spanish popular-song fields remain overlapping broader contexts. The new entry represents the explicitly named popular-song branch rather than rewriting the broader old fusion field or defining it as strictly noncommercial.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish the category. Current parent functionalSong places the representative genre practice; earlier narrow-edition placement is historical evidence only.",
+      "model_policy": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription. Current representative roles: voice, upright_piano. Unknown source construction and performer physiology remain unspecified. The actual current owning-control audit governs this new genre model; historical exact edition claims do not.",
+      "source_scope_limitation": "Earlier exact performance/edition scope is preserved in format_repair.historical_source_audits and before. The current defaults represent the documented genre branch, not a transcription or exhaustive personnel count of that object.",
+      "source_retrieval_caveat": "Whole artist-defined booking practice, no claimed actual event/audio audition. Contemporary source first-person booking text fresh direct; historical primary interview fullindexed article retrieved but direct PDF403. Creator full map read; performer duo absent and exact repertoire-member bridge distinguished.",
+      "sources": [
+        {
+          "url": "https://www.espectaculosmf.es/julia-gaz/",
+          "title": "Artist first-person full duo practice",
+          "support_notes": "555647view0 full source lines56/89 voice+piano,92 repertoire artists,112/118 whole40plus-song/up-to-two-hour practice,124 explicit pop-flamenco ballad/dance range,129 locality.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.worldradiohistory.com/UK/Music-and-Media/90s/1994/MM-1994-04-02.pdf",
+          "title": "Contemporaneous firsthand publisher interviews, printed page15",
+          "support_notes": "785139search1 full indexed article by Terry Berne; Adrian Vogel and Mario Pacheco distinguish popular-audience pop-flamenco circulation from overlapping Nuevo Flamenco innovation. Direct403 disclosed; no universal artist exclusion.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-popflamenco.html",
+          "title": "Exact creator full category map",
+          "support_notes": "862887view1 full map contains named repertoire artists, and overlaps traditional/Nuevo Flamenco figures; no exclusive roster claim.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn555647view0",
+        "turn785139search1",
+        "turn862887view1"
+      ],
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_solo_accompanied",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "upright_piano": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "upright_piano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "verification_status": "Pending independent source/mechanical/render peer.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pop_flamenco",
+          "name": "Pop Flamenco",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not the duo, piano or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh952183view2 confirms original IainFergusson/Binksternet crop CC BY2.5. Historical023 byte and visual receipts unchanged.",
+          "fresh_review_ref": "turn952183view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn952183view2"
+        ],
+        "fresh_rights_review": "Fresh952183view2 rights/context only; no new byte or visual claim."
+      },
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-20.json",
+        "original_sha256": "65ba586382e61bc54b66d87adb672995d6316460a553f9ba4b67ab05cc7c14f2",
+        "before": {
+          "tradition": {
+            "id": "pop_flamenco",
+            "name": "Pop Flamenco",
+            "family": "pop",
+            "lineage": "Julia Gaz and Claudia de la Torre — whole current artist-described acoustic duo practice, voice and piano. Their first-person booking profile explicitly defines the complete two-person formation, more than40 Spanish-language hits, and a flexible performance of up to two hours. Julia sings and Claudia plays piano; one singer, one pianist. This selects the whole offered duo configuration, not an invented extraction from a larger produced master or a claim that an individual booking occurred. The repertoire spans pop-flamenco and Spanish pop from ballads to danceable material; all of that mixed programme remains included. Exact piano architecture, vocal register, score voicings, source tempo and realized setlist remain unknown. Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred.",
+            "instruments": [
+              "voice",
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Julia Gaz and Claudia de la Torre — whole current artist-described acoustic duo practice, voice and piano. Their first-person booking profile explicitly defines the complete two-person formation, more than40 Spanish-language hits, and a flexible performance of up to two hours. Julia sings and Claudia plays piano; one singer, one pianist. This selects the whole offered duo configuration, not an invented extraction from a larger produced master or a claim that an individual booking occurred. The repertoire spans pop-flamenco and Spanish pop from ballads to danceable material; all of that mixed programme remains included. Exact piano architecture, vocal register, score voicings, source tempo and realized setlist remain unknown. Pop Flamenco is the positively named popular-song crossover and circulation field, with substantial overlap with Nuevo Flamenco, traditional flamenco artists and Spanish pop. It is not defined by a supposedly disjoint artist list or by this duo instrumentation. A contemporaneous1994 Music and Media firsthand interview with Compadres publisher Adrian Vogel explicitly distinguishes pop-flamenco popular-audience arrangements/production from the broader tradition-led Nuevo Flamenco innovation; Nuevos Medios founder Mario Pacheco discusses the overlapping movement, and the article itself identifies Rosario material crossing both. This is a documented practical distinction, not a timeless purity boundary or a claim Nuevo Flamenco excludes pop. The current duo expressly uses pop-flamenco for its acoustic popular repertoire, and the exact creator category includes its named repertoire artists Niña Pastori, Antonio Orozco, India Martínez, Vanesa Martín and Estopa. The duo itself is not claimed to appear in the creator sample. Full old nuevo_flamenco already includes pop production/jazz/Latin fusion; old flamenco itself distinguishes later pop/fusion from cante-foreground traditional practice. Spanish popular-song fields remain overlapping broader contexts. The new entry represents the explicitly named popular-song branch rather than rewriting the broader old fusion field or defining it as strictly noncommercial. Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred.",
+            "exemplars": [
+              "Julia Gaz & Claudia de la Torre — complete advertised acoustic pop-flamenco/Spanish-pop duo practice"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "voice_articulation_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_solo_accompanied"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_single_lead"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "upright_piano",
+              "keyboard_technique",
+              "keyboard_classical_legato"
+            ],
+            [
+              "upright_piano",
+              "upright_use",
+              "upright_studio"
+            ],
+            [
+              "upright_piano",
+              "upright_piano_size",
+              "upright_piano_standard"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-004-parity.json",
+          "semantic_review": "All four full outputs read. Pop Flamenco retains a legitimate brisk acoustic duo branch without cante-jondo physiology claims. Pop Urbaine new sung/beat branch deliberately uses self-assured conversational melody and brisk beat (smug lexical affect), not original artist personality or exact production. Sambalpuri and Thai Indie retain lively band gestures, neutral keyboard where present, full voice flexibility and no unrelated cultural prefaces. New genre rendition supersedes older source-specific roster audit, which remains evidence rather than current defaults."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Julia Gaz and Claudia de la Torre — whole current artist-described acoustic duo practice, voice and piano. Their first-person booking profile explicitly defines the complete two-person formation, more than40 Spanish-language hits, and a flexible performance of up to two hours. Julia sings and Claudia plays piano; one singer, one pianist. This selects the whole offered duo configuration, not an invented extraction from a larger produced master or a claim that an individual booking occurred. The repertoire spans pop-flamenco and Spanish pop from ballads to danceable material; all of that mixed programme remains included. Exact piano architecture, vocal register, score voicings, source tempo and realized setlist remain unknown.",
+            "roles": {
+              "voice": "Julia Gaz sings",
+              "upright_piano": "Claudia de la Torre piano; upright subtype authored"
+            },
+            "authored_defaults": "Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred."
+          },
+          "vocal_count_audit": {
+            "selected_singers": 1,
+            "selected_people": 2,
+            "decision": "One singer Julia Gaz and one pianist Claudia de la Torre; phrase both female describes two people, not two singers."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred."
+            },
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_classical_legato",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "All20 applicable owning controls protected; no shared-key conflict or fallback."
+          },
+          "model_policy": "Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred.",
+          "source_scope_limitation": "Julia Gaz and Claudia de la Torre — whole current artist-described acoustic duo practice, voice and piano. Their first-person booking profile explicitly defines the complete two-person formation, more than40 Spanish-language hits, and a flexible performance of up to two hours. Julia sings and Claudia plays piano; one singer, one pianist. This selects the whole offered duo configuration, not an invented extraction from a larger produced master or a claim that an individual booking occurred. The repertoire spans pop-flamenco and Spanish pop from ballads to danceable material; all of that mixed programme remains included. Exact piano architecture, vocal register, score voicings, source tempo and realized setlist remain unknown.",
+          "classification_evidence": "Pop Flamenco is the positively named popular-song crossover and circulation field, with substantial overlap with Nuevo Flamenco, traditional flamenco artists and Spanish pop. It is not defined by a supposedly disjoint artist list or by this duo instrumentation. A contemporaneous1994 Music and Media firsthand interview with Compadres publisher Adrian Vogel explicitly distinguishes pop-flamenco popular-audience arrangements/production from the broader tradition-led Nuevo Flamenco innovation; Nuevos Medios founder Mario Pacheco discusses the overlapping movement, and the article itself identifies Rosario material crossing both. This is a documented practical distinction, not a timeless purity boundary or a claim Nuevo Flamenco excludes pop. The current duo expressly uses pop-flamenco for its acoustic popular repertoire, and the exact creator category includes its named repertoire artists Niña Pastori, Antonio Orozco, India Martínez, Vanesa Martín and Estopa. The duo itself is not claimed to appear in the creator sample. Full old nuevo_flamenco already includes pop production/jazz/Latin fusion; old flamenco itself distinguishes later pop/fusion from cante-foreground traditional practice. Spanish popular-song fields remain overlapping broader contexts. The new entry represents the explicitly named popular-song branch rather than rewriting the broader old fusion field or defining it as strictly noncommercial."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "source_label": "pop urbaine",
+      "source_url": "https://everynoise.com/engenremap-popurbaine.html",
+      "suggested_id": "pop_urbaine",
+      "allocation_ordinal": 1851,
+      "allocation_group_id": "075",
+      "id": "pop_urbaine",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "pop_urbaine",
+        "name": "Pop Urbaine",
+        "family": "pop",
+        "lineage": "Pop urbaine is a contested Francophone broadcasting and industry label for crossings between melodic pop and hip-hop.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Prominent sung hooks, rhythmic vocal phrasing and beat-led accompaniment connect rap, R&B and dance-oriented pop. Artists such as Aya Nakamura and Bramsito illustrate this broad crossover; the label describes musical circulation rather than ethnicity.",
+        "exemplars": [
+          "Aya Nakamura",
+          "Bramsito"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        46.6034,
+        1.8883,
+        "France",
+        "Europe"
+      ],
+      "geo_rationale": "Country-only editorial anchor for the positively documented French broadcasting/industry field. Not a recording site, artist birthplace or exclusion of Belgian/diasporic Francophone participation.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Pop Urbaine is treated as a contested Francophone crossover industry and broadcasting field, not an ethnicity or a universally accepted artist identity. Generations firsthand interviews document both a practitioner account of melodic hip-hop/pop crossover and a manager rejecting the label as reductive; Skyrock itself uses the term for its Aya Nakamura programming, and CNM original industry research describes this named danceable Francophone hip-hop-influenced export field. The exact creator playlist includes rap-heavy material and Bramsito/Booba, so the category is not defined as exclusively singing or as an exclusive artist roster. Aya was not found in the retrieved100-item creator sample; her bridge is direct broadcaster usage, not claimed creator membership. Full existing French Rap already includes contemporary cloud/trap, and Rap Francais the researched contemporary metadata branch; neither is being restricted to old or nonmelodic rap. The additional axis is the positively documented pop-crossover broadcasting/industry field spanning rap and sung pop, with substantial overlap. French Pop and Classic French Pop are broader popular-song fields whose chosen guitar or retrospective examples do not exclude this repertoire. Urban Contemporary is a distinct US radio-format institution, not a French translation of this contested Francophone field. Nouvelle Vague describes another overlapping producer/rap branch. No difference is inferred merely from choosing a solo piano arrangement, skin colour or performer nationality.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish the category. Current parent functionalSong places the representative genre practice; earlier narrow-edition placement is historical evidence only.",
+      "model_policy": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription. Restore sung pop over hip-hop rhythmic backing instead of piano-only score adaptation. Fresh primary artist interview turn13669view0 explicitly describes strong melodic foreground over hip-hop body; neutral beat does not assert sample/synth hardware. Current representative roles: voice, credited_beat_unspecified. Unknown source construction and performer physiology remain unspecified. The actual current owning-control audit governs this new genre model; historical exact edition claims do not.",
+      "source_scope_limitation": "Earlier exact performance/edition scope is preserved in format_repair.historical_source_audits and before. The current defaults represent the documented genre branch, not a transcription or exhaustive personnel count of that object.",
+      "source_retrieval_caveat": "Publisher public metadata and own scoring FAQ retrieved; paid full score and audio not accessed. Broadcaster source is category corroboration only, not selected source roster. Creator full100-item sample retrieved; Aya absent and no exact membership asserted.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_solo_accompanied",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "credited_beat_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription. Restore sung pop over hip-hop rhythmic backing instead of piano-only score adaptation. Fresh primary artist interview turn13669view0 explicitly describes strong melodic foreground over hip-hop body; neutral beat does not assert sample/synth hardware."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "sources": [
+        {
+          "url": "https://www.noviscore.fr/partition-piano-djadja-aya-nakamura",
+          "title": "Complete publisher edition",
+          "support_notes": "138608view3 complete four-page level2 solo version and original2018 title; Standard chosen, not accompaniment or Ballade option.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.noviscore.fr/page/comment/",
+          "title": "Publisher scoring definition",
+          "support_notes": "138608view1 explicitly one pianist plays melody and accompaniment in solo scores.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://skyrock.fm/video/10477/session-live-avec-aya-nakamura-kany-planeterap",
+          "title": "Broadcaster own category practice",
+          "support_notes": "567286view0 explicitly classifies Aya crossover in its own programme and names Djadja. Category only, no live roster transfer.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://generations.fr/news/musique/51552/aya-nakamura-bramsito-malory-lestin-notre-dossier-sur-la-pop-urbaine",
+          "title": "Firsthand artist and manager interviews",
+          "support_notes": "567286view2 artist describes melodic hip-hop crossover; manager disputes category and racialized assumptions. Both positions retained.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://cnmlab.fr/recueil/musique-et-donnees/chapitre/10/",
+          "title": "Original export-industry research",
+          "support_notes": "172143view3 line169 named Francophone pop-hiphop export field, beyond passport alone.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/21Le5iw1j6zgOMBtxioYfR?theme=0",
+          "title": "Exact creator category sample",
+          "support_notes": "138608view2 complete100-item sample rap-heavy and Bramsito/Booba29; Aya not found567286view1. No selected artist membership claim.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "verification_status": "Pending independent peer; original mechanics/four-format preflight required.",
+      "primary_retrieval_refs": [
+        "turn138608view3",
+        "turn138608view1",
+        "turn567286view0",
+        "turn567286view2",
+        "turn172143view3",
+        "turn138608view2"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pop_urbaine",
+          "name": "Pop Urbaine",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not Aya Nakamura, the piano or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh304992view3 Commons confirms IainFergusson/Binksternet crop and CC BY2.5; exact023 historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn304992view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn304992view3"
+        ],
+        "fresh_rights_review": "Fresh304992view3 rights only, no fresh byte or visual inspection."
+      },
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-16.json",
+        "original_sha256": "bc4f0c9ba54f7438da95a40898f049f8543023f0bc6ff79ef41fde2daf798ae1",
+        "before": {
+          "tradition": {
+            "id": "pop_urbaine",
+            "name": "Pop Urbaine",
+            "family": "pop",
+            "lineage": "Aya Nakamura — Djadja, complete Noviscore Standard level2 four-page piano-solo edition. Publisher explicitly distinguishes solo piano (one pianist plays melody and accompaniment) from separate piano-accompaniment editions. The whole published solo version is selected, not an invented reduction of the studio master or the separate broadcaster live session. One piano, zero scored singers; original electronic production is not reconstructed. Paid complete notation and audio were not accessed, so exact voicings, meter, key, tempo and duration remain unknown. Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Aya Nakamura — Djadja, complete Noviscore Standard level2 four-page piano-solo edition. Publisher explicitly distinguishes solo piano (one pianist plays melody and accompaniment) from separate piano-accompaniment editions. The whole published solo version is selected, not an invented reduction of the studio master or the separate broadcaster live session. One piano, zero scored singers; original electronic production is not reconstructed. Paid complete notation and audio were not accessed, so exact voicings, meter, key, tempo and duration remain unknown. Pop Urbaine is treated as a contested Francophone crossover industry and broadcasting field, not an ethnicity or a universally accepted artist identity. Generations firsthand interviews document both a practitioner account of melodic hip-hop/pop crossover and a manager rejecting the label as reductive; Skyrock itself uses the term for its Aya Nakamura programming, and CNM original industry research describes this named danceable Francophone hip-hop-influenced export field. The exact creator playlist includes rap-heavy material and Bramsito/Booba, so the category is not defined as exclusively singing or as an exclusive artist roster. Aya was not found in the retrieved100-item creator sample; her bridge is direct broadcaster usage, not claimed creator membership. Full existing French Rap already includes contemporary cloud/trap, and Rap Francais the researched contemporary metadata branch; neither is being restricted to old or nonmelodic rap. The additional axis is the positively documented pop-crossover broadcasting/industry field spanning rap and sung pop, with substantial overlap. French Pop and Classic French Pop are broader popular-song fields whose chosen guitar or retrospective examples do not exclude this repertoire. Urban Contemporary is a distinct US radio-format institution, not a French translation of this contested Francophone field. Nouvelle Vague describes another overlapping producer/rap branch. No difference is inferred merely from choosing a solo piano arrangement, skin colour or performer nationality. Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music.",
+            "exemplars": [
+              "Aya Nakamura — Djadja, complete Noviscore Standard level2 piano-solo edition"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription. Restore sung pop over hip-hop rhythmic backing instead of piano-only score adaptation. Fresh primary artist interview turn13669view0 explicitly describes strong melodic foreground over hip-hop body; neutral beat does not assert sample/synth hardware.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "spoken_voice"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_syllabic_singing"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_solo_accompanied"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_single_lead"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "credited_beat_unspecified",
+              "credited_beat_identity",
+              "credited_beat_mechanism_unspecified"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-004-parity.json",
+          "semantic_review": "All four full outputs read. Pop Flamenco retains a legitimate brisk acoustic duo branch without cante-jondo physiology claims. Pop Urbaine new sung/beat branch deliberately uses self-assured conversational melody and brisk beat (smug lexical affect), not original artist personality or exact production. Sambalpuri and Thai Indie retain lively band gestures, neutral keyboard where present, full voice flexibility and no unrelated cultural prefaces. New genre rendition supersedes older source-specific roster audit, which remains evidence rather than current defaults."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Aya Nakamura — Djadja, complete Noviscore Standard level2 four-page piano-solo edition. Publisher explicitly distinguishes solo piano (one pianist plays melody and accompaniment) from separate piano-accompaniment editions. The whole published solo version is selected, not an invented reduction of the studio master or the separate broadcaster live session. One piano, zero scored singers; original electronic production is not reconstructed. Paid complete notation and audio were not accessed, so exact voicings, meter, key, tempo and duration remain unknown.",
+            "roles": {
+              "upright_piano": "One pianist performs full melody and accompaniment in the separately issued solo edition; architecture authored"
+            },
+            "authored_defaults": "Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music."
+          },
+          "vocal_count_audit": {
+            "scored_singing_roles": 0,
+            "actual_performer_count": "one pianist in the published solo version",
+            "decision": "No voice in selected instrumental edition; no claim about studio or live-broadcast singer counts."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_classical_legato",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "All3 applicable owning controls protected; no shared-key conflict or fallback."
+          },
+          "model_policy": "Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music.",
+          "source_scope_limitation": "Aya Nakamura — Djadja, complete Noviscore Standard level2 four-page piano-solo edition. Publisher explicitly distinguishes solo piano (one pianist plays melody and accompaniment) from separate piano-accompaniment editions. The whole published solo version is selected, not an invented reduction of the studio master or the separate broadcaster live session. One piano, zero scored singers; original electronic production is not reconstructed. Paid complete notation and audio were not accessed, so exact voicings, meter, key, tempo and duration remain unknown.",
+          "classification_evidence": "Pop Urbaine is treated as a contested Francophone crossover industry and broadcasting field, not an ethnicity or a universally accepted artist identity. Generations firsthand interviews document both a practitioner account of melodic hip-hop/pop crossover and a manager rejecting the label as reductive; Skyrock itself uses the term for its Aya Nakamura programming, and CNM original industry research describes this named danceable Francophone hip-hop-influenced export field. The exact creator playlist includes rap-heavy material and Bramsito/Booba, so the category is not defined as exclusively singing or as an exclusive artist roster. Aya was not found in the retrieved100-item creator sample; her bridge is direct broadcaster usage, not claimed creator membership. Full existing French Rap already includes contemporary cloud/trap, and Rap Francais the researched contemporary metadata branch; neither is being restricted to old or nonmelodic rap. The additional axis is the positively documented pop-crossover broadcasting/industry field spanning rap and sung pop, with substantial overlap. French Pop and Classic French Pop are broader popular-song fields whose chosen guitar or retrospective examples do not exclude this repertoire. Urban Contemporary is a distinct US radio-format institution, not a French translation of this contested Francophone field. Nouvelle Vague describes another overlapping producer/rap branch. No difference is inferred merely from choosing a solo piano arrangement, skin colour or performer nationality."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "source_label": "sambalpuri pop",
+      "source_url": "https://everynoise.com/engenremap-sambalpuripop.html",
+      "suggested_id": "sambalpuri_pop",
+      "allocation_ordinal": 1867,
+      "allocation_group_id": "075",
+      "id": "sambalpuri_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "sambalpuri_pop",
+        "name": "Sambalpuri Pop",
+        "family": "pop",
+        "lineage": "Sambalpuri pop connects the western Odisha regional-language recording scene with older broadcast hits and contemporary popular releases.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Regional vocal melodies can be recast with electric guitar, bass, drums and keyboards. Shared singing and occasional rap expand the contemporary band sound, while repertoire such as Rangabati links new arrangements to the region’s recorded-song heritage.",
+        "exemplars": [
+          "Jitendriya Haripal",
+          "Krishna Patel"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        21.4669,
+        83.9812,
+        "Sambalpur",
+        "South Asia"
+      ],
+      "geo_rationale": "Editorial regional-repertoire anchor explicitly named by issuer and AIR Sambalpur; original mixing/mastering took place in Mumbai, not a claimed Sambalpur session.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Sambalpuri Pop is the western-Odisha Sambalpuri-language popular recording field, with both older recorded folk hits and contemporary digital song releases. Exact creator100-track roster positively includes the original Rangabati by Jitendriya Haripal and Krishna Patel at35 and61 alongside newer regional artists. The verified adaptation issuer explicitly identifies that original recording and its Sambalpur origin, closing the repertoire bridge without claiming the remake artists themselves occur in the current creator roster. Existing odia_pop already spans Odisha broadcasting, films, cassette albums and contemporary videos; Sambalpuri is an overlapping narrower regional-language community, not a claim the broader Odia field excludes it. The narrower regional institutional presence is independently documented by All India Radio Sambalpur maintaining an expressly Sambalpuri music artist category. Existing desi_pop describes the broader national non-film market, and odia_bhajan the specifically devotional-purpose field; neither is synonymous with this regional popular-song field. The chosen mixed-language contemporary arrangement is one branch, not evidence all Sambalpuri pop uses Tamil rap or this instrumentation.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish the category. Current parent functionalSong places the representative genre practice; earlier narrow-edition placement is historical evidence only.",
+      "model_policy": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription. Current representative roles: voice, electric_guitar_humbucker, electric_bass, drum_kit, electronic_keyboard_unspecified. Unknown source construction and performer physiology remain unspecified. The actual current owning-control audit governs this new genre model; historical exact edition claims do not.",
+      "source_scope_limitation": "Earlier exact performance/edition scope is preserved in format_repair.historical_source_audits and before. The current defaults represent the documented genre branch, not a transcription or exhaustive personnel count of that object.",
+      "source_retrieval_caveat": "Complete verified issuer descriptions retrieved through indexed primary YouTube results and saved verbatim tool response; direct YouTube retrieval fails. Creator playlist directly retrieved. No audio audition or measured source transcription asserted.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_live_group",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_guitar_humbucker": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_bass": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "drum_kit": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electronic_keyboard_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=LY_rMXXuJp8",
+          "title": "Coke Studio India verified complete2015 performance credits",
+          "support_notes": "Fresh274297youtube12 full11-person roster and original-recording bridge; raw resume116-rangabati-primary-raw.json. Neither engineer nor producer title alone adds a sound role."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=IMUKoJpG3Nk",
+          "title": "Verified KaanPhod2023 reissue of same complete performance",
+          "support_notes": "Fresh274297youtube13 same complete credits corroborate; not a different2023 ensemble."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/63vYFIQmxTKK0k5hrc2xsS",
+          "title": "Exact creator Sambalpuri Pop repertoire",
+          "support_notes": "Fresh12125view0/12126view1 original Rangabati items35/61, contemporary and historical regional field; no remake-artist membership assertion."
+        },
+        {
+          "url": "https://prasarbharati.gov.in/wp-content/uploads/music_artists/airsambalpur.pdf",
+          "title": "All India Radio Sambalpur regional music categories",
+          "support_notes": "Fresh196204search42/12124search18 expressly Sambalpuri music instrumental artist category; institutional regional field, not selected performance roster."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn274297youtube12",
+        "turn274297youtube13",
+        "turn12126view1",
+        "turn12124search18",
+        "turn12096view2"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "sambalpuri_pop",
+          "name": "Sambalpuri Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not CokeStudio performers, source instruments or recording equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12096view2 confirms Iain Fergusson and crop by Binksternet, CC BY2.5. Exact023 historical byte/visual receipts inherited honestly.",
+          "fresh_review_ref": "turn12096view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh12096view2; no fresh binary or visual inspection claimed.",
+        "fresh_rights_retrieval_refs": [
+          "turn12096view2"
+        ]
+      },
+      "verification_status": "51 applicable owning controls protected, zero errors/fallbacks, all1638 pre-existing owners unchanged. All four original browser/connector strings independently inspected and parity passed, max987; full five-card palette preserved with candid authored brisk live-room treatment, no unrelated cultural label. Geography validator passes. Independent peer pending.",
+      "source_review_refs": [
+        "turn274297youtube12",
+        "turn274297youtube13",
+        "turn12126view1",
+        "turn12124search18",
+        "turn12096view2"
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-8-provenance-corrected116.json",
+        "original_sha256": "ee91f01e82aa59ebde75b273a4d32f8f1a1c9389cb9abd91460663d0e368f750",
+        "before": {
+          "tradition": {
+            "id": "sambalpuri_pop",
+            "name": "Sambalpuri Pop",
+            "family": "pop",
+            "lineage": "Rangabati — complete Coke Studio India2015 issued performance. Verified issuer credits lead singers Sona Mohapatra and Rituraj Mohanty, rappers Tony Sebastian and Rajesh Radhakrishnan, chorus singers Roshni Saha and Chaandni R M W, Ram Sampath keys, Darshan Doshi drums, Sanjoy Das lead guitars, Hitesh Dhutia rhythm guitar and Keshav Iyengar bass. All eleven named performers, six vocal roles and five instrument families retained. Aliases Stony Psyko and Dope Daddy identify the two rappers, not additional people. Preserve the whole bilingual Sambalpuri/Tamil adaptation including its closing Bande Utkal Janini section; do not model only the original folk-song excerpt or borrow other Episode4 artists. Source keys/guitar/bass models, vocal tracking and pitch intervals remain unspecified. Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Rangabati — complete Coke Studio India2015 issued performance. Verified issuer credits lead singers Sona Mohapatra and Rituraj Mohanty, rappers Tony Sebastian and Rajesh Radhakrishnan, chorus singers Roshni Saha and Chaandni R M W, Ram Sampath keys, Darshan Doshi drums, Sanjoy Das lead guitars, Hitesh Dhutia rhythm guitar and Keshav Iyengar bass. All eleven named performers, six vocal roles and five instrument families retained. Aliases Stony Psyko and Dope Daddy identify the two rappers, not additional people. Preserve the whole bilingual Sambalpuri/Tamil adaptation including its closing Bande Utkal Janini section; do not model only the original folk-song excerpt or borrow other Episode4 artists. Source keys/guitar/bass models, vocal tracking and pitch intervals remain unspecified. Sambalpuri Pop is the western-Odisha Sambalpuri-language popular recording field, with both older recorded folk hits and contemporary digital song releases. Exact creator100-track roster positively includes the original Rangabati by Jitendriya Haripal and Krishna Patel at35 and61 alongside newer regional artists. The verified adaptation issuer explicitly identifies that original recording and its Sambalpur origin, closing the repertoire bridge without claiming the remake artists themselves occur in the current creator roster. Existing odia_pop already spans Odisha broadcasting, films, cassette albums and contemporary videos; Sambalpuri is an overlapping narrower regional-language community, not a claim the broader Odia field excludes it. The narrower regional institutional presence is independently documented by All India Radio Sambalpur maintaining an expressly Sambalpuri music artist category. Existing desi_pop describes the broader national non-film market, and odia_bhajan the specifically devotional-purpose field; neither is synonymous with this regional popular-song field. The chosen mixed-language contemporary arrangement is one branch, not evidence all Sambalpuri pop uses Tamil rap or this instrumentation. Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem.",
+            "exemplars": [
+              "Rangabati — complete Coke Studio India2015 bilingual performance"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "voice_articulation_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_live_group"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_live_ensemble"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "electric_technique",
+              "electric_clean_strummed"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "body_wood",
+              "alder_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "neck_wood",
+              "maple_neck_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "fretboard",
+              "rosewood_fb_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_magnet",
+              "alnico_2_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_winding",
+              "mid_wind"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_material",
+              "pure_nickel_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "bridge",
+              "vibrato_arm"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "scale_length",
+              "scale_gibson_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_gauge",
+              "g_10_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "finish",
+              "nitro_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_tuning",
+              "standard_tuning"
+            ],
+            [
+              "electric_bass",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_bass",
+              "body_wood",
+              "alder_h"
+            ],
+            [
+              "electric_bass",
+              "pickup_config",
+              "soapbar"
+            ],
+            [
+              "electric_bass",
+              "string_type",
+              "roundwound_n"
+            ],
+            [
+              "electric_bass",
+              "scale_length_b",
+              "long_scale_b"
+            ],
+            [
+              "electric_bass",
+              "fretted_or_not",
+              "fretted"
+            ],
+            [
+              "electric_bass",
+              "bass_technique",
+              "fingerstyle_locked"
+            ],
+            [
+              "electric_bass",
+              "electric_bass_string_configuration",
+              "electric_bass_string_configuration_unspecified"
+            ],
+            [
+              "drum_kit",
+              "drum_technique",
+              "sticks_rock"
+            ],
+            [
+              "drum_kit",
+              "shell_wood",
+              "maple_shell"
+            ],
+            [
+              "drum_kit",
+              "shell_thickness",
+              "thin_shell"
+            ],
+            [
+              "drum_kit",
+              "bearing_edges",
+              "edge_45"
+            ],
+            [
+              "drum_kit",
+              "drumhead",
+              "single_coated"
+            ],
+            [
+              "drum_kit",
+              "snare_wires",
+              "wires_20"
+            ],
+            [
+              "drum_kit",
+              "drum_kit_kick_pedal",
+              "dk_kick_single_felt"
+            ],
+            [
+              "drum_kit",
+              "cymbal_alloy",
+              "b20"
+            ],
+            [
+              "drum_kit",
+              "cymbal_hammering",
+              "machine_symmetric_hammering"
+            ],
+            [
+              "drum_kit",
+              "cymbal_lathing",
+              "full_lathe_both_sides"
+            ],
+            [
+              "drum_kit",
+              "cymbal_finish",
+              "traditional_finish"
+            ],
+            [
+              "electronic_keyboard_unspecified",
+              "electronic_keyboard_identity",
+              "electronic_keyboard_architecture_unspecified"
+            ],
+            [
+              "electronic_keyboard_unspecified",
+              "keyboard_technique",
+              "electronic_keyboard_melodic_chordal"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-004-parity.json",
+          "semantic_review": "All four full outputs read. Pop Flamenco retains a legitimate brisk acoustic duo branch without cante-jondo physiology claims. Pop Urbaine new sung/beat branch deliberately uses self-assured conversational melody and brisk beat (smug lexical affect), not original artist personality or exact production. Sambalpuri and Thai Indie retain lively band gestures, neutral keyboard where present, full voice flexibility and no unrelated cultural prefaces. New genre rendition supersedes older source-specific roster audit, which remains evidence rather than current defaults."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "voice": {
+              "named_leads": [
+                "Sona Mohapatra",
+                "Rituraj Mohanty"
+              ],
+              "named_rappers": [
+                "Tony Sebastian",
+                "Rajesh Radhakrishnan"
+              ],
+              "named_chorus": [
+                "Roshni Saha",
+                "Chaandni R M W"
+              ],
+              "count": 6,
+              "count_basis": "Six distinct positively credited humans; aliases not additional singers. Original tracking unknown."
+            },
+            "electric_guitar_humbucker": [
+              "Sanjoy Das lead guitars",
+              "Hitesh Dhutia rhythm guitar"
+            ],
+            "electric_bass": [
+              "Keshav Iyengar"
+            ],
+            "drum_kit": [
+              "Darshan Doshi"
+            ],
+            "electronic_keyboard_unspecified": [
+              "Ram Sampath"
+            ],
+            "policy": "Rangabati — complete Coke Studio India2015 issued performance. Verified issuer credits lead singers Sona Mohapatra and Rituraj Mohanty, rappers Tony Sebastian and Rajesh Radhakrishnan, chorus singers Roshni Saha and Chaandni R M W, Ram Sampath keys, Darshan Doshi drums, Sanjoy Das lead guitars, Hitesh Dhutia rhythm guitar and Keshav Iyengar bass. All eleven named performers, six vocal roles and five instrument families retained. Aliases Stony Psyko and Dope Daddy identify the two rappers, not additional people. Preserve the whole bilingual Sambalpuri/Tamil adaptation including its closing Bande Utkal Janini section; do not model only the original folk-song excerpt or borrow other Episode4 artists. Source keys/guitar/bass models, vocal tracking and pitch intervals remain unspecified. Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+          },
+          "vocal_count_audit": {
+            "named_leads": [
+              "Sona Mohapatra",
+              "Rituraj Mohanty"
+            ],
+            "named_rappers": [
+              "Tony Sebastian",
+              "Rajesh Radhakrishnan"
+            ],
+            "named_chorus": [
+              "Roshni Saha",
+              "Chaandni R M W"
+            ],
+            "count": 6,
+            "count_basis": "Six distinct positively credited humans; aliases not additional singers. Original tracking unknown."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+            },
+            {
+              "instrument": "electric_guitar_humbucker",
+              "parts": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "neck_wood": "maple_neck_h",
+                "fretboard": "rosewood_fb_h",
+                "pickup_magnet": "alnico_2_h",
+                "pickup_winding": "mid_wind",
+                "string_material": "pure_nickel_h",
+                "bridge": "vibrato_arm",
+                "scale_length": "scale_gibson_h",
+                "string_gauge": "g_10_hum",
+                "finish": "nitro_hum",
+                "string_tuning": "standard_tuning"
+              },
+              "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+            },
+            {
+              "instrument": "electronic_keyboard_unspecified",
+              "parts": {
+                "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+                "keyboard_technique": "electronic_keyboard_melodic_chordal"
+              },
+              "policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem."
+            }
+          ],
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "note": "Every applicable owning control explicitly pinned; shared guitar/bass body wood is the applicable alder variant on both."
+          },
+          "model_policy": "Full five-family authored song-band rendition preserves all six vocalists, both guitarists and the keyboardist. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live group/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent the keyboardist, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented. Voice speech/song organization stays source-unspecified so the positively credited singing and rap both remain possible; no uniform syllabic-singing mode is imposed on the rappers. All eleven players are retained in the evidence even when same-family players share one instrument card. This authored functional-harmonic verse-chorus-bridge realization is not a transcription of the full source medley or its closing anthem.",
+          "source_scope_limitation": "Rangabati — complete Coke Studio India2015 issued performance. Verified issuer credits lead singers Sona Mohapatra and Rituraj Mohanty, rappers Tony Sebastian and Rajesh Radhakrishnan, chorus singers Roshni Saha and Chaandni R M W, Ram Sampath keys, Darshan Doshi drums, Sanjoy Das lead guitars, Hitesh Dhutia rhythm guitar and Keshav Iyengar bass. All eleven named performers, six vocal roles and five instrument families retained. Aliases Stony Psyko and Dope Daddy identify the two rappers, not additional people. Preserve the whole bilingual Sambalpuri/Tamil adaptation including its closing Bande Utkal Janini section; do not model only the original folk-song excerpt or borrow other Episode4 artists. Source keys/guitar/bass models, vocal tracking and pitch intervals remain unspecified.",
+          "classification_evidence": "Sambalpuri Pop is the western-Odisha Sambalpuri-language popular recording field, with both older recorded folk hits and contemporary digital song releases. Exact creator100-track roster positively includes the original Rangabati by Jitendriya Haripal and Krishna Patel at35 and61 alongside newer regional artists. The verified adaptation issuer explicitly identifies that original recording and its Sambalpur origin, closing the repertoire bridge without claiming the remake artists themselves occur in the current creator roster. Existing odia_pop already spans Odisha broadcasting, films, cassette albums and contemporary videos; Sambalpuri is an overlapping narrower regional-language community, not a claim the broader Odia field excludes it. The narrower regional institutional presence is independently documented by All India Radio Sambalpur maintaining an expressly Sambalpuri music artist category. Existing desi_pop describes the broader national non-film market, and odia_bhajan the specifically devotional-purpose field; neither is synonymous with this regional popular-song field. The chosen mixed-language contemporary arrangement is one branch, not evidence all Sambalpuri pop uses Tamil rap or this instrumentation."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "source_label": "thai indie pop",
+      "source_url": "https://everynoise.com/engenremap-thaiindiepop.html",
+      "suggested_id": "thai_indie_pop",
+      "allocation_ordinal": 1906,
+      "allocation_group_id": "077",
+      "id": "thai_indie_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "thai_indie_pop",
+        "name": "Thai Indie Pop",
+        "family": "pop",
+        "lineage": "Thai indie pop is the melody-centered popular-song branch within Thailand’s independent music communities.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Soft guitar textures and clear vocal lines meet bass and a steady drum foundation, sometimes opening into more forceful alternative-rock passages. Chiang Mai’s YONLAPA exemplifies this intimate guitar-pop approach.",
+        "exemplars": [
+          "YONLAPA"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        18.7883,
+        98.9853,
+        "Chiang Mai",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Artist-owned publication explicitly locates band in Chiang Mai; editorial community anchor, not claimed recording studio.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Thai Indie Pop is the positively named pop-oriented branch within Thailand’s broader independent field. The artist’s own First Trip publication uses indie-pop metadata and Chiang Mai locality; the CEIPA/Music Awards Japan presenter explicitly identifies YONLAPA as Thailand’s indie-pop quartet and describes melody-led, soft guitar-pop practice alongside occasional alternative-rock breaks. Exact creator Thai Indie Pop roster also includes Gym and Swim, the selected exemplar of existing thai_indie: overlap is explicit, not a contradiction or exclusion. Full existing thai_indie expressly spans pop and rock; this proposed entry narrows the named popular-song branch rather than claiming the old umbrella is rock-only. Existing thai_indie_rock names the rock-oriented field, which also overlaps artists and songs. Current and queued broad Thai pop/OST discovery fields do not equal this independently produced pop branch. Exact YONLAPA membership in the retrieved100-item creator snapshot is not established; positive issuer and presenting-institution category evidence supplies the bridge, not guessed membership.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish the category. Current parent functionalSong places the representative genre practice; earlier narrow-edition placement is historical evidence only.",
+      "model_policy": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription. Current representative roles: voice, electric_guitar_humbucker, electric_bass, drum_kit. Unknown source construction and performer physiology remain unspecified. The actual current owning-control audit governs this new genre model; historical exact edition claims do not.",
+      "source_scope_limitation": "Earlier exact performance/edition scope is preserved in format_repair.historical_source_audits and before. The current defaults represent the documented genre branch, not a transcription or exhaustive personnel count of that object.",
+      "source_retrieval_caveat": "All listed pages directly read. Original YouTube link returned shell only; no audio audition or original video credits claimed. Performing-artist metadata supplies full credited track roster; paid or hidden extra layers not invented.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_solo_accompanied",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_guitar_humbucker": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_bass": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "drum_kit": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "sources": [
+        {
+          "url": "https://www.shazam.com/es-es/song/1736361755/is-that-true",
+          "title": "Apple/Shazam issuer-distributed complete track performance credits",
+          "support_notes": "Fresh841738view1 lines104–124 full four named roles. Whole track identity and official video link; lyrics not copied."
+        },
+        {
+          "url": "https://music.apple.com/th/song/is-that-true/1736363206",
+          "title": "Apple complete track catalogue",
+          "support_notes": "Fresh425892view0 exact track/album; direct page did not expose credits, Shazam Apple subsidiary does."
+        },
+        {
+          "url": "https://otomo.net/contents/950049?locale=en",
+          "title": "CEIPA/Music Awards Japan official firsthand report",
+          "support_notes": "Fresh638118view0 expressly Thailand indie-pop quartet, melody/soft guitar-pop branch. Other live acts and crowd contributions are NOT selected studio track roster."
+        },
+        {
+          "url": "https://yonlapa.bandcamp.com/album/first-trip-ep",
+          "title": "Artist-owned publication and locality",
+          "support_notes": "Fresh841738view0 indie-pop classification and Chiang Mai identity; different EP metadata not used as selected track personnel."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1LtPeF5aJyzljIKcH3VVV5",
+          "title": "Exact Thai Indie Pop creator field",
+          "support_notes": "Fresh394859view0 full snapshot; Gym and Swim25 explicitly shows overlap with older ThaiIndie. No selected YONLAPA membership claim."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn841738view1",
+        "turn425892view0",
+        "turn638118view0",
+        "turn841738view0",
+        "turn394859view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "thai_indie_pop",
+          "name": "Thai Indie Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not YONLAPA, Chiang Mai, source gear or depicted guitar band.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh196595view2 confirms CC BY2.5 credit/crop; exact historical023 receipts retained.",
+          "fresh_review_ref": "turn196595view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn196595view2"
+        ],
+        "fresh_rights_review": "Fresh196595view2 rights/context only; historical bytes and visual unchanged."
+      },
+      "verification_status": "Original actual merged-loader49owning parts protected/no fallback/errors;1638old instruments preserved. Original browser/connector fourformats pass, allfour source cards retained, rich/tags exactly1000characters. No final integrated signatures/static build claim.",
+      "source_review_refs": [
+        "turn841738view1",
+        "turn425892view0",
+        "turn638118view0",
+        "turn841738view0",
+        "turn394859view0"
+      ],
+      "authored_render_scope": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred.",
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-21.json",
+        "original_sha256": "acd53155167028ce6d9726ef45e2ebd4709f7939443cc01926e3a3d017a4a6d7",
+        "before": {
+          "tradition": {
+            "id": "thai_indie_pop",
+            "name": "Thai Indie Pop",
+            "family": "pop",
+            "lineage": "YONLAPA — Is That True?, complete issued track from Lingering Gloaming, using the issuer-distributed Apple/Shazam performing-artist credits. Yonlapa Pienpanassak is the sole credited vocalist, Arnuphap Foeilung plays guitar, Chalanthorn Soontornpitak drums, and Nawin Raknaisil bass. Four named people and four sounding-role families retained. This is the entire track, not the complete album or a cut from the2025 concert. Other tracks and generic band profiles credit synthesizer or additional guitar doubling, but neither is credited for this selected track. No original multitrack inspection or assertion that uncredited sonic details have been forensically excluded; exact source hardware, overdub count and vocal physiology remain unknown. Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "YONLAPA — Is That True?, complete issued track from Lingering Gloaming, using the issuer-distributed Apple/Shazam performing-artist credits. Yonlapa Pienpanassak is the sole credited vocalist, Arnuphap Foeilung plays guitar, Chalanthorn Soontornpitak drums, and Nawin Raknaisil bass. Four named people and four sounding-role families retained. This is the entire track, not the complete album or a cut from the2025 concert. Other tracks and generic band profiles credit synthesizer or additional guitar doubling, but neither is credited for this selected track. No original multitrack inspection or assertion that uncredited sonic details have been forensically excluded; exact source hardware, overdub count and vocal physiology remain unknown. Thai Indie Pop is the positively named pop-oriented branch within Thailand’s broader independent field. The artist’s own First Trip publication uses indie-pop metadata and Chiang Mai locality; the CEIPA/Music Awards Japan presenter explicitly identifies YONLAPA as Thailand’s indie-pop quartet and describes melody-led, soft guitar-pop practice alongside occasional alternative-rock breaks. Exact creator Thai Indie Pop roster also includes Gym and Swim, the selected exemplar of existing thai_indie: overlap is explicit, not a contradiction or exclusion. Full existing thai_indie expressly spans pop and rock; this proposed entry narrows the named popular-song branch rather than claiming the old umbrella is rock-only. Existing thai_indie_rock names the rock-oriented field, which also overlaps artists and songs. Current and queued broad Thai pop/OST discovery fields do not equal this independently produced pop branch. Exact YONLAPA membership in the retrieved100-item creator snapshot is not established; positive issuer and presenting-institution category evidence supplies the bridge, not guessed membership. Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred.",
+            "exemplars": [
+              "YONLAPA — Is That True?, complete issued track"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Retain source-supported representative branch and all physical controls; remove exact edition/session roster, audit and apparatus dossier from public genre profile. Source provenance and unknowns remain evidence. Functional-harmonic verse–chorus–bridge is an authored song arrangement, not transcription.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "voice_articulation_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_solo_accompanied"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_single_lead"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "electric_technique",
+              "electric_clean_strummed"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "body_wood",
+              "alder_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "neck_wood",
+              "maple_neck_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "fretboard",
+              "rosewood_fb_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_magnet",
+              "alnico_2_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_winding",
+              "mid_wind"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_material",
+              "pure_nickel_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "bridge",
+              "vibrato_arm"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "scale_length",
+              "scale_gibson_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_gauge",
+              "g_10_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "finish",
+              "nitro_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_tuning",
+              "standard_tuning"
+            ],
+            [
+              "electric_bass",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_bass",
+              "body_wood",
+              "alder_h"
+            ],
+            [
+              "electric_bass",
+              "pickup_config",
+              "soapbar"
+            ],
+            [
+              "electric_bass",
+              "string_type",
+              "roundwound_n"
+            ],
+            [
+              "electric_bass",
+              "scale_length_b",
+              "long_scale_b"
+            ],
+            [
+              "electric_bass",
+              "fretted_or_not",
+              "fretted"
+            ],
+            [
+              "electric_bass",
+              "bass_technique",
+              "fingerstyle_locked"
+            ],
+            [
+              "electric_bass",
+              "electric_bass_string_configuration",
+              "electric_bass_string_configuration_unspecified"
+            ],
+            [
+              "drum_kit",
+              "drum_technique",
+              "sticks_rock"
+            ],
+            [
+              "drum_kit",
+              "shell_wood",
+              "maple_shell"
+            ],
+            [
+              "drum_kit",
+              "shell_thickness",
+              "thin_shell"
+            ],
+            [
+              "drum_kit",
+              "bearing_edges",
+              "edge_45"
+            ],
+            [
+              "drum_kit",
+              "drumhead",
+              "single_coated"
+            ],
+            [
+              "drum_kit",
+              "snare_wires",
+              "wires_20"
+            ],
+            [
+              "drum_kit",
+              "drum_kit_kick_pedal",
+              "dk_kick_single_felt"
+            ],
+            [
+              "drum_kit",
+              "cymbal_alloy",
+              "b20"
+            ],
+            [
+              "drum_kit",
+              "cymbal_hammering",
+              "machine_symmetric_hammering"
+            ],
+            [
+              "drum_kit",
+              "cymbal_lathing",
+              "full_lathe_both_sides"
+            ],
+            [
+              "drum_kit",
+              "cymbal_finish",
+              "traditional_finish"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-004-parity.json",
+          "semantic_review": "All four full outputs read. Pop Flamenco retains a legitimate brisk acoustic duo branch without cante-jondo physiology claims. Pop Urbaine new sung/beat branch deliberately uses self-assured conversational melody and brisk beat (smug lexical affect), not original artist personality or exact production. Sambalpuri and Thai Indie retain lively band gestures, neutral keyboard where present, full voice flexibility and no unrelated cultural prefaces. New genre rendition supersedes older source-specific roster audit, which remains evidence rather than current defaults."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "YONLAPA — Is That True?, complete issued track from Lingering Gloaming, using the issuer-distributed Apple/Shazam performing-artist credits. Yonlapa Pienpanassak is the sole credited vocalist, Arnuphap Foeilung plays guitar, Chalanthorn Soontornpitak drums, and Nawin Raknaisil bass. Four named people and four sounding-role families retained. This is the entire track, not the complete album or a cut from the2025 concert. Other tracks and generic band profiles credit synthesizer or additional guitar doubling, but neither is credited for this selected track. No original multitrack inspection or assertion that uncredited sonic details have been forensically excluded; exact source hardware, overdub count and vocal physiology remain unknown.",
+            "roles": {
+              "voice": "Yonlapa credited vocals",
+              "electric_guitar_humbucker": "Arnuphap credited guitar; authored electric pop timbre, no source model claim",
+              "electric_bass": "Nawin credited bass; authored electric bass",
+              "drum_kit": "Chalanthorn credited drums; authored acoustic kit"
+            },
+            "authored_defaults": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+          },
+          "vocal_count_audit": {
+            "selected_count": 1,
+            "named_singers": [
+              "Yonlapa Pienpanassak"
+            ],
+            "decision": "One credited vocalist; no backing singer fabricated. Original stack count unknown; authored accompanied single lead."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+            },
+            {
+              "instrument": "electric_guitar_humbucker",
+              "parts": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "neck_wood": "maple_neck_h",
+                "fretboard": "rosewood_fb_h",
+                "pickup_magnet": "alnico_2_h",
+                "pickup_winding": "mid_wind",
+                "string_material": "pure_nickel_h",
+                "bridge": "vibrato_arm",
+                "scale_length": "scale_gibson_h",
+                "string_gauge": "g_10_hum",
+                "finish": "nitro_hum",
+                "string_tuning": "standard_tuning"
+              },
+              "policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "All owning parts individually checked; two shared guitar/bass material/amp keys require actual owner compatibility. No hidden source-measured defaults."
+          },
+          "model_policy": "Authored complete four-role band rendition preserves the one credited singing voice and all three instruments. Broad functionalSong/pop is an explicitly new verse-chorus-bridge treatment over functional harmonic progressions, not a measured transcription of the original master. Source-unspecified physiology, register, pitch tradition and ornament remain neutral; one accompanied unprocessed lead is an authored single-track realization, not proof of original studio tracking. Guitar becomes alder/maple/rosewood humbucker with AlnicoII mid-wind pickups, pure-nickel10-gauge strings, short scale and vibrato bridge, played with clean strums. Electric bass uses an authored alder soapbar, nickel roundwounds, long fretted scale and locked fingerstyle. Drum kit uses maple thin shells,45degree edges, coated single-ply heads,20wire snare, single felt kick and B20 traditionally finished fully lathed machine-hammered cymbals. These are coherent new pop-band choices, not identified source instruments. Controlled live room and a brisk lively rendition are editorial musical choices, not the recording room or original measured BPM; no global tuning or source amp model inferred.",
+          "source_scope_limitation": "YONLAPA — Is That True?, complete issued track from Lingering Gloaming, using the issuer-distributed Apple/Shazam performing-artist credits. Yonlapa Pienpanassak is the sole credited vocalist, Arnuphap Foeilung plays guitar, Chalanthorn Soontornpitak drums, and Nawin Raknaisil bass. Four named people and four sounding-role families retained. This is the entire track, not the complete album or a cut from the2025 concert. Other tracks and generic band profiles credit synthesizer or additional guitar doubling, but neither is credited for this selected track. No original multitrack inspection or assertion that uncredited sonic details have been forensically excluded; exact source hardware, overdub count and vocal physiology remain unknown.",
+          "classification_evidence": "Thai Indie Pop is the positively named pop-oriented branch within Thailand’s broader independent field. The artist’s own First Trip publication uses indie-pop metadata and Chiang Mai locality; the CEIPA/Music Awards Japan presenter explicitly identifies YONLAPA as Thailand’s indie-pop quartet and describes melody-led, soft guitar-pop practice alongside occasional alternative-rock breaks. Exact creator Thai Indie Pop roster also includes Gym and Swim, the selected exemplar of existing thai_indie: overlap is explicit, not a contradiction or exclusion. Full existing thai_indie expressly spans pop and rock; this proposed entry narrows the named popular-song branch rather than claiming the old umbrella is rock-only. Existing thai_indie_rock names the rock-oriented field, which also overlaps artists and songs. Current and queued broad Thai pop/OST discovery fields do not equal this independently produced pop branch. Exact YONLAPA membership in the retrieved100-item creator snapshot is not established; positive issuer and presenting-institution category evidence supplies the bridge, not guessed membership."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    }
+  ]
+}

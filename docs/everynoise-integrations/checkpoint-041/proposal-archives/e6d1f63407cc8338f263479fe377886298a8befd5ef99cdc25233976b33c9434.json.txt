@@ -1,0 +1,266 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "plugg_en_espanol",
+          "name": "Plugg en Español",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons14487view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte/visual receipts retained; no current download or personal visual inspection claimed.",
+          "fresh_review_ref": "turn14487view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14487view2"
+        ],
+        "fresh_rights_review": "Fresh Commons14487view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte/visual receipts retained; no current download or personal visual inspection claimed."
+      },
+      "signature_tokens": [],
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": -1,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic vocal lines move over sparse programmed drums, deep electronic bass and soft synthesizer melodies. Repeating motifs leave room around the voice, while sung hooks and more R&B-oriented arrangements appear in neighboring branches.",
+        "exemplars": [
+          "Hwii",
+          "Brokeboirichie",
+          "Wolf707"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "tradition": {
+        "id": "plugg_en_espanol",
+        "name": "Plugg en Español",
+        "family": "hip_hop",
+        "lineage": "Plugg en español connects Spanish-language rappers and producers through the spacious, melodic beat tradition of plugg. Online collaborations link scenes in Argentina, Chile and other Spanish-speaking communities, adapting the style to local speech and relationships while retaining its connection to Atlanta production.",
+        "instruments": [
+          "voice",
+          "drum_machine_808",
+          "analog_poly_synth"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern",
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        }
+      },
+      "source_label": "plugg en espanol",
+      "source_url": "https://everynoise.com/engenremap-pluggenespanol.html",
+      "suggested_id": "plugg_en_espanol",
+      "id": "plugg_en_espanol",
+      "allocation_ordinal": 4136,
+      "allocation_group_id": "166",
+      "status": "frozen_for_independent_review",
+      "geo": [
+        -34.9214,
+        -57.9544,
+        "La Plata",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Documented Hwii/Shine Squad production-network anchor; the language-defined scene extends across national borders.",
+      "model_policy": "Representative Spanish-language plugg production, not a reconstruction of a named recording or exact live lineup. First-person artist biography and university scene research establish rappers, producers and transnational collaborations. Founding producer testimony supports keyboard-created soft electronic melodies and 808 percussion. Authored single rhythmic spoken lead, eight-voice Jupiter-family melodic synthesis, modern digital 808 recreation with a long-decay bass emphasis, and controlled studio capture. These are deliberate compatible recording choices, not observed artist models or universal genre settings. Shorter-bass, sung and R&B-facing practices also exist; physiology, exact pitch system and actual performer headcount remain unasserted.",
+      "sources": [
+        {
+          "url": "https://open.spotify.com/artist/1pa7ZgQvqodPgAsTfimNKC",
+          "support_notes": "Fresh indexed artist-owned biography14482search0: singer/producer, La Plata Shine Squad, explicit plugg practice, Peru/Venezuela and producer collaborations. Direct page body sparse; indexed full biography retained."
+        },
+        {
+          "url": "https://bibliotecadigital.academia.cl/bitstreams/e7e78d6e-d766-4315-876e-141accfddf6d/download",
+          "support_notes": "Fresh university-hosted research indexed14477search0 and14482search12/13, pages63–65: Chilean plugg development, local communities and characteristic production. Embedded artist statements are attributed through the thesis, not claimed newly conducted interviews. Full PDF retrieval failed."
+        },
+        {
+          "url": "https://thehundreds.com/blogs/content/on-the-beat-mexikodro-the-enigmatic-atlantan-producer-redefining-traps-sound",
+          "support_notes": "Fresh full14487view0 first-person founding-producer interview: keyboard/laptop/FL workflow and soft game-derived melodies over distinct drums/808s. General shared production basis, not proof of Hwii gear."
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-pluggenespanol.html",
+          "support_notes": "Prior original author024 primary map observation11175view2 named Davus/Pa2k/Canals/Hwii/YoungDune/Nachotheplug, preserved in prior allocation ledger. Current direct and www retries failed; no fresh reproduction claim. Classification also independently supported by current artist and institutional evidence."
+        }
+      ],
+      "neighbor_distinction": "The full existing plugg record describes the broader Atlanta-derived beat tradition; this is its positively documented Spanish-language producer/performer network, not a different timbre claimed from one artist. Hwii names cross-border Latin American collaborators and Beatpluggz producer connections; university research documents a developed Chilean scene with local groups and SoundCloud networks. Existing latin_trap, trap_argentino and trap_mexicano are broader trap fields, not confined to plugg. Existing pluggnb describes the R&B-oriented branch; Spanish-language plugg includes that overlap without requiring it throughout. Queued detroit_trap_en_espanol concerns Detroit-derived rhythm and community, with overlapping artists but a different stylistic reference; queued russian_plugg concerns another language/community network. No mutually exclusive artist sets or new acoustic invention asserted.",
+      "classification_evidence": "The full existing plugg record describes the broader Atlanta-derived beat tradition; this is its positively documented Spanish-language producer/performer network, not a different timbre claimed from one artist. Hwii names cross-border Latin American collaborators and Beatpluggz producer connections; university research documents a developed Chilean scene with local groups and SoundCloud networks. Existing latin_trap, trap_argentino and trap_mexicano are broader trap fields, not confined to plugg. Existing pluggnb describes the R&B-oriented branch; Spanish-language plugg includes that overlap without requiring it throughout. Queued detroit_trap_en_espanol concerns Detroit-derived rhythm and community, with overlapping artists but a different stylistic reference; queued russian_plugg concerns another language/community network. No mutually exclusive artist sets or new acoustic invention asserted.",
+      "source_scope_limitation": "Representative Spanish-language plugg production, not a reconstruction of a named recording or exact live lineup. First-person artist biography and university scene research establish rappers, producers and transnational collaborations. Founding producer testimony supports keyboard-created soft electronic melodies and 808 percussion. Authored single rhythmic spoken lead, eight-voice Jupiter-family melodic synthesis, modern digital 808 recreation with a long-decay bass emphasis, and controlled studio capture. These are deliberate compatible recording choices, not observed artist models or universal genre settings. Shorter-bass, sung and R&B-facing practices also exist; physiology, exact pitch system and actual performer headcount remain unasserted.",
+      "authored_render_scope": "Representative Spanish-language plugg production, not a reconstruction of a named recording or exact live lineup. First-person artist biography and university scene research establish rappers, producers and transnational collaborations. Founding producer testimony supports keyboard-created soft electronic melodies and 808 percussion. Authored single rhythmic spoken lead, eight-voice Jupiter-family melodic synthesis, modern digital 808 recreation with a long-decay bass emphasis, and controlled studio capture. These are deliberate compatible recording choices, not observed artist models or universal genre settings. Shorter-bass, sung and R&B-facing practices also exist; physiology, exact pitch system and actual performer headcount remain unasserted.",
+      "primary_retrieval_refs": [
+        "turn14482search0",
+        "turn14477search0",
+        "turn14482search12",
+        "turn14482search13",
+        "turn14487view0"
+      ],
+      "source_review_refs": [
+        "turn14482search0",
+        "turn14477search0",
+        "turn14482search12",
+        "turn14482search13",
+        "turn14487view0"
+      ],
+      "vocal_count_audit": {
+        "representative_voice_cards": 1,
+        "basis": "Single lead general branch, not universal genre headcount or master recording reconstruction."
+      },
+      "instrument_role_audit": {
+        "voice": "Rhythmic rap lead",
+        "drum_machine_808": "Programmed 808-family bass and percussion",
+        "analog_poly_synth": "Synthetic melodic lead line"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative Spanish-language plugg production, not a reconstruction of a named recording or exact live lineup. First-person artist biography and university scene research establish rappers, producers and transnational collaborations. Founding producer testimony supports keyboard-created soft electronic melodies and 808 percussion. Authored single rhythmic spoken lead, eight-voice Jupiter-family melodic synthesis, modern digital 808 recreation with a long-decay bass emphasis, and controlled studio capture. These are deliberate compatible recording choices, not observed artist models or universal genre settings. Shorter-bass, sung and R&B-facing practices also exist; physiology, exact pitch system and actual performer headcount remain unasserted."
+        },
+        {
+          "instrument": "drum_machine_808",
+          "parts": {
+            "tr808_voice": "tr808_kick_long",
+            "drum_machine_808_context": "drum_machine_808_trap",
+            "tr808_production_origin": "tr808_tr_8s_modern"
+          },
+          "policy": "Representative Spanish-language plugg production, not a reconstruction of a named recording or exact live lineup. First-person artist biography and university scene research establish rappers, producers and transnational collaborations. Founding producer testimony supports keyboard-created soft electronic melodies and 808 percussion. Authored single rhythmic spoken lead, eight-voice Jupiter-family melodic synthesis, modern digital 808 recreation with a long-decay bass emphasis, and controlled studio capture. These are deliberate compatible recording choices, not observed artist models or universal genre settings. Shorter-bass, sung and R&B-facing practices also exist; physiology, exact pitch system and actual performer headcount remain unasserted."
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "parts": {
+            "electronic_technique": "electronic_lead_line",
+            "poly_archetypes": "jupiter_8",
+            "poly_voices": "poly_8_voice",
+            "poly_maker_lineage": "poly_roland_jupiter"
+          },
+          "policy": "Representative Spanish-language plugg production, not a reconstruction of a named recording or exact live lineup. First-person artist biography and university scene research establish rappers, producers and transnational collaborations. Founding producer testimony supports keyboard-created soft electronic melodies and 808 percussion. Authored single rhythmic spoken lead, eight-voice Jupiter-family melodic synthesis, modern digital 808 recreation with a long-decay bass emphasis, and controlled studio capture. These are deliberate compatible recording choices, not observed artist models or universal genre settings. Shorter-bass, sung and R&B-facing practices also exist; physiology, exact pitch system and actual performer headcount remain unasserted."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "verification_status": "24 applicable owning parts protected; all four original browser-format strings personally read, max545 characters; no foreign-culture or extra-palette label. No static optimizer or full regression claim."
+    }
+  ],
+  "instrument_dependencies": []
+}

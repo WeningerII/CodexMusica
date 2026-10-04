@@ -1,0 +1,238 @@
+{
+  "entries": [
+    {
+      "source_label": "military rap",
+      "source_url": "https://everynoise.com/engenremap-militaryrap.html",
+      "suggested_id": "military_rap",
+      "allocation_ordinal": 402,
+      "allocation_group_id": "017",
+      "id": "military_rap",
+      "tradition": {
+        "id": "military_rap",
+        "name": "Military Rap",
+        "family": "hip_hop",
+        "lineage": "Soldier Hard — complete separately issued It's Not Your Fault Acapella, track5 of the five-track It's Not Your Fault EP, Redcon-1 Music Group LLC,15October2013,2:32. Issuer-distributed Amazon metadata explicitly identifies the acapella version and distinguishes it from the3:58 original and Boone Cutler mix. Select this issued voice-only version, not a reduction of the earlier Army concert or original instrumental recording. Artist credit does not establish a sole human singer or exact layering; retain unknown vocal count/tracking. No audio audition, isolated-track production method or absence of vocal processing is claimed. Retain the whole issued acapella through existing human_voice_ensemble_unspecified, with all17 applicable controls protected and unknown count/stack/physiology/pitch preserved. Rhythmic spoken flow and unprocessed neutral vocal production in a controlled treated-studio room are meaningful authored rap-rendition choices, not recovered session facts or a claim every source syllable has no pitch. No global tuning, accompaniment, capture hardware or military marching role inferred. Broad spokenWord parent describes the selected unaccompanied vocal rendition, not the entire rap field. Neutral numeric axes are editorial.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Soldier Hard — complete separately issued It's Not Your Fault Acapella, track5 of the five-track It's Not Your Fault EP, Redcon-1 Music Group LLC,15October2013,2:32. Issuer-distributed Amazon metadata explicitly identifies the acapella version and distinguishes it from the3:58 original and Boone Cutler mix. Select this issued voice-only version, not a reduction of the earlier Army concert or original instrumental recording. Artist credit does not establish a sole human singer or exact layering; retain unknown vocal count/tracking. No audio audition, isolated-track production method or absence of vocal processing is claimed. Military rap names the veteran/service-member and military-audience hip-hop community, positively documented by the Army organizer's Soldier Hard concert account and creator-issued corpus with Soldier Hard,4th25,REDCON-1,The Marine Rapper and others. It is not all rap made by somebody who served, a universal political viewpoint or a claim that every playlist member is a veteran. Existing military_cadence is functional marching/running formation chant with response timing; this community's commercially issued rap songs and veteran concerts have a different purpose despite shared military references. Conscious_hip_hop overlaps in social narrative but is not coextensive with the service-community field. Broader American hip-hop and regional rap also overlap; no new technique or strict stylistic separation is asserted. Exact creator includes Soldier Hard on StolenValor and RedFlags, not this particular acapella track; the complete alternate issued version is linked by the same artist and independent community evidence. Current old and queued records checked for matching military-rap scope. Retain the whole issued acapella through existing human_voice_ensemble_unspecified, with all17 applicable controls protected and unknown count/stack/physiology/pitch preserved. Rhythmic spoken flow and unprocessed neutral vocal production in a controlled treated-studio room are meaningful authored rap-rendition choices, not recovered session facts or a claim every source syllable has no pitch. No global tuning, accompaniment, capture hardware or military marching role inferred. Broad spokenWord parent describes the selected unaccompanied vocal rendition, not the entire rap field. Neutral numeric axes are editorial.",
+        "exemplars": [
+          "Soldier Hard — It's Not Your Fault Acapella (2013), complete2:32 issued version"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        37.775,
+        -122.419,
+        "San Francisco",
+        "North America"
+      ],
+      "geo_rationale": "Army primary identifies artist as from San Francisco; regional community anchor, not recording-session location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Military rap names the veteran/service-member and military-audience hip-hop community, positively documented by the Army organizer's Soldier Hard concert account and creator-issued corpus with Soldier Hard,4th25,REDCON-1,The Marine Rapper and others. It is not all rap made by somebody who served, a universal political viewpoint or a claim that every playlist member is a veteran. Existing military_cadence is functional marching/running formation chant with response timing; this community's commercially issued rap songs and veteran concerts have a different purpose despite shared military references. Conscious_hip_hop overlaps in social narrative but is not coextensive with the service-community field. Broader American hip-hop and regional rap also overlap; no new technique or strict stylistic separation is asserted. Exact creator includes Soldier Hard on StolenValor and RedFlags, not this particular acapella track; the complete alternate issued version is linked by the same artist and independent community evidence. Current old and queued records checked for matching military-rap scope.",
+      "classification_evidence": "Military rap names the veteran/service-member and military-audience hip-hop community, positively documented by the Army organizer's Soldier Hard concert account and creator-issued corpus with Soldier Hard,4th25,REDCON-1,The Marine Rapper and others. It is not all rap made by somebody who served, a universal political viewpoint or a claim that every playlist member is a veteran. Existing military_cadence is functional marching/running formation chant with response timing; this community's commercially issued rap songs and veteran concerts have a different purpose despite shared military references. Conscious_hip_hop overlaps in social narrative but is not coextensive with the service-community field. Broader American hip-hop and regional rap also overlap; no new technique or strict stylistic separation is asserted. Exact creator includes Soldier Hard on StolenValor and RedFlags, not this particular acapella track; the complete alternate issued version is linked by the same artist and independent community evidence. Current old and queued records checked for matching military-rap scope.",
+      "model_policy": "Retain the whole issued acapella through existing human_voice_ensemble_unspecified, with all17 applicable controls protected and unknown count/stack/physiology/pitch preserved. Rhythmic spoken flow and unprocessed neutral vocal production in a controlled treated-studio room are meaningful authored rap-rendition choices, not recovered session facts or a claim every source syllable has no pitch. No global tuning, accompaniment, capture hardware or military marching role inferred. Broad spokenWord parent describes the selected unaccompanied vocal rendition, not the entire rap field. Neutral numeric axes are editorial.",
+      "sources": [
+        {
+          "url": "https://music.amazon.in/albums/B00FXJFO1S",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11542view1/11552search1 full issuer-distributed5trackEP metadata explicitly separate2:32Acapella,2013Redcon-1 MusicGroup LLC. No inferred production method or singer count."
+        },
+        {
+          "url": "https://www.army.mil/article/52155/32nd_medical_brigade_soldiers_experience_wounded_warrior_concert",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11557view0 organizer firsthand concert report establishes veteran-rapper community and military audience/support organization. Not the selected musical performance, no concert instruments transferred."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5ODQ2snyLcC29R5kUVlbGI",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11552view0/11557view1 full creator MilitaryRap corpus; SoldierHard items7/58/91 plus numerouscollaborations, nationalservicecommunity network. Exact selected acapella not asserted present."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": null,
+        "named_artist": "Soldier Hard",
+        "reason": "Explicitacapella version; total humans/layers not supplied, unknown-countowner does not assert solo or single take."
+      },
+      "instrument_role_audit": {
+        "scope": "Soldier Hard — complete separately issued It's Not Your Fault Acapella, track5 of the five-track It's Not Your Fault EP, Redcon-1 Music Group LLC,15October2013,2:32. Issuer-distributed Amazon metadata explicitly identifies the acapella version and distinguishes it from the3:58 original and Boone Cutler mix. Select this issued voice-only version, not a reduction of the earlier Army concert or original instrumental recording. Artist credit does not establish a sole human singer or exact layering; retain unknown vocal count/tracking. No audio audition, isolated-track production method or absence of vocal processing is claimed.",
+        "cards": 1,
+        "roles": [
+          "Complete issued acapella vocal content, unknown human count/layering"
+        ],
+        "defaults": "Retain the whole issued acapella through existing human_voice_ensemble_unspecified, with all17 applicable controls protected and unknown count/stack/physiology/pitch preserved. Rhythmic spoken flow and unprocessed neutral vocal production in a controlled treated-studio room are meaningful authored rap-rendition choices, not recovered session facts or a claim every source syllable has no pitch. No global tuning, accompaniment, capture hardware or military marching role inferred. Broad spokenWord parent describes the selected unaccompanied vocal rendition, not the entire rap field. Neutral numeric axes are editorial."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "Retain the whole issued acapella through existing human_voice_ensemble_unspecified, with all17 applicable controls protected and unknown count/stack/physiology/pitch preserved. Rhythmic spoken flow and unprocessed neutral vocal production in a controlled treated-studio room are meaningful authored rap-rendition choices, not recovered session facts or a claim every source syllable has no pitch. No global tuning, accompaniment, capture hardware or military marching role inferred. Broad spokenWord parent describes the selected unaccompanied vocal rendition, not the entire rap field. Neutral numeric axes are editorial."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": [],
+        "existing_owner_count": 1638,
+        "policy": "Existing source-unspecified voice owner; no existing data changed."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 owning controls explicitly pinned; no fallback or shared-slot collision."
+      },
+      "primary_retrieval_refs": [
+        "turn11542view1",
+        "turn11557view0",
+        "turn11557view1"
+      ],
+      "source_retrieval_caveat": "Direct issuer-distributed Amazon catalog and Army institutional firsthand report retrieved; no audio audition. Exact creator artist membership independently positive; selected acapella itself not in playlist claim.",
+      "source_scope_limitation": "Soldier Hard — complete separately issued It's Not Your Fault Acapella, track5 of the five-track It's Not Your Fault EP, Redcon-1 Music Group LLC,15October2013,2:32. Issuer-distributed Amazon metadata explicitly identifies the acapella version and distinguishes it from the3:58 original and Boone Cutler mix. Select this issued voice-only version, not a reduction of the earlier Army concert or original instrumental recording. Artist credit does not establish a sole human singer or exact layering; retain unknown vocal count/tracking. No audio audition, isolated-track production method or absence of vocal processing is claimed.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "military_rap",
+          "name": "Military Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not Soldier Hard, a military concert or original apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11484view0/11491view0 confirms Iain Fergusson/Binksternet CC BY2.5 and crop provenance. Original023 exact bytes and historical visual receipt inherited; no new download or view claimed.",
+          "fresh_review_ref": "turn11491view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11491view0"
+        ]
+      },
+      "verification_status": "Original merged-owner check passes all17 protected parts with no fallbacks and preserves all1638 prior owners. Original browser/connector rich, prose, tags and compact formats pass, maximum226 characters, parity true; isolated candidate preflight does not claim final integrated static build or CI.",
+      "status": "frozen_for_independent_review"
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

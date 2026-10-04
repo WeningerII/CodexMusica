@@ -1,0 +1,213 @@
+{
+  "entries": [
+    {
+      "source_label": "lagu maluku",
+      "source_url": "https://everynoise.com/engenremap-lagumaluku.html",
+      "suggested_id": "lagu_maluku",
+      "allocation_ordinal": 3654,
+      "allocation_group_id": "147",
+      "status": "frozen_pending_independent_review",
+      "id": "lagu_maluku",
+      "tradition": {
+        "id": "lagu_maluku",
+        "name": "Lagu Maluku",
+        "family": "vernacular",
+        "lineage": "Complete Ananda Sukarlan Rapsodia Nusantara no.4, the eight-minute piano composition required in the2010 national piano competition and positively reported by its organizing Indonesian Classical Music Foundation as performed by winner Edith Widayani. The composer describes the whole work as variations on Buka Pintu and identifies this underlying song as Maluku material. This selects the complete fixed solo-piano work, retaining one piano and zero singers, not a partial reduction of the separate choir/orchestra/angklung Stanza Suara mentioned in the organizer’s next paragraph. Eight minutes is the published work duration, not a measured recording length. No recording audition or full-score inspection claimed. Authored standard studio upright and connected classical legato realize source-unspecified piano construction; no actual model or measured technique is asserted. Broad artMusic follows the complete composed concert variation work, not the entire regional song field. No original folk tuning, singer, language, signal chain or recording location is inferred. Controlled live-room listening presentation is authored.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Complete Ananda Sukarlan Rapsodia Nusantara no.4, the eight-minute piano composition required in the2010 national piano competition and positively reported by its organizing Indonesian Classical Music Foundation as performed by winner Edith Widayani. The composer describes the whole work as variations on Buka Pintu and identifies this underlying song as Maluku material. This selects the complete fixed solo-piano work, retaining one piano and zero singers, not a partial reduction of the separate choir/orchestra/angklung Stanza Suara mentioned in the organizer’s next paragraph. Eight minutes is the published work duration, not a measured recording length. No recording audition or full-score inspection claimed. Lagu Maluku is the regional song-repertoire field positively identified in the composer’s own discussion of Buka Pintu and the distinct Maluku tunes Sarinande and Rasa Sayange. The latter tunes are not imported into this selected fourth rhapsody. Existing Indonesian folk and Indonesian pop are broader national categories, whose full scopes are not restricted to their selected artists. Queued Indonesian Indigenous Traditional is also a broad national heritage field; queued Lagu Aceh and proposed Lagu Manado name different positively identified regional repertoires. Overlap with national heritage/pop categories is retained; this regional source-repertoire axis is not an instrumental style or composer-nationality distinction. No exact creator-list membership is claimed. Actual existing lagu_timur expressly includes Maluku/Banda within its wider cross-regional Eastern Indonesian contemporary-song field. Lagu Maluku is the narrower named regional repertoire axis within that overlapping coverage; it is not newly claimed territory absent from Lagu Timur, and the full existing umbrella is not reduced to Rayen Pono alone. Authored standard studio upright and connected classical legato realize source-unspecified piano construction; no actual model or measured technique is asserted. Broad artMusic follows the complete composed concert variation work, not the entire regional song field. No original folk tuning, singer, language, signal chain or recording location is inferred. Controlled live-room listening presentation is authored.",
+        "exemplars": [
+          "Edith Widayani — complete Ananda Sukarlan Rapsodia Nusantara no.4, ASA2010"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -3.6954,
+        128.1814,
+        "Ambon",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Approximate Maluku repertoire anchor, not the pianist birthplace,2010 performance venue or an exact song-origin coordinate.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://musik-sastra.com/index.php/news/28-main/news/news2/37-ananda-sukarlan-award-national-piano-competition-20-25-juli-2010",
+          "support_notes": "Fresh10952view1 organizer gives complete eight-minute piano work as final-round requirement.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://musik-sastra.com/index.php/links/28-main/news/news2/51-what-next-a-busy-post-ananda-sukarlan-award-period",
+          "support_notes": "Fresh10952view0 actual organizer post-event report confirms EdithWidayani performedRapsodia4; other plannedensemblework explicitly separate.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://andystarblogger.blogspot.com/2013/06/",
+          "support_notes": "Fresh indexed10919search0 complete composer programme notes identify fourthrhapsody BukaPintu and Maluku source. Genuine unmodified receipt manado-composer-indexed-sourceaudit.json retained.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://andystarblogger.blogspot.com/2011/01/",
+          "support_notes": "Fresh indexed10947search0 firstperson composer interview explicitly says entire fourthrhapsody variations onBukaPintu, piano treatment and EdithWidayani performance. Early provisional eighthwork numbering not used.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Lagu Maluku is the regional song-repertoire field positively identified in the composer’s own discussion of Buka Pintu and the distinct Maluku tunes Sarinande and Rasa Sayange. The latter tunes are not imported into this selected fourth rhapsody. Existing Indonesian folk and Indonesian pop are broader national categories, whose full scopes are not restricted to their selected artists. Queued Indonesian Indigenous Traditional is also a broad national heritage field; queued Lagu Aceh and proposed Lagu Manado name different positively identified regional repertoires. Overlap with national heritage/pop categories is retained; this regional source-repertoire axis is not an instrumental style or composer-nationality distinction. No exact creator-list membership is claimed. Actual existing lagu_timur expressly includes Maluku/Banda within its wider cross-regional Eastern Indonesian contemporary-song field. Lagu Maluku is the narrower named regional repertoire axis within that overlapping coverage; it is not newly claimed territory absent from Lagu Timur, and the full existing umbrella is not reduced to Rayen Pono alone.",
+      "model_policy": "Authored standard studio upright and connected classical legato realize source-unspecified piano construction; no actual model or measured technique is asserted. Broad artMusic follows the complete composed concert variation work, not the entire regional song field. No original folk tuning, singer, language, signal chain or recording location is inferred. Controlled live-room listening presentation is authored.",
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "classification_evidence": {
+        "mode": "composer_identified_regional_song_and_complete_presenter_documented_work",
+        "note": "Lagu Maluku is the regional song-repertoire field positively identified in the composer’s own discussion of Buka Pintu and the distinct Maluku tunes Sarinande and Rasa Sayange. The latter tunes are not imported into this selected fourth rhapsody. Existing Indonesian folk and Indonesian pop are broader national categories, whose full scopes are not restricted to their selected artists. Queued Indonesian Indigenous Traditional is also a broad national heritage field; queued Lagu Aceh and proposed Lagu Manado name different positively identified regional repertoires. Overlap with national heritage/pop categories is retained; this regional source-repertoire axis is not an instrumental style or composer-nationality distinction. No exact creator-list membership is claimed. Actual existing lagu_timur expressly includes Maluku/Banda within its wider cross-regional Eastern Indonesian contemporary-song field. Lagu Maluku is the narrower named regional repertoire axis within that overlapping coverage; it is not newly claimed territory absent from Lagu Timur, and the full existing umbrella is not reduced to Rayen Pono alone."
+      },
+      "vocal_count_audit": {
+        "selected_count": 0,
+        "decision": "Complete fixed piano competition work; no vocal role."
+      },
+      "instrument_role_audit": {
+        "scope": "Complete Ananda Sukarlan Rapsodia Nusantara no.4, the eight-minute piano composition required in the2010 national piano competition and positively reported by its organizing Indonesian Classical Music Foundation as performed by winner Edith Widayani. The composer describes the whole work as variations on Buka Pintu and identifies this underlying song as Maluku material. This selects the complete fixed solo-piano work, retaining one piano and zero singers, not a partial reduction of the separate choir/orchestra/angklung Stanza Suara mentioned in the organizer’s next paragraph. Eight minutes is the published work duration, not a measured recording length. No recording audition or full-score inspection claimed.",
+        "authored_defaults": "Authored standard studio upright and connected classical legato realize source-unspecified piano construction; no actual model or measured technique is asserted. Broad artMusic follows the complete composed concert variation work, not the entire regional song field. No original folk tuning, singer, language, signal chain or recording location is inferred. Controlled live-room listening presentation is authored."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "All three owning controls protected."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Single upright owner, three applicable controls protected; no fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn10952view0",
+        "turn10952view1",
+        "turn10919search0",
+        "turn10947search0"
+      ],
+      "source_scope_limitation": "Complete Ananda Sukarlan Rapsodia Nusantara no.4, the eight-minute piano composition required in the2010 national piano competition and positively reported by its organizing Indonesian Classical Music Foundation as performed by winner Edith Widayani. The composer describes the whole work as variations on Buka Pintu and identifies this underlying song as Maluku material. This selects the complete fixed solo-piano work, retaining one piano and zero singers, not a partial reduction of the separate choir/orchestra/angklung Stanza Suara mentioned in the organizer’s next paragraph. Eight minutes is the published work duration, not a measured recording length. No recording audition or full-score inspection claimed.",
+      "source_retrieval_caveat": "Fresh full organizer competition and completion-report pages read. Complete composer2013 notes freshly recovered indexed; original blog direct unavailable. No audio audition/fullscore read asserted.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lagu_maluku",
+          "name": "Lagu Maluku",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not a piano, artist or Maluku-specific instrument.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10889view2 confirms Iain Fergusson/Binksternet crop and CC BY2.5. Exact historical byte receipt retained; no new transfer.",
+          "fresh_review_ref": "turn10889view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn10889view2"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

@@ -1,0 +1,524 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "telugu_devotional",
+        "name": "Telugu Devotional",
+        "family": "vernacular",
+        "lineage": "Telugu devotional music brings sacred poetry and praise into temple worship, community singing, concerts and recordings. Annamacharya and later saint-poets remain important sources, with classical settings, folk-derived songs and newer arrangements circulating through religious institutions and popular devotional media.",
+        "instruments": [
+          "voice",
+          "violin_carnatic",
+          "mridangam",
+          "tanpura"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_melismatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "bowed_technique": "bowed_microtonal_inflected",
+          "violin_carnatic_tuning": "violin_carnatic_carnatic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_synthetic",
+          "violin_carnatic_lineage": "violin_carnatic_lalgudi",
+          "mridangam_heads": "mridangam_standard",
+          "mridangam_use": "mridangam_carnatic",
+          "mridangam_shell_wood": "mridangam_jackwood_canonical",
+          "mridangam_heads_material": "mridangam_goat_buffalo",
+          "mridangam_lineage": "mridangam_palghat",
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "tanpura_size": "tamburi_small",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "four_string_classical",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.hindu",
+        "axes": {
+          "voice": 2,
+          "harm": 1,
+          "pitch": 1
+        },
+        "description": "Devotional words and singable melodic contours support praise, contemplation and shared religious life. Raga-shaped ornament and a steady drone enrich the classical vocal branch, with violin responses and hand-drum accompaniment; folk and popular arrangements give the wider repertoire other textures.",
+        "exemplars": [
+          "Annamacharya",
+          "Bhadrachala Ramadasu",
+          "Sobha Raju"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "telugu_devotional",
+          "name": "Telugu Devotional",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13974view0 confirms Iain Fergusson/Binksternet crop CC BY2.5.",
+          "fresh_review_ref": "turn13974view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13974view0; exact historical bytes/visual receipt retained.",
+        "fresh_rights_retrieval_refs": [
+          "turn13974view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "shruti_inflected",
+            "voice_tradition": "carnatic_classical_tradition",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_melismatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+            "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level authored classical devotional recital within the broader Telugu sacred-song field. TTD primary describes folk versions, public temple programmes and recorded devotional circulation; CMS documents the ordinary voice/violin/mridangam/tanpura ensemble, independently corroborated for voice/violin/mridangam by TTD devotional concert reporting. This is not a claimed exhaustive reconstruction of that concert. All four representative roles retained, with one accompanied lead chosen rather than universal headcount. Carnatic ornamentation, seated S-P-S-P violin with synthetic strings and Lalgudi-style phrasing, Palghat-style jackwood mridangam with loaded natural heads, four-string gourd tamburi and open jawari are coherent deliberate classical-branch choices, not measured performer lineage or original instrument specifications. Natural recital-hall acoustics authored, not source venue geometry. No global fixed temperament imposed on variable raga practice."
+        },
+        {
+          "instrument": "violin_carnatic",
+          "parts": {
+            "bowed_technique": "bowed_microtonal_inflected",
+            "violin_carnatic_tuning": "violin_carnatic_carnatic",
+            "violin_carnatic_posture": "violin_carnatic_seated_south",
+            "violin_carnatic_strings": "violin_carnatic_synthetic",
+            "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+          },
+          "policy": "Genre-level authored classical devotional recital within the broader Telugu sacred-song field. TTD primary describes folk versions, public temple programmes and recorded devotional circulation; CMS documents the ordinary voice/violin/mridangam/tanpura ensemble, independently corroborated for voice/violin/mridangam by TTD devotional concert reporting. This is not a claimed exhaustive reconstruction of that concert. All four representative roles retained, with one accompanied lead chosen rather than universal headcount. Carnatic ornamentation, seated S-P-S-P violin with synthetic strings and Lalgudi-style phrasing, Palghat-style jackwood mridangam with loaded natural heads, four-string gourd tamburi and open jawari are coherent deliberate classical-branch choices, not measured performer lineage or original instrument specifications. Natural recital-hall acoustics authored, not source venue geometry. No global fixed temperament imposed on variable raga practice."
+        },
+        {
+          "instrument": "mridangam",
+          "parts": {
+            "mridangam_heads": "mridangam_standard",
+            "mridangam_use": "mridangam_carnatic",
+            "mridangam_shell_wood": "mridangam_jackwood_canonical",
+            "mridangam_heads_material": "mridangam_goat_buffalo",
+            "mridangam_lineage": "mridangam_palghat"
+          },
+          "policy": "Genre-level authored classical devotional recital within the broader Telugu sacred-song field. TTD primary describes folk versions, public temple programmes and recorded devotional circulation; CMS documents the ordinary voice/violin/mridangam/tanpura ensemble, independently corroborated for voice/violin/mridangam by TTD devotional concert reporting. This is not a claimed exhaustive reconstruction of that concert. All four representative roles retained, with one accompanied lead chosen rather than universal headcount. Carnatic ornamentation, seated S-P-S-P violin with synthetic strings and Lalgudi-style phrasing, Palghat-style jackwood mridangam with loaded natural heads, four-string gourd tamburi and open jawari are coherent deliberate classical-branch choices, not measured performer lineage or original instrument specifications. Natural recital-hall acoustics authored, not source venue geometry. No global fixed temperament imposed on variable raga practice."
+        },
+        {
+          "instrument": "tanpura",
+          "parts": {
+            "plucked_traditional_technique": "plucked_drone_modal",
+            "tanpura_size": "tamburi_small",
+            "tanpura_jawari": "curved_jawari",
+            "tanpura_strings": "four_string_classical",
+            "tanpura_string_material": "tanpura_bronze_steel",
+            "tanpura_body_wood": "tanpura_gourd_body"
+          },
+          "policy": "Genre-level authored classical devotional recital within the broader Telugu sacred-song field. TTD primary describes folk versions, public temple programmes and recorded devotional circulation; CMS documents the ordinary voice/violin/mridangam/tanpura ensemble, independently corroborated for voice/violin/mridangam by TTD devotional concert reporting. This is not a claimed exhaustive reconstruction of that concert. All four representative roles retained, with one accompanied lead chosen rather than universal headcount. Carnatic ornamentation, seated S-P-S-P violin with synthetic strings and Lalgudi-style phrasing, Palghat-style jackwood mridangam with loaded natural heads, four-string gourd tamburi and open jawari are coherent deliberate classical-branch choices, not measured performer lineage or original instrument specifications. Natural recital-hall acoustics authored, not source venue geometry. No global fixed temperament imposed on variable raga practice."
+        }
+      ],
+      "source_label": "telugu devotional",
+      "source_url": "https://everynoise.com/engenremap-telugudevotional.html",
+      "suggested_id": "telugu_devotional",
+      "allocation_ordinal": 4412,
+      "allocation_group_id": "177",
+      "id": "telugu_devotional",
+      "status": "ready_for_independent_review",
+      "geo": [
+        13.6288,
+        79.4192,
+        "Tirupati",
+        "South Asia"
+      ],
+      "geo_rationale": "TTD devotional publication and concert centre, not exclusive origin.",
+      "signature_tokens": [],
+      "model_policy": "Genre-level authored classical devotional recital within the broader Telugu sacred-song field. TTD primary describes folk versions, public temple programmes and recorded devotional circulation; CMS documents the ordinary voice/violin/mridangam/tanpura ensemble, independently corroborated for voice/violin/mridangam by TTD devotional concert reporting. This is not a claimed exhaustive reconstruction of that concert. All four representative roles retained, with one accompanied lead chosen rather than universal headcount. Carnatic ornamentation, seated S-P-S-P violin with synthetic strings and Lalgudi-style phrasing, Palghat-style jackwood mridangam with loaded natural heads, four-string gourd tamburi and open jawari are coherent deliberate classical-branch choices, not measured performer lineage or original instrument specifications. Natural recital-hall acoustics authored, not source venue geometry. No global fixed temperament imposed on variable raga practice.",
+      "neighbor_distinction": "Full existing telugu_kirtana explicitly defines Carnatic devotional composition with pallavi-anupallavi-charanam and the concert tradition; it includes Annamacharya and Ramadasu and is not reduced to a single Tyagaraja example. Proposed Telugu Devotional overlaps that core but covers the broader functionally organized sacred Telugu repertoire across folk song versions, temple ministry and commercial/institutional recordings documented by TTD, rather than requiring one classical form. TTD explicitly distinguishes folk versions and mixed devotional programmes. Telugu Worship is the Christian repertoire, while this representative branch is Hindu bhakti; broader Telugu Folk includes secular work and social song. Neither translation alone nor a new ensemble is offered as the boundary. This proposal makes no claim that all Telugu devotional music shares the chosen classical arrangement.",
+      "classification_evidence": "Full existing telugu_kirtana explicitly defines Carnatic devotional composition with pallavi-anupallavi-charanam and the concert tradition; it includes Annamacharya and Ramadasu and is not reduced to a single Tyagaraja example. Proposed Telugu Devotional overlaps that core but covers the broader functionally organized sacred Telugu repertoire across folk song versions, temple ministry and commercial/institutional recordings documented by TTD, rather than requiring one classical form. TTD explicitly distinguishes folk versions and mixed devotional programmes. Telugu Worship is the Christian repertoire, while this representative branch is Hindu bhakti; broader Telugu Folk includes secular work and social song. Neither translation alone nor a new ensemble is offered as the boundary. This proposal makes no claim that all Telugu devotional music shares the chosen classical arrangement.",
+      "source_scope_limitation": "Genre-level authored classical devotional recital within the broader Telugu sacred-song field. TTD primary describes folk versions, public temple programmes and recorded devotional circulation; CMS documents the ordinary voice/violin/mridangam/tanpura ensemble, independently corroborated for voice/violin/mridangam by TTD devotional concert reporting. This is not a claimed exhaustive reconstruction of that concert. All four representative roles retained, with one accompanied lead chosen rather than universal headcount. Carnatic ornamentation, seated S-P-S-P violin with synthetic strings and Lalgudi-style phrasing, Palghat-style jackwood mridangam with loaded natural heads, four-string gourd tamburi and open jawari are coherent deliberate classical-branch choices, not measured performer lineage or original instrument specifications. Natural recital-hall acoustics authored, not source venue geometry. No global fixed temperament imposed on variable raga practice.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "CMS ensemble and TTD devotional recital roles; authored physical settings."
+        },
+        {
+          "instrument": "violin_carnatic",
+          "basis": "CMS ensemble and TTD devotional recital roles; authored physical settings."
+        },
+        {
+          "instrument": "mridangam",
+          "basis": "CMS ensemble and TTD devotional recital roles; authored physical settings."
+        },
+        {
+          "instrument": "tanpura",
+          "basis": "CMS explicitly names plucked drone in representative ensemble."
+        }
+      ],
+      "vocal_count_audit": {
+        "genre_headcount": "variable",
+        "authored_default": "one accompanied devotional singer",
+        "physiology": "unspecified"
+      },
+      "sources": [
+        {
+          "url": "https://www.tirumala.org/RAAnnamacharyaProject.aspx",
+          "primary": true,
+          "evidence_ref": "turn13985view0",
+          "supports": "Institution own devotional mission, folk versions, troupes and recordings beyond a single classical form."
+        },
+        {
+          "url": "https://www.music.org/international-engagement/cms-ambassador-reports/south-india.html",
+          "primary": true,
+          "evidence_ref": "turn13985view1",
+          "supports": "Original scholar ambassador report gives normal classical vocal/violin/mridangam/tanpura ensemble and devotional contexts."
+        },
+        {
+          "url": "https://news.tirumala.org/annamyya-sankeertans-entralls-art-lovers-_-%E0%B0%A4%E0%B0%A8%E0%B1%8D%E0%B0%AE%E0%B0%AF%E0%B0%A4%E0%B1%8D%E0%B0%B5%E0%B0%82%E0%B0%B2%E0%B1%8B-%E0%B0%AE%E0%B1%81%E0%B0%82%E0%B0%9A%E0%B1%86%E0%B0%A4/",
+          "primary": true,
+          "evidence_ref": "turn13996search0",
+          "supports": "Organizer positively documents devotional singing/violin/mridangam and new folk-song setting."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn13985view0",
+        "turn13985view1",
+        "turn13996search0"
+      ],
+      "source_retrieval_caveat": "Institution and scholarly full pages read; organizer indexed full report. No audio audition or source hardware measurement. Broader genre practice is the evidence standard.",
+      "full_neighbor_records": [
+        {
+          "tradition": {
+            "id": "telugu_kirtana",
+            "name": "Telugu kirtana (Carnatic devotional song)",
+            "family": "classical",
+            "lineage": "Telugu kirtana devotional-song genre within the broader Carnatic classical tradition of South India, with Telugu serving as the dominant lyrical language of the Carnatic kriti repertoire. The Telugu-language compositions of the Carnatic Trinity Tyagaraja (1767-1847), Muthuswami Dikshitar (1775-1835), and Syama Sastri (1762-1827) form the canonical core of the entire Carnatic concert repertoire. Performance follows the standard Carnatic kriti structure (pallavi-anupallavi-charanam) with raga-and-tala framework. The Tyagaraja Aradhana annual festival at Tiruvaiyaru constitutes the central institutional anchor of the kriti performance tradition.",
+            "instruments": [
+              "voice",
+              "mridangam",
+              "tanpura"
+            ],
+            "room": "kolkata_hmv_dum_dum_studio",
+            "chain_mic": "mic_u87_condenser_neumann",
+            "chain_pre": "tube_pre",
+            "chain_medium": "tape_15ips",
+            "chain_console": "colored",
+            "tuning": "carnatic_72_melakarta_kriti_form",
+            "chain_status": "researched_studio",
+            "chain_comp": "comp_la2a_optical",
+            "chain_eq": "eq_passive_program_pultec",
+            "parts": {
+              "voice_register": "chest_voice",
+              "voice_quality": "opera_voice",
+              "voice_speech_song": "voice_melismatic_singing",
+              "voice_tradition": "carnatic_classical_tradition",
+              "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+              "voice_microtone": "shruti_inflected",
+              "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+              "voice_estill_quality": "voice_estill_opera",
+              "voice_vibrato": "fast_vibrato",
+              "voice_mechanism_compound": "voice_mechanism_single_source",
+              "plucked_traditional_technique": "plucked_drone_modal",
+              "tanpura_size": "female_size",
+              "tanpura_jawari": "curved_jawari",
+              "tanpura_strings": "four_string_classical",
+              "tanpura_string_material": "tanpura_bronze_steel",
+              "tanpura_body_wood": "tanpura_gourd_body"
+            },
+            "chain_archetype": "arch_hmv_dumdum_raga"
+          },
+          "extras": {
+            "parent": "artMusic.southAsian",
+            "axes": {
+              "harm": 0,
+              "pitch": 2,
+              "ornament": 2,
+              "meter": 0,
+              "density": 1,
+              "transmission": 2,
+              "improv": 1,
+              "soundTech": -1,
+              "intensity": 0,
+              "voice": 2,
+              "timbre": 1,
+              "percussion": 1,
+              "cyclicity": 0
+            },
+            "description": "Telugu kirtana devotional-song genre within the broader Carnatic classical tradition of South India, with Telugu serving as the dominant lyrical language of the Carnatic kriti repertoire. The Telugu-language compositions of the Carnatic Trinity Tyagaraja (1767-1847), Muthuswami Dikshitar (1775-1835), and Syama Sastri (1762-1827) form the canonical core of the entire Carnatic concert repertoire. Performance follows the standard Carnatic kriti structure (pallavi-anupallavi-charanam) with raga-and-tala framework. The Tyagaraja Aradhana annual festival at Tiruvaiyaru constitutes the central institutional anchor of the kriti performance tradition.",
+            "exemplars": [
+              "Tyagaraja",
+              "Muthuswami Dikshitar",
+              "Syama Sastri",
+              "Annamacharya",
+              "Bhadrachala Ramadasu",
+              "Tyagaraja Aradhana Tiruvaiyaru"
+            ],
+            "status": "documented",
+            "crossRefs": [
+              "ritualDevotional.hindu"
+            ]
+          }
+        },
+        {
+          "tradition": {
+            "id": "telugu_worship",
+            "name": "Telugu worship",
+            "family": "blues_gospel",
+            "lineage": "Prabhu Pammi and Jessy Paul — Naa Snehithuda, complete 2021 acoustic release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+            "instruments": [
+              "voice",
+              "acoustic_guitar_om",
+              "credited_acoustic_bass",
+              "cajon_peruano",
+              "kanjira",
+              "flute"
+            ],
+            "room": "treated_studio",
+            "tuning": "twelve_tet",
+            "chain_mic": "condenser_sdc",
+            "chain_pre": "transformerless",
+            "chain_console": "console_in_the_box",
+            "chain_comp": "comp_none",
+            "chain_eq": "eq_none",
+            "chain_medium": "digital_high",
+            "chain_status": "authored_representative_production_model",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "string_tuning": "standard_tuning",
+              "top_wood": "sitka_om",
+              "back_sides": "rosewood_bs_om",
+              "string_acoustic": "phosphor_om",
+              "acoustic_om_technique": "om_fingerpicked",
+              "credited_acoustic_bass_identity": "credited_acoustic_bass_source_unspecified",
+              "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+              "cajon_peruano_role": "cajon_peruano_role_source_unspecified",
+              "kanjira_skin": "kanjira_synthetic",
+              "kanjira_context": "kanjira_fusion",
+              "kanjira_shell_wood": "kanjira_rosewood",
+              "kanjira_jingle": "kanjira_brass_jingle",
+              "wind_articulation": "wind_classical_legato",
+              "flute_size": "concert_flute",
+              "flute_material": "silver_flute",
+              "flute_technique": "classical_flute",
+              "flute_maker_school": "flute_powell_boston"
+            }
+          },
+          "extras": {
+            "parent": "ritualDevotional",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": -1,
+              "cyclicity": 0
+            },
+            "description": "The artist-uploaded release explicitly labels Telugu Christian worship. Full audio credits name Jessy Paul and Prabhu Pammi lead voices, Elfe Choir backing vocals arranged by Roe Vincent, Solomon Raj B acoustic cajon and kanjira, Keba Jeremiah acoustic guitar and acoustic bass, and Ramesh with Jesh Abraham flutes. All six sound families and the backing choir are retained. The primary description names recording sessions at Alapana Hyderabad and two Chennai studios. Complete specifically acoustic 2021 edition with Jessy Paul, not the separate later Nissy John version. Two named lead singers plus a credited choir of unspecified headcount; choir entity is not counted as a third person. One voice card models the complete lead-and-backing vocal group. Two flute players and one percussionist doubling cajon/kanjira are retained without inventing extra humans. Acoustic-bass identity is preserved with an isolated construction-unspecified owner because the source does not specify upright bass versus bass guitar. The stock modern concert flute is an explicitly authored timbral realization of unspecified flute-family credits; source material/subtype is not inferred from performer nationality. Unsnared wooden cajon with unspecified regional pattern, modern synthetic/rosewood kanjira, fingerpicked OM guitar and controlled classical flute phrasing are authored settings rather than measured source hardware. The cajon owner does not claim an Afro-Peruvian repertoire or original source construction. Sacred placement follows explicit Christian worship text and label; it does not conflate Hindu Telugu devotional repertoire or secular Telugu indie. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+            "exemplars": [
+              "Prabhu Pammi and Jessy Paul — Naa Snehithuda, complete 2021 acoustic release"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        {
+          "tradition": {
+            "id": "telugu_folk",
+            "name": "Telugu folk",
+            "family": "vernacular",
+            "lineage": "Telugu folk is represented by Chowraasta — Maya (2019 original). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "analog_poly_synth"
+            ],
+            "room": "treated_studio",
+            "tuning": "twelve_tet",
+            "chain_mic": "condenser_sdc",
+            "chain_pre": "transformerless",
+            "chain_console": "console_in_the_box",
+            "chain_comp": "comp_none",
+            "chain_eq": "eq_none",
+            "chain_medium": "digital_high",
+            "chain_status": "authored_representative_production_model",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_duet",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified"
+            },
+            "chain_amp_guitar": "amp_american_fender_blackface",
+            "chain_amp_bass": "amp_american_ampeg_b15"
+          },
+          "extras": {
+            "parent": "functionalSong.popRock.folkRock",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 1,
+              "intensity": 1,
+              "voice": 1,
+              "timbre": 0,
+              "percussion": 1,
+              "cyclicity": 1
+            },
+            "description": "A contemporary Telugu folk/reggae-fusion branch, bounded to the original Maya credits. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+            "exemplars": [
+              "Chowraasta — Maya (2019 original)"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        }
+      ],
+      "render_context_audit": {
+        "literal_review": "All four original formats read. huge/immense/refined are authored recital affect; mind-numbing tanpura lexicon explicitly sustained drone foundation/overtone-rich/beat-free, matching drone role rather than extra instrumental or cultural claim. Carnatic kriti-form/lineage controls confined to representative classical devotional branch, not every Telugu sacred song.",
+        "runtime": "/tmp/batch040/telugu-devotional-runtime461.json",
+        "protected_owning_parts": 33
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

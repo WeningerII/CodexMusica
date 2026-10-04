@@ -1,0 +1,283 @@
+{
+  "entries": [
+    {
+      "source_label": "polish underground rap",
+      "source_url": "https://everynoise.com/engenremap-polishundergroundrap.html",
+      "suggested_id": "polish_underground_rap",
+      "allocation_ordinal": 450,
+      "allocation_group_id": "018",
+      "status": "unresolved",
+      "id": "polish_underground_rap",
+      "tradition": {
+        "id": "polish_underground_rap",
+        "name": "Polish underground rap",
+        "family": "hip_hop",
+        "lineage": "TONFA — complete announced four-person live practice at Polski Sklep, Avalon Cafe Bermondsey, London,3July2022. The promoter identifies the rap duo accompanied by a turntablist and drummer. The institutional first-person profile independently identifies rappers Kierat and Karuzelkaaa (earlier Norman), drummer Wojciech Perczynski and DJ Zeten. Two rappers, live drum kit and scratching/mixing turntable role are all retained. This models the full announced TONFA act, not the entire multi-act evening, an auditioned recording, a guessed setlist or the broader studio-album guest union. Separate Krenz and ATST sets are not part of TONFA. Deck playback contents/embedded voices are unknown. Neutral vocal anatomy, tuning and training remain unspecified. Two named rappers use authored live-duet/live-ensemble rhythmic speech. Source scratch/mix practice is preserved by the existing turntable owner and its sample-chopped shared technique; exact deck make and medium are not established. Authored modern maple drum kit, thin shells,45-degree edges,coated heads,20-wire snare,single felt kick pedal and B20 machine-hammered/full-lathed/traditional-finish cymbals are a coherent new rendition, not source hardware claims. Rock sticks follow the documented energetic rap/punk live context as an editorial performance choice. Controlled live-room acoustics are authored, not the measured London venue. No global tuning or invented synth/guitar layer.",
+        "instruments": [
+          "voice",
+          "turntable",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "TONFA — complete announced four-person live practice at Polski Sklep, Avalon Cafe Bermondsey, London,3July2022. The promoter identifies the rap duo accompanied by a turntablist and drummer. The institutional first-person profile independently identifies rappers Kierat and Karuzelkaaa (earlier Norman), drummer Wojciech Perczynski and DJ Zeten. Two rappers, live drum kit and scratching/mixing turntable role are all retained. This models the full announced TONFA act, not the entire multi-act evening, an auditioned recording, a guessed setlist or the broader studio-album guest union. Separate Krenz and ATST sets are not part of TONFA. Deck playback contents/embedded voices are unknown. Promoter defines a Polish underground network comprising TONFA, Krenz and DJ Zeten; institutional first-person history independently documents self-burned CD-R circulation, mutual Warsaw club promotion, experimental cross-genre collaboration and underground ethos. This is a positively documented independent circulation/performance community within Polish hip-hop, not a different genre inferred from a different quartet. Existing polish_hip_hop is the broad national umbrella, whose selected EL AXO trio is not its universal instrumentation; its scope overlaps this narrower underground scene. Existing Polish trap/drill and other national underground fields overlap sonically but do not coextend with this Polish DIY scene. No claim that all underground rap sounds like TONFA, or that TONFA is absent from mainstream festivals. Exact creator map was retrieved but TONFA membership was not found; no exact-member assertion. The source-specific community identification rests on promoter and institutional firsthand testimony. Neutral vocal anatomy, tuning and training remain unspecified. Two named rappers use authored live-duet/live-ensemble rhythmic speech. Source scratch/mix practice is preserved by the existing turntable owner and its sample-chopped shared technique; exact deck make and medium are not established. Authored modern maple drum kit, thin shells,45-degree edges,coated heads,20-wire snare,single felt kick pedal and B20 machine-hammered/full-lathed/traditional-finish cymbals are a coherent new rendition, not source hardware claims. Rock sticks follow the documented energetic rap/punk live context as an editorial performance choice. Controlled live-room acoustics are authored, not the measured London venue. No global tuning or invented synth/guitar layer.",
+        "exemplars": [
+          "TONFA — announced complete quartet, Polski Sklep2022"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        52.2297,
+        21.0122,
+        "Warsaw",
+        "Europe"
+      ],
+      "geo_rationale": "Warsaw is the independently documented home scene of TONFA and named collaborators; selected event occurs in London, explicitly retained separately.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://ra.co/events/1553326",
+          "title": "Polski Sklep — promoter announcement",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11519view1/11562view1 whole TONFA act has rap duo, turntablist and drummer. Date3July2022,London; separate other acts not imported. Explicit Polish underground community and DJ scratch/mixing."
+        },
+        {
+          "url": "https://culture.pl/pl/tworca/tonfa",
+          "title": "Adam Mickiewicz Institute — TONFA first-person history",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11522view0 names full live quartet and documents independent CD-R distribution, underground Warsaw scene and artist statements; later album guests are outside chosen2022announced live practice."
+        }
+      ],
+      "neighbor_distinction": "Promoter defines a Polish underground network comprising TONFA, Krenz and DJ Zeten; institutional first-person history independently documents self-burned CD-R circulation, mutual Warsaw club promotion, experimental cross-genre collaboration and underground ethos. This is a positively documented independent circulation/performance community within Polish hip-hop, not a different genre inferred from a different quartet. Existing polish_hip_hop is the broad national umbrella, whose selected EL AXO trio is not its universal instrumentation; its scope overlaps this narrower underground scene. Existing Polish trap/drill and other national underground fields overlap sonically but do not coextend with this Polish DIY scene. No claim that all underground rap sounds like TONFA, or that TONFA is absent from mainstream festivals. Exact creator map was retrieved but TONFA membership was not found; no exact-member assertion. The source-specific community identification rests on promoter and institutional firsthand testimony.",
+      "model_policy": "Neutral vocal anatomy, tuning and training remain unspecified. Two named rappers use authored live-duet/live-ensemble rhythmic speech. Source scratch/mix practice is preserved by the existing turntable owner and its sample-chopped shared technique; exact deck make and medium are not established. Authored modern maple drum kit, thin shells,45-degree edges,coated heads,20-wire snare,single felt kick pedal and B20 machine-hammered/full-lathed/traditional-finish cymbals are a coherent new rendition, not source hardware claims. Rock sticks follow the documented energetic rap/punk live context as an editorial performance choice. Controlled live-room acoustics are authored, not the measured London venue. No global tuning or invented synth/guitar layer. Rendered burlesque is an authored playful theatrical vocal affect, consistent with the documented wordplay and confrontational live presentation, not a claim of burlesque dance, brass instrumentation or measured swing; micro-stuttering describes the source-positive chopped scratch practice.",
+      "classification_evidence": {
+        "mode": "promoter_named_underground_scene_and_firsthand_institutional_history",
+        "note": "Promoter defines a Polish underground network comprising TONFA, Krenz and DJ Zeten; institutional first-person history independently documents self-burned CD-R circulation, mutual Warsaw club promotion, experimental cross-genre collaboration and underground ethos. This is a positively documented independent circulation/performance community within Polish hip-hop, not a different genre inferred from a different quartet. Existing polish_hip_hop is the broad national umbrella, whose selected EL AXO trio is not its universal instrumentation; its scope overlaps this narrower underground scene. Existing Polish trap/drill and other national underground fields overlap sonically but do not coextend with this Polish DIY scene. No claim that all underground rap sounds like TONFA, or that TONFA is absent from mainstream festivals. Exact creator map was retrieved but TONFA membership was not found; no exact-member assertion. The source-specific community identification rests on promoter and institutional firsthand testimony."
+      },
+      "vocal_count_audit": {
+        "selected_count": 2,
+        "named_rappers": [
+          "Kierat",
+          "Karuzelkaaa (earlier Norman)"
+        ],
+        "embedded_playback_voices": "unknown",
+        "decision": "Both rap-duo people retained. No other act or playback voice counted as a live singer."
+      },
+      "instrument_role_audit": {
+        "scope": "TONFA — complete announced four-person live practice at Polski Sklep, Avalon Cafe Bermondsey, London,3July2022. The promoter identifies the rap duo accompanied by a turntablist and drummer. The institutional first-person profile independently identifies rappers Kierat and Karuzelkaaa (earlier Norman), drummer Wojciech Perczynski and DJ Zeten. Two rappers, live drum kit and scratching/mixing turntable role are all retained. This models the full announced TONFA act, not the entire multi-act evening, an auditioned recording, a guessed setlist or the broader studio-album guest union. Separate Krenz and ATST sets are not part of TONFA. Deck playback contents/embedded voices are unknown.",
+        "roles": {
+          "voice": "Two named rap-duo performers",
+          "turntable": "DJ Zeten live scratches and mixing",
+          "drum_kit": "Wojciech Perczynski live drums"
+        },
+        "authored_defaults": "Neutral vocal anatomy, tuning and training remain unspecified. Two named rappers use authored live-duet/live-ensemble rhythmic speech. Source scratch/mix practice is preserved by the existing turntable owner and its sample-chopped shared technique; exact deck make and medium are not established. Authored modern maple drum kit, thin shells,45-degree edges,coated heads,20-wire snare,single felt kick pedal and B20 machine-hammered/full-lathed/traditional-finish cymbals are a coherent new rendition, not source hardware claims. Rock sticks follow the documented energetic rap/punk live context as an editorial performance choice. Controlled live-room acoustics are authored, not the measured London venue. No global tuning or invented synth/guitar layer."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Neutral vocal anatomy, tuning and training remain unspecified. Two named rappers use authored live-duet/live-ensemble rhythmic speech. Source scratch/mix practice is preserved by the existing turntable owner and its sample-chopped shared technique; exact deck make and medium are not established. Authored modern maple drum kit, thin shells,45-degree edges,coated heads,20-wire snare,single felt kick pedal and B20 machine-hammered/full-lathed/traditional-finish cymbals are a coherent new rendition, not source hardware claims. Rock sticks follow the documented energetic rap/punk live context as an editorial performance choice. Controlled live-room acoustics are authored, not the measured London venue. No global tuning or invented synth/guitar layer."
+        },
+        {
+          "instrument": "turntable",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "turntable_technique": "turntable_scratch"
+          },
+          "policy": "Neutral vocal anatomy, tuning and training remain unspecified. Two named rappers use authored live-duet/live-ensemble rhythmic speech. Source scratch/mix practice is preserved by the existing turntable owner and its sample-chopped shared technique; exact deck make and medium are not established. Authored modern maple drum kit, thin shells,45-degree edges,coated heads,20-wire snare,single felt kick pedal and B20 machine-hammered/full-lathed/traditional-finish cymbals are a coherent new rendition, not source hardware claims. Rock sticks follow the documented energetic rap/punk live context as an editorial performance choice. Controlled live-room acoustics are authored, not the measured London venue. No global tuning or invented synth/guitar layer."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Neutral vocal anatomy, tuning and training remain unspecified. Two named rappers use authored live-duet/live-ensemble rhythmic speech. Source scratch/mix practice is preserved by the existing turntable owner and its sample-chopped shared technique; exact deck make and medium are not established. Authored modern maple drum kit, thin shells,45-degree edges,coated heads,20-wire snare,single felt kick pedal and B20 machine-hammered/full-lathed/traditional-finish cymbals are a coherent new rendition, not source hardware claims. Rock sticks follow the documented energetic rap/punk live context as an editorial performance choice. Controlled live-room acoustics are authored, not the measured London venue. No global tuning or invented synth/guitar layer."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All30 owning controls protected; repeated rappers aggregate in duet voice owner. No fallback or unexplained role deletion."
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "author_source_and_runtime_checked_pending_independent_peer",
+      "source_scope_limitation": "TONFA — complete announced four-person live practice at Polski Sklep, Avalon Cafe Bermondsey, London,3July2022. The promoter identifies the rap duo accompanied by a turntablist and drummer. The institutional first-person profile independently identifies rappers Kierat and Karuzelkaaa (earlier Norman), drummer Wojciech Perczynski and DJ Zeten. Two rappers, live drum kit and scratching/mixing turntable role are all retained. This models the full announced TONFA act, not the entire multi-act evening, an auditioned recording, a guessed setlist or the broader studio-album guest union. Separate Krenz and ATST sets are not part of TONFA. Deck playback contents/embedded voices are unknown.",
+      "primary_retrieval_refs": [
+        "turn11519view1",
+        "turn11562view1",
+        "turn11522view0"
+      ],
+      "source_retrieval_caveat": "Promoter-hosted event announcement and institutional first-person artist interview read directly. Event is announced practice, no actual audio inspection or attendance assertion. No exact creator-member claim.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "polish_underground_rap",
+          "name": "Polish underground rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not TONFA, the turntables, drums or actual venue equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11562view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Exact historical023 byte/visual receipts retained; no fresh download.",
+          "fresh_review_ref": "turn11562view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11562view0"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

@@ -1,0 +1,237 @@
+{
+  "entries": [
+    {
+      "source_label": "violao classico",
+      "source_url": "https://everynoise.com/engenremap-violaoclassico.html",
+      "suggested_id": "violao_classico",
+      "allocation_ordinal": 4519,
+      "allocation_group_id": "181",
+      "status": "frozen_pending_independent_review",
+      "id": "violao_classico",
+      "tradition": {
+        "id": "violao_classico",
+        "name": "Violão Clássico",
+        "family": "classical",
+        "lineage": "Fabio Zanon — complete Guitar Recital, Naxos8.554431, all16 indexed tracks64:40, issued August1998. Label lists Zanon as sole artist and instrumental guitar recital, with Tarrega miniatures, all four Bach BWV1003 movements in his transcription, Alexandre de Faria, Mertz and Ponce. Artist discography identifies Sergio Abreu1986 guitar for this exact recital. One guitar performer, no voice or other ensemble inferred. This is the complete album, not a convenient excerpt from a larger orchestral recording; no audio audition claimed. Broad artMusic/classical follows the complete labelled concert recital across Baroque/Romantic/modern repertoire, not a single-period whole-category equation. Existing classical nylon-string guitar represents the positive source concert instrument; source SergioAbreu1986 identity retained in evidence, but no undocumented exact wood/bracing/string make copied from a stock model. Spruce top, Torres-style fan bracing, normal-tension nylon, fingerpicked rest-stroke articulation and standard string tuning are explicitly authored modern concert realization choices, not measured original construction or gestures throughout every piece. Authored shoebox concert hall is a new recital setting, not actual1998 recording venue. No global temperament or apparatus claimed.",
+        "instruments": [
+          "classical_nylon_string_guitar"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Fabio Zanon — complete Guitar Recital, Naxos8.554431, all16 indexed tracks64:40, issued August1998. Label lists Zanon as sole artist and instrumental guitar recital, with Tarrega miniatures, all four Bach BWV1003 movements in his transcription, Alexandre de Faria, Mertz and Ponce. Artist discography identifies Sergio Abreu1986 guitar for this exact recital. One guitar performer, no voice or other ensemble inferred. This is the complete album, not a convenient excerpt from a larger orchestral recording; no audio audition claimed. The requested creator ViolaoClassico field concentrates the Brazilian concert-guitar performer/composer network: Zanon, TuribioSantos, Abreu, Assad and their international repertoire circulation. It includes non-Brazilian interpreters of Brazilian compositions and European works, so neither exclusive citizenship nor exclusively Brazilian compositions is asserted. Zanon institutional biography documents USP training, Brazilian young-soloist/concert awards and the Brazilian Art/Music Bunge prize; his own biography documents RadioCultura concert-guitar broadcasting and CamposdoJordao festival leadership alongside international concert work. These provide a positive national concert-institution community, not Portuguese translation alone. Existing classical_guitar is the broad international concert instrument field, not restricted to its Shibe/Bach example. Existing violao_brasileiro already straddles concert and popular practice and includes VillaLobos, but its actual declared defining axis is choro-derived baixaria, syncopation and independent-thumb Brazilian instrumental language. The Brazilian concert-institution network overlaps that field while including European and international concert repertoire without requiring that rhythmic vocabulary. No strict disjointness or sonic novelty is claimed; this narrower community interpretation remains subject to independent category review. Broad artMusic/classical follows the complete labelled concert recital across Baroque/Romantic/modern repertoire, not a single-period whole-category equation. Existing classical nylon-string guitar represents the positive source concert instrument; source SergioAbreu1986 identity retained in evidence, but no undocumented exact wood/bracing/string make copied from a stock model. Spruce top, Torres-style fan bracing, normal-tension nylon, fingerpicked rest-stroke articulation and standard string tuning are explicitly authored modern concert realization choices, not measured original construction or gestures throughout every piece. Authored shoebox concert hall is a new recital setting, not actual1998 recording venue. No global temperament or apparatus claimed. UNIRIO’s own institutional history independently distinguishes a ViolaoClassico teaching lineage beginning with TuribioSantos in1981 and continuing through NicolasdeSouzaBarros, MariaHaro and ClaytonVetromilla, alongside a separately identified ViolaoPopular lineage. Its faculty account follows concert-guitar graduates into federal and state teaching posts. This supplies a positively documented Brazilian conservatory network beyond the selected performer nationality; the anniversary archival study locates its concert/pedagogic formation historically while correcting older myths of exclusive elite origins. The requested creator field overlaps popular players and international interpreters, so the institutional network is a central concentration rather than an exhaustive membership rule.",
+        "exemplars": [
+          "Fabio Zanon — complete Naxos8.554431 Guitar Recital"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -23.55,
+        -46.6333,
+        "São Paulo",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Editorial documented USP/RadioCultura concert-community anchor, not actual session venue or instrument birthplace.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Fabio Zanon — complete Guitar Recital, Naxos8.554431, all16 indexed tracks64:40, issued August1998. Label lists Zanon as sole artist and instrumental guitar recital, with Tarrega miniatures, all four Bach BWV1003 movements in his transcription, Alexandre de Faria, Mertz and Ponce. Artist discography identifies Sergio Abreu1986 guitar for this exact recital. One guitar performer, no voice or other ensemble inferred. This is the complete album, not a convenient excerpt from a larger orchestral recording; no audio audition claimed.",
+      "neighbor_distinction": "The requested creator ViolaoClassico field concentrates the Brazilian concert-guitar performer/composer network: Zanon, TuribioSantos, Abreu, Assad and their international repertoire circulation. It includes non-Brazilian interpreters of Brazilian compositions and European works, so neither exclusive citizenship nor exclusively Brazilian compositions is asserted. Zanon institutional biography documents USP training, Brazilian young-soloist/concert awards and the Brazilian Art/Music Bunge prize; his own biography documents RadioCultura concert-guitar broadcasting and CamposdoJordao festival leadership alongside international concert work. These provide a positive national concert-institution community, not Portuguese translation alone. Existing classical_guitar is the broad international concert instrument field, not restricted to its Shibe/Bach example. Existing violao_brasileiro already straddles concert and popular practice and includes VillaLobos, but its actual declared defining axis is choro-derived baixaria, syncopation and independent-thumb Brazilian instrumental language. The Brazilian concert-institution network overlaps that field while including European and international concert repertoire without requiring that rhythmic vocabulary. No strict disjointness or sonic novelty is claimed; this narrower community interpretation remains subject to independent category review. UNIRIO’s own institutional history independently distinguishes a ViolaoClassico teaching lineage beginning with TuribioSantos in1981 and continuing through NicolasdeSouzaBarros, MariaHaro and ClaytonVetromilla, alongside a separately identified ViolaoPopular lineage. Its faculty account follows concert-guitar graduates into federal and state teaching posts. This supplies a positively documented Brazilian conservatory network beyond the selected performer nationality; the anniversary archival study locates its concert/pedagogic formation historically while correcting older myths of exclusive elite origins. The requested creator field overlaps popular players and international interpreters, so the institutional network is a central concentration rather than an exhaustive membership rule.",
+      "model_policy": "Broad artMusic/classical follows the complete labelled concert recital across Baroque/Romantic/modern repertoire, not a single-period whole-category equation. Existing classical nylon-string guitar represents the positive source concert instrument; source SergioAbreu1986 identity retained in evidence, but no undocumented exact wood/bracing/string make copied from a stock model. Spruce top, Torres-style fan bracing, normal-tension nylon, fingerpicked rest-stroke articulation and standard string tuning are explicitly authored modern concert realization choices, not measured original construction or gestures throughout every piece. Authored shoebox concert hall is a new recital setting, not actual1998 recording venue. No global temperament or apparatus claimed.",
+      "instrument_role_audit": {
+        "scope": "Fabio Zanon — complete Guitar Recital, Naxos8.554431, all16 indexed tracks64:40, issued August1998. Label lists Zanon as sole artist and instrumental guitar recital, with Tarrega miniatures, all four Bach BWV1003 movements in his transcription, Alexandre de Faria, Mertz and Ponce. Artist discography identifies Sergio Abreu1986 guitar for this exact recital. One guitar performer, no voice or other ensemble inferred. This is the complete album, not a convenient excerpt from a larger orchestral recording; no audio audition claimed.",
+        "positive_sound_source_classes": [
+          "one solo classical guitar"
+        ],
+        "authored_defaults": "Broad artMusic/classical follows the complete labelled concert recital across Baroque/Romantic/modern repertoire, not a single-period whole-category equation. Existing classical nylon-string guitar represents the positive source concert instrument; source SergioAbreu1986 identity retained in evidence, but no undocumented exact wood/bracing/string make copied from a stock model. Spruce top, Torres-style fan bracing, normal-tension nylon, fingerpicked rest-stroke articulation and standard string tuning are explicitly authored modern concert realization choices, not measured original construction or gestures throughout every piece. Authored shoebox concert hall is a new recital setting, not actual1998 recording venue. No global temperament or apparatus claimed."
+      },
+      "vocal_count_audit": {
+        "selected_count": 0,
+        "basis": "Complete instrumental solo-guitar edition positively documented; no vocal role."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "classical_nylon_string_guitar",
+          "parts": {
+            "acoustic_technique": "acoustic_fingerpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood_classical": "spruce_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "nylon_normal_cl",
+            "attack_technique_cl": "apoyando_cl"
+          },
+          "policy": "All six applicable owning parts protected; physical and playing realization authored explicitly."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "All six applicable owning controls protected; no shared collision or fallback."
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "Six applicable controls protected, all1638 existing owners preserved; four original browser/connector formats personally read with no unrelated named culture. Broad hall-derived huge affect is authored spatial scale, not number of players. Independent category review still required.",
+      "sources": [
+        {
+          "url": "https://www.naxos.com/CatalogueDetail/?id=8.554431",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11217view0 complete16track64:40 instrumental recital, sole artist, full composers and1998edition."
+        },
+        {
+          "url": "https://www.naxos.com/sharedfiles/PDF/SegmentCatalogue_LuteGuitar.pdf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11214search13 catalogue320 explicitly FabioZanon,guitar,8.554431 completeprogramme."
+        },
+        {
+          "url": "https://en.fabiozanon.com/discografia",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11214search0 own exact1998recital source instrument SergioAbreu1986; first duplicated ORCHESTRAL heading not used as evidence of scoring."
+        },
+        {
+          "url": "https://fundacaobunge.org.br/premiado/fabio-zanon/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11217view2 award issuer institutional Brazilian concert training and1997music prize."
+        },
+        {
+          "url": "https://en.fabiozanon.com/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11126view0 own RadioCultura/CamposdoJordao leadership, international concert role."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5G2C23N21neMHfn68HHT1S",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11120search1 full creator field including Zanon5/38/63, Brazilian performer/composer network with European repertoire and international interpreters; no exclusive citizenship claim."
+        },
+        {
+          "url": "https://www.unirio.br/proreitorias/cla/ivl/cursos/historico-do-curso-bacharelado-em-musica-instrumentos",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11251search0 exact institution own parallel Classical/Popular guitar teaching lineages; field-level evidence not merely individual nationality."
+        },
+        {
+          "url": "https://www.unirio.br/proemusteste/docentes",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11251search11 own classical-guitar chair/graduates entering federal and state institutions; concrete teaching network."
+        },
+        {
+          "url": "https://www.unirio.br/comissoes-e-comites-/cla/ivl/publicacoes/ivl_50_anos_edicao_comemorativa_unirio.pdf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11251search15 p218 institutional archival research on Brazilian concert/pedagogic guitar formation, with corrections to simplistic older histories; no endorsement of quoted social hierarchy."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "violao_classico",
+          "name": "Violão Clássico",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not source guitar, performer or1998 equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11200view3 Commons confirms CC BY2.5 and original credit/crop. Exact historical receipt inherited.",
+          "fresh_review_ref": "turn11200view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn10920view3 and turn10921view1 rights and context only; no new byte download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn11200view3"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

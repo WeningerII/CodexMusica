@@ -1,0 +1,324 @@
+{
+  "entries": [
+    {
+      "source_label": "karen pop",
+      "source_url": "https://everynoise.com/engenremap-karenpop.html",
+      "suggested_id": "karen_pop",
+      "allocation_ordinal": 1763,
+      "allocation_group_id": "071",
+      "id": "karen_pop",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "karen_pop",
+        "name": "Karen Pop",
+        "family": "pop",
+        "lineage": "Star2 — complete December single/video, premiered10December2021. Exclusive premiere Tinnitist supplies first-person artist intention and exact synth/piano/strings palette; the artist’s own interview guest profile at BringinItBackwards provides the complete accompanying description with drums and bass as well as lead voice. These are publisher-hosted premiere/interview materials, not claimed original liner notes or personal audition. All six positively named families retained. The source says steel-drum/music-box sounding synth: no separate acoustic steelpan or mechanical music box is inferred. Strings remain unspecified instrumentation and count; no invented violin/cello subdivision. One named lead singer; original backing/overdub counts and drum/bass/synth architectures unknown. This source is not ThinkinBoutU or RealLife, whose different instrumentation is excluded. An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred.",
+        "instruments": [
+          "voice",
+          "credited_drums_unspecified",
+          "electric_bass",
+          "credited_synthesizer_unspecified",
+          "upright_piano",
+          "credited_strings_unspecified"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "credited_drums_unspecified_identity": "credited_drums_unspecified_source",
+          "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "dual_single",
+          "string_type": "flatwound",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Star2 — complete December single/video, premiered10December2021. Exclusive premiere Tinnitist supplies first-person artist intention and exact synth/piano/strings palette; the artist’s own interview guest profile at BringinItBackwards provides the complete accompanying description with drums and bass as well as lead voice. These are publisher-hosted premiere/interview materials, not claimed original liner notes or personal audition. All six positively named families retained. The source says steel-drum/music-box sounding synth: no separate acoustic steelpan or mechanical music box is inferred. Strings remain unspecified instrumentation and count; no invented violin/cello subdivision. One named lead singer; original backing/overdub counts and drum/bass/synth architectures unknown. This source is not ThinkinBoutU or RealLife, whose different instrumentation is excluded. Karen Pop is the Karen popular-music and diaspora community field rather than all Myanmar national pop. Firsthand Star2 interview explicitly connects his music upbringing, bilingual English/Karen rap and ongoing work to Karen community music; the creator KarenPop playlist freshly includes Star2 with ChinaTownRunner at item31 and multilingual regional/diaspora performers. The selected English-language reggae-pop love song illustrates one documented mapped participant’s popular practice, not a claim every Karen song is reggae or exclusively Karen-language. Full burmese_pop explicitly selects Burmese-language dramatic pop and disclaims collapsing ethnic-language scenes; myanmar_indie selects the national alternative/indie-rock field, and thai_pop the central-Thai mainstream label field; those overlap geography but do not define this Karen community. Queued myanmar_gospel instead specifies Burmese-language Christian praise, not this secular diasporic popular field. No artist ethnic identity alone establishes scope: own cultural-practice testimony plus actual creator field membership supplies the bridge. An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred.",
+        "exemplars": [
+          "Star2 — December, whole2021 single"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        32.7157,
+        -117.1611,
+        "San Diego",
+        "North America"
+      ],
+      "geo_rationale": "Artist first-person diaspora home/practice San Diego, not genre-exclusive origin or original recording room.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Karen Pop is the Karen popular-music and diaspora community field rather than all Myanmar national pop. Firsthand Star2 interview explicitly connects his music upbringing, bilingual English/Karen rap and ongoing work to Karen community music; the creator KarenPop playlist freshly includes Star2 with ChinaTownRunner at item31 and multilingual regional/diaspora performers. The selected English-language reggae-pop love song illustrates one documented mapped participant’s popular practice, not a claim every Karen song is reggae or exclusively Karen-language. Full burmese_pop explicitly selects Burmese-language dramatic pop and disclaims collapsing ethnic-language scenes; myanmar_indie selects the national alternative/indie-rock field, and thai_pop the central-Thai mainstream label field; those overlap geography but do not define this Karen community. Queued myanmar_gospel instead specifies Burmese-language Christian praise, not this secular diasporic popular field. No artist ethnic identity alone establishes scope: own cultural-practice testimony plus actual creator field membership supplies the bridge.",
+      "classification_evidence": "Karen Pop is the Karen popular-music and diaspora community field rather than all Myanmar national pop. Firsthand Star2 interview explicitly connects his music upbringing, bilingual English/Karen rap and ongoing work to Karen community music; the creator KarenPop playlist freshly includes Star2 with ChinaTownRunner at item31 and multilingual regional/diaspora performers. The selected English-language reggae-pop love song illustrates one documented mapped participant’s popular practice, not a claim every Karen song is reggae or exclusively Karen-language. Full burmese_pop explicitly selects Burmese-language dramatic pop and disclaims collapsing ethnic-language scenes; myanmar_indie selects the national alternative/indie-rock field, and thai_pop the central-Thai mainstream label field; those overlap geography but do not define this Karen community. Queued myanmar_gospel instead specifies Burmese-language Christian praise, not this secular diasporic popular field. No artist ethnic identity alone establishes scope: own cultural-practice testimony plus actual creator field membership supplies the bridge.",
+      "model_policy": "An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred.",
+      "source_scope_limitation": "Star2 — complete December single/video, premiered10December2021. Exclusive premiere Tinnitist supplies first-person artist intention and exact synth/piano/strings palette; the artist’s own interview guest profile at BringinItBackwards provides the complete accompanying description with drums and bass as well as lead voice. These are publisher-hosted premiere/interview materials, not claimed original liner notes or personal audition. All six positively named families retained. The source says steel-drum/music-box sounding synth: no separate acoustic steelpan or mechanical music box is inferred. Strings remain unspecified instrumentation and count; no invented violin/cello subdivision. One named lead singer; original backing/overdub counts and drum/bass/synth architectures unknown. This source is not ThinkinBoutU or RealLife, whose different instrumentation is excluded.",
+      "source_retrieval_caveat": "Exact creator playlist fresh13154view0 succeeds although map timed out. Publisher-hosted first-person premiere and artist interview materials distinguished from liner credits; no audition.",
+      "sources": [
+        {
+          "url": "https://tinnitist.com/2021/12/10/star2-december-exclusive-video-premiere/",
+          "support_notes": "Actual exclusive2021 premiere/artist quotations, synth/piano/strings and lead vocal;13150view0.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.bringinitbackwards.com/guests/star2/",
+          "support_notes": "Artist interview guest page full December palette drums/bass/synth/piano/strings plusvoice;13150view1.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://essentiallypop.com/epop/2022/02/star-2-speaks-with-us-about-his-music-his-upbringing-and-his-latest-single-thinkin-bout-you/",
+          "support_notes": "First-person Karen community musical upbringing and bilingual music;640520search0.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6g7ZllHKFKiJWlE8O3wUhR",
+          "support_notes": "Exact creator KarenPop playlist13154view0 item31 Star2; selected December not claimed playlisttrack.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn13150view0",
+        "turn13150view1",
+        "turn640520search0",
+        "turn13154view0"
+      ],
+      "vocal_count_audit": {
+        "selected_singers": 1,
+        "original_backing_count": null,
+        "original_tracking_count": null,
+        "basis": "One named lead source; authored single-lead rendition, no source overdub count asserted."
+      },
+      "instrument_role_audit": {
+        "scope": "Star2 — complete December single/video, premiered10December2021. Exclusive premiere Tinnitist supplies first-person artist intention and exact synth/piano/strings palette; the artist’s own interview guest profile at BringinItBackwards provides the complete accompanying description with drums and bass as well as lead voice. These are publisher-hosted premiere/interview materials, not claimed original liner notes or personal audition. All six positively named families retained. The source says steel-drum/music-box sounding synth: no separate acoustic steelpan or mechanical music box is inferred. Strings remain unspecified instrumentation and count; no invented violin/cello subdivision. One named lead singer; original backing/overdub counts and drum/bass/synth architectures unknown. This source is not ThinkinBoutU or RealLife, whose different instrumentation is excluded.",
+        "roles": {
+          "voice": "voice",
+          "credited_drums_unspecified": "credited_drums_unspecified",
+          "electric_bass": "Positively credited generic bass; electric architecture authored",
+          "credited_synthesizer_unspecified": "Explicit steel-drum/music-box sounding synth, not acoustic steelpan",
+          "upright_piano": "upright_piano",
+          "credited_strings_unspecified": "Strings positive; exact instruments/count unspecified"
+        },
+        "authored_defaults": "An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred."
+        },
+        {
+          "instrument": "credited_drums_unspecified",
+          "parts": {
+            "credited_drums_unspecified_identity": "credited_drums_unspecified_source"
+          },
+          "policy": "An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "dual_single",
+            "string_type": "flatwound",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred."
+        },
+        {
+          "instrument": "credited_strings_unspecified",
+          "parts": {
+            "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified"
+          },
+          "policy": "An explicitly authored verse-chorus-bridge popular-song arrangement over functional harmonic progressions realizes broad functionalSong, not a measured transcription of source harmony or sections. Respect the artist’s sparse reggae-lullaby intention with connected syllabic lead singing, neutral physiology and unprocessed single-lead representative rendition; exact source tracking remains unknown. Generic drums, strings and synthesizer use existing source-unspecified identity owners, preserving their source families without guessing sample, acoustic or synthesis architecture. Synth identity retains the documented steel-drum/music-box timbre in evidence but original owner does not encode that specific preset; it is not a claim of exact timbral reconstruction. Source-general bass is transparently authored as a fretted long-scale alder electric with dual-single-coil pickups, flatwound strings and locked fingerstyle for rounded sustained accompaniment. Piano is authored as a standard studio upright with connected touch. An intimate furnished parlor listening rendition is deliberately authored to support the source-described sparse romantic reggae-lullaby; rugs and drapes create soft short decay, not a claim of period furnishings or actual recording location; no capture gear, global tuning or tempo measurement inferred."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "credited_drums_unspecified",
+          "electric_bass",
+          "credited_synthesizer_unspecified",
+          "upright_piano",
+          "credited_strings_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All31 applicable owner controls explicitly protected; no shared-key fallback."
+      },
+      "verification_status": "Original applicability:31 controls; original four formats inspected in transfer461-from117-2-parlor-runtime.json. Independent peer pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "karen_pop",
+          "name": "Karen Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Star2, source instruments or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13089view1 CC BY2.5/credit, inherited exact023 bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn13089view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13089view1"
+        ],
+        "fresh_rights_review": "Fresh rights/context only; no new download or visual claim."
+      },
+      "render_context_audit": {
+        "original_hold": "Initial live-room rendition retained separately: unsupported spoken-flowing voice and up-tempo synth against source lullaby.",
+        "authored_alternative": "One intimate furnished-parlor listening rendition, chosen for sparse romantic lullaby; no source room claim.",
+        "literal_assessment": "Final voice wabi-rustic is original plain soft-attack aesthetic bundle (lexicon1022), not a claim of Japanese repertoire or instruments. Synth calming; piano comforting. Bass frustrated is an authored affect within yearning romantic source, not source-measured mood. Exact source synth timbre remains unencoded, disclosed.",
+        "runtime": "/tmp/batch040/transfer461-from117-2-parlor-runtime.json"
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "RESEARCH_DRAFT"
+}

@@ -1,0 +1,184 @@
+{
+  "id": "hudka_uttarakhand",
+  "name": "Hudka (Uttarakhand hourglass drum)",
+  "short": "Hudka",
+  "family": "percussion",
+  "class": "hudka_uttarakhand",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "description": "Small wooden hourglass drum with two hide heads, held beneath the arm and varied in pitch through pressure on its tension lacing.",
+  "sources": [
+    "https://artsandculture.google.com/asset/hudak/IQHqcN3n4ernZw"
+  ],
+  "parts": [
+    {
+      "id": "hudka_shell",
+      "name": "Shell form and material",
+      "variants": [
+        {
+          "id": "hudka_wood_hourglass",
+          "name": "Small wooden hourglass shell",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "wooden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hudka_membrane",
+      "name": "Membranes",
+      "variants": [
+        {
+          "id": "gendang_melayu_goat",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hudka_tension",
+      "name": "Lacing and tension control",
+      "variants": [
+        {
+          "id": "hudka_pressure_lacing",
+          "name": "Pressure-adjusted connecting lacing",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "bending-pitch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hudka_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "hudka_hand_struck",
+          "name": "Hand-struck head (authored playing choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hands",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hudka_support",
+      "name": "Playing position",
+      "variants": [
+        {
+          "id": "hudka_underarm",
+          "name": "Held beneath the arm",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hand-held"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hudka_shell",
+      "name": "Shell form and material",
+      "variants": [
+        {
+          "id": "hudka_wood_hourglass",
+          "name": "Small wooden hourglass shell",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "wooden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hudka_membrane",
+      "name": "Membranes",
+      "variants": [
+        {
+          "id": "gendang_melayu_goat",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "double-headed-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hudka_tension",
+      "name": "Lacing and tension control",
+      "variants": [
+        {
+          "id": "hudka_pressure_lacing",
+          "name": "Pressure-adjusted connecting lacing",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "bending-pitch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hudka_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "hudka_hand_struck",
+          "name": "Hand-struck head (authored playing choice)",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hands",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hudka_support",
+      "name": "Playing position",
+      "variants": [
+        {
+          "id": "hudka_underarm",
+          "name": "Held beneath the arm",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hand-held"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume-sourceaudit-irish-drill-geo-clarified-immutable-metadata-root.json",
+  "sha256": "e41ea597f3a5ce9f563d194ce5edc745bed9308ef3f819fa02cb7e58ad6b39fc",
+  "peer_review": "/tmp/batch040/resume-sourceaudit-irish-drill-geo-clarified-immutable-metadata-root-independent-review-sourceaudit.json",
+  "prior_musical_review": {
+    "status": "WITHDRAWN_PENDING_IMMUTABLE_METADATA_CORRECTION",
+    "packet": "/tmp/batch040/resume-sourceaudit-irish-drill-geo-clarified.json",
+    "sha256": "b85952f7fcd2bbbd4d33c10d2e817c64319eccc92d2b61faadc44b6615abfe45",
+    "peer_review": "/tmp/batch040/resume-sourceaudit-irish-drill-independent-review117.json",
+    "checked_at": "2026-10-04T04:33:45.392977+00:00",
+    "checks": [
+      "Root fresh full Offica firsthand District interview (turn14505view3/14508view1) explicitly describes rap over drill beats, Drogheda studio/local networks and Chicago/UK lineage. Full Irish Hip Hop and Irish Underground Rap broader scopes compared. Unknown beat mechanism preserved, not silently replaced with guessed hardware.",
+      "Root read all4 actual original browser/connector outputs; max320characters; 18 controls protected, zero gaps/orphans. Rhythmic natural voice and actual supported beat/synth palette coherent.",
+      "Exact historical microphone bytes/URL/visual receipt and independently refreshed current-session CC BY2.5 attribution/crop evidence preserved. Generic low-confidence recording context, no new byte transfer claimed.",
+      "Accepted evidence only; separate from frozen PR480. Final combined integration/build/regression still pending."
+    ],
+    "previous_status": "PASS",
+    "withdrawal_reason": "Source immutable metadata mismatch detected by final queue audit; all musical/source/rights reviews retained. Corrected derivative requires exact peer binding."
+  },
+  "checked_at": "2026-10-04T04:36:45.254513+00:00",
+  "checks": [
+    "Root fresh full Offica firsthand District interview (turn14505view3/14508view1) explicitly describes rap over drill beats, Drogheda studio/local networks and Chicago/UK lineage. Full Irish Hip Hop and Irish Underground Rap broader scopes compared. Unknown beat mechanism preserved, not silently replaced with guessed hardware.",
+    "Root read all4 actual original browser/connector outputs; max320characters; 18 controls protected, zero gaps/orphans. Rhythmic natural voice and actual supported beat/synth palette coherent.",
+    "Exact historical microphone bytes/URL/visual receipt and independently refreshed current-session CC BY2.5 attribution/crop evidence preserved. Generic low-confidence recording context, no new byte transfer claimed.",
+    "Accepted evidence only; separate from frozen PR480. Final combined integration/build/regression still pending.",
+    "Root and independent peer verify metadata-only restoration of exact original source allocation fields; all musical/source-evidence/photo inputs identical to reviewed predecessor. Previous invalid-metadata registration was withdrawn and preserved."
+  ]
+}

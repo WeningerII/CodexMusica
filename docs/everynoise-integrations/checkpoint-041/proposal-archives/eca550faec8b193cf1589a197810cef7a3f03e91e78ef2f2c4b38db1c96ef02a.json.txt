@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume117-35-iowa-hip-hop-practice-metadata-corrected117-immutable-metadata-root.json",
+  "sha256": "82587648b9c74a333c02933c938b3c1d9e00d9f99ec18274f7fa92675b2741c5",
+  "peer_review": "/tmp/batch040/resume117-35-iowa-hip-hop-practice-metadata-corrected117-immutable-metadata-root-independent-review-sourceaudit.json",
+  "prior_musical_review": {
+    "status": "WITHDRAWN_PENDING_IMMUTABLE_METADATA_CORRECTION",
+    "packet": "/tmp/batch040/resume117-35-iowa-hip-hop-practice-metadata-corrected117.json",
+    "sha256": "28d907f5065920d1e9eb056fa2ab490e093e14e7bc35b793f2e6e4488172249f",
+    "peer_review": "/tmp/batch040/resume117-35-iowa-hip-hop-practice-metadata-corrected117-independent-review-sourceaudit.json",
+    "checked_at": "2026-10-04T04:33:45.392612+00:00",
+    "checks": [
+      "Root freshly read firsthand Xavy Rusan interview and IPR statewide local rap reporting (turn14505view0/1,14508view2). Actual Iowa Indie and neighboring national rap scope compared; positively documented regional community, not arbitrary birthplace. General full produced-beat role plus MC, not fabricated reconstruction of Facetime.",
+      "Root read all4 actual original browser/connector outputs; max321characters; 18 controls protected, zero gaps/orphans. Rhythmic natural voice and actual supported beat/synth palette coherent.",
+      "Exact historical microphone bytes/URL/visual receipt and independently refreshed current-session CC BY2.5 attribution/crop evidence preserved. Generic low-confidence recording context, no new byte transfer claimed.",
+      "Accepted evidence only; separate from frozen PR480. Final combined integration/build/regression still pending."
+    ],
+    "previous_status": "PASS",
+    "withdrawal_reason": "Source immutable metadata mismatch detected by final queue audit; all musical/source/rights reviews retained. Corrected derivative requires exact peer binding."
+  },
+  "checked_at": "2026-10-04T04:36:45.254014+00:00",
+  "checks": [
+    "Root freshly read firsthand Xavy Rusan interview and IPR statewide local rap reporting (turn14505view0/1,14508view2). Actual Iowa Indie and neighboring national rap scope compared; positively documented regional community, not arbitrary birthplace. General full produced-beat role plus MC, not fabricated reconstruction of Facetime.",
+    "Root read all4 actual original browser/connector outputs; max321characters; 18 controls protected, zero gaps/orphans. Rhythmic natural voice and actual supported beat/synth palette coherent.",
+    "Exact historical microphone bytes/URL/visual receipt and independently refreshed current-session CC BY2.5 attribution/crop evidence preserved. Generic low-confidence recording context, no new byte transfer claimed.",
+    "Accepted evidence only; separate from frozen PR480. Final combined integration/build/regression still pending.",
+    "Root and independent peer verify metadata-only restoration of exact original source allocation fields; all musical/source-evidence/photo inputs identical to reviewed predecessor. Previous invalid-metadata registration was withdrawn and preserved."
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "entries": [
+    {
+      "source_label": "pop urbaine",
+      "source_url": "https://everynoise.com/engenremap-popurbaine.html",
+      "suggested_id": "pop_urbaine",
+      "allocation_ordinal": 1851,
+      "allocation_group_id": "075",
+      "id": "pop_urbaine",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "pop_urbaine",
+        "name": "Pop Urbaine",
+        "family": "pop",
+        "lineage": "Aya Nakamura — Djadja, complete Noviscore Standard level2 four-page piano-solo edition. Publisher explicitly distinguishes solo piano (one pianist plays melody and accompaniment) from separate piano-accompaniment editions. The whole published solo version is selected, not an invented reduction of the studio master or the separate broadcaster live session. One piano, zero scored singers; original electronic production is not reconstructed. Paid complete notation and audio were not accessed, so exact voicings, meter, key, tempo and duration remain unknown. Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Aya Nakamura — Djadja, complete Noviscore Standard level2 four-page piano-solo edition. Publisher explicitly distinguishes solo piano (one pianist plays melody and accompaniment) from separate piano-accompaniment editions. The whole published solo version is selected, not an invented reduction of the studio master or the separate broadcaster live session. One piano, zero scored singers; original electronic production is not reconstructed. Paid complete notation and audio were not accessed, so exact voicings, meter, key, tempo and duration remain unknown. Pop Urbaine is treated as a contested Francophone crossover industry and broadcasting field, not an ethnicity or a universally accepted artist identity. Generations firsthand interviews document both a practitioner account of melodic hip-hop/pop crossover and a manager rejecting the label as reductive; Skyrock itself uses the term for its Aya Nakamura programming, and CNM original industry research describes this named danceable Francophone hip-hop-influenced export field. The exact creator playlist includes rap-heavy material and Bramsito/Booba, so the category is not defined as exclusively singing or as an exclusive artist roster. Aya was not found in the retrieved100-item creator sample; her bridge is direct broadcaster usage, not claimed creator membership. Full existing French Rap already includes contemporary cloud/trap, and Rap Francais the researched contemporary metadata branch; neither is being restricted to old or nonmelodic rap. The additional axis is the positively documented pop-crossover broadcasting/industry field spanning rap and sung pop, with substantial overlap. French Pop and Classic French Pop are broader popular-song fields whose chosen guitar or retrospective examples do not exclude this repertoire. Urban Contemporary is a distinct US radio-format institution, not a French translation of this contested Francophone field. Nouvelle Vague describes another overlapping producer/rap branch. No difference is inferred merely from choosing a solo piano arrangement, skin colour or performer nationality. Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music.",
+        "exemplars": [
+          "Aya Nakamura — Djadja, complete Noviscore Standard level2 piano-solo edition"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        46.6034,
+        1.8883,
+        "France",
+        "Europe"
+      ],
+      "geo_rationale": "Country-only editorial anchor for the positively documented French broadcasting/industry field. Not a recording site, artist birthplace or exclusion of Belgian/diasporic Francophone participation.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Pop Urbaine is treated as a contested Francophone crossover industry and broadcasting field, not an ethnicity or a universally accepted artist identity. Generations firsthand interviews document both a practitioner account of melodic hip-hop/pop crossover and a manager rejecting the label as reductive; Skyrock itself uses the term for its Aya Nakamura programming, and CNM original industry research describes this named danceable Francophone hip-hop-influenced export field. The exact creator playlist includes rap-heavy material and Bramsito/Booba, so the category is not defined as exclusively singing or as an exclusive artist roster. Aya was not found in the retrieved100-item creator sample; her bridge is direct broadcaster usage, not claimed creator membership. Full existing French Rap already includes contemporary cloud/trap, and Rap Francais the researched contemporary metadata branch; neither is being restricted to old or nonmelodic rap. The additional axis is the positively documented pop-crossover broadcasting/industry field spanning rap and sung pop, with substantial overlap. French Pop and Classic French Pop are broader popular-song fields whose chosen guitar or retrospective examples do not exclude this repertoire. Urban Contemporary is a distinct US radio-format institution, not a French translation of this contested Francophone field. Nouvelle Vague describes another overlapping producer/rap branch. No difference is inferred merely from choosing a solo piano arrangement, skin colour or performer nationality.",
+      "classification_evidence": "Pop Urbaine is treated as a contested Francophone crossover industry and broadcasting field, not an ethnicity or a universally accepted artist identity. Generations firsthand interviews document both a practitioner account of melodic hip-hop/pop crossover and a manager rejecting the label as reductive; Skyrock itself uses the term for its Aya Nakamura programming, and CNM original industry research describes this named danceable Francophone hip-hop-influenced export field. The exact creator playlist includes rap-heavy material and Bramsito/Booba, so the category is not defined as exclusively singing or as an exclusive artist roster. Aya was not found in the retrieved100-item creator sample; her bridge is direct broadcaster usage, not claimed creator membership. Full existing French Rap already includes contemporary cloud/trap, and Rap Francais the researched contemporary metadata branch; neither is being restricted to old or nonmelodic rap. The additional axis is the positively documented pop-crossover broadcasting/industry field spanning rap and sung pop, with substantial overlap. French Pop and Classic French Pop are broader popular-song fields whose chosen guitar or retrospective examples do not exclude this repertoire. Urban Contemporary is a distinct US radio-format institution, not a French translation of this contested Francophone field. Nouvelle Vague describes another overlapping producer/rap branch. No difference is inferred merely from choosing a solo piano arrangement, skin colour or performer nationality.",
+      "model_policy": "Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music.",
+      "source_scope_limitation": "Aya Nakamura — Djadja, complete Noviscore Standard level2 four-page piano-solo edition. Publisher explicitly distinguishes solo piano (one pianist plays melody and accompaniment) from separate piano-accompaniment editions. The whole published solo version is selected, not an invented reduction of the studio master or the separate broadcaster live session. One piano, zero scored singers; original electronic production is not reconstructed. Paid complete notation and audio were not accessed, so exact voicings, meter, key, tempo and duration remain unknown.",
+      "source_retrieval_caveat": "Publisher public metadata and own scoring FAQ retrieved; paid full score and audio not accessed. Broadcaster source is category corroboration only, not selected source roster. Creator full100-item sample retrieved; Aya absent and no exact membership asserted.",
+      "vocal_count_audit": {
+        "scored_singing_roles": 0,
+        "actual_performer_count": "one pianist in the published solo version",
+        "decision": "No voice in selected instrumental edition; no claim about studio or live-broadcast singer counts."
+      },
+      "instrument_role_audit": {
+        "scope": "Aya Nakamura — Djadja, complete Noviscore Standard level2 four-page piano-solo edition. Publisher explicitly distinguishes solo piano (one pianist plays melody and accompaniment) from separate piano-accompaniment editions. The whole published solo version is selected, not an invented reduction of the studio master or the separate broadcaster live session. One piano, zero scored singers; original electronic production is not reconstructed. Paid complete notation and audio were not accessed, so exact voicings, meter, key, tempo and duration remain unknown.",
+        "roles": {
+          "upright_piano": "One pianist performs full melody and accompaniment in the separately issued solo edition; architecture authored"
+        },
+        "authored_defaults": "Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad functionalSong/pop describes a new authored verse-chorus-bridge organization over functional harmonic progressions of the selected song repertoire, not a transcription claim about the complete purchased edition or original master. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored instrument/touch/acoustic choices, not the original equipment or a measured venue. Full one-piano role preserved; no global temperament, capture apparatus, singer or backing electronics inferred. Notation alone does not establish classical art music."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All3 applicable owning controls protected; no shared-key conflict or fallback."
+      },
+      "sources": [
+        {
+          "url": "https://www.noviscore.fr/partition-piano-djadja-aya-nakamura",
+          "title": "Complete publisher edition",
+          "support_notes": "138608view3 complete four-page level2 solo version and original2018 title; Standard chosen, not accompaniment or Ballade option.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.noviscore.fr/page/comment/",
+          "title": "Publisher scoring definition",
+          "support_notes": "138608view1 explicitly one pianist plays melody and accompaniment in solo scores.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://skyrock.fm/video/10477/session-live-avec-aya-nakamura-kany-planeterap",
+          "title": "Broadcaster own category practice",
+          "support_notes": "567286view0 explicitly classifies Aya crossover in its own programme and names Djadja. Category only, no live roster transfer.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://generations.fr/news/musique/51552/aya-nakamura-bramsito-malory-lestin-notre-dossier-sur-la-pop-urbaine",
+          "title": "Firsthand artist and manager interviews",
+          "support_notes": "567286view2 artist describes melodic hip-hop crossover; manager disputes category and racialized assumptions. Both positions retained.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://cnmlab.fr/recueil/musique-et-donnees/chapitre/10/",
+          "title": "Original export-industry research",
+          "support_notes": "172143view3 line169 named Francophone pop-hiphop export field, beyond passport alone.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/21Le5iw1j6zgOMBtxioYfR?theme=0",
+          "title": "Exact creator category sample",
+          "support_notes": "138608view2 complete100-item sample rap-heavy and Bramsito/Booba29; Aya not found567286view1. No selected artist membership claim.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "verification_status": "Pending independent peer; original mechanics/four-format preflight required.",
+      "primary_retrieval_refs": [
+        "turn138608view3",
+        "turn138608view1",
+        "turn567286view0",
+        "turn567286view2",
+        "turn172143view3",
+        "turn138608view2"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pop_urbaine",
+          "name": "Pop Urbaine",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not Aya Nakamura, the piano or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh304992view3 Commons confirms IainFergusson/Binksternet crop and CC BY2.5; exact023 historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn304992view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn304992view3"
+        ],
+        "fresh_rights_review": "Fresh304992view3 rights only, no fresh byte or visual inspection."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

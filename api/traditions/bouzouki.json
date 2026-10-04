@@ -1,0 +1,66 @@
+{
+  "id": "bouzouki",
+  "name": "Bouzouki",
+  "family": "vernacular",
+  "lineage": "Bouzouki repertoire connects Greek instrumental performance, dance music and song adaptation with generations of players, composers and teachers. Recordings and published instrumental collections carry this practice beyond its rebetiko and laïkó roots into concert and international settings.",
+  "recipe": "classic bouzouki, improv On Frame, Mediterranean ballad ballad poetry. walnut staves canonical Greek steel canonical octave unison pairs bouzouki. live tracking.",
+  "recipe_chars": 161,
+  "score": 4.325,
+  "config": {
+    "traditions": [
+      "bouzouki"
+    ],
+    "instruments": [
+      {
+        "id": "bouzouki",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "bouzouki_courses": "trichordo",
+          "bouzouki_pick": "bouzouki_medium",
+          "bouzouki_body_wood": "bouzouki_walnut_bowl",
+          "bouzouki_strings": "bouzouki_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.15000000000000002,
+          "bouzouki_courses": 1.3,
+          "bouzouki_pick": 0.495,
+          "bouzouki_body_wood": 1.3,
+          "bouzouki_strings": 1.08
+        }
+      }
+    ],
+    "pinned": {
+      "bouzouki": [
+        "plucked_traditional_technique",
+        "bouzouki_courses",
+        "bouzouki_pick",
+        "bouzouki_body_wood",
+        "bouzouki_strings"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "bouzouki_courses": "trichordo",
+      "bouzouki_pick": "bouzouki_medium",
+      "bouzouki_body_wood": "bouzouki_walnut_bowl",
+      "bouzouki_strings": "bouzouki_steel_modern"
+    },
+    "pin_parts": true
+  }
+}

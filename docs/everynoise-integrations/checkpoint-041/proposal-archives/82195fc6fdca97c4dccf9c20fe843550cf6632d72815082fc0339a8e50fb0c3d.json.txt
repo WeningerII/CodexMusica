@@ -1,0 +1,227 @@
+{
+  "entries": [
+    {
+      "source_label": "japanese buddhist chant",
+      "source_url": "https://everynoise.com/engenremap-japanesebuddhistchant.html",
+      "suggested_id": "japanese_buddhist_chant",
+      "allocation_ordinal": 3559,
+      "allocation_group_id": "143",
+      "id": "japanese_buddhist_chant",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "japanese_buddhist_chant",
+        "name": "Japanese Buddhist chant",
+        "family": "global",
+        "lineage": "Japanese Buddhist chant encompasses the vocal practices of Japan’s Buddhist schools and lay communities. Transmitted from continental Asia and developed through distinct temple lineages, it ranges from elaborate shōmyō to syllabic sutra recitation, ceremonial narratives and devotional hymns. Clergy and lay practitioners preserve these traditions through ritual, instruction and communal singing.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_metrical_chant",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.buddhist",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Voices carry sacred texts through sustained melodic phrases or measured syllabic recitation. Some rituals use bells, bowls, gongs and cymbals as signals, while vocal passages place the sound and meaning of the text at the centre of the practice.",
+        "exemplars": [
+          "Shōmyō, sutra recitation, kōshiki and goeika traditions"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        36.055,
+        136.356,
+        "Eiheiji",
+        "East Asia"
+      ],
+      "geo_rationale": "Official issuer explicitly names Eiheiji temple,FukuiPrefecture,Japan. Editorial temple anchor, not exact microphone position.",
+      "sources": [
+        {
+          "url": "https://dharmaworld.rk-world.org/articles/buddhism/singing-praises-to-the-buddhas-and-bodhisattvas-music-in-japanese-buddhist-rituals/",
+          "title": "Michaela Mross: Singing Praises to the Buddhas and Bodhisattvas",
+          "support_notes": "Original specialist account; clerical/lay vocal scope across schools, elaborate versus syllabic fixed-rhythm chanting, instruments occasional ritual signals. Fresh full direct turn13401view1."
+        },
+        {
+          "url": "https://www2.ntj.jac.go.jp/dglib/contents/learn/edc28/about/en.html",
+          "title": "Japan Arts Council: Shomyo",
+          "support_notes": "Institutional historical and ritual context; actual Buddhist chant lineage and signal instruments."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Broader national Buddhist vocal field includes clerical and lay repertoires across schools, as explicitly defined by scholar Michaela Mross. Existing shomyo_japanese specifically emphasizes Tendai/Shingon melodic chant; pure_land_buddhist centers transnational Amitabha name-recollection. Those traditions overlap this umbrella. No false exclusion or strict sonic disjointness.",
+      "model_policy": "Genre-level representative metrical sutra recitation follows Mross’s positive fixed-rhythm syllabic-recitation description. Vocal headcount, individual physiology and absolute pitch system remain unspecified. Moderate effort, unprocessed voice and a resonant listening hall are representative controls. Bells are occasional sequence signals in the genre source, not mandatory continuous accompaniment; this representative vocal passage does not reconstruct or trim the earlier documentary recording.",
+      "source_scope_limitation": "Genre-practice profile based on original scholarly account. Previous complete Folkways side and its full multi-instrument documentary palette remain preserved unchanged in /tmp/batch040/priority116-2.json; no claim that the old recording contains only vocals.",
+      "instrument_role_audit": {
+        "human_voice_ensemble_unspecified": "Representative vocal recitation, headcount unspecified; genre-level source independently establishes this practice."
+      },
+      "vocal_count_audit": {
+        "headcount": "unspecified",
+        "tracking": "unspecified"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_metrical_chant",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative metrical sutra recitation follows Mross’s positive fixed-rhythm syllabic-recitation description. Vocal headcount, individual physiology and absolute pitch system remain unspecified. Moderate effort, unprocessed voice and a resonant listening hall are representative controls. Bells are occasional sequence signals in the genre source, not mandatory continuous accompaniment; this representative vocal passage does not reconstruct or trim the earlier documentary recording."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": []
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All seventeen applicable voice controls explicit."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "japanese_buddhist_chant",
+          "name": "Japanese Buddhist chant",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13261view1 confirms Iain Fergusson/Binksternet and CC BY2.5; historical verified bytes retained.",
+          "fresh_review_ref": "turn13261view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Historical exact microphone receipts retained; no fresh download claimed.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13261view1"
+        ],
+        "fresh_rights_review": "Fresh13261view1 license and credit; inherited byte and visual receipts unchanged."
+      },
+      "verification_status": "Pending original runtime and independent review",
+      "primary_retrieval_refs": [
+        "turn13271view0",
+        "turn13271search0",
+        "turn13280view0",
+        "turn13280view1",
+        "turn13280view2",
+        "turn13261view1"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

@@ -1,0 +1,394 @@
+{
+  "entries": [
+    {
+      "source_label": "sound",
+      "source_url": "https://everynoise.com/engenremap-sound.html",
+      "suggested_id": "sound",
+      "allocation_ordinal": 4317,
+      "allocation_group_id": "173",
+      "id": "sound",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "sound",
+        "name": "Sound",
+        "family": "electronic",
+        "lineage": "Fade Away Sleep Sounds — complete Hair Dryer Sounds (White Noise), one59-minute issued recording,1June2008, copyright Kevin Hale. Founder firsthand interview identifies personally recorded household-appliance sounds and a gradual fade to silence at the end of every track; own artist profile confirms household-appliance/nature recordings. Scope is this complete recorded hairdryer sound and fade, not the newer mixed meditation/affirmation app. No musical instrument, spoken guidance or singing is positively credited; incidental embedded human sounds are not asserted impossible. Hairdryer make, motor speed, heater setting, microphone, recording location and edit equipment remain unknown. White Noise is the marketed subtitle, not laboratory proof of flat spectral density. No audition claimed. Ambient-and-drone parent is a scoped listening-environment/beatless texture realization, not a claim electronic synthesis or artistic field-recording identity. Existing schema isolated recorded-appliance owner preserves actual source and the positively stated gradual-fade processing; no fictional sampler, synth, noise generator or measured device controls. All numerical routing axes are neutral authored coordinates, not source measurements. No tuning, meter, pitch, singer or capture apparatus is imposed. Treated studio is an authored reproduction setting, not the source capture site. The full59-minute source remains selected; duration is evidence rather than unsupported engine parameter. The rendered frosty wording describes the explicitly authored dry, clean, close listening presentation; it does not measure the original recording spectrum, identify a cold appliance, or assert thermal or health effects.",
+        "instruments": [
+          "recorded_appliance_sound"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "recorded_appliance_source": "recorded_appliance_hairdryer",
+          "recorded_appliance_envelope": "recorded_appliance_gradual_fade"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Fade Away Sleep Sounds — complete Hair Dryer Sounds (White Noise), one59-minute issued recording,1June2008, copyright Kevin Hale. Founder firsthand interview identifies personally recorded household-appliance sounds and a gradual fade to silence at the end of every track; own artist profile confirms household-appliance/nature recordings. Scope is this complete recorded hairdryer sound and fade, not the newer mixed meditation/affirmation app. No musical instrument, spoken guidance or singing is positively credited; incidental embedded human sounds are not asserted impossible. Hairdryer make, motor speed, heater setting, microphone, recording location and edit equipment remain unknown. White Noise is the marketed subtitle, not laboratory proof of flat spectral density. No audition claimed. Sound here denotes a functional nonmusical listening field spanning environmental, appliance and colored-noise programmes, positively documented by the exact creator roster and the original Airoldi et al empirical study of reception-defined appliance/nature sound clusters. The study establishes situational sound-listening organization independently of this one producer; it does not claim its YouTube clusters are exactly the Spotify category. Fade Away Sleep Sounds appears in the exact creator roster, supplying the selected-source bridge. Existing field_recording is autonomous aesthetic phonographic practice and can overlap in recorded materials; sound_effects covers effects broadly, not only its selected collage. Sound is not a synonym for either recording technique or effects use. Existing white_noise/pink_noise/color_noise concern spectral/source types; this field crosses those types and natural/appliance origins. Existing sleep is the broader listening function including composed music; this is an overlapping nonmusical programme field with relaxation, masking and sleep uses, not a claim sleep excludes sounds. Existing soundscape_composition/sound_art describe environmental composition or installation practices, while noise/noise_music are artistic noise fields rather than automatic aliases for all appliance noise. No distinction is based on this particular hairdryer or merely a different artist. No health or therapeutic efficacy is endorsed. Ambient-and-drone parent is a scoped listening-environment/beatless texture realization, not a claim electronic synthesis or artistic field-recording identity. Existing schema isolated recorded-appliance owner preserves actual source and the positively stated gradual-fade processing; no fictional sampler, synth, noise generator or measured device controls. All numerical routing axes are neutral authored coordinates, not source measurements. No tuning, meter, pitch, singer or capture apparatus is imposed. Treated studio is an authored reproduction setting, not the source capture site. The full59-minute source remains selected; duration is evidence rather than unsupported engine parameter. The rendered frosty wording describes the explicitly authored dry, clean, close listening presentation; it does not measure the original recording spectrum, identify a cold appliance, or assert thermal or health effects.",
+        "exemplars": [
+          "Fade Away Sleep Sounds — Hair Dryer Sounds (White Noise),2008 complete59-minute release"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.5816,
+        -121.4944,
+        "Sacramento",
+        "North America"
+      ],
+      "geo_rationale": "First-party developer disclosure identifies company Sacramento address; editorial current issuer anchor, not2008 capture location or artist birthplace.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Sound here denotes a functional nonmusical listening field spanning environmental, appliance and colored-noise programmes, positively documented by the exact creator roster and the original Airoldi et al empirical study of reception-defined appliance/nature sound clusters. The study establishes situational sound-listening organization independently of this one producer; it does not claim its YouTube clusters are exactly the Spotify category. Fade Away Sleep Sounds appears in the exact creator roster, supplying the selected-source bridge. Existing field_recording is autonomous aesthetic phonographic practice and can overlap in recorded materials; sound_effects covers effects broadly, not only its selected collage. Sound is not a synonym for either recording technique or effects use. Existing white_noise/pink_noise/color_noise concern spectral/source types; this field crosses those types and natural/appliance origins. Existing sleep is the broader listening function including composed music; this is an overlapping nonmusical programme field with relaxation, masking and sleep uses, not a claim sleep excludes sounds. Existing soundscape_composition/sound_art describe environmental composition or installation practices, while noise/noise_music are artistic noise fields rather than automatic aliases for all appliance noise. No distinction is based on this particular hairdryer or merely a different artist. No health or therapeutic efficacy is endorsed.",
+      "classification_evidence": "Sound here denotes a functional nonmusical listening field spanning environmental, appliance and colored-noise programmes, positively documented by the exact creator roster and the original Airoldi et al empirical study of reception-defined appliance/nature sound clusters. The study establishes situational sound-listening organization independently of this one producer; it does not claim its YouTube clusters are exactly the Spotify category. Fade Away Sleep Sounds appears in the exact creator roster, supplying the selected-source bridge. Existing field_recording is autonomous aesthetic phonographic practice and can overlap in recorded materials; sound_effects covers effects broadly, not only its selected collage. Sound is not a synonym for either recording technique or effects use. Existing white_noise/pink_noise/color_noise concern spectral/source types; this field crosses those types and natural/appliance origins. Existing sleep is the broader listening function including composed music; this is an overlapping nonmusical programme field with relaxation, masking and sleep uses, not a claim sleep excludes sounds. Existing soundscape_composition/sound_art describe environmental composition or installation practices, while noise/noise_music are artistic noise fields rather than automatic aliases for all appliance noise. No distinction is based on this particular hairdryer or merely a different artist. No health or therapeutic efficacy is endorsed.",
+      "model_policy": "Ambient-and-drone parent is a scoped listening-environment/beatless texture realization, not a claim electronic synthesis or artistic field-recording identity. Existing schema isolated recorded-appliance owner preserves actual source and the positively stated gradual-fade processing; no fictional sampler, synth, noise generator or measured device controls. All numerical routing axes are neutral authored coordinates, not source measurements. No tuning, meter, pitch, singer or capture apparatus is imposed. Treated studio is an authored reproduction setting, not the source capture site. The full59-minute source remains selected; duration is evidence rather than unsupported engine parameter. The rendered frosty wording describes the explicitly authored dry, clean, close listening presentation; it does not measure the original recording spectrum, identify a cold appliance, or assert thermal or health effects.",
+      "source_scope_limitation": "Fade Away Sleep Sounds — complete Hair Dryer Sounds (White Noise), one59-minute issued recording,1June2008, copyright Kevin Hale. Founder firsthand interview identifies personally recorded household-appliance sounds and a gradual fade to silence at the end of every track; own artist profile confirms household-appliance/nature recordings. Scope is this complete recorded hairdryer sound and fade, not the newer mixed meditation/affirmation app. No musical instrument, spoken guidance or singing is positively credited; incidental embedded human sounds are not asserted impossible. Hairdryer make, motor speed, heater setting, microphone, recording location and edit equipment remain unknown. White Noise is the marketed subtitle, not laboratory proof of flat spectral density. No audition claimed.",
+      "source_retrieval_caveat": "US Apple complete issuer album freshly accessible; Singapore URL failed. Founder interview first-person statements separate production facts from unendorsed health claims. Creator same artist, potentially different sound programme. Research is original empirical evidence, not exact creator taxonomy certification.",
+      "primary_retrieval_refs": [
+        "turn13105view0",
+        "turn13105view1",
+        "turn13112view0",
+        "turn13073view0",
+        "turn13074view0",
+        "turn13114search2",
+        "turn13114search8"
+      ],
+      "sources": [
+        {
+          "url": "https://mommabraga.com/2016/09/05/giving-parents-and-babies-a-better-night-sleep-with-fade-away-sleep-sounds/",
+          "checked_date": "2026-10-03",
+          "support_notes": "First-person founder actual appliance recording and full-track slow fade; no efficacy transferred."
+        },
+        {
+          "url": "https://music.apple.com/us/album/hair-dryer-sounds-white-noise/841150665",
+          "checked_date": "2026-10-03",
+          "support_notes": "Exact complete issued one59-minute programme copyrightKevinHale."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0uhfs6RxB1VkLp17K35Ssh",
+          "checked_date": "2026-10-03",
+          "support_notes": "Exact Sound field, FadeAwaySleepSounds member; broad environmental/noise roster."
+        },
+        {
+          "url": "https://kclpure.kcl.ac.uk/ws/portalfiles/portal/78051692/Follow_the_Algorithm_AIROLDI_Publishedonline13May2016_GREEN_AAM_CC_BY_NC_ND_.pdf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Original empirical situational listening clusters: independently supports reception-defined sound field, not exact Spotify partition."
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?hl=en_ZA&id=app.emergent.androidaabbuildb269943e",
+          "checked_date": "2026-10-03",
+          "support_notes": "First-party current issuer city only; no street address needed in data."
+        },
+        {
+          "url": "https://open.spotify.com/artist/5c7VpP33FVLibHz6LKoUgZ",
+          "checked_date": "2026-10-03",
+          "support_notes": "Own profile confirms household-appliance and nature source recordings."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_singers": 0,
+        "decision": "No positively credited singer or spoken guidance in selected appliance programme; incidental embedded voices unknown, not asserted absent by audition."
+      },
+      "instrument_role_audit": {
+        "scope": "Fade Away Sleep Sounds — complete Hair Dryer Sounds (White Noise), one59-minute issued recording,1June2008, copyright Kevin Hale. Founder firsthand interview identifies personally recorded household-appliance sounds and a gradual fade to silence at the end of every track; own artist profile confirms household-appliance/nature recordings. Scope is this complete recorded hairdryer sound and fade, not the newer mixed meditation/affirmation app. No musical instrument, spoken guidance or singing is positively credited; incidental embedded human sounds are not asserted impossible. Hairdryer make, motor speed, heater setting, microphone, recording location and edit equipment remain unknown. White Noise is the marketed subtitle, not laboratory proof of flat spectral density. No audition claimed.",
+        "roles": {
+          "recorded_appliance_sound": "Recorded hairdryer operation with slow end fade; device/capture hardware unknown."
+        },
+        "authored_defaults": "Ambient-and-drone parent is a scoped listening-environment/beatless texture realization, not a claim electronic synthesis or artistic field-recording identity. Existing schema isolated recorded-appliance owner preserves actual source and the positively stated gradual-fade processing; no fictional sampler, synth, noise generator or measured device controls. All numerical routing axes are neutral authored coordinates, not source measurements. No tuning, meter, pitch, singer or capture apparatus is imposed. Treated studio is an authored reproduction setting, not the source capture site. The full59-minute source remains selected; duration is evidence rather than unsupported engine parameter."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "recorded_appliance_sound",
+          "parts": {
+            "recorded_appliance_source": "recorded_appliance_hairdryer",
+            "recorded_appliance_envelope": "recorded_appliance_gradual_fade"
+          },
+          "policy": "Ambient-and-drone parent is a scoped listening-environment/beatless texture realization, not a claim electronic synthesis or artistic field-recording identity. Existing schema isolated recorded-appliance owner preserves actual source and the positively stated gradual-fade processing; no fictional sampler, synth, noise generator or measured device controls. All numerical routing axes are neutral authored coordinates, not source measurements. No tuning, meter, pitch, singer or capture apparatus is imposed. Treated studio is an authored reproduction setting, not the source capture site. The full59-minute source remains selected; duration is evidence rather than unsupported engine parameter."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [
+          "recorded_appliance_sound"
+        ],
+        "reused_instruments": []
+      },
+      "flat_pin_resolution": {
+        "rule": "Two source/processing controls protected; no shared keys."
+      },
+      "verification_status": "Original pipeline verified: two applicable protected controls, no fallback, four actual output formats, 1638 existing owners preserved unchanged; independent review pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "sound",
+          "name": "Sound",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a hairdryer depiction, Kevin Hale or actual capture equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13048view0 confirms original Iain Fergusson/Binksternet crop CC BY2.5; inherited023 exact bytes unchanged.",
+          "fresh_review_ref": "turn13048view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13048view0"
+        ],
+        "fresh_rights_review": "Fresh13048view0 rights/context only, no new download or visual claim."
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "recorded_appliance_sound",
+        "name": "Recorded household-appliance sound",
+        "short": "Recorded appliance sound",
+        "family": "electronic",
+        "class": "environmental_recording",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "recorded_appliance_source",
+            "name": "Documented recorded source",
+            "variants": [
+              {
+                "id": "recorded_appliance_hairdryer",
+                "name": "Recorded hairdryer operation; model and operating settings unspecified",
+                "default": true,
+                "descriptors": [
+                  "environmental",
+                  "field-recording"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "recorded_appliance_envelope",
+            "name": "Documented programme ending",
+            "variants": [
+              {
+                "id": "recorded_appliance_gradual_fade",
+                "name": "Gradual fade to silence at programme end",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Actual recorded household-appliance operation, preserving source identity and positive end-fade treatment. No assumed noise synthesis, sample-keyboard performance or device specifications. Neutral authored routing coordinates. Source facts support selected hairdryer variant; other appliance types not silently generalized.",
+        "sources": [
+          "https://mommabraga.com/2016/09/05/giving-parents-and-babies-a-better-night-sleep-with-fade-away-sleep-sounds/",
+          "https://music.apple.com/us/album/hair-dryer-sounds-white-noise/841150665",
+          "https://open.spotify.com/artist/5c7VpP33FVLibHz6LKoUgZ"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "recorded_appliance_sound",
+        "name": "Recorded household-appliance sound",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic microphone recording context, not a hairdryer depiction, Kevin Hale or actual capture equipment.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "recorded_appliance_sound",
+          "name": "Recorded household-appliance sound",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not a hairdryer depiction, Kevin Hale or actual capture equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13048view0 confirms original Iain Fergusson/Binksternet crop CC BY2.5; inherited023 exact bytes unchanged.",
+          "fresh_review_ref": "turn13048view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13048view0"
+        ],
+        "fresh_rights_review": "Fresh13048view0 rights/context only, no new download or visual claim."
+      },
+      "sources": [
+        "https://mommabraga.com/2016/09/05/giving-parents-and-babies-a-better-night-sleep-with-fade-away-sleep-sounds/",
+        "https://music.apple.com/us/album/hair-dryer-sounds-white-noise/841150665",
+        "https://open.spotify.com/artist/5c7VpP33FVLibHz6LKoUgZ"
+      ],
+      "dependency_rationale": "Existing rain/whale environmental owners have different sources, environmental collage asserts combined recordings, incidental ambience is not this foreground appliance programme. Genuine source identity and documented fade require isolated accurate data, not a duplicated instrument to escape a preface."
+    }
+  ],
+  "status": "READY_FOR_REVIEW"
+}

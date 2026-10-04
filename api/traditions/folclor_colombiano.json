@@ -1,0 +1,115 @@
+{
+  "id": "folclor_colombiano",
+  "name": "Folclor Colombiano",
+  "family": "vernacular",
+  "lineage": "Colombian folklore brings together regional song, dance and instrumental traditions transmitted through communities, performance and teaching. Andean and coastal repertoires retain distinct rhythmic identities while circulating through national anthologies and new arrangements.",
+  "recipe": "classic folclor colombiano, art Music. rhythmic dance rhythm strummed bandola andina, cedar canonical andean strummed tiple, classical nylon-string guitar. shoebox concert hall.",
+  "recipe_chars": 177,
+  "score": 16.226,
+  "config": {
+    "traditions": [
+      "folclor_colombiano"
+    ],
+    "instruments": [
+      {
+        "id": "bandola_andina",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "bandola_andina_use": "bandola_pasillo"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.113,
+          "bandola_andina_use": 2.4815
+        }
+      },
+      {
+        "id": "tiple",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "tiple_region": "tiple_colombian",
+          "tiple_context": "tiple_bambuco",
+          "tiple_body_wood": "tiple_cedar_canonical",
+          "tiple_strings": "tiple_steel_triple_octave"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.113,
+          "tiple_region": -0.05,
+          "tiple_context": 2.7364999999999995,
+          "tiple_body_wood": 1.3,
+          "tiple_strings": 0
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.5499999999999998,
+          "string_tuning": 0,
+          "top_wood_classical": 0.1575,
+          "bracing_classical": 1.3,
+          "string_classical": -0.05,
+          "attack_technique_cl": 1.575
+        }
+      }
+    ],
+    "pinned": {
+      "bandola_andina": [
+        "plucked_traditional_technique",
+        "bandola_andina_use"
+      ],
+      "tiple": [
+        "plucked_traditional_technique",
+        "tiple_region",
+        "tiple_context",
+        "tiple_body_wood",
+        "tiple_strings"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "bandola_andina_use": "bandola_pasillo",
+      "tiple_region": "tiple_colombian",
+      "tiple_context": "tiple_bambuco",
+      "tiple_body_wood": "tiple_cedar_canonical",
+      "tiple_strings": "tiple_steel_triple_octave",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "tirando_cl"
+    },
+    "pin_parts": true
+  }
+}

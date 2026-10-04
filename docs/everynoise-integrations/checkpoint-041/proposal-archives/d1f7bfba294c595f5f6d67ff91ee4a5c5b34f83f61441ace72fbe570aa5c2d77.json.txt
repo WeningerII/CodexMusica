@@ -1,0 +1,221 @@
+{
+  "entries": [
+    {
+      "source_label": "indie liguria",
+      "source_url": "https://everynoise.com/engenremap-indieliguria.html",
+      "suggested_id": "indie_liguria",
+      "allocation_ordinal": 3482,
+      "allocation_group_id": "140",
+      "id": "indie_liguria",
+      "tradition": {
+        "id": "indie_liguria",
+        "name": "Indie Liguria",
+        "family": "electronic",
+        "lineage": "FiloQ \u2014 whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks. Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "FiloQ \u2014 whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks. Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members. Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+        "exemplars": [
+          "FiloQ \u2014 whole Garricha Soundsystem Mixtape Vol.7,40:20"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        44.41,
+        8.93,
+        "Genoa",
+        "Europe"
+      ],
+      "geo_rationale": "Management and municipality positively anchor the producer and local independent practice in Genoa. Community anchor, not invented mix-recording location.",
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/GarrinchaSoundSystem/garricha-soundsystem-mixtape-vol7-filo-q/",
+          "support_notes": "Fresh full13058view0 issuer seventh electronic mixtape40:20, partial included-artist list only; whole programme retained.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.highgrade.it/en/profile/filoq/",
+          "support_notes": "Fresh13055view1 management profile: Genoa-based DJ/producer, Magellano and cross-style independent production collaborations.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://smart.comune.genova.it/comunicati-stampa-articoli/genova-celebra-l%E2%80%9981%C2%B0-anniversario-della-liberazione-con-un-programma",
+          "support_notes": "Fresh full13056view0 and13057view1: municipal own2026 programme, PioggiaRossaDischi independent-scene stage explicitly includes FiloQ DJ practice. This different2026 duo event supplies community evidence only; AleBavo not imported into earlier solo mixtape.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3N6f07zAIQH4yQ2IfJ1Yn7?theme=0",
+          "support_notes": "Fresh13045view2/13050view0 exact creator playlist, FiloQ11/65 and cross-style Ligurian network; selected mixtape not asserted an included track.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members.",
+      "model_policy": "Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+      "instrument_role_audit": {
+        "scope": "FiloQ \u2014 whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks.",
+        "cards": 1,
+        "roles": [
+          "Complete40:20 issued DJ programme including all recorded music/voices"
+        ],
+        "defaults": "Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count."
+      },
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "actual_live_singer_count": "unknown/not documented",
+        "embedded_voice_count": "unknown",
+        "reason": "Complete issued DJ programme preserves every embedded voice. Added live-vocal practice is not documented; zero voice cards is not a measured absence of singers."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count."
+        }
+      ],
+      "dependency_audit": {
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "new_instruments": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_liguria",
+          "name": "Indie Liguria",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context; not FiloQ, DJ equipment or a depicted Ligurian venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13059view0 independently confirms CC BY2.5 IainFergusson/Binksternet crop; exact023 historical bytes/visual receipt inherited, no fresh download.",
+          "fresh_review_ref": "turn13059view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13059view0"
+        ],
+        "fresh_rights_review": "Fresh13059view0 rights/context only; original023 historicalbyte/visual evidence retained."
+      },
+      "source_scope_limitation": "FiloQ \u2014 whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks.",
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Only applicable identity part protected."
+      },
+      "classification_evidence": "Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members.",
+      "primary_retrieval_refs": [
+        "turn13058view0",
+        "turn13055view1",
+        "turn13057view1",
+        "turn13050view0"
+      ],
+      "source_retrieval_caveat": "All four primary sources freshly retrieved. Programme display establishes40:20 duration; no audio audition or complete tracklist claimed. Saved actual unmodified fullmix and municipal responses in filoq-fullmix-primary117.json and filoq-source-primary117.json. Previous Gremo complex album remains separately preserved; this is a different whole issued performance.",
+      "verification_status": "Complete primary candidate; independent peer required.",
+      "authored_render_scope": "Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+      "source_review_refs": [
+        "turn13058view0",
+        "turn13055view1",
+        "turn13057view1",
+        "turn13050view0"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

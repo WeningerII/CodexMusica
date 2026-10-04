@@ -1,0 +1,502 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "8d",
+          "name": "8D",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13435view2 confirms CC BY2.5 and photographer/crop credit; historical bytes retained.",
+          "fresh_review_ref": "turn13435view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Historical exact microphone receipts retained; no fresh download claimed.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13435view2"
+        ],
+        "fresh_rights_review": "Fresh turn13435view2 Commons rights read; historical byte and visual receipts retained without a new download claim."
+      },
+      "id": "8d",
+      "source_label": "8d",
+      "suggested_id": "8d",
+      "allocation_ordinal": 2720,
+      "allocation_group_id": "109",
+      "source_url": "https://everynoise.com/engenremap-8d.html",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "8d",
+        "name": "8D",
+        "family": "electronic",
+        "lineage": "8D audio is an online headphone-listening practice that makes recorded music appear to move around the listener through binaural spatial processing. It circulates across pop, rap, electronic and other repertoires rather than prescribing a particular band or compositional style.",
+        "instruments": [
+          "binaural_spatial_renderer"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "binaural_spatial_renderer_input": "binaural_spatial_renderer_input_stereo_mix",
+          "binaural_spatial_renderer_hrtf": "binaural_spatial_renderer_hrtf_generic_hrtf",
+          "binaural_spatial_renderer_output": "binaural_spatial_renderer_output_headphones",
+          "binaural_spatial_renderer_azimuth": "binaural_spatial_renderer_azimuth_orbit",
+          "binaural_spatial_renderer_elevation": "binaural_spatial_renderer_elevation_ear_level",
+          "binaural_spatial_renderer_width": "binaural_spatial_renderer_width_preserved",
+          "binaural_spatial_renderer_reflection_level": "binaural_spatial_renderer_reflection_level_moderate",
+          "binaural_spatial_renderer_reflection_time": "binaural_spatial_renderer_reflection_time_short",
+          "binaural_spatial_renderer_reflection_material": "binaural_spatial_renderer_reflection_material_neutral",
+          "binaural_spatial_renderer_focus": "binaural_spatial_renderer_focus_balanced"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec",
+        "description": "8D versions use spatial processing to create a moving, surrounding impression over headphones. A stereo song mix can be treated as a single moving source, while more elaborate productions position separate instruments in virtual space. HRTF filtering and reflected sound help convey external location beyond ordinary left-right volume panning.",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "exemplars": []
+      },
+      "sources": [
+        {
+          "url": "https://newsroom.sennheiser.com/dontstoptheeducation-318743",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn13437view0 manufacturer explicitly defines typical8D as binaural rendering of whole stereo mixdown, with object-positioning as advanced alternative."
+        },
+        {
+          "url": "https://help.sennheiser.com/hc/en-us/articles/26597628250258-Get-started-with-dearVR-MICRO",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn13437view1 manufacturer documents HRTF, azimuth/elevation, width, reflection level/length/material and Focus externalization control; automatable movement."
+        },
+        {
+          "url": "https://www.epidemicsound.com/blog/what-is-8d-audio/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Producer-library publisher explains rotating headphone listening and spatial treatment."
+        }
+      ],
+      "geo": [
+        52.5,
+        9.7,
+        "Wedemark",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial technical-practice anchor at the manufacturer presenting the documented8D workflow; not a claimed origin of the global internet field.",
+      "signature_tokens": [],
+      "model_policy": "Representative whole-mix binaural-rendering workflow positively documented by manufacturer. Every embedded musical layer remains in the stereo programme; no separately invented live performers, sampler mechanism or source-song instrumentation. Non-individualized HRTF, ear-level orbit, moderate short reflections and balanced focus are authored spatial choices, not measurements of an identified remix. This data record describes a rendering process; it does not implement an audio DSP engine. No health claim, eight physical dimensions, source BPM or global temperament asserted.",
+      "neighbor_distinction": "Existing binaural record concerns paired-frequency binaural-beat listening with Mellotron; this field instead spatializes arbitrary musical programmes. Ambient and electronic fields overlap repertoire but do not define this headphone motion-processing practice. Dummy-head microphone capture and simple stereo auto-pan are different mechanisms and are not substituted for HRTF rendering.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "binaural_spatial_renderer",
+          "parts": {
+            "binaural_spatial_renderer_input": "binaural_spatial_renderer_input_stereo_mix",
+            "binaural_spatial_renderer_hrtf": "binaural_spatial_renderer_hrtf_generic_hrtf",
+            "binaural_spatial_renderer_output": "binaural_spatial_renderer_output_headphones",
+            "binaural_spatial_renderer_azimuth": "binaural_spatial_renderer_azimuth_orbit",
+            "binaural_spatial_renderer_elevation": "binaural_spatial_renderer_elevation_ear_level",
+            "binaural_spatial_renderer_width": "binaural_spatial_renderer_width_preserved",
+            "binaural_spatial_renderer_reflection_level": "binaural_spatial_renderer_reflection_level_moderate",
+            "binaural_spatial_renderer_reflection_time": "binaural_spatial_renderer_reflection_time_short",
+            "binaural_spatial_renderer_reflection_material": "binaural_spatial_renderer_reflection_material_neutral",
+            "binaural_spatial_renderer_focus": "binaural_spatial_renderer_focus_balanced"
+          },
+          "policy": "Representative whole-mix binaural-rendering workflow positively documented by manufacturer. Every embedded musical layer remains in the stereo programme; no separately invented live performers, sampler mechanism or source-song instrumentation. Non-individualized HRTF, ear-level orbit, moderate short reflections and balanced focus are authored spatial choices, not measurements of an identified remix. This data record describes a rendering process; it does not implement an audio DSP engine. No health claim, eight physical dimensions, source BPM or global temperament asserted."
+        }
+      ],
+      "instrument_role_audit": {
+        "binaural_spatial_renderer": "Complete musical programme and its binaural spatial processing"
+      },
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "embedded_voice_count": "Variable with source programme, unspecified"
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "binaural_spatial_renderer",
+        "name": "Binaural spatial renderer",
+        "short": "Binaural spatial renderer",
+        "family": "electronic",
+        "class": "binaural_spatial_renderer",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 1,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 2,
+          "dynamics": 0
+        },
+        "description": "Software spatial renderer applying head-related transfer functions and virtual reflections to a complete stereo programme for headphone playback. Independent position, spread, reflection and externalization controls shape the apparent location of sound.",
+        "parts": [
+          {
+            "id": "binaural_spatial_renderer_input",
+            "name": "Input programme",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_input_stereo_mix",
+                "name": "Complete stereo mix",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "stereo"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_hrtf",
+            "name": "Binaural transfer function",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_hrtf_generic_hrtf",
+                "name": "Non-individualized HRTF",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "hrtf-pinnae-cues"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_output",
+            "name": "Output monitoring",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_output_headphones",
+                "name": "Two-channel binaural headphone monitoring",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "headphone-immersive"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_azimuth",
+            "name": "Horizontal trajectory",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_azimuth_orbit",
+                "name": "Automated horizontal orbit",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "stereo-movement"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_elevation",
+            "name": "Vertical placement",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_elevation_ear_level",
+                "name": "Ear-level plane",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_width",
+            "name": "Source spread",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_width_preserved",
+                "name": "Stereo spread retained",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_reflection_level",
+            "name": "Reflection balance",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_reflection_level_moderate",
+                "name": "Moderate reflected contribution",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_reflection_time",
+            "name": "Reflection duration",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_reflection_time_short",
+                "name": "Short room reflections",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_reflection_material",
+            "name": "Reflecting surface",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_reflection_material_neutral",
+                "name": "Neutral virtual surface",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          },
+          {
+            "id": "binaural_spatial_renderer_focus",
+            "name": "Externalization and timbre balance",
+            "variants": [
+              {
+                "id": "binaural_spatial_renderer_focus_balanced",
+                "name": "Balanced externalization and timbre preservation",
+                "default": true,
+                "auto": false,
+                "descriptors": []
+              }
+            ]
+          }
+        ],
+        "sources": [
+          "https://newsroom.sennheiser.com/dontstoptheeducation-318743",
+          "https://help.sennheiser.com/hc/en-us/articles/26597628250258-Get-started-with-dearVR-MICRO",
+          "https://www.epidemicsound.com/blog/what-is-8d-audio/"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "binaural_spatial_renderer",
+        "name": "Binaural spatial renderer",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "binaural_spatial_renderer",
+          "name": "Binaural spatial renderer",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13435view2 confirms CC BY2.5 and photographer/crop credit; historical bytes retained.",
+          "fresh_review_ref": "turn13435view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Historical exact microphone receipts retained; no fresh download claimed.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13435view2"
+        ],
+        "fresh_rights_review": "Fresh turn13435view2 Commons rights read; historical byte and visual receipts retained without a new download claim."
+      },
+      "sources": [
+        {
+          "url": "https://newsroom.sennheiser.com/dontstoptheeducation-318743",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn13437view0 manufacturer explicitly defines typical8D as binaural rendering of whole stereo mixdown, with object-positioning as advanced alternative."
+        },
+        {
+          "url": "https://help.sennheiser.com/hc/en-us/articles/26597628250258-Get-started-with-dearVR-MICRO",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn13437view1 manufacturer documents HRTF, azimuth/elevation, width, reflection level/length/material and Focus externalization control; automatable movement."
+        },
+        {
+          "url": "https://www.epidemicsound.com/blog/what-is-8d-audio/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Producer-library publisher explains rotating headphone listening and spatial treatment."
+        }
+      ],
+      "primary_sources": [
+        {
+          "url": "https://newsroom.sennheiser.com/dontstoptheeducation-318743",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn13437view0 manufacturer explicitly defines typical8D as binaural rendering of whole stereo mixdown, with object-positioning as advanced alternative."
+        },
+        {
+          "url": "https://help.sennheiser.com/hc/en-us/articles/26597628250258-Get-started-with-dearVR-MICRO",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh turn13437view1 manufacturer documents HRTF, azimuth/elevation, width, reflection level/length/material and Focus externalization control; automatable movement."
+        },
+        {
+          "url": "https://www.epidemicsound.com/blog/what-is-8d-audio/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Producer-library publisher explains rotating headphone listening and spatial treatment."
+        }
+      ],
+      "dependency_rationale": "No current instrument owner represents HRTF post-processing of complete stereo audio. Existing dummy-head capture and amplitude auto-pan cannot provide this mechanism. Ten distinct meaningful controls retain the manufacturer architecture; generic nominal choices do not assert a particular plugin brand or exact numeric measurements."
+    }
+  ],
+  "equivalences": [],
+  "blockers": []
+}

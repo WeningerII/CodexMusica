@@ -1,0 +1,234 @@
+{
+  "entries": [
+    {
+      "id": "iowa_hip_hop",
+      "suggested_id": "iowa_hip_hop",
+      "source_label": "iowa hip hop",
+      "source_url": "https://everynoise.com/engenremap-iowahiphop.html",
+      "allocation_ordinal": 337,
+      "status": "READY_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "iowa_hip_hop",
+        "name": "Iowa Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Iowa hip-hop connects local rappers, producers, studios and independent performance spaces across cities including Davenport, Des Moines and Cedar Rapids. Artists develop regional voices within wider American rap networks, with boom-bap, contemporary trap and experimental production all circulating through the scene.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.usHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Foreground rap verses meet producer-built rhythms and recurring hooks. Beat textures and vocal approaches vary across the scene, from direct sample-oriented storytelling to more electronic and melodic approaches. This straightforward MC-and-beat branch leaves room for the words and rhythmic delivery.",
+        "exemplars": [
+          "Xavy Rusan",
+          "Teller Bank$",
+          "Rahlan Kay"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        41.5236,
+        -90.5776,
+        "Davenport",
+        "United States",
+        "North America"
+      ],
+      "geo_rationale": "One positively documented Iowa hip-hop centre, not exclusive origin; statewide scene scope retained.",
+      "sources": [
+        "https://diversal.org/item/546-13th-interview-13th-state-xavy-rusan-out-of-iowa",
+        "https://www.studioone.org/music/2024-12-27/best-of-iowa-hip-hop-2024",
+        "https://xavyrusan.bandcamp.com/track/facetime",
+        "https://open.spotify.com/embed/playlist/2CCFjSEgiXofou5h3azRa0"
+      ],
+      "model_policy": "Representative general MC-and-produced-beat practice supported by local rap/producer/studio reporting, not a reconstruction of Facetime or another particular master. One foreground rhythmic speaking MC is an authored representative choice; source physiology and exact wider ensemble/headcount remain unspecified. Existing credited beat owner preserves a produced rhythmic bed without inventing whether its sounds are sampled, synthesized or acoustically recorded. More detailed documented sample-based and electronic branches remain in public style description, not falsely asserted universal or omitted from a selected named recording. Treated studio is authored close presentation, not actual session evidence.",
+      "neighbor_distinction": "A regional hip-hop community within broad American rap, not an acoustically exclusive genre. Local institutional reporting and first-person scene identity support the Iowa field. Existing Chicago, Detroit and Philadelphia rap records cover their respective regional lineages, not every Midwestern rapper. No current Iowa hip-hop or Des Moines hip-hop row exists in the loaded catalog; Midwest emo and Americana are different practices. Creator list guest collaborations do not make every featured artist Iowa-born.",
+      "instrument_role_audit": {
+        "voice": "Directly documented local rap practice.",
+        "scope": "No specific issued song selected for exact roster reconstruction.",
+        "produced_beat": "Producer-built backing in the documented broader scene; mechanism not universally specified."
+      },
+      "source_scope_limitation": "Genre-level regional practice. Artist-issued track is corroboration of artist/producer collaboration, not sufficient for an exact master palette, so no such claim is made.",
+      "source_retrieval_caveat": "Fresh firsthand Diversal interview, Iowa Public Radio report, artist Bandcamp release and exact creator retrieved; no claim exact audio audition or master reconstruction.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "iowa_hip_hop",
+          "name": "Iowa Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14416view1 confirms CC BY2.5 and credited crop; exact historical023 bytes retained.",
+          "fresh_review_ref": "turn14416view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14416view1"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14416view1 confirms CC BY2.5/crop credit; inherited historical023 bytes and visual receipt, no fresh download or image observation."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "All applicable controls protected; source-unspecified mechanisms kept neutral."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "All applicable controls protected; source-unspecified mechanisms kept neutral."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "allocation_group_id": "014",
+      "classification_evidence": "Firsthand interview with Xavy Rusan positively describes representing Davenport/Iowa and building a local hip-hop community. The exact creator list includes Xavy Rusan; Iowa Public Radio’s own local performance/studio reporting establishes a statewide multi-artist field rather than nationality inferred from a single musician. Artist-issued Facetime identifies his own rap/spoken-word practice and producer collaboration as corroboration, not exhaustive master credits.",
+      "authored_render_scope": "Representative general MC-and-produced-beat practice supported by local rap/producer/studio reporting, not a reconstruction of Facetime or another particular master. One foreground rhythmic speaking MC is an authored representative choice; source physiology and exact wider ensemble/headcount remain unspecified. Existing credited beat owner preserves a produced rhythmic bed without inventing whether its sounds are sampled, synthesized or acoustically recorded. More detailed documented sample-based and electronic branches remain in public style description, not falsely asserted universal or omitted from a selected named recording. Treated studio is authored close presentation, not actual session evidence.",
+      "primary_retrieval_refs": [
+        "turn14427view0",
+        "turn14425view0",
+        "turn14428view0",
+        "turn14426view0"
+      ],
+      "source_review_refs": [
+        "turn14427view0",
+        "turn14425view0",
+        "turn14428view0",
+        "turn14426view0"
+      ],
+      "vocal_count_audit": {
+        "model": "One representative foreground MC card; no claim all regional songs have one singer or no guests."
+      },
+      "runtime_review": {
+        "runtime": "/tmp/batch040/resume117-35-runtime117.json",
+        "owning": "/tmp/batch040/resume117-35-owning-audit117.json",
+        "controls": 18,
+        "semantic": "All four literal outputs retain rhythmic speech with a neutral produced beat and close treated-studio presentation. No extra musical role or foreign named culture. Original browser-import renderer only; no CLI/regression claim."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

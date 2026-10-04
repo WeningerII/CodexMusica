@@ -1,0 +1,198 @@
+{
+  "id": "otacore",
+  "name": "Otacore",
+  "family": "pop",
+  "lineage": "Otacore connects fan-made songs and remixes inspired by games, cartoons and other screen worlds. Newgrounds, YouTube and related fandom networks helped artists circulate character narratives and original pop songs across national and stylistic boundaries.",
+  "recipe": "classic otacore, functional Song. one note per syllable. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity short envelope fm synth, software sample playback, vocoder, upright piano. treated studio.",
+  "recipe_chars": 231,
+  "score": 9.722,
+  "config": {
+    "traditions": [
+      "otacore"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 0.273,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 4.95,
+          "fm_algorithm": -0.035,
+          "fm_modulator_ratio": 1.17,
+          "fm_polyphony": 0,
+          "fm_model_lineage": 2.112
+        }
+      },
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_saw_carrier",
+          "voc_modulator": "voc_voice_mod"
+        },
+        "scores": {
+          "voc_band_count": 0,
+          "voc_carrier": 0.054,
+          "voc_modulator": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "fm_synth": [
+        "electronic_technique",
+        "fm_algorithm",
+        "fm_modulator_ratio",
+        "fm_polyphony",
+        "fm_model_lineage"
+      ],
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ],
+      "vocoder": [
+        "voc_band_count",
+        "voc_carrier",
+        "voc_modulator"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_technique": "electronic_pluck_short",
+      "fm_algorithm": "fm_classic",
+      "fm_modulator_ratio": "fm_harmonic",
+      "fm_polyphony": "fm_poly",
+      "fm_model_lineage": "fm_yamaha_dx7",
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "voc_band_count": "voc_many_bands",
+      "voc_carrier": "voc_saw_carrier",
+      "voc_modulator": "voc_voice_mod"
+    },
+    "pin_parts": true
+  }
+}

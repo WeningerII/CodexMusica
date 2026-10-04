@@ -1,0 +1,265 @@
+{
+  "entries": [
+    {
+      "source_label": "russian rave",
+      "source_url": "https://everynoise.com/engenremap-russianrave.html",
+      "suggested_id": "russian_rave",
+      "allocation_ordinal": 4235,
+      "allocation_group_id": "170",
+      "id": "russian_rave",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "russian_rave",
+        "name": "Russian rave",
+        "family": "electronic",
+        "lineage": "Russian rave is a Russian-language electronic scene connecting hard dance energy with pop melodies, rap-inflected delivery and youth-club culture. Artists such as GSPD, DEAD BLONDE and Lida span harder rave tracks and melodic synth-pop, bringing the music into both club and concert settings.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Driving electronic rhythms and prominent vocals lead exuberant dance performances. DJ accompaniment, synthesized production and catchy refrains connect live shows with the scene’s recorded sound.",
+        "exemplars": [
+          "GSPD with Arina Bulanova/Dead Blonde — representative compact vocal/DJ concert practice"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        59.9343,
+        30.3351,
+        "Saint Petersburg",
+        "Europe"
+      ],
+      "geo_rationale": "Documented artist practice center, not claimed recording location.",
+      "sources": [
+        {
+          "url": "https://prostars.org/catalog/artist/gspd/",
+          "support_notes": "Booking agency advertises direct artist work and names GSPD singer/producer plus Arina female voice/concert DJ. Generic rider boilerplate not treated as exact instrument list."
+        },
+        {
+          "url": "https://i-m-i.ru/news/bulanova-recap",
+          "support_notes": "Institutional recap of first-person Esquire interview: Arina toured as DJ from2018, contributed vocals, later broader duties. Separate current extended tours not collapsed."
+        },
+        {
+          "url": "https://the-flow.ru/features/gspd-interview-2023",
+          "support_notes": "First-person Russian electronic rave field and hardstyle/synthpop variety."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7kEE6AcLLvewkDzi1KYKzg?theme=0",
+          "support_notes": "Exact creator Russian Rave corpus GSPD item3/13, DEAD BLONDE17; positive intended category identity."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "The exact creator Russian Rave corpus includes GSPD, DEAD BLONDE, Lida and related Russian-language electronic/rave-pop artists. GSPD first-person interviews positively situate his work in a Russian electronic rave community and describe the contrast between harder rave material and softer synth-pop branches. This narrower scene overlaps the full Russian electronic umbrella and Russian techno, but is not equivalent to all national electronic music or restricted to instrumental techno. Existing hard-bass traditions overlap the dance language without encompassing the full vocal rave-pop cohort. The unrelated broader Moscow underground techno mix by Philipp Gorbachev was investigated but is not used as a substitute for this creator field.",
+      "classification_evidence": "The exact creator Russian Rave corpus includes GSPD, DEAD BLONDE, Lida and related Russian-language electronic/rave-pop artists. GSPD first-person interviews positively situate his work in a Russian electronic rave community and describe the contrast between harder rave material and softer synth-pop branches. This narrower scene overlaps the full Russian electronic umbrella and Russian techno, but is not equivalent to all national electronic music or restricted to instrumental techno. Existing hard-bass traditions overlap the dance language without encompassing the full vocal rave-pop cohort. The unrelated broader Moscow underground techno mix by Philipp Gorbachev was investigated but is not used as a substitute for this creator field.",
+      "model_policy": "An authored energetic live rendition retains human vocals over actual DJ accompaniment. Moderate vocal effort, neutral tract, unprocessed voice and unspecified register, singing school, pitch organization and tracking avoid unsupported personal technique claims. The neutral vocal owner preserves known human vocal participation while not asserting a measured ensemble configuration across songs. Brisk pacing and a reflective controlled live room are representative dance-performance choices, not transcription or measured venue acoustics. Broad electronicDance is appropriate to the documented rave programme; no narrower techno rhythm or score form imposed. No invented equipment or recording chain.",
+      "source_scope_limitation": "Representative GSPD/Dead Blonde vocal-and-DJ concert practice, rather than reconstruction of a particular recording or complete touring production. Booking-agency description names David Deimour as singer/producer and Arina Bulanova as the female voice and concert DJ; her first-person career interview independently documents touring as DJ. Both named vocal contributions and DJ playback/mixing are retained. Embedded recording voices and source generators remain unknown; no synthesizer architecture, deck model, exact headcount of overdubs or measured original room is inferred. Later announced expanded live-instrument tours are not represented as this earlier compact practice.",
+      "source_retrieval_caveat": "Direct creator map and full playlist retrieved; firsthand interview and institutional interview recap plus booking description independently read. Representative practice evidence, not an exhaustively credited recording. No audio audition.",
+      "instrument_role_audit": {
+        "roles": {
+          "human_voice_ensemble_unspecified": "David Deimour and Arina Bulanova vocal contributions; exact live/embedded distribution varies and is not guessed",
+          "dj_playback_mixing_unspecified": "Arina Bulanova documented concert DJ"
+        },
+        "policy": "An authored energetic live rendition retains human vocals over actual DJ accompaniment. Moderate vocal effort, neutral tract, unprocessed voice and unspecified register, singing school, pitch organization and tracking avoid unsupported personal technique claims. The neutral vocal owner preserves known human vocal participation while not asserting a measured ensemble configuration across songs. Brisk pacing and a reflective controlled live room are representative dance-performance choices, not transcription or measured venue acoustics. Broad electronicDance is appropriate to the documented rave programme; no narrower techno rhythm or score form imposed. No invented equipment or recording chain.",
+        "omitted_positive_roles": []
+      },
+      "vocal_count_audit": {
+        "named_vocal_contributors": [
+          "David Deimour",
+          "Arina Bulanova"
+        ],
+        "exact_simultaneous_live_count": "unknown",
+        "embedded_voices_and_tracking": "unknown",
+        "policy": "Preserve both named vocal roles without guessing simultaneous harmony or exact studio layers."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "An authored energetic live rendition retains human vocals over actual DJ accompaniment. Moderate vocal effort, neutral tract, unprocessed voice and unspecified register, singing school, pitch organization and tracking avoid unsupported personal technique claims. The neutral vocal owner preserves known human vocal participation while not asserting a measured ensemble configuration across songs. Brisk pacing and a reflective controlled live room are representative dance-performance choices, not transcription or measured venue acoustics. Broad electronicDance is appropriate to the documented rave programme; no narrower techno rhythm or score form imposed. No invented equipment or recording chain."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "An authored energetic live rendition retains human vocals over actual DJ accompaniment. Moderate vocal effort, neutral tract, unprocessed voice and unspecified register, singing school, pitch organization and tracking avoid unsupported personal technique claims. The neutral vocal owner preserves known human vocal participation while not asserting a measured ensemble configuration across songs. Brisk pacing and a reflective controlled live room are representative dance-performance choices, not transcription or measured venue acoustics. Broad electronicDance is appropriate to the documented rave programme; no narrower techno rhythm or score form imposed. No invented equipment or recording chain."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified",
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All eighteen owning controls protected; unknown vocal count/tracking and DJ source machinery use existing neutral variants."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "russian_rave",
+          "name": "Russian rave",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13261view1 confirms Iain Fergusson/Binksternet and CC BY2.5; historical verified bytes retained.",
+          "fresh_review_ref": "turn13261view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Historical exact microphone receipts retained; no fresh download claimed.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13261view1"
+        ],
+        "fresh_rights_review": "Fresh13261view1 license and credit; inherited byte and visual receipts unchanged."
+      },
+      "verification_status": "Original mechanical check eighteen protected parts, no errors; four actual formats coherent brisk vocals and bodacious DJ practice.",
+      "primary_retrieval_refs": [
+        "turn13271view0",
+        "turn13271search0",
+        "turn13280view0",
+        "turn13280view1",
+        "turn13280view2",
+        "turn13261view1"
+      ],
+      "genre_profile_repair_evidence": {
+        "prior_public_prose": {
+          "lineage": "Representative GSPD/Dead Blonde vocal-and-DJ concert practice, rather than reconstruction of a particular recording or complete touring production. Booking-agency description names David Deimour as singer/producer and Arina Bulanova as the female voice and concert DJ; her first-person career interview independently documents touring as DJ. Both named vocal contributions and DJ playback/mixing are retained. Embedded recording voices and source generators remain unknown; no synthesizer architecture, deck model, exact headcount of overdubs or measured original room is inferred. Later announced expanded live-instrument tours are not represented as this earlier compact practice. An authored energetic live rendition retains human vocals over actual DJ accompaniment. Moderate vocal effort, neutral tract, unprocessed voice and unspecified register, singing school, pitch organization and tracking avoid unsupported personal technique claims. The neutral vocal owner preserves known human vocal participation while not asserting a measured ensemble configuration across songs. Brisk pacing and a reflective controlled live room are representative dance-performance choices, not transcription or measured venue acoustics. Broad electronicDance is appropriate to the documented rave programme; no narrower techno rhythm or score form imposed. No invented equipment or recording chain.",
+          "description": "Representative GSPD/Dead Blonde vocal-and-DJ concert practice, rather than reconstruction of a particular recording or complete touring production. Booking-agency description names David Deimour as singer/producer and Arina Bulanova as the female voice and concert DJ; her first-person career interview independently documents touring as DJ. Both named vocal contributions and DJ playback/mixing are retained. Embedded recording voices and source generators remain unknown; no synthesizer architecture, deck model, exact headcount of overdubs or measured original room is inferred. Later announced expanded live-instrument tours are not represented as this earlier compact practice. The exact creator Russian Rave corpus includes GSPD, DEAD BLONDE, Lida and related Russian-language electronic/rave-pop artists. GSPD first-person interviews positively situate his work in a Russian electronic rave community and describe the contrast between harder rave material and softer synth-pop branches. This narrower scene overlaps the full Russian electronic umbrella and Russian techno, but is not equivalent to all national electronic music or restricted to instrumental techno. Existing hard-bass traditions overlap the dance language without encompassing the full vocal rave-pop cohort. The unrelated broader Moscow underground techno mix by Philipp Gorbachev was investigated but is not used as a substitute for this creator field. An authored energetic live rendition retains human vocals over actual DJ accompaniment. Moderate vocal effort, neutral tract, unprocessed voice and unspecified register, singing school, pitch organization and tracking avoid unsupported personal technique claims. The neutral vocal owner preserves known human vocal participation while not asserting a measured ensemble configuration across songs. Brisk pacing and a reflective controlled live room are representative dance-performance choices, not transcription or measured venue acoustics. Broad electronicDance is appropriate to the documented rave programme; no narrower techno rhythm or score form imposed. No invented equipment or recording chain."
+        },
+        "reason": "Move session/practice specification, unknowns and authored-default rationale into evidence; public fields now describe the genre positively. Musical defaults and source roles unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

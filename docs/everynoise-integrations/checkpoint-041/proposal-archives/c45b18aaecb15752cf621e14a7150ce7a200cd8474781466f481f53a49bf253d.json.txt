@@ -1,0 +1,233 @@
+{
+  "entries": [
+    {
+      "source_label": "armenian hip hop",
+      "source_url": "https://everynoise.com/engenremap-armenianhiphop.html",
+      "suggested_id": "armenian_hip_hop",
+      "allocation_ordinal": 199,
+      "allocation_group_id": "008",
+      "id": "armenian_hip_hop",
+      "tradition": {
+        "id": "armenian_hip_hop",
+        "name": "Armenian Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Marc 2Ray \u2014 documented 1915 a cappella protest performance outside the White House for the 101st Armenian Genocide commemoration in 2016. The July 2016 firsthand interview explicitly identifies the unaccompanied performance and the artist confirms that event. Model the whole named performed work, not the separately discussed studio single or the later 2020 acoustic recording. No full audio audition, duration or exact vocal headcount is claimed. Marc is positively named; any additional vocal participants remain unspecified and retained by an unknown-count voice owner. Miriam and Godfather belong to the separate studio-song discussion and are not imported into this performance. Use the existing source-unspecified human vocal ensemble owner to retain unknown count and layering. Seventeen applicable controls are explicitly protected. Rhythmic spoken flow is an authored representative rap delivery, not an assertion that every syllable of the unavailable performance lacks pitch. Neutral vocal tract and moderate effort, unprocessed signal, and a controlled treated-studio listening rendition are authored choices, not source venue or microphone claims. Source-unspecified register, quality, physiology, pitch organization, ornament, ensemble and tracking controls remain unknown. Omit global tuning and capture apparatus. Broad spokenWord parent describes this selected unaccompanied narrative-rap rendition; it does not classify the entire Armenian hip-hop field as beatless or nonmusical. Numeric axes are neutral editorial metadata.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Marc 2Ray \u2014 documented 1915 a cappella protest performance outside the White House for the 101st Armenian Genocide commemoration in 2016. The July 2016 firsthand interview explicitly identifies the unaccompanied performance and the artist confirms that event. Model the whole named performed work, not the separately discussed studio single or the later 2020 acoustic recording. No full audio audition, duration or exact vocal headcount is claimed. Marc is positively named; any additional vocal participants remain unspecified and retained by an unknown-count voice owner. Miriam and Godfather belong to the separate studio-song discussion and are not imported into this performance. Armenian hip hop is a national and diaspora hip-hop cultural field, not a translation of Armenian folk or all Armenian music. The community-run ArmenianDC programme positively places Marc\u2019s hip-hop work and Armenian historical narrative within its Armenian cultural calendar; the first-person account documents actual genocide-commemoration practice, rather than inferring musical identity from ancestry alone. Existing conscious_hip_hop overlaps substantially in political narrative and lyrical craft and is not confined to its sample-based exemplar, but spans many communities rather than the Armenian national/diaspora field. Existing armenian_traditional, armenian_folk and armenian_duduk_chant cover liturgical, folk, ashugh and ceremonial traditions; commemorative subject matter alone does not make rap those practices. Armenian pop and Armenian indie overlap the national community but have popular-song/indie field scopes, not all Armenian rap. The selected English-language diaspora branch does not imply Armenian-language exclusivity, all performers living in Armenia, or that all Armenian rap is protest rap. Neither the unrelated Gulf traditions nor a presumed world-rap umbrella is claimed as an equivalent; no separate world_rap or gulf_hip_hop entry was found in the current loader. Current old records and queued038 corpus checked; no matching Armenian rap candidate found. Exact creator map retrieval failed, so membership is not asserted; positive first-person practice plus Armenian community presentation support this category. Use the existing source-unspecified human vocal ensemble owner to retain unknown count and layering. Seventeen applicable controls are explicitly protected. Rhythmic spoken flow is an authored representative rap delivery, not an assertion that every syllable of the unavailable performance lacks pitch. Neutral vocal tract and moderate effort, unprocessed signal, and a controlled treated-studio listening rendition are authored choices, not source venue or microphone claims. Source-unspecified register, quality, physiology, pitch organization, ornament, ensemble and tracking controls remain unknown. Omit global tuning and capture apparatus. Broad spokenWord parent describes this selected unaccompanied narrative-rap rendition; it does not classify the entire Armenian hip-hop field as beatless or nonmusical. Numeric axes are neutral editorial metadata.",
+        "exemplars": [
+          "Marc 2Ray \u2014 1915, documented unaccompanied White House protest performance, 2016"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.898,
+        -77.037,
+        "Washington",
+        "North America"
+      ],
+      "geo_rationale": "Documented White House protest locality; Washington anchor for the selected diaspora performance, not a national origin claim.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Armenian hip hop is a national and diaspora hip-hop cultural field, not a translation of Armenian folk or all Armenian music. The community-run ArmenianDC programme positively places Marc\u2019s hip-hop work and Armenian historical narrative within its Armenian cultural calendar; the first-person account documents actual genocide-commemoration practice, rather than inferring musical identity from ancestry alone. Existing conscious_hip_hop overlaps substantially in political narrative and lyrical craft and is not confined to its sample-based exemplar, but spans many communities rather than the Armenian national/diaspora field. Existing armenian_traditional, armenian_folk and armenian_duduk_chant cover liturgical, folk, ashugh and ceremonial traditions; commemorative subject matter alone does not make rap those practices. Armenian pop and Armenian indie overlap the national community but have popular-song/indie field scopes, not all Armenian rap. The selected English-language diaspora branch does not imply Armenian-language exclusivity, all performers living in Armenia, or that all Armenian rap is protest rap. Neither the unrelated Gulf traditions nor a presumed world-rap umbrella is claimed as an equivalent; no separate world_rap or gulf_hip_hop entry was found in the current loader. Current old records and queued038 corpus checked; no matching Armenian rap candidate found. Exact creator map retrieval failed, so membership is not asserted; positive first-person practice plus Armenian community presentation support this category.",
+      "classification_evidence": "Armenian hip hop is a national and diaspora hip-hop cultural field, not a translation of Armenian folk or all Armenian music. The community-run ArmenianDC programme positively places Marc\u2019s hip-hop work and Armenian historical narrative within its Armenian cultural calendar; the first-person account documents actual genocide-commemoration practice, rather than inferring musical identity from ancestry alone. Existing conscious_hip_hop overlaps substantially in political narrative and lyrical craft and is not confined to its sample-based exemplar, but spans many communities rather than the Armenian national/diaspora field. Existing armenian_traditional, armenian_folk and armenian_duduk_chant cover liturgical, folk, ashugh and ceremonial traditions; commemorative subject matter alone does not make rap those practices. Armenian pop and Armenian indie overlap the national community but have popular-song/indie field scopes, not all Armenian rap. The selected English-language diaspora branch does not imply Armenian-language exclusivity, all performers living in Armenia, or that all Armenian rap is protest rap. Neither the unrelated Gulf traditions nor a presumed world-rap umbrella is claimed as an equivalent; no separate world_rap or gulf_hip_hop entry was found in the current loader. Current old records and queued038 corpus checked; no matching Armenian rap candidate found. Exact creator map retrieval failed, so membership is not asserted; positive first-person practice plus Armenian community presentation support this category.",
+      "model_policy": "Use the existing source-unspecified human vocal ensemble owner to retain unknown count and layering. Seventeen applicable controls are explicitly protected. Rhythmic spoken flow is an authored representative rap delivery, not an assertion that every syllable of the unavailable performance lacks pitch. Neutral vocal tract and moderate effort, unprocessed signal, and a controlled treated-studio listening rendition are authored choices, not source venue or microphone claims. Source-unspecified register, quality, physiology, pitch organization, ornament, ensemble and tracking controls remain unknown. Omit global tuning and capture apparatus. Broad spokenWord parent describes this selected unaccompanied narrative-rap rendition; it does not classify the entire Armenian hip-hop field as beatless or nonmusical. Numeric axes are neutral editorial metadata.",
+      "sources": [
+        {
+          "url": "https://rapreviews.com/interview/marc2ray2016.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full primary interview turn11479view0 lines11\u201313: interviewer explicitly names a cappella White House performance, Marc confirms 101st-anniversary event. Separate studio-hook vocalist appears in next question and is not transferred."
+        },
+        {
+          "url": "https://armeniandc.org/events/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh community calendar turn11481view0/11484view1 lines2357\u20132368: Armenian cultural programme positively presents Marc\u2019s socially conscious hip-hop and Armenian story with named1915/HonoringTheHYE repertoire. 2026 event corroborates field only, no roles transferred to2016."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": null,
+        "named_performer": "Marc 2Ray",
+        "reason": "No positive sole-performer or exact additional-voice count. Retain complete voice practice through unknown-count owner; no studio Miriam credit transferred."
+      },
+      "instrument_role_audit": {
+        "scope": "Marc 2Ray \u2014 documented 1915 a cappella protest performance outside the White House for the 101st Armenian Genocide commemoration in 2016. The July 2016 firsthand interview explicitly identifies the unaccompanied performance and the artist confirms that event. Model the whole named performed work, not the separately discussed studio single or the later 2020 acoustic recording. No full audio audition, duration or exact vocal headcount is claimed. Marc is positively named; any additional vocal participants remain unspecified and retained by an unknown-count voice owner. Miriam and Godfather belong to the separate studio-song discussion and are not imported into this performance.",
+        "cards": 1,
+        "roles": [
+          "Complete unaccompanied human vocal performance, named rapper plus unspecified additional vocal count"
+        ],
+        "defaults": "Use the existing source-unspecified human vocal ensemble owner to retain unknown count and layering. Seventeen applicable controls are explicitly protected. Rhythmic spoken flow is an authored representative rap delivery, not an assertion that every syllable of the unavailable performance lacks pitch. Neutral vocal tract and moderate effort, unprocessed signal, and a controlled treated-studio listening rendition are authored choices, not source venue or microphone claims. Source-unspecified register, quality, physiology, pitch organization, ornament, ensemble and tracking controls remain unknown. Omit global tuning and capture apparatus. Broad spokenWord parent describes this selected unaccompanied narrative-rap rendition; it does not classify the entire Armenian hip-hop field as beatless or nonmusical. Numeric axes are neutral editorial metadata."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "Use the existing source-unspecified human vocal ensemble owner to retain unknown count and layering. Seventeen applicable controls are explicitly protected. Rhythmic spoken flow is an authored representative rap delivery, not an assertion that every syllable of the unavailable performance lacks pitch. Neutral vocal tract and moderate effort, unprocessed signal, and a controlled treated-studio listening rendition are authored choices, not source venue or microphone claims. Source-unspecified register, quality, physiology, pitch organization, ornament, ensemble and tracking controls remain unknown. Omit global tuning and capture apparatus. Broad spokenWord parent describes this selected unaccompanied narrative-rap rendition; it does not classify the entire Armenian hip-hop field as beatless or nonmusical. Numeric axes are neutral editorial metadata."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": [],
+        "existing_owner_count": 1638,
+        "policy": "Existing source-unspecified voice owner; no existing data changed."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 owning controls explicitly pinned; no fallback or shared-slot collision."
+      },
+      "primary_retrieval_refs": [
+        "turn11479view0",
+        "turn11481view0",
+        "turn11484view1"
+      ],
+      "source_retrieval_caveat": "Creator map403; no creator membership claim. No posted full performance or exact duration recovered; affirmative firsthand documented whole-work practice is selected. Full event not listened to.",
+      "source_scope_limitation": "Marc 2Ray \u2014 documented 1915 a cappella protest performance outside the White House for the 101st Armenian Genocide commemoration in 2016. The July 2016 firsthand interview explicitly identifies the unaccompanied performance and the artist confirms that event. Model the whole named performed work, not the separately discussed studio single or the later 2020 acoustic recording. No full audio audition, duration or exact vocal headcount is claimed. Marc is positively named; any additional vocal participants remain unspecified and retained by an unknown-count voice owner. Miriam and Godfather belong to the separate studio-song discussion and are not imported into this performance.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "armenian_hip_hop",
+          "name": "Armenian Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context only; not Marc 2Ray, the protest or documented apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11484view0/11491view0 confirms Iain Fergusson/Binksternet CC BY2.5 and crop provenance. Original023 exact bytes and historical visual receipt inherited; no new download or view claimed.",
+          "fresh_review_ref": "turn11491view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11491view0"
+        ]
+      },
+      "verification_status": "Original merged-loader17 owning parts protected without fallback;1638 existing owners unchanged, immutable allocation and atlas pass; exact inherited photo receipt matches023. Original browser/connector four formats agree, max230 characters, spoken-flowing voice and authored controlled studio only. Static optimized build and exact-head CI remain parent integration gates.",
+      "status": "frozen_for_independent_review"
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

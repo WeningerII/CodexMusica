@@ -1,0 +1,153 @@
+{
+  "new_count": 187,
+  "new_delta_rows": [],
+  "old_changed_23": [
+    {
+      "id": "algerian_rap",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "ambient",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "ambient_folk",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "banda_carnavalera",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "banda_peruana",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "cape_jazz",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "cumbia_420",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "cumbia_argentina",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "cumbia_pop",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "cumbia_ranchera",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "deathstep",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "dweilorkest",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "experimental_bass",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "german_hyperpop",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "german_underground_rap",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "hardstep",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "japanese_vtuber",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "neo_soul_jazz",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "oud_taqsim",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "samurai_trap",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "santur_persian",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "tecnocumbia",
+      "full_config_equal": true,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "thai_bl_ost",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": false
+    }
+  ],
+  "remaining_old_musical_diffs": [],
+  "remaining_old_recipe_diffs": [
+    {
+      "id": "thai_bl_ost",
+      "full_config_equal": false,
+      "musical_config_equal": true,
+      "recipe_equal": false
+    }
+  ]
+}

@@ -1,0 +1,1784 @@
+{
+  "entries": [
+    {
+      "source_label": "carnaval limburg",
+      "source_url": "https://everynoise.com/engenremap-carnavallimburg.html",
+      "suggested_id": "carnaval_limburg",
+      "allocation_ordinal": 2972,
+      "allocation_group_id": "119",
+      "id": "carnaval_limburg",
+      "tradition": {
+        "id": "carnaval_limburg",
+        "name": "Carnaval Limburg",
+        "family": "vernacular",
+        "lineage": "Limburg carnival music grows through local associations, dialect songwriting and seasonal celebrations. Shared refrains connect communities across the province while preserving differences between local traditions.",
+        "instruments": [
+          "voice",
+          "upright_piano",
+          "electric_bass",
+          "drum_kit",
+          "trumpet",
+          "trombone",
+          "accordion"
+        ],
+        "room": "live_room",
+        "tuning": "twelve_tet",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius",
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_hohner_gola"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Festive singing meets accessible melodies, dance rhythms and ensemble accompaniment. Accordion, brass, keyboards and rhythm sections can support massed refrains, while intimate song settings also preserve the repertoire.",
+        "exemplars": [
+          "Jocus",
+          "KVV Alaaf Kirchroa"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        50.7708,
+        6.0186,
+        "Vaals",
+        "Europe"
+      ],
+      "geo_rationale": "Issuing/organizing association explicitly located in Vaals; local carnival repertoire anchor, not measured studio location.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.grensulle.nl/vols-pakt-oes/",
+          "title": "Issuer dedicated complete recording and lyrics",
+          "support_notes": "Lambert Erven and Leo Ketelaars — Vols Pakt Oes, complete original1948 recording presented by its local carnival institution CV de Grensülle. The dedicated work page identifies Erven as lyricist/singer and Ketelaars as composer/pianist, prints two complete verses and repeated refrain, and the institutional homepage supplies the audio element. Retain the full published two-person vocal/piano palette. Other carnival bands and brass ensembles on the website are separate activities and are not imported. No personal audio audition, measured duration, exact piano model or session venue claimed.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11757view0"
+        },
+        {
+          "url": "https://www.grensulle.nl/",
+          "title": "Organizing carnival association history",
+          "support_notes": "Firsthand institutional history identifies own Vaalser carnival and dialect-song repertoire, original1948 audio and roles.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11777view0"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-carnavallimburg.html",
+          "title": "Exact creator category field",
+          "support_notes": "Limburg carnival association/artist programme including Jocus and KVV Alaaf Kirchroa; selected historical duo not asserted as exact member.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11775view0"
+        },
+        {
+          "url": "https://wiendkracht11.nl/",
+          "title": "Limburg carnival band own practice",
+          "support_notes": "Fresh13657search8 positively describes local carnival big-band tradition with brass/rhythm section, accordion and multiple singers; representative genre instrumentation, no claim to recreate all15people."
+        }
+      ],
+      "neighbor_distinction": "Carnaval Limburg is the Limburg carnival-song community and its seasonal repertoire, not all Dutch songs or all Dutch regional-language music. The actual organizing association documents its1948 foundation to cultivate Vaalser carnival, the named original carnival hymn and continuing local dialect carnival-song repertory. Vaals has a distinctive local dialect within the wider Limburg carnival setting; do not flatten dialect differences. Exact creator category includes Limburg carnival associations/performers such as Jocus and KVV Alaaf Kirchroa, but no exact Lambert Erven membership is claimed. Full existing Streektaal is a broader multi-regional language-song field and explicitly already covers such regional practice; Dutch Folk includes broad vernacular singalong and older repertoire, while Nederpop includes a broad national pop-rock history. This positively institutionalized seasonal regional carnival repertoire overlaps those broad categories without equating to them. No artist-only or piano-format distinction. Cologne/Rhineland carnival has cross-border connections but does not subsume this locally named Vaalser/Limburg community.",
+      "model_policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount.",
+      "dependency_audit": "No new owners; original seventeen voice and three upright controls retained unchanged.",
+      "classification_evidence": {
+        "mode": "firsthand_local_carnival_institution_plus_creator_field",
+        "url": "https://www.grensulle.nl/vols-pakt-oes/",
+        "matched_artist": null,
+        "note": "Carnaval Limburg is the Limburg carnival-song community and its seasonal repertoire, not all Dutch songs or all Dutch regional-language music. The actual organizing association documents its1948 foundation to cultivate Vaalser carnival, the named original carnival hymn and continuing local dialect carnival-song repertory. Vaals has a distinctive local dialect within the wider Limburg carnival setting; do not flatten dialect differences. Exact creator category includes Limburg carnival associations/performers such as Jocus and KVV Alaaf Kirchroa, but no exact Lambert Erven membership is claimed. Full existing Streektaal is a broader multi-regional language-song field and explicitly already covers such regional practice; Dutch Folk includes broad vernacular singalong and older repertoire, while Nederpop includes a broad national pop-rock history. This positively institutionalized seasonal regional carnival repertoire overlaps those broad categories without equating to them. No artist-only or piano-format distinction. Cologne/Rhineland carnival has cross-border connections but does not subsume this locally named Vaalser/Limburg community."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount."
+        },
+        {
+          "instrument": "trumpet",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount."
+        },
+        {
+          "instrument": "trombone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "trombone_type": "tenor_trombone",
+            "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+            "trombone_mute": "no_mute_trb",
+            "trombone_technique": "big_band_punch",
+            "trombone_bell_metal": "trombone_yellow_brass",
+            "trombone_maker_school": "trombone_bach_42"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount."
+        },
+        {
+          "instrument": "accordion",
+          "parts": {
+            "free_reed_technique": "free_reed_chordal_chugging",
+            "accordion_reed_material": "steel_reeds",
+            "musette_offset": "german_tuning",
+            "reed_config": "lmm",
+            "bellows": "cardboard_leather",
+            "voicing_chamber": "cassotto",
+            "accordion_maker_school": "accordion_hohner_gola"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount."
+        }
+      ],
+      "verification_status": "primary_source_reviewed_complete_merged_defaults_pinned_inherited_photo_bytes_fresh_rights",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "carnaval_limburg",
+          "name": "Carnaval Limburg",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not the1948 singers, pianist, historical session or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn11604view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Historical exact023 bytes/visual receipt inherited unchanged.",
+          "fresh_review_ref": "turn11604view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        }
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All twenty applicable voice/upright controls explicitly pinned; no shared-key conflicts or fallbacks.",
+      "primary_retrieval_refs": [
+        "turn11757view0",
+        "turn11777view0",
+        "turn11775view0"
+      ],
+      "source_access_limitation": "Public issuer full dedicated song/credits and regional institution read; audio not auditioned. Historical image bytes inherited, fresh Commons rights read.",
+      "status": "hold_render_semantics",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "carnaval_limburg",
+            "name": "Carnaval Limburg",
+            "family": "vernacular",
+            "lineage": "Lambert Erven and Leo Ketelaars — Vols Pakt Oes, complete original1948 recording presented by its local carnival institution CV de Grensülle. The dedicated work page identifies Erven as lyricist/singer and Ketelaars as composer/pianist, prints two complete verses and repeated refrain, and the institutional homepage supplies the audio element. Retain the full published two-person vocal/piano palette. Other carnival bands and brass ensembles on the website are separate activities and are not imported. No personal audio audition, measured duration, exact piano model or session venue claimed. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the complete credited song. The source prints verses and refrain; the connecting bridge organization and chord voicing are authored, not claimed as a transcription of the1948 master. One accompanied singer with neutral physiology and small-note-group neumatic word setting is an authored rendition, not measured historical vocal technique. Generic source piano becomes a standard studio upright with block-chord accompaniment. A brisk up-tempo vocal rendition is authored festive pacing, not measured1948 tempo. Controlled live-room listening presentation is editorial; no historic capture equipment, global tuning or procession-sized ensemble inferred.",
+            "instruments": [
+              "voice",
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_neumatic_singing",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": -1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": -2,
+              "timbre": 0,
+              "percussion": -1,
+              "cyclicity": 0
+            },
+            "description": "Lambert Erven and Leo Ketelaars — Vols Pakt Oes, complete original1948 recording presented by its local carnival institution CV de Grensülle. The dedicated work page identifies Erven as lyricist/singer and Ketelaars as composer/pianist, prints two complete verses and repeated refrain, and the institutional homepage supplies the audio element. Retain the full published two-person vocal/piano palette. Other carnival bands and brass ensembles on the website are separate activities and are not imported. No personal audio audition, measured duration, exact piano model or session venue claimed. Carnaval Limburg is the Limburg carnival-song community and its seasonal repertoire, not all Dutch songs or all Dutch regional-language music. The actual organizing association documents its1948 foundation to cultivate Vaalser carnival, the named original carnival hymn and continuing local dialect carnival-song repertory. Vaals has a distinctive local dialect within the wider Limburg carnival setting; do not flatten dialect differences. Exact creator category includes Limburg carnival associations/performers such as Jocus and KVV Alaaf Kirchroa, but no exact Lambert Erven membership is claimed. Full existing Streektaal is a broader multi-regional language-song field and explicitly already covers such regional practice; Dutch Folk includes broad vernacular singalong and older repertoire, while Nederpop includes a broad national pop-rock history. This positively institutionalized seasonal regional carnival repertoire overlaps those broad categories without equating to them. No artist-only or piano-format distinction. Cologne/Rhineland carnival has cross-border connections but does not subsume this locally named Vaalser/Limburg community. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the complete credited song. The source prints verses and refrain; the connecting bridge organization and chord voicing are authored, not claimed as a transcription of the1948 master. One accompanied singer with neutral physiology and small-note-group neumatic word setting is an authored rendition, not measured historical vocal technique. Generic source piano becomes a standard studio upright with block-chord accompaniment. A brisk up-tempo vocal rendition is authored festive pacing, not measured1948 tempo. Controlled live-room listening presentation is editorial; no historic capture equipment, global tuning or procession-sized ensemble inferred.",
+            "exemplars": [
+              "Lambert Erven / Leo Ketelaars — Vols Pakt Oes, complete1948 voice-and-piano recording"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "hold",
+        "reason": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Restore festive sung accordion/brass/rhythm band rather than compulsory1948piano duet. Standard physical choices and functional-harmonic verse–chorus–bridge organization are authored. Full controls retained; no universal lineup or headcount.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-3.json",
+        "blocker": "Meaningful restored accordion produces unsupported klezmer-dancing label. Preserve complete candidate and all controls; no removal or random parameter change."
+      },
+      "source_scope_limitation": "Genre-level representative arrangement; original exact programme/edition roles remain preserved in repair_review.before and original packet.",
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "rationale": "Lambert Erven and Leo Ketelaars — Vols Pakt Oes, complete original1948 recording presented by its local carnival institution CV de Grensülle. The dedicated work page identifies Erven as lyricist/singer and Ketelaars as composer/pianist, prints two complete verses and repeated refrain, and the institutional homepage supplies the audio element. Retain the full published two-person vocal/piano palette. Other carnival bands and brass ensembles on the website are separate activities and are not imported. No personal audio audition, measured duration, exact piano model or session venue claimed.",
+          "selected_scope": "Whole original1948 Vols Pakt Oes",
+          "roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Lambert Erven singing",
+              "authored_realization": "Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the complete credited song. The source prints verses and refrain; the connecting bridge organization and chord voicing are authored, not claimed as a transcription of the1948 master. One accompanied singer with neutral physiology and small-note-group neumatic word setting is an authored rendition, not measured historical vocal technique. Generic source piano becomes a standard studio upright with block-chord accompaniment. A brisk up-tempo vocal rendition is authored festive pacing, not measured1948 tempo. Controlled live-room listening presentation is editorial; no historic capture equipment, global tuning or procession-sized ensemble inferred."
+            },
+            {
+              "instrument": "upright_piano",
+              "source_role": "Leo Ketelaars piano",
+              "authored_realization": "Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge rendition of the complete credited song. The source prints verses and refrain; the connecting bridge organization and chord voicing are authored, not claimed as a transcription of the1948 master. One accompanied singer with neutral physiology and small-note-group neumatic word setting is an authored rendition, not measured historical vocal technique. Generic source piano becomes a standard studio upright with block-chord accompaniment. A brisk up-tempo vocal rendition is authored festive pacing, not measured1948 tempo. Controlled live-room listening presentation is editorial; no historic capture equipment, global tuning or procession-sized ensemble inferred."
+            }
+          ],
+          "omissions": "No positively credited role omitted; composer and lyricist credits do not invent extra performers."
+        },
+        "vocal_count_audit": {
+          "credited_selected_singers": [
+            "Lambert Erven"
+          ],
+          "selected_count": 1,
+          "count_basis": "Exact recording credit names one singer and separate pianist.",
+          "decision": "Lambert Erven and Leo Ketelaars — Vols Pakt Oes, complete original1948 recording presented by its local carnival institution CV de Grensülle. The dedicated work page identifies Erven as lyricist/singer and Ketelaars as composer/pianist, prints two complete verses and repeated refrain, and the institutional homepage supplies the audio element. Retain the full published two-person vocal/piano palette. Other carnival bands and brass ensembles on the website are separate activities and are not imported. No personal audio audition, measured duration, exact piano model or session venue claimed."
+        },
+        "scope": "Original documentary source only, not the revised genre default."
+      }
+    },
+    {
+      "source_label": "chinese bgm",
+      "source_url": "https://everynoise.com/engenremap-chinesebgm.html",
+      "suggested_id": "chinese_bgm",
+      "allocation_ordinal": 3016,
+      "allocation_group_id": "121",
+      "id": "chinese_bgm",
+      "tradition": {
+        "id": "chinese_bgm",
+        "name": "Chinese BGM",
+        "family": "pop",
+        "lineage": "Chinese BGM connects Chinese-language popular repertoire and instrumental cover publishing with background listening. Café, study and relaxation releases circulate across regional boundaries and include both Chinese songs and wider repertoire.",
+        "instruments": [
+          "upright_piano",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "Piano and guitar melodies, soft harmonic support and unobtrusive arrangements suit extended listening. Repetition, clear phrasing and restrained textural changes help familiar tunes sit comfortably behind everyday activities.",
+        "exemplars": [
+          "Noble",
+          "Jay Chou"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        25.033,
+        121.5654,
+        "Taipei",
+        "East Asia"
+      ],
+      "geo_rationale": "Editorial Taiwan Chinese-pop/cover publishing anchor for this selected repertoire, not a measured score session or claim of exclusive national field.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.shinko-music.co.jp/item/pid0024427/",
+          "title": "Publisher complete piano-solo anthology",
+          "support_notes": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11585search0; turn11586view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1Kcs9JPtTzFVgBhqnlmLM3",
+          "title": "Creator Chinese BGM programme",
+          "support_notes": "Item15 Maple piano cover by Noble, item13 Rice Fragrance by Bryan Chi; broader programme includes cafe, study, sleep, jazz and instrumental listening products.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11586view1; turn11589view0"
+        },
+        {
+          "url": "https://music.apple.com/mo/album/studying-piano-music-bgm-light-music-and-pop-cover-music/1833191280",
+          "title": "Issuer-distributed Noble BGM catalog",
+          "support_notes": "Noble2025 study piano BGM/pop-cover album and same issuer Chinese-pop/guitar background and relaxation releases establish positive usage/repertoire field; not used to infer a complete piano-only recording palette.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11592view0"
+        },
+        {
+          "url": "https://www.sonymusic.co.jp/artist/Jay/info/361226",
+          "title": "Artist label announces authorized solo piano edition",
+          "support_notes": "Sony artist page announces this Jay Chou solo-piano anthology, confirming repertoire/edition association.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11585search1"
+        }
+      ],
+      "neighbor_distinction": "Chinese BGM is the Chinese-language light/background listening and cover-release field: the creator programme explicitly combines cafe/study/sleep titles, Chinese popular-song piano covers and other instrumental or sound-based listening products. Noble issuer metadata independently identifies BGM for study/work and Chinese-pop relaxation covers, including piano and guitar catalog branches. Thus Chinese is a repertoire/marketing-language field, not a rule that every composition is Chinese, every performer belongs to one nation, or all sound sources are traditional Chinese instruments. Existing background_music is the broad international functional umbrella and background_piano its piano-specific subset; both already include this usage and are not restricted to their Japanese/Canadian examples. This narrower positively circulated language/repertoire market overlaps both without being their synonym. Taiwan instrumental is a broader geographic instrumental field, not just Cicada chamber music; Chinese BGM overlaps Taiwan products but also spans cross-regional Chinese-language background releases. Mandopop/C-pop cover popular song industries broadly, not specifically background-listening reinterpretation products. Chinese classical and Chinese classical piano are art/performance fields, not all piano played by Chinese musicians. Accepted Chinese Soundtrack and Chinese Electropop are screen-use and electronic-song fields, not this background-use publishing axis. No exclusive artist or musical grammar partition asserted.",
+      "model_policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden one solo-piano edition to documented piano/guitar background-cover practice; all3piano+5guitar controls protected. Restrained chordal instrumental song rendition is representative, not a claim to recreate Maple. No mandatory singer in this instrumental branch.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "upright_piano"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Only original existing upright-piano owner, with all3 merged parts explicitly pinned; no instrument dependency."
+      },
+      "classification_evidence": {
+        "mode": "creator_composition_plus_primary_issuer_background_repertoire",
+        "url": "https://open.spotify.com/embed/playlist/1Kcs9JPtTzFVgBhqnlmLM3",
+        "matched_artist": "貴族鋼琴輕音樂",
+        "note": "Chinese BGM is the Chinese-language light/background listening and cover-release field: the creator programme explicitly combines cafe/study/sleep titles, Chinese popular-song piano covers and other instrumental or sound-based listening products. Noble issuer metadata independently identifies BGM for study/work and Chinese-pop relaxation covers, including piano and guitar catalog branches. Thus Chinese is a repertoire/marketing-language field, not a rule that every composition is Chinese, every performer belongs to one nation, or all sound sources are traditional Chinese instruments. Existing background_music is the broad international functional umbrella and background_piano its piano-specific subset; both already include this usage and are not restricted to their Japanese/Canadian examples. This narrower positively circulated language/repertoire market overlaps both without being their synonym. Taiwan instrumental is a broader geographic instrumental field, not just Cicada chamber music; Chinese BGM overlaps Taiwan products but also spans cross-regional Chinese-language background releases. Mandopop/C-pop cover popular song industries broadly, not specifically background-listening reinterpretation products. Chinese classical and Chinese classical piano are art/performance fields, not all piano played by Chinese musicians. Accepted Chinese Soundtrack and Chinese Electropop are screen-use and electronic-song fields, not this background-use publishing axis. No exclusive artist or musical grammar partition asserted."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden one solo-piano edition to documented piano/guitar background-cover practice; all3piano+5guitar controls protected. Restrained chordal instrumental song rendition is representative, not a claim to recreate Maple. No mandatory singer in this instrumental branch."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden one solo-piano edition to documented piano/guitar background-cover practice; all3piano+5guitar controls protected. Restrained chordal instrumental song rendition is representative, not a claim to recreate Maple. No mandatory singer in this instrumental branch."
+        }
+      ],
+      "verification_status": "primary_source_reviewed_complete_merged_defaults_pinned_inherited_photo_bytes_fresh_rights",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "chinese_bgm",
+          "name": "Chinese BGM",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not the pianist, piano, Noble release session or Shinko equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn11604view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Historical exact023 bytes/visual receipt inherited unchanged.",
+          "fresh_review_ref": "turn11604view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        }
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [],
+        "rule": "All three original merged upright-piano parts explicitly authored and pinned, no shared owner collision or fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn11585search0",
+        "turn11586view0",
+        "turn11586view1",
+        "turn11589view0",
+        "turn11592view0",
+        "turn11585search1"
+      ],
+      "source_access_limitation": "Full public publisher metadata and creator playlist read directly; paid score pages and recorded audio not inspected. Exact historical photo bytes/visual receipts reused; no new download claimed.",
+      "status": "genre_profile_pending_peer",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "chinese_bgm",
+            "name": "Chinese BGM",
+            "family": "pop",
+            "lineage": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge rendition of the selected popular-song piano edition; section layout and chord voicing are not a measured transcription. Standard studio upright and block-chord pop touch are coherent authored choices where the publisher leaves piano construction unspecified. A modest controlled live-room recording is authored. No global tuning or capture hardware is inferred. A printed solo edition is not automatically classical, and this specific rendition does not define the full multi-instrument background field.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": -1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": -2,
+              "timbre": 0,
+              "percussion": -1,
+              "cyclicity": 0
+            },
+            "description": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording. Chinese BGM is the Chinese-language light/background listening and cover-release field: the creator programme explicitly combines cafe/study/sleep titles, Chinese popular-song piano covers and other instrumental or sound-based listening products. Noble issuer metadata independently identifies BGM for study/work and Chinese-pop relaxation covers, including piano and guitar catalog branches. Thus Chinese is a repertoire/marketing-language field, not a rule that every composition is Chinese, every performer belongs to one nation, or all sound sources are traditional Chinese instruments. Existing background_music is the broad international functional umbrella and background_piano its piano-specific subset; both already include this usage and are not restricted to their Japanese/Canadian examples. This narrower positively circulated language/repertoire market overlaps both without being their synonym. Taiwan instrumental is a broader geographic instrumental field, not just Cicada chamber music; Chinese BGM overlaps Taiwan products but also spans cross-regional Chinese-language background releases. Mandopop/C-pop cover popular song industries broadly, not specifically background-listening reinterpretation products. Chinese classical and Chinese classical piano are art/performance fields, not all piano played by Chinese musicians. Accepted Chinese Soundtrack and Chinese Electropop are screen-use and electronic-song fields, not this background-use publishing axis. No exclusive artist or musical grammar partition asserted. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge rendition of the selected popular-song piano edition; section layout and chord voicing are not a measured transcription. Standard studio upright and block-chord pop touch are coherent authored choices where the publisher leaves piano construction unspecified. A modest controlled live-room recording is authored. No global tuning or capture hardware is inferred. A printed solo edition is not automatically classical, and this specific rendition does not define the full multi-instrument background field.",
+            "exemplars": [
+              "Jay Chou — Maple, Shinko2011 complete solo-piano edition"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden one solo-piano edition to documented piano/guitar background-cover practice; all3piano+5guitar controls protected. Restrained chordal instrumental song rendition is representative, not a claim to recreate Maple. No mandatory singer in this instrumental branch.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-1-form-clarified.json"
+      },
+      "source_scope_limitation": "Genre-level representative arrangement; original exact programme/edition roles remain preserved in repair_review.before and original packet.",
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "rationale": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording.",
+          "selected_scope": "Whole Maple solo-piano arrangement in Shinko2011 anthology",
+          "roles": [
+            {
+              "instrument": "upright_piano",
+              "source_role": "Complete solo piano arrangement",
+              "authored_realization": "Broad functionalSong models an authored functional-harmonic verse-chorus-bridge rendition of the selected popular-song piano edition; section layout and chord voicing are not a measured transcription. Standard studio upright and block-chord pop touch are coherent authored choices where the publisher leaves piano construction unspecified. A modest controlled live-room recording is authored. No global tuning or capture hardware is inferred. A printed solo edition is not automatically classical, and this specific rendition does not define the full multi-instrument background field."
+            }
+          ],
+          "omissions": "No positively scored family omitted. Noble cover and original Jay Chou song recording are separate versions."
+        },
+        "vocal_count_audit": {
+          "credited_selected_singers": [],
+          "selected_count": 0,
+          "count_basis": "Whole positively published piano-solo edition, not source-master vocal deletion.",
+          "decision": "Jay Chou — Maple (楓), complete piano-solo arrangement in Shinko Music Best Selection, ISBN9784401024421 (2011). Publisher positively labels every included score a solo-piano arrangement and lists Maple among15 pieces. Select this whole independent edition, not a reduction of a recording guessed from credits. One pianist and zero separate singers apply to the solo edition only. Paid notation and audio were not inspected; no bar count or exact voicing claimed. The creator Chinese BGM programme contains the same composition as a Noble piano cover at item15; that is the composition/field bridge, not a claim this Shinko arrangement is the Noble recording."
+        },
+        "scope": "Original documentary source only, not the revised genre default."
+      }
+    },
+    {
+      "source_label": "cumbia ecuatoriana",
+      "source_url": "https://everynoise.com/engenremap-cumbiaecuatoriana.html",
+      "suggested_id": "cumbia_ecuatoriana",
+      "allocation_ordinal": 3107,
+      "allocation_group_id": "125",
+      "id": "cumbia_ecuatoriana",
+      "tradition": {
+        "id": "cumbia_ecuatoriana",
+        "name": "Cumbia Ecuatoriana",
+        "family": "vernacular",
+        "lineage": "Ecuadorian cumbia adapts the wider Colombian-derived dance tradition through local orchestras, singers and later electronic production. Don Medardo y sus Players is a major reference within this national tropical-music community.",
+        "instruments": [
+          "voice",
+          "upright_piano",
+          "electric_bass",
+          "trumpet",
+          "trombone",
+          "saxophone",
+          "congas",
+          "timbales_stick_played",
+          "guiro"
+        ],
+        "room": "live_room",
+        "tuning": "twelve_tet",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi",
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved",
+          "timbales_playing": "timbales_stick_pattern",
+          "timbales_shell": "timbales_steel",
+          "timbales_context": "timbales_son",
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion.latinAm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 0
+        },
+        "description": "Voices and melodic horn lines meet electric bass, keyboards and interlocking percussion. Repeated dance patterns support memorable refrains, with live-orchestra textures and synthesized arrangements both contributing to the evolving sound.",
+        "exemplars": [
+          "Don Medardo y sus Players"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -3.9931,
+        -79.2042,
+        "Loja",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Municipal museum institutional repertoire-community anchor in Loja, where its2015 own tribute documents Don Medardo and national cumbia. Not DJ birthplace or selected mix recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The DJ positively names cumbia ecuatoriana as one of the complete selected programme repertoires and separately issues an Ecuadorian-cumbia-tagged tribute to Don Medardo. Loja municipal museum own2015 tribute independently identifies the orchestra with a distinctive national cumbia practice and international circulation. That establishes community/repertoire evidence beyond a performers birthplace. The creator corpus was recovered separately and includes Juanita Burbano, Hipatia Balseca, Jaime Enrique Aymara, Gerardo Moran and Trio Colonial; it overlaps broader Ecuadorian popular music. Neither DJ TiaN nor the exact DeTodoMix is claimed as a named creator-playlist member, and no unretrieved tracklist is used to assert a matching song. Existing tecnocumbia explicitly includes both Peru and Ecuador and its1990s synth/programmed successor practice; national cumbia encompasses that development and earlier live-orchestra community, so the two overlap without being lexical equivalents. Existing cumbia_colombiana includes its original coastal practice and continental orchestral diaspora; Ecuadorian adaptation remains related rather than falsely independent of it. Peruvian/chicha and Bolivian records describe their own migration/regional-production histories, not all Andean cumbia. Ecuadorian Pop is a broader national popular-song field, not exclusively Juan Fernando Velasco or romantic songs. The full selected cross-style DJ programme is one contemporary circulation practice, not a definition that all Ecuadorian cumbia is DJ-produced or electronic.",
+      "classification_evidence": "The DJ positively names cumbia ecuatoriana as one of the complete selected programme repertoires and separately issues an Ecuadorian-cumbia-tagged tribute to Don Medardo. Loja municipal museum own2015 tribute independently identifies the orchestra with a distinctive national cumbia practice and international circulation. That establishes community/repertoire evidence beyond a performers birthplace. The creator corpus was recovered separately and includes Juanita Burbano, Hipatia Balseca, Jaime Enrique Aymara, Gerardo Moran and Trio Colonial; it overlaps broader Ecuadorian popular music. Neither DJ TiaN nor the exact DeTodoMix is claimed as a named creator-playlist member, and no unretrieved tracklist is used to assert a matching song. Existing tecnocumbia explicitly includes both Peru and Ecuador and its1990s synth/programmed successor practice; national cumbia encompasses that development and earlier live-orchestra community, so the two overlap without being lexical equivalents. Existing cumbia_colombiana includes its original coastal practice and continental orchestral diaspora; Ecuadorian adaptation remains related rather than falsely independent of it. Peruvian/chicha and Bolivian records describe their own migration/regional-production histories, not all Andean cumbia. Ecuadorian Pop is a broader national popular-song field, not exclusively Juan Fernando Velasco or romantic songs. The full selected cross-style DJ programme is one contemporary circulation practice, not a definition that all Ecuadorian cumbia is DJ-produced or electronic.",
+      "model_policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures.",
+      "source_scope_limitation": "Genre-level representative arrangement; original exact programme/edition roles remain preserved in repair_review.before and original packet.",
+      "source_retrieval_caveat": "Own selected mix and municipal institution freshly directly read. Creator exact playlist recovered independently but no selected tracklist/member match asserted. No full audio audition. Separate Medardo tribute is category/practitioner support only; its material not added to selected set.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        },
+        {
+          "instrument": "trumpet",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        },
+        {
+          "instrument": "trombone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "trombone_type": "tenor_trombone",
+            "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+            "trombone_mute": "no_mute_trb",
+            "trombone_technique": "big_band_punch",
+            "trombone_bell_metal": "trombone_yellow_brass",
+            "trombone_maker_school": "trombone_bach_42"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        },
+        {
+          "instrument": "saxophone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "sax_size": "alto_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_continuous_legato",
+            "sax_maker_school": "sax_selmer_mark_vi"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        },
+        {
+          "instrument": "congas",
+          "parts": {
+            "percussion_technique": "percussion_hands_layered",
+            "conga_set": "conga_proper",
+            "conga_skin": "conga_mule_hide",
+            "conga_shell_wood": "conga_oak_staved"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        },
+        {
+          "instrument": "timbales_stick_played",
+          "parts": {
+            "timbales_playing": "timbales_stick_pattern",
+            "timbales_shell": "timbales_steel",
+            "timbales_context": "timbales_son"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        },
+        {
+          "instrument": "guiro",
+          "parts": {
+            "guiro_origin": "guiro_cuban",
+            "guiro_striker": "guiro_wood"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Sole applicable meaningful identity control protected."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/DjTiaNMIX/dj-tian-de-todo-mix-salsa-cumbia-merengue-reggaeton/",
+          "title": "Own complete mixed programme and first-person construction",
+          "retrieval_ref": "turn12221view0",
+          "support_notes": "DJ TiaN — complete issued De Todo Mix: Salsa, Cumbia Ecuatoriana, Merengue y Reggaeton, duration1:13:13. The DJ expressly describes this selected set as his mixing and compiling of those four repertoires for parties. Preserve the entire mixed programme rather than extract an undocumented cumbia-only segment or pretend every recording is cumbia. All embedded instrumental and vocal recordings remain at the positive DJ-assembly layer; their player/singer counts, original studio instruments and exact selection count are unknown. No separate live vocalist or instrumentalist is credited. This is an explicitly constructed DJ rendition, not a finished studio master substituted for a musical source. No audition, exact original tempo, release day, deck or software architecture is claimed."
+        },
+        {
+          "url": "https://www.mixcloud.com/DjTiaNMIX/dj-tian-tributo-a-don-medardo-y-sus-players/",
+          "title": "Same DJ national repertoire tribute practice",
+          "retrieval_ref": "turn12214view0",
+          "support_notes": "Separate66:16 tribute explicitly tagged cumbia ecuatoriana; contextual bridge only, no roles imported."
+        },
+        {
+          "url": "https://www.loja.gob.ec/noticia/2015-07/se-rinde-homenaje-medardo-luzuriaga",
+          "title": "Municipal Music Museum own tribute and cumbia community",
+          "retrieval_ref": "turn12210view0",
+          "support_notes": "Institutional national field and Lojano artist heritage,2015; no concert lineups transferred."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1cvTdLpuq8sbNEHAATPcYL?theme=0",
+          "title": "Exact creator Ecuadorian cumbia field",
+          "retrieval_ref": "turn12217search0",
+          "support_notes": "Recovered corpus multiple Ecuadorian popular artists; no false DJ or wholemix membership assertion."
+        },
+        {
+          "url": "https://www.donmedardoysusplayers.com/nosotros.html",
+          "title": "Orchestra own history and instrument practice",
+          "support_notes": "Fresh13657search1 identifies saxophone, trumpet, piano/bass and percussion performers and continuing tropical practice; genus-level ensemble basis."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cumbia_ecuatoriana",
+          "name": "Cumbia Ecuatoriana",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not DJ TiaN, decks, orchestra or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12149view2 confirms Iain Fergusson/Binksternet CC BY2.5; exact023 historical bytes inherited without new transfer.",
+          "fresh_review_ref": "turn12149view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12149view2"
+        ]
+      },
+      "status": "genre_profile_pending_peer",
+      "verification_status": "Pending original mechanical and four-format preflight.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "cumbia_ecuatoriana",
+            "name": "Cumbia Ecuatoriana",
+            "family": "vernacular",
+            "lineage": "DJ TiaN — complete issued De Todo Mix: Salsa, Cumbia Ecuatoriana, Merengue y Reggaeton, duration1:13:13. The DJ expressly describes this selected set as his mixing and compiling of those four repertoires for parties. Preserve the entire mixed programme rather than extract an undocumented cumbia-only segment or pretend every recording is cumbia. All embedded instrumental and vocal recordings remain at the positive DJ-assembly layer; their player/singer counts, original studio instruments and exact selection count are unknown. No separate live vocalist or instrumentalist is credited. This is an explicitly constructed DJ rendition, not a finished studio master substituted for a musical source. No audition, exact original tempo, release day, deck or software architecture is claimed. Use the original source-unspecified DJ playback/mixing owner for the explicitly compiled whole set, keeping unknown embedded voices and instruments intact. Sole identity control avoids invented vinyl, scratching, decks, synths or studio source roles. Broad electronicDance is the authored party-mix presentation supported by the DJ stated party function, not a claim every underlying cumbia, salsa or merengue recording was electronically generated. Brisk dance presentation and controlled live room are editorial new-rendition choices, not measured original BPM or venue; no tuning or capture apparatus is inferred.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "DJ TiaN — complete issued De Todo Mix: Salsa, Cumbia Ecuatoriana, Merengue y Reggaeton, duration1:13:13. The DJ expressly describes this selected set as his mixing and compiling of those four repertoires for parties. Preserve the entire mixed programme rather than extract an undocumented cumbia-only segment or pretend every recording is cumbia. All embedded instrumental and vocal recordings remain at the positive DJ-assembly layer; their player/singer counts, original studio instruments and exact selection count are unknown. No separate live vocalist or instrumentalist is credited. This is an explicitly constructed DJ rendition, not a finished studio master substituted for a musical source. No audition, exact original tempo, release day, deck or software architecture is claimed. The DJ positively names cumbia ecuatoriana as one of the complete selected programme repertoires and separately issues an Ecuadorian-cumbia-tagged tribute to Don Medardo. Loja municipal museum own2015 tribute independently identifies the orchestra with a distinctive national cumbia practice and international circulation. That establishes community/repertoire evidence beyond a performers birthplace. The creator corpus was recovered separately and includes Juanita Burbano, Hipatia Balseca, Jaime Enrique Aymara, Gerardo Moran and Trio Colonial; it overlaps broader Ecuadorian popular music. Neither DJ TiaN nor the exact DeTodoMix is claimed as a named creator-playlist member, and no unretrieved tracklist is used to assert a matching song. Existing tecnocumbia explicitly includes both Peru and Ecuador and its1990s synth/programmed successor practice; national cumbia encompasses that development and earlier live-orchestra community, so the two overlap without being lexical equivalents. Existing cumbia_colombiana includes its original coastal practice and continental orchestral diaspora; Ecuadorian adaptation remains related rather than falsely independent of it. Peruvian/chicha and Bolivian records describe their own migration/regional-production histories, not all Andean cumbia. Ecuadorian Pop is a broader national popular-song field, not exclusively Juan Fernando Velasco or romantic songs. The full selected cross-style DJ programme is one contemporary circulation practice, not a definition that all Ecuadorian cumbia is DJ-produced or electronic. Use the original source-unspecified DJ playback/mixing owner for the explicitly compiled whole set, keeping unknown embedded voices and instruments intact. Sole identity control avoids invented vinyl, scratching, decks, synths or studio source roles. Broad electronicDance is the authored party-mix presentation supported by the DJ stated party function, not a claim every underlying cumbia, salsa or merengue recording was electronically generated. Brisk dance presentation and controlled live room are editorial new-rendition choices, not measured original BPM or venue; no tuning or capture apparatus is inferred.",
+            "exemplars": [
+              "DJ TiaN — complete De Todo Mix,1:13:13"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Replace opaque cross-style DJ programme with a representative Ecuadorian tropical orchestra: voices, piano, bass, reeds/brass and hand/stick/scraped percussion. Whole new genre arrangement, not reduction of a particular Medardo master. Generic alto sax is a representative section role; all construction/articulation controls retained. Coherent punchy horn articulation coordinates section gestures.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-10.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "dj_playback_mixing_unspecified": "One named DJ positively mixes/compiles the complete four-repertoire party set; all embedded sounds retained."
+        },
+        "vocal_count_audit": {
+          "embedded_count": "unknown",
+          "separate_live_voice": "none positively credited",
+          "note": "Unknown recorded voices retained in full DJ mix, not zero vocal claim."
+        },
+        "scope": "Original documentary source only, not the revised genre default."
+      }
+    },
+    {
+      "source_label": "indie cristao",
+      "source_url": "https://everynoise.com/engenremap-indiecristao.html",
+      "suggested_id": "indie_cristao",
+      "allocation_ordinal": 3474,
+      "allocation_group_id": "139",
+      "id": "indie_cristao",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "indie_cristao",
+        "name": "Indie Cristão",
+        "family": "vernacular",
+        "lineage": "Indie Cristão connects Brazilian alternative Christian songwriters through independent recordings, collaborations and church-adjacent music communities. Artists such as Paulo Nazareth, Marcos Almeida and Os Arrais explore faith alongside everyday experience and poetic storytelling.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "rosewood_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Intimate voices and acoustic guitar support melodic, lyrically focused songs. Indie-pop and Brazilian influences also bring fuller band textures, contrasting arrangements and approaches that extend beyond congregational worship.",
+        "exemplars": [
+          "Paulo Nazareth",
+          "Marcos Almeida",
+          "Os Arrais"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -22.8833,
+        -43.1036,
+        "Niterói",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Artist own Spotify biography explicitly identifies Niterói origin; editorial artist-origin anchor, not claimed programme recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Indie Cristão is the Brazilian alternative Christian songwriter community positively described in Eli Abraham’s firsthand interview: indie/Brazilian influences and a network naming Paulo Nazareth/Crombie, Marcos Almeida/Palavrantiga, Os Arrais and Estevão Queiroga, with poetic everyday-life expression that need not use explicit devotional vocabulary. Creator playlist includes Paulo’s Não É Mais Segredo at3 and Eli at19, confirming the named field rather than inferring classification from an acoustic arrangement. Existing christian_indie is a broad overlapping independent Christian umbrella, not confined to its Thief to King example; this is a narrower Brazilian interconnected songwriter scene, not a lexical replacement or claim of exclusion. Existing mpb_gospel overlaps Brazilian acoustic devotional song and already uses a voice-and-guitar branch; the difference is this evidenced alternative-songwriter network, not instrumentation. Existing brazilian_gospel covers the commercial evangelical recording sector; this community can participate in churches and that sector while also pursuing non-congregational poetic song. Existing brazilian_ccm includes a contemporary Catholic recording-community branch without asserting all CCM is Catholic; the present scene is not defined solely by denomination. Broad Brazilian indie and Christian folk fields can overlap these artists; no assertion of mutually exclusive membership is made.",
+      "classification_evidence": "Indie Cristão is the Brazilian alternative Christian songwriter community positively described in Eli Abraham’s firsthand interview: indie/Brazilian influences and a network naming Paulo Nazareth/Crombie, Marcos Almeida/Palavrantiga, Os Arrais and Estevão Queiroga, with poetic everyday-life expression that need not use explicit devotional vocabulary. Creator playlist includes Paulo’s Não É Mais Segredo at3 and Eli at19, confirming the named field rather than inferring classification from an acoustic arrangement. Existing christian_indie is a broad overlapping independent Christian umbrella, not confined to its Thief to King example; this is a narrower Brazilian interconnected songwriter scene, not a lexical replacement or claim of exclusion. Existing mpb_gospel overlaps Brazilian acoustic devotional song and already uses a voice-and-guitar branch; the difference is this evidenced alternative-songwriter network, not instrumentation. Existing brazilian_gospel covers the commercial evangelical recording sector; this community can participate in churches and that sector while also pursuing non-congregational poetic song. Existing brazilian_ccm includes a contemporary Catholic recording-community branch without asserting all CCM is Catholic; the present scene is not defined solely by denomination. Broad Brazilian indie and Christian folk fields can overlap these artists; no assertion of mutually exclusive membership is made.",
+      "model_policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Retain meaningful22-control voice/acoustic-guitar songwriter core. This is a positively supported genre branch, not universal one-person format. Source-specific participant count removed from public definition.",
+      "source_scope_limitation": "Genre-level representative arrangement; original exact programme/edition roles remain preserved in repair_review.before and original packet.",
+      "source_retrieval_caveat": "Complete official producer YouTube description independently reproduced through native indexed title query; direct video fetch unavailable and no audio audition claimed. Creator full100 playlist and firsthand interview retrieved directly. Artist own biography indexed; printed credit closure, not inferred visual instrumentation.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Retain meaningful22-control voice/acoustic-guitar songwriter core. This is a positively supported genre branch, not universal one-person format. Source-specific participant count removed from public definition."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Retain meaningful22-control voice/acoustic-guitar songwriter core. This is a positively supported genre branch, not universal one-person format. Source-specific participant count removed from public definition."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "note": "Existing voice and acoustic guitar owners only; no shared definitions changed."
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable voice and guitar parts explicitly pinned; no shared-key conflict or unpinned fallback."
+      },
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=GZ5qlz8N8BE",
+          "title": "Official producer whole Na Casa32",
+          "support_notes": "Paulo Nazareth — complete Na Casa episode32, issued21March2023 by O Canto das Igrejas. The producer lists all three songs (Motivos Sem Fim Pra Cantar, Não É Mais Segredo, Boa Companhia) and credits Paulo alone for voice and acoustic guitar. One person, one singer, two musical families across the complete programme. Capture/mix and directing personnel are production credits, not additional performers. This is the separately issued complete voice-and-guitar programme, not a reduced reconstruction of the studio songs or the multi-artist playlist recording. The last chapter begins11:09; no unsupported total duration is asserted.",
+          "retrieval_ref": "turn12475youtube12"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5Ly1Hq4HqgMOtjLjjzOgXO?theme=0",
+          "title": "Creator Indie Cristão full playlist",
+          "support_notes": "Paulo item3 and Eli19; selected same composition in a different one-person rendition, no transfer of studio guest singers.",
+          "retrieval_ref": "turn12467view1"
+        },
+        {
+          "url": "https://cristaodiferentao.wordpress.com/2019/01/02/entrevista-poeta-demais-para-os-crentes-crente-demais-para-os-poetas/",
+          "title": "Eli Abraham firsthand community interview",
+          "support_notes": "Indie Cristão is the Brazilian alternative Christian songwriter community positively described in Eli Abraham’s firsthand interview: indie/Brazilian influences and a network naming Paulo Nazareth/Crombie, Marcos Almeida/Palavrantiga, Os Arrais and Estevão Queiroga, with poetic everyday-life expression that need not use explicit devotional vocabulary. Creator playlist includes Paulo’s Não É Mais Segredo at3 and Eli at19, confirming the named field rather than inferring classification from an acoustic arrangement. Existing christian_indie is a broad overlapping independent Christian umbrella, not confined to its Thief to King example; this is a narrower Brazilian interconnected songwriter scene, not a lexical replacement or claim of exclusion. Existing mpb_gospel overlaps Brazilian acoustic devotional song and already uses a voice-and-guitar branch; the difference is this evidenced alternative-songwriter network, not instrumentation. Existing brazilian_gospel covers the commercial evangelical recording sector; this community can participate in churches and that sector while also pursuing non-congregational poetic song. Existing brazilian_ccm includes a contemporary Catholic recording-community branch without asserting all CCM is Catholic; the present scene is not defined solely by denomination. Broad Brazilian indie and Christian folk fields can overlap these artists; no assertion of mutually exclusive membership is made.",
+          "retrieval_ref": "turn12467view0"
+        },
+        {
+          "url": "https://open.spotify.com/artist/7n7vXH3wFK9kCqV0m5KA40",
+          "title": "Artist own biography",
+          "support_notes": "Explicit Niterói origin and poetic lived-experience songwriting; indexed full biography.",
+          "retrieval_ref": "turn12484search0"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_cristao",
+          "name": "Indie Cristão",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Paulo Nazareth, a guitar depiction or actual Na Casa equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12477view0 confirms Iain Fergusson/Binksternet CC BY2.5 and existing crop; exact023 historical bytes/visual receipt retained.",
+          "fresh_review_ref": "turn12477view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12477view0"
+        ]
+      },
+      "verification_status": "Original author preflight:22 applicable protected parts, zero fallbacks,1638 original owners unchanged, four browser/connector formats identical and within1000 characters; independent review pending.",
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "indie_cristao",
+            "name": "Indie Cristão",
+            "family": "vernacular",
+            "lineage": "Paulo Nazareth — complete Na Casa episode32, issued21March2023 by O Canto das Igrejas. The producer lists all three songs (Motivos Sem Fim Pra Cantar, Não É Mais Segredo, Boa Companhia) and credits Paulo alone for voice and acoustic guitar. One person, one singer, two musical families across the complete programme. Capture/mix and directing personnel are production credits, not additional performers. This is the separately issued complete voice-and-guitar programme, not a reduced reconstruction of the studio songs or the multi-artist playlist recording. The last chapter begins11:09; no unsupported total duration is asserted. Broad functionalSong represents a newly authored functional-harmonic verse-chorus-bridge song realization, not a measured transcription of all three performances. Complete source voice and violão are retained. Source-unspecified guitar construction is realized as an Engelmann-spruce/rosewood steel-string dreadnought with80/20bronze strings, standard tuning and open chordal strumming; these are editorial physical choices, not identified Paulo equipment. One accompanied singer uses neutral source-unspecified physiology/training and explicitly authored small-note-groups per syllable. Controlled live-room acoustics are authored; no global tuning, capture apparatus, additional singers or backing instruments are inferred. Rendered up-tempo and cheery cues describe a deliberately brisk, light authored rendition, not measured original tempo or the entire scene.",
+            "instruments": [
+              "voice",
+              "acoustic_guitar_dread"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_neumatic_singing",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "acoustic_technique": "acoustic_strummed_ringing",
+              "string_tuning": "standard_tuning",
+              "top_wood": "engelmann",
+              "back_sides": "rosewood_bs",
+              "string_acoustic": "eighty_twenty"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 1,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Paulo Nazareth — complete Na Casa episode32, issued21March2023 by O Canto das Igrejas. The producer lists all three songs (Motivos Sem Fim Pra Cantar, Não É Mais Segredo, Boa Companhia) and credits Paulo alone for voice and acoustic guitar. One person, one singer, two musical families across the complete programme. Capture/mix and directing personnel are production credits, not additional performers. This is the separately issued complete voice-and-guitar programme, not a reduced reconstruction of the studio songs or the multi-artist playlist recording. The last chapter begins11:09; no unsupported total duration is asserted. Indie Cristão is the Brazilian alternative Christian songwriter community positively described in Eli Abraham’s firsthand interview: indie/Brazilian influences and a network naming Paulo Nazareth/Crombie, Marcos Almeida/Palavrantiga, Os Arrais and Estevão Queiroga, with poetic everyday-life expression that need not use explicit devotional vocabulary. Creator playlist includes Paulo’s Não É Mais Segredo at3 and Eli at19, confirming the named field rather than inferring classification from an acoustic arrangement. Existing christian_indie is a broad overlapping independent Christian umbrella, not confined to its Thief to King example; this is a narrower Brazilian interconnected songwriter scene, not a lexical replacement or claim of exclusion. Existing mpb_gospel overlaps Brazilian acoustic devotional song and already uses a voice-and-guitar branch; the difference is this evidenced alternative-songwriter network, not instrumentation. Existing brazilian_gospel covers the commercial evangelical recording sector; this community can participate in churches and that sector while also pursuing non-congregational poetic song. Existing brazilian_ccm includes a contemporary Catholic recording-community branch without asserting all CCM is Catholic; the present scene is not defined solely by denomination. Broad Brazilian indie and Christian folk fields can overlap these artists; no assertion of mutually exclusive membership is made. Broad functionalSong represents a newly authored functional-harmonic verse-chorus-bridge song realization, not a measured transcription of all three performances. Complete source voice and violão are retained. Source-unspecified guitar construction is realized as an Engelmann-spruce/rosewood steel-string dreadnought with80/20bronze strings, standard tuning and open chordal strumming; these are editorial physical choices, not identified Paulo equipment. One accompanied singer uses neutral source-unspecified physiology/training and explicitly authored small-note-groups per syllable. Controlled live-room acoustics are authored; no global tuning, capture apparatus, additional singers or backing instruments are inferred. Rendered up-tempo and cheery cues describe a deliberately brisk, light authored rendition, not measured original tempo or the entire scene.",
+            "exemplars": [
+              "Paulo Nazareth — Na Casa32 complete three-song programme"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Retain meaningful22-control voice/acoustic-guitar songwriter core. This is a positively supported genre branch, not universal one-person format. Source-specific participant count removed from public definition.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-13.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "voice": "Paulo Nazareth sole credited singer.",
+          "acoustic_guitar_dread": "Paulo Nazareth violão; exact dreadnought construction and strumming authored, not measured."
+        },
+        "vocal_count_audit": {
+          "count": 1,
+          "basis": "Producer explicitly credits Paulo Nazareth alone for voice and guitar across the whole three-song episode."
+        },
+        "scope": "Original documentary source only, not the revised genre default."
+      }
+    },
+    {
+      "source_label": "japanese vgm",
+      "source_url": "https://everynoise.com/engenremap-japanesevgm.html",
+      "suggested_id": "japanese_vgm",
+      "allocation_ordinal": 3573,
+      "allocation_group_id": "143",
+      "id": "japanese_vgm",
+      "status": "genre_profile_pending_peer",
+      "tradition": {
+        "id": "japanese_vgm",
+        "name": "Japanese VGM",
+        "family": "electronic",
+        "lineage": "Japanese VGM develops through Japan’s game-production studios, composers and music audiences, from constrained early hardware to streamed and orchestral scores. Concerts, recordings and adaptations carry game themes into listening cultures beyond play.",
+        "instruments": [
+          "upright_piano",
+          "fm_synth",
+          "analog_poly_synth"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "electronic_technique": "electronic_pad_drone",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_dx7",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.retroAesthetic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Recurring themes, looping patterns and changing instrumental layers connect melody with game worlds and action. Synthesized timbres, piano and orchestral colors span intimate cues, energetic sequences and dramatic scores, with arrangements adapting to both hardware and narrative needs.",
+        "exemplars": [
+          "Nobuo Uematsu",
+          "Koji Kondo",
+          "Yuzo Koshiro"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.6762,
+        139.6503,
+        "Tokyo",
+        "East Asia"
+      ],
+      "geo_rationale": "The Tenth Mosaic official2026 game-culture event at Institut francais du Japon Tokyo presents Japanese game-music composers and performances. Tokyo is an editorial field-community anchor, not the location of this sheet edition or a claimed Uematsu session.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Japanese VGM denotes the Japanese game-music production, circulation and adaptation field, not an ethnicity test or a claim every creator is resident in Japan. Original research by Lehtonen documents a historically specific Japanese media/author/composer institution that promoted game cues into a public genre beyond in-game use; Merlini independently studies its cross-style compositional culture. Exact creator field includes Uematsu and Japanese game sound teams alongside international adapters and Chinese game composers. Existing video_game_music already includes Japanese console history and later orchestral delivery; it remains a broader global umbrella, not an exclusively Western or chip-only field. Existing vgm_instrumental and vgm_remix, plus lo_fi_vgm and queued rhythm_game, overlap through performance, reworking, treatment or game-mechanic axes; none is silently reduced to one exemplar. This regional-industrial repertoire field crosses those axes and includes original score as well as worldwide reinterpretations. Current piano edition is only a bounded representative, not the category-defining distinction. Japanese soundtrack/anison/KoreanSoundtrack fields concern adjacent screen/repertoire communities and may share composers; game music is not presumed synonymous with animation music.",
+      "classification_evidence": "Japanese VGM denotes the Japanese game-music production, circulation and adaptation field, not an ethnicity test or a claim every creator is resident in Japan. Original research by Lehtonen documents a historically specific Japanese media/author/composer institution that promoted game cues into a public genre beyond in-game use; Merlini independently studies its cross-style compositional culture. Exact creator field includes Uematsu and Japanese game sound teams alongside international adapters and Chinese game composers. Existing video_game_music already includes Japanese console history and later orchestral delivery; it remains a broader global umbrella, not an exclusively Western or chip-only field. Existing vgm_instrumental and vgm_remix, plus lo_fi_vgm and queued rhythm_game, overlap through performance, reworking, treatment or game-mechanic axes; none is silently reduced to one exemplar. This regional-industrial repertoire field crosses those axes and includes original score as well as worldwide reinterpretations. Current piano edition is only a bounded representative, not the category-defining distinction. Japanese soundtrack/anison/KoreanSoundtrack fields concern adjacent screen/repertoire communities and may share composers; game music is not presumed synonymous with animation music.",
+      "model_policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden compulsory one-theme piano edition to a representative game-score texture combining melodic piano with FM and polyphonic analog synthesized layers. Generic experimental-electronic root scopes sound-design/composition practice without claiming all game music experimental. Both synth owners share an applicable pad gesture and all9synth controls; ordinary DX7/Prophet-family sounds are authored choices, not original game hardware. Original licensed solo edition remains evidence for repertoire, not a constraint on this genre-level arrangement. Retro-electronic parent scopes this authored FM/analog game-score branch, matching the documented historical sound-technology axis; it does not describe every Japanese score as experimental.",
+      "source_scope_limitation": "Genre-level representative arrangement; original exact programme/edition roles remain preserved in repair_review.before and original packet.",
+      "source_retrieval_caveat": "Licensed publisher full metadata and original scholarly abstracts read; complete score not purchased. Creator full map independently indexed, later direct retry failed; exact Uematsu membership retained candidly. Institutional game-culture event establishes Tokyo editorial field anchor, not recording place.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden compulsory one-theme piano edition to a representative game-score texture combining melodic piano with FM and polyphonic analog synthesized layers. Generic experimental-electronic root scopes sound-design/composition practice without claiming all game music experimental. Both synth owners share an applicable pad gesture and all9synth controls; ordinary DX7/Prophet-family sounds are authored choices, not original game hardware. Original licensed solo edition remains evidence for repertoire, not a constraint on this genre-level arrangement. Retro-electronic parent scopes this authored FM/analog game-score branch, matching the documented historical sound-technology axis; it does not describe every Japanese score as experimental."
+        },
+        {
+          "instrument": "fm_synth",
+          "parts": {
+            "electronic_technique": "electronic_pad_drone",
+            "fm_algorithm": "fm_classic",
+            "fm_modulator_ratio": "fm_harmonic",
+            "fm_polyphony": "fm_poly",
+            "fm_model_lineage": "fm_yamaha_dx7"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden compulsory one-theme piano edition to a representative game-score texture combining melodic piano with FM and polyphonic analog synthesized layers. Generic experimental-electronic root scopes sound-design/composition practice without claiming all game music experimental. Both synth owners share an applicable pad gesture and all9synth controls; ordinary DX7/Prophet-family sounds are authored choices, not original game hardware. Original licensed solo edition remains evidence for repertoire, not a constraint on this genre-level arrangement. Retro-electronic parent scopes this authored FM/analog game-score branch, matching the documented historical sound-technology axis; it does not describe every Japanese score as experimental."
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "parts": {
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          },
+          "policy": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden compulsory one-theme piano edition to a representative game-score texture combining melodic piano with FM and polyphonic analog synthesized layers. Generic experimental-electronic root scopes sound-design/composition practice without claiming all game music experimental. Both synth owners share an applicable pad gesture and all9synth controls; ordinary DX7/Prophet-family sounds are authored choices, not original game hardware. Original licensed solo edition remains evidence for repertoire, not a constraint on this genre-level arrangement. Retro-electronic parent scopes this authored FM/analog game-score branch, matching the documented historical sound-technology axis; it does not describe every Japanese score as experimental."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All three applicable original upright controls explicitly pinned."
+      },
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/final-fantasy-x/to-zanarkand/MN0056311",
+          "support_notes": "Nobuo Uematsu — To Zanarkand, Final Fantasy X, complete licensed Musicnotes instrumental-solo piano edition MN0056311, two pages. Publisher explicitly specifies solo piano for one player without other musicians, E minor,3/4,q=88; original composition2001, publishing administered Warner Chappell. Selected scope is this complete separately issued piano edition, not the full original game soundtrack or an orchestral reconstruction. No singer, game sound effects, chip hardware, orchestra or extra performer is inferred. Paid full score and original game audio were not auditioned; exact printed voicings and performance duration remain unasserted.",
+          "retrieval_ref": "turn12660view0"
+        },
+        {
+          "url": "https://online.ucpress.edu/jsmg/article-abstract/5/2/86/200504/Early-Discourse-About-Video-Game-Music-in?redirectedFrom=fulltext",
+          "support_notes": "Original2024 Japanese media-history research establishes public genre-building institution beyond game background cues, not source performing roles.",
+          "retrieval_ref": "turn12656view1"
+        },
+        {
+          "url": "https://online.ucpress.edu/jsmg/article-abstract/4/3/30/196925/The-Eclectic-Case-of-Japanese-Video-Game-Music?redirectedFrom=fulltext",
+          "support_notes": "Original2023 research abstract analyzes specific cross-style Japanese compositional culture; not every repertoire work must exhibit all proposed features.",
+          "retrieval_ref": "turn12653search1"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-japanesevgm.html",
+          "support_notes": "Full indexed exact creator field includes Uematsu,SEGA,SquareEnix,HoYoMiX and adapters. Later direct retry failed; no false fresh direct read.",
+          "retrieval_ref": "turn12631search0"
+        },
+        {
+          "url": "https://thetenthmosaic.jp/",
+          "support_notes": "Official2026 Tokyo institution game-culture event includes game-music live performances and creators, supporting living public community and editorial geographic anchor.",
+          "retrieval_ref": "turn12656view2"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "japanese_vgm",
+          "name": "Japanese VGM",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context, not Uematsu, source piano, game console or original recording equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12593view0 confirms Iain Fergusson/Binksternet CC BY2.5 and prior crop; exact023 historical bytes and visual receipt inherited.",
+          "fresh_review_ref": "turn12593view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12593view0"
+        ]
+      },
+      "verification_status": "Pending original three-control and four-format preflight, then independent source/category review.",
+      "primary_retrieval_refs": [
+        "turn12660view0",
+        "turn12656view1",
+        "turn12653search1",
+        "turn12631search0",
+        "turn12656view2"
+      ],
+      "repair_review": {
+        "before": {
+          "tradition": {
+            "id": "japanese_vgm",
+            "name": "Japanese VGM",
+            "family": "pop",
+            "lineage": "Nobuo Uematsu — To Zanarkand, Final Fantasy X, complete licensed Musicnotes instrumental-solo piano edition MN0056311, two pages. Publisher explicitly specifies solo piano for one player without other musicians, E minor,3/4,q=88; original composition2001, publishing administered Warner Chappell. Selected scope is this complete separately issued piano edition, not the full original game soundtrack or an orchestral reconstruction. No singer, game sound effects, chip hardware, orchestra or extra performer is inferred. Paid full score and original game audio were not auditioned; exact printed voicings and performance duration remain unasserted. Broad functionalSong describes a newly authored functional-harmonic verse-chorus-bridge piano rendition of this game theme, not a measured claim about the complete printed form or original interactive cue. Preserve source3/4 and moderate printed88 pulse conceptually; no up-tempo change is asserted. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored construction/touch/room choices, not original session equipment or exact purchased notation. Complete one-piano role retained; no imposed global tuning, signal chain, conductor or additional instruments. Notation alone is not grounds to classify this as classical art music.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Nobuo Uematsu — To Zanarkand, Final Fantasy X, complete licensed Musicnotes instrumental-solo piano edition MN0056311, two pages. Publisher explicitly specifies solo piano for one player without other musicians, E minor,3/4,q=88; original composition2001, publishing administered Warner Chappell. Selected scope is this complete separately issued piano edition, not the full original game soundtrack or an orchestral reconstruction. No singer, game sound effects, chip hardware, orchestra or extra performer is inferred. Paid full score and original game audio were not auditioned; exact printed voicings and performance duration remain unasserted. Japanese VGM denotes the Japanese game-music production, circulation and adaptation field, not an ethnicity test or a claim every creator is resident in Japan. Original research by Lehtonen documents a historically specific Japanese media/author/composer institution that promoted game cues into a public genre beyond in-game use; Merlini independently studies its cross-style compositional culture. Exact creator field includes Uematsu and Japanese game sound teams alongside international adapters and Chinese game composers. Existing video_game_music already includes Japanese console history and later orchestral delivery; it remains a broader global umbrella, not an exclusively Western or chip-only field. Existing vgm_instrumental and vgm_remix, plus lo_fi_vgm and queued rhythm_game, overlap through performance, reworking, treatment or game-mechanic axes; none is silently reduced to one exemplar. This regional-industrial repertoire field crosses those axes and includes original score as well as worldwide reinterpretations. Current piano edition is only a bounded representative, not the category-defining distinction. Japanese soundtrack/anison/KoreanSoundtrack fields concern adjacent screen/repertoire communities and may share composers; game music is not presumed synonymous with animation music. Broad functionalSong describes a newly authored functional-harmonic verse-chorus-bridge piano rendition of this game theme, not a measured claim about the complete printed form or original interactive cue. Preserve source3/4 and moderate printed88 pulse conceptually; no up-tempo change is asserted. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored construction/touch/room choices, not original session equipment or exact purchased notation. Complete one-piano role retained; no imposed global tuning, signal chain, conductor or additional instruments. Notation alone is not grounds to classify this as classical art music.",
+            "exemplars": [
+              "Nobuo Uematsu — To Zanarkand (complete licensed piano edition MN0056311)"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "decision": "repair",
+        "reason": "Public text now describes the genre and its musical variation. Complete original recording/edition evidence is preserved in immutable original packet and before snapshot. Broaden compulsory one-theme piano edition to a representative game-score texture combining melodic piano with FM and polyphonic analog synthesized layers. Generic experimental-electronic root scopes sound-design/composition practice without claiming all game music experimental. Both synth owners share an applicable pad gesture and all9synth controls; ordinary DX7/Prophet-family sounds are authored choices, not original game hardware. Original licensed solo edition remains evidence for repertoire, not a constraint on this genre-level arrangement.",
+        "original_packet": "/tmp/batch040/resume-sourceaudit-16.json"
+      },
+      "historical_source_audits": {
+        "instrument_role_audit": {
+          "upright_piano": "Whole printed piano-only edition; standard upright architecture authored."
+        },
+        "vocal_count_audit": {
+          "count": 0,
+          "basis": "Publisher positively labels complete instrumental piano solo, one player without other musicians."
+        },
+        "scope": "Original documentary source only, not the revised genre default."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

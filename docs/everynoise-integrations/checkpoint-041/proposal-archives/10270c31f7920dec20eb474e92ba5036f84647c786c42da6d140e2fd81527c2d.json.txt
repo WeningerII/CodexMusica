@@ -1,0 +1,218 @@
+{
+  "entries": [
+    {
+      "source_label": "maluku pop",
+      "source_url": "https://everynoise.com/engenremap-malukupop.html",
+      "suggested_id": "maluku_pop",
+      "allocation_ordinal": 1796,
+      "allocation_group_id": "072",
+      "id": "maluku_pop",
+      "tradition": {
+        "id": "maluku_pop",
+        "name": "Maluku Pop",
+        "family": "pop",
+        "lineage": "Complete separately announced Bangsa DJs takeover at Pesta Maluku, Burgerweeshuis, Deventer,29May2026: Maria De Lima, TJ Teddy and Miquell Kaidel, with heading variants DJ Teddy and Miguel Kaidel. Exact individual slots, programme duration and tracklist unknown. The venue separately lists Bad Habit live band before this DJ unit; the chosen scope is the whole announced DJ programme, not the entire evening with its band silently removed. This is an announced practice, not an auditioned recording or proof actual execution matched the announcement. Source spells Kaidel differently from creator Miguell Kaidel; exact creator independently documents the contemporary Moluccan popular community, with no claim of known tracks in this set. Existing neutral DJ playback/mixing identity retains the complete announced three-DJ unit, with hardware, embedded voices and source instruments unspecified. Unknown live vocal count is not zero. One role card groups three documented DJs without inventing simultaneous deck count. Controlled live room and brisk party pacing are authored compatible with the venue dance programme, not measured tempo or actual venue acoustics. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge popular-song rendition within the programme; no assertion about unheard track structures or that the whole DJ unit is one song. No tuning or capture chain.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Complete separately announced Bangsa DJs takeover at Pesta Maluku, Burgerweeshuis, Deventer,29May2026: Maria De Lima, TJ Teddy and Miquell Kaidel, with heading variants DJ Teddy and Miguel Kaidel. Exact individual slots, programme duration and tracklist unknown. The venue separately lists Bad Habit live band before this DJ unit; the chosen scope is the whole announced DJ programme, not the entire evening with its band silently removed. This is an announced practice, not an auditioned recording or proof actual execution matched the announcement. Source spells Kaidel differently from creator Miguell Kaidel; exact creator independently documents the contemporary Moluccan popular community, with no claim of known tracks in this set. Maluku Pop is the contemporary Moluccan popular-music community, including its Dutch diaspora circulation and cross-style original pop, rap and dance releases. Primary participant research by Rein Spoorman documents Moluccan pop networks and Moluccan Moods programmes across styles, not only inherited regional songs; the venue documents a current recurring Moluccan community event. Exact creator corpus contains contemporary Dutch-language releases and regional-song remixes. Accepted Lagu Maluku defines the broader regional song-repertoire axis and is not restricted to its selected classical piano rhapsody or to old songs. Considerable overlap remains; this proposed modern popular-community axis includes original international/Dutch-language pop beyond adaptation of inherited Maluku tunes. Existing Lagu Timur expressly covers Maluku within broader Eastern Indonesian song circulation; Indonesian Pop and Dutch Pop are broader national fields, not restricted to selected exemplars. Category distinction rests on independently documented community/circulation and the exact creator corpus, not a different DJ or country alone; no mutually exclusive boundary is claimed. Existing neutral DJ playback/mixing identity retains the complete announced three-DJ unit, with hardware, embedded voices and source instruments unspecified. Unknown live vocal count is not zero. One role card groups three documented DJs without inventing simultaneous deck count. Controlled live room and brisk party pacing are authored compatible with the venue dance programme, not measured tempo or actual venue acoustics. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge popular-song rendition within the programme; no assertion about unheard track structures or that the whole DJ unit is one song. No tuning or capture chain.",
+        "exemplars": [
+          "Bangsa DJs — whole announced Pesta Maluku takeover,29May2026"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        52.255,
+        6.163,
+        "Deventer",
+        "Europe"
+      ],
+      "geo_rationale": "Venue locality for selected diaspora programme, not origin of all Maluku music or performer birthplace.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Maluku Pop is the contemporary Moluccan popular-music community, including its Dutch diaspora circulation and cross-style original pop, rap and dance releases. Primary participant research by Rein Spoorman documents Moluccan pop networks and Moluccan Moods programmes across styles, not only inherited regional songs; the venue documents a current recurring Moluccan community event. Exact creator corpus contains contemporary Dutch-language releases and regional-song remixes. Accepted Lagu Maluku defines the broader regional song-repertoire axis and is not restricted to its selected classical piano rhapsody or to old songs. Considerable overlap remains; this proposed modern popular-community axis includes original international/Dutch-language pop beyond adaptation of inherited Maluku tunes. Existing Lagu Timur expressly covers Maluku within broader Eastern Indonesian song circulation; Indonesian Pop and Dutch Pop are broader national fields, not restricted to selected exemplars. Category distinction rests on independently documented community/circulation and the exact creator corpus, not a different DJ or country alone; no mutually exclusive boundary is claimed.",
+      "model_policy": "Existing neutral DJ playback/mixing identity retains the complete announced three-DJ unit, with hardware, embedded voices and source instruments unspecified. Unknown live vocal count is not zero. One role card groups three documented DJs without inventing simultaneous deck count. Controlled live room and brisk party pacing are authored compatible with the venue dance programme, not measured tempo or actual venue acoustics. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge popular-song rendition within the programme; no assertion about unheard track structures or that the whole DJ unit is one song. No tuning or capture chain.",
+      "source_scope_limitation": "Complete separately announced Bangsa DJs takeover at Pesta Maluku, Burgerweeshuis, Deventer,29May2026: Maria De Lima, TJ Teddy and Miquell Kaidel, with heading variants DJ Teddy and Miguel Kaidel. Exact individual slots, programme duration and tracklist unknown. The venue separately lists Bad Habit live band before this DJ unit; the chosen scope is the whole announced DJ programme, not the entire evening with its band silently removed. This is an announced practice, not an auditioned recording or proof actual execution matched the announcement. Source spells Kaidel differently from creator Miguell Kaidel; exact creator independently documents the contemporary Moluccan popular community, with no claim of known tracks in this set.",
+      "classification_evidence": "Maluku Pop is the contemporary Moluccan popular-music community, including its Dutch diaspora circulation and cross-style original pop, rap and dance releases. Primary participant research by Rein Spoorman documents Moluccan pop networks and Moluccan Moods programmes across styles, not only inherited regional songs; the venue documents a current recurring Moluccan community event. Exact creator corpus contains contemporary Dutch-language releases and regional-song remixes. Accepted Lagu Maluku defines the broader regional song-repertoire axis and is not restricted to its selected classical piano rhapsody or to old songs. Considerable overlap remains; this proposed modern popular-community axis includes original international/Dutch-language pop beyond adaptation of inherited Maluku tunes. Existing Lagu Timur expressly covers Maluku within broader Eastern Indonesian song circulation; Indonesian Pop and Dutch Pop are broader national fields, not restricted to selected exemplars. Category distinction rests on independently documented community/circulation and the exact creator corpus, not a different DJ or country alone; no mutually exclusive boundary is claimed.",
+      "vocal_count_audit": {
+        "selected_count": null,
+        "embedded_voice_count": "unknown",
+        "separately_performed_live_voice_count": "unknown",
+        "added_live_voice_cards": 0,
+        "decision": "Whole announced DJ programme, no source role added or removed from that unit."
+      },
+      "instrument_role_audit": {
+        "scope": "Complete separately announced Bangsa DJs takeover at Pesta Maluku, Burgerweeshuis, Deventer,29May2026: Maria De Lima, TJ Teddy and Miquell Kaidel, with heading variants DJ Teddy and Miguel Kaidel. Exact individual slots, programme duration and tracklist unknown. The venue separately lists Bad Habit live band before this DJ unit; the chosen scope is the whole announced DJ programme, not the entire evening with its band silently removed. This is an announced practice, not an auditioned recording or proof actual execution matched the announcement. Source spells Kaidel differently from creator Miguell Kaidel; exact creator independently documents the contemporary Moluccan popular community, with no claim of known tracks in this set.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Complete three-person Bangsa DJs announced programme"
+        },
+        "performers": [
+          "Maria De Lima",
+          "TJ Teddy / DJ Teddy",
+          "Miquell Kaidel / Miguel Kaidel (venue spellings)"
+        ],
+        "authored_defaults": "Existing neutral DJ playback/mixing identity retains the complete announced three-DJ unit, with hardware, embedded voices and source instruments unspecified. Unknown live vocal count is not zero. One role card groups three documented DJs without inventing simultaneous deck count. Controlled live room and brisk party pacing are authored compatible with the venue dance programme, not measured tempo or actual venue acoustics. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge popular-song rendition within the programme; no assertion about unheard track structures or that the whole DJ unit is one song. No tuning or capture chain."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Existing neutral DJ playback/mixing identity retains the complete announced three-DJ unit, with hardware, embedded voices and source instruments unspecified. Unknown live vocal count is not zero. One role card groups three documented DJs without inventing simultaneous deck count. Controlled live room and brisk party pacing are authored compatible with the venue dance programme, not measured tempo or actual venue acoustics. Broad functionalSong models an authored functional-harmonic verse-chorus-bridge popular-song rendition within the programme; no assertion about unheard track structures or that the whole DJ unit is one song. No tuning or capture chain."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "One actual merged owning identity control, explicitly pinned; all source hardware details remain unknown."
+      },
+      "status": "source_ready",
+      "verification_status": "All1638 existing owners preserved; one protected part, no errors/fallbacks. Four literal original formats inspected: up-tempo neutral DJ identity and controlled room, compatible explicitly authored party pacing. Historical023 exact photo receipt and fresh rights pass. Independent semantic/source peer pending, especially whole Lagu Maluku overlap.",
+      "sources": [
+        {
+          "url": "https://www.burgerweeshuis.nl/en/events/pestamaluku",
+          "title": "Venue whole Pesta Maluku programme and distinct Bangsa DJs unit",
+          "support_notes": "Fresh12725view0 whole primary page: dated29May2026, three named DJs separately from Bad Habit. Dance-floor mix and recurring Moluccan cultural event. Name spellings retained candidly."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0F2fCebkcSBbgUKB7zEqpK",
+          "title": "Exact creator Maluku Pop corpus",
+          "support_notes": "Fresh12725view1 full100: Miguell Kaidel19/70/88, Jeftuz6/48, JessicaManuputty30, original Dutch pop/rap and traditional-song remixes. Selected set tracklist not inferred."
+        },
+        {
+          "url": "https://brill.com/display/book/9789004258594/B9789004258594_013.pdf",
+          "title": "Rein Spoorman2014 original participant research, Tradition and Creative Inspiration",
+          "support_notes": "Fresh full16page12733view0, especially printed281-282 and291: cross-style Moluccan pop community; author joined Moluccan Moods Orchestra. Modern community field not limited to inherited song repertoire."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "maluku_pop",
+          "name": "Maluku Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not depicted DJ hardware, performers or Moluccan cultural objects.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12733view1 Commons confirms CC BY2.5 and Iain Fergusson/Binksternet crop; historical023 bytes unchanged.",
+          "fresh_review_ref": "turn12733view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12733view1"
+        ],
+        "fresh_rights_review": "Fresh12733view1 rights only; inherited historical bytes and visual receipt unchanged."
+      },
+      "primary_retrieval_refs": [
+        "turn12725view0",
+        "turn12725view1",
+        "turn12733view0"
+      ],
+      "source_review_refs": [
+        "turn12725view0",
+        "turn12725view1",
+        "turn12733view0"
+      ],
+      "source_retrieval_caveat": "Full announced programme and original research read; no audio audition, no tracklist or actual execution verification."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

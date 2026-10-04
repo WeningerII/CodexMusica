@@ -5,7 +5,7 @@
   "lineage": "Deathstep develops within the heavier edges of dubstep and electronic bass music. Producers such as Code: Pandorum connect cinematic menace, dense sound design and emphatic rhythmic impact in a distinct production and club community.",
   "recipe": "classic deathstep, bass System. wavetable synth, sampler. treated studio.",
   "recipe_chars": 73,
-  "score": 5.175,
+  "score": 5.1,
   "config": {
     "traditions": [
       "deathstep"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "wt_position": 0.1725,
+          "wt_position": 0.0975,
           "wt_family": 0.054,
           "wt_polyphony": 0.1425
         }

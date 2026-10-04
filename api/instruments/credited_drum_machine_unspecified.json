@@ -1,0 +1,113 @@
+{
+  "id": "credited_drum_machine_unspecified",
+  "name": "Credited drum machine (generator and interface unspecified)",
+  "short": "Credited drum machine",
+  "family": "electronic",
+  "class": "credited_drum_machine_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "description": "Positively credited drum-machine rhythm device. Keep source-unknown generator architecture and trigger/interface behavior distinct from an acoustic kit or a claimed analog/sampled machine. Authored repeating rhythmic organization is a realization option, not a measurement. Neutral axes are editorial.",
+  "sources": [
+    "https://www.141records.com/lapes",
+    "https://www.roland.com/us/products/TR-8/"
+  ],
+  "parts": [
+    {
+      "id": "credited_drum_machine_generator",
+      "name": "Sound-generator identity",
+      "variants": [
+        {
+          "id": "credited_drum_machine_generator_unspecified",
+          "name": "Drum machine; analog, sampled or digital generator unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_drum_machine_pattern",
+      "name": "Authored rhythmic organization",
+      "variants": [
+        {
+          "id": "credited_drum_machine_pattern_recurring",
+          "name": "Authored recurring rhythm pattern; exact timing and sounds unspecified",
+          "default": true,
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "credited_drum_machine_interface",
+      "name": "Control and trigger uncertainty",
+      "variants": [
+        {
+          "id": "credited_drum_machine_interface_unspecified",
+          "name": "Source controls, live triggers, clock and routing unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_drum_machine_generator",
+      "name": "Sound-generator identity",
+      "variants": [
+        {
+          "id": "credited_drum_machine_generator_unspecified",
+          "name": "Drum machine; analog, sampled or digital generator unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_drum_machine_pattern",
+      "name": "Authored rhythmic organization",
+      "variants": [
+        {
+          "id": "credited_drum_machine_pattern_recurring",
+          "name": "Authored recurring rhythm pattern; exact timing and sounds unspecified",
+          "default": true,
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "credited_drum_machine_interface",
+      "name": "Control and trigger uncertainty",
+      "variants": [
+        {
+          "id": "credited_drum_machine_interface_unspecified",
+          "name": "Source controls, live triggers, clock and routing unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

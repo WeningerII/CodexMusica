@@ -1,0 +1,344 @@
+{
+  "entries": [
+    {
+      "source_label": "lagu iban",
+      "source_url": "https://everynoise.com/engenremap-laguiban.html",
+      "suggested_id": "lagu_iban",
+      "allocation_ordinal": 3649,
+      "allocation_group_id": "146",
+      "id": "lagu_iban",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "lagu_iban",
+        "name": "Lagu Iban",
+        "family": "rock",
+        "lineage": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown. Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown. Lagu Iban is the Iban-language song and recording community of Sarawak, including contemporary rock as well as other popular-song branches. The artist explicitly discusses the Iban/Dayak music industry, its local labels, audiences and distribution in a firsthand interview; this is positive community evidence, not birthplace alone. Exact creator playlist includes Masterpiece at positions51 and62 among a much broader Iban-language artist field. Existing malaysian_pop and classic_malaysian_pop already cover broad popular recording histories; their full scopes are acknowledged, not reduced to exemplars. The narrower Iban linguistic recording community differs from Malay-language mainstream pop without asserting that national fields exclude Iban artists. Existing malaysian_indie, malaysian_traditional and borneo_traditional also overlap geography and heritage: the first is an independent-production scene, the latter two broad traditional-repertoire fields, neither synonymous with the entire Iban-language contemporary recording network. This rock band is one complete branch, not a universal Iban ensemble or an equation between Iban and all Dayak peoples. Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented.",
+        "exemplars": [
+          "Masterpiece — documented January2018 seven-person band practice"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        2.2873,
+        111.8305,
+        "Sibu",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Firsthand interview explicitly identifies the seven band members and Iban rock practice with Sibu; editorial band-community anchor, not claimed recording site.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Lagu Iban is the Iban-language song and recording community of Sarawak, including contemporary rock as well as other popular-song branches. The artist explicitly discusses the Iban/Dayak music industry, its local labels, audiences and distribution in a firsthand interview; this is positive community evidence, not birthplace alone. Exact creator playlist includes Masterpiece at positions51 and62 among a much broader Iban-language artist field. Existing malaysian_pop and classic_malaysian_pop already cover broad popular recording histories; their full scopes are acknowledged, not reduced to exemplars. The narrower Iban linguistic recording community differs from Malay-language mainstream pop without asserting that national fields exclude Iban artists. Existing malaysian_indie, malaysian_traditional and borneo_traditional also overlap geography and heritage: the first is an independent-production scene, the latter two broad traditional-repertoire fields, neither synonymous with the entire Iban-language contemporary recording network. This rock band is one complete branch, not a universal Iban ensemble or an equation between Iban and all Dayak peoples.",
+      "classification_evidence": "Lagu Iban is the Iban-language song and recording community of Sarawak, including contemporary rock as well as other popular-song branches. The artist explicitly discusses the Iban/Dayak music industry, its local labels, audiences and distribution in a firsthand interview; this is positive community evidence, not birthplace alone. Exact creator playlist includes Masterpiece at positions51 and62 among a much broader Iban-language artist field. Existing malaysian_pop and classic_malaysian_pop already cover broad popular recording histories; their full scopes are acknowledged, not reduced to exemplars. The narrower Iban linguistic recording community differs from Malay-language mainstream pop without asserting that national fields exclude Iban artists. Existing malaysian_indie, malaysian_traditional and borneo_traditional also overlap geography and heritage: the first is an independent-production scene, the latter two broad traditional-repertoire fields, neither synonymous with the entire Iban-language contemporary recording network. This rock band is one complete branch, not a universal Iban ensemble or an equation between Iban and all Dayak peoples.",
+      "model_policy": "Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented.",
+      "source_scope_limitation": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown.",
+      "source_retrieval_caveat": "Firsthand interview directly retrieved in full. Dated roster is reported by the interviewer; direct artist quotations establish the Iban recording community. Exact creator playlist independently retrieved. No album audition or guest-free studio reconstruction claimed.",
+      "vocal_count_audit": {
+        "named_singers": [
+          "Depha",
+          "Kent"
+        ],
+        "count": 2,
+        "count_basis": "Two expressly identified vocal roles in the dated band lineup, not an album-wide headcount."
+      },
+      "instrument_role_audit": {
+        "voice": [
+          "Depha",
+          "Kent"
+        ],
+        "electric_guitar_humbucker": [
+          "Willy lead guitar",
+          "Kent second guitar"
+        ],
+        "electric_bass": [
+          "Marcus"
+        ],
+        "drum_kit": [
+          "Harold / Iho"
+        ],
+        "electronic_keyboard_unspecified": [
+          "Roslee Qadir",
+          "Valentine Jimmy"
+        ],
+        "policy": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown. Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Full five-family authored song-band rendition preserves both singers and both guitar/keyboard players. Broad functionalSong is an explicitly authored functional-harmonic verse-chorus-bridge organization compatible with the documented popular rock-song practice, not a measured transcription of every source song. Source-unspecified vocal anatomy, pitch and ornament remain neutral; live duet/ensemble tracking is a deliberate new performance realization. Alder/maple-neck/rosewood-fingerboard humbucker guitar with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean chordal strum is authored equipment, not observed source guitar construction. Alder-body soapbar bass with nickel roundwounds, fretted34-inch scale and locked fingerstyle is similarly authored. Maple thin-shell kit,45-degree edges, coated heads,20snare wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals supply source-compatible rock sticks. Bare keyboards retain neutral architecture; authored held chordal layers and melodic responses represent both keyboardists, without assigning a synthesizer or organ. Any sustained or beat-free keyboard descriptor is confined to that held layer, not the active whole band. Controlled live-room acoustics, unprocessed vocals and brisk concert energy are editorial choices, not observed source tempo, room or capture chain. No global temperament or source amp is invented."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Every applicable owning control explicitly pinned; shared guitar/bass body wood is the applicable alder variant on both."
+      },
+      "sources": [
+        {
+          "url": "https://www.utusanborneo.com.my/2018/01/12/album-baharu-masterpiece-ensera-paragon-akan-dijual-secara-digital",
+          "title": "Firsthand Depha interview and dated complete Masterpiece roster",
+          "support_notes": "Masterpiece — the complete seven-person band practice documented in the 12 January 2018 firsthand interview with lead vocalist Depha. The interviewer explicitly lists Depha voice/composition/lyrics, Willy lead guitar, Kent second guitar and second voice, Marcus bass, Harold/Iho drums, Roslee Qadir keyboard and Valentine Jimmy keyboard. Preserve two singers, two guitarists, two keyboardists, bass and drums; aggregate players sharing an instrument family without erasing people. This models that dated published band lineup, not a claimed transcription of Ensera Paragon, its guests, every track, or a particular recorded concert. The article discusses an upcoming album but explicitly identifies the existing complete band. Its staff-written roster is distinguished from verbatim Depha quotations about the Iban recording industry. Exact guitar/bass/keyboard architecture, tracking, programme length and repertoire order are unknown.",
+          "retrieval_ref": "turn11974view0; turn11985view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7y00fhiUdviML8AhwU7NUL",
+          "title": "Exact creator Lagu Iban category",
+          "support_notes": "Masterpiece positions51 and62; membership of artist, not proof selected dated roster plays every indexed recording.",
+          "retrieval_ref": "turn11985view1; turn11987view0"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn11985view0",
+        "turn11985view1",
+        "turn11987view0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lagu_iban",
+          "name": "Lagu Iban",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not Masterpiece, its instruments or a documented source recording setup.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11976view0 confirms Iain Fergusson/Binksternet and CC BY2.5; historical byte and visual receipts remain inherited.",
+          "fresh_review_ref": "turn11976view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11976view0"
+        ]
+      },
+      "verification_status": "Original-loader preflight PASS51 applicable controls/49 flat pins with no fallbacks, zero changes to1638 existing owners, exact historical photo receipt and all four actual browser/connector formats; longest output996characters. Independent peer pending; no final integrated CI claim."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

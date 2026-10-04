@@ -1,0 +1,501 @@
+{
+  "entries": [
+    {
+      "source_label": "kumaoni pop",
+      "source_url": "https://everynoise.com/engenremap-kumaonipop.html",
+      "suggested_id": "kumaoni_pop",
+      "allocation_ordinal": 1776,
+      "allocation_group_id": "072",
+      "id": "kumaoni_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "kumaoni_pop",
+        "name": "Kumaoni Pop",
+        "family": "pop",
+        "lineage": "Kumaoni pop — Kumaon’s regional-language popular songs, bringing local melodies and folk rhythms into contemporary recorded arrangements.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_parlor",
+          "upright_piano",
+          "hudka_uttarakhand"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "hudka_shell": "hudka_wood_hourglass",
+          "hudka_membrane": "gendang_melayu_goat",
+          "hudka_tension": "hudka_pressure_lacing",
+          "hudka_excitation": "hudka_hand_struck",
+          "hudka_support": "hudka_underarm"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 1,
+          "voice": 1,
+          "percussion": 1,
+          "soundTech": 0
+        },
+        "description": "Kumaoni pop adapts the Kumaoni language and regional song heritage to contemporary listening and dance settings. Folk-derived melodies and hudka rhythms meet guitar, keyboard or piano accompaniment and modern recording production. Artists connect village traditions, family occasions and regional identity with younger audiences and online circulation.",
+        "exemplars": [
+          "Pandavaas"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        29.6,
+        79.66,
+        "Almora",
+        "South Asia"
+      ],
+      "geo_rationale": "Kumaon regional editorial anchor, not source recording address.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://kafaltree.com/exclusive-interview-with-pandavas/",
+          "title": "First-person Pandavaas production interview",
+          "support_notes": "Fresh indexed13468search0 full interview, retained unmodified raw response. Explicit regional folk modernization, Kumaoni-language work, and hudka/piano/guitar combination. Direct page bot challenge disclosed."
+        },
+        {
+          "url": "https://artsandculture.google.com/asset/hudak/IQHqcN3n4ernZw",
+          "title": "Indian Music Experience Museum: Hudak",
+          "support_notes": "Fresh13468view0 documents wooden hourglass, two goat-hide heads, underarm hold and pitch control from connecting strings."
+        }
+      ],
+      "neighbor_distinction": "Kumaoni Pop is the Kumaon/Kumaoni-language community within the broader Pahadi popular-music field. It overlaps neighboring Garhwali Pop and Himachali Pop through musicians and instrumentation but has a distinct regional-language repertoire; Pandavaas works across regional languages and is not exclusively Kumaoni. Existing broad Indian Pop does not exhaust this local field. No new physical sound is claimed simply from a language distinction.",
+      "model_policy": "Genre-level representative folk-pop arrangement informed by practitioner discussion of combining hudka with piano, guitar and singing. Not a reconstruction of one master or exact performer count. A single accompanied singer, strummed small-body parlor guitar with silk-and-steel strings, block-chord upright piano and hand-struck pressure drum are authored choices. All positive source families retained; unspecified recording models are not facts. Functional-harmonic verse-chorus-bridge organization and concert-room rendition are authored contemporary popular-song choices. The compact guitar and softer string set are a deliberate accompaniment choice to leave low-register space for piano while retaining the positively documented guitar role; source guitar construction is unspecified.",
+      "source_scope_limitation": "General documented folk-pop practice; the whole discography is not reconstructed and every regional song is not claimed to use these instruments.",
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "count_basis": "Authored representative accompanied lead, not measured original singer count."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Sung melody"
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "role": "Guitar accompaniment"
+        },
+        {
+          "instrument": "upright_piano",
+          "role": "Piano accompaniment"
+        },
+        {
+          "instrument": "hudka_uttarakhand",
+          "role": "Regional pressure-drum rhythm"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative folk-pop arrangement informed by practitioner discussion of combining hudka with piano, guitar and singing. Not a reconstruction of one master or exact performer count. A single accompanied singer, strummed small-body parlor guitar with silk-and-steel strings, block-chord upright piano and hand-struck pressure drum are authored choices. All positive source families retained; unspecified recording models are not facts. Functional-harmonic verse-chorus-bridge organization and concert-room rendition are authored contemporary popular-song choices. The compact guitar and softer string set are a deliberate accompaniment choice to leave low-register space for piano while retaining the positively documented guitar role; source guitar construction is unspecified."
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "parts": {
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood_parlor": "sitka_p",
+            "back_sides_parlor": "mahogany_bs_p",
+            "string_acoustic_parlor": "silk_steel_p"
+          },
+          "policy": "Genre-level representative folk-pop arrangement informed by practitioner discussion of combining hudka with piano, guitar and singing. Not a reconstruction of one master or exact performer count. A single accompanied singer, strummed small-body parlor guitar with silk-and-steel strings, block-chord upright piano and hand-struck pressure drum are authored choices. All positive source families retained; unspecified recording models are not facts. Functional-harmonic verse-chorus-bridge organization and concert-room rendition are authored contemporary popular-song choices. The compact guitar and softer string set are a deliberate accompaniment choice to leave low-register space for piano while retaining the positively documented guitar role; source guitar construction is unspecified."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Genre-level representative folk-pop arrangement informed by practitioner discussion of combining hudka with piano, guitar and singing. Not a reconstruction of one master or exact performer count. A single accompanied singer, strummed small-body parlor guitar with silk-and-steel strings, block-chord upright piano and hand-struck pressure drum are authored choices. All positive source families retained; unspecified recording models are not facts. Functional-harmonic verse-chorus-bridge organization and concert-room rendition are authored contemporary popular-song choices. The compact guitar and softer string set are a deliberate accompaniment choice to leave low-register space for piano while retaining the positively documented guitar role; source guitar construction is unspecified."
+        },
+        {
+          "instrument": "hudka_uttarakhand",
+          "parts": {
+            "hudka_shell": "hudka_wood_hourglass",
+            "hudka_membrane": "gendang_melayu_goat",
+            "hudka_tension": "hudka_pressure_lacing",
+            "hudka_excitation": "hudka_hand_struck",
+            "hudka_support": "hudka_underarm"
+          },
+          "policy": "Genre-level representative folk-pop arrangement informed by practitioner discussion of combining hudka with piano, guitar and singing. Not a reconstruction of one master or exact performer count. A single accompanied singer, strummed small-body parlor guitar with silk-and-steel strings, block-chord upright piano and hand-struck pressure drum are authored choices. All positive source families retained; unspecified recording models are not facts. Functional-harmonic verse-chorus-bridge organization and concert-room rendition are authored contemporary popular-song choices. The compact guitar and softer string set are a deliberate accompaniment choice to leave low-register space for piano while retaining the positively documented guitar role; source guitar construction is unspecified."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [
+          "hudka_uttarakhand"
+        ],
+        "reused_instruments": [
+          "voice",
+          "acoustic_guitar_parlor",
+          "upright_piano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable owning controls explicitly protected; no conflicting flat keys."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "kumaoni_pop",
+          "name": "Kumaoni Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13451view0 confirms original credit and CC BY2.5; exact historical bytes retained.",
+          "fresh_review_ref": "turn13451view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13451view0"
+        ],
+        "fresh_rights_review": "Fresh13451view0; historical exact URL/bytes/visual receipt inherited unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "hudka_uttarakhand",
+        "name": "Hudka (Uttarakhand hourglass drum)",
+        "short": "Hudka",
+        "family": "percussion",
+        "class": "hudka_uttarakhand",
+        "axes": {
+          "pitchFix": -1,
+          "sustain": -1,
+          "polyphony": -2,
+          "harmonicity": -1,
+          "register": 0,
+          "range": 1,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": 1
+        },
+        "description": "Small wooden hourglass drum with two hide heads, held beneath the arm and varied in pitch through pressure on its tension lacing.",
+        "sources": [
+          "https://artsandculture.google.com/asset/hudak/IQHqcN3n4ernZw"
+        ],
+        "parts": [
+          {
+            "id": "hudka_shell",
+            "name": "Shell form and material",
+            "variants": [
+              {
+                "id": "hudka_wood_hourglass",
+                "name": "Small wooden hourglass shell",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "wooden"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hudka_membrane",
+            "name": "Membranes",
+            "variants": [
+              {
+                "id": "gendang_melayu_goat",
+                "default": true,
+                "name": "Goatskin heads",
+                "descriptors": [
+                  "warm",
+                  "resonant"
+                ],
+                "match_tokens": [
+                  "double-headed-drum"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hudka_tension",
+            "name": "Lacing and tension control",
+            "variants": [
+              {
+                "id": "hudka_pressure_lacing",
+                "name": "Pressure-adjusted connecting lacing",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "bending-pitch"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hudka_excitation",
+            "name": "Excitation",
+            "variants": [
+              {
+                "id": "hudka_hand_struck",
+                "name": "Hand-struck head (authored playing choice)",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "hands",
+                  "percussive-attack"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hudka_support",
+            "name": "Playing position",
+            "variants": [
+              {
+                "id": "hudka_underarm",
+                "name": "Held beneath the arm",
+                "default": true,
+                "auto": false,
+                "descriptors": [
+                  "hand-held"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "hudka_uttarakhand",
+        "name": "Hudka (Uttarakhand hourglass drum)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "hudka_uttarakhand",
+          "name": "Hudka (Uttarakhand hourglass drum)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13451view0 confirms original credit and CC BY2.5; exact historical bytes retained.",
+          "fresh_review_ref": "turn13451view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13451view0"
+        ]
+      },
+      "dependency_rationale": "Missing regional Hudka identity. Existing Udukkai is explicitly Tamil with temple/village/Kerala forms; Tibetan damaru and Korean janggu are other forms. Five separate construction/playing controls retained. Wood species, dimensions and actual studio model are unknown; hand striking is an authored ordinary accompaniment gesture, not a measured Pandavaas technique. No shared family parts changed. Reuses the existing goatskin-head material variant gendang_melayu_goat verbatim: its physical double-headed membrane descriptors fit the documented two goatskin heads without importing any Malay repertoire or regional construction. Reusing the established material avoids expanding the original universal material pool; the distinct Hudka identity and other four physical controls remain owned here.",
+      "primary_sources": [
+        {
+          "url": "https://artsandculture.google.com/asset/hudak/IQHqcN3n4ernZw",
+          "title": "Indian Music Experience Museum: Hudak",
+          "support_notes": "Fresh13468view0 documents wooden hourglass, two goat-hide heads, underarm hold and pitch control from connecting strings."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://artsandculture.google.com/asset/hudak/IQHqcN3n4ernZw",
+          "title": "Indian Music Experience Museum: Hudak",
+          "support_notes": "Fresh13468view0 documents wooden hourglass, two goat-hide heads, underarm hold and pitch control from connecting strings."
+        }
+      ]
+    }
+  ],
+  "status": "READY_FOR_REVIEW"
+}

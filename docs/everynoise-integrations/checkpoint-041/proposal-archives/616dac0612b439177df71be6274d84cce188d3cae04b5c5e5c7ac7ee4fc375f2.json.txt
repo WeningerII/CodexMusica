@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume119-31-form-clarified119.json",
+  "sha256": "c5bba04ecda9672d4beee3fe418a380bb935811bd92a7514cfc85d7ed9306fbb",
+  "reviewer": "research116",
+  "sources": [
+    {
+      "url": "https://www.chmsupersound.com/artist/chanted-groove/",
+      "ref": "turn13611search0",
+      "finding": "Full indexed original label roster and contemporary country-pop/traditional/reggae/hiphop/jazz practice independently reproduced; direct fetch timed out."
+    },
+    {
+      "url": "https://muzicnotez.com/magazine/interviews/artist-interviews/justin-wellington/",
+      "ref": "turn13609view1",
+      "finding": "First-person PNG label/radio community and island-pop songwriting positively establish contemporary field."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "ref": "turn13575view1",
+      "finding": "Fresh CC BY2.5 rights confirmed; historical bytes and visual receipt retained honestly."
+    }
+  ],
+  "category_review": "Full current Papuan Traditional and Papua New Guinean polyphony scopes inspected. Contemporary national recording/radio/pop field overlaps local inherited practices without collapsing to them. Broader Pacific field not excluded. Source-pop conventional verse\u2013chorus\u2013bridge/function-harmonic realization now explicitly authored, not source-form measurement.",
+  "controls": {
+    "count": 51,
+    "invalid_pins": [],
+    "new_dependencies": 0
+  },
+  "runtime": "/tmp/batch040/png-peer-runtime116.json",
+  "render_review": "All four complete original outputs read. Original lexicon defines clapping-and-syllabicizing as punctuated staccato syllabic vocal delivery; nursery/handclap games are illustrative typical contexts, not an exclusive repertoire condition or added handclap instrument. Actual staccato/syllabic/group pins and rhythmic popular-band source support this authored vocal affect. Cutting guitar, aggressive bass, restrained chordal keyboard and emphatic regular kit are compatible new band treatment, not observed source equipment/gain. No named foreign practice asserted.",
+  "amendment_review": "Musical data, genre profile, sources and photo exactly invariant; only structural authored evidence clarified.",
+  "limitations": [
+    "Genre-level representative arrangement, not exact CHM concert transcription or performer headcount.",
+    "No fresh image bytes or fresh personal visual inspection claimed."
+  ]
+}

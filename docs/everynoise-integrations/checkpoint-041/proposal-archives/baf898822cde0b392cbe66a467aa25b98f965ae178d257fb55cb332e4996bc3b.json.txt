@@ -1,0 +1,227 @@
+{
+  "entries": [
+    {
+      "source_label": "focus",
+      "source_url": "https://everynoise.com/engenremap-focus.html",
+      "suggested_id": "focus",
+      "allocation_ordinal": 3293,
+      "allocation_group_id": "132",
+      "status": "candidate_for_independent_review",
+      "id": "focus",
+      "tradition": {
+        "id": "focus",
+        "name": "Focus",
+        "family": "classical",
+        "lineage": "Peter Sandberg \u2014 Shimmering, complete separately issued Faber Music piano-solo edition D55525, four pages, A major. Publisher explicitly states piano solo and piano instrumentation; one pianist, zero singers in this selected published rendition. Composer own store confirms his2021 piece and authored score. This is the complete standalone edition, not a page sample or assumed reduction of an unspecified original album arrangement. Paid full score not downloaded; no source audio audition or original session apparatus inferred. Creator Focus playlist positively contains Sandberg\u2019s different work Motion at63; Shimmering itself is not claimed to appear there. Authored intimate acoustic rendition uses a standard studio upright and connected classical-legato touch for publisher-unspecified piano subtype. These are explicit present-day construction/playing choices, not Sandberg\u2019s measured instrument. All three applicable original controls protected. Controlled live room and neutral axes apart from no-voice selection are editorial settings. Broad artMusic describes this complete fixed contemporary concert-piano miniature and the composer\u2019s positively documented neoclassical/concert practice; it does not classify the whole Focus category as classical merely because one edition is notated. No invented recording chain, equal-temperament field, lyrics, accompaniment or additional performers.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Peter Sandberg \u2014 Shimmering, complete separately issued Faber Music piano-solo edition D55525, four pages, A major. Publisher explicitly states piano solo and piano instrumentation; one pianist, zero singers in this selected published rendition. Composer own store confirms his2021 piece and authored score. This is the complete standalone edition, not a page sample or assumed reduction of an unspecified original album arrangement. Paid full score not downloaded; no source audio audition or original session apparatus inferred. Creator Focus playlist positively contains Sandberg\u2019s different work Motion at63; Shimmering itself is not claimed to appear there. Focus is a concentration-oriented cross-style listening category, supported by Spotify\u2019s own2021 Focus Hub account naming Peaceful Piano, Lo-Fi Beats and Instrumental Study together. This is evidence of curation practice, not endorsement of productivity or health claims. Exact creator Focus corpus includes Sandberg and multiple piano/ambient/post-rock practitioners. Existing focus_beats explicitly prioritizes beat-driven instrumental concentration programmes; Focus also includes the documented piano branch and is broader, not a duplicate of that beat condition. Full background_music covers relaxation/meditation and general background use; Focus is the narrower task-concentration function across instruments. Background_piano is instrument-specific, while this category is not restricted to piano. Neo_classical is a compositional/style network which overlaps this selected composer but does not require concentration use; orchestral easy listening and historical lounge are separate production/repertoire fields. Whole existing scopes are acknowledged, not reduced to individual selected artists. Broad functional category is modeled by one source-positive composer branch; no universal solo-piano identity or all-content beatlessness asserted. Authored intimate acoustic rendition uses a standard studio upright and connected classical-legato touch for publisher-unspecified piano subtype. These are explicit present-day construction/playing choices, not Sandberg\u2019s measured instrument. All three applicable original controls protected. Controlled live room and neutral axes apart from no-voice selection are editorial settings. Broad artMusic describes this complete fixed contemporary concert-piano miniature and the composer\u2019s positively documented neoclassical/concert practice; it does not classify the whole Focus category as classical merely because one edition is notated. No invented recording chain, equal-temperament field, lyrics, accompaniment or additional performers.",
+        "exemplars": [
+          "Peter Sandberg \u2014 Shimmering, whole Faber D55525 piano-solo edition"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        59.8586,
+        17.6389,
+        "Uppsala",
+        "Europe"
+      ],
+      "geo_rationale": "Composer own biography positively identifies Uppsala studio base; practitioner locality anchor, not claimed original Shimmering session or publication place.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.fabermusic.com/shop/shimmering-d55525",
+          "support_notes": "Fresh12734view0/12739view0 complete standalone4page piano-solo metadata,Amajor,one instrument; contemporary official PianoDay anthology context.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://petersandberg.com/products/shimmering-piano-sheet-music-download",
+          "support_notes": "Fresh12734view1 composer own2021work edition and articulations, separate from original recording scope.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6fzw3GiLktfRKczD6sl6mT",
+          "support_notes": "Fresh12731view0/12734view2 full100 exact creator Focus; Sandberg Motion63, not Shimmering.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://newsroom.spotify.com/2021-03-04/new-spotify-study-shows-audio-is-the-number-one-productivity-booster/",
+          "support_notes": "Fresh12741search0 issuer FocusHub cross-style concentration curation including PeacefulPiano,LoFiBeats,InstrumentalStudy. Marketing/survey efficacy not endorsed.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://petersandberg.com/pages/about",
+          "support_notes": "Fresh12739view1 composer-owned neoclassical/concert practice and Uppsala studio. Future-dated album claim irrelevant and not used.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Focus is a concentration-oriented cross-style listening category, supported by Spotify\u2019s own2021 Focus Hub account naming Peaceful Piano, Lo-Fi Beats and Instrumental Study together. This is evidence of curation practice, not endorsement of productivity or health claims. Exact creator Focus corpus includes Sandberg and multiple piano/ambient/post-rock practitioners. Existing focus_beats explicitly prioritizes beat-driven instrumental concentration programmes; Focus also includes the documented piano branch and is broader, not a duplicate of that beat condition. Full background_music covers relaxation/meditation and general background use; Focus is the narrower task-concentration function across instruments. Background_piano is instrument-specific, while this category is not restricted to piano. Neo_classical is a compositional/style network which overlaps this selected composer but does not require concentration use; orchestral easy listening and historical lounge are separate production/repertoire fields. Whole existing scopes are acknowledged, not reduced to individual selected artists. Broad functional category is modeled by one source-positive composer branch; no universal solo-piano identity or all-content beatlessness asserted.",
+      "model_policy": "Authored intimate acoustic rendition uses a standard studio upright and connected classical-legato touch for publisher-unspecified piano subtype. These are explicit present-day construction/playing choices, not Sandberg\u2019s measured instrument. All three applicable original controls protected. Controlled live room and neutral axes apart from no-voice selection are editorial settings. Broad artMusic describes this complete fixed contemporary concert-piano miniature and the composer\u2019s positively documented neoclassical/concert practice; it does not classify the whole Focus category as classical merely because one edition is notated. No invented recording chain, equal-temperament field, lyrics, accompaniment or additional performers.",
+      "dependency_audit": "No new instrument owners; preserve all1638 existing definitions.",
+      "classification_evidence": "Focus is a concentration-oriented cross-style listening category, supported by Spotify\u2019s own2021 Focus Hub account naming Peaceful Piano, Lo-Fi Beats and Instrumental Study together. This is evidence of curation practice, not endorsement of productivity or health claims. Exact creator Focus corpus includes Sandberg and multiple piano/ambient/post-rock practitioners. Existing focus_beats explicitly prioritizes beat-driven instrumental concentration programmes; Focus also includes the documented piano branch and is broader, not a duplicate of that beat condition. Full background_music covers relaxation/meditation and general background use; Focus is the narrower task-concentration function across instruments. Background_piano is instrument-specific, while this category is not restricted to piano. Neo_classical is a compositional/style network which overlaps this selected composer but does not require concentration use; orchestral easy listening and historical lounge are separate production/repertoire fields. Whole existing scopes are acknowledged, not reduced to individual selected artists. Broad functional category is modeled by one source-positive composer branch; no universal solo-piano identity or all-content beatlessness asserted.",
+      "vocal_count_audit": {
+        "singers": 0,
+        "performers": 1,
+        "basis": "Explicit complete publisher piano-solo edition; no original album personnel inferred."
+      },
+      "instrument_role_audit": {
+        "scope": "Peter Sandberg \u2014 Shimmering, complete separately issued Faber Music piano-solo edition D55525, four pages, A major. Publisher explicitly states piano solo and piano instrumentation; one pianist, zero singers in this selected published rendition. Composer own store confirms his2021 piece and authored score. This is the complete standalone edition, not a page sample or assumed reduction of an unspecified original album arrangement. Paid full score not downloaded; no source audio audition or original session apparatus inferred. Creator Focus playlist positively contains Sandberg\u2019s different work Motion at63; Shimmering itself is not claimed to appear there.",
+        "cards": 1,
+        "roles": [
+          "One pianist; complete issued piano solo; no singer"
+        ],
+        "defaults": "Authored intimate acoustic rendition uses a standard studio upright and connected classical-legato touch for publisher-unspecified piano subtype. These are explicit present-day construction/playing choices, not Sandberg\u2019s measured instrument. All three applicable original controls protected. Controlled live room and neutral axes apart from no-voice selection are editorial settings. Broad artMusic describes this complete fixed contemporary concert-piano miniature and the composer\u2019s positively documented neoclassical/concert practice; it does not classify the whole Focus category as classical merely because one edition is notated. No invented recording chain, equal-temperament field, lyrics, accompaniment or additional performers."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Authored intimate acoustic rendition uses a standard studio upright and connected classical-legato touch for publisher-unspecified piano subtype. These are explicit present-day construction/playing choices, not Sandberg\u2019s measured instrument. All three applicable original controls protected. Controlled live room and neutral axes apart from no-voice selection are editorial settings. Broad artMusic describes this complete fixed contemporary concert-piano miniature and the composer\u2019s positively documented neoclassical/concert practice; it does not classify the whole Focus category as classical merely because one edition is notated. No invented recording chain, equal-temperament field, lyrics, accompaniment or additional performers."
+        }
+      ],
+      "verification_status": "Author complete-primary candidate; original mechanics/four formats and independent peer required.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All3 original upright owning controls explicitly pinned, no collision or fallback.",
+      "primary_retrieval_refs": [
+        "turn12739view0",
+        "turn12734view1",
+        "turn12731view0",
+        "turn12734view2",
+        "turn12741search0",
+        "turn12739view1"
+      ],
+      "source_scope_limitation": "Peter Sandberg \u2014 Shimmering, complete separately issued Faber Music piano-solo edition D55525, four pages, A major. Publisher explicitly states piano solo and piano instrumentation; one pianist, zero singers in this selected published rendition. Composer own store confirms his2021 piece and authored score. This is the complete standalone edition, not a page sample or assumed reduction of an unspecified original album arrangement. Paid full score not downloaded; no source audio audition or original session apparatus inferred. Creator Focus playlist positively contains Sandberg\u2019s different work Motion at63; Shimmering itself is not claimed to appear there.",
+      "source_retrieval_caveat": "Faber full metadata and composer source directly retrieved; score not purchased or auditioned. Exact current creator corpus positive for artist via Motion, candid different composition. Earlier inaccessible BBC ClassicalFocus programme is not used as selected source. Melodigging only supplied creator playlist URL; its generated genre prose not evidence.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "focus",
+          "name": "Focus",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context; not Sandberg, piano, publisher score, actual studio equipment or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12710view0 Commons CC BY2.5 IainFergusson/Binksternet crop verified; exact historical023 bytes/visual receipt inherited, not freshdownload.",
+          "fresh_review_ref": "turn12710view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12710view0"
+        ],
+        "fresh_rights_review": "Fresh12710view0 rights only; exact023 historicalbyte/visual evidence retained."
+      },
+      "authored_render_scope": "Authored intimate acoustic rendition uses a standard studio upright and connected classical-legato touch for publisher-unspecified piano subtype. These are explicit present-day construction/playing choices, not Sandberg\u2019s measured instrument. All three applicable original controls protected. Controlled live room and neutral axes apart from no-voice selection are editorial settings. Broad artMusic describes this complete fixed contemporary concert-piano miniature and the composer\u2019s positively documented neoclassical/concert practice; it does not classify the whole Focus category as classical merely because one edition is notated. No invented recording chain, equal-temperament field, lyrics, accompaniment or additional performers.",
+      "source_review_refs": [
+        "turn12739view0",
+        "turn12734view1",
+        "turn12731view0",
+        "turn12734view2",
+        "turn12741search0",
+        "turn12739view1"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

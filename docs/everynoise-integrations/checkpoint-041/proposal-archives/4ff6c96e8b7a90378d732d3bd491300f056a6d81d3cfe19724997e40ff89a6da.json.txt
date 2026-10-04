@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume461-mapouka-allocation-corrected-root.json",
+  "sha256": "afdc5b448bdd19fd353bce6f7520459c6fc5b8bdb658d7baa1383bbc8aa3543a",
+  "reviewer": "root",
+  "independent_substantive_review": "/tmp/batch040/resume461-mapouka-peer-review119.json",
+  "original_sha256": "7f9d6cb9df6e18eef5a5b30dbf79ad3a8ce8e88248a43717142e4c9eaeffe851",
+  "delta": "Restore immutable source_url and group id string150; every musical/public/evidence field unchanged. Original independent source/default/photo/owner review retained.",
+  "checked_at": "2026-10-03T22:19:56.741129+00:00"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "japanese_psychedelic",
+  "name": "Japanese Psychedelic",
+  "family": "electronic",
+  "lineage": "Japanese psychedelic music — experimental rock, electronic exploration and immersive improvisation.",
+  "recipe": "classic japanese psychedelic, experimental Elec. credited synthesizer unspecified. live tracking. digital delay.",
+  "recipe_chars": 112,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "japanese_psychedelic"
+    ],
+    "instruments": [
+      {
+        "id": "credited_synthesizer_unspecified",
+        "slots": {
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        },
+        "scores": {
+          "credited_synthesizer_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_synthesizer_unspecified": [
+        "credited_synthesizer_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+    },
+    "pin_parts": true,
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

@@ -1,0 +1,1691 @@
+{
+  "entries": [
+    {
+      "source_label": "magyar kabare",
+      "source_url": "https://everynoise.com/engenremap-magyarkabare.html",
+      "suggested_id": "magyar_kabare",
+      "allocation_ordinal": 3725,
+      "allocation_group_id": "149",
+      "id": "magyar_kabare",
+      "tradition": {
+        "id": "magyar_kabare",
+        "name": "Magyar Kabaré",
+        "family": "vernacular",
+        "lineage": "Hungarian cabaret and comic performance, connecting theatre sketches, radio comedy, satirical song and later stand-up through a shared Hungarian-language repertoire.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord.stagePerformance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Wordplay, comic timing, impersonation and social observation shape spoken sketches and monologues. Musical numbers and ensemble scenes also belong to the wider cabaret tradition, while the solo spoken strand places delivery and the performer’s relationship with the audience in the foreground.",
+        "exemplars": [
+          "Litkai Gergely"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        47.4979,
+        19.0402,
+        "Budapest",
+        "Europe"
+      ],
+      "geo_rationale": "Presenting institution and advertised venues in Budapest; city anchor, not a recording location claim.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://dumaszinhaz.hu/eloadasok/duma-akademia-valtozas-litkai-gergely-onallo-estje-2026-10-21-1900",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11164search0 full programme: sole named speaker, humorous environmental lecture and photographic presentation; actual upcoming date not claimed completed."
+        },
+        {
+          "url": "https://dumaszinhaz.hu/blog/2026/03/02/budapesti-szinhazak-ejszakaja-a-dumaszinhaz-programjai/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11164search1 separately scheduled complete Változás programme at18:00; other afternoon/evening casts excluded."
+        },
+        {
+          "url": "https://dumaszinhaz.hu/fellepok/Litkai-Gergely/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed11151search0 own presenter biography establishes Rádiókabaré and Hungarian stand-up institutional continuity."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1dDJAUMo7nJlS3NWZbRIUo",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11163view0 exact creator playlist item42 Litkai Gergely; not a claim selected lecture is that listed track."
+        }
+      ],
+      "neighbor_distinction": "Magyar Kabaré is the Hungarian comic-theatre and radio-cabaret circulation field, including spoken humor as well as musical satire. Exact creator playlist item42 is Litkai Gergely. His own presenting institution identifies him as a former Rádiókabaré writer/performer, Hungarian stand-up founder and Dumaszínház artistic director, establishing institutional continuity rather than nationality alone. Existing standup_comedy documents the American vaudeville/nightclub form and its broader technique overlaps this solo branch; the new field is not disjoint from stand-up. Full Hungarian folk concerns collected village repertoire and Hungarian pop is broad popular songwriting, neither defining this named comic institution. Neighboring Vlaamse/Dutch cabaret and clean/new comedy can overlap forms, but do not identify this Hungarian-language radio/theatre network. The selected science-themed humorous lecture is a present-day branch, not a definition of every cabaret work.",
+      "model_policy": "Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice"
+        ]
+      },
+      "classification_evidence": {
+        "mode": "primary_presenter_institution_and_exact_creator_artist",
+        "note": "Magyar Kabaré is the Hungarian comic-theatre and radio-cabaret circulation field, including spoken humor as well as musical satire. Exact creator playlist item42 is Litkai Gergely. His own presenting institution identifies him as a former Rádiókabaré writer/performer, Hungarian stand-up founder and Dumaszínház artistic director, establishing institutional continuity rather than nationality alone. Existing standup_comedy documents the American vaudeville/nightclub form and its broader technique overlaps this solo branch; the new field is not disjoint from stand-up. Full Hungarian folk concerns collected village repertoire and Hungarian pop is broad popular songwriting, neither defining this named comic institution. Neighboring Vlaamse/Dutch cabaret and clean/new comedy can overlap forms, but do not identify this Hungarian-language radio/theatre network. The selected science-themed humorous lecture is a present-day branch, not a definition of every cabaret work."
+      },
+      "vocal_count_audit": {
+        "speakers": 1,
+        "singers": 0,
+        "basis": "Complete published solo humorous lecture; not other shows or presumed music in an unseen recording."
+      },
+      "instrument_role_audit": {
+        "rationale": "Litkai Gergely — complete Változás solo humorous lecture, as published by Dumaszínház for its Duma Akadémia programme. The presenter names only Litkai and describes a spoken explanation of Hungarian environmental change interwoven with humor and personal experiences, accompanied by photographs. Model the complete stated speaker practice, one speaker and zero sung roles; visual photographs and scientific advisors are not sounding instruments or extra performers. The separately named host of Rettegésmenedzsment and the other programmes on the March2026 festival bill do not belong to this selected work. This is an announced performance practice, not an auditioned recording or assurance that every advertised show occurred.",
+        "authored_defaults": "Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "magyar_kabare",
+          "name": "Magyar Kabaré",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context: microphone photograph, not a depiction of genre performers or instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11161view0 confirms exact Commons CC BY2.5 authorship and existing crop. Exact inherited023 binary/visual receipt, no new transfer.",
+          "fresh_review_ref": "turn11161view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11161view0"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [],
+        "rule": "All17 human voice owner controls pinned, no fallback or collision."
+      },
+      "primary_retrieval_refs": [
+        "turn11164search0",
+        "turn11164search1",
+        "turn11151search0",
+        "turn11163view0"
+      ],
+      "source_retrieval_caveat": "Presenter direct requests timed out; actual full indexed primary responses saved, exact creator playlist directly read. No source audio audition or soundtrack inventory claimed.",
+      "source_scope_limitation": "Litkai Gergely — complete Változás solo humorous lecture, as published by Dumaszínház for its Duma Akadémia programme. The presenter names only Litkai and describes a spoken explanation of Hungarian environmental change interwoven with humor and personal experiences, accompanied by photographs. Model the complete stated speaker practice, one speaker and zero sung roles; visual photographs and scientific advisors are not sounding instruments or extra performers. The separately named host of Rettegésmenedzsment and the other programmes on the March2026 festival bill do not belong to this selected work. This is an announced performance practice, not an auditioned recording or assurance that every advertised show occurred.",
+      "status": "ready_for_independent_review",
+      "format_repair": {
+        "before_packet": "/tmp/batch038/recovery147-149-secondpass-5.json",
+        "before_packet_sha256": "9ea75ac696304bf7cafc36834fd2c558f157411c73c6045d6418e6225a23a282",
+        "before_public_fields": {
+          "lineage": "Litkai Gergely — complete Változás solo humorous lecture, as published by Dumaszínház for its Duma Akadémia programme. The presenter names only Litkai and describes a spoken explanation of Hungarian environmental change interwoven with humor and personal experiences, accompanied by photographs. Model the complete stated speaker practice, one speaker and zero sung roles; visual photographs and scientific advisors are not sounding instruments or extra performers. The separately named host of Rettegésmenedzsment and the other programmes on the March2026 festival bill do not belong to this selected work. This is an announced performance practice, not an auditioned recording or assurance that every advertised show occurred. Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place.",
+          "description": "Litkai Gergely — complete Változás solo humorous lecture, as published by Dumaszínház for its Duma Akadémia programme. The presenter names only Litkai and describes a spoken explanation of Hungarian environmental change interwoven with humor and personal experiences, accompanied by photographs. Model the complete stated speaker practice, one speaker and zero sung roles; visual photographs and scientific advisors are not sounding instruments or extra performers. The separately named host of Rettegésmenedzsment and the other programmes on the March2026 festival bill do not belong to this selected work. This is an announced performance practice, not an auditioned recording or assurance that every advertised show occurred. Magyar Kabaré is the Hungarian comic-theatre and radio-cabaret circulation field, including spoken humor as well as musical satire. Exact creator playlist item42 is Litkai Gergely. His own presenting institution identifies him as a former Rádiókabaré writer/performer, Hungarian stand-up founder and Dumaszínház artistic director, establishing institutional continuity rather than nationality alone. Existing standup_comedy documents the American vaudeville/nightclub form and its broader technique overlaps this solo branch; the new field is not disjoint from stand-up. Full Hungarian folk concerns collected village repertoire and Hungarian pop is broad popular songwriting, neither defining this named comic institution. Neighboring Vlaamse/Dutch cabaret and clean/new comedy can overlap forms, but do not identify this Hungarian-language radio/theatre network. The selected science-themed humorous lecture is a present-day branch, not a definition of every cabaret work. Existing spokenWord.stagePerformance describes the complete announced stage monologue. Preserve all17 human voice controls, one unaccompanied speaker, pure spoken delivery, source-unspecified anatomy, training and pitch organization, neutral effort and tract, unprocessed single lead. No sung pitch system, temperament, incidental soundtrack, microphone model or musician is invented. Spacious shoebox-hall listening rendition is an authored capture choice, not a measured original room or proof of a particular performance taking place.",
+          "exemplars": [
+            "Litkai Gergely — Változás, complete Duma Akadémia solo programme"
+          ]
+        },
+        "reason": "Restore established genre-centered public prose; retain prior session/personnel/edition provenance in evidence.",
+        "default_review": "Retain solo spoken voice as a representative monologue strand, not a claim the entire cabaret field lacks music or ensembles.",
+        "status": "author_candidate_pending_independent_review"
+      }
+    },
+    {
+      "source_label": "portuguese indie",
+      "source_url": "https://everynoise.com/engenremap-portugueseindie.html",
+      "suggested_id": "portuguese_indie",
+      "allocation_ordinal": 4157,
+      "allocation_group_id": "167",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "id": "portuguese_indie",
+      "tradition": {
+        "id": "portuguese_indie",
+        "name": "Portuguese Indie",
+        "family": "rock",
+        "lineage": "Portugal’s independent-music networks connect local songwriting, self-directed production, labels and live venues across rock, pop, electronic music and other styles.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electronic_keyboard_unspecified",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "pin_parts": true,
+        "parts": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "room": "live_room"
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Guitar-led songs, melodic singing and a bass-and-drum rhythm section form an established strand, often expanded by keyboards and electronic textures. Independent production and circulation connect these varied approaches, alongside continuing exchanges with the wider Portuguese popular-music field.",
+        "exemplars": [
+          "Cassete Pirata",
+          "Capicua",
+          "Noiserv",
+          "Octa Push"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.7167,
+        -9.1333,
+        "Lisbon",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial Lisbon-area source production anchor: label names São Domingos de Benfica additional recording/mixing and Dafundo initial recording; not a claim all takes occurred at the coordinate.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Portuguese indie denotes the national independent production, circulation and discovery community. Primary interview research by Ana Oliveira examines71 participants and treats independence as a continuum across genres rather than a fixed rock sound or absolute exclusion of mainstream commerce. The creator corpus includes Cassete Pirata, Capicua, Noiserv, Octa Push and other cross-style participants; RTP independently identifies Cassete Pirata with the Portuguese indie scene. Full existing portuguese_indie_rock is the overlapping rock branch (its Pega Monstro duo is a representative, not a category restriction); this broader independent community also encompasses electronic, hip-hop and intimate song practice. Existing portuguese_pop_modern covers mainstream national pop, portuguese_experimental experimental practice, and Lisbon/Madeira regional categories geographic fields. These overlap but do not replace the independent-community axis. Neither the selected four-person arrangement nor the date creates the boundary. No claim all community music is rock, unsigned or outside major-label distribution.",
+      "classification_evidence": "Portuguese indie denotes the national independent production, circulation and discovery community. Primary interview research by Ana Oliveira examines71 participants and treats independence as a continuum across genres rather than a fixed rock sound or absolute exclusion of mainstream commerce. The creator corpus includes Cassete Pirata, Capicua, Noiserv, Octa Push and other cross-style participants; RTP independently identifies Cassete Pirata with the Portuguese indie scene. Full existing portuguese_indie_rock is the overlapping rock branch (its Pega Monstro duo is a representative, not a category restriction); this broader independent community also encompasses electronic, hip-hop and intimate song practice. Existing portuguese_pop_modern covers mainstream national pop, portuguese_experimental experimental practice, and Lisbon/Madeira regional categories geographic fields. These overlap but do not replace the independent-community axis. Neither the selected four-person arrangement nor the date creates the boundary. No claim all community music is rock, unsigned or outside major-label distribution.",
+      "model_policy": "Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form.",
+      "source_scope_limitation": "Cassete Pirata — complete separately purchasable four-minute Onze Mãos, track4 of the label-issued Cassete Pirata EP. Exact track credits name Pir voice and guitars, Joana Espadinha keyboards, António Quintino electric bass and João Pinheiro drums: four people, five sound families and one named singer. This is the entire credited song, not a reduced version of the full EP. The other three songs have additional voices, arpeggiators, piano, synth and percussion, explicitly not transferred into this separately credited track. Label digital edition date20July2022; RTP identifies the original debut EP as2017, so2022 is not claimed original recording year. EP recording credits name Dafundo and São Domingos de Benfica; no allocation of individual takes to a room or audition claimed.",
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "named_singers": [
+          "Pir"
+        ],
+        "reason": "Full track-specific credit; other EP song choristers not imported. Authored single-lead does not assert measured original take count."
+      },
+      "instrument_role_audit": {
+        "scope": "Cassete Pirata — complete separately purchasable four-minute Onze Mãos, track4 of the label-issued Cassete Pirata EP. Exact track credits name Pir voice and guitars, Joana Espadinha keyboards, António Quintino electric bass and João Pinheiro drums: four people, five sound families and one named singer. This is the entire credited song, not a reduced version of the full EP. The other three songs have additional voices, arpeggiators, piano, synth and percussion, explicitly not transferred into this separately credited track. Label digital edition date20July2022; RTP identifies the original debut EP as2017, so2022 is not claimed original recording year. EP recording credits name Dafundo and São Domingos de Benfica; no allocation of individual takes to a room or audition claimed.",
+        "people_count": 4,
+        "cards": 5,
+        "roles": [
+          "Pir:voice/guitars",
+          "Joana Espadinha:keyboards",
+          "António Quintino:electric bass",
+          "João Pinheiro:drums"
+        ],
+        "defaults": "Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All owning controls explicitly pinned with no shared-key conflict; no piano-only gesture imposed on neutral keyboard."
+      },
+      "dependency_audit": {
+        "new_dependencies": [],
+        "existing_owner_count": 1638,
+        "policy": "Reuse unchanged original existing owners; no repo mutation."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form."
+        },
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form."
+        }
+      ],
+      "verification_status": "Original1638-owner preservation,51 applicable protected parts, atlas and all four original formats passed; actual complete renders manually reviewed for source-fit. No new dependencies.",
+      "sources": [
+        {
+          "url": "https://rastilho.bandcamp.com/album/cassete-pirata-ep",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11148view0 full track-specific credits, four-minute individual purchase, EP production locations and2022digital date; all four people/five families retained."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-portugueseindie.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11144view1 exact creator Cassete Pirata line41; broader corpus includes Capicua, Noiserv and Octa Push."
+        },
+        {
+          "url": "https://antena1.rtp.pt/apoios/cassete-pirata-digressao-2024/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11159view0 broadcaster tour partner explicitly Portuguese indie scene and original2017debut EP; not transfer2024roster."
+        },
+        {
+          "url": "https://www.mediastudies.press/pub/iacmedia-diy-or-die/release/1?readingCollection=0ecf3b0f",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11159view1 primary research71interviewees, cross-genre independent career and production community with mainstream overlap."
+        },
+        {
+          "url": "https://antena3.rtp.pt/dominio-publico/destaques/a-reta-final-de-2022-no-novo-atico/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11154search7 broadcaster event partner expressly calls Cassete Pirata indie pop rock in Portuguese; category/taxonomy support only, not selected recording roster."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "portuguese_indie",
+          "name": "Portuguese Indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "matched_label": "LOW generic recording context: microphone photograph, not a depiction of genre performers or instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Served thumbnail of existing Binksternet crop; no additional crop. Preserve Iain Fergusson photo and Binksternet derivative credit.",
+          "evidence": "Fresh10917view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical exact bytes/visual inherited, no fresh transfer.",
+          "fresh_review_ref": "turn10917view0"
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [
+            250,
+            720
+          ],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [
+            250,
+            720
+          ],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+          "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "bajki",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn10917view0"
+        ]
+      },
+      "source_retrieval_caveat": "Full issuer track-by-track credits and primary broadcaster pages read; source audio not auditioned. Current digital edition date distinguished from original EP date.",
+      "primary_retrieval_refs": [
+        "turn11148view0",
+        "turn11144view1",
+        "turn11159view0",
+        "turn11159view1",
+        "turn11154search7"
+      ],
+      "format_repair": {
+        "before_packet": "/tmp/batch038/recovery166-167-secondpass-5.json",
+        "before_packet_sha256": "b26f32696017708598acb47fab51fad20dcf30202bf6519fe708422210205f3c",
+        "before_public_fields": {
+          "lineage": "Cassete Pirata — complete separately purchasable four-minute Onze Mãos, track4 of the label-issued Cassete Pirata EP. Exact track credits name Pir voice and guitars, Joana Espadinha keyboards, António Quintino electric bass and João Pinheiro drums: four people, five sound families and one named singer. This is the entire credited song, not a reduced version of the full EP. The other three songs have additional voices, arpeggiators, piano, synth and percussion, explicitly not transferred into this separately credited track. Label digital edition date20July2022; RTP identifies the original debut EP as2017, so2022 is not claimed original recording year. EP recording credits name Dafundo and São Domingos de Benfica; no allocation of individual takes to a room or audition claimed. Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form.",
+          "description": "Cassete Pirata — complete separately purchasable four-minute Onze Mãos, track4 of the label-issued Cassete Pirata EP. Exact track credits name Pir voice and guitars, Joana Espadinha keyboards, António Quintino electric bass and João Pinheiro drums: four people, five sound families and one named singer. This is the entire credited song, not a reduced version of the full EP. The other three songs have additional voices, arpeggiators, piano, synth and percussion, explicitly not transferred into this separately credited track. Label digital edition date20July2022; RTP identifies the original debut EP as2017, so2022 is not claimed original recording year. EP recording credits name Dafundo and São Domingos de Benfica; no allocation of individual takes to a room or audition claimed. Portuguese indie denotes the national independent production, circulation and discovery community. Primary interview research by Ana Oliveira examines71 participants and treats independence as a continuum across genres rather than a fixed rock sound or absolute exclusion of mainstream commerce. The creator corpus includes Cassete Pirata, Capicua, Noiserv, Octa Push and other cross-style participants; RTP independently identifies Cassete Pirata with the Portuguese indie scene. Full existing portuguese_indie_rock is the overlapping rock branch (its Pega Monstro duo is a representative, not a category restriction); this broader independent community also encompasses electronic, hip-hop and intimate song practice. Existing portuguese_pop_modern covers mainstream national pop, portuguese_experimental experimental practice, and Lisbon/Madeira regional categories geographic fields. These overlap but do not replace the independent-community axis. Neither the selected four-person arrangement nor the date creates the boundary. No claim all community music is rock, unsigned or outside major-label distribution. Five complete source families preserved. Generic source guitars receive an authored humbucking electric realization without claiming original construction; alder body, Gibson scale, vibrato bridge, clean chordal strum and unspecified amp. Source electric bass receives coherent authored soapbar long-scale fingerstyle construction. Maple stick kit with B20 traditional-finish cymbals is authored, not exact source equipment. Bare keyboards use existing source-unspecified electronic keyboard architecture and authored melodic/chordal gesture, not guessed piano or synthesizer. One named singer receives neutral physical settings and authored accompanied solo/single-lead unprocessed rendition, not a measured original overdub claim. Controlled live room is a new authored presentation; global tuning and capture chain remain unspecified. Broad functionalSong encodes an authored functional-harmonic verse/refrain realization of the documented Portuguese pop-rock song. This is a new arrangement choice, not a measured transcription or a claim all independent music has that form.",
+          "exemplars": [
+            "Cassete Pirata — Onze Mãos (complete four-minute issuer track)"
+          ]
+        },
+        "reason": "Restore established genre-centered public prose; retain prior session/personnel/edition provenance in evidence.",
+        "default_review": "Retain voice/guitar/keyboard/bass/kit as a representative independent pop-rock band. Original named track is supporting practice evidence only, not the whole national field.",
+        "status": "author_candidate_pending_independent_review"
+      }
+    },
+    {
+      "source_label": "prank",
+      "source_url": "https://everynoise.com/engenremap-prank.html",
+      "suggested_id": "prank",
+      "allocation_ordinal": 4162,
+      "allocation_group_id": "167",
+      "id": "prank",
+      "tradition": {
+        "id": "prank",
+        "name": "Prank",
+        "family": "global",
+        "lineage": "Recorded prank-call comedy, developed through character voices, improvised exchanges and edited telephone conversations.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "studio_treated_deadbooth",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "A caller’s comic persona interacts with another speaker, building a situation through timing, repetition, misunderstanding and changing reactions. Alternating spoken voices carry the form, with recording and editing shaping the listener’s access to the exchange.",
+        "exemplars": [
+          "The Jerky Boys",
+          "Tom Mabe",
+          "Longmont Potion Castle"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        34.1808,
+        -118.309,
+        "Burbank",
+        "North America"
+      ],
+      "geo_rationale": "Issuer Comedy Dynamics identifies Burbank, California on its own album page; editorial issuing anchor, not a claim of call recording locations or category origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://comedydynamics.bandcamp.com/album/the-jerky-boys",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11014view0 complete14-track issuer page, release26November2020, whole character-call collection; publisher Burbank anchor. No audition claimed."
+        },
+        {
+          "url": "https://www.comedydynamics.com/catalog/the-jerky-boys/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11014view1 official publisher synopsis and Johnny Brennan star/writer. Producer names are not additional performer roles."
+        },
+        {
+          "url": "https://www.comedydynamics.com/press/comedy-dynamics-will-produce-and-release-the-first-new-jerky-boys-album-in-almost-25-years/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11014view2 producer firsthand announcement describes in-character improvisational calls with unsuspecting recipients. Its anticipated early2019 date is not substituted for actual selected2020 edition."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-prank.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh10992view1 exact creator map lists Jerky Boys first, alongside Jim Florentine, Longmont Potion Castle, Tom Mabe and Crank Yankers."
+        }
+      ],
+      "neighbor_distinction": "Prank is the recorded prank-call comedy practice positively described by the producing label: in-character callers converse with unsuspecting recipients rather than presenting a prepared monologue to a knowing club audience. Exact creator map lists The Jerky Boys alongside Tom Mabe, Jim Florentine, Longmont Potion Castle and Crank Yankers. Full existing standup_comedy centers solo comic audience address; new_comedy is an overlapping discovery subset of stand-up, and national comedy fields classify broad communities rather than this interaction method. Full radio_drama_golden_age and queued Drama include performed dramatic dialogue, but do not define deceptive caller/recipient improvisation as their category axis. These practices may overlap; the positive call-interaction method, not a different artist, profanity or release date, distinguishes this field.",
+      "model_policy": "Existing human_voice_ensemble_unspecified retains all17 vocal controls and leaves actual headcount and multitrack stack unspecified, preserving caller and recipients without a fictional sole voice. Pure speech and neutral physiology are appropriate authored delivery. Unprocessed voices in a controlled treated-studio listening realization are editorial: they do not claim the source phone line was unfiltered or that all participants shared a recording booth. Telephone-channel coloration is not reconstructed without specified source equipment. No global tuning, beat, instrument or capture apparatus is invented. Broad spokenWord scopes the complete published dialogue programme.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified"
+        ]
+      },
+      "classification_evidence": {
+        "mode": "exact_creator_artist_plus_publisher_practice",
+        "note": "Prank is the recorded prank-call comedy practice positively described by the producing label: in-character callers converse with unsuspecting recipients rather than presenting a prepared monologue to a knowing club audience. Exact creator map lists The Jerky Boys alongside Tom Mabe, Jim Florentine, Longmont Potion Castle and Crank Yankers. Full existing standup_comedy centers solo comic audience address; new_comedy is an overlapping discovery subset of stand-up, and national comedy fields classify broad communities rather than this interaction method. Full radio_drama_golden_age and queued Drama include performed dramatic dialogue, but do not define deceptive caller/recipient improvisation as their category axis. These practices may overlap; the positive call-interaction method, not a different artist, profanity or release date, distinguishes this field."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "named_performer": "Johnny Brennan",
+        "total_people": "unknown",
+        "recipient_voices": "retained within human-vocal ensemble",
+        "tracking": "unknown",
+        "reason": "Star credit is not proof of sole voice in caller/recipient conversations."
+      },
+      "instrument_role_audit": {
+        "rationale": "The Jerky Boys — complete14-track self-titled Comedy Dynamics album, selected issuer Bandcamp edition released26November2020. Publisher expressly describes the whole collection as character prank calls and credits Johnny Brennan as star and writer. Preserve Brennan’s performed characters together with the interlocutors’ human voices; the named star is not a claim of one total speaker. Total recipient count, overlapping voices and production layers remain unknown. No instruments are positively credited for this complete call programme, and track titles such as Kettle Drum Boy are not treated as instrumentation. No audition or exhaustive sonic-forensics claim.",
+        "authored_defaults": "Existing human_voice_ensemble_unspecified retains all17 vocal controls and leaves actual headcount and multitrack stack unspecified, preserving caller and recipients without a fictional sole voice. Pure speech and neutral physiology are appropriate authored delivery. Unprocessed voices in a controlled treated-studio listening realization are editorial: they do not claim the source phone line was unfiltered or that all participants shared a recording booth. Telephone-channel coloration is not reconstructed without specified source equipment. No global tuning, beat, instrument or capture apparatus is invented. Broad spokenWord scopes the complete published dialogue programme.",
+        "positive_sound_source_classes": [
+          "spoken human voices: caller characters and recipients"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "All17 applicable controls protected, unknown ensemble headcount and track stacking preserved."
+        }
+      ],
+      "verification_status": "Original merged loader17/17 protected parts, zero errors; all1628 existing owners preserved, no dependency. Actual four formats personally inspected: nagging human-voice-count-unspecified is authored comic vocal affect, no added musical role or named culture. Unknown count retained. Historical exact023 microphone photo retained; fresh Commons10917view0.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "prank",
+          "name": "Prank",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context: microphone photograph, not a depiction of genre performers or instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10917view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical exact byte/visual receipts retained without a new download claim.",
+          "fresh_review_ref": "turn10917view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn10917view0"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 applicable human-vocal controls protected; unknown headcount and track stack retained by exact existing owner. No fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn9814youtube5",
+        "turn9820youtube12",
+        "turn9820search1",
+        "turn9744view0",
+        "turn9814search0",
+        "turn9820search19"
+      ],
+      "source_retrieval_caveat": "Issuer and artist metadata read through primary indexed results; direct video/PDF inaccessible. No audible analysis or new visual inspection.",
+      "source_scope_limitation": "The Jerky Boys — complete14-track self-titled Comedy Dynamics album, selected issuer Bandcamp edition released26November2020. Publisher expressly describes the whole collection as character prank calls and credits Johnny Brennan as star and writer. Preserve Brennan’s performed characters together with the interlocutors’ human voices; the named star is not a claim of one total speaker. Total recipient count, overlapping voices and production layers remain unknown. No instruments are positively credited for this complete call programme, and track titles such as Kettle Drum Boy are not treated as instrumentation. No audition or exhaustive sonic-forensics claim.",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "format_repair": {
+        "before_packet": "/tmp/batch038/recovery166-167-secondpass-3.json",
+        "before_packet_sha256": "8101941b41b386f4c8b038e1b904c1419d45affe6cc534dca73e3b6fe345ab10",
+        "before_public_fields": {
+          "lineage": "The Jerky Boys — complete14-track self-titled Comedy Dynamics album, selected issuer Bandcamp edition released26November2020. Publisher expressly describes the whole collection as character prank calls and credits Johnny Brennan as star and writer. Preserve Brennan’s performed characters together with the interlocutors’ human voices; the named star is not a claim of one total speaker. Total recipient count, overlapping voices and production layers remain unknown. No instruments are positively credited for this complete call programme, and track titles such as Kettle Drum Boy are not treated as instrumentation. No audition or exhaustive sonic-forensics claim. Existing human_voice_ensemble_unspecified retains all17 vocal controls and leaves actual headcount and multitrack stack unspecified, preserving caller and recipients without a fictional sole voice. Pure speech and neutral physiology are appropriate authored delivery. Unprocessed voices in a controlled treated-studio listening realization are editorial: they do not claim the source phone line was unfiltered or that all participants shared a recording booth. Telephone-channel coloration is not reconstructed without specified source equipment. No global tuning, beat, instrument or capture apparatus is invented. Broad spokenWord scopes the complete published dialogue programme.",
+          "description": "The Jerky Boys — complete14-track self-titled Comedy Dynamics album, selected issuer Bandcamp edition released26November2020. Publisher expressly describes the whole collection as character prank calls and credits Johnny Brennan as star and writer. Preserve Brennan’s performed characters together with the interlocutors’ human voices; the named star is not a claim of one total speaker. Total recipient count, overlapping voices and production layers remain unknown. No instruments are positively credited for this complete call programme, and track titles such as Kettle Drum Boy are not treated as instrumentation. No audition or exhaustive sonic-forensics claim. Prank is the recorded prank-call comedy practice positively described by the producing label: in-character callers converse with unsuspecting recipients rather than presenting a prepared monologue to a knowing club audience. Exact creator map lists The Jerky Boys alongside Tom Mabe, Jim Florentine, Longmont Potion Castle and Crank Yankers. Full existing standup_comedy centers solo comic audience address; new_comedy is an overlapping discovery subset of stand-up, and national comedy fields classify broad communities rather than this interaction method. Full radio_drama_golden_age and queued Drama include performed dramatic dialogue, but do not define deceptive caller/recipient improvisation as their category axis. These practices may overlap; the positive call-interaction method, not a different artist, profanity or release date, distinguishes this field. Existing human_voice_ensemble_unspecified retains all17 vocal controls and leaves actual headcount and multitrack stack unspecified, preserving caller and recipients without a fictional sole voice. Pure speech and neutral physiology are appropriate authored delivery. Unprocessed voices in a controlled treated-studio listening realization are editorial: they do not claim the source phone line was unfiltered or that all participants shared a recording booth. Telephone-channel coloration is not reconstructed without specified source equipment. No global tuning, beat, instrument or capture apparatus is invented. Broad spokenWord scopes the complete published dialogue programme.",
+          "exemplars": [
+            "The Jerky Boys — complete14-call Comedy Dynamics2020 album"
+          ]
+        },
+        "reason": "Restore established genre-centered public prose; retain prior session/personnel/edition provenance in evidence.",
+        "default_review": "Retain source-unspecified human voice ensemble to allow caller/interlocutor exchanges without fixed performer count. Individual caller characters and exact album cuts are provenance rather than genre defaults.",
+        "status": "author_candidate_pending_independent_review"
+      }
+    },
+    {
+      "source_label": "puerto rican indie",
+      "source_url": "https://everynoise.com/engenremap-puertoricanindie.html",
+      "suggested_id": "puerto_rican_indie",
+      "allocation_ordinal": 4181,
+      "allocation_group_id": "168",
+      "status": "frozen_pending_independent_review",
+      "id": "puerto_rican_indie",
+      "tradition": {
+        "id": "puerto_rican_indie",
+        "name": "Puerto Rican indie",
+        "family": "rock_punk",
+        "lineage": "Puerto Rico’s independently organized recording and live-music communities connect alternative rock, pop, experimental music and locally rooted styles.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.punk",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "A guitar-band strand combines sung melodies with electric guitar, bass and drums, ranging from concise pop structures to rougher and more exploratory textures. Independent releases and shared venues link this strand with a wider island scene that also includes electronic, rap and Afro-Caribbean approaches.",
+        "exemplars": [
+          "Campo-Formio",
+          "Superaquello",
+          "Hammmy"
+        ],
+        "crossRefs": [],
+        "status": "documented"
+      },
+      "geo": [
+        18.22,
+        -66.59,
+        "Puerto Rico",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Island-level artist home-community anchor explicitly Puerto Rico; not an invented recording city.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Puerto Rican indie is the island’s independently organized, cross-style recording and performing community. Artist self-description and tags positively identify Hammmy as Puerto Rican indie rock; FENCast’s first-person local scene documentation explicitly includes Hammmy among independent/alternative/underground events. The exact creator roster spans Campo-Formio1, Superaquello14, Orquesta el Macabeo19, Los Pleneros de la Cresta36 and Siete Nueve37, so this is not exclusively rock or pop and not an exclusion of traditional/rap crossovers. Actual old puerto_rican_rock already includes independent Campo-Formio and puerto_rican_pop explicitly includes Superaquello indie-pop: acknowledge those substantial overlapping subsets rather than falsely restricting them to commercial or historical artists. The new field is the positively documented cross-style independent community axis, not a different album alone. Queued rap_boricua is a specifically rap community; bomba/plena/aguinaldo have specific historical rhythmic/ritual practices. No exact Hammmy creator-playlist membership asserted.",
+      "model_policy": "Selected documented indie-punk/emo branch uses distortedRock.punk and rock_punk without equating the wider Puerto Rican independent community with punk. Bare guitar/bass/drums are realized candidly as clean-strummed single-coil alder/maple/rosewood guitar, pure-nickel10s and two-point bridge; fretted34-inch active-soapbar nickel-roundwound bass with fingerstyle pulse; thin-maple kit/coated heads and fully lathed machine-hammered B20 traditional-finish cymbals, sticks rock backbeat. These are authored physical and playing controls, not source equipment claims. Rendered raging bass denotes an aggressive/high-gain presentation chosen for the documented punk branch, not measured source gain or circuitry. One accompanied voice retains unspecified physiology/pitch/word-setting, with an authored single-lead presentation rather than claimed source tracking. Spacious concert-hall listening room is editorial; no source recording apparatus or global temperament guessed.",
+      "source_scope_limitation": "Hammmy — complete nine-track 3 m’s album, issued11November2022. The issuer credits Xavier Iglesias with vocals, guitar and drums plus bass on h8 2 c it; Renate Rivera plays bass elsewhere and Jean Ortiz supplies drums on naisrobi!. Preserve all three credited performers and all four sounding families across the whole album. Arturo Colberg’s recording/mix/mastering and Derick Joel’s artwork are not invented performance roles. One named singer; overdub counts, simultaneous session configuration and exact instrument construction unknown. This is an authored realization of the full album-role union, not a claim three people played every role simultaneously.",
+      "instrument_role_audit": {
+        "scope": "Hammmy — complete nine-track 3 m’s album, issued11November2022. The issuer credits Xavier Iglesias with vocals, guitar and drums plus bass on h8 2 c it; Renate Rivera plays bass elsewhere and Jean Ortiz supplies drums on naisrobi!. Preserve all three credited performers and all four sounding families across the whole album. Arturo Colberg’s recording/mix/mastering and Derick Joel’s artwork are not invented performance roles. One named singer; overdub counts, simultaneous session configuration and exact instrument construction unknown. This is an authored realization of the full album-role union, not a claim three people played every role simultaneously.",
+        "positive_roles": {
+          "Xavier Iglesias": [
+            "voice",
+            "guitar",
+            "drums",
+            "bass on h8 2 c it"
+          ],
+          "Renate Rivera": [
+            "bass"
+          ],
+          "Jean Ortiz": [
+            "drums on naisrobi!"
+          ]
+        },
+        "authored_defaults": "Selected documented indie-punk/emo branch uses distortedRock.punk and rock_punk without equating the wider Puerto Rican independent community with punk. Bare guitar/bass/drums are realized candidly as clean-strummed single-coil alder/maple/rosewood guitar, pure-nickel10s and two-point bridge; fretted34-inch active-soapbar nickel-roundwound bass with fingerstyle pulse; thin-maple kit/coated heads and fully lathed machine-hammered B20 traditional-finish cymbals, sticks rock backbeat. These are authored physical and playing controls, not source equipment claims. Rendered raging bass denotes an aggressive/high-gain presentation chosen for the documented punk branch, not measured source gain or circuitry. One accompanied voice retains unspecified physiology/pitch/word-setting, with an authored single-lead presentation rather than claimed source tracking. Spacious concert-hall listening room is editorial; no source recording apparatus or global temperament guessed."
+      },
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "named_singers": [
+          "Xavier Iglesias"
+        ],
+        "source_tracking_count": "unknown",
+        "decision": "One positively named singer; authored single-lead presentation, no claimed source overdub count."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "Shared body_wood consistently alder material for guitar and bass; amp_make unspecified shared. All49effective owning parts protected by47flat pins.",
+        "fallbacks": []
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "pending_independent_review",
+      "sources": [
+        {
+          "url": "https://hammyclans.bandcamp.com/album/3-ms",
+          "support_notes": "Fresh turn10999view0 full nine-track album, complete three-person/four-family role credits with two track exceptions, Puerto Rico location and explicit indie rock/emo/punk description.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.ivoox.com/en/podcast-fencast_sq_f1861451_1.html",
+          "support_notes": "Fresh turn11002view1 and turn992238search3 first-person local independent-scene documentation; episode030 expressly covers Hammmy alongside community artists/events.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6RvOIQPUfQg7kGde06Wdas",
+          "support_notes": "Fresh turn11002view0 exact creator playlist demonstrates cross-style community and explicit overlap with existing rock/pop exemplar artists; no selected artist membership claimed.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "puerto_rican_indie",
+          "name": "Puerto Rican indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context: microphone photograph, not a depiction of genre performers or instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10920view3/10921view1 confirms original Iain Fergusson/Binksternet crop and CC BY2.5; historical exact bytes/visual retained without new download claim.",
+          "fresh_review_ref": "turn10920view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn10920view3 and turn10921view1 rights and context only; no new byte download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn10920view3",
+          "turn10921view1"
+        ]
+      },
+      "format_repair": {
+        "before_packet": "/tmp/batch038/recovery168-170-secondpass-3.json",
+        "before_packet_sha256": "a2ad6d9d8e692a363e6515ada9c3238642d9e8cf91973202237c1260091f4f40",
+        "before_public_fields": {
+          "lineage": "Hammmy — complete nine-track 3 m’s album, issued11November2022. The issuer credits Xavier Iglesias with vocals, guitar and drums plus bass on h8 2 c it; Renate Rivera plays bass elsewhere and Jean Ortiz supplies drums on naisrobi!. Preserve all three credited performers and all four sounding families across the whole album. Arturo Colberg’s recording/mix/mastering and Derick Joel’s artwork are not invented performance roles. One named singer; overdub counts, simultaneous session configuration and exact instrument construction unknown. This is an authored realization of the full album-role union, not a claim three people played every role simultaneously. Selected documented indie-punk/emo branch uses distortedRock.punk and rock_punk without equating the wider Puerto Rican independent community with punk. Bare guitar/bass/drums are realized candidly as clean-strummed single-coil alder/maple/rosewood guitar, pure-nickel10s and two-point bridge; fretted34-inch active-soapbar nickel-roundwound bass with fingerstyle pulse; thin-maple kit/coated heads and fully lathed machine-hammered B20 traditional-finish cymbals, sticks rock backbeat. These are authored physical and playing controls, not source equipment claims. Rendered raging bass denotes an aggressive/high-gain presentation chosen for the documented punk branch, not measured source gain or circuitry. One accompanied voice retains unspecified physiology/pitch/word-setting, with an authored single-lead presentation rather than claimed source tracking. Spacious concert-hall listening room is editorial; no source recording apparatus or global temperament guessed.",
+          "description": "Hammmy — complete nine-track 3 m’s album, issued11November2022. The issuer credits Xavier Iglesias with vocals, guitar and drums plus bass on h8 2 c it; Renate Rivera plays bass elsewhere and Jean Ortiz supplies drums on naisrobi!. Preserve all three credited performers and all four sounding families across the whole album. Arturo Colberg’s recording/mix/mastering and Derick Joel’s artwork are not invented performance roles. One named singer; overdub counts, simultaneous session configuration and exact instrument construction unknown. This is an authored realization of the full album-role union, not a claim three people played every role simultaneously. Puerto Rican indie is the island’s independently organized, cross-style recording and performing community. Artist self-description and tags positively identify Hammmy as Puerto Rican indie rock; FENCast’s first-person local scene documentation explicitly includes Hammmy among independent/alternative/underground events. The exact creator roster spans Campo-Formio1, Superaquello14, Orquesta el Macabeo19, Los Pleneros de la Cresta36 and Siete Nueve37, so this is not exclusively rock or pop and not an exclusion of traditional/rap crossovers. Actual old puerto_rican_rock already includes independent Campo-Formio and puerto_rican_pop explicitly includes Superaquello indie-pop: acknowledge those substantial overlapping subsets rather than falsely restricting them to commercial or historical artists. The new field is the positively documented cross-style independent community axis, not a different album alone. Queued rap_boricua is a specifically rap community; bomba/plena/aguinaldo have specific historical rhythmic/ritual practices. No exact Hammmy creator-playlist membership asserted. Selected documented indie-punk/emo branch uses distortedRock.punk and rock_punk without equating the wider Puerto Rican independent community with punk. Bare guitar/bass/drums are realized candidly as clean-strummed single-coil alder/maple/rosewood guitar, pure-nickel10s and two-point bridge; fretted34-inch active-soapbar nickel-roundwound bass with fingerstyle pulse; thin-maple kit/coated heads and fully lathed machine-hammered B20 traditional-finish cymbals, sticks rock backbeat. These are authored physical and playing controls, not source equipment claims. Rendered raging bass denotes an aggressive/high-gain presentation chosen for the documented punk branch, not measured source gain or circuitry. One accompanied voice retains unspecified physiology/pitch/word-setting, with an authored single-lead presentation rather than claimed source tracking. Spacious concert-hall listening room is editorial; no source recording apparatus or global temperament guessed.",
+          "exemplars": [
+            "Hammmy — 3 m’s (2022), full nine-track album role union"
+          ]
+        },
+        "reason": "Restore established genre-centered public prose; retain prior session/personnel/edition provenance in evidence.",
+        "default_review": "Retain guitar/bass/kit/voice as a conventional supported independent-band configuration, not the exact personnel union of one album.",
+        "status": "author_candidate_pending_independent_review"
+      }
+    },
+    {
+      "source_label": "spa",
+      "source_url": "https://everynoise.com/engenremap-spa.html",
+      "suggested_id": "spa",
+      "allocation_ordinal": 4326,
+      "allocation_group_id": "174",
+      "id": "spa",
+      "tradition": {
+        "id": "spa",
+        "name": "Spa",
+        "family": "global",
+        "lineage": "Instrumental music composed or selected for spa reception areas, treatment rooms and relaxation spaces, drawing on ambient, piano and other quiet listening traditions.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": -1,
+          "density": -2,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": -2,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -2,
+          "cyclicity": 0
+        },
+        "description": "Slow melodic movement, soft dynamics and spacious phrasing maintain a low-intensity listening environment. Sparse piano is one established approach; sustained electronic and acoustic textures offer other possibilities. Programming often follows the character and duration of different spaces and treatments.",
+        "exemplars": [
+          "BGMLABO"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.6762,
+        139.6503,
+        "Tokyo",
+        "East Asia"
+      ],
+      "geo_rationale": "Own issuer describes Japanese original piano and Tokyo among its scene anchors. Tokyo is an editorial national anchor, not a claimed recording location, origin of all spa music or specific company address.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Spa is the cross-style functional music field commissioned or selected for spa spaces and treatment journeys. Myndstream own service and help pages describe multi-zone reception/treatment/relaxation programming and durations matched to treatments. This independently establishes a professional listening-use practice rather than treating an artist named Spa as sufficient evidence. Existing new_age and new_age_piano cover broad contemplative musical styles, including many non-spa listening contexts; spa use can include those styles without being their synonym. Existing massage is the narrower massage listening function, represented by Roger Spees but not restricted to that exemplar. Spa includes massage while extending to reception, hydrothermal areas and other treatments. Existing world_meditation and guided_meditation concern contemplative instrumental or spoken instructional practices, which may overlap spa programmes. No claim of disjoint audiences or therapeutic effectiveness is made. Creator Spa playlist independently confirms a broad functional discovery field including piano, water and other sound sources; no BGMLABO membership or identity with its Relaxing Spa Music artist credit is asserted.",
+      "classification_evidence": {
+        "scope": "Spa is the cross-style functional music field commissioned or selected for spa spaces and treatment journeys. Myndstream own service and help pages describe multi-zone reception/treatment/relaxation programming and durations matched to treatments. This independently establishes a professional listening-use practice rather than treating an artist named Spa as sufficient evidence. Existing new_age and new_age_piano cover broad contemplative musical styles, including many non-spa listening contexts; spa use can include those styles without being their synonym. Existing massage is the narrower massage listening function, represented by Roger Spees but not restricted to that exemplar. Spa includes massage while extending to reception, hydrothermal areas and other treatments. Existing world_meditation and guided_meditation concern contemplative instrumental or spoken instructional practices, which may overlap spa programmes. No claim of disjoint audiences or therapeutic effectiveness is made. Creator Spa playlist independently confirms a broad functional discovery field including piano, water and other sound sources; no BGMLABO membership or identity with its Relaxing Spa Music artist credit is asserted.",
+        "tree_rationale": "Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed."
+      },
+      "model_policy": "Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed.",
+      "source_scope_limitation": "BGMLABO complete stated commercial spa-scoring practice: its own business page expressly identifies all of the selected practice as original solo piano, without voices, for reception, treatment rooms and relaxation spaces. This is a documented whole practice realization, not a reconstruction of an identified album, an arbitrary excerpt or a verified played event. Exact repertoire count, programme duration, performers and piano mechanism are unknown. The page listening link currently resolves to a differently titled Neon Tokyo Dreams playlist; that mismatch is retained and the playlist is not used to establish palette, exact repertoire, duration or a particular performance. No water, wave loops or other environmental source is inferred from the names of its Ocean or Forest collections. Publisher efficacy claims are not adopted.",
+      "vocal_count_audit": {
+        "selected_singer_count": 0,
+        "performer_count": "unknown",
+        "decision": "Whole selected issuer practice explicitly solo piano and no vocals; do not infer one named human from one instrument role."
+      },
+      "instrument_role_audit": {
+        "scope": "BGMLABO complete stated commercial spa-scoring practice: its own business page expressly identifies all of the selected practice as original solo piano, without voices, for reception, treatment rooms and relaxation spaces. This is a documented whole practice realization, not a reconstruction of an identified album, an arbitrary excerpt or a verified played event. Exact repertoire count, programme duration, performers and piano mechanism are unknown. The page listening link currently resolves to a differently titled Neon Tokyo Dreams playlist; that mismatch is retained and the playlist is not used to establish palette, exact repertoire, duration or a particular performance. No water, wave loops or other environmental source is inferred from the names of its Ocean or Forest collections. Publisher efficacy claims are not adopted.",
+        "roles": {
+          "upright_piano": "Whole stated piano-only practice; upright construction authored"
+        },
+        "authored_defaults": "Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed."
+        }
+      ],
+      "flat_pin_resolution": "All three applicable owning parts protected; original-engine mechanical validation pending.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ],
+        "existing_instruments_changed": false
+      },
+      "sources": [
+        {
+          "url": "https://bgm-labo.com/en/business/spa-music",
+          "title": "Issuer complete solo-piano spa-scoring practice",
+          "support_notes": "Fresh turn120641view0 explicitly whole original solo piano/no vocals, slow/spacious texture and all spa zones. Practice only; inconsistent linked playlist not used for exact programme. No efficacy claims adopted."
+        },
+        {
+          "url": "https://bgm-labo.com/en/spaces/luxury-spa-music",
+          "title": "Issuer stated spa composition and deployment practice",
+          "support_notes": "Fresh turn120641view1 supports whole defined piano-only practice, sparse/soft presentation; publisher branding language not objective quality claim."
+        },
+        {
+          "url": "https://www.myndstream.com/spa-wellness",
+          "title": "Professional spa functional music commissioning and multi-zone service",
+          "support_notes": "Fresh turn120641view2 independently establishes named professional use field and spa-zone programming; no Myndstream membership for BGMLABO or efficacy inference."
+        },
+        {
+          "url": "https://www.myndstream.com/help/spa-wellness",
+          "title": "Provider treatment-duration and programming documentation",
+          "support_notes": "Fresh turn544533view1 identifies 45/60/90/120 minute curated programmes. These are provider examples, not BGMLABO duration claims."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0oRBlN7Dq4UxzVQl7q2bVO",
+          "title": "Creator Spa discovery corpus",
+          "support_notes": "Fresh turn544533view0 full functional programme roster; no exact selected issuer membership claimed."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0VY1ADEkJb7x2dNQfpAIuA",
+          "title": "Disclosed mismatch in issuer listening link",
+          "support_notes": "Fresh turn571955view0 resolves Neon Tokyo Dreams21tracks, rather than page SpaMusic label. Not used to prove whole palette or exact repertoire."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "spa",
+          "name": "Spa",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context: microphone photograph, not a depiction of genre performers or instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn310927view0 Commons exact attribution and CC BY2.5; historical023 bytes and visual receipts reused candidly.",
+          "fresh_review_ref": "turn310927view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn310927view0"
+        ],
+        "fresh_rights_review": "Fresh turn310927view0 rights; no current binary or visual claim."
+      },
+      "status": "candidate_pending_independent_review",
+      "verification_status": "Original combined controls/render preflight pending; no integrated build or CI claim.",
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume-root-spa-geo-clarified.json",
+        "before_packet_sha256": "6f62f1ae13101c105cb66e5e91337ea6f6431c8555806bbab5eb40ead9adbd51",
+        "before_public_fields": {
+          "lineage": "BGMLABO complete stated commercial spa-scoring practice: its own business page expressly identifies all of the selected practice as original solo piano, without voices, for reception, treatment rooms and relaxation spaces. This is a documented whole practice realization, not a reconstruction of an identified album, an arbitrary excerpt or a verified played event. Exact repertoire count, programme duration, performers and piano mechanism are unknown. The page listening link currently resolves to a differently titled Neon Tokyo Dreams playlist; that mismatch is retained and the playlist is not used to establish palette, exact repertoire, duration or a particular performance. No water, wave loops or other environmental source is inferred from the names of its Ocean or Forest collections. Publisher efficacy claims are not adopted. Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed.",
+          "description": "BGMLABO complete stated commercial spa-scoring practice: its own business page expressly identifies all of the selected practice as original solo piano, without voices, for reception, treatment rooms and relaxation spaces. This is a documented whole practice realization, not a reconstruction of an identified album, an arbitrary excerpt or a verified played event. Exact repertoire count, programme duration, performers and piano mechanism are unknown. The page listening link currently resolves to a differently titled Neon Tokyo Dreams playlist; that mismatch is retained and the playlist is not used to establish palette, exact repertoire, duration or a particular performance. No water, wave loops or other environmental source is inferred from the names of its Ocean or Forest collections. Publisher efficacy claims are not adopted. Spa is the cross-style functional music field commissioned or selected for spa spaces and treatment journeys. Myndstream own service and help pages describe multi-zone reception/treatment/relaxation programming and durations matched to treatments. This independently establishes a professional listening-use practice rather than treating an artist named Spa as sufficient evidence. Existing new_age and new_age_piano cover broad contemplative musical styles, including many non-spa listening contexts; spa use can include those styles without being their synonym. Existing massage is the narrower massage listening function, represented by Roger Spees but not restricted to that exemplar. Spa includes massage while extending to reception, hydrothermal areas and other treatments. Existing world_meditation and guided_meditation concern contemplative instrumental or spoken instructional practices, which may overlap spa programmes. No claim of disjoint audiences or therapeutic effectiveness is made. Creator Spa playlist independently confirms a broad functional discovery field including piano, water and other sound sources; no BGMLABO membership or identity with its Relaxing Spa Music artist credit is asserted. Source-defined slow, spacious, soft solo-piano practice is realized on an authored standard studio upright with connected legato phrases and pedal resonance. Actual source piano type and construction remain unknown. No source-known role is removed. The existing ambient-and-drone node is selected for its texture-as-foundation and listening-context-as-environment meaning, consistent with the catalog existing acoustic new_age_piano placement; it does not assert a synthesizer, electronic generation or imposed verse-chorus song form. Controlled live-room presentation is authored, not measured source room. No tuning or capture chain is asserted. The chosen realization retains the entire stated practice palette; no particular composition transcription is claimed.",
+          "exemplars": [
+            "BGMLABO — complete stated solo-piano spa-scoring practice"
+          ]
+        },
+        "reason": "Restore established genre-centered public prose; retain prior session/personnel/edition provenance in evidence.",
+        "default_review": "A quiet solo piano remains a positively documented and broadly representative spa composition practice. Retain legato upright settings; no individual cover/adaptation is being substituted for a genre, and no therapeutic benefit asserted.",
+        "status": "author_candidate_pending_independent_review"
+      }
+    },
+    {
+      "source_label": "violao classico",
+      "source_url": "https://everynoise.com/engenremap-violaoclassico.html",
+      "suggested_id": "violao_classico",
+      "allocation_ordinal": 4519,
+      "allocation_group_id": "181",
+      "status": "frozen_pending_independent_review",
+      "id": "violao_classico",
+      "tradition": {
+        "id": "violao_classico",
+        "name": "Violão Clássico",
+        "family": "classical",
+        "lineage": "Brazilian concert-guitar practice connecting conservatory training, solo recitals and chamber performance with an international classical repertoire.",
+        "instruments": [
+          "classical_nylon_string_guitar"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Nylon-string guitar combines melody, bass and inner voices through fingerstyle articulation. Scales, arpeggios, chordal textures and contrasting tone colours support works and transcriptions from different periods. Brazilian performers and composers participate in a wider international concert and teaching tradition.",
+        "exemplars": [
+          "Fabio Zanon",
+          "Turíbio Santos",
+          "Sérgio and Odair Assad"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -23.55,
+        -46.6333,
+        "São Paulo",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Editorial documented USP/RadioCultura concert-community anchor, not actual session venue or instrument birthplace.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Fabio Zanon — complete Guitar Recital, Naxos8.554431, all16 indexed tracks64:40, issued August1998. Label lists Zanon as sole artist and instrumental guitar recital, with Tarrega miniatures, all four Bach BWV1003 movements in his transcription, Alexandre de Faria, Mertz and Ponce. Artist discography identifies Sergio Abreu1986 guitar for this exact recital. One guitar performer, no voice or other ensemble inferred. This is the complete album, not a convenient excerpt from a larger orchestral recording; no audio audition claimed.",
+      "neighbor_distinction": "The requested creator ViolaoClassico field concentrates the Brazilian concert-guitar performer/composer network: Zanon, TuribioSantos, Abreu, Assad and their international repertoire circulation. It includes non-Brazilian interpreters of Brazilian compositions and European works, so neither exclusive citizenship nor exclusively Brazilian compositions is asserted. Zanon institutional biography documents USP training, Brazilian young-soloist/concert awards and the Brazilian Art/Music Bunge prize; his own biography documents RadioCultura concert-guitar broadcasting and CamposdoJordao festival leadership alongside international concert work. These provide a positive national concert-institution community, not Portuguese translation alone. Existing classical_guitar is the broad international concert instrument field, not restricted to its Shibe/Bach example. Existing violao_brasileiro already straddles concert and popular practice and includes VillaLobos, but its actual declared defining axis is choro-derived baixaria, syncopation and independent-thumb Brazilian instrumental language. The Brazilian concert-institution network overlaps that field while including European and international concert repertoire without requiring that rhythmic vocabulary. No strict disjointness or sonic novelty is claimed; this narrower community interpretation remains subject to independent category review. UNIRIO’s own institutional history independently distinguishes a ViolaoClassico teaching lineage beginning with TuribioSantos in1981 and continuing through NicolasdeSouzaBarros, MariaHaro and ClaytonVetromilla, alongside a separately identified ViolaoPopular lineage. Its faculty account follows concert-guitar graduates into federal and state teaching posts. This supplies a positively documented Brazilian conservatory network beyond the selected performer nationality; the anniversary archival study locates its concert/pedagogic formation historically while correcting older myths of exclusive elite origins. The requested creator field overlaps popular players and international interpreters, so the institutional network is a central concentration rather than an exhaustive membership rule.",
+      "model_policy": "Broad artMusic/classical follows the complete labelled concert recital across Baroque/Romantic/modern repertoire, not a single-period whole-category equation. Existing classical nylon-string guitar represents the positive source concert instrument; source SergioAbreu1986 identity retained in evidence, but no undocumented exact wood/bracing/string make copied from a stock model. Spruce top, Torres-style fan bracing, normal-tension nylon, fingerpicked rest-stroke articulation and standard string tuning are explicitly authored modern concert realization choices, not measured original construction or gestures throughout every piece. Authored shoebox concert hall is a new recital setting, not actual1998 recording venue. No global temperament or apparatus claimed.",
+      "instrument_role_audit": {
+        "scope": "Fabio Zanon — complete Guitar Recital, Naxos8.554431, all16 indexed tracks64:40, issued August1998. Label lists Zanon as sole artist and instrumental guitar recital, with Tarrega miniatures, all four Bach BWV1003 movements in his transcription, Alexandre de Faria, Mertz and Ponce. Artist discography identifies Sergio Abreu1986 guitar for this exact recital. One guitar performer, no voice or other ensemble inferred. This is the complete album, not a convenient excerpt from a larger orchestral recording; no audio audition claimed.",
+        "positive_sound_source_classes": [
+          "one solo classical guitar"
+        ],
+        "authored_defaults": "Broad artMusic/classical follows the complete labelled concert recital across Baroque/Romantic/modern repertoire, not a single-period whole-category equation. Existing classical nylon-string guitar represents the positive source concert instrument; source SergioAbreu1986 identity retained in evidence, but no undocumented exact wood/bracing/string make copied from a stock model. Spruce top, Torres-style fan bracing, normal-tension nylon, fingerpicked rest-stroke articulation and standard string tuning are explicitly authored modern concert realization choices, not measured original construction or gestures throughout every piece. Authored shoebox concert hall is a new recital setting, not actual1998 recording venue. No global temperament or apparatus claimed."
+      },
+      "vocal_count_audit": {
+        "selected_count": 0,
+        "basis": "Complete instrumental solo-guitar edition positively documented; no vocal role."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "classical_nylon_string_guitar",
+          "parts": {
+            "acoustic_technique": "acoustic_fingerpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood_classical": "spruce_cl",
+            "bracing_classical": "fan_torres_cl",
+            "string_classical": "nylon_normal_cl",
+            "attack_technique_cl": "apoyando_cl"
+          },
+          "policy": "All six applicable owning parts protected; physical and playing realization authored explicitly."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "All six applicable owning controls protected; no shared collision or fallback."
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "Six applicable controls protected, all1638 existing owners preserved; four original browser/connector formats personally read with no unrelated named culture. Broad hall-derived huge affect is authored spatial scale, not number of players. Independent category review still required.",
+      "sources": [
+        {
+          "url": "https://www.naxos.com/CatalogueDetail/?id=8.554431",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11217view0 complete16track64:40 instrumental recital, sole artist, full composers and1998edition."
+        },
+        {
+          "url": "https://www.naxos.com/sharedfiles/PDF/SegmentCatalogue_LuteGuitar.pdf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11214search13 catalogue320 explicitly FabioZanon,guitar,8.554431 completeprogramme."
+        },
+        {
+          "url": "https://en.fabiozanon.com/discografia",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11214search0 own exact1998recital source instrument SergioAbreu1986; first duplicated ORCHESTRAL heading not used as evidence of scoring."
+        },
+        {
+          "url": "https://fundacaobunge.org.br/premiado/fabio-zanon/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11217view2 award issuer institutional Brazilian concert training and1997music prize."
+        },
+        {
+          "url": "https://en.fabiozanon.com/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11126view0 own RadioCultura/CamposdoJordao leadership, international concert role."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5G2C23N21neMHfn68HHT1S",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11120search1 full creator field including Zanon5/38/63, Brazilian performer/composer network with European repertoire and international interpreters; no exclusive citizenship claim."
+        },
+        {
+          "url": "https://www.unirio.br/proreitorias/cla/ivl/cursos/historico-do-curso-bacharelado-em-musica-instrumentos",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11251search0 exact institution own parallel Classical/Popular guitar teaching lineages; field-level evidence not merely individual nationality."
+        },
+        {
+          "url": "https://www.unirio.br/proemusteste/docentes",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11251search11 own classical-guitar chair/graduates entering federal and state institutions; concrete teaching network."
+        },
+        {
+          "url": "https://www.unirio.br/comissoes-e-comites-/cla/ivl/publicacoes/ivl_50_anos_edicao_comemorativa_unirio.pdf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11251search15 p218 institutional archival research on Brazilian concert/pedagogic guitar formation, with corrections to simplistic older histories; no endorsement of quoted social hierarchy."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "violao_classico",
+          "name": "Violão Clássico",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context: microphone photograph, not a depiction of genre performers or instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11200view3 Commons confirms CC BY2.5 and original credit/crop. Exact historical receipt inherited.",
+          "fresh_review_ref": "turn11200view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn10920view3 and turn10921view1 rights and context only; no new byte download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn11200view3"
+        ]
+      },
+      "format_repair": {
+        "before_packet": "/tmp/batch038/recovery180-182-secondpass-1.json",
+        "before_packet_sha256": "67ec4ce5b8fb185d75e903bc074686fa446d215e1522630519596b7def886b92",
+        "before_public_fields": {
+          "lineage": "Fabio Zanon — complete Guitar Recital, Naxos8.554431, all16 indexed tracks64:40, issued August1998. Label lists Zanon as sole artist and instrumental guitar recital, with Tarrega miniatures, all four Bach BWV1003 movements in his transcription, Alexandre de Faria, Mertz and Ponce. Artist discography identifies Sergio Abreu1986 guitar for this exact recital. One guitar performer, no voice or other ensemble inferred. This is the complete album, not a convenient excerpt from a larger orchestral recording; no audio audition claimed. Broad artMusic/classical follows the complete labelled concert recital across Baroque/Romantic/modern repertoire, not a single-period whole-category equation. Existing classical nylon-string guitar represents the positive source concert instrument; source SergioAbreu1986 identity retained in evidence, but no undocumented exact wood/bracing/string make copied from a stock model. Spruce top, Torres-style fan bracing, normal-tension nylon, fingerpicked rest-stroke articulation and standard string tuning are explicitly authored modern concert realization choices, not measured original construction or gestures throughout every piece. Authored shoebox concert hall is a new recital setting, not actual1998 recording venue. No global temperament or apparatus claimed.",
+          "description": "Fabio Zanon — complete Guitar Recital, Naxos8.554431, all16 indexed tracks64:40, issued August1998. Label lists Zanon as sole artist and instrumental guitar recital, with Tarrega miniatures, all four Bach BWV1003 movements in his transcription, Alexandre de Faria, Mertz and Ponce. Artist discography identifies Sergio Abreu1986 guitar for this exact recital. One guitar performer, no voice or other ensemble inferred. This is the complete album, not a convenient excerpt from a larger orchestral recording; no audio audition claimed. The requested creator ViolaoClassico field concentrates the Brazilian concert-guitar performer/composer network: Zanon, TuribioSantos, Abreu, Assad and their international repertoire circulation. It includes non-Brazilian interpreters of Brazilian compositions and European works, so neither exclusive citizenship nor exclusively Brazilian compositions is asserted. Zanon institutional biography documents USP training, Brazilian young-soloist/concert awards and the Brazilian Art/Music Bunge prize; his own biography documents RadioCultura concert-guitar broadcasting and CamposdoJordao festival leadership alongside international concert work. These provide a positive national concert-institution community, not Portuguese translation alone. Existing classical_guitar is the broad international concert instrument field, not restricted to its Shibe/Bach example. Existing violao_brasileiro already straddles concert and popular practice and includes VillaLobos, but its actual declared defining axis is choro-derived baixaria, syncopation and independent-thumb Brazilian instrumental language. The Brazilian concert-institution network overlaps that field while including European and international concert repertoire without requiring that rhythmic vocabulary. No strict disjointness or sonic novelty is claimed; this narrower community interpretation remains subject to independent category review. Broad artMusic/classical follows the complete labelled concert recital across Baroque/Romantic/modern repertoire, not a single-period whole-category equation. Existing classical nylon-string guitar represents the positive source concert instrument; source SergioAbreu1986 identity retained in evidence, but no undocumented exact wood/bracing/string make copied from a stock model. Spruce top, Torres-style fan bracing, normal-tension nylon, fingerpicked rest-stroke articulation and standard string tuning are explicitly authored modern concert realization choices, not measured original construction or gestures throughout every piece. Authored shoebox concert hall is a new recital setting, not actual1998 recording venue. No global temperament or apparatus claimed. UNIRIO’s own institutional history independently distinguishes a ViolaoClassico teaching lineage beginning with TuribioSantos in1981 and continuing through NicolasdeSouzaBarros, MariaHaro and ClaytonVetromilla, alongside a separately identified ViolaoPopular lineage. Its faculty account follows concert-guitar graduates into federal and state teaching posts. This supplies a positively documented Brazilian conservatory network beyond the selected performer nationality; the anniversary archival study locates its concert/pedagogic formation historically while correcting older myths of exclusive elite origins. The requested creator field overlaps popular players and international interpreters, so the institutional network is a central concentration rather than an exhaustive membership rule.",
+          "exemplars": [
+            "Fabio Zanon — complete Naxos8.554431 Guitar Recital"
+          ]
+        },
+        "reason": "Restore established genre-centered public prose; retain prior session/personnel/edition provenance in evidence.",
+        "default_review": "Retain classical nylon-string guitar with coherent spruce/fan-bracing/normal nylon/rest-stroke settings as a modern concert realization; no source recital programme, recording year or personal guitar reconstruction defines the genre.",
+        "status": "author_candidate_pending_independent_review"
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "genre_level_repair_candidate_not_integrated"
+}

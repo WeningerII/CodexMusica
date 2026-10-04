@@ -1,0 +1,308 @@
+{
+  "entries": [
+    {
+      "source_label": "norrbotten indie",
+      "source_url": "https://everynoise.com/engenremap-norrbottenindie.html",
+      "suggested_id": "norrbotten_indie",
+      "allocation_ordinal": 4023,
+      "allocation_group_id": "161",
+      "status": "frozen_for_independent_review",
+      "id": "norrbotten_indie",
+      "tradition": {
+        "id": "norrbotten_indie",
+        "name": "Norrbotten indie",
+        "family": "pop",
+        "lineage": "Vera Vinter — whole separately purchasable4:11 Norrmalmstorg, track9 of Monsterland, issued5February2016. Track-numbered artist credits establish Vera voice/guitar, Johannes Berglund synthesizers, and Mikael Häggström drums: three people, one credited singer, four sound families. Bass belongs only to tracks2–3; organ, theremin and programmed drums are explicitly assigned to other tracks. These are not removed from the selected track: they are not credited to it. The earlier held Från mitt berg whole-album model remains preserved separately; this is a different complete issued work, not a reduced arrangement of that album. Production/recording Stockholm, mastering Umeå; neither is claimed Norrbotten recording venue. No source audio audition. Bare guitar is realized as authored all-mahogany steel-string OM with flatpicked single-note phrasing, not source construction or measured gesture. Explicit synthesizers use existing source-unspecified architecture rather than guessing analog/digital engines. Source drum role receives coherent authored maple/B20 traditional-finish stick kit. One singer, neutral physiology, accompanied solo and single-lead rendition are authored; original layering unspecified. Controlled live-room presentation and omitted capture apparatus/global tuning are editorial. Broad balladPoetry follows this published lyrical personal narrative and compact voice-led realization; no claim all regional indie music shares its arrangement. The public up-tempo vocal cue is explicitly authored brisk pacing of this new rendition, not measured original track tempo; source does not specify a conflicting slow tempo.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_om",
+          "drum_kit",
+          "credited_synthesizer_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_flatpicked_lead",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Vera Vinter — whole separately purchasable4:11 Norrmalmstorg, track9 of Monsterland, issued5February2016. Track-numbered artist credits establish Vera voice/guitar, Johannes Berglund synthesizers, and Mikael Häggström drums: three people, one credited singer, four sound families. Bass belongs only to tracks2–3; organ, theremin and programmed drums are explicitly assigned to other tracks. These are not removed from the selected track: they are not credited to it. The earlier held Från mitt berg whole-album model remains preserved separately; this is a different complete issued work, not a reduced arrangement of that album. Production/recording Stockholm, mastering Umeå; neither is claimed Norrbotten recording venue. No source audio audition. Exact creator Norrbotten Indie includes Vera Vinter item14. Artist-owned biography and regional institution BD Pop positively identify her Stora Lappträsk/Kalix origin and Norrbotten indie-pop/folk community. Existing Swedish indie folk/pop/rock are overlapping national stylistic fields, not restricted by selected exemplars. Norrbotten defines a narrower regional community crossing these styles; full Norrlandsk hip hop is a rap community and Uppland nyckelharpa a different instrumental tradition. The source song or alternative four-family palette does not itself define the category boundary. Bare guitar is realized as authored all-mahogany steel-string OM with flatpicked single-note phrasing, not source construction or measured gesture. Explicit synthesizers use existing source-unspecified architecture rather than guessing analog/digital engines. Source drum role receives coherent authored maple/B20 traditional-finish stick kit. One singer, neutral physiology, accompanied solo and single-lead rendition are authored; original layering unspecified. Controlled live-room presentation and omitted capture apparatus/global tuning are editorial. Broad balladPoetry follows this published lyrical personal narrative and compact voice-led realization; no claim all regional indie music shares its arrangement. The public up-tempo vocal cue is explicitly authored brisk pacing of this new rendition, not measured original track tempo; source does not specify a conflicting slow tempo.",
+        "exemplars": [
+          "Vera Vinter — Norrmalmstorg, complete2016issued track"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        65.85,
+        23.15,
+        "Kalix",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial regional-origin anchor; artist primary names Stora Lappträsk outside Kalix. Selected2016 recording was Stockholm, not this coordinate.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://veravinter.bandcamp.com/album/monsterland-2",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11268view0 numbered credits isolate all track9 roles;2016release,Stockholm recording,Umeåmaster. Artist-owned biography explicitly Norrbotten community."
+        },
+        {
+          "url": "https://veravinter.bandcamp.com/track/norrmalmstorg",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11271view2 complete4:11 individually purchasable work; lyrics and fullalbum credits retained."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3YgOOU8IFF19aYPaEnHlrf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11271view0 VeraVinter14; artist category bridge only, playlist Paris is not selected source track."
+        },
+        {
+          "url": "https://bdpop.se/vera-vinter/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11271view1 regional production institution identifies northern artist/community. Later album roles not transferred."
+        }
+      ],
+      "neighbor_distinction": "Exact creator Norrbotten Indie includes Vera Vinter item14. Artist-owned biography and regional institution BD Pop positively identify her Stora Lappträsk/Kalix origin and Norrbotten indie-pop/folk community. Existing Swedish indie folk/pop/rock are overlapping national stylistic fields, not restricted by selected exemplars. Norrbotten defines a narrower regional community crossing these styles; full Norrlandsk hip hop is a rap community and Uppland nyckelharpa a different instrumental tradition. The source song or alternative four-family palette does not itself define the category boundary.",
+      "model_policy": "Bare guitar is realized as authored all-mahogany steel-string OM with flatpicked single-note phrasing, not source construction or measured gesture. Explicit synthesizers use existing source-unspecified architecture rather than guessing analog/digital engines. Source drum role receives coherent authored maple/B20 traditional-finish stick kit. One singer, neutral physiology, accompanied solo and single-lead rendition are authored; original layering unspecified. Controlled live-room presentation and omitted capture apparatus/global tuning are editorial. Broad balladPoetry follows this published lyrical personal narrative and compact voice-led realization; no claim all regional indie music shares its arrangement. The public up-tempo vocal cue is explicitly authored brisk pacing of this new rendition, not measured original track tempo; source does not specify a conflicting slow tempo.",
+      "classification_evidence": "Exact creator Norrbotten Indie includes Vera Vinter item14. Artist-owned biography and regional institution BD Pop positively identify her Stora Lappträsk/Kalix origin and Norrbotten indie-pop/folk community. Existing Swedish indie folk/pop/rock are overlapping national stylistic fields, not restricted by selected exemplars. Norrbotten defines a narrower regional community crossing these styles; full Norrlandsk hip hop is a rap community and Uppland nyckelharpa a different instrumental tradition. The source song or alternative four-family palette does not itself define the category boundary.",
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "reason": "Only Vera voice assigned track9; original layering unspecified. Single-lead is authored."
+      },
+      "instrument_role_audit": {
+        "scope": "Vera Vinter — whole separately purchasable4:11 Norrmalmstorg, track9 of Monsterland, issued5February2016. Track-numbered artist credits establish Vera voice/guitar, Johannes Berglund synthesizers, and Mikael Häggström drums: three people, one credited singer, four sound families. Bass belongs only to tracks2–3; organ, theremin and programmed drums are explicitly assigned to other tracks. These are not removed from the selected track: they are not credited to it. The earlier held Från mitt berg whole-album model remains preserved separately; this is a different complete issued work, not a reduced arrangement of that album. Production/recording Stockholm, mastering Umeå; neither is claimed Norrbotten recording venue. No source audio audition.",
+        "people_count": 3,
+        "cards": 4,
+        "roles": [
+          "Vera Vinter:voice/guitar",
+          "Johannes Berglund:synthesizers",
+          "Mikael Häggström:drums"
+        ],
+        "defaults": "Bare guitar is realized as authored all-mahogany steel-string OM with flatpicked single-note phrasing, not source construction or measured gesture. Explicit synthesizers use existing source-unspecified architecture rather than guessing analog/digital engines. Source drum role receives coherent authored maple/B20 traditional-finish stick kit. One singer, neutral physiology, accompanied solo and single-lead rendition are authored; original layering unspecified. Controlled live-room presentation and omitted capture apparatus/global tuning are editorial. Broad balladPoetry follows this published lyrical personal narrative and compact voice-led realization; no claim all regional indie music shares its arrangement."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Bare guitar is realized as authored all-mahogany steel-string OM with flatpicked single-note phrasing, not source construction or measured gesture. Explicit synthesizers use existing source-unspecified architecture rather than guessing analog/digital engines. Source drum role receives coherent authored maple/B20 traditional-finish stick kit. One singer, neutral physiology, accompanied solo and single-lead rendition are authored; original layering unspecified. Controlled live-room presentation and omitted capture apparatus/global tuning are editorial. Broad balladPoetry follows this published lyrical personal narrative and compact voice-led realization; no claim all regional indie music shares its arrangement. The public up-tempo vocal cue is explicitly authored brisk pacing of this new rendition, not measured original track tempo; source does not specify a conflicting slow tempo."
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "parts": {
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top_om",
+            "back_sides": "mahogany_bs_om",
+            "string_acoustic": "phosphor_om",
+            "acoustic_om_technique": "om_flatpicked_lead"
+          },
+          "policy": "Bare guitar is realized as authored all-mahogany steel-string OM with flatpicked single-note phrasing, not source construction or measured gesture. Explicit synthesizers use existing source-unspecified architecture rather than guessing analog/digital engines. Source drum role receives coherent authored maple/B20 traditional-finish stick kit. One singer, neutral physiology, accompanied solo and single-lead rendition are authored; original layering unspecified. Controlled live-room presentation and omitted capture apparatus/global tuning are editorial. Broad balladPoetry follows this published lyrical personal narrative and compact voice-led realization; no claim all regional indie music shares its arrangement. The public up-tempo vocal cue is explicitly authored brisk pacing of this new rendition, not measured original track tempo; source does not specify a conflicting slow tempo."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Bare guitar is realized as authored all-mahogany steel-string OM with flatpicked single-note phrasing, not source construction or measured gesture. Explicit synthesizers use existing source-unspecified architecture rather than guessing analog/digital engines. Source drum role receives coherent authored maple/B20 traditional-finish stick kit. One singer, neutral physiology, accompanied solo and single-lead rendition are authored; original layering unspecified. Controlled live-room presentation and omitted capture apparatus/global tuning are editorial. Broad balladPoetry follows this published lyrical personal narrative and compact voice-led realization; no claim all regional indie music shares its arrangement. The public up-tempo vocal cue is explicitly authored brisk pacing of this new rendition, not measured original track tempo; source does not specify a conflicting slow tempo."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "Bare guitar is realized as authored all-mahogany steel-string OM with flatpicked single-note phrasing, not source construction or measured gesture. Explicit synthesizers use existing source-unspecified architecture rather than guessing analog/digital engines. Source drum role receives coherent authored maple/B20 traditional-finish stick kit. One singer, neutral physiology, accompanied solo and single-lead rendition are authored; original layering unspecified. Controlled live-room presentation and omitted capture apparatus/global tuning are editorial. Broad balladPoetry follows this published lyrical personal narrative and compact voice-led realization; no claim all regional indie music shares its arrangement. The public up-tempo vocal cue is explicitly authored brisk pacing of this new rendition, not measured original track tempo; source does not specify a conflicting slow tempo."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All owning parts pinned, neutral synth has own identity; no irrelevant parts from earlier violin/cello/kantele album."
+      },
+      "dependency_audit": {
+        "new_dependencies": [],
+        "existing_owner_count": 1638,
+        "policy": "No shared or existing owner changes."
+      },
+      "verification_status": "Original loader34parts all protected,1638 existing owners preserved, all four formats pass maximum822characters. Full source role union retained; generic modern indie affect, no foreign cultural label. Orchestra-model denotes actual OM guitar size, not an added orchestral ensemble.",
+      "source_scope_limitation": "Vera Vinter — whole separately purchasable4:11 Norrmalmstorg, track9 of Monsterland, issued5February2016. Track-numbered artist credits establish Vera voice/guitar, Johannes Berglund synthesizers, and Mikael Häggström drums: three people, one credited singer, four sound families. Bass belongs only to tracks2–3; organ, theremin and programmed drums are explicitly assigned to other tracks. These are not removed from the selected track: they are not credited to it. The earlier held Från mitt berg whole-album model remains preserved separately; this is a different complete issued work, not a reduced arrangement of that album. Production/recording Stockholm, mastering Umeå; neither is claimed Norrbotten recording venue. No source audio audition.",
+      "primary_retrieval_refs": [
+        "turn11268view0",
+        "turn11271view0",
+        "turn11271view1",
+        "turn11271view2"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "norrbotten_indie",
+          "name": "Norrbotten indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context only; not Vera Vinter or actual source hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11250 context and previously fresh11186view2 Commons rights read; Iain Fergusson/Binksternet CC BY2.5. Historical exact byte and visual receipts retained without redownload.",
+          "fresh_review_ref": "turn11186view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11186view2"
+        ]
+      },
+      "source_retrieval_caveat": "Full artist track-specific credits, individually purchasable work and exact creator reproduced. No listening or original guitar construction claim."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [
+    {
+      "id": "norrbotten_indie",
+      "gap": "Full co-producer nine-song album roster and exact creator bridge established, but original compiler renders violin erhuang. Bounded modern steel/synthetic strings, classical/local melody, oil/synthetic varnish and live/parlor/hall presentation trials did not remove unrelated Chinese opera label. Preserve full source palette; no shared edits or role deletion."
+    }
+  ],
+  "status": "HOLD_RENDER_SEMANTICS"
+}

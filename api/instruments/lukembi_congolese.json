@@ -1,0 +1,218 @@
+{
+  "id": "lukembi_congolese",
+  "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+  "short": "Congolese ten-key lukembi",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "lukembi_congolese_key_count",
+      "name": "Ten keys",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_ten",
+          "name": "Ten metal keys",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_tine_material",
+      "name": "Key material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_recycled_metal",
+          "name": "Recycled metal umbrella stays",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_body",
+      "name": "Resonant body",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_hollow_wood",
+          "name": "Hollowed wooden body; species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_bridge",
+      "name": "Key bridge",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_bridge_unspecified",
+          "name": "Bridge supporting keys; material unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_binding",
+      "name": "Key bindings",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_vine",
+          "name": "Vine bindings at both ends",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_tuning",
+      "name": "Local tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_sliding_keys_local",
+          "name": "Local performer tuning by sliding keys; exact intervals unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_technique",
+      "name": "Key excitation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_thumb_plucked",
+          "name": "Thumb-plucked metal keys",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lukembi_congolese_key_count",
+      "name": "Ten keys",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_ten",
+          "name": "Ten metal keys",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_tine_material",
+      "name": "Key material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_recycled_metal",
+          "name": "Recycled metal umbrella stays",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_body",
+      "name": "Resonant body",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_hollow_wood",
+          "name": "Hollowed wooden body; species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_bridge",
+      "name": "Key bridge",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_bridge_unspecified",
+          "name": "Bridge supporting keys; material unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_binding",
+      "name": "Key bindings",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_vine",
+          "name": "Vine bindings at both ends",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_tuning",
+      "name": "Local tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_sliding_keys_local",
+          "name": "Local performer tuning by sliding keys; exact intervals unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "lukembi_congolese_technique",
+      "name": "Key excitation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lukembi_congolese_thumb_plucked",
+          "name": "Thumb-plucked metal keys",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

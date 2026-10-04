@@ -1,0 +1,242 @@
+{
+  "entries": [
+    {
+      "source_label": "pinoy praise",
+      "source_url": "https://everynoise.com/engenremap-pinoypraise.html",
+      "suggested_id": "pinoy_praise",
+      "allocation_ordinal": 4128,
+      "allocation_group_id": "166",
+      "id": "pinoy_praise",
+      "tradition": {
+        "id": "pinoy_praise",
+        "name": "Pinoy Praise",
+        "family": "blues_gospel",
+        "lineage": "Woodrose Chorale — complete Lead Me Lord remote a cappella rendition issued by PAREF Woodrose School in2020. School-hosted testimony identifies an unaccompanied student choir assembled from separate home recordings. The separately linked teachers’ song includes piano and is not part of this rendition. Preserve all choir voices, with unknown headcount and part allocation; neither Gary Valenciano’s original recording nor the monitored rehearsal audio is reconstructed. No audition claim. All human vocal contributors retained through existing17-control source-unspecified ensemble owner. Singing is positive; headcount, registers, section layout and actual overdub count remain unspecified. Source confirms remote assembly but not a particular catalog stack configuration. Unprocessed neutral physiology and spacious hall-like listening presentation are authored, not claims of shared venue or original signal processing. No instrumental role, global tuning or capture apparatus inferred. Broad ritualDevotional follows the selected invocation function, not concert status or compulsory denomination. Plain syllabic melodic delivery is authored, not a note-for-note source analysis.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Woodrose Chorale — complete Lead Me Lord remote a cappella rendition issued by PAREF Woodrose School in2020. School-hosted testimony identifies an unaccompanied student choir assembled from separate home recordings. The separately linked teachers’ song includes piano and is not part of this rendition. Preserve all choir voices, with unknown headcount and part allocation; neither Gary Valenciano’s original recording nor the monitored rehearsal audio is reconstructed. No audition claim. Pinoy Praise is the multilingual Philippine Christian praise-repertoire and performer community. Exact creator corpus includes English-language Lead Me Lord and Tell the World of His Love alongside Tagalog praise, Catholic CFC/Liveloud and evangelical Victory/gloryfall ministries. Existing tagalog_worship expressly scopes Tagalog-language worship; this broader national field includes English repertoire. Existing papuri identifies the specific FEBC songwriting/ministry movement, not all Philippine Christian recordings. General Christian worship overlaps; national repertoire and institutions provide the category axis, not this particular choir or arrangement. The school independently identifies the selected Filipino-composed spiritual song and its regular invocation use; the composer-owned World Youth Day theme page supports an additional national Catholic praise branch. All human vocal contributors retained through existing17-control source-unspecified ensemble owner. Singing is positive; headcount, registers, section layout and actual overdub count remain unspecified. Source confirms remote assembly but not a particular catalog stack configuration. Unprocessed neutral physiology and spacious hall-like listening presentation are authored, not claims of shared venue or original signal processing. No instrumental role, global tuning or capture apparatus inferred. Broad ritualDevotional follows the selected invocation function, not concert status or compulsory denomination. Plain syllabic melodic delivery is authored, not a note-for-note source analysis.",
+        "exemplars": [
+          "Woodrose Chorale — Lead Me Lord, complete remote a cappella rendition2020"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        14.408,
+        -121.039,
+        "Muntinlupa",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "School primary identifies Muntinlupa institution; editorial community anchor, not claim every remote singer recorded here.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://parefwoodrose.edu.ph/tribute-to-covid-19-frontliners/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11250view0 school-issued full performance link plus participant testimony: complete a cappella student rendition recorded remotely; separate teachers piano-backed work excluded. Invocation function and Muntinlupa institution explicit."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3cUZkIPJ5rGYyRM31Uv5sh",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11239view1 creator Pinoy Praise item16 Gary Valenciano Lead Me Lord, item13 Jamie Rivera TellTheWorld, item26 composer anniversary version, multilingual and multiple ministry corpus."
+        },
+        {
+          "url": "https://greatsongstosing.com/products/world-youth-day-95-theme-song-tell-the-world-of-his-love",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11236view0 composer-owned publisher documents Manila WorldYouthDay1995 original song and subsequent church use; category context only, no musical roles transferred."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=PPaWwR0oCdQ",
+          "checked_date": "2026-10-03",
+          "support_notes": "School-linked full selected rendition; direct fetch throttled11252view0, no audition claimed. School primary supports source scope independently."
+        }
+      ],
+      "neighbor_distinction": "Pinoy Praise is the multilingual Philippine Christian praise-repertoire and performer community. Exact creator corpus includes English-language Lead Me Lord and Tell the World of His Love alongside Tagalog praise, Catholic CFC/Liveloud and evangelical Victory/gloryfall ministries. Existing tagalog_worship expressly scopes Tagalog-language worship; this broader national field includes English repertoire. Existing papuri identifies the specific FEBC songwriting/ministry movement, not all Philippine Christian recordings. General Christian worship overlaps; national repertoire and institutions provide the category axis, not this particular choir or arrangement. The school independently identifies the selected Filipino-composed spiritual song and its regular invocation use; the composer-owned World Youth Day theme page supports an additional national Catholic praise branch.",
+      "model_policy": "All human vocal contributors retained through existing17-control source-unspecified ensemble owner. Singing is positive; headcount, registers, section layout and actual overdub count remain unspecified. Source confirms remote assembly but not a particular catalog stack configuration. Unprocessed neutral physiology and spacious hall-like listening presentation are authored, not claims of shared venue or original signal processing. No instrumental role, global tuning or capture apparatus inferred. Broad ritualDevotional follows the selected invocation function, not concert status or compulsory denomination. Plain syllabic melodic delivery is authored, not a note-for-note source analysis.",
+      "dependency_audit": {
+        "new_dependencies": [],
+        "existing_owner_count": 1638,
+        "policy": "All existing owners unchanged; no repository mutation."
+      },
+      "classification_evidence": "Pinoy Praise is the multilingual Philippine Christian praise-repertoire and performer community. Exact creator corpus includes English-language Lead Me Lord and Tell the World of His Love alongside Tagalog praise, Catholic CFC/Liveloud and evangelical Victory/gloryfall ministries. Existing tagalog_worship expressly scopes Tagalog-language worship; this broader national field includes English repertoire. Existing papuri identifies the specific FEBC songwriting/ministry movement, not all Philippine Christian recordings. General Christian worship overlaps; national repertoire and institutions provide the category axis, not this particular choir or arrangement. The school independently identifies the selected Filipino-composed spiritual song and its regular invocation use; the composer-owned World Youth Day theme page supports an additional national Catholic praise branch.",
+      "vocal_count_audit": {
+        "selected_count": null,
+        "reason": "Complete student choir; headcount, vocal section distribution and exact overdub layering unspecified. No fixed four-person choir inference."
+      },
+      "instrument_role_audit": {
+        "scope": "Woodrose Chorale — complete Lead Me Lord remote a cappella rendition issued by PAREF Woodrose School in2020. School-hosted testimony identifies an unaccompanied student choir assembled from separate home recordings. The separately linked teachers’ song includes piano and is not part of this rendition. Preserve all choir voices, with unknown headcount and part allocation; neither Gary Valenciano’s original recording nor the monitored rehearsal audio is reconstructed. No audition claim.",
+        "cards": 1,
+        "roles": [
+          "Unknown-count human choir, singing only"
+        ],
+        "defaults": "All human vocal contributors retained through existing17-control source-unspecified ensemble owner. Singing is positive; headcount, registers, section layout and actual overdub count remain unspecified. Source confirms remote assembly but not a particular catalog stack configuration. Unprocessed neutral physiology and spacious hall-like listening presentation are authored, not claims of shared venue or original signal processing. No instrumental role, global tuning or capture apparatus inferred. Broad ritualDevotional follows the selected invocation function, not concert status or compulsory denomination."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "All human vocal contributors retained through existing17-control source-unspecified ensemble owner. Singing is positive; headcount, registers, section layout and actual overdub count remain unspecified. Source confirms remote assembly but not a particular catalog stack configuration. Unprocessed neutral physiology and spacious hall-like listening presentation are authored, not claims of shared venue or original signal processing. No instrumental role, global tuning or capture apparatus inferred. Broad ritualDevotional follows the selected invocation function, not concert status or compulsory denomination. Plain syllabic melodic delivery is authored, not a note-for-note source analysis."
+        }
+      ],
+      "verification_status": "Original-loader17parts all protected;1638 existing owners unchanged; original four formats clean, generic huge denotes authored hall spatial scale, not choir headcount. No new dependencies or foreign cultural labels.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pinoy_praise",
+          "name": "Pinoy Praise",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context only; not Woodrose Chorale or actual remote recording apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11250 context and previously fresh11186view2 Commons rights read; Iain Fergusson/Binksternet CC BY2.5. Historical exact byte and visual receipts retained without redownload.",
+          "fresh_review_ref": "turn11186view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11186view2"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 applicable controls protected, neutral ensemble and tracking status preserve unknown counts; no foreign-owner keys."
+      },
+      "primary_retrieval_refs": [
+        "turn11250view0",
+        "turn11239view1",
+        "turn11236view0"
+      ],
+      "source_retrieval_caveat": "Full school account and creator playlist read. Linked performance video fetch throttled; no listening or image-based choir headcount asserted.",
+      "source_scope_limitation": "Woodrose Chorale — complete Lead Me Lord remote a cappella rendition issued by PAREF Woodrose School in2020. School-hosted testimony identifies an unaccompanied student choir assembled from separate home recordings. The separately linked teachers’ song includes piano and is not part of this rendition. Preserve all choir voices, with unknown headcount and part allocation; neither Gary Valenciano’s original recording nor the monitored rehearsal audio is reconstructed. No audition claim.",
+      "status": "frozen_for_independent_review"
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_for_independent_review"
+}

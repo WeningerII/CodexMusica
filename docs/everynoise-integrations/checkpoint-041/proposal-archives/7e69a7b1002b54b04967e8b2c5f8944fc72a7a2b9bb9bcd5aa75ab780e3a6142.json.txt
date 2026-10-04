@@ -1,0 +1,516 @@
+{
+  "entries": [
+    {
+      "source_label": "dark progressive house",
+      "source_url": "https://everynoise.com/engenremap-darkprogressivehouse.html",
+      "suggested_id": "dark_progressive_house",
+      "allocation_ordinal": 30,
+      "allocation_group_id": "002",
+      "id": "dark_progressive_house",
+      "tradition": {
+        "id": "dark_progressive_house",
+        "name": "Dark Progressive House",
+        "family": "electronic",
+        "lineage": "Dark progressive house — brooding, harmonically layered house associated with extended DJ development.",
+        "instruments": [
+          "wavetable_synth",
+          "analog_synth",
+          "drum_machine_909",
+          "credited_samples_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "electronic_technique": "electronic_arpeggiated",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_poly",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod",
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern",
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.house",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Dark progressive house emphasizes shadowy atmosphere, gradual builds and intricate harmonic layers over a steady house pulse. Its DJs and producers develop long transitions and evolving textures, connecting progressive-house structure with a darker, immersive club sound. Moshic and related radio and label communities illustrate this strand.",
+        "exemplars": [
+          "Moshic — complete January2022 live DJ mix1:00:26"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        32.0853,
+        34.7818,
+        "Tel Aviv",
+        "Middle East"
+      ],
+      "geo_rationale": "Artist-own Mixcloud profile locality; broad editorial anchor, not asserted recording venue or birthplace.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Dark Progressive House is a narrower moody/brooding progressive-house practice and interconnected DJ community. Practitioner Booya documents Progressive Resistance radio and Sudam-related Moshic/Kintar/dPen network firsthand, distinguishing his return from trance to dark progressive; producer Immense Sounds explicitly defines darker intricate harmonic ambiance within progressive-house builds. Existing progressive_house already covers1992British long-form dub/tribal development AND later festival supersaw wave: substantial parent-field overlap is acknowledged, not denied by date or Moshic substitution. The proposed distinction is the positive narrower community and brooding practice, not a different mix or hardware. Dark melodic techno overlaps this programme; issuer distinguishes techno rhythmic emphasis from progressive-house builds. Requested creator map currently403; historical prior researcher membership observation is not fresh independently reproduced evidence. Primary performer/practitioner exact terminology supports the field without claiming every mix item exclusive to it. No alias or whole-field nonoverlap asserted.",
+      "classification_evidence": "Dark Progressive House is a narrower moody/brooding progressive-house practice and interconnected DJ community. Practitioner Booya documents Progressive Resistance radio and Sudam-related Moshic/Kintar/dPen network firsthand, distinguishing his return from trance to dark progressive; producer Immense Sounds explicitly defines darker intricate harmonic ambiance within progressive-house builds. Existing progressive_house already covers1992British long-form dub/tribal development AND later festival supersaw wave: substantial parent-field overlap is acknowledged, not denied by date or Moshic substitution. The proposed distinction is the positive narrower community and brooding practice, not a different mix or hardware. Dark melodic techno overlaps this programme; issuer distinguishes techno rhythmic emphasis from progressive-house builds. Requested creator map currently403; historical prior researcher membership observation is not fresh independently reproduced evidence. Primary performer/practitioner exact terminology supports the field without claiming every mix item exclusive to it. No alias or whole-field nonoverlap asserted.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "One actual merged owning identity control, explicitly pinned; all source hardware details remain unknown."
+      },
+      "status": "source_ready",
+      "verification_status": "One applicable owning identity control protected, zero errors/fallbacks; all1638 old owners unchanged. Four original outputs independently read: neutral DJ identity and controlled room, only authored up-tempo pacing, no invented gear/voices/culture. Maximum147chars. Independent boundary peer and final integrated checks pending.",
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/moshic/moshic-jan-2022-live-mix-dark-progressive-melodic-house/",
+          "title": "Whole artist-issued live DJ programme",
+          "support_notes": "Fresh12648view1 exact title,1:00:26, Moshic attribution and house/melodic tags. No hidden full tracklist inferred."
+        },
+        {
+          "url": "https://www.mixcloud.com/moshic/uploads/",
+          "title": "Artist-owned profile",
+          "support_notes": "Fresh12644search1 DJ/producer identity and TelAviv locality; current profile and wholeprogramme duration."
+        },
+        {
+          "url": "https://soundcloud.com/moshic/moshic-live-dark-prog-melodic-mix-jan-2022",
+          "title": "Same artist issue corroboration",
+          "support_notes": "Fresh indexed12644search2 genre Dark progressive melodic house and January20 2022 publication; directSoundCloud blocked, no audio listened."
+        },
+        {
+          "url": "https://djbooya.wordpress.com/2011/08/31/progressive-resistance/",
+          "title": "Firsthand practitioner scene account",
+          "support_notes": "Fresh12641view2 own radio series, Moshic/Kintar/dPen and Sudam-connected network, return fromtrance to darkprogressive. Not independent journalistic fielddefinition."
+        },
+        {
+          "url": "https://static.reveal-sound.com/store/product/Future_Dark_Progressive/files/info.pdf",
+          "title": "Producer-issued practice definition",
+          "support_notes": "Fresh12641view0 defines darkprogressive mood/harmony/builds vs darkmelodictechno. Used only fieldcorroboration; its Serum presets/kitBPM not transferred toMoshic."
+        },
+        {
+          "url": "https://static.reveal-sound.com/store/product/Future_Dark_Progressive/files/info.pdf",
+          "support_notes": "Fresh13436view0 producer-issued full practice palette now used for representative production defaults, not transferred into Moshic original DJ recording."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "dark_progressive_house",
+          "name": "Dark Progressive House",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12592view0 Commons attribution/license verified; inherited exact023 bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn12592view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12592view0"
+        ],
+        "fresh_rights_review": "Fresh12592view0 rights only; exact historical bytes/visual receipt unchanged."
+      },
+      "primary_retrieval_refs": [
+        "turn12648view1",
+        "turn12644search1",
+        "turn12644search2",
+        "turn12641view2",
+        "turn12641view0"
+      ],
+      "source_review_refs": [
+        "turn12648view1",
+        "turn12644search1",
+        "turn12644search2",
+        "turn12641view2",
+        "turn12641view0"
+      ],
+      "source_retrieval_caveat": "Actual issuer metadata and practitioner statement read; no audio/full tracklist audition, creator map403. No original hardware or underlying source-role inference.",
+      "repair_evidence": {
+        "original_source": "/tmp/batch040/resume461-11.json",
+        "original_entry": {
+          "source_label": "dark progressive house",
+          "source_url": "https://everynoise.com/engenremap-darkprogressivehouse.html",
+          "suggested_id": "dark_progressive_house",
+          "allocation_ordinal": 30,
+          "allocation_group_id": "002",
+          "id": "dark_progressive_house",
+          "tradition": {
+            "id": "dark_progressive_house",
+            "name": "Dark Progressive House",
+            "family": "electronic",
+            "lineage": "Moshic — complete artist-issued January2022 live DJ mix,1:00:26. The artist directly labels the whole programme Dark Progressive Melodic House; Mixcloud metadata and linked artist profile identify actual DJ practice. This is an actual mixed performance, not opaque studio music relabeled sampler playback. Media/decks, transitions, source-track count, embedded instrument and vocal headcounts remain unknown; no separate live voice is documented, which does not prove zero voices. No audio audition, exact source tempo or venue claim. Existing neutral DJ playback/mixing identity preserves the entire issued programme, including all embedded source layers. One actual owning control explicitly protected. Controlled live-room capture and brisk presentation are authored dance-compatible rendition choices, not source venue/BPM measurements. No asserted specific deck technology, global tuning or recording chain. electronicDance.house follows the positively identified house DJ practice; no invented verse-chorus structure.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance.house",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Moshic — complete artist-issued January2022 live DJ mix,1:00:26. The artist directly labels the whole programme Dark Progressive Melodic House; Mixcloud metadata and linked artist profile identify actual DJ practice. This is an actual mixed performance, not opaque studio music relabeled sampler playback. Media/decks, transitions, source-track count, embedded instrument and vocal headcounts remain unknown; no separate live voice is documented, which does not prove zero voices. No audio audition, exact source tempo or venue claim. Dark Progressive House is a narrower moody/brooding progressive-house practice and interconnected DJ community. Practitioner Booya documents Progressive Resistance radio and Sudam-related Moshic/Kintar/dPen network firsthand, distinguishing his return from trance to dark progressive; producer Immense Sounds explicitly defines darker intricate harmonic ambiance within progressive-house builds. Existing progressive_house already covers1992British long-form dub/tribal development AND later festival supersaw wave: substantial parent-field overlap is acknowledged, not denied by date or Moshic substitution. The proposed distinction is the positive narrower community and brooding practice, not a different mix or hardware. Dark melodic techno overlaps this programme; issuer distinguishes techno rhythmic emphasis from progressive-house builds. Requested creator map currently403; historical prior researcher membership observation is not fresh independently reproduced evidence. Primary performer/practitioner exact terminology supports the field without claiming every mix item exclusive to it. No alias or whole-field nonoverlap asserted. Existing neutral DJ playback/mixing identity preserves the entire issued programme, including all embedded source layers. One actual owning control explicitly protected. Controlled live-room capture and brisk presentation are authored dance-compatible rendition choices, not source venue/BPM measurements. No asserted specific deck technology, global tuning or recording chain. electronicDance.house follows the positively identified house DJ practice; no invented verse-chorus structure.",
+            "exemplars": [
+              "Moshic — complete January2022 live DJ mix1:00:26"
+            ],
+            "crossRefs": []
+          },
+          "geo": [
+            32.0853,
+            34.7818,
+            "Tel Aviv",
+            "Middle East"
+          ],
+          "geo_rationale": "Artist-own Mixcloud profile locality; broad editorial anchor, not asserted recording venue or birthplace.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Dark Progressive House is a narrower moody/brooding progressive-house practice and interconnected DJ community. Practitioner Booya documents Progressive Resistance radio and Sudam-related Moshic/Kintar/dPen network firsthand, distinguishing his return from trance to dark progressive; producer Immense Sounds explicitly defines darker intricate harmonic ambiance within progressive-house builds. Existing progressive_house already covers1992British long-form dub/tribal development AND later festival supersaw wave: substantial parent-field overlap is acknowledged, not denied by date or Moshic substitution. The proposed distinction is the positive narrower community and brooding practice, not a different mix or hardware. Dark melodic techno overlaps this programme; issuer distinguishes techno rhythmic emphasis from progressive-house builds. Requested creator map currently403; historical prior researcher membership observation is not fresh independently reproduced evidence. Primary performer/practitioner exact terminology supports the field without claiming every mix item exclusive to it. No alias or whole-field nonoverlap asserted.",
+          "model_policy": "Existing neutral DJ playback/mixing identity preserves the entire issued programme, including all embedded source layers. One actual owning control explicitly protected. Controlled live-room capture and brisk presentation are authored dance-compatible rendition choices, not source venue/BPM measurements. No asserted specific deck technology, global tuning or recording chain. electronicDance.house follows the positively identified house DJ practice; no invented verse-chorus structure.",
+          "source_scope_limitation": "Moshic — complete artist-issued January2022 live DJ mix,1:00:26. The artist directly labels the whole programme Dark Progressive Melodic House; Mixcloud metadata and linked artist profile identify actual DJ practice. This is an actual mixed performance, not opaque studio music relabeled sampler playback. Media/decks, transitions, source-track count, embedded instrument and vocal headcounts remain unknown; no separate live voice is documented, which does not prove zero voices. No audio audition, exact source tempo or venue claim.",
+          "classification_evidence": "Dark Progressive House is a narrower moody/brooding progressive-house practice and interconnected DJ community. Practitioner Booya documents Progressive Resistance radio and Sudam-related Moshic/Kintar/dPen network firsthand, distinguishing his return from trance to dark progressive; producer Immense Sounds explicitly defines darker intricate harmonic ambiance within progressive-house builds. Existing progressive_house already covers1992British long-form dub/tribal development AND later festival supersaw wave: substantial parent-field overlap is acknowledged, not denied by date or Moshic substitution. The proposed distinction is the positive narrower community and brooding practice, not a different mix or hardware. Dark melodic techno overlaps this programme; issuer distinguishes techno rhythmic emphasis from progressive-house builds. Requested creator map currently403; historical prior researcher membership observation is not fresh independently reproduced evidence. Primary performer/practitioner exact terminology supports the field without claiming every mix item exclusive to it. No alias or whole-field nonoverlap asserted.",
+          "vocal_count_audit": {
+            "selected_count": null,
+            "embedded_voice_count": "unknown",
+            "separately_performed_live_voice_count": "unknown",
+            "added_live_voice_cards": 0,
+            "decision": "Full actual issued DJ programme retained; no live voice role documented and no embedded-voice absence claim."
+          },
+          "instrument_role_audit": {
+            "scope": "Moshic — complete artist-issued January2022 live DJ mix,1:00:26. The artist directly labels the whole programme Dark Progressive Melodic House; Mixcloud metadata and linked artist profile identify actual DJ practice. This is an actual mixed performance, not opaque studio music relabeled sampler playback. Media/decks, transitions, source-track count, embedded instrument and vocal headcounts remain unknown; no separate live voice is documented, which does not prove zero voices. No audio audition, exact source tempo or venue claim.",
+            "roles": {
+              "dj_playback_mixing_unspecified": "Full artist-issued1:00:26 live DJ programme"
+            },
+            "performers": [
+              "Moshic"
+            ],
+            "authored_defaults": "Existing neutral DJ playback/mixing identity preserves the entire issued programme, including all embedded source layers. One actual owning control explicitly protected. Controlled live-room capture and brisk presentation are authored dance-compatible rendition choices, not source venue/BPM measurements. No asserted specific deck technology, global tuning or recording chain. electronicDance.house follows the positively identified house DJ practice; no invented verse-chorus structure."
+          },
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "dj_playback_mixing_unspecified"
+            ]
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Existing neutral DJ playback/mixing identity preserves the entire issued programme, including all embedded source layers. One actual owning control explicitly protected. Controlled live-room capture and brisk presentation are authored dance-compatible rendition choices, not source venue/BPM measurements. No asserted specific deck technology, global tuning or recording chain. electronicDance.house follows the positively identified house DJ practice; no invented verse-chorus structure."
+            }
+          ],
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "rule": "One actual merged owning identity control, explicitly pinned; all source hardware details remain unknown."
+          },
+          "status": "source_ready",
+          "verification_status": "One applicable owning identity control protected, zero errors/fallbacks; all1638 old owners unchanged. Four original outputs independently read: neutral DJ identity and controlled room, only authored up-tempo pacing, no invented gear/voices/culture. Maximum147chars. Independent boundary peer and final integrated checks pending.",
+          "sources": [
+            {
+              "url": "https://www.mixcloud.com/moshic/moshic-jan-2022-live-mix-dark-progressive-melodic-house/",
+              "title": "Whole artist-issued live DJ programme",
+              "support_notes": "Fresh12648view1 exact title,1:00:26, Moshic attribution and house/melodic tags. No hidden full tracklist inferred."
+            },
+            {
+              "url": "https://www.mixcloud.com/moshic/uploads/",
+              "title": "Artist-owned profile",
+              "support_notes": "Fresh12644search1 DJ/producer identity and TelAviv locality; current profile and wholeprogramme duration."
+            },
+            {
+              "url": "https://soundcloud.com/moshic/moshic-live-dark-prog-melodic-mix-jan-2022",
+              "title": "Same artist issue corroboration",
+              "support_notes": "Fresh indexed12644search2 genre Dark progressive melodic house and January20 2022 publication; directSoundCloud blocked, no audio listened."
+            },
+            {
+              "url": "https://djbooya.wordpress.com/2011/08/31/progressive-resistance/",
+              "title": "Firsthand practitioner scene account",
+              "support_notes": "Fresh12641view2 own radio series, Moshic/Kintar/dPen and Sudam-connected network, return fromtrance to darkprogressive. Not independent journalistic fielddefinition."
+            },
+            {
+              "url": "https://static.reveal-sound.com/store/product/Future_Dark_Progressive/files/info.pdf",
+              "title": "Producer-issued practice definition",
+              "support_notes": "Fresh12641view0 defines darkprogressive mood/harmony/builds vs darkmelodictechno. Used only fieldcorroboration; its Serum presets/kitBPM not transferred toMoshic."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "dark_progressive_house",
+              "name": "Dark Progressive House",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording context; not Moshic, DJ equipment, actual source hardware or cultural depiction.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh12592view0 Commons attribution/license verified; inherited exact023 bytes and visual receipt unchanged.",
+              "fresh_review_ref": "turn12592view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12592view0"
+            ],
+            "fresh_rights_review": "Fresh12592view0 rights only; exact historical bytes/visual receipt unchanged."
+          },
+          "primary_retrieval_refs": [
+            "turn12648view1",
+            "turn12644search1",
+            "turn12644search2",
+            "turn12641view2",
+            "turn12641view0"
+          ],
+          "source_review_refs": [
+            "turn12648view1",
+            "turn12644search1",
+            "turn12644search2",
+            "turn12641view2",
+            "turn12641view0"
+          ],
+          "source_retrieval_caveat": "Actual issuer metadata and practitioner statement read; no audio/full tracklist audition, creator map403. No original hardware or underlying source-role inference."
+        },
+        "reason": "Restore a representative produced-house palette instead of a DJ-playback-only preset. Wavetable harmonic layers, analog-style bass sequence, electronic drums and recorded vocal/sample layers use existing distinct owners.",
+        "default_review": "Fresh producer construction-kit source13436view0 explicitly identifies bass, arps, leads, pads, stabs, vocal pads, Serum/WAV/MIDI production. This supports genre-level produced sound.909-family house drums and analog bass are authored common electronic realizations, not exact equipment claims; shared arpeggiated technique deliberately supports sequenced harmonic/bass patterns. Sample role represents construction layers, not a finished mix or separately live singer. Bass uses stable sine-wave pitch without vibrato, deliberately emphasizing deep foundation rather than a bright/reedy melodic bass.",
+        "prior_instrument_role_audit": {
+          "scope": "Moshic — complete artist-issued January2022 live DJ mix,1:00:26. The artist directly labels the whole programme Dark Progressive Melodic House; Mixcloud metadata and linked artist profile identify actual DJ practice. This is an actual mixed performance, not opaque studio music relabeled sampler playback. Media/decks, transitions, source-track count, embedded instrument and vocal headcounts remain unknown; no separate live voice is documented, which does not prove zero voices. No audio audition, exact source tempo or venue claim.",
+          "roles": {
+            "dj_playback_mixing_unspecified": "Full artist-issued1:00:26 live DJ programme"
+          },
+          "performers": [
+            "Moshic"
+          ],
+          "authored_defaults": "Existing neutral DJ playback/mixing identity preserves the entire issued programme, including all embedded source layers. One actual owning control explicitly protected. Controlled live-room capture and brisk presentation are authored dance-compatible rendition choices, not source venue/BPM measurements. No asserted specific deck technology, global tuning or recording chain. electronicDance.house follows the positively identified house DJ practice; no invented verse-chorus structure."
+        },
+        "prior_resolved_parts_audit": [
+          {
+            "instrument": "dj_playback_mixing_unspecified",
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            },
+            "policy": "Existing neutral DJ playback/mixing identity preserves the entire issued programme, including all embedded source layers. One actual owning control explicitly protected. Controlled live-room capture and brisk presentation are authored dance-compatible rendition choices, not source venue/BPM measurements. No asserted specific deck technology, global tuning or recording chain. electronicDance.house follows the positively identified house DJ practice; no invented verse-chorus structure."
+          }
+        ],
+        "prior_vocal_count_audit": {
+          "selected_count": null,
+          "embedded_voice_count": "unknown",
+          "separately_performed_live_voice_count": "unknown",
+          "added_live_voice_cards": 0,
+          "decision": "Full actual issued DJ programme retained; no live voice role documented and no embedded-voice absence claim."
+        },
+        "prior_model_policy": "Existing neutral DJ playback/mixing identity preserves the entire issued programme, including all embedded source layers. One actual owning control explicitly protected. Controlled live-room capture and brisk presentation are authored dance-compatible rendition choices, not source venue/BPM measurements. No asserted specific deck technology, global tuning or recording chain. electronicDance.house follows the positively identified house DJ practice; no invented verse-chorus structure.",
+        "prior_source_scope_limitation": "Moshic — complete artist-issued January2022 live DJ mix,1:00:26. The artist directly labels the whole programme Dark Progressive Melodic House; Mixcloud metadata and linked artist profile identify actual DJ practice. This is an actual mixed performance, not opaque studio music relabeled sampler playback. Media/decks, transitions, source-track count, embedded instrument and vocal headcounts remain unknown; no separate live voice is documented, which does not prove zero voices. No audio audition, exact source tempo or venue claim."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "wavetable_synth",
+          "parts": {
+            "electronic_technique": "electronic_arpeggiated",
+            "wt_position": "wt_morphing",
+            "wt_family": "wt_analog_emul",
+            "wt_polyphony": "wt_poly"
+          },
+          "policy": "Fresh producer construction-kit source13436view0 explicitly identifies bass, arps, leads, pads, stabs, vocal pads, Serum/WAV/MIDI production. This supports genre-level produced sound.909-family house drums and analog bass are authored common electronic realizations, not exact equipment claims; shared arpeggiated technique deliberately supports sequenced harmonic/bass patterns. Sample role represents construction layers, not a finished mix or separately live singer."
+        },
+        {
+          "instrument": "analog_synth",
+          "parts": {
+            "electronic_technique": "electronic_arpeggiated",
+            "oscillator": "sine_osc",
+            "filter_topology": "transistor_ladder",
+            "envelope": "pluck_env",
+            "modulation": "no_mod"
+          },
+          "policy": "Fresh producer construction-kit source13436view0 explicitly identifies bass, arps, leads, pads, stabs, vocal pads, Serum/WAV/MIDI production. This supports genre-level produced sound.909-family house drums and analog bass are authored common electronic realizations, not exact equipment claims; shared arpeggiated technique deliberately supports sequenced harmonic/bass patterns. Sample role represents construction layers, not a finished mix or separately live singer."
+        },
+        {
+          "instrument": "drum_machine_909",
+          "parts": {
+            "tr909_voice": "tr909_kick",
+            "drum_machine_909_context": "drum_machine_909_house",
+            "tr909_production_origin": "tr909_tr_8s_modern"
+          },
+          "policy": "Fresh producer construction-kit source13436view0 explicitly identifies bass, arps, leads, pads, stabs, vocal pads, Serum/WAV/MIDI production. This supports genre-level produced sound.909-family house drums and analog bass are authored common electronic realizations, not exact equipment claims; shared arpeggiated technique deliberately supports sequenced harmonic/bass patterns. Sample role represents construction layers, not a finished mix or separately live singer."
+        },
+        {
+          "instrument": "credited_samples_unspecified",
+          "parts": {
+            "credited_samples_identity": "credited_samples_source_unspecified"
+          },
+          "policy": "Fresh producer construction-kit source13436view0 explicitly identifies bass, arps, leads, pads, stabs, vocal pads, Serum/WAV/MIDI production. This supports genre-level produced sound.909-family house drums and analog bass are authored common electronic realizations, not exact equipment claims; shared arpeggiated technique deliberately supports sequenced harmonic/bass patterns. Sample role represents construction layers, not a finished mix or separately live singer."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

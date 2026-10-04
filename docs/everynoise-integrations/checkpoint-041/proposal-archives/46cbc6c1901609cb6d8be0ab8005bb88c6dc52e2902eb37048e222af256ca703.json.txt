@@ -1,0 +1,266 @@
+{
+  "entries": [
+    {
+      "source_label": "lagu tarling",
+      "source_url": "https://everynoise.com/engenremap-lagutarling.html",
+      "suggested_id": "lagu_tarling",
+      "allocation_ordinal": 3658,
+      "allocation_group_id": "147",
+      "id": "lagu_tarling",
+      "tradition": {
+        "id": "lagu_tarling",
+        "name": "Lagu Tarling",
+        "family": "pop",
+        "lineage": "Lagu Tarling belongs to the song traditions of Cirebon and Indramayu on Java’s north coast. Earlier guitar-and-flute music developed into varied popular-song and dramatic forms, with modern branches incorporating dangdut influences and electronic keyboards.",
+        "instruments": [
+          "voice",
+          "rompler_workstation"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_oriental_arranger",
+          "rompler_context": "rompler_context_arranger_party",
+          "rompler_lineage": "rompler_lineage_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Singing carries the regional repertoire over melodic accompaniment and repeating percussion patterns. Guitar and flute remain part of its historical sound; modern organ-tunggal performances use an arranger keyboard to combine those timbres with bass, chords and rhythmic backing.",
+        "exemplars": [
+          "Modern Indramayu Organ Tunggal Tarling — documented singer/arranger-keyboard practice, Rasriy and Wahyudin 2023"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -6.33,
+        108.32,
+        "Indramayu",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Original local field study area; no invented particular recording venue.",
+      "sources": [
+        {
+          "url": "https://jurnal.isbi.ac.id/index.php/awilaras/article/download/2768/1596",
+          "support_notes": "Fresh full turn178113view0 original2023research, interviews8/9Oct2022, pp6–9 wholekeyboard-arrangement substitution and pp1/12 singer collaboration; pp10–11 modernTarlingdefinition.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.atlantis-press.com/article/55913534.pdf",
+          "support_notes": "Fresh original2019fieldresearch turn178113view1/turn665044view1 explains historical regional lineage and larger actual traditional/modern palettes; no instrumentsremoved from those alternativepractices.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Lagu Tarling denotes the Cirebon/Indramayu/Pantura song field with its own language, repertory and history, including older guitar-and-flute practice and modern keyboard/dangdut-influenced forms. The 2019 original cultural study distinguishes musical-song and drama development; the 2023 local field study identifies modern diatonic/digital Tarling and its dangdut influence. Full Dangdut already includes Indonesian popular-song synthesis; full Javanese Dangdut/Koplo includes organ-tunggal circuits, so a keyboard or Javanese language alone is not the distinction. Tarling’s specifically documented regional repertory and pre-dangdut lineage support the field while its modern branch overlaps dangdut. No new broad Tarling target exists in current catalog; no claim every Tarling song shares this duo arrangement.",
+      "model_policy": "Authored contemporary song arrangement uses one accompanied singer, source-unspecified vocal physiology, pitch and ornaments, neutral tract/moderate effort, and unprocessed single-lead presentation. Existing ROM-playback workstation provides its regional style bank and automatic accompaniment, preserving sampled instrumental roles and a played melodic lead. Make remains unspecified rather than importing a Balkan/Middle Eastern hardware descriptor from the Korg preset. One-man-band describes the single keyboard accompaniment operator, not the total singer count. Controlled live-room sound and brisk verse–chorus–bridge presentation over functional harmony are editorial choices for modern diatonic popular Tarling, not a recorded original tempo, venue or universal song form. No global tuning or signal chain asserted.",
+      "instrument_role_audit": {
+        "scope": "Representative modern Indramayu Tarling song practice with singer and sample-based arranger keyboard, documented by Rasriy and Wahyudin’s 2023 original field study through interviews with Madji and arranger Wisnu Ocol. The Organ Tunggal branch explicitly substitutes keyboard timbres for guitar, flute, kendang, tutukan/kethuk and kecrek, supplies additional bass/piano/brass/string voices, and produces whole instrumental arrangements on one keyboard. All those generated roles remain in the arranger sound palette; they are not falsely modeled as absent or separately acoustic players. Singing is retained. This is a researched genre-practice rendition, not a transcription of any named artist recording. One singer and one keyboard operator are authored representative staffing, not a measured headcount. Older guitar/flute/spoon-bottle practice and larger contemporary bands are other documented branches, not silently reduced versions of the chosen Organ Tunggal practice.",
+        "cards": 2,
+        "roles": [
+          "Singing",
+          "Arranger keyboard retaining entire generated melody,harmony,bass and percussion palette"
+        ],
+        "defaults": "Authored contemporary song arrangement uses one accompanied singer, source-unspecified vocal physiology, pitch and ornaments, neutral tract/moderate effort, and unprocessed single-lead presentation. Existing ROM-playback workstation provides its regional style bank and automatic accompaniment, preserving sampled instrumental roles and a played melodic lead. Make remains unspecified rather than importing a Balkan/Middle Eastern hardware descriptor from the Korg preset. One-man-band describes the single keyboard accompaniment operator, not the total singer count. Controlled live-room sound and brisk verse–chorus–bridge presentation over functional harmony are editorial choices for modern diatonic popular Tarling, not a recorded original tempo, venue or universal song form. No global tuning or signal chain asserted."
+      },
+      "vocal_count_audit": {
+        "actual_count": "not specified by genre-level study",
+        "authored_representative_singers": 1,
+        "reason": "Representative single accompanied lead, not purported source-recording headcount."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored contemporary song arrangement uses one accompanied singer, source-unspecified vocal physiology, pitch and ornaments, neutral tract/moderate effort, and unprocessed single-lead presentation. Existing ROM-playback workstation provides its regional style bank and automatic accompaniment, preserving sampled instrumental roles and a played melodic lead. Make remains unspecified rather than importing a Balkan/Middle Eastern hardware descriptor from the Korg preset. One-man-band describes the single keyboard accompaniment operator, not the total singer count. Controlled live-room sound and brisk verse–chorus–bridge presentation over functional harmony are editorial choices for modern diatonic popular Tarling, not a recorded original tempo, venue or universal song form. No global tuning or signal chain asserted."
+        },
+        {
+          "instrument": "rompler_workstation",
+          "parts": {
+            "electronic_technique": "electronic_lead_line",
+            "rompler_preset_bank": "rompler_preset_oriental_arranger",
+            "rompler_context": "rompler_context_arranger_party",
+            "rompler_lineage": "rompler_lineage_unspecified"
+          },
+          "policy": "Authored contemporary song arrangement uses one accompanied singer, source-unspecified vocal physiology, pitch and ornaments, neutral tract/moderate effort, and unprocessed single-lead presentation. Existing ROM-playback workstation provides its regional style bank and automatic accompaniment, preserving sampled instrumental roles and a played melodic lead. Make remains unspecified rather than importing a Balkan/Middle Eastern hardware descriptor from the Korg preset. One-man-band describes the single keyboard accompaniment operator, not the total singer count. Controlled live-room sound and brisk verse–chorus–bridge presentation over functional harmony are editorial choices for modern diatonic popular Tarling, not a recorded original tempo, venue or universal song form. No global tuning or signal chain asserted."
+        }
+      ],
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "rompler_workstation"
+        ],
+        "new_instruments": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lagu_tarling",
+          "name": "Lagu Tarling",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn883201view1 confirms CC BY2.5 attribution and crop. Original023 exact historical bytes/visual receipt retained, no fresh download.",
+          "fresh_review_ref": "turn883201view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn883201view1"
+        ],
+        "fresh_rights_review": "Fresh turn883201view1 confirms CC BY2.5 attribution and crop. Original023 exact historical bytes/visual receipt retained, no fresh download."
+      },
+      "source_scope_limitation": "Representative modern Indramayu Tarling song practice with singer and sample-based arranger keyboard, documented by Rasriy and Wahyudin’s 2023 original field study through interviews with Madji and arranger Wisnu Ocol. The Organ Tunggal branch explicitly substitutes keyboard timbres for guitar, flute, kendang, tutukan/kethuk and kecrek, supplies additional bass/piano/brass/string voices, and produces whole instrumental arrangements on one keyboard. All those generated roles remain in the arranger sound palette; they are not falsely modeled as absent or separately acoustic players. Singing is retained. This is a researched genre-practice rendition, not a transcription of any named artist recording. One singer and one keyboard operator are authored representative staffing, not a measured headcount. Older guitar/flute/spoon-bottle practice and larger contemporary bands are other documented branches, not silently reduced versions of the chosen Organ Tunggal practice.",
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All voice and workstation applicable owning controls explicitly protected."
+      },
+      "classification_evidence": "Lagu Tarling denotes the Cirebon/Indramayu/Pantura song field with its own language, repertory and history, including older guitar-and-flute practice and modern keyboard/dangdut-influenced forms. The 2019 original cultural study distinguishes musical-song and drama development; the 2023 local field study identifies modern diatonic/digital Tarling and its dangdut influence. Full Dangdut already includes Indonesian popular-song synthesis; full Javanese Dangdut/Koplo includes organ-tunggal circuits, so a keyboard or Javanese language alone is not the distinction. Tarling’s specifically documented regional repertory and pre-dangdut lineage support the field while its modern branch overlaps dangdut. No new broad Tarling target exists in current catalog; no claim every Tarling song shares this duo arrangement.",
+      "primary_retrieval_refs": [
+        "turn178113view0",
+        "turn178113view1",
+        "turn665044view1"
+      ],
+      "source_retrieval_caveat": "Original full research text independently read; no audio audition or exact named recording/model/headcount reconstruction claimed.",
+      "verification_status": "Complete primary candidate; independent peer required.",
+      "authored_render_scope": "Authored contemporary song arrangement uses one accompanied singer, source-unspecified vocal physiology, pitch and ornaments, neutral tract/moderate effort, and unprocessed single-lead presentation. Existing ROM-playback workstation provides its regional style bank and automatic accompaniment, preserving sampled instrumental roles and a played melodic lead. Make remains unspecified rather than importing a Balkan/Middle Eastern hardware descriptor from the Korg preset. One-man-band describes the single keyboard accompaniment operator, not the total singer count. Controlled live-room sound and brisk verse–chorus–bridge presentation over functional harmony are editorial choices for modern diatonic popular Tarling, not a recorded original tempo, venue or universal song form. No global tuning or signal chain asserted.",
+      "source_review_refs": [
+        "turn178113view0",
+        "turn178113view1",
+        "turn665044view1"
+      ],
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume-root-lagu-tarling.json",
+        "before_packet_sha256": "f6e0e6b183e5075a9063fec7af5a36ec0e34d47a9cf8069a2efaa4df87eeb288",
+        "before_public_fields": {
+          "lineage": "Representative modern Indramayu Tarling song practice with singer and sample-based arranger keyboard, documented by Rasriy and Wahyudin’s 2023 original field study through interviews with Madji and arranger Wisnu Ocol. The Organ Tunggal branch explicitly substitutes keyboard timbres for guitar, flute, kendang, tutukan/kethuk and kecrek, supplies additional bass/piano/brass/string voices, and produces whole instrumental arrangements on one keyboard. All those generated roles remain in the arranger sound palette; they are not falsely modeled as absent or separately acoustic players. Singing is retained. This is a researched genre-practice rendition, not a transcription of any named artist recording. One singer and one keyboard operator are authored representative staffing, not a measured headcount. Older guitar/flute/spoon-bottle practice and larger contemporary bands are other documented branches, not silently reduced versions of the chosen Organ Tunggal practice. Authored contemporary song arrangement uses one accompanied singer, source-unspecified vocal physiology, pitch and ornaments, neutral tract/moderate effort, and unprocessed single-lead presentation. Existing ROM-playback workstation provides its regional style bank and automatic accompaniment, preserving sampled instrumental roles and a played melodic lead. Make remains unspecified rather than importing a Balkan/Middle Eastern hardware descriptor from the Korg preset. One-man-band describes the single keyboard accompaniment operator, not the total singer count. Controlled live-room sound and brisk verse–chorus–bridge presentation over functional harmony are editorial choices for modern diatonic popular Tarling, not a recorded original tempo, venue or universal song form. No global tuning or signal chain asserted.",
+          "description": "Representative modern Indramayu Tarling song practice with singer and sample-based arranger keyboard, documented by Rasriy and Wahyudin’s 2023 original field study through interviews with Madji and arranger Wisnu Ocol. The Organ Tunggal branch explicitly substitutes keyboard timbres for guitar, flute, kendang, tutukan/kethuk and kecrek, supplies additional bass/piano/brass/string voices, and produces whole instrumental arrangements on one keyboard. All those generated roles remain in the arranger sound palette; they are not falsely modeled as absent or separately acoustic players. Singing is retained. This is a researched genre-practice rendition, not a transcription of any named artist recording. One singer and one keyboard operator are authored representative staffing, not a measured headcount. Older guitar/flute/spoon-bottle practice and larger contemporary bands are other documented branches, not silently reduced versions of the chosen Organ Tunggal practice. Lagu Tarling denotes the Cirebon/Indramayu/Pantura song field with its own language, repertory and history, including older guitar-and-flute practice and modern keyboard/dangdut-influenced forms. The 2019 original cultural study distinguishes musical-song and drama development; the 2023 local field study identifies modern diatonic/digital Tarling and its dangdut influence. Full Dangdut already includes Indonesian popular-song synthesis; full Javanese Dangdut/Koplo includes organ-tunggal circuits, so a keyboard or Javanese language alone is not the distinction. Tarling’s specifically documented regional repertory and pre-dangdut lineage support the field while its modern branch overlaps dangdut. No new broad Tarling target exists in current catalog; no claim every Tarling song shares this duo arrangement. Authored contemporary song arrangement uses one accompanied singer, source-unspecified vocal physiology, pitch and ornaments, neutral tract/moderate effort, and unprocessed single-lead presentation. Existing ROM-playback workstation provides its regional style bank and automatic accompaniment, preserving sampled instrumental roles and a played melodic lead. Make remains unspecified rather than importing a Balkan/Middle Eastern hardware descriptor from the Korg preset. One-man-band describes the single keyboard accompaniment operator, not the total singer count. Controlled live-room sound and brisk verse–chorus–bridge presentation over functional harmony are editorial choices for modern diatonic popular Tarling, not a recorded original tempo, venue or universal song form. No global tuning or signal chain asserted."
+        },
+        "reason": "Restore genre-centered history and sound while preserving the source-supported modern arranger-keyboard branch and full research dossier."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

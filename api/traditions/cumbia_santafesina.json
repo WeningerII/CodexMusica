@@ -1,0 +1,281 @@
+{
+  "id": "cumbia_santafesina",
+  "name": "Cumbia Santafesina",
+  "family": "pop",
+  "lineage": "Cumbia Santafesina developed through Santa Fe’s dance bands, establishing local guitar-led and accordion-led strands within Argentina’s cumbia history. Los del Bohío and later regional groups helped shape a recognizable provincial scene.",
+  "recipe": "classic cumbia santafesina, functional Song. single lead single track no stacking. humbucker electric guitar, electric bass, timbales stick played, congas, octapad unspecified. live tracking.",
+  "recipe_chars": 191,
+  "score": 5.523,
+  "config": {
+    "traditions": [
+      "cumbia_santafesina"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 1.224,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 2.45,
+          "amp_make": 0,
+          "body_wood": 0,
+          "neck_wood": 0.054,
+          "fretboard": -0.05,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.054,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 0.9099999999999999,
+          "finish": 0,
+          "string_tuning": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "timbales_stick_played",
+        "slots": {
+          "timbales_playing": "timbales_stick_pattern",
+          "timbales_shell": "timbales_steel",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "timbales_playing": 0.1365,
+          "timbales_shell": 0,
+          "timbales_context": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_siam_oak"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "conga_set": 0,
+          "conga_skin": 0,
+          "conga_shell_wood": 0
+        }
+      },
+      {
+        "id": "octapad_unspecified",
+        "slots": {
+          "octapad_unspecified_layout": "octapad_unspecified_eight_pad_layout",
+          "octapad_unspecified_playing": "octapad_unspecified_stick_strikes",
+          "octapad_unspecified_sound_routing": "octapad_unspecified_generator_unknown"
+        },
+        "scores": {
+          "octapad_unspecified_layout": 0,
+          "octapad_unspecified_playing": 0.1365,
+          "octapad_unspecified_sound_routing": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "timbales_stick_played": [
+        "timbales_playing",
+        "timbales_shell",
+        "timbales_context"
+      ],
+      "congas": [
+        "percussion_technique",
+        "conga_set",
+        "conga_skin",
+        "conga_shell_wood"
+      ],
+      "octapad_unspecified": [
+        "octapad_unspecified_layout",
+        "octapad_unspecified_playing",
+        "octapad_unspecified_sound_routing"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "percussion_technique": "percussion_hands_layered",
+      "conga_set": "conga_proper",
+      "conga_skin": "conga_cowhide",
+      "conga_shell_wood": "conga_siam_oak",
+      "timbales_playing": "timbales_stick_pattern",
+      "timbales_shell": "timbales_steel",
+      "timbales_context": "timbales_son",
+      "octapad_unspecified_layout": "octapad_unspecified_eight_pad_layout",
+      "octapad_unspecified_playing": "octapad_unspecified_stick_strikes",
+      "octapad_unspecified_sound_routing": "octapad_unspecified_generator_unknown"
+    },
+    "pin_parts": true
+  }
+}

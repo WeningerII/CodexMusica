@@ -1,0 +1,403 @@
+{
+  "entries": [
+    {
+      "source_label": "musica tlaxcalteca",
+      "source_url": "https://everynoise.com/engenremap-musicatlaxcalteca.html",
+      "suggested_id": "musica_tlaxcalteca",
+      "allocation_ordinal": 3925,
+      "allocation_group_id": "157",
+      "id": "musica_tlaxcalteca",
+      "tradition": {
+        "id": "musica_tlaxcalteca",
+        "name": "Música tlaxcalteca",
+        "family": "vernacular",
+        "lineage": "La Murga Xicohtl — complete Tlapaxanketl / Viajero as issued in the national culture ministry’s 2023 De Tradición y Nuevas Rolas songbook, printed pages34–35, with ensemble biography on76. Six performers supply seven sound-source families: Ricardo Pérez Corona saxophone/backing voice, Jonathan Jaramillo Papalotzi trumpet/backing voice, Oscar Hernández Montiel trombone/backing voice, Giovanni C. Jaramillo Quintana electric bass/lead voice, Manuel Tlapa Juárez electric guitar, and Sergio Hernández Montiel drums/backing voice. Retain all five named singers. This is the complete specifically credited song, not an arbitrary instrumental extract or the entire multi-artist songbook. Earlier2019 practice had an additional guitarist/bassist and generic percussion; those different-era roles are not silently mixed into the exact later song credit. No source recording duration, exact saxophone size or audio audition claimed. Authored full-band rendition with one lead plus four backing singers, live-group voicing unspecified and source-unspecified physiology; live ensemble is a new combined rendition, not a claim of no original overdubs. Small-note-group neumatic word-setting is editorial, not a transcription of the source. Source-positive electric guitar/bass are realized as an alder humbucker guitar with maple neck, rosewood board, medium Alnico2 pickups, pure-nickel10-gauge strings, stop-tail/Gibson scale/nitro finish and clean-strummed chord support; bass shares coherent alder body with passive split-coil pickup, roundwound strings, fretted long scale and picked attack. A maple medium-shell rock kit with45degree edges, coated heads,20wire snare, single felt kick pedal and machine-hammered fully lathed B20 traditional-finish cymbals is editorial. Punchy ensemble articulation is shared by open B-flat trumpet, an authored tenor saxophone realization of the source-bare saxophone, and open tenor trombone. Bach7C/BachStrad trumpet, medium-reed hard-rubber Selmer sax and Bach6halfAL/Bach42 trombone are representative construction choices, not source equipment claims. Controlled live room is authored; no source chain, global tuning, actual sax size or source horn model is inferred. Source specifically labels the song polka/reggae/dub/hard rock; this rendition emphasizes its credited live instrumental band, without inventing electronic dub processors as additional source performers.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "trumpet",
+          "saxophone",
+          "trombone"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.mexican",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "La Murga Xicohtl — complete Tlapaxanketl / Viajero as issued in the national culture ministry’s 2023 De Tradición y Nuevas Rolas songbook, printed pages34–35, with ensemble biography on76. Six performers supply seven sound-source families: Ricardo Pérez Corona saxophone/backing voice, Jonathan Jaramillo Papalotzi trumpet/backing voice, Oscar Hernández Montiel trombone/backing voice, Giovanni C. Jaramillo Quintana electric bass/lead voice, Manuel Tlapa Juárez electric guitar, and Sergio Hernández Montiel drums/backing voice. Retain all five named singers. This is the complete specifically credited song, not an arbitrary instrumental extract or the entire multi-artist songbook. Earlier2019 practice had an additional guitarist/bassist and generic percussion; those different-era roles are not silently mixed into the exact later song credit. No source recording duration, exact saxophone size or audio audition claimed. Exact creator field includes local carnival ensembles, regional orchestras and bands, Carlos Rivera and other popular artists, establishing a broad Tlaxcala regional musical community. The selected band is not asserted to occur in that map. Its positive connection is institutional: the national songbook locates it in Xicohtzinco and expressly describes its Tlaxcalteca carnival practice; UNAM’s presenting museum independently documents that same regional community and cross-cultural practice. Existing mexican_traditional, musica_indigena_mexicana, ska_mexicano and banda_carnavalera are read in full and substantially overlap. None is coextensive with all of the regional popular/carnival field. The selected song’s Indigenous language and rock/reggae fusion do not define all Tlaxcala music or claim a new musical mechanism. Its printed lyrics contain recurring sections; functionalSong.mexican is an explicitly authored tonal verse/refrain realization compatible with this regional song, not a measured analysis of the recording or a universal category form. Authored full-band rendition with one lead plus four backing singers, live-group voicing unspecified and source-unspecified physiology; live ensemble is a new combined rendition, not a claim of no original overdubs. Small-note-group neumatic word-setting is editorial, not a transcription of the source. Source-positive electric guitar/bass are realized as an alder humbucker guitar with maple neck, rosewood board, medium Alnico2 pickups, pure-nickel10-gauge strings, stop-tail/Gibson scale/nitro finish and clean-strummed chord support; bass shares coherent alder body with passive split-coil pickup, roundwound strings, fretted long scale and picked attack. A maple medium-shell rock kit with45degree edges, coated heads,20wire snare, single felt kick pedal and machine-hammered fully lathed B20 traditional-finish cymbals is editorial. Punchy ensemble articulation is shared by open B-flat trumpet, an authored tenor saxophone realization of the source-bare saxophone, and open tenor trombone. Bach7C/BachStrad trumpet, medium-reed hard-rubber Selmer sax and Bach6halfAL/Bach42 trombone are representative construction choices, not source equipment claims. Controlled live room is authored; no source chain, global tuning, actual sax size or source horn model is inferred. Source specifically labels the song polka/reggae/dub/hard rock; this rendition emphasizes its credited live instrumental band, without inventing electronic dub processors as additional source performers.",
+        "exemplars": [
+          "La Murga Xicohtl — Tlapaxanketl / Viajero, full credited song (2023 official songbook)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        19.173,
+        -98.233,
+        "Xicohtzinco",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Approximate town-center community anchor positively identified by both national issuer and UNAM presenter; not assumed studio location.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.culturaspopulareseindigenas.gob.mx/pdf/2023/TyNR/CANCIONERO-DTYNR-F.pdf",
+          "title": "National issuer full song credits and regional biography",
+          "support_notes": "Fresh indexed11030search3 full six-role roster pages34–35 and11030search2 regional biography76; raw retained. Direct PDF too large16MB and shell CONNECT403; no false full-file download.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.chopo.unam.mx/musica/EstruendoMultilingUe2019.html",
+          "title": "UNAM presenter primary regional practice",
+          "support_notes": "Fresh full indexed11027search0 source explicitly carnival Tlaxcalteca community;2019 roster used only historical corroboration, not substituted for2023 song.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-musicatlaxcalteca.html",
+          "title": "Exact creator regional field",
+          "support_notes": "Fresh full direct11025view2; broad popular and carnival roster, no Murga membership claimed.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Exact creator field includes local carnival ensembles, regional orchestras and bands, Carlos Rivera and other popular artists, establishing a broad Tlaxcala regional musical community. The selected band is not asserted to occur in that map. Its positive connection is institutional: the national songbook locates it in Xicohtzinco and expressly describes its Tlaxcalteca carnival practice; UNAM’s presenting museum independently documents that same regional community and cross-cultural practice. Existing mexican_traditional, musica_indigena_mexicana, ska_mexicano and banda_carnavalera are read in full and substantially overlap. None is coextensive with all of the regional popular/carnival field. The selected song’s Indigenous language and rock/reggae fusion do not define all Tlaxcala music or claim a new musical mechanism. Its printed lyrics contain recurring sections; functionalSong.mexican is an explicitly authored tonal verse/refrain realization compatible with this regional song, not a measured analysis of the recording or a universal category form.",
+      "model_policy": "Authored full-band rendition with one lead plus four backing singers, live-group voicing unspecified and source-unspecified physiology; live ensemble is a new combined rendition, not a claim of no original overdubs. Small-note-group neumatic word-setting is editorial, not a transcription of the source. Source-positive electric guitar/bass are realized as an alder humbucker guitar with maple neck, rosewood board, medium Alnico2 pickups, pure-nickel10-gauge strings, stop-tail/Gibson scale/nitro finish and clean-strummed chord support; bass shares coherent alder body with passive split-coil pickup, roundwound strings, fretted long scale and picked attack. A maple medium-shell rock kit with45degree edges, coated heads,20wire snare, single felt kick pedal and machine-hammered fully lathed B20 traditional-finish cymbals is editorial. Punchy ensemble articulation is shared by open B-flat trumpet, an authored tenor saxophone realization of the source-bare saxophone, and open tenor trombone. Bach7C/BachStrad trumpet, medium-reed hard-rubber Selmer sax and Bach6halfAL/Bach42 trombone are representative construction choices, not source equipment claims. Controlled live room is authored; no source chain, global tuning, actual sax size or source horn model is inferred. Source specifically labels the song polka/reggae/dub/hard rock; this rendition emphasizes its credited live instrumental band, without inventing electronic dub processors as additional source performers.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "trumpet",
+          "saxophone",
+          "trombone"
+        ],
+        "new_instruments": []
+      },
+      "classification_evidence": {
+        "mode": "institutional_regional_practice_plus_exact_creator_category_scope",
+        "url": "https://www.culturaspopulareseindigenas.gob.mx/pdf/2023/TyNR/CANCIONERO-DTYNR-F.pdf",
+        "note": "Exact creator field includes local carnival ensembles, regional orchestras and bands, Carlos Rivera and other popular artists, establishing a broad Tlaxcala regional musical community. The selected band is not asserted to occur in that map. Its positive connection is institutional: the national songbook locates it in Xicohtzinco and expressly describes its Tlaxcalteca carnival practice; UNAM’s presenting museum independently documents that same regional community and cross-cultural practice. Existing mexican_traditional, musica_indigena_mexicana, ska_mexicano and banda_carnavalera are read in full and substantially overlap. None is coextensive with all of the regional popular/carnival field. The selected song’s Indigenous language and rock/reggae fusion do not define all Tlaxcala music or claim a new musical mechanism. Its printed lyrics contain recurring sections; functionalSong.mexican is an explicitly authored tonal verse/refrain realization compatible with this regional song, not a measured analysis of the recording or a universal category form."
+      },
+      "vocal_count_audit": {
+        "selected_count": 5,
+        "singers": [
+          "Ricardo Pérez Corona",
+          "Jonathan Jaramillo Papalotzi",
+          "Oscar Hernández Montiel",
+          "Giovanni C. Jaramillo Quintana",
+          "Sergio Hernández Montiel"
+        ],
+        "count_basis": "Each explicitly credited voice/coros in whole specific song. Six people total; guitarist has no voice credit. No simultaneous fixed harmony or overdub count inferred."
+      },
+      "instrument_role_audit": {
+        "rationale": "La Murga Xicohtl — complete Tlapaxanketl / Viajero as issued in the national culture ministry’s 2023 De Tradición y Nuevas Rolas songbook, printed pages34–35, with ensemble biography on76. Six performers supply seven sound-source families: Ricardo Pérez Corona saxophone/backing voice, Jonathan Jaramillo Papalotzi trumpet/backing voice, Oscar Hernández Montiel trombone/backing voice, Giovanni C. Jaramillo Quintana electric bass/lead voice, Manuel Tlapa Juárez electric guitar, and Sergio Hernández Montiel drums/backing voice. Retain all five named singers. This is the complete specifically credited song, not an arbitrary instrumental extract or the entire multi-artist songbook. Earlier2019 practice had an additional guitarist/bassist and generic percussion; those different-era roles are not silently mixed into the exact later song credit. No source recording duration, exact saxophone size or audio audition claimed.",
+        "authored_defaults": "Authored full-band rendition with one lead plus four backing singers, live-group voicing unspecified and source-unspecified physiology; live ensemble is a new combined rendition, not a claim of no original overdubs. Small-note-group neumatic word-setting is editorial, not a transcription of the source. Source-positive electric guitar/bass are realized as an alder humbucker guitar with maple neck, rosewood board, medium Alnico2 pickups, pure-nickel10-gauge strings, stop-tail/Gibson scale/nitro finish and clean-strummed chord support; bass shares coherent alder body with passive split-coil pickup, roundwound strings, fretted long scale and picked attack. A maple medium-shell rock kit with45degree edges, coated heads,20wire snare, single felt kick pedal and machine-hammered fully lathed B20 traditional-finish cymbals is editorial. Punchy ensemble articulation is shared by open B-flat trumpet, an authored tenor saxophone realization of the source-bare saxophone, and open tenor trombone. Bach7C/BachStrad trumpet, medium-reed hard-rubber Selmer sax and Bach6halfAL/Bach42 trombone are representative construction choices, not source equipment claims. Controlled live room is authored; no source chain, global tuning, actual sax size or source horn model is inferred. Source specifically labels the song polka/reggae/dub/hard rock; this rendition emphasizes its credited live instrumental band, without inventing electronic dub processors as additional source performers.",
+        "performer_count": 6,
+        "singer_count": 5,
+        "instrument_family_cards": 7
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Every merged applicable owning part protected; construction/gestures are candidly authored, not source measurements."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "stoptail",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Every merged applicable owning part protected; construction/gestures are candidly authored, not source measurements."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Every merged applicable owning part protected; construction/gestures are candidly authored, not source measurements."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Every merged applicable owning part protected; construction/gestures are candidly authored, not source measurements."
+        },
+        {
+          "instrument": "trumpet",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "brass_size": "trumpet_b_flat",
+            "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+            "brass_mute": "no_mute_brass",
+            "trumpet_technique": "trumpet_punchy_ensemble",
+            "trumpet_bell_metal": "trumpet_yellow_brass",
+            "trumpet_maker_school": "trumpet_bach_stradivarius"
+          },
+          "policy": "Every merged applicable owning part protected; construction/gestures are candidly authored, not source measurements."
+        },
+        {
+          "instrument": "saxophone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_honking_attack",
+            "sax_maker_school": "sax_selmer_mark_vi"
+          },
+          "policy": "Every merged applicable owning part protected; construction/gestures are candidly authored, not source measurements."
+        },
+        {
+          "instrument": "trombone",
+          "parts": {
+            "wind_articulation": "wind_punchy_ensemble",
+            "trombone_type": "tenor_trombone",
+            "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+            "trombone_mute": "no_mute_trb",
+            "trombone_technique": "big_band_punch",
+            "trombone_bell_metal": "trombone_yellow_brass",
+            "trombone_maker_school": "trombone_bach_42"
+          },
+          "policy": "Every merged applicable owning part protected; construction/gestures are candidly authored, not source measurements."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_tlaxcalteca",
+          "name": "Música tlaxcalteca",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only, not La Murga Xicohtl, its source instruments or original recording apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11000view3 and turn11007view1 confirm file-specific CC BY 2.5, Iain Fergusson and Binksternet crop. Exact historical023 byte/visual receipts inherited; no new download or visual inspection.",
+          "fresh_review_ref": "turn11007view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11000view3",
+          "turn11007view1"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Shared amp/wood and wind-articulation controls deliberately coherent across owners; all applicable effective owning parts pinned, zero fallback.",
+        "fallbacks": []
+      },
+      "primary_retrieval_refs": [
+        "turn11030search2",
+        "turn11030search3",
+        "turn11027search0",
+        "turn11025view2",
+        "turn11007view1"
+      ],
+      "source_retrieval_caveat": "Official full indexed song pages and biography reproduced and preserved unmodified in tlaxcalteca-secondpass-full-roster-raw117.json; direct PDF exceeds tool size and network download blocked. Full UNAM indexed page and fresh direct creator map saved separately. No third-party transcribed source, personal audition or composer score-pitch analysis claimed."
+    }
+  ],
+  "equivalences": [],
+  "blockers": [],
+  "status": "source_ready_independent_review_pending"
+}

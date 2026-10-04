@@ -1,0 +1,219 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "classical_drill",
+        "name": "Classical Drill",
+        "family": "hip_hop",
+        "lineage": "Classical drill brings classical themes and orchestral or piano textures into the instrumental production language of drill.",
+        "instruments": [
+          "grand_piano",
+          "credited_strings_unspecified",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_minimalist_repeated",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern",
+          "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.drill",
+        "axes": {
+          "voice": -1,
+          "percussion": 1,
+          "soundTech": 1,
+          "pitch": 1
+        },
+        "description": "Piano figures and string textures meet syncopated drill beats. Producers adapt familiar classical themes or write cinematic instrumental material, using contrast between melodic detail and forceful rhythmic foundations. These beats circulate as standalone releases as well as potential settings for rap.",
+        "exemplars": [
+          "Syke",
+          "Smurph",
+          "milutin"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "classical_drill",
+          "name": "Classical Drill",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13547view0 confirms IainFergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13547view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13547view0, exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13547view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "grand_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_minimalist_repeated",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          },
+          "policy": "Representative instrumental producer branch. Producer-owned milutin catalog explicitly groups its beats under classical drill and names piano/strings; independently issued Syke repertoire names adaptations of classical works. These sources support a general piano/strings/produced-beat palette, not exact recording reconstruction. Grand-piano construction and repeated-cell keyboard gesture are deliberate ordinary authored realizations of the piano role, not claimed source hardware. Strings instrumentation, sample/live mechanism and section size remain unspecified. Beat mechanism is unspecified; no acoustic drum kit or synth model is invented. No singer is asserted for this instrumental starting arrangement; the genre also accommodates rap. Studio is authored."
+        },
+        {
+          "instrument": "credited_strings_unspecified",
+          "parts": {
+            "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified"
+          },
+          "policy": "Representative instrumental producer branch. Producer-owned milutin catalog explicitly groups its beats under classical drill and names piano/strings; independently issued Syke repertoire names adaptations of classical works. These sources support a general piano/strings/produced-beat palette, not exact recording reconstruction. Grand-piano construction and repeated-cell keyboard gesture are deliberate ordinary authored realizations of the piano role, not claimed source hardware. Strings instrumentation, sample/live mechanism and section size remain unspecified. Beat mechanism is unspecified; no acoustic drum kit or synth model is invented. No singer is asserted for this instrumental starting arrangement; the genre also accommodates rap. Studio is authored."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative instrumental producer branch. Producer-owned milutin catalog explicitly groups its beats under classical drill and names piano/strings; independently issued Syke repertoire names adaptations of classical works. These sources support a general piano/strings/produced-beat palette, not exact recording reconstruction. Grand-piano construction and repeated-cell keyboard gesture are deliberate ordinary authored realizations of the piano role, not claimed source hardware. Strings instrumentation, sample/live mechanism and section size remain unspecified. Beat mechanism is unspecified; no acoustic drum kit or synth model is invented. No singer is asserted for this instrumental starting arrangement; the genre also accommodates rap. Studio is authored."
+        }
+      ],
+      "source_label": "classical drill",
+      "source_url": "https://everynoise.com/engenremap-classicaldrill.html",
+      "suggested_id": "classical_drill",
+      "allocation_ordinal": 247,
+      "allocation_group_id": "010",
+      "id": "classical_drill",
+      "status": "ready_for_independent_review",
+      "geo": [
+        51.507,
+        -0.128,
+        "London",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial drill-production reference, not claimed origin or residence of all classical-drill producers.",
+      "signature_tokens": [],
+      "model_policy": "Representative instrumental producer branch. Producer-owned milutin catalog explicitly groups its beats under classical drill and names piano/strings; independently issued Syke repertoire names adaptations of classical works. These sources support a general piano/strings/produced-beat palette, not exact recording reconstruction. Grand-piano construction and repeated-cell keyboard gesture are deliberate ordinary authored realizations of the piano role, not claimed source hardware. Strings instrumentation, sample/live mechanism and section size remain unspecified. Beat mechanism is unspecified; no acoustic drum kit or synth model is invented. No singer is asserted for this instrumental starting arrangement; the genre also accommodates rap. Studio is authored.",
+      "neighbor_distinction": "Full DrillBeats is the broader instrumental production field and already permits repeated melodic phrases; ClassicalDrill is a nested repertoire/timbre practice, not a different rhythm or an alias for all drill beats. Producer-owned classical-drill piano/strings labels and independently issued Syke adaptations of Mozart, Beethoven and Chopin positively establish this intersection. UKDrill concerns its regional MC/production scene and is not restricted to the old representative artists; the classical intersection is transregional and instrumental as well as vocal. ClassicalCrossover is broader than drill production. No relation is asserted to Aphex Twin drill-and-bass merely because the words resemble each other.",
+      "classification_evidence": "Full DrillBeats is the broader instrumental production field and already permits repeated melodic phrases; ClassicalDrill is a nested repertoire/timbre practice, not a different rhythm or an alias for all drill beats. Producer-owned classical-drill piano/strings labels and independently issued Syke adaptations of Mozart, Beethoven and Chopin positively establish this intersection. UKDrill concerns its regional MC/production scene and is not restricted to the old representative artists; the classical intersection is transregional and instrumental as well as vocal. ClassicalCrossover is broader than drill production. No relation is asserted to Aphex Twin drill-and-bass merely because the words resemble each other.",
+      "source_scope_limitation": "Representative instrumental producer branch. Producer-owned milutin catalog explicitly groups its beats under classical drill and names piano/strings; independently issued Syke repertoire names adaptations of classical works. These sources support a general piano/strings/produced-beat palette, not exact recording reconstruction. Grand-piano construction and repeated-cell keyboard gesture are deliberate ordinary authored realizations of the piano role, not claimed source hardware. Strings instrumentation, sample/live mechanism and section size remain unspecified. Beat mechanism is unspecified; no acoustic drum kit or synth model is invented. No singer is asserted for this instrumental starting arrangement; the genre also accommodates rap. Studio is authored.",
+      "instrument_role_audit": [
+        {
+          "instrument": "grand_piano",
+          "basis": "Representative instrumental producer branch. Producer-owned milutin catalog explicitly groups its beats under classical drill and names piano/strings; independently issued Syke repertoire names adaptations of classical works. These sources support a general piano/strings/produced-beat palette, not exact recording reconstruction. Grand-piano construction and repeated-cell keyboard gesture are deliberate ordinary authored realizations of the piano role, not claimed source hardware. Strings instrumentation, sample/live mechanism and section size remain unspecified. Beat mechanism is unspecified; no acoustic drum kit or synth model is invented. No singer is asserted for this instrumental starting arrangement; the genre also accommodates rap. Studio is authored."
+        },
+        {
+          "instrument": "credited_strings_unspecified",
+          "basis": "Representative instrumental producer branch. Producer-owned milutin catalog explicitly groups its beats under classical drill and names piano/strings; independently issued Syke repertoire names adaptations of classical works. These sources support a general piano/strings/produced-beat palette, not exact recording reconstruction. Grand-piano construction and repeated-cell keyboard gesture are deliberate ordinary authored realizations of the piano role, not claimed source hardware. Strings instrumentation, sample/live mechanism and section size remain unspecified. Beat mechanism is unspecified; no acoustic drum kit or synth model is invented. No singer is asserted for this instrumental starting arrangement; the genre also accommodates rap. Studio is authored."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Representative instrumental producer branch. Producer-owned milutin catalog explicitly groups its beats under classical drill and names piano/strings; independently issued Syke repertoire names adaptations of classical works. These sources support a general piano/strings/produced-beat palette, not exact recording reconstruction. Grand-piano construction and repeated-cell keyboard gesture are deliberate ordinary authored realizations of the piano role, not claimed source hardware. Strings instrumentation, sample/live mechanism and section size remain unspecified. Beat mechanism is unspecified; no acoustic drum kit or synth model is invented. No singer is asserted for this instrumental starting arrangement; the genre also accommodates rap. Studio is authored."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": null,
+        "authored_default": 0,
+        "basis": "Instrumental producer starting arrangement, not absence claim across whole field."
+      },
+      "sources": [
+        {
+          "url": "https://traktrain.com/milutin",
+          "title": "milutin producer-owned beat catalog",
+          "support_notes": "Fresh13605view0 explicit classical drill, piano and strings for two beats. Production description and tags support representative genre roles; no exhaustive recording personnel claim."
+        },
+        {
+          "url": "https://music.apple.com/us/album/moonlight-sonata-3rd-movement-but-its-drill/1617276476?i=1617276482",
+          "title": "Syke issuer-distributed Classical Drill album",
+          "support_notes": "Fresh13616search0 full issuer-distributed nine-track list explicitly names Mozart, Beethoven and Chopin drill adaptations; direct album13615view0 confirms2022 self-issued release. No instrument architecture inferred solely from titles."
+        }
+      ],
+      "render_context_audit": "Read all four literal outputs: grand-piano orchestral/romantic language derives from protected authored Steinway construction, not additional live orchestra. Brutalist credited-beat is a forceful authored drill-production affect, not source-measured distortion or exact timbre. The producer sweet tag applies to particular offered beats; this broader genre default is not claimed to reproduce those exact tracks. Peer should assess this representative contrast candidly."
+    }
+  ],
+  "instrument_dependencies": []
+}

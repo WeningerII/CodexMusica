@@ -1,0 +1,545 @@
+{
+  "entries": [
+    {
+      "source_label": "talentos brasileiros",
+      "source_url": "https://everynoise.com/engenremap-talentosbrasileiros.html",
+      "suggested_id": "talentos_brasileiros",
+      "allocation_ordinal": 4392,
+      "allocation_group_id": "176",
+      "id": "talentos_brasileiros",
+      "tradition": {
+        "id": "talentos_brasileiros",
+        "name": "Talentos Brasileiros",
+        "family": "pop",
+        "lineage": "Brazilian television singing competitions connect regional performers with national audiences, broadcast bands and commercial recordings. Programmes such as The Voice Brasil draw on Brazilian song, pop, rock and international repertoire, emphasizing vocal interpretation and the transition from televised performances to concert careers.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Prominent singing leads a flexible pop-band accompaniment of guitar, bass, drums and keyboards. Clear harmonic support and responsive instrumental accents leave room for phrasing, sustained notes, dynamic contrasts and memorable refrains.",
+        "exemplars": [
+          "The Voice Brasil",
+          "Rubens Daniel",
+          "Sam Alves",
+          "Marcela Bueno"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        -14.235,
+        -51.9253,
+        "Brazil",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Country-level editorial anchor for the documented Brazilian broadcaster discovery community, not location of the independent arranger, original recording or authored room.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Talentos Brasileiros identifies the Brazilian televised singing-competition recording and audience community. Exact creator corpus repeatedly names The Voice Brasil performances across Portuguese and international repertoire; Globo’s own battle report documents coach teams, competing entrants, audience circulation and the actual commercial duet release. This positively institutional field is narrower than queued international Talent Show and overlaps it, rather than excluding it. Full unsuffixed Idol has an American talent-show discovery origin documented in original017 evidence; its Casey Abrams arrangement is not a restriction of its whole field. Existing latin_talent_show positively describes the broader Iberian/Latin singing-competition discovery field, with an explicitly mixed Spain/Mexico creator corpus rather than an Amaia-only restriction. Brazilian competition practice overlaps this broader field; the independently documented Portuguese-language Globo institution supplies a narrower national community within that umbrella and does not erase the separately documented Brazilian broadcaster/Portuguese-language institution. Brazilian pop/MPB encompass much broader repertoires and recording careers, while this community is an institutional discovery pathway, not a different sound inferred from a piano arrangement. No claim all Brazilian talent is television music or all contestant works use piano.",
+      "classification_evidence": {
+        "note": "Talentos Brasileiros identifies the Brazilian televised singing-competition recording and audience community. Exact creator corpus repeatedly names The Voice Brasil performances across Portuguese and international repertoire; Globo’s own battle report documents coach teams, competing entrants, audience circulation and the actual commercial duet release. This positively institutional field is narrower than queued international Talent Show and overlaps it, rather than excluding it. Full unsuffixed Idol has an American talent-show discovery origin documented in original017 evidence; its Casey Abrams arrangement is not a restriction of its whole field. Existing latin_talent_show positively describes the broader Iberian/Latin singing-competition discovery field, with an explicitly mixed Spain/Mexico creator corpus rather than an Amaia-only restriction. Brazilian competition practice overlaps this broader field; the independently documented Portuguese-language Globo institution supplies a narrower national community within that umbrella and does not erase the separately documented Brazilian broadcaster/Portuguese-language institution. Brazilian pop/MPB encompass much broader repertoires and recording careers, while this community is an institutional discovery pathway, not a different sound inferred from a piano arrangement. No claim all Brazilian talent is television music or all contestant works use piano."
+      },
+      "model_policy": "Replace a licensed solo-piano adaptation as the genre default with representative vocal pop-band practice. UEPG organizer documentation explicitly connects The Voice Brasil repertoire with Rubens Daniel and his voice/guitar/bass/drums/keyboard band; the existing Globo institutional evidence establishes the wider singing-competition field. All five role families retained without demanding an exact recording roster or declaring a fixed number of singers. Guitar, bass and kit construction are authored meaningful recording choices, not contestant hardware. Keyboard architecture remains source-unspecified. Functional verse/chorus/bridge arrangement is authored within this broad popular-song field. Prior eight-page solo-piano edition remains archived as an arrangement branch.",
+      "source_scope_limitation": "Representative television-contest vocal band; no claim this reconstructs the full Sam/Marcela recording or the previous piano edition.",
+      "vocal_count_audit": {
+        "current_default": "Lead and supporting group rendition; source-wide performer count unspecified."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Positive representative television-competition concert-band role."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "role": "Positive representative television-competition concert-band role."
+        },
+        {
+          "instrument": "electric_bass",
+          "role": "Positive representative television-competition concert-band role."
+        },
+        {
+          "instrument": "drum_kit",
+          "role": "Positive representative television-competition concert-band role."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "role": "Positive representative television-competition concert-band role."
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace a licensed solo-piano adaptation as the genre default with representative vocal pop-band practice. UEPG organizer documentation explicitly connects The Voice Brasil repertoire with Rubens Daniel and his voice/guitar/bass/drums/keyboard band; the existing Globo institutional evidence establishes the wider singing-competition field. All five role families retained without demanding an exact recording roster or declaring a fixed number of singers. Guitar, bass and kit construction are authored meaningful recording choices, not contestant hardware. Keyboard architecture remains source-unspecified. Functional verse/chorus/bridge arrangement is authored within this broad popular-song field. Prior eight-page solo-piano edition remains archived as an arrangement branch."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Replace a licensed solo-piano adaptation as the genre default with representative vocal pop-band practice. UEPG organizer documentation explicitly connects The Voice Brasil repertoire with Rubens Daniel and his voice/guitar/bass/drums/keyboard band; the existing Globo institutional evidence establishes the wider singing-competition field. All five role families retained without demanding an exact recording roster or declaring a fixed number of singers. Guitar, bass and kit construction are authored meaningful recording choices, not contestant hardware. Keyboard architecture remains source-unspecified. Functional verse/chorus/bridge arrangement is authored within this broad popular-song field. Prior eight-page solo-piano edition remains archived as an arrangement branch."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Replace a licensed solo-piano adaptation as the genre default with representative vocal pop-band practice. UEPG organizer documentation explicitly connects The Voice Brasil repertoire with Rubens Daniel and his voice/guitar/bass/drums/keyboard band; the existing Globo institutional evidence establishes the wider singing-competition field. All five role families retained without demanding an exact recording roster or declaring a fixed number of singers. Guitar, bass and kit construction are authored meaningful recording choices, not contestant hardware. Keyboard architecture remains source-unspecified. Functional verse/chorus/bridge arrangement is authored within this broad popular-song field. Prior eight-page solo-piano edition remains archived as an arrangement branch."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Replace a licensed solo-piano adaptation as the genre default with representative vocal pop-band practice. UEPG organizer documentation explicitly connects The Voice Brasil repertoire with Rubens Daniel and his voice/guitar/bass/drums/keyboard band; the existing Globo institutional evidence establishes the wider singing-competition field. All five role families retained without demanding an exact recording roster or declaring a fixed number of singers. Guitar, bass and kit construction are authored meaningful recording choices, not contestant hardware. Keyboard architecture remains source-unspecified. Functional verse/chorus/bridge arrangement is authored within this broad popular-song field. Prior eight-page solo-piano edition remains archived as an arrangement branch."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Replace a licensed solo-piano adaptation as the genre default with representative vocal pop-band practice. UEPG organizer documentation explicitly connects The Voice Brasil repertoire with Rubens Daniel and his voice/guitar/bass/drums/keyboard band; the existing Globo institutional evidence establishes the wider singing-competition field. All five role families retained without demanding an exact recording roster or declaring a fixed number of singers. Guitar, bass and kit construction are authored meaningful recording choices, not contestant hardware. Keyboard architecture remains source-unspecified. Functional verse/chorus/bridge arrangement is authored within this broad popular-song field. Prior eight-page solo-piano edition remains archived as an arrangement branch."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "All applicable parts protected; no contradictory shared keyboard settings."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/toms-mucenieks/a-thousand-years/MN0218315",
+          "support_notes": "Fresh12634view0 full publisher metadata; complete eight-page piano instrumental-solo edition, no lyrics, slow compound meter. Paid full score uninspected."
+        },
+        {
+          "url": "https://gshow.globo.com/programas/the-voice-brasil/so-na-web/noticia/2013/11/autora-da-musica-da-batalha-de-sam-e-marcela-elogia-interpretacao-da-dupla.html",
+          "support_notes": "Fresh12634view1/12636view0 broadcaster first-person institutional account explicitly identifies Perri composition, Sam Alves/Marcela Bueno battle and issued version; its full backing ensemble is not inferred."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2BeLGTqy54PhX1YT1jTts9",
+          "support_notes": "Fresh12634view2/12636view1 full100 creator entries, exact duet item15 and many explicitly labelled Brazilian competition performances. Independent pianist not claimed creator member."
+        },
+        {
+          "url": "https://www.seti.pr.gov.br/Noticia/Musicos-regionais-abrem-Festival-de-Musica-na-UEPG",
+          "title": "UEPG festival organizer: television-contest repertoire and band practice",
+          "support_notes": "Fresh full turn13768view2, May2014: Rubens Daniel brings The Voice Brasil repertoire and Madame Nora band; guitar/vocals, bass, drums and keyboards positively stated. Representative practice rather than exact source-session reconstruction."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "maluku_pop",
+          "name": "Maluku Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context; not the pictured artist or a specific television performance.",
+          "match_confidence": "low",
+          "confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12733view1 Commons confirms CC BY2.5 and Iain Fergusson/Binksternet crop; historical023 bytes unchanged.",
+          "fresh_review_ref": "turn12733view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12733view1"
+        ],
+        "fresh_rights_review": "Fresh12733view1 rights only; inherited historical bytes and visual receipt unchanged."
+      },
+      "status": "frozen_for_independent_review",
+      "verification_status": "Complete published edition and exact composition/institution/category sources verified. Three protected upright controls; original-loader and four-format artifacts accompany packet.",
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-14.json",
+        "original_sha256": "f4fda1119166c5ba3e2dddf8f772376ecdd7fc20aabcfeb3c9f36dfa19e27d2f",
+        "prior_entry": {
+          "source_label": "talentos brasileiros",
+          "source_url": "https://everynoise.com/engenremap-talentosbrasileiros.html",
+          "suggested_id": "talentos_brasileiros",
+          "allocation_ordinal": 4392,
+          "allocation_group_id": "176",
+          "id": "talentos_brasileiros",
+          "tradition": {
+            "id": "talentos_brasileiros",
+            "name": "Talentos Brasileiros",
+            "family": "pop",
+            "lineage": "Complete eight-page Toms Mucenieks Signature Artist piano-solo edition of A Thousand Years, MN0218315, composition Christina Perri and David Hodges. Publisher specifies instrumental solo, piano and no lyrics, 6/8 at dotted-quarter50. One pianist and zero voices in this separately issued complete arrangement. It is not a transcription of the Brazilian television duet, not issued by Sam Alves/Marcela Bueno, and not a researcher reduction of their backing ensemble. Full paid notation/audio uninspected; complete edition metadata establishes scope. Broadcaster Globo directly identifies the same Christina Perri composition in the contestants’ November2013 battle; exact creator item15 names that duet. Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the piano-only edition. Source piano subtype and capture equipment are unspecified; no measured studio or temperament claim. Broad functionalSong is an authored verse–chorus–bridge realization over functional progressions of this popular-song repertoire, not a claim all unseen notation has that exact structure. Source slow compound-meter indication remains compatible with these neutral connected gestures; no extra singers or TV backing instrumentation is attributed to this independent edition.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_classical_legato",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Complete eight-page Toms Mucenieks Signature Artist piano-solo edition of A Thousand Years, MN0218315, composition Christina Perri and David Hodges. Publisher specifies instrumental solo, piano and no lyrics, 6/8 at dotted-quarter50. One pianist and zero voices in this separately issued complete arrangement. It is not a transcription of the Brazilian television duet, not issued by Sam Alves/Marcela Bueno, and not a researcher reduction of their backing ensemble. Full paid notation/audio uninspected; complete edition metadata establishes scope. Broadcaster Globo directly identifies the same Christina Perri composition in the contestants’ November2013 battle; exact creator item15 names that duet. Talentos Brasileiros identifies the Brazilian televised singing-competition recording and audience community. Exact creator corpus repeatedly names The Voice Brasil performances across Portuguese and international repertoire; Globo’s own battle report documents coach teams, competing entrants, audience circulation and the actual commercial duet release. This positively institutional field is narrower than queued international Talent Show and overlaps it, rather than excluding it. Full unsuffixed Idol has an American talent-show discovery origin documented in original017 evidence; its Casey Abrams arrangement is not a restriction of its whole field. Existing latin_talent_show positively describes the broader Iberian/Latin singing-competition discovery field, with an explicitly mixed Spain/Mexico creator corpus rather than an Amaia-only restriction. Brazilian competition practice overlaps this broader field; the independently documented Portuguese-language Globo institution supplies a narrower national community within that umbrella and does not erase the separately documented Brazilian broadcaster/Portuguese-language institution. Brazilian pop/MPB encompass much broader repertoires and recording careers, while this community is an institutional discovery pathway, not a different sound inferred from a piano arrangement. No claim all Brazilian talent is television music or all contestant works use piano. Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the piano-only edition. Source piano subtype and capture equipment are unspecified; no measured studio or temperament claim. Broad functionalSong is an authored verse–chorus–bridge realization over functional progressions of this popular-song repertoire, not a claim all unseen notation has that exact structure. Source slow compound-meter indication remains compatible with these neutral connected gestures; no extra singers or TV backing instrumentation is attributed to this independent edition.",
+            "exemplars": [
+              "Toms Mucenieks — complete A Thousand Years piano-solo edition MN0218315"
+            ],
+            "crossRefs": []
+          },
+          "geo": [
+            -14.235,
+            -51.9253,
+            "Brazil",
+            "Latin America & Caribbean"
+          ],
+          "geo_rationale": "Country-level editorial anchor for the documented Brazilian broadcaster discovery community, not location of the independent arranger, original recording or authored room.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Talentos Brasileiros identifies the Brazilian televised singing-competition recording and audience community. Exact creator corpus repeatedly names The Voice Brasil performances across Portuguese and international repertoire; Globo’s own battle report documents coach teams, competing entrants, audience circulation and the actual commercial duet release. This positively institutional field is narrower than queued international Talent Show and overlaps it, rather than excluding it. Full unsuffixed Idol has an American talent-show discovery origin documented in original017 evidence; its Casey Abrams arrangement is not a restriction of its whole field. Existing latin_talent_show positively describes the broader Iberian/Latin singing-competition discovery field, with an explicitly mixed Spain/Mexico creator corpus rather than an Amaia-only restriction. Brazilian competition practice overlaps this broader field; the independently documented Portuguese-language Globo institution supplies a narrower national community within that umbrella and does not erase the separately documented Brazilian broadcaster/Portuguese-language institution. Brazilian pop/MPB encompass much broader repertoires and recording careers, while this community is an institutional discovery pathway, not a different sound inferred from a piano arrangement. No claim all Brazilian talent is television music or all contestant works use piano.",
+          "classification_evidence": {
+            "note": "Talentos Brasileiros identifies the Brazilian televised singing-competition recording and audience community. Exact creator corpus repeatedly names The Voice Brasil performances across Portuguese and international repertoire; Globo’s own battle report documents coach teams, competing entrants, audience circulation and the actual commercial duet release. This positively institutional field is narrower than queued international Talent Show and overlaps it, rather than excluding it. Full unsuffixed Idol has an American talent-show discovery origin documented in original017 evidence; its Casey Abrams arrangement is not a restriction of its whole field. Existing latin_talent_show positively describes the broader Iberian/Latin singing-competition discovery field, with an explicitly mixed Spain/Mexico creator corpus rather than an Amaia-only restriction. Brazilian competition practice overlaps this broader field; the independently documented Portuguese-language Globo institution supplies a narrower national community within that umbrella and does not erase the separately documented Brazilian broadcaster/Portuguese-language institution. Brazilian pop/MPB encompass much broader repertoires and recording careers, while this community is an institutional discovery pathway, not a different sound inferred from a piano arrangement. No claim all Brazilian talent is television music or all contestant works use piano."
+          },
+          "model_policy": "Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the piano-only edition. Source piano subtype and capture equipment are unspecified; no measured studio or temperament claim. Broad functionalSong is an authored verse–chorus–bridge realization over functional progressions of this popular-song repertoire, not a claim all unseen notation has that exact structure. Source slow compound-meter indication remains compatible with these neutral connected gestures; no extra singers or TV backing instrumentation is attributed to this independent edition.",
+          "source_scope_limitation": "Complete eight-page Toms Mucenieks Signature Artist piano-solo edition of A Thousand Years, MN0218315, composition Christina Perri and David Hodges. Publisher specifies instrumental solo, piano and no lyrics, 6/8 at dotted-quarter50. One pianist and zero voices in this separately issued complete arrangement. It is not a transcription of the Brazilian television duet, not issued by Sam Alves/Marcela Bueno, and not a researcher reduction of their backing ensemble. Full paid notation/audio uninspected; complete edition metadata establishes scope. Broadcaster Globo directly identifies the same Christina Perri composition in the contestants’ November2013 battle; exact creator item15 names that duet.",
+          "vocal_count_audit": {
+            "selected_singer_count": 0,
+            "selected_pianist_count": 1,
+            "decision": "Publisher instrumental solo edition; original TV singers not erased from a claimed original master."
+          },
+          "instrument_role_audit": {
+            "scope": "Complete eight-page Toms Mucenieks Signature Artist piano-solo edition of A Thousand Years, MN0218315, composition Christina Perri and David Hodges. Publisher specifies instrumental solo, piano and no lyrics, 6/8 at dotted-quarter50. One pianist and zero voices in this separately issued complete arrangement. It is not a transcription of the Brazilian television duet, not issued by Sam Alves/Marcela Bueno, and not a researcher reduction of their backing ensemble. Full paid notation/audio uninspected; complete edition metadata establishes scope. Broadcaster Globo directly identifies the same Christina Perri composition in the contestants’ November2013 battle; exact creator item15 names that duet.",
+            "roles": {
+              "upright_piano": "Complete eight-page one-player edition; upright subtype authored"
+            },
+            "authored_defaults": "Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the piano-only edition. Source piano subtype and capture equipment are unspecified; no measured studio or temperament claim. Broad functionalSong is an authored verse–chorus–bridge realization over functional progressions of this popular-song repertoire, not a claim all unseen notation has that exact structure. Source slow compound-meter indication remains compatible with these neutral connected gestures; no extra singers or TV backing instrumentation is attributed to this independent edition."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_classical_legato",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "Authored standard studio upright and connected legato melodic phrasing in controlled live-room acoustics retain the piano-only edition. Source piano subtype and capture equipment are unspecified; no measured studio or temperament claim. Broad functionalSong is an authored verse–chorus–bridge realization over functional progressions of this popular-song repertoire, not a claim all unseen notation has that exact structure. Source slow compound-meter indication remains compatible with these neutral connected gestures; no extra singers or TV backing instrumentation is attributed to this independent edition."
+            }
+          ],
+          "flat_pin_resolution": "All three actual upright parts explicitly protected, no fallback or conflict.",
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "upright_piano"
+            ]
+          },
+          "sources": [
+            {
+              "url": "https://www.musicnotes.com/sheetmusic/toms-mucenieks/a-thousand-years/MN0218315",
+              "support_notes": "Fresh12634view0 full publisher metadata; complete eight-page piano instrumental-solo edition, no lyrics, slow compound meter. Paid full score uninspected."
+            },
+            {
+              "url": "https://gshow.globo.com/programas/the-voice-brasil/so-na-web/noticia/2013/11/autora-da-musica-da-batalha-de-sam-e-marcela-elogia-interpretacao-da-dupla.html",
+              "support_notes": "Fresh12634view1/12636view0 broadcaster first-person institutional account explicitly identifies Perri composition, Sam Alves/Marcela Bueno battle and issued version; its full backing ensemble is not inferred."
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/2BeLGTqy54PhX1YT1jTts9",
+              "support_notes": "Fresh12634view2/12636view1 full100 creator entries, exact duet item15 and many explicitly labelled Brazilian competition performances. Independent pianist not claimed creator member."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "talentos_brasileiros",
+              "name": "Talentos Brasileiros",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording microphone context, not the authored upright piano, television contestants or source session.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh12625view0 confirms CC BY2.5 Iain Fergusson/Binksternet crop;023 historical bytes/visual retained.",
+              "fresh_review_ref": "turn12625view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12625view0"
+            ],
+            "fresh_rights_review": "Fresh12625view0 rights; no new download or visual observation."
+          },
+          "status": "frozen_for_independent_review",
+          "verification_status": "Complete published edition and exact composition/institution/category sources verified. Three protected upright controls; original-loader and four-format artifacts accompany packet."
+        },
+        "decision": "Replace a licensed solo-piano adaptation as the genre default with representative vocal pop-band practice. UEPG organizer documentation explicitly connects The Voice Brasil repertoire with Rubens Daniel and his voice/guitar/bass/drums/keyboard band; the existing Globo institutional evidence establishes the wider singing-competition field. All five role families retained without demanding an exact recording roster or declaring a fixed number of singers. Guitar, bass and kit construction are authored meaningful recording choices, not contestant hardware. Keyboard architecture remains source-unspecified. Functional verse/chorus/bridge arrangement is authored within this broad popular-song field. Prior eight-page solo-piano edition remains archived as an arrangement branch."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

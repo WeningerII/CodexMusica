@@ -1,0 +1,266 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "finnish_trap",
+          "name": "Finnish Trap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim.",
+          "fresh_review_ref": "turn14117view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14117view2"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14117view2 confirms CC BY2.5 and Fergusson/Binksternet credit/crop. Exact023 historical byte and visual receipts retained; no fresh download claim."
+      },
+      "signature_tokens": [],
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": -1,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic vocal phrases sit over deep electronic kick-bass, crisp programmed percussion and synthesizer melodic phrases. Sparse spaces between phrases heighten the low end and vocal cadence; melodic hooks and denser production appear in other branches.",
+        "exemplars": [
+          "Cledos",
+          "Kube"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "tradition": {
+        "id": "finnish_trap",
+        "name": "Finnish Trap",
+        "family": "hip_hop",
+        "lineage": "Finnish trap localizes the bass-heavy, electronically produced rap style within Finland’s hip-hop networks. Performers combine locally inflected slang and spontaneous vocal cadences with contemporary trap production, alongside melodic and pop-facing branches.",
+        "instruments": [
+          "voice",
+          "drum_machine_808",
+          "analog_poly_synth"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern",
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        }
+      },
+      "source_label": "finnish trap",
+      "source_url": "https://everynoise.com/engenremap-finnishtrap.html",
+      "suggested_id": "finnish_trap",
+      "id": "finnish_trap",
+      "allocation_ordinal": 291,
+      "allocation_group_id": "012",
+      "status": "PREFLIGHT_PENDING",
+      "geo": [
+        60.1699,
+        24.9384,
+        "Helsinki",
+        "Europe"
+      ],
+      "geo_rationale": "Major Finnish rap production hub, not exclusive genre geography.",
+      "model_policy": "Representative genre-production recipe, not a reconstruction of Cledos/Etta or any issued master. Finnish artist first-person trap identification and local scene testimony establish the field; Roland production pedagogy establishes the compatible trap palette of 808 bass/drums, hi-hat subdivisions and synthesizer lines. Authored single rhythmic spoken-flow lead, contemporary digital 808 recreation emphasizing long kick decay, eight-voice Jupiter-family synthesis with a clear melodic lead line, and treated recording studio. Actual artist gear, physiological register, pitch system and recording headcount are not asserted. All three family roles remain present, and broader melodic/hooks/sample branches are not denied.",
+      "sources": [
+        {
+          "url": "https://yle.fi/a/3-10264986",
+          "support_notes": "Fresh14290view1/14294search0 firsthand Cledos interview: self-described Finnish-language trap, spontaneous slang and sound-led approach."
+        },
+        {
+          "url": "https://www.teosto.fi/teostory/oon-tois-mut-en-duunis-musiikista-tuli-cledokselle-tyo/",
+          "support_notes": "Fresh14289search3 full indexed collecting-society interview establishes local new-wave trap practice. Direct14290view0 parsed navigation only; do not claim full direct body."
+        },
+        {
+          "url": "https://articles.roland.com/trap-and-lo-fi-beats-with-zenbeats-and-roland-cloud/",
+          "support_notes": "Fresh14307view1 manufacturer production tutorial: trap 808 low end, sequenced percussion/hi-hat subdivisions, synth lines. Used for authored general genre construction, not proof Cledos used Roland gear."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2qIykQqS2iwSA4lkVUR48b",
+          "support_notes": "Fresh14307view0 exact creator100-track field; Cledos item10 and Kube multiple tracks. Not using playlist as instrument credits."
+        }
+      ],
+      "neighbor_distinction": "The full Finnish Hip Hop national field and Suomirap Finnish-language rap umbrella include many eras, rhythmic approaches and ensemble types; their currently documented Don Johnson Big Band and Jesse Jee branches do not restrict those whole categories. Finnish Trap is the positively self-named local trap-production community within those broader fields, distinguished by this stylistic practice rather than different performer alone. Global trap crosses national scenes, while Finnish Trap concerns the locally documented network and language/slang practices. No strict language purity or non-overlapping artists asserted.",
+      "classification_evidence": "The full Finnish Hip Hop national field and Suomirap Finnish-language rap umbrella include many eras, rhythmic approaches and ensemble types; their currently documented Don Johnson Big Band and Jesse Jee branches do not restrict those whole categories. Finnish Trap is the positively self-named local trap-production community within those broader fields, distinguished by this stylistic practice rather than different performer alone. Global trap crosses national scenes, while Finnish Trap concerns the locally documented network and language/slang practices. No strict language purity or non-overlapping artists asserted.",
+      "source_scope_limitation": "Representative genre-production recipe, not a reconstruction of Cledos/Etta or any issued master. Finnish artist first-person trap identification and local scene testimony establish the field; Roland production pedagogy establishes the compatible trap palette of 808 bass/drums, hi-hat subdivisions and synthesizer lines. Authored single rhythmic spoken-flow lead, contemporary digital 808 recreation emphasizing long kick decay, eight-voice Jupiter-family synthesis with a clear melodic lead line, and treated recording studio. Actual artist gear, physiological register, pitch system and recording headcount are not asserted. All three family roles remain present, and broader melodic/hooks/sample branches are not denied.",
+      "authored_render_scope": "Representative genre-production recipe, not a reconstruction of Cledos/Etta or any issued master. Finnish artist first-person trap identification and local scene testimony establish the field; Roland production pedagogy establishes the compatible trap palette of 808 bass/drums, hi-hat subdivisions and synthesizer lines. Authored single rhythmic spoken-flow lead, contemporary digital 808 recreation emphasizing long kick decay, eight-voice Jupiter-family synthesis with a clear melodic lead line, and treated recording studio. Actual artist gear, physiological register, pitch system and recording headcount are not asserted. All three family roles remain present, and broader melodic/hooks/sample branches are not denied.",
+      "primary_retrieval_refs": [
+        "turn14290view1",
+        "turn14289search3",
+        "turn14307view0",
+        "turn14307view1"
+      ],
+      "source_review_refs": [
+        "turn14290view1",
+        "turn14289search3",
+        "turn14307view0",
+        "turn14307view1"
+      ],
+      "vocal_count_audit": {
+        "representative_voice_cards": 1,
+        "basis": "Single lead general branch, not universal genre headcount or master recording reconstruction."
+      },
+      "instrument_role_audit": {
+        "voice": "Rhythmic rap lead",
+        "drum_machine_808": "Programmed 808-family bass and percussion",
+        "analog_poly_synth": "Synthetic melodic lead line"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative genre-production recipe, not a reconstruction of Cledos/Etta or any issued master. Finnish artist first-person trap identification and local scene testimony establish the field; Roland production pedagogy establishes the compatible trap palette of 808 bass/drums, hi-hat subdivisions and synthesizer lines. Authored single rhythmic spoken-flow lead, contemporary digital 808 recreation emphasizing long kick decay, eight-voice Jupiter-family synthesis with a clear melodic lead line, and treated recording studio. Actual artist gear, physiological register, pitch system and recording headcount are not asserted. All three family roles remain present, and broader melodic/hooks/sample branches are not denied."
+        },
+        {
+          "instrument": "drum_machine_808",
+          "parts": {
+            "tr808_voice": "tr808_kick_long",
+            "drum_machine_808_context": "drum_machine_808_trap",
+            "tr808_production_origin": "tr808_tr_8s_modern"
+          },
+          "policy": "Representative genre-production recipe, not a reconstruction of Cledos/Etta or any issued master. Finnish artist first-person trap identification and local scene testimony establish the field; Roland production pedagogy establishes the compatible trap palette of 808 bass/drums, hi-hat subdivisions and synthesizer lines. Authored single rhythmic spoken-flow lead, contemporary digital 808 recreation emphasizing long kick decay, eight-voice Jupiter-family synthesis with a clear melodic lead line, and treated recording studio. Actual artist gear, physiological register, pitch system and recording headcount are not asserted. All three family roles remain present, and broader melodic/hooks/sample branches are not denied."
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "parts": {
+            "electronic_technique": "electronic_lead_line",
+            "poly_archetypes": "jupiter_8",
+            "poly_voices": "poly_8_voice",
+            "poly_maker_lineage": "poly_roland_jupiter"
+          },
+          "policy": "Representative genre-production recipe, not a reconstruction of Cledos/Etta or any issued master. Finnish artist first-person trap identification and local scene testimony establish the field; Roland production pedagogy establishes the compatible trap palette of 808 bass/drums, hi-hat subdivisions and synthesizer lines. Authored single rhythmic spoken-flow lead, contemporary digital 808 recreation emphasizing long kick decay, eight-voice Jupiter-family synthesis with a clear melodic lead line, and treated recording studio. Actual artist gear, physiological register, pitch system and recording headcount are not asserted. All three family roles remain present, and broader melodic/hooks/sample branches are not denied."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "bounded_revision": {
+        "prior_packet": "/tmp/batch040/resume117-29-finnish-trap-practice.json",
+        "reason": "Initial authored short-envelope synth recipe emitted explicitly Chinese-classical ya-refining. Manufacturer source directly documents a synth melody role; this one bounded alternative uses a melodic lead gesture rather than a short pluck. No construction/model/other palette changes."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

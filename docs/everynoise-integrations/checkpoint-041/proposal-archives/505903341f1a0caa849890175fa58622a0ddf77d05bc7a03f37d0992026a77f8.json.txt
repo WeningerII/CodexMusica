@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/repairs-20261003/root/new-bouzouki-genre-practice.json",
+  "sha256": "e080bd72bfb862e37107ef98db9501800490cc67ac9914887d613761985a78d5",
+  "peer_review": "/workspace/genre-continuation/repairs-20261003/root/new-bouzouki-genre-practice-independent-review-sourceaudit.json",
+  "checked_at": "2026-10-04T00:35:30.159121+00:00",
+  "checks": [
+    "Root read public histories/sounds, model choices, full-neighbor distinction and all actual format strings; primary researcher and independent fresh source/rights reviews retained.",
+    "Original four-format parity/ceiling and strict actual-owner/import/photo checks pass. All meaningful controls retained; historical generic image receipt scope disclosed.",
+    "Bouzouki instrument-repertoire and Medimeisterschaften institutional field distinct despite acknowledged overlaps; local drill and emo-rap intersections directly named by practitioners.",
+    "Final combined integration and validation pending."
+  ]
+}

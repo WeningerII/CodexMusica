@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/transfer461-kumaoni-source-corrected.json",
+  "sha256": "6fcef1176db6934c2f04ad71638e2f78e53b5124e6bb6a22f4e3ded1fd9a0019",
+  "reviewer": "research119",
+  "source_review": {
+    "interview": "Fresh indexed primary turn13497search0 reproduces Pandavaas description of Kumaoni song work and hudka/piano/guitar modernization. Not limited to one master reconstruction.",
+    "construction": "Fresh museum turn13499view0 confirms wood hourglass, two goat heads, pressure lacing and underarm support.",
+    "category": "Distinct Kumaoni language/regional popular field within Himalayan popular music; full Garhwali/Himachali rows inspected and overlap preserved."
+  },
+  "defaults": {
+    "applicable_parts": 30,
+    "invalid_pairs": 0,
+    "old_merged_owners_unchanged": 1638,
+    "new_owner": "hudka_uttarakhand",
+    "material_reuse": "Existing goat-head variant reused exactly; no Malay musical assertion in literal outputs.",
+    "semantic_review": "Four literal formats read: huge/immense/stereophonic are consistent with declared concert-hall spatial realization, no extra performers or foreign lineage asserted. Functional song organization explicitly authored; no exact source gear claims."
+  },
+  "runtime": "/tmp/batch040/kumaoni-runtime119.json",
+  "formats_pass": 4,
+  "max_chars": 776,
+  "photo_review": "Generic microphone context clearly low-confidence, inherited exact023 URL/byte/visual receipt disclosed and current Commons rights record provided; no Hudka depiction claim.",
+  "amendment": "Exact evidence-only dependency.primary_sources replacement confirmed; all musical values unchanged.",
+  "repository_changed": false
+}

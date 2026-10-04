@@ -1,0 +1,374 @@
+{
+  "entries": [
+    {
+      "source_label": "musica coahuilense",
+      "source_url": "https://everynoise.com/engenremap-musicacoahuilense.html",
+      "suggested_id": "musica_coahuilense",
+      "allocation_ordinal": 3848,
+      "allocation_group_id": "154",
+      "id": "musica_coahuilense",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "musica_coahuilense",
+        "name": "Música Coahuilense",
+        "family": "global",
+        "lineage": "Erick y Su Grupo Massore — complete six-member performing formation published in the October2018 firsthand interview profile. Erick Sanchez vocals, Luis Reyes electric bass, Joel Cordova guitar, Angel Pena keyboards, Armando Barbosa drums and Agustin Garcia saxophone. Source identifies all six as from Nueva Rosita, Coahuila. This is the whole documented performing formation, not the forthcoming Original Cumbia Power Music album or La Gozadera guest collaboration with El Gran Silencio. Childhood guiro playing in the retrospective is not asserted part of this dated formation. Only Erick is positively credited as singer; no invented backing singers or claim that these musicians played every historical recording. Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "saxophone"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "wind_articulation": "wind_honking_attack",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_yamaha_custom"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion.latinAm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Erick y Su Grupo Massore — complete six-member performing formation published in the October2018 firsthand interview profile. Erick Sanchez vocals, Luis Reyes electric bass, Joel Cordova guitar, Angel Pena keyboards, Armando Barbosa drums and Agustin Garcia saxophone. Source identifies all six as from Nueva Rosita, Coahuila. This is the whole documented performing formation, not the forthcoming Original Cumbia Power Music album or La Gozadera guest collaboration with El Gran Silencio. Childhood guiro playing in the retrospective is not asserted part of this dated formation. Only Erick is positively credited as singer; no invented backing singers or claim that these musicians played every historical recording. The creator category expressly spans Coahuila regional popular-music groups: Massore, Tropicalisimo Apache, Chicos de Barrio and northern conjuntos from Acuna, Sabinas and Nueva Rosita. This is not a birthplace-only invention: the federal cultural funding register independently names Musica coahuilense de antano con jovenes and Difusion de la musica nortena de compositores coahuilenses as regional repertoire projects. Those projects substantiate regional cultural organization, not participation by Massore. Existing cumbia_lagunera is the full Comarca Lagunera cumbia scene including Apache/Chicos de Barrio, not merely its electronic Cumbia Xillers exemplar; Coahuilense overlaps that scene but also includes Coahuila northern-border conjunto and Nueva Rosita repertoire outside that subregion. Existing norteno explicitly includes Coahuila and remains overlapping, while its accordion/bajo-sexto lineage is not the entire regional field. Existing grupera and tropical encompass this selected tropical dance branch; musica_mexicana remains a broad modern national umbrella. Neither different personnel nor source saxophone supplies the category boundary. Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed.",
+        "exemplars": [
+          "Erick y Su Grupo Massore — complete documented six-person formation,October2018"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        27.9297,
+        -101.2181,
+        "Nueva Rosita",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "All six performers explicitly identified as from Nueva Rosita; editorial regional-community anchor, not a claimed recording studio.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The creator category expressly spans Coahuila regional popular-music groups: Massore, Tropicalisimo Apache, Chicos de Barrio and northern conjuntos from Acuna, Sabinas and Nueva Rosita. This is not a birthplace-only invention: the federal cultural funding register independently names Musica coahuilense de antano con jovenes and Difusion de la musica nortena de compositores coahuilenses as regional repertoire projects. Those projects substantiate regional cultural organization, not participation by Massore. Existing cumbia_lagunera is the full Comarca Lagunera cumbia scene including Apache/Chicos de Barrio, not merely its electronic Cumbia Xillers exemplar; Coahuilense overlaps that scene but also includes Coahuila northern-border conjunto and Nueva Rosita repertoire outside that subregion. Existing norteno explicitly includes Coahuila and remains overlapping, while its accordion/bajo-sexto lineage is not the entire regional field. Existing grupera and tropical encompass this selected tropical dance branch; musica_mexicana remains a broad modern national umbrella. Neither different personnel nor source saxophone supplies the category boundary.",
+      "classification_evidence": "The creator category expressly spans Coahuila regional popular-music groups: Massore, Tropicalisimo Apache, Chicos de Barrio and northern conjuntos from Acuna, Sabinas and Nueva Rosita. This is not a birthplace-only invention: the federal cultural funding register independently names Musica coahuilense de antano con jovenes and Difusion de la musica nortena de compositores coahuilenses as regional repertoire projects. Those projects substantiate regional cultural organization, not participation by Massore. Existing cumbia_lagunera is the full Comarca Lagunera cumbia scene including Apache/Chicos de Barrio, not merely its electronic Cumbia Xillers exemplar; Coahuilense overlaps that scene but also includes Coahuila northern-border conjunto and Nueva Rosita repertoire outside that subregion. Existing norteno explicitly includes Coahuila and remains overlapping, while its accordion/bajo-sexto lineage is not the entire regional field. Existing grupera and tropical encompass this selected tropical dance branch; musica_mexicana remains a broad modern national umbrella. Neither different personnel nor source saxophone supplies the category boundary.",
+      "model_policy": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed.",
+      "source_scope_limitation": "Erick y Su Grupo Massore — complete six-member performing formation published in the October2018 firsthand interview profile. Erick Sanchez vocals, Luis Reyes electric bass, Joel Cordova guitar, Angel Pena keyboards, Armando Barbosa drums and Agustin Garcia saxophone. Source identifies all six as from Nueva Rosita, Coahuila. This is the whole documented performing formation, not the forthcoming Original Cumbia Power Music album or La Gozadera guest collaboration with El Gran Silencio. Childhood guiro playing in the retrospective is not asserted part of this dated formation. Only Erick is positively credited as singer; no invented backing singers or claim that these musicians played every historical recording.",
+      "source_retrieval_caveat": "Fresh full indexed interview profile13170search0 reproduces complete published roster and direct founder quotations; roster is journalist-attributed within the firsthand interview, not falsely marked a direct founder quotation. Creator map13166view0 directly read. Federal grant register13175search9 corroborates regional cultural category, not this band membership.",
+      "primary_retrieval_refs": [
+        "turn13170search0",
+        "turn13166view0",
+        "turn13175search9"
+      ],
+      "sources": [
+        {
+          "url": "https://esnoticiahoy.com/2018/10/19/erick-y-grupo-massore-suenan-con-la-gozadera/",
+          "title": "Firsthand Massore interview profile and full contemporaneous roster",
+          "support_notes": "Indexed13170search0: six complete named roles, Nueva Rosita origin, cumbia tropical; source separates guests and childhood instrument.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-musicacoahuilense.html",
+          "title": "Exact creator Musica Coahuilense field",
+          "support_notes": "Fresh13166view0 Massore29, broad regional network including northern conjuntos and Comarca Lagunera.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://sic.cultura.gob.mx/ficha.php?disciplina=&table=estimulo_pacmyc&table_id=33477",
+          "title": "Federal cultural programme: Musica coahuilense de antano con jovenes",
+          "support_notes": "13175search9 positive2012 regional repertoire project; not claimed Massore participation.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://sic.cultura.gob.mx/resultado.php?busquedaavanzada=%28sic%29&disciplina=&estado_id=5&t=m&table=estimulo_pacmyc",
+          "title": "Federal regional cultural funding inventory",
+          "support_notes": "13175search0 additionally documents northern music by Coahuila composers.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_singers": 1,
+        "people": [
+          "Erick Sanchez"
+        ],
+        "decision": "Only positively named vocalist; no uncredited backing voices guessed."
+      },
+      "instrument_role_audit": {
+        "scope": "Erick y Su Grupo Massore — complete six-member performing formation published in the October2018 firsthand interview profile. Erick Sanchez vocals, Luis Reyes electric bass, Joel Cordova guitar, Angel Pena keyboards, Armando Barbosa drums and Agustin Garcia saxophone. Source identifies all six as from Nueva Rosita, Coahuila. This is the whole documented performing formation, not the forthcoming Original Cumbia Power Music album or La Gozadera guest collaboration with El Gran Silencio. Childhood guiro playing in the retrospective is not asserted part of this dated formation. Only Erick is positively credited as singer; no invented backing singers or claim that these musicians played every historical recording.",
+        "roles": {
+          "voice": "Erick Sanchez vocals",
+          "electric_guitar_humbucker": "Joel Cordova guitar",
+          "electric_bass": "Luis Reyes electric bass",
+          "drum_kit": "Armando Barbosa drums",
+          "electronic_keyboard_unspecified": "Angel Pena keyboards",
+          "saxophone": "Agustin Garcia saxophone"
+        },
+        "authored_defaults": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "hand_random_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed."
+        },
+        {
+          "instrument": "saxophone",
+          "parts": {
+            "wind_articulation": "wind_honking_attack",
+            "sax_size": "tenor_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_honking_attack",
+            "sax_maker_school": "sax_yamaha_custom"
+          },
+          "policy": "Representative authored cumbia-tropical dance rendition under the existing continental Latin American groove parent. All six source families and one positively credited singer retained. Neutral voice physiology with explicitly authored small-note-group neumatic word setting; this is not a transcription of the source melody. Source-general guitar becomes clean-strummed alder/maple humbucker electric, source bass a fretted long-scale roundwound soapbar instrument with locked fingerstyle, full maple stick drum kit with coated heads/felt pedal and hand-hammered traditional-finish B20 cymbals. Source-general saxophone is deliberately realized as tenor, yellow brass, medium reed, hard-rubber mouthpiece and Yamaha Custom maker option with punchy honking phrasing; none of these construction or technique details is asserted measured source equipment. Electronic keyboard architecture stays unspecified with authored melodic/chordal support. Controlled live room is authored, not the interview venue. No source BPM, global tuning, recording chain or uncredited percussion imposed."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified",
+          "saxophone"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Every applicable owning part protected by an applicable flat pin; same-key guitar wood does not invent applicability to bass. Original imports and compiled outputs independently checked."
+      },
+      "verification_status": "58 applicable controls, 56 flat keys, no fallback or original-owner changes; all four actual outputs verified. Independent review pending.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_coahuilense",
+          "name": "Música Coahuilense",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Massore, Nueva Rosita or source equipment depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13048view0 confirms Iain Fergusson/Binksternet crop CC BY2.5; inherited023 exact bytes preserved.",
+          "fresh_review_ref": "turn13048view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13048view0"
+        ],
+        "fresh_rights_review": "Fresh13048view0 rights/context only; no fresh download or visual receipt claimed."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

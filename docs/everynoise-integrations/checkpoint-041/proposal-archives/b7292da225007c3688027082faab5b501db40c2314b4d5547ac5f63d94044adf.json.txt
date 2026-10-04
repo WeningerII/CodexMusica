@@ -1,0 +1,222 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "north_moroccan_rap",
+        "name": "North Moroccan Rap",
+        "family": "hip_hop",
+        "lineage": "Northern Moroccan rap links Tangier, Tetouan and surrounding communities through local MC networks and cross-border collaborations. Muslim’s Tangier work is an important reference, while younger and diasporic artists extend the region’s connections to the wider Moroccan scene.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rhythmic verses and producer-built beats carry local experience, personal testimony and social commentary. Darija delivery and flexible language use connect neighborhood expression with wider audiences, while the production remains open to different hip-hop approaches.",
+        "exemplars": [
+          "Muslim",
+          "Ali Ssamid",
+          "KDK"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "north_moroccan_rap",
+          "name": "North Moroccan Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13685view0 confirms Iain Fergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13685view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13685view0; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13685view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rhythmic MC and produced-beat practice, supported by the firsthand artist discussion of verses over beats, studio work and named northern Moroccan collaborations. This is not a reconstruction of a specific collaborative album or live set. One unprocessed lead rapper and controlled dry studio are authored choices; original instrument architecture, embedded samples and headcounts remain variable. No mandatory Gnawa instrument or song hook is inferred from nationality. Diaspora participation is preserved without claiming the whole Norfafrica collective belongs exclusively to northern Morocco."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rhythmic MC and produced-beat practice, supported by the firsthand artist discussion of verses over beats, studio work and named northern Moroccan collaborations. This is not a reconstruction of a specific collaborative album or live set. One unprocessed lead rapper and controlled dry studio are authored choices; original instrument architecture, embedded samples and headcounts remain variable. No mandatory Gnawa instrument or song hook is inferred from nationality. Diaspora participation is preserved without claiming the whole Norfafrica collective belongs exclusively to northern Morocco."
+        }
+      ],
+      "source_label": "north moroccan rap",
+      "source_url": "https://everynoise.com/engenremap-northmoroccanrap.html",
+      "suggested_id": "north_moroccan_rap",
+      "allocation_ordinal": 416,
+      "allocation_group_id": "017",
+      "id": "north_moroccan_rap",
+      "status": "ready_for_independent_review",
+      "geo": [
+        35.7595,
+        -5.834,
+        "Tangier",
+        "Africa"
+      ],
+      "geo_rationale": "Documented northern scene anchor, not exclusive birthplace or recording location.",
+      "signature_tokens": [],
+      "model_policy": "Representative rhythmic MC and produced-beat practice, supported by the firsthand artist discussion of verses over beats, studio work and named northern Moroccan collaborations. This is not a reconstruction of a specific collaborative album or live set. One unprocessed lead rapper and controlled dry studio are authored choices; original instrument architecture, embedded samples and headcounts remain variable. No mandatory Gnawa instrument or song hook is inferred from nationality. Diaspora participation is preserved without claiming the whole Norfafrica collective belongs exclusively to northern Morocco.",
+      "neighbor_distinction": "Full Rap Maroc already includes Muslim and broader Moroccan coastal-city practice, not only Casablanca or its other named examples. Trap Maroc is a broader national production-style intersection. The narrower northern community is positively identified through the firsthand YP interview’s explicit Northern Morocco collaborations with Ali Ssamid/KDK and Tangier/Tetouan connections, corroborated by original fieldwork research discussing the distinct northern scene. This is overlapping regional institutional/social scope, not a sonic species or an assertion that national rap excludes these artists. North Morocco is not synonymous with all North Africa.",
+      "classification_evidence": "Full Rap Maroc already includes Muslim and broader Moroccan coastal-city practice, not only Casablanca or its other named examples. Trap Maroc is a broader national production-style intersection. The narrower northern community is positively identified through the firsthand YP interview’s explicit Northern Morocco collaborations with Ali Ssamid/KDK and Tangier/Tetouan connections, corroborated by original fieldwork research discussing the distinct northern scene. This is overlapping regional institutional/social scope, not a sonic species or an assertion that national rap excludes these artists. North Morocco is not synonymous with all North Africa.",
+      "source_scope_limitation": "Representative rhythmic MC and produced-beat practice, supported by the firsthand artist discussion of verses over beats, studio work and named northern Moroccan collaborations. This is not a reconstruction of a specific collaborative album or live set. One unprocessed lead rapper and controlled dry studio are authored choices; original instrument architecture, embedded samples and headcounts remain variable. No mandatory Gnawa instrument or song hook is inferred from nationality. Diaspora participation is preserved without claiming the whole Norfafrica collective belongs exclusively to northern Morocco.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Firsthand MC describes poetry becoming rap and northern collaborative practice."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Firsthand interview explicitly verses over beats and studio production; no specific synth or sampler architecture claimed."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "one authored lead rapper with produced accompaniment",
+        "no_exact_recording_reconstruction": true
+      },
+      "sources": [
+        {
+          "url": "https://dimatopmagazine.com/hip-hub/our-diaspora/rapper-yp-interview/",
+          "primary": true,
+          "evidence_ref": "turn13800view1",
+          "supports": "Original artist interview: Tangier/Muslim and Tetouan connections, named northern collaborations with Ali Ssamid/KDK, beat-based rap and studio network. Not every artist or language named is asserted northern."
+        },
+        {
+          "url": "https://www.tandfonline.com/doi/full/10.1080/13696815.2013.820130",
+          "primary": true,
+          "evidence_ref": "turn13799search0",
+          "supports": "Original scholarly fieldwork indexed passage positively discusses Tangiers/northern scene and representation of Muslim. Full article not retrieved; no detailed unheard conclusion or exclusive technique asserted."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

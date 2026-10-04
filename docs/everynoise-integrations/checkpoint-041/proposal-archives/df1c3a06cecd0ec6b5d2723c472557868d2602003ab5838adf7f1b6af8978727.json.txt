@@ -1,0 +1,248 @@
+{
+  "entries": [
+    {
+      "source_label": "ilahiler",
+      "source_url": "https://everynoise.com/engenremap-ilahiler.html",
+      "suggested_id": "ilahiler",
+      "allocation_ordinal": 3458,
+      "allocation_group_id": "139",
+      "id": "ilahiler",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "ilahiler",
+        "name": "İlahiler",
+        "family": "vernacular",
+        "lineage": "İlahiler — Sedat Uçan and Hasan Dursun, complete En Güzel Müziksiz İlahiler album, issued15June2015 by İsra Yayın: twelve songs, approximately49minutes. Licensed issuer catalog identifies the full unaccompanied edition; performer booking source explicitly explains müziksiz as instrument-free/vocal, and the artist official channel separately distinguishes plain unaccompanied releases. Two billed artists are retained without asserting both sing simultaneously on every track. Unknown additional vocal-layer count and tracking are preserved with one existing source-unspecified human voice owner. No audio audition or individually verified tracklist asserted; the whole issued album, not selected convenient excerpts, is modeled. All physiology, singing lineage, exact articulation, ornament, pitch system, singer count and tracking remain unspecified. Moderate effort, neutral tract and unprocessed vocal delivery are authored representative scaffolding. Treated studio acoustics are a present-day editorial rendition, not source venue. Global tuning and recording apparatus are unknown and omitted.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.islamic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "İlahiler — Sedat Uçan and Hasan Dursun, complete En Güzel Müziksiz İlahiler album, issued15June2015 by İsra Yayın: twelve songs, approximately49minutes. Licensed issuer catalog identifies the full unaccompanied edition; performer booking source explicitly explains müziksiz as instrument-free/vocal, and the artist official channel separately distinguishes plain unaccompanied releases. Two billed artists are retained without asserting both sing simultaneously on every track. Unknown additional vocal-layer count and tracking are preserved with one existing source-unspecified human voice owner. No audio audition or individually verified tracklist asserted; the whole issued album, not selected convenient excerpts, is modeled. TDV Islamic Research Centre defines ilahi as composed religious-mystical poetry and describes its specifically Turkish religious-music makam/usul and cami/tekke practices; contemporary issuer and performer repertoire explicitly use İlahiler. This is a positive named devotional-song field, not a translation-based alias for every Islamic song. Full existing islamic_anasheed covers broader multilingual voice/frame-drum repertoire; ilahiler overlaps that field but also has instrumental and unaccompanied branches, as the performer documentation expressly distinguishes. Existing sufi_zikr_chant is a repeated divine-name rite rather than this composed-song category; sufi_munajat_naat covers broader Indo-Persian/Arabic praise genres, not coextensive Turkish ilahi. Full Sufi umbrella remains inclusive and overlapping. The selected voice-only edition does not define the entire genre as unaccompanied. ritualDevotional.islamic reflects source-positive devotional song without imposing a specific personal Sufi order or classical training. All physiology, singing lineage, exact articulation, ornament, pitch system, singer count and tracking remain unspecified. Moderate effort, neutral tract and unprocessed vocal delivery are authored representative scaffolding. Treated studio acoustics are a present-day editorial rendition, not source venue. Global tuning and recording apparatus are unknown and omitted.",
+        "exemplars": [
+          "Sedat Uçan and Hasan Dursun — complete En Güzel Müziksiz İlahiler (2015)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        39.93,
+        32.85,
+        "Türkiye",
+        "Middle East"
+      ],
+      "geo_rationale": "Approximate Turkish repertoire land anchor, not recording-location assertion.",
+      "sources": [
+        {
+          "url": "https://music.apple.com/us/album/en-g%C3%BCzel-m%C3%BCziksiz-i-lahiler/1012981551",
+          "title": "Licensed complete En Güzel Müziksiz İlahiler edition",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12227view0 explicitly both artists,12songs49minutes,15June2015 and İsra Yayın. Entire collection scope, no individual tracklist transcription claimed."
+        },
+        {
+          "url": "https://www.isabetorganizasyon.org/BookingDetay/266/Sedat-Ucan",
+          "title": "Performer booking repertoire and unaccompanied practice",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12220search2 and12227view2 explicitly contrasts instrumental and instrument-free/vocal works, naming selected2015 collection. Page compiles release dates from digital catalogs; date sourced to issuer above."
+        },
+        {
+          "url": "https://islamansiklopedisi.org.tr/ilahi",
+          "title": "TDV Islamic Research Centre — İlâhi",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12213view0 scholarly institutional primary field definition and religious-music practices, not source session personnel."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=d1O4HfpDyas",
+          "title": "Sedat Uçan official artist plain unaccompanied release",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh indexed12220youtube12 explicit Müziksiz Sade,20July2018. Corroborative publisher practice only; not combined with selected2015 album. Direct12227view1 failed."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "TDV Islamic Research Centre defines ilahi as composed religious-mystical poetry and describes its specifically Turkish religious-music makam/usul and cami/tekke practices; contemporary issuer and performer repertoire explicitly use İlahiler. This is a positive named devotional-song field, not a translation-based alias for every Islamic song. Full existing islamic_anasheed covers broader multilingual voice/frame-drum repertoire; ilahiler overlaps that field but also has instrumental and unaccompanied branches, as the performer documentation expressly distinguishes. Existing sufi_zikr_chant is a repeated divine-name rite rather than this composed-song category; sufi_munajat_naat covers broader Indo-Persian/Arabic praise genres, not coextensive Turkish ilahi. Full Sufi umbrella remains inclusive and overlapping. The selected voice-only edition does not define the entire genre as unaccompanied. ritualDevotional.islamic reflects source-positive devotional song without imposing a specific personal Sufi order or classical training.",
+      "classification_evidence": "TDV Islamic Research Centre defines ilahi as composed religious-mystical poetry and describes its specifically Turkish religious-music makam/usul and cami/tekke practices; contemporary issuer and performer repertoire explicitly use İlahiler. This is a positive named devotional-song field, not a translation-based alias for every Islamic song. Full existing islamic_anasheed covers broader multilingual voice/frame-drum repertoire; ilahiler overlaps that field but also has instrumental and unaccompanied branches, as the performer documentation expressly distinguishes. Existing sufi_zikr_chant is a repeated divine-name rite rather than this composed-song category; sufi_munajat_naat covers broader Indo-Persian/Arabic praise genres, not coextensive Turkish ilahi. Full Sufi umbrella remains inclusive and overlapping. The selected voice-only edition does not define the entire genre as unaccompanied. ritualDevotional.islamic reflects source-positive devotional song without imposing a specific personal Sufi order or classical training.",
+      "model_policy": "All physiology, singing lineage, exact articulation, ornament, pitch system, singer count and tracking remain unspecified. Moderate effort, neutral tract and unprocessed vocal delivery are authored representative scaffolding. Treated studio acoustics are a present-day editorial rendition, not source venue. Global tuning and recording apparatus are unknown and omitted.",
+      "source_scope_limitation": "İlahiler — Sedat Uçan and Hasan Dursun, complete En Güzel Müziksiz İlahiler album, issued15June2015 by İsra Yayın: twelve songs, approximately49minutes. Licensed issuer catalog identifies the full unaccompanied edition; performer booking source explicitly explains müziksiz as instrument-free/vocal, and the artist official channel separately distinguishes plain unaccompanied releases. Two billed artists are retained without asserting both sing simultaneously on every track. Unknown additional vocal-layer count and tracking are preserved with one existing source-unspecified human voice owner. No audio audition or individually verified tracklist asserted; the whole issued album, not selected convenient excerpts, is modeled.",
+      "source_retrieval_caveat": "Licensed album metadata and performer practice text read. Full selected album title/count/date are positive, individual track audio and personnel are not independently auditioned. No exact creator-playlist membership claim.",
+      "instrument_role_audit": {
+        "whole_scope": "Complete12-song2015 unaccompanied album",
+        "billed_artists": [
+          "Sedat Uçan",
+          "Hasan Dursun"
+        ],
+        "positive_families": [
+          "human voices"
+        ],
+        "omitted_positive_roles": [],
+        "actual_total_voice_count": "unknown"
+      },
+      "vocal_count_audit": {
+        "billed_artists": 2,
+        "actual_total_human_count": "unknown/not exhaustively documented",
+        "tracking": "unknown",
+        "voice_cards": 1,
+        "policy": "Preserves both credited artists and all potential vocal layers; does not assert simultaneous duet or exact two-person total."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "All physiology, singing lineage, exact articulation, ornament, pitch system, singer count and tracking remain unspecified. Moderate effort, neutral tract and unprocessed vocal delivery are authored representative scaffolding. Treated studio acoustics are a present-day editorial rendition, not source venue. Global tuning and recording apparatus are unknown and omitted."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All seventeen owning controls protected; unknown count and tracking use existing neutral variants."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ilahiler",
+          "name": "İlahiler",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not Sedat Uçan, Hasan Dursun, actual source equipment or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn12134view1 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn12134view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12134view1"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

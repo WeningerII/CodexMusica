@@ -1,0 +1,576 @@
+{
+  "entries": [
+    {
+      "source_label": "kamba pop",
+      "source_url": "https://everynoise.com/engenremap-kambapop.html",
+      "suggested_id": "kamba_pop",
+      "allocation_ordinal": 1759,
+      "allocation_group_id": "071",
+      "id": "kamba_pop",
+      "tradition": {
+        "id": "kamba_pop",
+        "name": "Kamba Pop",
+        "family": "pop",
+        "lineage": "Kamba pop connects vernacular song in eastern Kenya with benga bands, recordings and contemporary dance audiences. Artists such as Ken Wa Maria and Kativui Mweene carry narrative and topical lyrics through a guitar-driven popular tradition that includes both secular and gospel repertoires.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.africanPop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Lead and supporting singing interlock with bright electric-guitar figures, an active bass line and a steady drum pulse. Repeated refrains and instrumental passages create room for dancing, with contrasting accents and melodic guitar responses keeping the texture in motion.",
+        "exemplars": [
+          "Ken Wa Maria",
+          "Kativui Mweene",
+          "Kalambya Boys"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        -1.5,
+        37.7,
+        "Eastern Kenya",
+        "Africa"
+      ],
+      "geo_rationale": "Broad editorial Eastern Kenya regional anchor for source-described Kamba community; not DJ birthplace, exact studio, or administrative-region centroid.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Kamba Pop is the Eastern Kenyan Kamba popular-music community across secular and gospel repertoire, positively described by the issuing platform in its own Kamba-mix editorial. The exact creator corpus contains historical bands, current secular performers and gospel artists. It overlaps broad Kenyan Pop, whose Sauti Sol example does not exclude other Kenyan communities. Existing Benga defines the Luo/Dholuo guitar-band lineage; Kamba musicians share and adapt benga practice, so no denial of ancestry or coextensive national claim. Existing Genge/Gengetone define Nairobi Sheng rap production communities, not this broader Kamba vernacular-song network. Distinction rests on positively documented cultural circulation/repertoire, not the different DJ or selected mix hardware.",
+      "model_policy": "Replace one exact DJ mix as genre default with representative source-supported Kamba benga band practice. Kenya Special issuer liner notes explicitly identify Kamba pop and its guitar/bass/snare-and-kick benga lineage; firsthand Ken Wa Maria interview describes the vernacular band movement and consciously adjusted dance pacing. Author moderate clean humbucker guitar, soapbar long-scale fretted bass and complete maple/B20 drum-kit construction plus group singing; no claim these are source artist models, measured tempos or one complete recording. Prior DJ branch and whole-mix evidence remain archived, not denied. All four instrumental/vocal roles have complete meaningful applicable controls, no opaque sampler or new owner.",
+      "source_scope_limitation": "Genre-level representative band rendition; original exact DJ-mix scope remains archived and is not claimed to be newly reconstructed.",
+      "classification_evidence": "Kamba Pop is the Eastern Kenyan Kamba popular-music community across secular and gospel repertoire, positively described by the issuing platform in its own Kamba-mix editorial. The exact creator corpus contains historical bands, current secular performers and gospel artists. It overlaps broad Kenyan Pop, whose Sauti Sol example does not exclude other Kenyan communities. Existing Benga defines the Luo/Dholuo guitar-band lineage; Kamba musicians share and adapt benga practice, so no denial of ancestry or coextensive national claim. Existing Genge/Gengetone define Nairobi Sheng rap production communities, not this broader Kamba vernacular-song network. Distinction rests on positively documented cultural circulation/repertoire, not the different DJ or selected mix hardware.",
+      "vocal_count_audit": {
+        "current_default": "Authored lead/supporting group singing; performer count unspecified, no exact source-session claim."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Representative sung benga band role supported by regional-field and issuer research."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "role": "Representative sung benga band role supported by regional-field and issuer research."
+        },
+        {
+          "instrument": "electric_bass",
+          "role": "Representative sung benga band role supported by regional-field and issuer research."
+        },
+        {
+          "instrument": "drum_kit",
+          "role": "Representative sung benga band role supported by regional-field and issuer research."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "dj_playback_mixing_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace one exact DJ mix as genre default with representative source-supported Kamba benga band practice. Kenya Special issuer liner notes explicitly identify Kamba pop and its guitar/bass/snare-and-kick benga lineage; firsthand Ken Wa Maria interview describes the vernacular band movement and consciously adjusted dance pacing. Author moderate clean humbucker guitar, soapbar long-scale fretted bass and complete maple/B20 drum-kit construction plus group singing; no claim these are source artist models, measured tempos or one complete recording. Prior DJ branch and whole-mix evidence remain archived, not denied. All four instrumental/vocal roles have complete meaningful applicable controls, no opaque sampler or new owner."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Replace one exact DJ mix as genre default with representative source-supported Kamba benga band practice. Kenya Special issuer liner notes explicitly identify Kamba pop and its guitar/bass/snare-and-kick benga lineage; firsthand Ken Wa Maria interview describes the vernacular band movement and consciously adjusted dance pacing. Author moderate clean humbucker guitar, soapbar long-scale fretted bass and complete maple/B20 drum-kit construction plus group singing; no claim these are source artist models, measured tempos or one complete recording. Prior DJ branch and whole-mix evidence remain archived, not denied. All four instrumental/vocal roles have complete meaningful applicable controls, no opaque sampler or new owner."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Replace one exact DJ mix as genre default with representative source-supported Kamba benga band practice. Kenya Special issuer liner notes explicitly identify Kamba pop and its guitar/bass/snare-and-kick benga lineage; firsthand Ken Wa Maria interview describes the vernacular band movement and consciously adjusted dance pacing. Author moderate clean humbucker guitar, soapbar long-scale fretted bass and complete maple/B20 drum-kit construction plus group singing; no claim these are source artist models, measured tempos or one complete recording. Prior DJ branch and whole-mix evidence remain archived, not denied. All four instrumental/vocal roles have complete meaningful applicable controls, no opaque sampler or new owner."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Replace one exact DJ mix as genre default with representative source-supported Kamba benga band practice. Kenya Special issuer liner notes explicitly identify Kamba pop and its guitar/bass/snare-and-kick benga lineage; firsthand Ken Wa Maria interview describes the vernacular band movement and consciously adjusted dance pacing. Author moderate clean humbucker guitar, soapbar long-scale fretted bass and complete maple/B20 drum-kit construction plus group singing; no claim these are source artist models, measured tempos or one complete recording. Prior DJ branch and whole-mix evidence remain archived, not denied. All four instrumental/vocal roles have complete meaningful applicable controls, no opaque sampler or new owner."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "One actual merged owning identity control, explicitly pinned; all source hardware details remain unknown."
+      },
+      "status": "source_ready",
+      "verification_status": "All1638 existing owners preserved; one owning part protected, zero errors/fallbacks, exact historical photo receipt matches. Four original outputs inspected: up-tempo neutral DJ identity and controlled room, no extra source hardware/culture. Brisk editorial pacing disclosed. Independent peer and final integrated checks pending.",
+      "sources": [
+        {
+          "url": "https://mdundo.com/song/6208778",
+          "title": "Complete artist-issued Ken Wa Maria Kamba DJ mix",
+          "support_notes": "Fresh12558view0 explicit title/DJ18:03; no exact publication date inferred."
+        },
+        {
+          "url": "https://mdundo.com/news/42767",
+          "title": "Issuing platform Kamba music field and DJ practice",
+          "support_notes": "Fresh12558view1 positively Eastern Kenya vernacular field, secular/gospel and party mixes, Ken Wa Maria named."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3GPnlDr6QUwAM4LW4gGOqy",
+          "title": "Exact creator Kamba Pop repertoire",
+          "support_notes": "Fresh12560view0 Ken Wa Maria8/45, bands and gospel artists. No DJ-membership or exact mix track claim."
+        },
+        {
+          "url": "https://mdundo.com/a/500851",
+          "title": "Issuing DJ artist profile",
+          "support_notes": "Fresh12560view1 profile reached by actual credited artist link; current2026 name not publication date."
+        },
+        {
+          "url": "https://www.accent-presse.com/wp-content/uploads/IMG/pdf/KENYA_SPECIAL_LINER_NOTES.pdf",
+          "title": "Kenya Special issuer liner notes",
+          "support_notes": "Fresh turn13731view1/13733view0 pp0–1 explicitly identifies Kamba pop/benga, electric guitar melody and bass/snare/kick foundation; not assuming every national tradition shares this band."
+        },
+        {
+          "url": "https://www.standardmedia.co.ke/amp/entertainment/article/2001392344/ken-wa-marias-rise-from-selling-mitumba-to-benga-kingpin",
+          "title": "Firsthand Ken Wa Maria career interview",
+          "support_notes": "Fresh13731view0 performer discusses Kamba benga band roots, narrative topics and revised dance pacing. Historical assertions are artist testimony, not exact source gear."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "kamba_pop",
+          "name": "Kamba Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not pictured DJ hardware, Ken Wa Maria, or Kamba cultural depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12536view2 Commons confirms CC BY2.5 and Iain Fergusson/Binksternet crop; historical023 bytes retained.",
+          "fresh_review_ref": "turn12536view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12536view2"
+        ],
+        "fresh_rights_review": "Fresh12536view2 rights only; historical bytes and visual receipt unchanged."
+      },
+      "primary_retrieval_refs": [
+        "turn12558view0",
+        "turn12558view1",
+        "turn12560view0",
+        "turn12560view1"
+      ],
+      "source_review_refs": [
+        "turn12558view0",
+        "turn12558view1",
+        "turn12560view0",
+        "turn12560view1"
+      ],
+      "source_retrieval_caveat": "Actual full metadata read; no audio audition or hidden full tracklist inferred.",
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-13.json",
+        "original_sha256": "993980d5fd734a19b795c0d3df67f74fbc918459697971c132cb52edc3214fbf",
+        "prior_entry": {
+          "source_label": "kamba pop",
+          "source_url": "https://everynoise.com/engenremap-kambapop.html",
+          "suggested_id": "kamba_pop",
+          "allocation_ordinal": 1759,
+          "allocation_group_id": "071",
+          "id": "kamba_pop",
+          "tradition": {
+            "id": "kamba_pop",
+            "name": "Kamba Pop",
+            "family": "pop",
+            "lineage": "DJ NiiDO — complete separately issued18:03 DOWNLOAD KEN WA MARIA LATEST KAMBA MIX, Mdundo song6208778. The publisher-hosted artist programme positively credits DJ NiiDO and names Ken Wa Maria repertoire. Whole issued mix retained, not a guessed sampler substitute for one opaque studio master. The artist profile currently says2026; this is not proof of recording/publication date. Exact track order, song count, transitions, embedded source instrumentation and vocal headcount are unknown. No audio audition or claim of a live venue recording. No separate live singer role documented; unknown actual additional live voice count is not zero. Artist-level category bridge: exact creator Kamba Pop lists Ken Wa Maria at8/45; the selected DJ is not claimed a member and no specific song in the mix is inferred from that playlist. Existing neutral DJ playback/mixing identity retains the complete published programme with unspecified decks, media and internal source mechanisms. No live guitar band is fabricated from the embedded Ken Wa Maria recordings, and no embedded voice or instrument is declared absent. Controlled live-room presentation and brisk dance pacing are authored compatible with the publisher’s Kamba party-mix practice, not source venue or measured BPM. African popular-song placement follows the repertoire; the authored rendition uses functional-harmonic verse–chorus–bridge song units within the continuous DJ programme, not a claim that the whole18:03mix is one song or a transcription of unheard tracks. No global tuning or capture apparatus.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong.africanPop",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "DJ NiiDO — complete separately issued18:03 DOWNLOAD KEN WA MARIA LATEST KAMBA MIX, Mdundo song6208778. The publisher-hosted artist programme positively credits DJ NiiDO and names Ken Wa Maria repertoire. Whole issued mix retained, not a guessed sampler substitute for one opaque studio master. The artist profile currently says2026; this is not proof of recording/publication date. Exact track order, song count, transitions, embedded source instrumentation and vocal headcount are unknown. No audio audition or claim of a live venue recording. No separate live singer role documented; unknown actual additional live voice count is not zero. Artist-level category bridge: exact creator Kamba Pop lists Ken Wa Maria at8/45; the selected DJ is not claimed a member and no specific song in the mix is inferred from that playlist. Kamba Pop is the Eastern Kenyan Kamba popular-music community across secular and gospel repertoire, positively described by the issuing platform in its own Kamba-mix editorial. The exact creator corpus contains historical bands, current secular performers and gospel artists. It overlaps broad Kenyan Pop, whose Sauti Sol example does not exclude other Kenyan communities. Existing Benga defines the Luo/Dholuo guitar-band lineage; Kamba musicians share and adapt benga practice, so no denial of ancestry or coextensive national claim. Existing Genge/Gengetone define Nairobi Sheng rap production communities, not this broader Kamba vernacular-song network. Distinction rests on positively documented cultural circulation/repertoire, not the different DJ or selected mix hardware. Existing neutral DJ playback/mixing identity retains the complete published programme with unspecified decks, media and internal source mechanisms. No live guitar band is fabricated from the embedded Ken Wa Maria recordings, and no embedded voice or instrument is declared absent. Controlled live-room presentation and brisk dance pacing are authored compatible with the publisher’s Kamba party-mix practice, not source venue or measured BPM. African popular-song placement follows the repertoire; the authored rendition uses functional-harmonic verse–chorus–bridge song units within the continuous DJ programme, not a claim that the whole18:03mix is one song or a transcription of unheard tracks. No global tuning or capture apparatus.",
+            "exemplars": [
+              "DJ NiiDO — complete18:03 Ken Wa Maria Kamba Mix6208778"
+            ],
+            "crossRefs": []
+          },
+          "geo": [
+            -1.5,
+            37.7,
+            "Eastern Kenya",
+            "Africa"
+          ],
+          "geo_rationale": "Broad editorial Eastern Kenya regional anchor for source-described Kamba community; not DJ birthplace, exact studio, or administrative-region centroid.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Kamba Pop is the Eastern Kenyan Kamba popular-music community across secular and gospel repertoire, positively described by the issuing platform in its own Kamba-mix editorial. The exact creator corpus contains historical bands, current secular performers and gospel artists. It overlaps broad Kenyan Pop, whose Sauti Sol example does not exclude other Kenyan communities. Existing Benga defines the Luo/Dholuo guitar-band lineage; Kamba musicians share and adapt benga practice, so no denial of ancestry or coextensive national claim. Existing Genge/Gengetone define Nairobi Sheng rap production communities, not this broader Kamba vernacular-song network. Distinction rests on positively documented cultural circulation/repertoire, not the different DJ or selected mix hardware.",
+          "model_policy": "Existing neutral DJ playback/mixing identity retains the complete published programme with unspecified decks, media and internal source mechanisms. No live guitar band is fabricated from the embedded Ken Wa Maria recordings, and no embedded voice or instrument is declared absent. Controlled live-room presentation and brisk dance pacing are authored compatible with the publisher’s Kamba party-mix practice, not source venue or measured BPM. African popular-song placement follows the repertoire; the authored rendition uses functional-harmonic verse–chorus–bridge song units within the continuous DJ programme, not a claim that the whole18:03mix is one song or a transcription of unheard tracks. No global tuning or capture apparatus.",
+          "source_scope_limitation": "DJ NiiDO — complete separately issued18:03 DOWNLOAD KEN WA MARIA LATEST KAMBA MIX, Mdundo song6208778. The publisher-hosted artist programme positively credits DJ NiiDO and names Ken Wa Maria repertoire. Whole issued mix retained, not a guessed sampler substitute for one opaque studio master. The artist profile currently says2026; this is not proof of recording/publication date. Exact track order, song count, transitions, embedded source instrumentation and vocal headcount are unknown. No audio audition or claim of a live venue recording. No separate live singer role documented; unknown actual additional live voice count is not zero. Artist-level category bridge: exact creator Kamba Pop lists Ken Wa Maria at8/45; the selected DJ is not claimed a member and no specific song in the mix is inferred from that playlist.",
+          "classification_evidence": "Kamba Pop is the Eastern Kenyan Kamba popular-music community across secular and gospel repertoire, positively described by the issuing platform in its own Kamba-mix editorial. The exact creator corpus contains historical bands, current secular performers and gospel artists. It overlaps broad Kenyan Pop, whose Sauti Sol example does not exclude other Kenyan communities. Existing Benga defines the Luo/Dholuo guitar-band lineage; Kamba musicians share and adapt benga practice, so no denial of ancestry or coextensive national claim. Existing Genge/Gengetone define Nairobi Sheng rap production communities, not this broader Kamba vernacular-song network. Distinction rests on positively documented cultural circulation/repertoire, not the different DJ or selected mix hardware.",
+          "vocal_count_audit": {
+            "selected_count": null,
+            "embedded_voice_count": "unknown",
+            "separately_performed_live_voice_count": "unknown",
+            "added_live_voice_cards": 0,
+            "decision": "Full actual issued DJ programme retained; no live voice role documented and no embedded-voice absence claim."
+          },
+          "instrument_role_audit": {
+            "scope": "DJ NiiDO — complete separately issued18:03 DOWNLOAD KEN WA MARIA LATEST KAMBA MIX, Mdundo song6208778. The publisher-hosted artist programme positively credits DJ NiiDO and names Ken Wa Maria repertoire. Whole issued mix retained, not a guessed sampler substitute for one opaque studio master. The artist profile currently says2026; this is not proof of recording/publication date. Exact track order, song count, transitions, embedded source instrumentation and vocal headcount are unknown. No audio audition or claim of a live venue recording. No separate live singer role documented; unknown actual additional live voice count is not zero. Artist-level category bridge: exact creator Kamba Pop lists Ken Wa Maria at8/45; the selected DJ is not claimed a member and no specific song in the mix is inferred from that playlist.",
+            "roles": {
+              "dj_playback_mixing_unspecified": "Whole published18:03 DJ mixing/playback programme"
+            },
+            "performers": [
+              "DJ NiiDO"
+            ],
+            "authored_defaults": "Existing neutral DJ playback/mixing identity retains the complete published programme with unspecified decks, media and internal source mechanisms. No live guitar band is fabricated from the embedded Ken Wa Maria recordings, and no embedded voice or instrument is declared absent. Controlled live-room presentation and brisk dance pacing are authored compatible with the publisher’s Kamba party-mix practice, not source venue or measured BPM. African popular-song placement follows the repertoire; the authored rendition uses functional-harmonic verse–chorus–bridge song units within the continuous DJ programme, not a claim that the whole18:03mix is one song or a transcription of unheard tracks. No global tuning or capture apparatus."
+          },
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "dj_playback_mixing_unspecified"
+            ]
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Existing neutral DJ playback/mixing identity retains the complete published programme with unspecified decks, media and internal source mechanisms. No live guitar band is fabricated from the embedded Ken Wa Maria recordings, and no embedded voice or instrument is declared absent. Controlled live-room presentation and brisk dance pacing are authored compatible with the publisher’s Kamba party-mix practice, not source venue or measured BPM. African popular-song placement follows the repertoire; the authored rendition uses functional-harmonic verse–chorus–bridge song units within the continuous DJ programme, not a claim that the whole18:03mix is one song or a transcription of unheard tracks. No global tuning or capture apparatus."
+            }
+          ],
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "rule": "One actual merged owning identity control, explicitly pinned; all source hardware details remain unknown."
+          },
+          "status": "source_ready",
+          "verification_status": "All1638 existing owners preserved; one owning part protected, zero errors/fallbacks, exact historical photo receipt matches. Four original outputs inspected: up-tempo neutral DJ identity and controlled room, no extra source hardware/culture. Brisk editorial pacing disclosed. Independent peer and final integrated checks pending.",
+          "sources": [
+            {
+              "url": "https://mdundo.com/song/6208778",
+              "title": "Complete artist-issued Ken Wa Maria Kamba DJ mix",
+              "support_notes": "Fresh12558view0 explicit title/DJ18:03; no exact publication date inferred."
+            },
+            {
+              "url": "https://mdundo.com/news/42767",
+              "title": "Issuing platform Kamba music field and DJ practice",
+              "support_notes": "Fresh12558view1 positively Eastern Kenya vernacular field, secular/gospel and party mixes, Ken Wa Maria named."
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/3GPnlDr6QUwAM4LW4gGOqy",
+              "title": "Exact creator Kamba Pop repertoire",
+              "support_notes": "Fresh12560view0 Ken Wa Maria8/45, bands and gospel artists. No DJ-membership or exact mix track claim."
+            },
+            {
+              "url": "https://mdundo.com/a/500851",
+              "title": "Issuing DJ artist profile",
+              "support_notes": "Fresh12560view1 profile reached by actual credited artist link; current2026 name not publication date."
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "kamba_pop",
+              "name": "Kamba Pop",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic microphone recording context; not pictured DJ hardware, Ken Wa Maria, or Kamba cultural depiction.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh12536view2 Commons confirms CC BY2.5 and Iain Fergusson/Binksternet crop; historical023 bytes retained.",
+              "fresh_review_ref": "turn12536view2"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12536view2"
+            ],
+            "fresh_rights_review": "Fresh12536view2 rights only; historical bytes and visual receipt unchanged."
+          },
+          "primary_retrieval_refs": [
+            "turn12558view0",
+            "turn12558view1",
+            "turn12560view0",
+            "turn12560view1"
+          ],
+          "source_review_refs": [
+            "turn12558view0",
+            "turn12558view1",
+            "turn12560view0",
+            "turn12560view1"
+          ],
+          "source_retrieval_caveat": "Actual full metadata read; no audio audition or hidden full tracklist inferred."
+        },
+        "decision": "Replace one exact DJ mix as genre default with representative source-supported Kamba benga band practice. Kenya Special issuer liner notes explicitly identify Kamba pop and its guitar/bass/snare-and-kick benga lineage; firsthand Ken Wa Maria interview describes the vernacular band movement and consciously adjusted dance pacing. Author moderate clean humbucker guitar, soapbar long-scale fretted bass and complete maple/B20 drum-kit construction plus group singing; no claim these are source artist models, measured tempos or one complete recording. Prior DJ branch and whole-mix evidence remain archived, not denied. All four instrumental/vocal roles have complete meaningful applicable controls, no opaque sampler or new owner."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

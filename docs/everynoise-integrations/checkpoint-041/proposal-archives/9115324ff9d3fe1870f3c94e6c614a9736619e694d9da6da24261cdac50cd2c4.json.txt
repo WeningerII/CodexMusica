@@ -1,0 +1,213 @@
+{
+  "entries": [
+    {
+      "source_label": "korean soundtrack",
+      "source_url": "https://everynoise.com/engenremap-koreansoundtrack.html",
+      "suggested_id": "korean_soundtrack",
+      "allocation_ordinal": 3631,
+      "allocation_group_id": "146",
+      "id": "korean_soundtrack",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "korean_soundtrack",
+        "name": "Korean Soundtrack",
+        "family": "pop",
+        "lineage": "Itaewon Class (PIANO COVER), Kim Jun-seok composition, complete SweetPiano self-issued four-page piano arrangement9237 and its linked own piano-cover performance. Catalogue identifies one piano instrument,99measures,E major,4/4 and tempo110; the Instrumentation and Lyrics fields are blank, not an explicit catalogue statement of instrumental-solo status. The arranger own performance title and complete one-piano edition together support the selected piano-only rendition with zero sung roles. Paid full notation and audio were not auditioned; no exact voicing or original television recording roster is asserted. Original television score ensembles and soundtrack singers are not removed from a reconstruction: this is a distinct complete arranger-issued piano edition, not the original master or an official original-score publication. Existing broad functionalSong represents an explicitly authored functional-harmonic verse-chorus-bridge piano rendition of this screen theme, not a claim that all99 source measures or the original television cue follow that form. Source-unspecified piano construction is realized as a standard studio upright with block-chord pop touch and a controlled live room; these are authored physical and performance choices, not measured original equipment. Preserve the whole melody/harmonic piano role, zero singers and no invented orchestra, conductor or electronic backing. No global tuning/capture apparatus is imposed, and printed notation alone is not grounds for artMusic classification.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Itaewon Class (PIANO COVER), Kim Jun-seok composition, complete SweetPiano self-issued four-page piano arrangement9237 and its linked own piano-cover performance. Catalogue identifies one piano instrument,99measures,E major,4/4 and tempo110; the Instrumentation and Lyrics fields are blank, not an explicit catalogue statement of instrumental-solo status. The arranger own performance title and complete one-piano edition together support the selected piano-only rendition with zero sung roles. Paid full notation and audio were not auditioned; no exact voicing or original television recording roster is asserted. Original television score ensembles and soundtrack singers are not removed from a reconstruction: this is a distinct complete arranger-issued piano edition, not the original master or an official original-score publication. Broad Korean screen soundtrack field includes both original songs and instrumental dramatic scoring; Korean OST is not defined here as song-only, nor Korean Soundtrack as score-only. Creator Korean Soundtrack playlist includes Kim Jun-seok at1/86 and other screen composers; exact selected Itaewon Class rendition is not claimed playlist-listed. Music&NEW own Hi-Five Original Score issue explicitly categorizes OST and credits MovieCloser scoring plus a separate original vocal song, positively demonstrating the full song-and-score umbrella. KOFIC documents the selected composer film-music practice. Existing korean_instrumental covers broader instrumental originals/interpretations beyond screen production, while korean_bl_ost is a narrower Boys Love franchise subset within this screen field. Existing korean_classical_piano, korean_classical_performance and korean_contemporary_classical concern performance/composition traditions that overlap people or instruments but do not define the screen-production institution. No exclusion of screen music from broad Korean pop or instrumental categories is asserted. Korean OST3630 remains a separate pending independent equivalence review after this target is accepted; it is not a second proposed addition. Existing broad functionalSong represents an explicitly authored functional-harmonic verse-chorus-bridge piano rendition of this screen theme, not a claim that all99 source measures or the original television cue follow that form. Source-unspecified piano construction is realized as a standard studio upright with block-chord pop touch and a controlled live room; these are authored physical and performance choices, not measured original equipment. Preserve the whole melody/harmonic piano role, zero singers and no invented orchestra, conductor or electronic backing. No global tuning/capture apparatus is imposed, and printed notation alone is not grounds for artMusic classification.",
+        "exemplars": [
+          "Itaewon Class — SweetPiano complete four-page piano-cover edition9237"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        37.5665,
+        126.978,
+        "Seoul",
+        "East Asia"
+      ],
+      "geo_rationale": "Score-platform Seoul Yongsan address and Music&NEW Seoul Gangnam issuer address support an editorial publication-industry anchor, not performer residence or source recording place.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Broad Korean screen soundtrack field includes both original songs and instrumental dramatic scoring; Korean OST is not defined here as song-only, nor Korean Soundtrack as score-only. Creator Korean Soundtrack playlist includes Kim Jun-seok at1/86 and other screen composers; exact selected Itaewon Class rendition is not claimed playlist-listed. Music&NEW own Hi-Five Original Score issue explicitly categorizes OST and credits MovieCloser scoring plus a separate original vocal song, positively demonstrating the full song-and-score umbrella. KOFIC documents the selected composer film-music practice. Existing korean_instrumental covers broader instrumental originals/interpretations beyond screen production, while korean_bl_ost is a narrower Boys Love franchise subset within this screen field. Existing korean_classical_piano, korean_classical_performance and korean_contemporary_classical concern performance/composition traditions that overlap people or instruments but do not define the screen-production institution. No exclusion of screen music from broad Korean pop or instrumental categories is asserted. Korean OST3630 remains a separate pending independent equivalence review after this target is accepted; it is not a second proposed addition.",
+      "classification_evidence": "Broad Korean screen soundtrack field includes both original songs and instrumental dramatic scoring; Korean OST is not defined here as song-only, nor Korean Soundtrack as score-only. Creator Korean Soundtrack playlist includes Kim Jun-seok at1/86 and other screen composers; exact selected Itaewon Class rendition is not claimed playlist-listed. Music&NEW own Hi-Five Original Score issue explicitly categorizes OST and credits MovieCloser scoring plus a separate original vocal song, positively demonstrating the full song-and-score umbrella. KOFIC documents the selected composer film-music practice. Existing korean_instrumental covers broader instrumental originals/interpretations beyond screen production, while korean_bl_ost is a narrower Boys Love franchise subset within this screen field. Existing korean_classical_piano, korean_classical_performance and korean_contemporary_classical concern performance/composition traditions that overlap people or instruments but do not define the screen-production institution. No exclusion of screen music from broad Korean pop or instrumental categories is asserted. Korean OST3630 remains a separate pending independent equivalence review after this target is accepted; it is not a second proposed addition.",
+      "model_policy": "Existing broad functionalSong represents an explicitly authored functional-harmonic verse-chorus-bridge piano rendition of this screen theme, not a claim that all99 source measures or the original television cue follow that form. Source-unspecified piano construction is realized as a standard studio upright with block-chord pop touch and a controlled live room; these are authored physical and performance choices, not measured original equipment. Preserve the whole melody/harmonic piano role, zero singers and no invented orchestra, conductor or electronic backing. No global tuning/capture apparatus is imposed, and printed notation alone is not grounds for artMusic classification.",
+      "source_scope_limitation": "Itaewon Class (PIANO COVER), Kim Jun-seok composition, complete SweetPiano self-issued four-page piano arrangement9237 and its linked own piano-cover performance. Catalogue identifies one piano instrument,99measures,E major,4/4 and tempo110; the Instrumentation and Lyrics fields are blank, not an explicit catalogue statement of instrumental-solo status. The arranger own performance title and complete one-piano edition together support the selected piano-only rendition with zero sung roles. Paid full notation and audio were not auditioned; no exact voicing or original television recording roster is asserted. Original television score ensembles and soundtrack singers are not removed from a reconstruction: this is a distinct complete arranger-issued piano edition, not the original master or an official original-score publication.",
+      "source_retrieval_caveat": "Own arranger catalogue, complete creator playlist and issuer screen-score page freshly retrieved directly; own piano-cover description freshly indexed. Paid full score/audio not accessed. Catalogue empty lyric/instrumentation fields are not invented positive statements.",
+      "vocal_count_audit": {
+        "count": 0,
+        "basis": "Complete one-instrument piano edition plus arranger own piano-cover performance, not blank metadata alone and not original soundtrack ensemble."
+      },
+      "instrument_role_audit": {
+        "upright_piano": "Whole self-issued piano edition; standard upright and block-chord realization authored where subtype unspecified."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Existing broad functionalSong represents an explicitly authored functional-harmonic verse-chorus-bridge piano rendition of this screen theme, not a claim that all99 source measures or the original television cue follow that form. Source-unspecified piano construction is realized as a standard studio upright with block-chord pop touch and a controlled live room; these are authored physical and performance choices, not measured original equipment. Preserve the whole melody/harmonic piano role, zero singers and no invented orchestra, conductor or electronic backing. No global tuning/capture apparatus is imposed, and printed notation alone is not grounds for artMusic classification."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All three applicable original upright controls explicitly pinned."
+      },
+      "sources": [
+        {
+          "url": "https://www.mymusic5.com/swanpiano/9237",
+          "title": "Arranger own complete piano edition",
+          "support_notes": "Itaewon Class (PIANO COVER), Kim Jun-seok composition, complete SweetPiano self-issued four-page piano arrangement9237 and its linked own piano-cover performance. Catalogue identifies one piano instrument,99measures,E major,4/4 and tempo110; the Instrumentation and Lyrics fields are blank, not an explicit catalogue statement of instrumental-solo status. The arranger own performance title and complete one-piano edition together support the selected piano-only rendition with zero sung roles. Paid full notation and audio were not auditioned; no exact voicing or original television recording roster is asserted. Original television score ensembles and soundtrack singers are not removed from a reconstruction: this is a distinct complete arranger-issued piano edition, not the original master or an official original-score publication.",
+          "retrieval_ref": "turn12354view0"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=2EXCfT3-R5A",
+          "title": "SweetPiano own complete piano-cover presentation",
+          "support_notes": "Own title identifies piano cover of Kim Jun-seok Itaewon Class BGM and links own arrangement; not original studio master credits.",
+          "retrieval_ref": "turn12354youtube0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1kRWLtBz2L8PM8iTdvngqo",
+          "title": "Creator Korean Soundtrack full100",
+          "support_notes": "Exact composer Kim Jun-seok1/86; no claim selected arrangement or composition occurs in playlist.",
+          "retrieval_ref": "turn12354view1"
+        },
+        {
+          "url": "https://m.its-new.co.kr/music/library_detail.aspx?lang=kr&pageNum=1&seq=2748&type=&year=",
+          "title": "Music&NEW primary screen soundtrack production field",
+          "support_notes": "Own OST-tagged Hi-Five Original Score credits MovieCloser,34tracks,score musicians and separate original-song musicians; category context only, no roles transferred to piano edition.",
+          "retrieval_ref": "turn12354view2"
+        },
+        {
+          "url": "https://www.koreanfilm.or.kr/eng/films/index/peopleView.jsp?peopleCd=10005770",
+          "title": "KOFIC composer industry profile",
+          "support_notes": "Kim Jun-seok film-music production practice and institutional Korean screen context.",
+          "retrieval_ref": "turn12292view2"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "korean_soundtrack",
+          "name": "Korean Soundtrack",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not a piano depiction, SweetPiano portrait or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12287view3 confirms Iain Fergusson/Binksternet CC BY2.5; exact023 byte and visual receipts inherited.",
+          "fresh_review_ref": "turn12287view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12287view3"
+        ]
+      },
+      "verification_status": "Original mechanical preflight PASS: three applicable protected controls, no fallback/errors, all1638 original owners unchanged. Original browser/connector four formats PASS, refined upright piano maximum194 characters; independent review pending."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

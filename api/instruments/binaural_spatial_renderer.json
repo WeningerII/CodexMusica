@@ -1,0 +1,304 @@
+{
+  "id": "binaural_spatial_renderer",
+  "name": "Binaural spatial renderer",
+  "short": "Binaural spatial renderer",
+  "family": "electronic",
+  "class": "binaural_spatial_renderer",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "description": "Software spatial renderer applying head-related transfer functions and virtual reflections to a complete stereo programme for headphone playback. Independent position, spread, reflection and externalization controls shape the apparent location of sound.",
+  "parts": [
+    {
+      "id": "binaural_spatial_renderer_input",
+      "name": "Input programme",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_input_stereo_mix",
+          "name": "Complete stereo mix",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "stereo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_hrtf",
+      "name": "Binaural transfer function",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_hrtf_generic_hrtf",
+          "name": "Non-individualized HRTF",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hrtf-pinnae-cues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_output",
+      "name": "Output monitoring",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_output_headphones",
+          "name": "Two-channel binaural headphone monitoring",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "headphone-immersive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_azimuth",
+      "name": "Horizontal trajectory",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_azimuth_orbit",
+          "name": "Automated horizontal orbit",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "stereo-movement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_elevation",
+      "name": "Vertical placement",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_elevation_ear_level",
+          "name": "Ear-level plane",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_width",
+      "name": "Source spread",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_width_preserved",
+          "name": "Stereo spread retained",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_reflection_level",
+      "name": "Reflection balance",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_reflection_level_moderate",
+          "name": "Moderate reflected contribution",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_reflection_time",
+      "name": "Reflection duration",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_reflection_time_short",
+          "name": "Short room reflections",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_reflection_material",
+      "name": "Reflecting surface",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_reflection_material_neutral",
+          "name": "Neutral virtual surface",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_focus",
+      "name": "Externalization and timbre balance",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_focus_balanced",
+          "name": "Balanced externalization and timbre preservation",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "https://newsroom.sennheiser.com/dontstoptheeducation-318743",
+    "https://help.sennheiser.com/hc/en-us/articles/26597628250258-Get-started-with-dearVR-MICRO",
+    "https://www.epidemicsound.com/blog/what-is-8d-audio/"
+  ],
+  "_ownParts": [
+    {
+      "id": "binaural_spatial_renderer_input",
+      "name": "Input programme",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_input_stereo_mix",
+          "name": "Complete stereo mix",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "stereo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_hrtf",
+      "name": "Binaural transfer function",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_hrtf_generic_hrtf",
+          "name": "Non-individualized HRTF",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "hrtf-pinnae-cues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_output",
+      "name": "Output monitoring",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_output_headphones",
+          "name": "Two-channel binaural headphone monitoring",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "headphone-immersive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_azimuth",
+      "name": "Horizontal trajectory",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_azimuth_orbit",
+          "name": "Automated horizontal orbit",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "stereo-movement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_elevation",
+      "name": "Vertical placement",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_elevation_ear_level",
+          "name": "Ear-level plane",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_width",
+      "name": "Source spread",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_width_preserved",
+          "name": "Stereo spread retained",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_reflection_level",
+      "name": "Reflection balance",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_reflection_level_moderate",
+          "name": "Moderate reflected contribution",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_reflection_time",
+      "name": "Reflection duration",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_reflection_time_short",
+          "name": "Short room reflections",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_reflection_material",
+      "name": "Reflecting surface",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_reflection_material_neutral",
+          "name": "Neutral virtual surface",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "binaural_spatial_renderer_focus",
+      "name": "Externalization and timbre balance",
+      "variants": [
+        {
+          "id": "binaural_spatial_renderer_focus_balanced",
+          "name": "Balanced externalization and timbre preservation",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    }
+  ]
+}

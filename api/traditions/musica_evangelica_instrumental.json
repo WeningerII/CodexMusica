@@ -1,0 +1,103 @@
+{
+  "id": "musica_evangelica_instrumental",
+  "name": "Música Evangélica Instrumental",
+  "family": "global",
+  "lineage": "Música evangélica instrumental connects Brazil’s evangelical instrumental performers, recordings and listening communities. Hymns and contemporary worship melodies are reinterpreted through solo playing, intimate ensembles and fuller popular arrangements.",
+  "recipe": "classic música evangélica instrumental, functional Song. saxophone, dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 111,
+  "score": -0.214,
+  "config": {
+    "traditions": [
+      "musica_evangelica_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "sax_size": -0.05,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.1,
+          "sax_mouthpiece": 0.1365,
+          "sax_technique": -0.05,
+          "sax_maker_school": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
+        }
+      }
+    ],
+    "pinned": {
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_cool_lyrical",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_cool_lyrical",
+      "sax_maker_school": "sax_yamaha_custom",
+      "acoustic_technique": "acoustic_flatpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze"
+    },
+    "pin_parts": true
+  }
+}

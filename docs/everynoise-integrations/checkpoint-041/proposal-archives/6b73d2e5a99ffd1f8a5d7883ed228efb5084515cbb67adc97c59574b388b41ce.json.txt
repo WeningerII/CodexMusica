@@ -1,0 +1,226 @@
+{
+  "entries": [
+    {
+      "source_label": "lagu jambi",
+      "source_url": "https://everynoise.com/engenremap-lagujambi.html",
+      "suggested_id": "lagu_jambi",
+      "allocation_ordinal": 3650,
+      "allocation_group_id": "146",
+      "id": "lagu_jambi",
+      "tradition": {
+        "id": "lagu_jambi",
+        "name": "Lagu Jambi",
+        "family": "vernacular",
+        "lineage": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified. Broad artMusic applies only to the positively composed polyphonic prelude-and-fugue edition, not the whole regional song category. A standard-size modern studio upright and connected classical legato are authored physical/gesture choices for source-unspecified piano construction; no measured instrument, pedal pattern or source venue is asserted. Controlled live-room listening presentation is editorial. Global temperament and capture hardware are omitted; Beethoven motif use does not add orchestra or extra performers.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified. Lagu Jambi is the regional Jambi song/repertoire field, including locally issued popular versions and inherited named melodies. The provincial government cultural inventory lists Angso Duo, Batanghari and Ketimun Bungkuk as distinct songs of Kota Jambi; the exact creator programme contains Batang Hari and Ketimun Bungkuk alongside contemporary regional releases. The selected composer independently identifies Angso Duo as a Jambi regional song, providing a positive regional-repertoire bridge. Neither Sukarlan nor Angso Duo was found in that creator playlist; no exact membership is claimed. This is a complete concert transformation of one locally identified melody, not proof that the wider field is piano music. Full existing Indonesian pop already includes many national popular practices, and Indonesian folk includes contemporary acoustic acts; neither is defined only by its selected example. Lagu Melayu covers broad Malay asli/joget/inang/zapin heritage and can overlap Jambi, but is not this specific regional publishing/repertoire field. Queued Lagu Aceh and Lagu Maluku are separate regional song fields, not all Indonesian piano transformations. Indonesian indigenous traditions span the archipelago and likewise overlap rather than exclude Jambi heritage. Regional institutional identification, not a different pianist or instrument choice alone, supports this narrower entry. Broad artMusic applies only to the positively composed polyphonic prelude-and-fugue edition, not the whole regional song category. A standard-size modern studio upright and connected classical legato are authored physical/gesture choices for source-unspecified piano construction; no measured instrument, pedal pattern or source venue is asserted. Controlled live-room listening presentation is editorial. Global temperament and capture hardware are omitted; Beethoven motif use does not add orchestra or extra performers.",
+        "exemplars": [
+          "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, issued piano-solo work"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -1.6101,
+        103.6131,
+        "Jambi",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Kota Jambi named in the provincial cultural inventory for Angso Duo; regional repertoire anchor, not composer birthplace or concert venue.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://anandasukarlancenter.com/2026/10/02/ananda-sukarlan-award-2027-kategori-ketentuan-semi-final-final/",
+          "title": "Composer piano-solo repertoire and regional origin",
+          "support_notes": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11725search0"
+        },
+        {
+          "url": "https://fortemusiconline.com/product/12051",
+          "title": "Issued score collection retail catalog",
+          "support_notes": "Lists complete Prelude & Fugue on Angso Duo as one of six named works in Transformations on Indonesian Children Songs; used for existing edition status, not extra instrumentation.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11731view0"
+        },
+        {
+          "url": "https://ppid.jambiprov.go.id/storage/dokumen/oi6DOUpEYsikx2upJhfQaztujX4BZdzBZrcUGKvH.pdf",
+          "title": "Provincial cultural inventory",
+          "support_notes": "Kota Jambi section lists Angso Duo, Batanghari and Ketimun Bungkuk as separate local songs. Indexed primary page76, no full-document read asserted.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11735search0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1Qw878bmGXb4ZvjHdvThZW",
+          "title": "Exact creator Lagu Jambi programme",
+          "support_notes": "Items28 and37 list Batang Hari and Ketimun Bungkuk; neither selected composition nor composer appears. Government inventory and composer statement supply the regional bridge.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11729view0"
+        }
+      ],
+      "neighbor_distinction": "Lagu Jambi is the regional Jambi song/repertoire field, including locally issued popular versions and inherited named melodies. The provincial government cultural inventory lists Angso Duo, Batanghari and Ketimun Bungkuk as distinct songs of Kota Jambi; the exact creator programme contains Batang Hari and Ketimun Bungkuk alongside contemporary regional releases. The selected composer independently identifies Angso Duo as a Jambi regional song, providing a positive regional-repertoire bridge. Neither Sukarlan nor Angso Duo was found in that creator playlist; no exact membership is claimed. This is a complete concert transformation of one locally identified melody, not proof that the wider field is piano music. Full existing Indonesian pop already includes many national popular practices, and Indonesian folk includes contemporary acoustic acts; neither is defined only by its selected example. Lagu Melayu covers broad Malay asli/joget/inang/zapin heritage and can overlap Jambi, but is not this specific regional publishing/repertoire field. Queued Lagu Aceh and Lagu Maluku are separate regional song fields, not all Indonesian piano transformations. Indonesian indigenous traditions span the archipelago and likewise overlap rather than exclude Jambi heritage. Regional institutional identification, not a different pianist or instrument choice alone, supports this narrower entry.",
+      "model_policy": "Broad artMusic applies only to the positively composed polyphonic prelude-and-fugue edition, not the whole regional song category. A standard-size modern studio upright and connected classical legato are authored physical/gesture choices for source-unspecified piano construction; no measured instrument, pedal pattern or source venue is asserted. Controlled live-room listening presentation is editorial. Global temperament and capture hardware are omitted; Beethoven motif use does not add orchestra or extra performers.",
+      "dependency_audit": "No new instruments or shared changes; existing upright owner and all three controls retained.",
+      "classification_evidence": {
+        "mode": "provincial_named_repertoire_plus_composer_region_and_creator_field",
+        "url": "https://ppid.jambiprov.go.id/storage/dokumen/oi6DOUpEYsikx2upJhfQaztujX4BZdzBZrcUGKvH.pdf",
+        "matched_artist": null,
+        "note": "Lagu Jambi is the regional Jambi song/repertoire field, including locally issued popular versions and inherited named melodies. The provincial government cultural inventory lists Angso Duo, Batanghari and Ketimun Bungkuk as distinct songs of Kota Jambi; the exact creator programme contains Batang Hari and Ketimun Bungkuk alongside contemporary regional releases. The selected composer independently identifies Angso Duo as a Jambi regional song, providing a positive regional-repertoire bridge. Neither Sukarlan nor Angso Duo was found in that creator playlist; no exact membership is claimed. This is a complete concert transformation of one locally identified melody, not proof that the wider field is piano music. Full existing Indonesian pop already includes many national popular practices, and Indonesian folk includes contemporary acoustic acts; neither is defined only by its selected example. Lagu Melayu covers broad Malay asli/joget/inang/zapin heritage and can overlap Jambi, but is not this specific regional publishing/repertoire field. Queued Lagu Aceh and Lagu Maluku are separate regional song fields, not all Indonesian piano transformations. Indonesian indigenous traditions span the archipelago and likewise overlap rather than exclude Jambi heritage. Regional institutional identification, not a different pianist or instrument choice alone, supports this narrower entry."
+      },
+      "vocal_count_audit": {
+        "credited_selected_singers": [],
+        "selected_count": 0,
+        "count_basis": "Composer explicitly places complete work in piano-solo category.",
+        "decision": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified."
+      },
+      "instrument_role_audit": {
+        "rationale": "Ananda Sukarlan — complete Prelude & Fugue on Angso Duo, independently issued in Transformations on Indonesian Children Songs. The composer explicitly assigns the complete work to piano-solo repertoire and identifies its combination of the Jambi regional song with a Beethoven Fifth Symphony motif. One piano and zero singers apply to this whole fixed solo work only; the original regional song and other arrangements are not assumed instrumental. The 2027 competition is a future programme, not a performance claimed to have happened; existing retail score publication establishes an already issued composition. Paid notation and audio were not inspected, and duration, bar count and exact voicings remain unspecified.",
+        "selected_scope": "Complete independently issued Prelude & Fugue on Angso Duo",
+        "roles": [
+          {
+            "instrument": "upright_piano",
+            "source_role": "Whole piano-solo composition",
+            "authored_realization": "Broad artMusic applies only to the positively composed polyphonic prelude-and-fugue edition, not the whole regional song category. A standard-size modern studio upright and connected classical legato are authored physical/gesture choices for source-unspecified piano construction; no measured instrument, pedal pattern or source venue is asserted. Controlled live-room listening presentation is editorial. Global temperament and capture hardware are omitted; Beethoven motif use does not add orchestra or extra performers."
+          }
+        ],
+        "omissions": "No positively scored role omitted. Beethoven motif does not import original symphony orchestra; other anthology works excluded."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad artMusic applies only to the positively composed polyphonic prelude-and-fugue edition, not the whole regional song category. A standard-size modern studio upright and connected classical legato are authored physical/gesture choices for source-unspecified piano construction; no measured instrument, pedal pattern or source venue is asserted. Controlled live-room listening presentation is editorial. Global temperament and capture hardware are omitted; Beethoven motif use does not add orchestra or extra performers."
+        }
+      ],
+      "verification_status": "primary_source_reviewed_complete_merged_defaults_pinned_inherited_photo_bytes_fresh_rights",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lagu_jambi",
+          "name": "Lagu Jambi",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Ananda Sukarlan, a Jambi performer, the piano or source concert equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn11604view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Historical exact023 bytes/visual receipt inherited unchanged.",
+          "fresh_review_ref": "turn11604view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        }
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All three disjoint applicable upright-piano controls explicitly pinned; no shared-key collision or fallback.",
+      "primary_retrieval_refs": [
+        "turn11725search0",
+        "turn11731view0",
+        "turn11735search0",
+        "turn11729view0"
+      ],
+      "source_access_limitation": "Composer-owned indexed full programme, retailer public metadata, provincial indexed inventory and exact creator playlist read. Paid score/audio not inspected. Future competition is not an observed performance. Historical photo bytes reused, not downloaded again."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "pending": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

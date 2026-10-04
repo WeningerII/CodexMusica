@@ -1,0 +1,275 @@
+{
+  "entries": [
+    {
+      "source_label": "old school nederhop",
+      "source_url": "https://everynoise.com/engenremap-oldschoolnederhop.html",
+      "suggested_id": "old_school_nederhop",
+      "allocation_ordinal": 4072,
+      "allocation_group_id": "163",
+      "status": "frozen_for_independent_review",
+      "id": "old_school_nederhop",
+      "tradition": {
+        "id": "old_school_nederhop",
+        "name": "Old School Nederhop",
+        "family": "hip_hop",
+        "lineage": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported. Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people.",
+        "instruments": [
+          "voice",
+          "turntable"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported. Old School Nederhop is the historically anchored Dutch hip-hop pioneer repertoire and its continuing revival/turntablist community, within the broader Netherlands hip-hop field. Exact creator category includes Extince, Osdorp Posse, Brainpower, Def Rhymz and Ouderkerk Kaffers. The promoter explicitly presents pioneer-era repertoire and history brought into current live energy, while first-person Hou Het Zout documents a continuing old-school/true-school community led by Ouderkerk Kaffers veteran MC Drieman, with boom-bap, storytelling, turntablism and intergenerational transmission. This is positive institutional continuity beyond simply an older release date. Full existing dutch_hip_hop explicitly covers Netherlands scenes broadly and is not limited to its De Jeugd synth example; it already includes this heritage. The narrower historical community overlaps that umbrella, without renaming it. Existing old_school_hip_hop is explicitly the formative New York field, not every international early rap history; Dutch Rap Pop is a crossover songwriting field, not synonymous with this pioneer community. Current revival performance is not falsely dated1995 and no rigid universal sonic/age cutoff is asserted. Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people.",
+        "exemplars": [
+          "Extince / DJ DNS — whole announced Melkweg30 jaar Spraakwater programme"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        52.3667,
+        4.8811,
+        "Amsterdam",
+        "Europe"
+      ],
+      "geo_rationale": "Promoter Melkweg Amsterdam identifies the selected announced programme; editorial venue anchor, not unique origin of Nederhop.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.melkweg.nl/nl/agenda/extince-19-03-2027/",
+          "title": "Promoter complete announced rap/turntable programme",
+          "support_notes": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11827view1"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-oldschoolnederhop.html",
+          "title": "Exact creator category membership",
+          "support_notes": "Extince line8, Ouderkerk Kaffers line36; historical national field, not exact performance credits.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11824view0"
+        },
+        {
+          "url": "https://www.houhetzout.nl/en/hou-het-zout/",
+          "title": "First-person old-school/true-school Dutch community",
+          "support_notes": "Hosts identify oldschool/true-school community, boom-bap/storytelling/turntablism, pioneer MC Drieman and ongoing intergenerational programmes. Not used to add hosts to selected concert.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11803view0"
+        },
+        {
+          "url": "https://eu.technics.com/dj/artista/dj-dns/",
+          "title": "Manufacturer artist profile",
+          "support_notes": "DNS turntablism/scratching and work with Extince; separate Decks and Drums ensemble not transferred. Indexed full primary after direct timeout.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11826search1; turn11844search0"
+        }
+      ],
+      "neighbor_distinction": "Old School Nederhop is the historically anchored Dutch hip-hop pioneer repertoire and its continuing revival/turntablist community, within the broader Netherlands hip-hop field. Exact creator category includes Extince, Osdorp Posse, Brainpower, Def Rhymz and Ouderkerk Kaffers. The promoter explicitly presents pioneer-era repertoire and history brought into current live energy, while first-person Hou Het Zout documents a continuing old-school/true-school community led by Ouderkerk Kaffers veteran MC Drieman, with boom-bap, storytelling, turntablism and intergenerational transmission. This is positive institutional continuity beyond simply an older release date. Full existing dutch_hip_hop explicitly covers Netherlands scenes broadly and is not limited to its De Jeugd synth example; it already includes this heritage. The narrower historical community overlaps that umbrella, without renaming it. Existing old_school_hip_hop is explicitly the formative New York field, not every international early rap history; Dutch Rap Pop is a crossover songwriting field, not synonymous with this pioneer community. Current revival performance is not falsely dated1995 and no rigid universal sonic/age cutoff is asserted.",
+      "model_policy": "Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people.",
+      "classification_evidence": {
+        "mode": "exact_creator_plus_promoter_pioneer_repertoire_and_firsthand_continuing_community",
+        "url": "https://furia.com/everynoise_public/engenremap-oldschoolnederhop.html",
+        "matched_artist": "Extince",
+        "note": "Old School Nederhop is the historically anchored Dutch hip-hop pioneer repertoire and its continuing revival/turntablist community, within the broader Netherlands hip-hop field. Exact creator category includes Extince, Osdorp Posse, Brainpower, Def Rhymz and Ouderkerk Kaffers. The promoter explicitly presents pioneer-era repertoire and history brought into current live energy, while first-person Hou Het Zout documents a continuing old-school/true-school community led by Ouderkerk Kaffers veteran MC Drieman, with boom-bap, storytelling, turntablism and intergenerational transmission. This is positive institutional continuity beyond simply an older release date. Full existing dutch_hip_hop explicitly covers Netherlands scenes broadly and is not limited to its De Jeugd synth example; it already includes this heritage. The narrower historical community overlaps that umbrella, without renaming it. Existing old_school_hip_hop is explicitly the formative New York field, not every international early rap history; Dutch Rap Pop is a crossover songwriting field, not synonymous with this pioneer community. Current revival performance is not falsely dated1995 and no rigid universal sonic/age cutoff is asserted."
+      },
+      "vocal_count_audit": {
+        "credited_selected_singers": [
+          "Extince — rap"
+        ],
+        "selected_count": 1,
+        "count_basis": "One named live MC; no count inferred for embedded records.",
+        "decision": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported."
+      },
+      "instrument_role_audit": {
+        "rationale": "Extince with DJ DNS — complete announced30 jaar Spraakwater programme at Melkweg Amsterdam,19March2027. Promoter explicitly names the two performers and their rap-flow/turntable roles. This is the whole published two-person performance practice, not a stripped studio album or an already heard2027 concert. The promoter says detailed timetable is not yet final; duration and setlist remain unknown. Retain one rapper plus the full DJ turntable role, including embedded recording voices/instruments of unknown counts. Manufacturer artist profile independently documents DNS turntablism/scratching and collaboration with Extince; separate Decks and Drums project personnel are not imported.",
+        "selected_scope": "Whole two-person announced Melkweg2027 programme",
+        "roles": [
+          {
+            "instrument": "voice",
+            "source_role": "Extince rap",
+            "authored_realization": "Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people."
+          },
+          {
+            "instrument": "turntable",
+            "source_role": "DJ DNS turntable performance",
+            "authored_realization": "Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people."
+          }
+        ],
+        "omissions": "No positively announced role omitted; other DNS projects are separate."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people."
+        },
+        {
+          "instrument": "turntable",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "turntable_technique": "turntable_scratch"
+          },
+          "policy": "Broad mcRhythm follows source-positive live rap and turntablism. One accompanied rapper uses neutral source-unspecified physiology/pitch/training, authored rhythmic spoken flow and one lead. Existing turntable owner retains both physical-performance controls: chopped recorded passages and scratching are an authored rendition compatible with the explicitly documented performer practice, not an exact measured set technique or model. Generic live-room presentation is editorial. Burlesque voice, if emitted, is expressly an authored playful/projected speech affect compatible with live rap, not source burlesque genre, brass or dance personnel; no measured swing is inferred. No global tuning or capture chain. Embedded recording content remains unknown and is not invented as new live people."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "Seventeen original voice controls and both original turntable controls explicitly pinned; no shared-key collision or fallback.",
+      "dependency_audit": "No new owners; all1638 existing definitions retained.",
+      "verification_status": "Author original-loader 19 protected parts, 1638 unchanged owners, exact historical photo and four actual app formats PASS; editorial affect disclosed for independent judgment. No final integrated CI claim.",
+      "source_scope_limitation": "Complete announced Extince and DJ DNS programme at Melkweg, Amsterdam, 19 March 2027, celebrating Spraakwater. Retain the named rapper and DJ turntablism roles. This is a promoter-announced whole programme, not an auditioned recording or an already performed event; timetable and actual duration remain unknown. No other ensembles from the DJ biography are imported.",
+      "primary_retrieval_refs": [
+        "turn11827view1",
+        "turn11824view0",
+        "turn11803view0",
+        "turn11826search1; turn11844search0"
+      ],
+      "source_retrieval_caveat": "Melkweg promoter programme was directly retrieved. Manufacturer-hosted DJ DNS artist profile was recovered through indexed primary text after direct retrieval failed; it supports turntablism practice without identifying the equipment of the future Melkweg event.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "old_school_nederhop",
+          "name": "Old School Nederhop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Extince, DJ DNS or actual source stage/deck hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11621view3 confirms IainFergusson/Binksternet crop and CC BY2.5. Exact historical023 bytes/visual receipt reused, no fresh download.",
+          "fresh_review_ref": "turn11621view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11621view3"
+        ]
+      },
+      "source_access_limitation": "Public promoter programme/category/first-person community read; manufacturer profile indexed after timeout. Future programme not observed; detailed timetable not yet final. Exact historical photo bytes inherited."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

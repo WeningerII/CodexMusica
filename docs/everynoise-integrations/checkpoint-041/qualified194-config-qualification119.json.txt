@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "scope": "194-proposal data/configuration qualification only; final static API, full original serial regression and publication gates remain separate. No fixture updates authorized or performed.",
+  "baseline": "2765a5e5e1dc1523ff9180625b089af3f04089b2",
+  "frozen_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+  "counts": {
+    "selected_additions": 194,
+    "new_owners": 15,
+    "preserved_source_proposals": 200,
+    "preserved_owner_proposals": 16,
+    "causal_or_source_holds": 6,
+    "original_queue_holds_separate": 6,
+    "baseline_traditions": 6538,
+    "baseline_owners": 1638,
+    "new_cards": 582,
+    "new_applicable_parts": 5041,
+    "new_valid_pins": 5041,
+    "new_unprotected_slots": 0
+  },
+  "coverage": {
+    "source_fixture_definitions": 1174,
+    "unique_snapshot_ids": 1149,
+    "unchanged_graph_definitions": 1157,
+    "affected_graph_definitions_replayed": 17,
+    "affected_unique_ids": 17,
+    "musical_config_equal": 17,
+    "render_equal": 17,
+    "full_config_with_numeric_scores_equal": 14,
+    "score_cache_only_changes": [
+      "algerian_rap",
+      "blend_ambient_dub_techno",
+      "ambient"
+    ]
+  },
+  "method": "Enumerate unchanged original traditionStapleMoves recursively to cap3 for every fixture definition; capture weighted getNeighbors for all context members. Compare exact baseline/final graph. Replay every changed graph through original seed/search(maxIters100)/translate. Musical equivalence strips only per-instrument numeric scores; all roster, ordered contexts, slots, pins, tuning, room and chain fields remain compared. Duplicate source fixture definitions retained rather than silently deduplicated.",
+  "final_source_binding": "Final worktree graph equals tested in-memory194 graph exactly. Final194 tradition/extras/dependencies equal196 minus two tested whole proposals. Only other freeze entry changes are canonical PNG/Zomi geographic metadata, not solver inputs. Exact194 raw source projection and old6538/1638 preservation independently pass.",
+  "rows": [
+    {
+      "fixture_index": 12,
+      "id": "chicago_blues",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 27,
+      "id": "aor",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 54,
+      "id": "american_drumline",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 99,
+      "id": "algerian_rap",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": false,
+      "seed_equal": false,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 135,
+      "id": "persian_dastgah",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 196,
+      "id": "blend_gagaku_ambient",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 246,
+      "id": "blend_ambient_dub_techno",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": false,
+      "seed_equal": false,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 262,
+      "id": "wedding_indian_baraat",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 266,
+      "id": "protest_hip_hop",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 392,
+      "id": "ambient",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": false,
+      "seed_equal": false,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 535,
+      "id": "juke_chicago",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 607,
+      "id": "minneapolis_synth_funk_pop",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 714,
+      "id": "chinese_xiqing_wedding",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 739,
+      "id": "frevo",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 1085,
+      "id": "indian_baraat",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 1087,
+      "id": "ethiopian_eskista_wedding",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    },
+    {
+      "fixture_index": 1096,
+      "id": "american_political_hip_hop",
+      "musical_config_equal": true,
+      "render_equal": true,
+      "full_config_including_scores_equal": true,
+      "seed_equal": true,
+      "seed_musical_equal": true
+    }
+  ],
+  "legacy_limit": "Preserves baseline behavior without claiming inherited voice/lineage defaults are factually repaired. Prior196 hidden drift is held, never blessed because text matched.",
+  "artifacts": {
+    "qualified-frozen194.json": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+    "qualified194-all1149-graph119.json": "f6887ef61c49680a8e750f5787e55ed53755649557fc3f547796461c90767c55",
+    "counterfactual194-all1149-graph119.json": "6cd43cb22b38f2710b0df4bff7ce9b143e0c7c7c19adb7a1634921510685482f",
+    "counterfactual194-graph-risk119.json": "86b556ac1a44cdaff9e7f8375b0aca704882d7eedb2d145b922fb59d57f6c57f",
+    "counterfactual194-replay119.json": "8382d13d42e05d65ef31f047f227b8ffcab0927540b52bf74ebf96e268dcd69c",
+    "qualified194-projection119.json": "6bc4585d79a593d211f5d9af090da0130ecc7fd01787601765cd328ad9cf86f6",
+    "qualified194-source-owning-preservation119.json": "a76a4a560e018c362ef0872a50ed5f573446a379889678209b81b225dbc9e563",
+    "qualified194-new-browser-preservation119.json": "a51f0036bb20e7d990cacb6ac0c511f62f13f8b821c4bb9af446024e083e73d7",
+    "qualified194-app-preservation119.json": "35df18fb04b20599246911f2d29f02c26b3da4193e7edf8181f5a341deeb39b7",
+    "consolidated-config-review119.json": "35983ea6bd85ddfce80df8f33ee4286ec6dbff6923ccef1ed442481a65d120a7"
+  },
+  "pending": [
+    "Root full original194 serial regression",
+    "Final combined194 new-entry literal render review",
+    "Final194 static API and complete old/new compiled data audit",
+    "Supporting artifact/docs/UI gates and final source scope"
+  ]
+}
