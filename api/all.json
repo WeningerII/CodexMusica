@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-04",
-  "count": 6932,
+  "count": 6971,
   "items": [
     {
       "id": "honky_tonk",
@@ -1464,8 +1464,8 @@
       "id": "k_rap",
       "name": "Korean rap",
       "family": "hip_hop",
-      "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song enka dangdut koplo. extended whistle, rap, straight note core, interlocked note trading. TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 401
+      "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song enka. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 379
     },
     {
       "id": "rebetiko",
@@ -1674,8 +1674,8 @@
       "id": "indie_pop_modern",
       "name": "Indie pop (modern)",
       "family": "global",
-      "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock arunachal indie athens indie. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric marshall plexi amp British rock amp split coil mustang bass la bella flat short scale bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, ukulele. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
-      "recipe_chars": 694
+      "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock stomp pop arunachal indie. equal tempered, one note per syllable, solo with instrumental accompaniment, no specific ornament system. clean strummed single coil electric guitar, electric short scale bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth, ukulele. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
+      "recipe_chars": 540
     },
     {
       "id": "bubblegum_pop",
@@ -2087,8 +2087,8 @@
       "id": "reggae_fusion_modern",
       "name": "Reggae fusion (modern)",
       "family": "global",
-      "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop chinese melodic rap. thick, rap, straight onset, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky thumb muted electric bass, pre muffled edge muffled rim clicks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 604
+      "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm russian pixel australian hip-hop. interlocked note trading, equal tempered, modern pop training, one note per syllable. clean strummed single coil electric guitar, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon electric bass, rim clicks drum kit, chopped sampler, block chord tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 551
     },
     {
       "id": "dub_poetry",
@@ -3921,8 +3921,8 @@
       "id": "kapuka_kenyan",
       "name": "Kapuka (Kenyan urban pop)",
       "family": "global",
-      "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm belarusian hip hop chinese melodic rap. equal tempered, solo with instrumental accompaniment. TR-808, analog synth, mid rich alder electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 418
+      "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm antilliaanse rap irish trap. equal tempered, solo with instrumental accompaniment. TR-808, analog synth, mid rich alder electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 407
     },
     {
       "id": "kabyle_music_algerian",
@@ -10928,8 +10928,8 @@
       "id": "balearic_beat",
       "name": "Balearic Beat",
       "family": "electronic",
-      "recipe": "classic 1984-1986 balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song hauntology ambient house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, TR-909, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, glitched textural sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-      "recipe_chars": 707
+      "recipe": "classic modern balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song hauntology deep tropical house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, TR-909, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, glitched textural sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+      "recipe_chars": 748
     },
     {
       "id": "dubtronica",
@@ -13028,8 +13028,8 @@
       "id": "marimba_mexicana",
       "name": "Marimba mexicana (Chiapas)",
       "family": "global",
-      "recipe": "classic Southwestern American mid-1890s marimba mexicana, functional Song, Mexican branch, Latin am groove percussion, tropical song functional song marimba de guatemala cumbia colombiana. chromatic ensemble grande multi player full ensemble hormigo tonewood marimba centroamericana, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, brushes-and-sticks drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, saxophone. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 756
+      "recipe": "classic Southwestern American mid-1890s marimba mexicana, functional Song, Mexican branch, Latin am groove percussion, tropical song functional song marimba orquesta cuatro puertorriqueño. chromatic ensemble grande hormigo tonewood box resonated buzzing tela marimba centroamericana, venice catlin high twist renaissance bass plywood laminate double bass, brushes-and-sticks drum kit, yellow brass canonical 70 30 bach stradivarius heavy one piece matched to monette horn trumpet, gold brass warmer tone saxophone. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 713
     },
     {
       "id": "marimba_orquesta",
@@ -15674,7 +15674,7 @@
       "id": "sinhala_pop",
       "name": "Sinhala Pop (Sri Lankan)",
       "family": "pop",
-      "recipe": "classic Southeast Asian 1967-1969 sinhala pop, functional Song, south Asian pop branch, europop functional song, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern congas, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+      "recipe": "classic Southeast Asian 1967-1969 sinhala pop, functional Song, south Asian pop branch, europop functional song, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern congas, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, sitka spruce hard rock maple acer saccharum modern setup longer neck violin orchestral. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
       "recipe_chars": 862
     },
     {
@@ -48527,6 +48527,279 @@
       "family": "hip_hop",
       "recipe": "classic redneck, mc Rhythm, southern branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
       "recipe_chars": 160
+    },
+    {
+      "id": "antilliaanse_rap",
+      "name": "Antilliaanse Rap",
+      "family": "hip_hop",
+      "recipe": "classic antilliaanse rap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 169
+    },
+    {
+      "id": "thai_teen_pop",
+      "name": "Thai teen pop",
+      "family": "pop",
+      "recipe": "classic thai teen pop, functional Song, east Asian pop branch. singing lead analog poly synth, drum machine analog. treated studio.",
+      "recipe_chars": 131
+    },
+    {
+      "id": "regional_mexicano_femenil",
+      "name": "Regional Mexicano Femenil",
+      "family": "vernacular",
+      "recipe": "classic regional mexicano femenil, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. classical nylon-string guitar. live tracking.",
+      "recipe_chars": 165
+    },
+    {
+      "id": "classic_progressive_house",
+      "name": "Classic Progressive House",
+      "family": "electronic",
+      "recipe": "classic classic progressive house, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 113
+    },
+    {
+      "id": "deep_euro_house",
+      "name": "Deep Euro House",
+      "family": "electronic",
+      "recipe": "classic deep euro house, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 103
+    },
+    {
+      "id": "musica_tropical_guatemalteca",
+      "name": "Música Tropical Guatemalteca",
+      "family": "latin",
+      "recipe": "classic música tropical guatemalteca, groove Percussion, Latin am branch. marimba centroamericana, electric bass, drum kit, electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 171
+    },
+    {
+      "id": "indonesian_viral_pop",
+      "name": "Indonesian Viral Pop",
+      "family": "pop",
+      "recipe": "classic indonesian viral pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. dreadnought acoustic guitar. treated studio.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "fussball",
+      "name": "Fußball",
+      "family": "vocal",
+      "recipe": "classic fußball, functional Song. group vocals. treated studio.",
+      "recipe_chars": 63
+    },
+    {
+      "id": "malaysian_tamil_pop",
+      "name": "Malaysian Tamil Pop",
+      "family": "pop",
+      "recipe": "classic malaysian tamil pop, functional Song. human voice ensemble unspecified, vocal percussion voice. treated studio.",
+      "recipe_chars": 119
+    },
+    {
+      "id": "pop_teen_brasileiro",
+      "name": "Pop Teen Brasileiro",
+      "family": "pop",
+      "recipe": "classic pop teen brasileiro, functional Song. one note per syllable, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 149
+    },
+    {
+      "id": "dalarna_indie",
+      "name": "Dalarna Indie",
+      "family": "pop",
+      "recipe": "classic dalarna indie, functional Song. solo with instrumental accompaniment. upright piano. live tracking.",
+      "recipe_chars": 107
+    },
+    {
+      "id": "modern_bollywood",
+      "name": "Modern Bollywood",
+      "family": "vernacular",
+      "recipe": "classic modern bollywood, functional Song. upright piano. live tracking.",
+      "recipe_chars": 72
+    },
+    {
+      "id": "shush",
+      "name": "Shush",
+      "family": "electronic",
+      "recipe": "classic shush, experimental Elec, ambient branch. environmental field recording rain environmental recording. treated studio.",
+      "recipe_chars": 125
+    },
+    {
+      "id": "pop_lgbtq_brasileira",
+      "name": "Pop LGBTQ+ Brasileira",
+      "family": "pop",
+      "recipe": "classic pop lgbtq+ brasileira, functional Song. a 440 modern pitch us standard block chord grand piano. treated studio.",
+      "recipe_chars": 119
+    },
+    {
+      "id": "shib",
+      "name": "Shib",
+      "family": "hip_hop",
+      "recipe": "classic shib, mc Rhythm, us hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 155
+    },
+    {
+      "id": "russian_pixel",
+      "name": "Russian Pixel",
+      "family": "hip_hop",
+      "recipe": "classic russian pixel, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch. credited beat unspecified. treated studio.",
+      "recipe_chars": 128
+    },
+    {
+      "id": "musica_mexiquense",
+      "name": "Música Mexiquense",
+      "family": "global",
+      "recipe": "classic música mexiquense, functional Song, Mexican branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. grand piano. treated studio.",
+      "recipe_chars": 187
+    },
+    {
+      "id": "rap_salvadoreno",
+      "name": "Rap Salvadoreño",
+      "family": "hip_hop",
+      "recipe": "classic rap salvadoreño, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 168
+    },
+    {
+      "id": "irish_trap",
+      "name": "Irish Trap",
+      "family": "hip_hop",
+      "recipe": "classic irish trap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "pakistani_hip_hop",
+      "name": "Pakistani Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic pakistani hip hop, mc Rhythm, intl hip hop branch. rhythmic, rhythmic spoken flow no pitch. credited beat unspecified. treated studio.",
+      "recipe_chars": 142
+    },
+    {
+      "id": "viral_afropop",
+      "name": "Viral Afropop",
+      "family": "pop",
+      "recipe": "classic viral afropop, functional Song. solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 120
+    },
+    {
+      "id": "gong",
+      "name": "Gong",
+      "family": "global",
+      "recipe": "classic gong, art Music. interlocking gamelan gong kebyar. shoebox concert hall.",
+      "recipe_chars": 80
+    },
+    {
+      "id": "zxc",
+      "name": "ZXC",
+      "family": "hip_hop",
+      "recipe": "classic zxc, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified, produced cowbell. treated studio.",
+      "recipe_chars": 153
+    },
+    {
+      "id": "nerdcore_brasileiro",
+      "name": "Nerdcore Brasileiro",
+      "family": "hip_hop",
+      "recipe": "classic mid-2010s nerdcore brasileiro, mc Rhythm. rhythmic spoken flow no pitch. sampler drum machine. treated studio.",
+      "recipe_chars": 118
+    },
+    {
+      "id": "lounge_house",
+      "name": "Lounge House",
+      "family": "electronic",
+      "recipe": "classic lounge house, electronic Dance, house branch. dj playback mixing unspecified, saxophone. live tracking.",
+      "recipe_chars": 111
+    },
+    {
+      "id": "chakma_pop",
+      "name": "Chakma Pop",
+      "family": "pop",
+      "recipe": "classic chakma pop, functional Song. solo with instrumental accompaniment. digital software sample playback. treated studio.",
+      "recipe_chars": 124
+    },
+    {
+      "id": "hyperpop_italiano",
+      "name": "Hyperpop Italiano",
+      "family": "electronic",
+      "recipe": "classic hyperpop italiano, experimental Elec. solo with instrumental accompaniment. sampler drum machine, credited synthesizer unspecified. treated studio.",
+      "recipe_chars": 155
+    },
+    {
+      "id": "gypsy",
+      "name": "Gypsy",
+      "family": "vernacular",
+      "recipe": "classic gypsy, improv On Frame. russian seven string guitar. live tracking.",
+      "recipe_chars": 75
+    },
+    {
+      "id": "khortha_pop",
+      "name": "Khortha Pop",
+      "family": "pop",
+      "recipe": "classic khortha pop, functional Song, south Asian pop branch. solo with instrumental accompaniment. midi programmed sound unspecified. treated studio.",
+      "recipe_chars": 150
+    },
+    {
+      "id": "solfeggio_product",
+      "name": "Solfeggio Product",
+      "family": "electronic",
+      "recipe": "classic solfeggio product, experimental Elec, ambient branch. fixed frequency tone recording. treated studio.",
+      "recipe_chars": 109
+    },
+    {
+      "id": "edinburgh_indie",
+      "name": "Edinburgh Indie",
+      "family": "pop",
+      "recipe": "classic edinburgh indie, functional Song. solo with instrumental accompaniment. upright piano. live tracking.",
+      "recipe_chars": 109
+    },
+    {
+      "id": "deep_vocal_house",
+      "name": "Deep Vocal House",
+      "family": "electronic",
+      "recipe": "classic deep vocal house, electronic Dance. small note groups per syllable, solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 160
+    },
+    {
+      "id": "progressive_trance_house",
+      "name": "Progressive Trance House",
+      "family": "electronic",
+      "recipe": "classic progressive trance house, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 98
+    },
+    {
+      "id": "modern_uplift",
+      "name": "Modern Uplift",
+      "family": "rock",
+      "recipe": "classic modern uplift, functional Song. solo with instrumental accompaniment. single coil electric guitar, electric bass, melodic chordal electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 306
+    },
+    {
+      "id": "indie_surf",
+      "name": "Indie Surf",
+      "family": "pop",
+      "recipe": "classic indie surf, functional Song, pop rock branch. conversational, equal tempered, modern pop training. arpeggiated clean single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 273
+    },
+    {
+      "id": "musica_catarinense",
+      "name": "Música Catarinense",
+      "family": "global",
+      "recipe": "classic música catarinense, functional Song. solo with instrumental accompaniment. classical nylon-string guitar. live tracking.",
+      "recipe_chars": 128
+    },
+    {
+      "id": "deep_minimal_techno",
+      "name": "Deep Minimal Techno",
+      "family": "electronic",
+      "recipe": "classic deep minimal techno, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 93
+    },
+    {
+      "id": "classic_luk_thung",
+      "name": "Classic Luk Thung",
+      "family": "pop_rock",
+      "recipe": "classic classic luk thung, functional Song, east Asian pop branch. slow rate, solo with instrumental accompaniment. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 297
+    },
+    {
+      "id": "stomp_pop",
+      "name": "Stomp Pop",
+      "family": "rock",
+      "recipe": "classic stomp pop, distorted Rock, alternative branch. one note per syllable, duet, live take. single coil electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 228
     }
   ]
 }

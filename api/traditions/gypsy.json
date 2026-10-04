@@ -1,0 +1,110 @@
+{
+  "id": "gypsy",
+  "name": "Gypsy",
+  "family": "vernacular",
+  "lineage": "Romani musical traditions span distinct communities across Europe and beyond, carried through family teaching, theatre, touring ensembles and recordings. Russian Romani guitar, Balkan ensembles and flamenco-related performance are among the overlapping regional practices gathered under this historical discovery label.",
+  "recipe": "classic gypsy, improv On Frame. russian seven string guitar. live tracking.",
+  "recipe_chars": 75,
+  "score": 0.694,
+  "config": {
+    "traditions": [
+      "gypsy"
+    ],
+    "instruments": [
+      {
+        "id": "russian_seven_string_guitar",
+        "slots": {
+          "r7_string_count": "r7_seven_single",
+          "string_tuning": "r7_romany_open_g",
+          "r7_soundboard": "r7_solid_red_cedar",
+          "r7_back_sides": "r7_solid_indian_rosewood",
+          "r7_neck": "r7_honduras_cedar_neck",
+          "r7_fingerboard": "r7_ebony_fingerboard",
+          "r7_string_material": "r7_nylon_wound_basses",
+          "r7_scale": "r7_650mm",
+          "r7_nut_width": "r7_55mm",
+          "r7_nut_saddle": "r7_bone_nut_saddle",
+          "r7_body": "r7_venetian_cutaway",
+          "r7_bracing": "r7_bracing_unspecified",
+          "acoustic_technique": "r7_fingerstyle_variation",
+          "r7_attack": "r7_finger_nail_mix",
+          "r7_pickup": "r7_prefix_pro_blend",
+          "r7_capture": "r7_acoustic_unplugged"
+        },
+        "scores": {
+          "r7_string_count": 0,
+          "string_tuning": 0.3,
+          "r7_soundboard": 0,
+          "r7_back_sides": 0,
+          "r7_neck": 0,
+          "r7_fingerboard": 0,
+          "r7_string_material": 0,
+          "r7_scale": 0,
+          "r7_nut_width": 0,
+          "r7_nut_saddle": 0,
+          "r7_body": 0.3315,
+          "r7_bracing": 0,
+          "acoustic_technique": 0.0315,
+          "r7_attack": 0.0315,
+          "r7_pickup": 0,
+          "r7_capture": 0
+        }
+      }
+    ],
+    "pinned": {
+      "russian_seven_string_guitar": [
+        "r7_string_count",
+        "string_tuning",
+        "r7_soundboard",
+        "r7_back_sides",
+        "r7_neck",
+        "r7_fingerboard",
+        "r7_string_material",
+        "r7_scale",
+        "r7_nut_width",
+        "r7_nut_saddle",
+        "r7_body",
+        "r7_bracing",
+        "acoustic_technique",
+        "r7_attack",
+        "r7_pickup",
+        "r7_capture"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "r7_string_count": "r7_seven_single",
+      "string_tuning": "r7_romany_open_g",
+      "r7_soundboard": "r7_solid_red_cedar",
+      "r7_back_sides": "r7_solid_indian_rosewood",
+      "r7_neck": "r7_honduras_cedar_neck",
+      "r7_fingerboard": "r7_ebony_fingerboard",
+      "r7_string_material": "r7_nylon_wound_basses",
+      "r7_scale": "r7_650mm",
+      "r7_nut_width": "r7_55mm",
+      "r7_nut_saddle": "r7_bone_nut_saddle",
+      "r7_body": "r7_venetian_cutaway",
+      "r7_bracing": "r7_bracing_unspecified",
+      "acoustic_technique": "r7_fingerstyle_variation",
+      "r7_attack": "r7_finger_nail_mix",
+      "r7_pickup": "r7_prefix_pro_blend",
+      "r7_capture": "r7_acoustic_unplugged"
+    },
+    "pin_parts": true
+  }
+}

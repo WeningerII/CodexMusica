@@ -5,7 +5,7 @@
   "lineage": "Mandopop girl-group performance foregrounding complementary singers and close vocal harmonies. The selected S.H.E model uses a three-part recorded vocal stack over piano, synthesizer and a simple programmed beat, reflecting the documented pop side of the Taiwanese group rather than every C-pop female ensemble.",
   "recipe": "classic modern c-pop girl group, functional Song, pop rock branch. lead plus third fifth 3 part stack 2000s elastic pitch edited stack multitrack vocal stack, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, analog poly synth, sampler drum machine, dreadnought acoustic guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 465,
-  "score": 76.322,
+  "score": 76.222,
   "config": {
     "traditions": [
       "c_pop_girl_group"
@@ -19,8 +19,8 @@
           "multitrack_stack_processing": "multitrack_processing_natural"
         },
         "scores": {
-          "multitrack_stack_density": 3.1910000000000003,
-          "multitrack_stack_era_aesthetic": 1.4625,
+          "multitrack_stack_density": 3.152,
+          "multitrack_stack_era_aesthetic": 1.56,
           "multitrack_stack_processing": 0.0315
         }
       },
@@ -43,10 +43,10 @@
           "grand_piano_brand": 0.399,
           "piano_hammer": 15.431,
           "piano_rim": 15.263,
-          "piano_soundboard": 15.2,
+          "piano_soundboard": 15.273499999999999,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": 4.281499999999999
+          "piano_pitch_standard": 3.9434999999999993
         }
       },
       {
@@ -73,7 +73,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "sample_bitdepth": 0.42000000000000004,
           "sample_swing": 0,
           "sample_processing": 0.063
@@ -93,7 +93,7 @@
           "string_tuning": 1.2865,
           "top_wood": 0.1365,
           "back_sides": 0,
-          "string_acoustic": 0.44099999999999995
+          "string_acoustic": 0.5774999999999999
         }
       }
     ],

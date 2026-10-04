@@ -5,7 +5,7 @@
   "lineage": "Japanese sleep-oriented listening, including quiet environmental soundscapes.",
   "recipe": "classic neru, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 172,
-  "score": 10.668,
+  "score": 10.694,
   "config": {
     "traditions": [
       "neru"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 4.331145833333333,
+          "electronic_technique": 4.3153125,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.3095,
-          "sampler_workflow": 4.788875000000001,
-          "sampler_classic_context": 1.2732083333333335
+          "sampler_bit_depth": 0.3045,
+          "sampler_workflow": 4.8100000000000005,
+          "sampler_classic_context": 1.2991875000000002
         }
       }
     ],

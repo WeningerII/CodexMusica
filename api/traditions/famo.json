@@ -5,7 +5,7 @@
   "lineage": "Basotho famo; a selected voice, accordion and drum arrangement of Lesotho’s popular song tradition.",
   "recipe": "classic modern famo, functional Song. solo with instrumental accompaniment. accordion, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 219,
-  "score": 3.379,
+  "score": 3.36,
   "config": {
     "traditions": [
       "famo"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6825000000000001,
+          "voice_ensemble_config": 0.6635,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

@@ -1,0 +1,50 @@
+{
+  "id": "shush",
+  "name": "Shush",
+  "family": "electronic",
+  "lineage": "Shush gathers softly continuous environmental recordings, noise and quiet instrumental music used for unobtrusive listening. Rain, waves and stream recordings feature prominently in its creator selection, alongside piano and other gentle textures.",
+  "recipe": "classic shush, experimental Elec, ambient branch. environmental field recording rain environmental recording. treated studio.",
+  "recipe_chars": 125,
+  "score": 2.379,
+  "config": {
+    "traditions": [
+      "shush"
+    ],
+    "instruments": [
+      {
+        "id": "rain_environmental_recording",
+        "slots": {
+          "rain_environmental_source": "rain_field_recording_source"
+        },
+        "scores": {
+          "rain_environmental_source": 2.3793035714285713
+        }
+      }
+    ],
+    "pinned": {
+      "rain_environmental_recording": [
+        "rain_environmental_source"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "rain_environmental_source": "rain_field_recording_source"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "solfeggio_product",
+  "name": "Solfeggio Product",
+  "family": "electronic",
+  "lineage": "Solfeggio product is a frequency-themed listening category circulated through digital meditation and ambient catalogues. Named-frequency releases appear alongside quiet music, noise and environmental sound, with titles and packaging organizing the listening experience. The label describes publishing and discovery practice rather than the historical solfège teaching system.",
+  "recipe": "classic solfeggio product, experimental Elec, ambient branch. fixed frequency tone recording. treated studio.",
+  "recipe_chars": 109,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "solfeggio_product"
+    ],
+    "instruments": [
+      {
+        "id": "fixed_frequency_tone_recording",
+        "slots": {
+          "fixed_frequency_recording_identity": "fixed_tone_recording_undertones_harmonics"
+        },
+        "scores": {
+          "fixed_frequency_recording_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fixed_frequency_tone_recording": [
+        "fixed_frequency_recording_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "fixed_frequency_recording_identity": "fixed_tone_recording_undertones_harmonics"
+    },
+    "pin_parts": true
+  }
+}

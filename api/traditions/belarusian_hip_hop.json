@@ -5,7 +5,7 @@
   "lineage": "Belarusian hip hop connects local and diaspora rap communities through Belarusian- and Russian-language writing. International hip-hop influences meet neighborhood experience, personal reflection and changing social contexts, with artists moving between underground releases and wider popular circulation.",
   "recipe": "classic belarusian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
   "recipe_chars": 176,
-  "score": 29.95,
+  "score": 30.161,
   "config": {
     "traditions": [
       "belarusian_hip_hop"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.895,
+          "voice_speech_song": 14.062999999999999,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.042749999999999996,
           "voice_tessitura": 0
         }
       },

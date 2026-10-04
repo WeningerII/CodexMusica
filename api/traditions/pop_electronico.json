@@ -5,7 +5,7 @@
   "lineage": "Pop electrónico connects Spanish-language songwriting with synthesized textures, programmed accompaniment and electronic performance. Its Latin American and diaspora scenes span intimate trip-hop-influenced songs, dance-oriented pop and more expansive live arrangements.",
   "recipe": "classic pop electrónico, functional Song. one note per syllable, solo with instrumental accompaniment. credited synthesizer credited programming unspecified. live tracking.",
   "recipe_chars": 172,
-  "score": 4.586,
+  "score": 4.753,
   "config": {
     "traditions": [
       "pop_electronico"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.773625,
+          "voice_speech_song": 0.78,
           "voice_ensemble_config": 3.38,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.43199999999999994,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.4691249999999999,
+          "voice_multitrack_stack": 0.12374999999999999,
           "voice_tessitura": 0
         }
       },

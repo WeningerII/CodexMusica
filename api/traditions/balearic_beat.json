@@ -2,15 +2,15 @@
   "id": "balearic_beat",
   "name": "Balearic Beat",
   "family": "electronic",
-  "lineage": "Ibiza, mid-1980s, codified by DJ Alfredo Fiorito's open-air sets at Amnesia and carried to Britain in 1987 by Paul Oakenfold and Danny Rampling — a 100-120 BPM eclectic mode joining dub-delayed guitar, nylon-string and slide figures, warm analogue pads and loose live-feel drum machine programming, with long unhurried arrangements and sun-facing major-key harmony.",
-  "recipe": "classic 1984-1986 balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song hauntology ambient house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, TR-909, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, glitched textural sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-  "recipe_chars": 707,
-  "score": 250.862,
+  "lineage": "Continuing Balearic DJ and production practice, 1980-present. Ibiza, mid-1980s, codified by DJ Alfredo Fiorito's open-air sets at Amnesia and carried to Britain in 1987 by Paul Oakenfold and Danny Rampling — a 100-120 BPM eclectic mode joining dub-delayed guitar, nylon-string and slide figures, warm analogue pads and loose live-feel drum machine programming, with long unhurried arrangements and sun-facing major-key harmony.",
+  "recipe": "classic modern balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song hauntology deep tropical house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, TR-909, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, glitched textural sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 748,
+  "score": 232.932,
   "config": {
     "traditions": [
       "balearic_beat",
       "hauntology_aesthetic",
-      "ambient_house"
+      "deep_tropical_house"
     ],
     "instruments": [
       {
@@ -19,26 +19,26 @@
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 7.145,
+          "electronic_technique": 4.1450000000000005,
           "poly_archetypes": 0.78,
           "poly_voices": 0.345,
-          "poly_maker_lineage": -0.035
+          "poly_maker_lineage": 0.995
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 11.319999999999999,
-          "drum_machine_909_context": 0.78,
-          "tr909_production_origin": 0.12999999999999998
+          "tr909_voice": 13.445,
+          "drum_machine_909_context": 1.04,
+          "tr909_production_origin": -0.035
         }
       },
       {
@@ -52,9 +52,9 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 2.675,
+          "acoustic_technique": 3.05,
           "string_tuning": 0,
-          "top_wood_classical": 7.25,
+          "top_wood_classical": 6.25,
           "bracing_classical": 0.15,
           "string_classical": 3.540000000000001,
           "attack_technique_cl": 2.6650000000000005
@@ -73,13 +73,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.9350000000000014,
+          "amp_make": 2.785000000000001,
           "body_wood": 2.4400000000000004,
           "pickup_config": 0.195,
-          "string_type": 4.0600000000000005,
+          "string_type": 3.2600000000000007,
           "scale_length_b": 3.1850000000000005,
           "fretted_or_not": 0,
-          "bass_technique": 5.699999999999999,
+          "bass_technique": 3.2,
           "electric_bass_string_configuration": 0
         }
       },
@@ -93,32 +93,32 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 3.1950000000000007,
-          "voice_quality": 7.41,
+          "voice_register": 3.4200000000000013,
+          "voice_quality": 6.110000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.680000000000001,
-          "voice_articulation": 17.81,
-          "voice_microtone": 19.564999999999998,
-          "voice_tradition": 8.14,
-          "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 3.575000000000001,
-          "voice_speech_song": 20.865000000000002,
-          "voice_ensemble_config": 18.785,
-          "voice_ornament_system": 0.45500000000000007,
-          "voice_pitch_organization": 3.065,
-          "voice_processing_chain": 16.025,
+          "voice_vibrato": 4.485,
+          "voice_articulation": 17.225,
+          "voice_microtone": 18.979999999999997,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 5.070000000000002,
+          "voice_speech_song": 20.28,
+          "voice_ensemble_config": 17.55,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 2.8400000000000003,
+          "voice_processing_chain": 17.025,
           "voice_multitrack_stack": 3.9300000000000006
         }
       },
@@ -132,11 +132,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 8.125,
-          "sampler_archetypes": 1.595,
+          "electronic_technique": 6.250000000000001,
+          "sampler_archetypes": 1.445,
           "sampler_bit_depth": 2.49,
-          "sampler_workflow": 8.125,
-          "sampler_classic_context": 32.5975
+          "sampler_workflow": 6.250000000000001,
+          "sampler_classic_context": 35.59
         }
       },
       {
@@ -148,13 +148,18 @@
           "melodica_maker_school": "melodica_hohner_canonical"
         },
         "scores": {
-          "keyboard_technique": 0.9099999999999999,
-          "melodica_use": 5.9,
+          "keyboard_technique": 1.3975,
+          "melodica_use": 3.4,
           "melodica_pitch": 0.78,
-          "melodica_maker_school": 3.7499999999999996
+          "melodica_maker_school": 1.2500000000000002
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_tradition"
+      ]
+    },
     "room": "studio_auteur_home_pro",
     "archetype": "arch_nyc_disco_twelve_inch",
     "inline_chain": {
@@ -174,6 +179,10 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
+    "parts": {
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
     "chain_mic": "condenser_ldc",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_dbx_160_vca",

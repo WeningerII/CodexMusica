@@ -1,0 +1,139 @@
+{
+  "id": "malaysian_tamil_pop",
+  "name": "Malaysian Tamil Pop",
+  "family": "pop",
+  "lineage": "Malaysian Tamil pop connects locally produced Tamil songs, independent singles and film music. Singers and producers combine melodic hooks with contemporary production and folk-derived expression, circulating through Malaysian studios, screen productions and online releases.",
+  "recipe": "classic malaysian tamil pop, functional Song. human voice ensemble unspecified, vocal percussion voice. treated studio.",
+  "recipe_chars": 119,
+  "score": 0.873,
+  "config": {
+    "traditions": [
+      "malaysian_tamil_pop"
+    ],
+    "instruments": [
+      {
+        "id": "human_voice_ensemble_unspecified",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "human_voice_ensemble_source_status": 0,
+          "human_voice_tracking_source_status": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "vocal_percussion_voice",
+        "slots": {
+          "vocal_percussion_airstream_mechanism": "vocal_percussion_glottalic_ejective",
+          "vocal_percussion_beatbox_articulation": "beatbox_kick_bilabial_ejective",
+          "vocal_percussion_syllabic_drum_system": "syllabic_system_none",
+          "vocal_percussion_context": "vocal_percussion_context_ensemble"
+        },
+        "scores": {
+          "vocal_percussion_airstream_mechanism": 0,
+          "vocal_percussion_beatbox_articulation": 0.1365,
+          "vocal_percussion_syllabic_drum_system": 0,
+          "vocal_percussion_context": 0.7364999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "human_voice_ensemble_unspecified": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "human_voice_ensemble_source_status",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "human_voice_tracking_source_status",
+        "voice_tessitura"
+      ],
+      "vocal_percussion_voice": [
+        "vocal_percussion_airstream_mechanism",
+        "vocal_percussion_beatbox_articulation",
+        "vocal_percussion_syllabic_drum_system",
+        "vocal_percussion_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+      "vocal_percussion_airstream_mechanism": "vocal_percussion_glottalic_ejective",
+      "vocal_percussion_beatbox_articulation": "beatbox_kick_bilabial_ejective",
+      "vocal_percussion_syllabic_drum_system": "syllabic_system_none",
+      "vocal_percussion_context": "vocal_percussion_context_ensemble"
+    },
+    "pin_parts": true
+  }
+}

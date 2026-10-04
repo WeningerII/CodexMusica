@@ -1,0 +1,58 @@
+{
+  "id": "gong",
+  "name": "Gong",
+  "family": "global",
+  "lineage": "Southeast Asian gong-ensemble discovery field spanning Balinese gong orchestras, Sumatran talempong and Philippine kulintang communities. Tuned gongs and related instruments organize interlocking patterns, repeating melodic cycles and contrasting ensemble textures.",
+  "recipe": "classic gong, art Music. interlocking gamelan gong kebyar. shoebox concert hall.",
+  "recipe_chars": 80,
+  "score": 1,
+  "config": {
+    "traditions": [
+      "gong"
+    ],
+    "instruments": [
+      {
+        "id": "gamelan_gong_kebyar",
+        "slots": {
+          "gk_repertoire": "gk_kebyar_instrumental",
+          "gk_texture": "gk_kotekan",
+          "gk_ensemble_size": "gk_full"
+        },
+        "scores": {
+          "gk_repertoire": 0,
+          "gk_texture": 1,
+          "gk_ensemble_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "gamelan_gong_kebyar": [
+        "gk_repertoire",
+        "gk_texture",
+        "gk_ensemble_size"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "gk_repertoire": "gk_kebyar_instrumental",
+      "gk_texture": "gk_kotekan",
+      "gk_ensemble_size": "gk_full"
+    },
+    "pin_parts": true
+  }
+}
