@@ -5,7 +5,7 @@
   "lineage": "Highly individual music made outside conventional professional and stylistic expectations.",
   "recipe": "classic outsider, functional Song. one note per syllable. electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 189,
-  "score": 1.781,
+  "score": 2.014,
   "config": {
     "traditions": [
       "outsider"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.23399999999999999
         }
       }
     ],

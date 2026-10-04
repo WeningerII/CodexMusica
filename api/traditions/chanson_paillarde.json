@@ -2,10 +2,10 @@
   "id": "chanson_paillarde",
   "name": "Chanson paillarde",
   "family": "vernacular",
-  "lineage": "Les Cop(i)nes — unaccompanied three-voice bawdy-song repertoire. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "Chanson paillarde carries a tradition of bawdy, comic and provocative song into communal and staged performance. Contemporary groups such as Les Cop(i)nes revisit older repertoire and create new responses to it.",
   "recipe": "classic chanson paillarde, drinking Song. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 140,
-  "score": 0.045,
+  "score": 0.6,
   "config": {
     "traditions": [
       "chanson_paillarde"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.0225,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0225,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       }

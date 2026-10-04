@@ -1,5 +1,7 @@
 # Checkpoint 046
 
+**STATUS:** SHIPPED
+
 This candidate adds 28 reviewed genre profiles and applies three limited, independently researched corrections to existing vocal defaults. The catalogue contains 6834 traditions and 1660 instruments; no instrument definitions are added or changed.
 
 The corrections remove unsupported specificity from Polish sung poetry, Czech poetic song and Dark Folk, and protect the previously authored settings specified in the proposal. They do not resolve every inherited articulation, ensemble, period or construction limitation in those profiles.

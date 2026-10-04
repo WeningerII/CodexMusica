@@ -5,7 +5,7 @@
   "lineage": "Egyptian traditional music encompasses urban art-song, regional folk, devotional and instrumental traditions. Cairo’s takht heritage is one influential strand within a wider landscape that also includes Upper Egyptian, Nubian and Coptic repertoires.",
   "recipe": "classic egyptian traditional, improv On Frame. neutral third half flat, solo with instrumental accompaniment. oud, qanun, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka. live tracking.",
   "recipe_chars": 251,
-  "score": 27.483,
+  "score": 27.336,
   "config": {
     "traditions": [
       "egyptian_traditional"
@@ -43,12 +43,12 @@
           "voice_tradition": 0.19500000000000003,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.0945,
+          "voice_speech_song": 0.1575,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": -0.15000000000000002,
           "voice_pitch_organization": -0.15000000000000002,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.35700000000000004,
+          "voice_multitrack_stack": 0.189,
           "voice_tessitura": 0
         }
       },
@@ -87,11 +87,11 @@
         "scores": {
           "plucked_traditional_technique": 0.18150000000000002,
           "qanun_strings": 0,
-          "qanun_levers": 0.168,
+          "qanun_levers": 0.1365,
           "qanun_pick": 0.0315,
           "qanun_body_wood": 0,
           "qanun_bridge_skin": 0,
-          "qanun_string_material": 0.168
+          "qanun_string_material": 0.1365
         }
       },
       {
@@ -104,8 +104,8 @@
         },
         "scores": {
           "percussion_technique": 0.26,
-          "darbuka_material": 2.231,
-          "darbuka_skin": 5.231,
+          "darbuka_material": 2.2415,
+          "darbuka_skin": 5.2415,
           "darbuka_regional_style": 3
         }
       }

@@ -1,0 +1,50 @@
+{
+  "id": "focus_trance",
+  "name": "Focus Trance",
+  "family": "electronic",
+  "lineage": "Focus trance is a discovery label connecting melodic progressive producers and DJs. Its repertoire links trance-inflected melodies with progressive-house sequencing and gradually evolving electronic textures.",
+  "recipe": "classic focus trance, electronic Dance, house branch. dj playback mixing unspecified. parlor.",
+  "recipe_chars": 93,
+  "score": 0.3,
+  "config": {
+    "traditions": [
+      "focus_trance"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "parlor",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "parlor",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

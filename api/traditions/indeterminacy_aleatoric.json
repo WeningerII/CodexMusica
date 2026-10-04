@@ -5,7 +5,7 @@
   "lineage": "American twentieth-century compositional approach centered on John Cage (1912-1992) employing chance procedures (I Ching coin-tossing, star-charts, environmental noise) to determine compositional material, removing the composer's expressive intentionality. Music of Changes (1951), 4'33\" (1952), Imaginary Landscape No. 4 (1951 for twelve radios), and the Number Pieces (1987-92) constitute the canonical types. Influenced subsequent Fluxus intermedia, conceptual composition, and improvisation traditions.",
   "recipe": "classic North American early-1910s indeterminacy and aleatoric, art Music, western modern branch, jam free improv on frame african experimental jam bands. thick, breath veiled tone, slow rate, interlocked note trading. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 409,
-  "score": 135.058,
+  "score": 135.507,
   "config": {
     "traditions": [
       "indeterminacy_aleatoric",
@@ -38,18 +38,18 @@
           "voice_quality": 10.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.1899999999999995,
+          "voice_vibrato": 5.324999999999999,
           "voice_articulation": 10.14,
           "voice_microtone": 10.09,
           "voice_tradition": 6.045,
-          "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 4.630000000000001,
+          "voice_mechanism_compound": 3.635,
+          "voice_estill_quality": 4.675000000000001,
           "voice_speech_song": 12.154999999999998,
           "voice_ensemble_config": 8.384999999999998,
           "voice_ornament_system": 3.5100000000000016,
-          "voice_pitch_organization": 2.49,
+          "voice_pitch_organization": 2.535,
           "voice_processing_chain": 1.81,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 1.645
         }
       },
       {
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 2.5,
-          "grand_piano_size": 1.195,
-          "grand_piano_brand": 1.195,
+          "keyboard_technique": 2.545,
+          "grand_piano_size": 1.24,
+          "grand_piano_brand": 1.24,
           "piano_hammer": 8.345,
-          "piano_rim": 8.435,
-          "piano_soundboard": 6.295,
-          "piano_pinblock": 7.1850000000000005,
+          "piano_rim": 8.345,
+          "piano_soundboard": 6.445,
+          "piano_pinblock": 7.140000000000001,
           "piano_plate": 6.25,
-          "piano_pitch_standard": 8.685
+          "piano_pitch_standard": 9.135
         }
       }
     ],

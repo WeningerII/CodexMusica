@@ -5,7 +5,7 @@
   "lineage": "Jamtronica — improvising live bands drawing on electronic dance music.",
   "recipe": "classic jamtronica, improv On Frame, jam free branch. duet, live take. humbucker electric guitar, electric bass, drum kit, grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 253,
-  "score": 8.041,
+  "score": 7.127,
   "config": {
     "traditions": [
       "jamtronica"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.2205,
-          "voice_ensemble_config": 1.912,
+          "voice_speech_song": 0.0945,
+          "voice_ensemble_config": 2.017,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.40950000000000003,
-          "voice_multitrack_stack": 1.9435,
+          "voice_multitrack_stack": 2.017,
           "voice_tessitura": 0
         }
       },
@@ -79,10 +79,10 @@
           "pickup_winding": 0.147,
           "string_material": 0.105,
           "bridge": 0,
-          "scale_length": 0.21,
-          "string_gauge": 0.7150000000000001,
+          "scale_length": 0.273,
+          "string_gauge": 0.442,
           "finish": 0,
-          "string_tuning": 0.609
+          "string_tuning": 0.336
         }
       },
       {
@@ -102,7 +102,7 @@
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.1365,
+          "scale_length_b": 0.168,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.6825,
+          "drumhead": 0.44100000000000006,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.6825,
+          "shell_wood": 0.44100000000000006,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0,
@@ -152,7 +152,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.0315,
+          "grand_piano_size": 0,
           "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,

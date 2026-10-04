@@ -2,10 +2,10 @@
   "id": "chicago_indie",
   "name": "Chicago indie",
   "family": "rock_punk",
-  "lineage": "Minor Moon — An Opening (2019), four-member song core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic late-2010s chicago indie, functional Song. humbucker electric guitar, electric bass, dark musical bronze bell bronze drum kit, wurlitzer ep. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 240,
-  "score": 6.5,
+  "lineage": "Chicago’s independent music spans guitar songwriting, alternative folk and experimental pop. Bands such as Minor Moon connect folk-rock and country influences with more expansive ensemble arrangements.",
+  "recipe": "classic chicago indie, functional Song. duet, live take. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon wurlitzer ep. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 22.743,
   "config": {
     "traditions": [
       "chicago_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 1,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 1,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.1,
+          "electric_technique": 2.45,
           "amp_make": 0,
           "body_wood": 0.1905,
           "neck_wood": 0,
@@ -80,7 +80,7 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
+          "drum_technique": 2.6365,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 3.5100000000000002,
-          "cymbal_hammering": -0.10500000000000001,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 5.0040000000000004,
+          "cymbal_lathing": 4.95,
           "cymbal_finish": 0
         }
       },
@@ -147,11 +147,11 @@
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 2.45,
           "wurlitzer_use": 0,
           "wurlitzer_ep_voice": 0,
-          "wurlitzer_model": 0.325,
-          "wurlitzer_reed_material": 0.654
+          "wurlitzer_model": 1.058,
+          "wurlitzer_reed_material": 0.354
         }
       }
     ],

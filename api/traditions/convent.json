@@ -2,10 +2,10 @@
   "id": "convent",
   "name": "Convent",
   "family": "vernacular",
-  "lineage": "Benedictines of Mary — Advent at Ephesus, women’s monastic hymn branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "Convent music grows from the prayer and musical life of women’s religious communities. Groups such as the Benedictines of Mary preserve chant and hymn traditions alongside their own sacred compositions.",
   "recipe": "classic convent, ritual Devotional, christian gospel branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 159,
-  "score": 0.39,
+  "score": 0.137,
   "config": {
     "traditions": [
       "convent"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

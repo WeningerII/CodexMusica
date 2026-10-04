@@ -2,10 +2,10 @@
   "id": "canadian_latin",
   "name": "Canadian latin",
   "family": "vernacular",
-  "lineage": "OKAN — Espiral, piano-and-vocal core of Pie de Foto. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "lineage": "Latin American diasporic music in Canada carries regional traditions into local performing and recording communities. Toronto’s OKAN draws on Cuban roots while working across Latin and jazz settings.",
   "recipe": "classic canadian latin, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 152,
-  "score": 1.112,
+  "score": 0.442,
   "config": {
     "traditions": [
       "canadian_latin"
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_size": 0.126,
+          "grand_piano_brand": 0.39,
           "piano_hammer": -0.1,
           "piano_rim": -0.1,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
-          "piano_plate": 0.2,
-          "piano_pitch_standard": 0.325
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

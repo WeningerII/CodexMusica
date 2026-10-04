@@ -5,7 +5,7 @@
   "lineage": "Ben McManus / Rhona Dalling / Nathan Bontrager — Chicken & Dumplings, Old Goginan (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s modern old-time, drone Modal, appalachian branch. modern standard synthetic fiddle, synthetic European maple bosnian source flamed figure oil varnish cello, acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 292,
-  "score": 31.66,
+  "score": 31.42,
   "config": {
     "traditions": [
       "modern_old_time"
@@ -22,10 +22,10 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 1.3724999999999998,
+          "bowed_technique": 1.3949999999999998,
           "fiddle_strings": 1.5430000000000001,
           "fiddle_bow": 0,
-          "fiddle_mute": 2.3665,
+          "fiddle_mute": 2.269,
           "fiddle_articulation": 0.69,
           "fiddle_string_configuration": 0
         }
@@ -44,12 +44,12 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 1.3724999999999998,
+          "bowed_technique": 1.3949999999999998,
           "cello_strings": 2.1565,
           "cello_top_wood": 0.7224999999999999,
-          "cello_back_wood": 2.7275000000000005,
+          "cello_back_wood": 2.5625000000000004,
           "cello_varnish": 4,
-          "cello_setup_period": 4.6135,
+          "cello_setup_period": 4.591,
           "cello_bow_grip": 0.39,
           "cello_rosin": 4.9225,
           "cello_bow_stick": 4.1000000000000005

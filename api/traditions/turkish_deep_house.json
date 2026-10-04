@@ -5,7 +5,7 @@
   "lineage": "Turkish deep house connects producers and singers working across deep house, indie dance and electronic pop. Networks around Bursa and Istanbul link melodic club production with local and international vocal collaborations.",
   "recipe": "classic modern turkish deep house, electronic Dance, deep house branch. solo with instrumental accompaniment, plate reverb medium decay vocal classic. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 399,
-  "score": 39.913,
+  "score": 40.21,
   "config": {
     "traditions": [
       "turkish_deep_house"
@@ -78,7 +78,7 @@
           "electronic_technique": 0.19500000000000003,
           "oscillator": 0.39,
           "filter_topology": 0.102,
-          "envelope": 0.0465,
+          "envelope": 0.039,
           "modulation": 0
         }
       },
@@ -96,7 +96,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.063,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 26.3985
+          "sampler_classic_context": 26.702999999999996
         }
       }
     ],

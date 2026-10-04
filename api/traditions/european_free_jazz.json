@@ -5,7 +5,7 @@
   "lineage": "Continental improvised-music movement formed 1965-1975 around Peter Brötzmann and the FMP label in Berlin, Han Bennink and Misha Mengelberg's Instant Composers Pool in Amsterdam, and Derek Bailey and Evan Parker's Incus circle in London, abandoning tune, changes and steady pulse in favor of collective free improvisation, extended saxophone multiphonics and overblowing, non-idiomatic prepared guitar, percussion played as noise and theater, and dry direct-to-tape documentation at concerts and small studios.",
   "recipe": "classic European mid-1970s european free jazz, improv On Frame, avant branch, jam free improv on frame, western modern art music live electronics early modern classical. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, fiberskyn synthetic calf brushes-and-sticks drum kit, growly gut upright bass, bach 42 canonical American orchestral tenor multiphonic student commercial trombone, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, Fender tweed amp American 50s amp tweed breakup basswood maple humbucker electric guitar, grenadilla African blackwood traditional multiphonic clarinet. live tracking. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 786,
-  "score": 285.58,
+  "score": 285.355,
   "config": {
     "traditions": [
       "european_free_jazz",
@@ -42,7 +42,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 29.325,
+          "drum_technique": 28.98,
           "drumhead": 15.75,
           "drum_kit_kick_pedal": 0
         }
@@ -73,10 +73,10 @@
           "wind_articulation": 12.925,
           "trombone_type": 10.295,
           "trombone_mouthpiece": 10.2,
-          "trombone_mute": 1.7,
+          "trombone_mute": 1.7449999999999999,
           "trombone_technique": 0.7,
-          "trombone_bell_metal": 0.345,
-          "trombone_maker_school": 3.5300000000000002
+          "trombone_bell_metal": 0.3,
+          "trombone_maker_school": 3.485
         }
       },
       {
@@ -94,14 +94,14 @@
         },
         "scores": {
           "keyboard_technique": 8.215,
-          "grand_piano_size": 0.895,
+          "grand_piano_size": 0.85,
           "grand_piano_brand": 1.3,
-          "piano_hammer": 11.685,
+          "piano_hammer": 11.64,
           "piano_rim": 10.58,
-          "piano_soundboard": 8.045,
-          "piano_pinblock": 8.825,
+          "piano_soundboard": 8.195,
+          "piano_pinblock": 8.39,
           "piano_plate": 8.045,
-          "piano_pitch_standard": 13.435
+          "piano_pitch_standard": 13.885
         }
       },
       {
@@ -122,9 +122,9 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 2.9,
+          "electric_technique": 2.9450000000000003,
           "amp_make": 3.0900000000000007,
-          "body_wood": 2.4400000000000004,
+          "body_wood": 2.4850000000000003,
           "neck_wood": 1.3,
           "fretboard": 2.21,
           "pickup_magnet": 2.245,
@@ -132,8 +132,8 @@
           "string_material": 2.21,
           "bridge": 0.9099999999999999,
           "scale_length": 4.16,
-          "string_gauge": 2.7299999999999995,
-          "finish": 0.3,
+          "string_gauge": 2.6849999999999996,
+          "finish": 0.345,
           "string_tuning": 4.16
         }
       },

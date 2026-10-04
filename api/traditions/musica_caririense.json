@@ -5,7 +5,7 @@
   "lineage": "Música caririense connects the musical communities of Ceará’s Cariri region, including songwriting, percussion, rock and experimental work. Local artists and independent labels bring these approaches into shared circulation.",
   "recipe": "classic música caririense, improv On Frame. humbucker electric guitar, pandeirola meia lua. live tracking. digital delay.",
   "recipe_chars": 121,
-  "score": 1.43,
+  "score": 1.157,
   "config": {
     "traditions": [
       "musica_caririense"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 0.5775
+          "string_tuning": 0.1365
         }
       },
       {
@@ -52,7 +52,7 @@
         },
         "scores": {
           "pandeirola_meia_lua_form": 0,
-          "pandeirola_meia_lua_gesture": 0.063
+          "pandeirola_meia_lua_gesture": 0.23099999999999998
         }
       }
     ],

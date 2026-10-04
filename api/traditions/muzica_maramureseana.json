@@ -5,7 +5,7 @@
   "lineage": "Maramureș music brings together village singing, wedding repertories, dance tunes and pastoral music from northern Romania. The cetera fiddle and strummed zongoră form a characteristic instrumental partnership, often joined by a dobă drum. Solo long-song traditions coexist with lively collective performances.",
   "recipe": "classic muzică maramureșeană, improv On Frame. solo with instrumental accompaniment. fiddle, zongora doba maramures. live tracking.",
   "recipe_chars": 131,
-  "score": 9.549,
+  "score": 9.622,
   "config": {
     "traditions": [
       "muzica_maramureseana"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.0945,
+          "voice_speech_song": 0.0315,
           "voice_ensemble_config": 4.68,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.35700000000000004,
+          "voice_multitrack_stack": 0.189,
           "voice_tessitura": 0
         }
       },
@@ -67,7 +67,7 @@
           "fiddle_strings": 0,
           "fiddle_bow": 0,
           "fiddle_mute": 0.9099999999999999,
-          "fiddle_articulation": 0.0945,
+          "fiddle_articulation": 0.1995,
           "fiddle_string_configuration": 0
         }
       },
@@ -86,7 +86,7 @@
           "top_wood": 0,
           "back_sides": 0.7,
           "string_acoustic": 0,
-          "zongora_configuration": 0.16799999999999998,
+          "zongora_configuration": 0.1995,
           "string_tuning": 0
         }
       },
@@ -102,7 +102,7 @@
           "doba_form": 0,
           "doba_shell": 0,
           "doba_heads": 0,
-          "doba_stroke": 0.063
+          "doba_stroke": 0.23099999999999998
         }
       }
     ],

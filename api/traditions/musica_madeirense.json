@@ -5,7 +5,7 @@
   "lineage": "Music of Madeira, including local string traditions, social song and improvised verse.",
   "recipe": "classic musica madeirense, improv On Frame. braguinha viola arame madeira. live tracking.",
   "recipe_chars": 89,
-  "score": 1.417,
+  "score": 1.292,
   "config": {
     "traditions": [
       "musica_madeirense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.2205,
-          "voice_ensemble_config": 0.2625,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.2625,
+          "voice_multitrack_stack": 0.231,
           "voice_tessitura": 0
         }
       },
@@ -59,7 +59,7 @@
           "braguinha_madeira_gesture": "braguinha_madeira_strummed"
         },
         "scores": {
-          "braguinha_madeira_identity": 0.33599999999999997,
+          "braguinha_madeira_identity": 0.3045,
           "braguinha_madeira_gesture": 0
         }
       },
@@ -70,7 +70,7 @@
           "viola_arame_madeira_gesture": "viola_arame_madeira_strummed"
         },
         "scores": {
-          "viola_arame_madeira_identity": 0.33599999999999997,
+          "viola_arame_madeira_identity": 0.3045,
           "viola_arame_madeira_gesture": 0
         }
       }

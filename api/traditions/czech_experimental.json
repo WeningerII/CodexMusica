@@ -2,10 +2,10 @@
   "id": "czech_experimental",
   "name": "Czech experimental",
   "family": "vernacular",
-  "lineage": "Tomáš Niesner — Bečvou (2022), guitar/modular core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s czech experimental, experimental Elec. acoustic guitar, eurorack modular. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 192,
-  "score": 7.063,
+  "lineage": "Czech experimental music encompasses sound art, improvisation and electronic composition. Artists such as Tomáš Niesner connect instrumental exploration with place, environmental listening and recorded sound.",
+  "recipe": "classic czech experimental, experimental Elec. acoustic guitar, eurorack modular. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 180,
+  "score": 8.883,
   "config": {
     "traditions": [
       "czech_experimental"
@@ -37,8 +37,8 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "eurorack_focus": 3.6399999999999997,
-          "eurorack_modular_context": 3.6399999999999997
+          "eurorack_focus": 4.55,
+          "eurorack_modular_context": 4.55
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "abstract",
   "name": "Abstract",
   "family": "electronic",
-  "lineage": "Abstract is represented by Biosphere — Inland Delta, keyboard improvisation branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+  "lineage": "Abstract electronic music foregrounds texture, tone and changing sound relationships. Its ambient and improvised strands include Biosphere’s spacious keyboard music, where slowly developing layers and open forms shape the listening experience.",
   "recipe": "classic abstract, experimental Elec, idm glitch branch. digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 4.24,
+  "score": 7.461,
   "config": {
     "traditions": [
       "abstract"
@@ -14,14 +14,14 @@
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_arpeggiated",
+          "electronic_technique": "electronic_pad_drone",
           "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": 2.7815,
           "va_archetypes": 0,
-          "digital_subtractive_context": 4.29
+          "digital_subtractive_context": 4.68
         }
       }
     ],

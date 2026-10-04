@@ -5,7 +5,7 @@
   "lineage": "Traditional bluegrass includes the acoustic string-band practice associated with Bill Monroe and his collaborators. Kenny Baker’s Bill Monroe repertoire supplies this specific instrumental branch, within a tradition also known for vocal performance.",
   "recipe": "classic modern traditional bluegrass, improv On Frame, bluegrass branch. double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, articulated flatpicked dreadnought acoustic guitar, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 450,
-  "score": 161.564,
+  "score": 161.496,
   "config": {
     "traditions": [
       "traditional_bluegrass"
@@ -25,8 +25,8 @@
           "bowed_technique": 10.309999999999999,
           "fiddle_strings": 0.546,
           "fiddle_bow": 0.5145000000000001,
-          "fiddle_mute": 0.2575,
-          "fiddle_articulation": 0.108,
+          "fiddle_mute": 0.23249999999999998,
+          "fiddle_articulation": 0.11549999999999999,
           "fiddle_string_configuration": 0
         }
       },
@@ -47,9 +47,9 @@
           "mandolin_shape": 9.5315,
           "mandolin_top": 9.9725,
           "mandolin_back": 9.5,
-          "mandolin_bracing": 9.589,
+          "mandolin_bracing": 9.5315,
           "mandolin_strings": 0.5145000000000001,
-          "mandolin_fingerboard": 0.063,
+          "mandolin_fingerboard": 0.0705,
           "mandolin_pickup": 3.38
         }
       },

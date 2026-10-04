@@ -2,10 +2,10 @@
   "id": "cello",
   "name": "Cello",
   "family": "global",
-  "lineage": "Oliver Barrett — Yuaols (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s cello, improv On Frame, jam free branch. European maple bosnian source flamed figure pirastro cellisto cello specific cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 243,
-  "score": 8.967,
+  "lineage": "Cello-centered music reaches across composed repertoire, chamber performance and contemporary improvisation. Musicians such as Oliver Barrett explore the instrument as a complete solo sound world as well as a familiar ensemble voice.",
+  "recipe": "classic cello, improv On Frame, jam free branch. pirastro cellisto cello specific cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 187,
+  "score": 1.499,
   "config": {
     "traditions": [
       "cello"
@@ -25,15 +25,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 0.855,
+          "bowed_technique": -0.035,
           "cello_strings": 0.0315,
-          "cello_top_wood": 0.9099999999999999,
-          "cello_back_wood": 2.5999999999999996,
-          "cello_varnish": 0.7,
-          "cello_setup_period": 0.8574999999999999,
-          "cello_bow_grip": 0.3315,
-          "cello_rosin": 2.0315,
-          "cello_bow_stick": 0.6499999999999999
+          "cello_top_wood": -0.07,
+          "cello_back_wood": -0.07,
+          "cello_varnish": -0.1,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.0315,
+          "cello_rosin": 1.9315,
+          "cello_bow_stick": -0.15000000000000002
         }
       }
     ],
@@ -60,13 +60,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "bowed_technique": "bowed_legato_classical",

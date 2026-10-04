@@ -5,7 +5,7 @@
   "lineage": "Humour français connects French-language comic performance with stage, broadcast and recorded traditions. Monologues, character voices and narrated situations give performers varied ways to shape an audience’s response.",
   "recipe": "classic humour français, spoken Word, stage performance branch. live tracking.",
   "recipe_chars": 78,
-  "score": 1.113,
+  "score": 1.144,
   "config": {
     "traditions": [
       "humour_francais"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.2415,
-          "voice_ensemble_config": 0.1995,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,

@@ -5,7 +5,7 @@
   "lineage": "Contemporary Portuguese music, including exploratory instrumental composition and improvisation.",
   "recipe": "classic música portuguesa contemporânea, improv On Frame. humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 183,
-  "score": 1.134,
+  "score": 0.178,
   "config": {
     "traditions": [
       "musica_portuguesa_contemporanea"
@@ -39,9 +39,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.756,
+          "string_gauge": 0.2415,
           "finish": 0,
-          "string_tuning": 0.5775
+          "string_tuning": 0.1365
         }
       }
     ],

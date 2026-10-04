@@ -2,10 +2,10 @@
   "id": "columbus_ohio_indie",
   "name": "Columbus Ohio Indie",
   "family": "pop_rock",
-  "lineage": "The Kyle Sowashes — The Least That You Can Do (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2020s columbus ohio indie, functional Song. humbucker electric guitar, electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 208,
-  "score": 1.275,
+  "lineage": "Columbus, Ohio indie connects independent bands, recording spaces and local songwriting. Groups such as The Kyle Sowashes bring a melodic, guitar-based approach to the city’s indie-rock practice.",
+  "recipe": "classic columbus ohio indie, functional Song. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 276,
+  "score": 10.777,
   "config": {
     "traditions": [
       "columbus_ohio_indie"
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
+          "drum_technique": 3.3865,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
@@ -132,8 +132,8 @@
           "bearing_edges": 0,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_hammering": 3.1500000000000004,
+          "cymbal_lathing": 3.1500000000000004,
           "cymbal_finish": 0
         }
       }

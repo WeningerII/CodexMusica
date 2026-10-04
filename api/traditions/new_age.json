@@ -5,7 +5,7 @@
   "lineage": "Contemplative instrumental music codified in California, Japan and Ireland between 1975 and 1990 through Steven Halpern's untempered keyboard drones, Kitarō's synth-and-flute suites and Windham Hill's acoustic roster — slow or unmeasured pulse, consonant diatonic and pentatonic harmony, long-decay reverb, sustained analog pads and string machines, wordless vocal layering, and near-total avoidance of dissonance or backbeat.",
   "recipe": "classic Asian mid-1970s new age, experimental Elec, ambient branch, retro aesthetic experimental electric, western modern art music protovapor avant-garde. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity pad fm synth, sustained pad string machine, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, silver yamaha modern Japanese mid to premium flute, low mid rich spectrum traditional gut gut string celtic harp, handpan. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 720,
-  "score": 222.947,
+  "score": 225.88,
   "config": {
     "traditions": [
       "new_age",
@@ -57,32 +57,32 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 13.175000000000002,
+          "keyboard_technique": 13.375,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.39,
           "piano_hammer": 6.775,
-          "piano_rim": 6.035,
-          "piano_soundboard": 5.75,
+          "piano_rim": 6.535,
+          "piano_soundboard": 5.25,
           "piano_pinblock": 5.07,
           "piano_plate": 5.325,
-          "piano_pitch_standard": 7.51
+          "piano_pitch_standard": 7.01
         }
       },
       {
         "id": "flute",
         "slots": {
-          "wind_articulation": "wind_multiphonic_avant",
+          "wind_articulation": "wind_classical_legato",
           "flute_size": "bass_flute",
           "flute_material": "silver_flute",
           "flute_technique": "beatboxed_flute",
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 1.525,
+          "wind_articulation": 1.25,
           "flute_size": 0.39,
           "flute_material": 1.555,
-          "flute_technique": 3.045,
-          "flute_maker_school": 2.925
+          "flute_technique": 2.6649999999999996,
+          "flute_maker_school": 4.225
         }
       },
       {
@@ -120,21 +120,21 @@
         },
         "scores": {
           "voice_register": 5.735000000000001,
-          "voice_quality": 2.0149999999999997,
+          "voice_quality": 2.860000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.48,
-          "voice_articulation": 18.654999999999998,
-          "voice_microtone": 18.069999999999993,
-          "voice_tradition": 13.975000000000001,
+          "voice_vibrato": 4.63,
+          "voice_articulation": 18.199999999999996,
+          "voice_microtone": 17.614999999999995,
+          "voice_tradition": 15.1125,
           "voice_mechanism_compound": 2.34,
-          "voice_estill_quality": 2.145,
-          "voice_speech_song": 20.344999999999995,
-          "voice_ensemble_config": 17.354999999999997,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 19.044999999999998,
+          "voice_ensemble_config": 17.094999999999995,
           "voice_ornament_system": 1.5999999999999999,
           "voice_pitch_organization": 2.34,
           "voice_processing_chain": 6.32,
-          "voice_multitrack_stack": 4.062500000000001
+          "voice_multitrack_stack": 5.3625
         }
       },
       {
@@ -159,9 +159,9 @@
         },
         "scores": {
           "electronic_technique": 5.6000000000000005,
-          "fm_algorithm": 1.25,
+          "fm_algorithm": 1.4,
           "fm_modulator_ratio": 0.65,
-          "fm_polyphony": 0.44999999999999996,
+          "fm_polyphony": 0.3,
           "fm_model_lineage": 2.015
         }
       }

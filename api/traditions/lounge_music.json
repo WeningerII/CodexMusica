@@ -5,7 +5,7 @@
   "lineage": "Consolidated in American hotel bars and Las Vegas rooms circa 1954-1966 and captured on Capitol, RCA and Command LPs by Martin Denny, Esquivel, Henry Mancini and Jackie Gleason — small combo of vibraphone, muted trumpet, organ, brushed kit and upright bass playing standards and originals in slow-to-medium swing and bossa, drenched in chamber reverb, with exaggerated stereo panning and novelty percussion for the hi-fi demonstration market.",
   "recipe": "classic North American mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song coverchill dinner jazz. vibraphone, bach stradivarius 180 canonical American orchestral breath tone airy low dynamic level jazz balance ensemble trumpet, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, cowhide mid tier congas, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 865,
-  "score": 318.39,
+  "score": 318.345,
   "config": {
     "traditions": [
       "lounge_music",
@@ -42,7 +42,7 @@
         "scores": {
           "wind_articulation": 5.4487499999999995,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 28.206249999999997,
+          "trumpet_mouthpiece": 28.31125,
           "brass_mute": 1.2349999999999999,
           "trumpet_technique": 1.7824999999999998,
           "trumpet_bell_metal": 0.65,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "keyboard_technique": 6.265,
-          "drawbar_setting": 22.906249999999996,
+          "drawbar_setting": 22.951249999999995,
           "rotary_speed": 2.075,
           "percussion_setting": 21.069999999999997,
           "tonewheel_model": 27.852499999999992,
@@ -111,7 +111,7 @@
           "grand_piano_brand": 1.8850000000000002,
           "piano_hammer": 5.785,
           "piano_rim": 5.59,
-          "piano_soundboard": 5.42,
+          "piano_soundboard": 5.225,
           "piano_pinblock": 0.6399999999999999,
           "piano_plate": 0.78,
           "piano_pitch_standard": 0.9099999999999999

@@ -5,7 +5,7 @@
   "lineage": "Japanese vocal jazz: Kimiko Itoh — Blue Note Tokyo program, 21 November 2020. A documented branch is realized as an authored current studio arrangement.",
   "recipe": "classic early-2020s japanese vocal jazz, improv On Frame, smooth vocal branch. equal tempered, m1 with m0 pulse borrowing, nasal twang velar port open, small note groups per syllable. Japanese factory birch laminated maple laminated a 441 Japanese orchestral grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 453,
-  "score": 58.152,
+  "score": 58.047,
   "config": {
     "traditions": [
       "japanese_vocal_jazz"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 1.126,
           "voice_pitch_organization": 0.063,
           "voice_processing_chain": 0.064,
-          "voice_multitrack_stack": 0.399
+          "voice_multitrack_stack": 0.231
         }
       },
       {
@@ -65,8 +65,8 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.609,
-          "grand_piano_brand": 0.609,
+          "grand_piano_size": 0.6405,
+          "grand_piano_brand": 0.6405,
           "piano_hammer": 2.005,
           "piano_rim": 1.9629999999999999,
           "piano_soundboard": -0.035,

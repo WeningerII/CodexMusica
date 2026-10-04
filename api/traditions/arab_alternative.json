@@ -2,10 +2,10 @@
   "id": "arab_alternative",
   "name": "Arab alternative",
   "family": "rock_punk",
-  "lineage": "Arab alternative: DUNUMS — Where’s My Eidi? (2022 reissue). Selected voice and pitched/electronic core of the release. Percussion credited without named instrument is explicitly outside this scoped core, not silently replaced by drum kit. Album-level vocal credits establish two identified singers, not track-specific simultaneous singing. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2020s arab alternative, distorted Rock, alternative branch. no specific ornament system. mahogany modern alternative western red cedar pyramid nylon oud, mahogany ernie ball slinky electric bass, basswood humbucker electric guitar, analog poly synth, softer tone ebonite hard rubber klezmer tradition clarinet. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 410,
-  "score": 36.611,
+  "lineage": "Arab alternative music brings regional and diasporic histories into independent musical expression. Palestinian-rooted projects such as DUNUMS connect memories of home, political experience and collaborative experimentation across places.",
+  "recipe": "classic arab alternative, distorted Rock, alternative branch. mahogany modern alternative western red cedar pyramid nylon oud, mahogany ernie ball slinky electric bass, basswood humbucker electric guitar, analog poly synth, clarinet. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 319,
+  "score": 29.817,
   "config": {
     "traditions": [
       "arab_alternative"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 1.573,
+          "voice_ensemble_config": 0.273,
+          "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.3
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0
         }
       },
       {
@@ -63,11 +63,11 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.15000000000000002,
-          "oud_school": 1.69,
+          "oud_school": 1.0080000000000002,
           "oud_strings": 0.1365,
           "oud_pick": 0,
-          "oud_body_wood": 4.9399999999999995,
-          "oud_soundboard_wood": 4.9399999999999995,
+          "oud_body_wood": 4.55,
+          "oud_soundboard_wood": 4.55,
           "oud_string_material": 2.6
         }
       },
@@ -79,7 +79,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -89,7 +89,7 @@
           "pickup_config": 0.40950000000000003,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 1.3,
+          "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -105,9 +105,9 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
@@ -120,9 +120,9 @@
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 1.2730000000000001,
+          "bridge": 0.5775,
           "scale_length": 1.8795000000000002,
-          "string_gauge": 1.2730000000000001,
+          "string_gauge": 0.5775,
           "finish": 0,
           "string_tuning": 0
         }
@@ -146,14 +146,14 @@
         "id": "clarinet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "clarinet_body": "ebonite_clarinet",
+          "clarinet_body": "hanson_btr_clarinet",
           "clarinet_size": "b_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
           "wind_articulation": -0.1,
-          "clarinet_body": 1.17,
+          "clarinet_body": -0.05,
           "clarinet_size": 0.1365,
           "clarinet_reed": 0.105,
           "clarinet_articulation": 0.0735

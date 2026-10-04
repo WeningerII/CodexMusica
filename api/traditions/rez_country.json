@@ -5,7 +5,7 @@
   "lineage": "Rez country is country music rooted in Native American reservation communities, including a strong country-rock circuit on the Navajo Nation. Bands connect local community identity with the wider language of country songwriting and amplified dance-band performance.",
   "recipe": "classic rez country, functional Song, country rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 330,
-  "score": 24.418,
+  "score": 24.706,
   "config": {
     "traditions": [
       "rez_country"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.9645000000000001,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.17099999999999999,
-          "voice_multitrack_stack": 0.7215,
+          "voice_processing_chain": 0.321,
+          "voice_multitrack_stack": 0.6765,
           "voice_tessitura": 0
         }
       },
@@ -59,7 +59,7 @@
           "amp_make": "amp_modern_modeling",
           "body_wood": "alder_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
@@ -70,17 +70,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 0.7629999999999999,
+          "electric_technique": 0.7855,
           "amp_make": -0.07,
           "body_wood": 0,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0.21749999999999997,
-          "pickup_winding": 0.21749999999999997,
-          "string_material": 0.29700000000000004,
-          "bridge": 0.375,
-          "scale_length": 0.21749999999999997,
-          "string_gauge": 0.375,
+          "neck_wood": 0.075,
+          "fretboard": 0.075,
+          "pickup_magnet": 0.2475,
+          "pickup_winding": 0.2475,
+          "string_material": 0.37200000000000005,
+          "bridge": 0.15,
+          "scale_length": 0.3225,
+          "string_gauge": 0.15,
           "finish": 0,
           "string_tuning": 3.6399999999999997
         }
@@ -102,8 +102,8 @@
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 8.364999999999998,
-          "scale_length_b": 0.21749999999999997,
-          "fretted_or_not": 0.0225,
+          "scale_length_b": 0.29250000000000004,
+          "fretted_or_not": 0.09,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 7.031499999999999,
-          "drumhead": 0.11249999999999999,
+          "drumhead": 0.075,
           "drum_kit_kick_pedal": 0
         }
       }

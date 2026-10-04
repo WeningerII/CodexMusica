@@ -5,7 +5,7 @@
   "lineage": "Historic piano performance preserves earlier pianists’ interpretations through recordings and reissues. Listening to these performances connects changing musical styles with the history of recorded piano sound.",
   "recipe": "classic historic piano performance, art Music, western common practice branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 22.491,
+  "score": 22.257,
   "config": {
     "traditions": [
       "historic_piano_performance"
@@ -27,9 +27,9 @@
         "scores": {
           "keyboard_technique": 2.5,
           "grand_piano_size": 0.84,
-          "grand_piano_brand": 0.9885000000000002,
+          "grand_piano_brand": 0.9345000000000001,
           "piano_hammer": 3.3865,
-          "piano_rim": 3.598,
+          "piano_rim": 3.418,
           "piano_soundboard": 3.25,
           "piano_pinblock": 3.25,
           "piano_plate": 3.313,

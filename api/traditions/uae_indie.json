@@ -5,7 +5,7 @@
   "lineage": "Independent music in the United Arab Emirates includes local, resident and visiting musicians working across song, rock, jazz and experimental settings. Dubai’s performance spaces connect these varied practices.",
   "recipe": "classic uae indie, improv On Frame. upright piano. live tracking.",
   "recipe_chars": 65,
-  "score": -0.035,
+  "score": -0.05,
   "config": {
     "traditions": [
       "uae_indie"
@@ -19,7 +19,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.035,
+          "keyboard_technique": -0.05,
           "upright_use": 0,
           "upright_piano_size": 0
         }

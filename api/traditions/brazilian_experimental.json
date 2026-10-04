@@ -5,7 +5,7 @@
   "lineage": "Carlos Ferreira — Isolationism (2023), instrumental core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
   "recipe": "classic early-2020s brazilian experimental, functional Song. humbucker electric guitar, grand piano, clarinet, equal temperament modern standard post 1850 pipe organ. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 3.635,
+  "score": 3.581,
   "config": {
     "traditions": [
       "brazilian_experimental"
@@ -102,7 +102,7 @@
           "pipe_organ_class": 0.054,
           "pipe_organ_context": 0,
           "pipe_organ_voicing_school": 0,
-          "pipe_organ_pipe_alloy": 0.054,
+          "pipe_organ_pipe_alloy": 0,
           "pipe_organ_temperament": 1.69,
           "pipe_organ_action": 0.054
         }

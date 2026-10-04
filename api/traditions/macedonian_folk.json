@@ -5,7 +5,7 @@
   "lineage": "Macedonian folk encompasses local vocal repertories and instrumental dance traditions. The gajda has longstanding ties to shepherding and community celebrations; Radio Skopje and players such as Pece Atanasovski helped circulate the Prilep lineage during the twentieth century.",
   "recipe": "classic modern macedonian folk, improv On Frame. ornamented dance accompaniment gajda. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 224,
-  "score": 4.326,
+  "score": 4.447,
   "config": {
     "traditions": [
       "macedonian_folk"
@@ -18,8 +18,8 @@
           "gajda_tradition": "gajda_macedonian_dance"
         },
         "scores": {
-          "gajda_body": 0.363,
-          "gajda_tradition": 1.788
+          "gajda_body": 0.39,
+          "gajda_tradition": 1.8825
         }
       }
     ],

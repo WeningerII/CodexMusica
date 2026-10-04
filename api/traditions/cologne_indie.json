@@ -2,10 +2,10 @@
   "id": "cologne_indie",
   "name": "Cologne Indie",
   "family": "pop_rock",
-  "lineage": "Blarg — Don't Stop Alice, Cologne Flashback Mix (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2020s cologne indie, functional Song. group vocals. humbucker electric guitar, electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 214,
-  "score": 1.602,
+  "lineage": "Cologne indie connects independent bands and recordings associated with the German city. Artists such as Blarg bring guitar-based songwriting into a local alternative-music network.",
+  "recipe": "classic cologne indie, functional Song. group vocals. humbucker electric guitar, electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 204,
+  "score": 1.082,
   "config": {
     "traditions": [
       "cologne_indie"
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Indigenous musical traditions across Latin America, reflecting distinct languages, communities and ceremonial and social practices.",
   "recipe": "classic musica indigena latinoamericana, ritual Devotional. live tracking.",
   "recipe_chars": 74,
-  "score": 1.328,
+  "score": 1.401,
   "config": {
     "traditions": [
       "musica_indigena_latinoamericana"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.15749999999999997,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

@@ -3,31 +3,31 @@
   "name": "Brass Band (British)",
   "family": "classical",
   "lineage": "The all-brass amateur ensemble that formed around northern English and Welsh mills, collieries and ironworks in the 1830s-50s - Black Dyke Mills from 1855, Besses o' th' Barn, Foden's - and was standardised by the Belle Vue and National contests into a fixed roster of soprano and solo cornets, flugelhorn, tenor horns, baritones, euphoniums, trombones and E-flat and B-flat basses plus percussion, all reading from transposed treble-clef parts; repertoire runs from marches and hymn settings to purpose-written contest test pieces, played with wide vibrato and a homogeneous conical-bore blend.",
-  "recipe": "classic British mid-1830s brass band, carnival Processional, European branch, western common practice art music, Celtic British praise song concert band british brass band. high register brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow cornet, brass yellow brass kanstul American boutique continuous-airflow legato flugelhorn, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble large cup tenor large trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, cutting projecting brass glockenspiel, bass drum, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 902,
-  "score": 241.017,
+  "recipe": "classic British mid-1830s brass band, carnival Processional, European branch, western common practice art music, Celtic British praise song concert band wind symphony. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, brass yellow brass kanstul American boutique continuous-airflow legato flugelhorn, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato large cup trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, cutting projecting brass glockenspiel, bass drum, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 895,
+  "score": 188.743,
   "config": {
     "traditions": [
       "brass_band",
       "concert_band",
-      "british_brass_band"
+      "wind_symphony"
     ],
     "instruments": [
       {
         "id": "cornet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "cornet_pitch": "cornet_eb_high",
+          "cornet_pitch": "cornet_bb",
           "cornet_context": "cornet_brass_band",
           "cornet_bell_metal": "cornet_yellow_brass",
           "cornet_maker_school": "cornet_besson_british"
         },
         "scores": {
-          "wind_articulation": 3.9400000000000004,
-          "cornet_pitch": 13.6685,
-          "cornet_context": 6.109999999999999,
-          "cornet_bell_metal": 14.169999999999998,
-          "cornet_maker_school": 16.90983333333333
+          "wind_articulation": 5.19,
+          "cornet_pitch": 9.425,
+          "cornet_context": 4.419999999999999,
+          "cornet_bell_metal": 9.23,
+          "cornet_maker_school": 11.83
         }
       },
       {
@@ -40,11 +40,11 @@
           "flugelhorn_maker_school": "flugelhorn_kanstul"
         },
         "scores": {
-          "wind_articulation": 3.9400000000000004,
-          "flugel_use": 8.698999999999998,
-          "flugelhorn_pitch": 3.0599999999999996,
-          "flugelhorn_bell_metal": 5.069999999999999,
-          "flugelhorn_maker_school": 1.885
+          "wind_articulation": 5.19,
+          "flugel_use": 8.189999999999998,
+          "flugelhorn_pitch": 0.65,
+          "flugelhorn_bell_metal": 4.419999999999999,
+          "flugelhorn_maker_school": 1.4949999999999999
         }
       },
       {
@@ -57,32 +57,32 @@
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": 3.9400000000000004,
-          "euph_use": 10.431333333333333,
-          "euphonium_pitch": 17.525666666666666,
-          "euphonium_bell_metal": 17.615,
-          "euphonium_maker_school": 16.90983333333333
+          "wind_articulation": 5.19,
+          "euph_use": 8.125,
+          "euphonium_pitch": 11.83,
+          "euphonium_bell_metal": 11.83,
+          "euphonium_maker_school": 11.83
         }
       },
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_continuous_legato",
           "trombone_type": "valve_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_5g",
-          "trombone_mute": "straight_mute_trb",
+          "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 6.11,
+          "wind_articulation": 5.19,
           "trombone_type": 0.15,
-          "trombone_mouthpiece": 7.574333333333334,
-          "trombone_mute": 1.95,
-          "trombone_technique": 1.2349999999999999,
-          "trombone_bell_metal": 6.5649999999999995,
-          "trombone_maker_school": 4.615
+          "trombone_mouthpiece": 8.163499999999999,
+          "trombone_mute": 2.6649999999999996,
+          "trombone_technique": 0.585,
+          "trombone_bell_metal": 4.419999999999999,
+          "trombone_maker_school": 3.3799999999999994
         }
       },
       {
@@ -96,12 +96,12 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": 3.9400000000000004,
-          "tuba_pitch": 13.071,
-          "tuba_context": 13.975,
-          "tuba_bell_metal": 5.069999999999999,
-          "tuba_valve_system": 2.925,
-          "tuba_maker_school": 16.90983333333333
+          "wind_articulation": 5.19,
+          "tuba_pitch": 7.605,
+          "tuba_context": 10.594999999999999,
+          "tuba_bell_metal": 4.419999999999999,
+          "tuba_valve_system": 2.34,
+          "tuba_maker_school": 11.83
         }
       },
       {
@@ -113,8 +113,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 2.925,
-          "glockenspiel_mallet": 4.651666666666666
+          "glockenspiel_size": 2.73,
+          "glockenspiel_mallet": 4.3549999999999995
         }
       },
       {
@@ -124,8 +124,8 @@
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 1.1558333333333333,
-          "bass_drum_beater": 0.195
+          "bass_drum_size": 0.39,
+          "bass_drum_beater": 0.39
         }
       },
       {
@@ -137,7 +137,7 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "timpani_size": 1.95,
+          "timpani_size": 2.6,
           "timpani_head": 0
         }
       }

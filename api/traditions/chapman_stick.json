@@ -2,10 +2,10 @@
   "id": "chapman_stick",
   "name": "Chapman Stick",
   "family": "vernacular",
-  "lineage": "Michael Kollwitz — The Chapman Stick Meets The Beatles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic chapman stick, improv On Frame. chapman stick. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 153,
-  "score": 0.495,
+  "lineage": "Chapman Stick music centers on the fretted tapping instrument developed by Emmett Chapman. Players such as Michael Kollwitz use its independent bass and melody ranges in original pieces and arrangements across several styles.",
+  "recipe": "classic chapman stick, improv On Frame. independent hand tap chapman stick. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 174,
+  "score": 1.647,
   "config": {
     "traditions": [
       "chapman_stick"
@@ -18,8 +18,8 @@
           "chapman_stick_technique": "chapman_stick_two_hand_tap"
         },
         "scores": {
-          "chapman_stick_strings": 0.39,
-          "chapman_stick_technique": 0.105
+          "chapman_stick_strings": 0.2415,
+          "chapman_stick_technique": 1.405
         }
       }
     ],

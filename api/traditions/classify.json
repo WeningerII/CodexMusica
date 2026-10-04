@@ -2,10 +2,10 @@
   "id": "classify",
   "name": "Classify",
   "family": "pop",
-  "lineage": "Susan Tahmoosh — Titanium, Piano Instrumental (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2010s classify, functional Song. block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 170,
-  "score": 3.191,
+  "lineage": "Classify gathers instrumental reinterpretations of familiar popular songs, including piano covers by artists such as Susan Tahmoosh. The repertoire brings widely known melodies into a more intimate instrumental setting.",
+  "recipe": "classic classify, functional Song. a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 177,
+  "score": 4.101,
   "config": {
     "traditions": [
       "classify"
@@ -25,7 +25,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.2,
+          "keyboard_technique": 2.45,
           "grand_piano_size": 0.126,
           "grand_piano_brand": 0.3705,
           "piano_hammer": -0.1,
@@ -33,7 +33,7 @@
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 1.625
         }
       }
     ],

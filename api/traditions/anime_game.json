@@ -2,10 +2,10 @@
   "id": "anime_game",
   "name": "Anime game",
   "family": "vernacular",
-  "lineage": "Anime game: Piano Collections FINAL FANTASY X — Zanarkand (SQEX10028). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "lineage": "Anime and game music circulates through soundtracks, song releases and arrangements for listening outside the original screen setting. Japanese game publishers also develop concert and piano collections, with Final Fantasy providing a prominent example.",
   "recipe": "classic anime game, functional Song, east Asian pop branch. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 249,
-  "score": 17.861,
+  "score": 22.121,
   "config": {
     "traditions": [
       "anime_game"
@@ -22,18 +22,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.063,
           "grand_piano_brand": 0.273,
-          "piano_hammer": 4.8100000000000005,
-          "piano_rim": 4.8100000000000005,
-          "piano_soundboard": 8.06,
+          "piano_hammer": 6.11,
+          "piano_rim": 6.11,
+          "piano_soundboard": 6.76,
           "piano_pinblock": -0.035,
           "piano_plate": -0.05,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 2.925
         }
       }
     ],

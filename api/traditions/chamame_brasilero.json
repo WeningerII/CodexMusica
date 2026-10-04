@@ -2,10 +2,10 @@
   "id": "chamame_brasilero",
   "name": "Chamamé brasileiro",
   "family": "vernacular",
-  "lineage": "Marcelus Anderson and Marcela Mar — Sanfona Pantaneira duo. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "lineage": "Brazilian chamamé is rooted in the musical exchanges of the Pantanal and Mato Grosso do Sul with neighboring South American traditions. Musicians such as Marcelus Anderson develop this regional repertoire through accordion-led performance.",
   "recipe": "classic chamamé brasileiro, ballad Poetry. accordion, fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 182,
-  "score": 2.456,
+  "score": 2.461,
   "config": {
     "traditions": [
       "chamame_brasilero"
@@ -14,7 +14,7 @@
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
+          "free_reed_technique": "free_reed_bellows_articulated",
           "accordion_reed_material": "steel_reeds",
           "musette_offset": "german_tuning",
           "reed_config": "lmm",
@@ -23,7 +23,7 @@
           "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": -0.10500000000000001,
+          "free_reed_technique": -0.1,
           "accordion_reed_material": 0.273,
           "musette_offset": 0,
           "reed_config": 0,
@@ -87,7 +87,7 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "free_reed_technique": "free_reed_folk_first_position",
+      "free_reed_technique": "free_reed_bellows_articulated",
       "accordion_reed_material": "steel_reeds",
       "musette_offset": "german_tuning",
       "reed_config": "lmm",

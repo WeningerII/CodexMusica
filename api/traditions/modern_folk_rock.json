@@ -5,7 +5,7 @@
   "lineage": "Modern folk rock is represented here by Houndmouth — From the Hills Below the City era. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic modern folk rock, functional Song, folk rock branch. marshall plexi amp British rock amp basswood alnico clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 377,
-  "score": 95.581,
+  "score": 95.087,
   "config": {
     "traditions": [
       "modern_folk_rock"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 8.06,
-          "body_wood": 2.7725,
+          "body_wood": 2.6674999999999995,
           "neck_wood": 0.231,
           "fretboard": 0.0945,
-          "pickup_magnet": 2.5414999999999996,
-          "pickup_winding": 2.5414999999999996,
+          "pickup_magnet": 2.4364999999999997,
+          "pickup_winding": 2.4364999999999997,
           "string_material": 0.126,
           "bridge": 1.69,
-          "scale_length": 2.6675,
+          "scale_length": 2.5625,
           "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 0.39
@@ -59,10 +59,10 @@
         "scores": {
           "amp_make": 8.515,
           "body_wood": 0.46199999999999997,
-          "pickup_config": 2.5414999999999996,
+          "pickup_config": 2.4364999999999997,
           "string_type": 20.475,
-          "scale_length_b": 2.6675,
-          "fretted_or_not": 0.3315,
+          "scale_length_b": 2.5625,
+          "fretted_or_not": 0.363,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -130,7 +130,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 8.19,
-          "poly_voices": 0.4019999999999999,
+          "poly_voices": 0.5069999999999999,
           "poly_maker_lineage": -0.035
         }
       }

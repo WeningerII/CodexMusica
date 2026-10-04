@@ -2,10 +2,10 @@
   "id": "clean_comedy",
   "name": "Clean Comedy",
   "family": "vernacular",
-  "lineage": "Dave Ross — The Clean Tapes (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2020s clean comedy, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 169,
-  "score": 1.344,
+  "lineage": "Clean comedy presents humorous storytelling and stand-up material with restrained explicit language and content. Performers such as Dave Ross adapt stage material for this repertoire while retaining a conversational relationship with listeners.",
+  "recipe": "classic clean comedy, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 159,
+  "score": 1.376,
   "config": {
     "traditions": [
       "clean_comedy"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.2415,
-          "voice_ensemble_config": 0.4305,
+          "voice_ensemble_config": 0.462,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,
@@ -84,13 +84,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",

@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0.3,
+          "bridge": 0.354,
           "scale_length": 0.609,
-          "string_gauge": 0.23399999999999999,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.18
         }
       }
     ],

@@ -1,0 +1,66 @@
+{
+  "id": "musica_prehispanica",
+  "name": "Música Prehispánica",
+  "family": "vernacular",
+  "lineage": "Música prehispánica is a discovery field around the sound heritage of pre-colonial Mesoamerica and its modern reinterpretation. Archaeological instruments, replicas, Indigenous musical continuities and newly composed or improvised works inform a varied repertoire; surviving objects do not establish the original melodies or a single universal tuning system.",
+  "recipe": "classic música prehispánica, improv On Frame. triple fipple flute tenenexpan. live tracking.",
+  "recipe_chars": 92,
+  "score": 0.531,
+  "config": {
+    "traditions": [
+      "musica_prehispanica"
+    ],
+    "instruments": [
+      {
+        "id": "triple_fipple_flute_tenenexpan",
+        "slots": {
+          "tenenexpan_body": "tenenexpan_ceramic_replica",
+          "tenenexpan_bores": "tenenexpan_three_bores",
+          "tenenexpan_airways": "tenenexpan_three_ducts",
+          "tenenexpan_fingerholes": "tenenexpan_four_two_one",
+          "wind_articulation": "tenenexpan_articulated_phrases"
+        },
+        "scores": {
+          "tenenexpan_body": 0.3,
+          "tenenexpan_bores": 0,
+          "tenenexpan_airways": 0,
+          "tenenexpan_fingerholes": 0.1995,
+          "wind_articulation": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "triple_fipple_flute_tenenexpan": [
+        "tenenexpan_body",
+        "tenenexpan_bores",
+        "tenenexpan_airways",
+        "tenenexpan_fingerholes",
+        "wind_articulation"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "tenenexpan_body": "tenenexpan_ceramic_replica",
+      "tenenexpan_bores": "tenenexpan_three_bores",
+      "tenenexpan_airways": "tenenexpan_three_ducts",
+      "tenenexpan_fingerholes": "tenenexpan_four_two_one",
+      "wind_articulation": "tenenexpan_articulated_phrases"
+    },
+    "pin_parts": true
+  }
+}

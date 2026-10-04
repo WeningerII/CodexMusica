@@ -2,10 +2,10 @@
   "id": "cdo_indie",
   "name": "CDO indie",
   "family": "vernacular",
-  "lineage": "Northern Sparks — Ever-deep (2019). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s cdo indie, functional Song. solo with instrumental accompaniment, single lead single track no stacking. deep singing indian rosewood rosewood acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 276,
-  "score": 2.867,
+  "lineage": "Cagayan de Oro’s independent music includes original songwriting across acoustic pop and alternative rock. Local acts such as Northern Sparks connect personal songcraft with home and independent production.",
+  "recipe": "classic cdo indie, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 219,
+  "score": 3.095,
   "config": {
     "traditions": [
       "cdo_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6825000000000001,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.8999999999999999,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 1.2349999999999999,
+          "back_sides": -0.035,
           "string_acoustic": 0,
           "acoustic_om_technique": -0.25
         }

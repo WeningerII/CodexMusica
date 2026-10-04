@@ -2,10 +2,10 @@
   "id": "children_s_story",
   "name": "Children's story",
   "family": "vernacular",
-  "lineage": "Howard Finster — Man of Many Voices (1984), spoken-storytelling core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic mid-1980s children's story, spoken Word, narration branch. conversational, no pitch organization speech, single lead single track no stacking. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 242,
-  "score": 5.668,
+  "lineage": "Children’s recorded stories draw on oral storytelling, character voices and imaginative spoken narratives. Storytellers such as Howard Finster carry personal yarns and playful sound imitation into recordings for young listeners.",
+  "recipe": "classic children's story, spoken Word, narration branch. no pitch organization speech. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 178,
+  "score": 2.002,
   "config": {
     "traditions": [
       "children_s_story"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 1.69,
+          "voice_quality": 0.483,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,13 +42,13 @@
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0.3,
-          "voice_speech_song": 1.726,
-          "voice_ensemble_config": 0.39,
+          "voice_estill_quality": 0.3315,
+          "voice_speech_song": 0.7575,
+          "voice_ensemble_config": 0.1995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 1.4260000000000002,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       }

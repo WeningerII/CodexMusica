@@ -1,5 +1,5 @@
 {
-  "count": 1660,
+  "count": 1661,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9960,6 +9960,12 @@
       "name": "Software lo-fi reworking processor",
       "family": "electronic",
       "href": "instruments/software_lofi_reworking.json"
+    },
+    {
+      "id": "triple_fipple_flute_tenenexpan",
+      "name": "Tenenexpan triple duct flute",
+      "family": "wind",
+      "href": "instruments/triple_fipple_flute_tenenexpan.json"
     }
   ]
 }

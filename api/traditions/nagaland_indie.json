@@ -5,7 +5,7 @@
   "lineage": "Nagaland’s independent music scene, including the amplified rock culture of Kohima.",
   "recipe": "classic nagaland indie, distorted Rock. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. live tracking.",
   "recipe_chars": 219,
-  "score": 33.41,
+  "score": 33.182,
   "config": {
     "traditions": [
       "nagaland_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4095,
+          "voice_processing_chain": 0.378,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.9099999999999999,
+          "string_gauge": 0.8365,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -129,11 +129,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.0315,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 9.399999999999999,
-          "cymbal_lathing": 9.431499999999998,
+          "cymbal_lathing": 9.399999999999999,
           "cymbal_finish": 0
         }
       },
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 1.105,
-          "keyboard_technique": 0.3
+          "keyboard_technique": 0.363
         }
       }
     ],
