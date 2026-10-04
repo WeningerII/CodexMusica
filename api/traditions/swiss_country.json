@@ -5,7 +5,7 @@
   "lineage": "Swiss country connects local performers and audiences with country songwriting and performance traditions. Traditional and newer approaches appear in concerts, recordings and festival settings.",
   "recipe": "classic swiss country, functional Song, neo trad branch. dreadnought acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning humbucker electric guitar, double bass, brushes-and-sticks drum kit, fiddle. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 318,
-  "score": 43.113,
+  "score": 42.854,
   "config": {
     "traditions": [
       "swiss_country"
@@ -86,7 +86,7 @@
         "scores": {
           "bowed_technique": 2.73,
           "bass_size": 0.3,
-          "bass_strings": 0.4487500000000001,
+          "bass_strings": 0.41125,
           "bass_top_wood": -0.035,
           "bass_back_wood": -0.05,
           "bass_varnish": -0.05,
@@ -105,7 +105,7 @@
         },
         "scores": {
           "drum_technique": 6.629999999999999,
-          "drumhead": 0.20025000000000004,
+          "drumhead": 0.15150000000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,14 +132,14 @@
           "body_wood": 0.39,
           "neck_wood": 0.105,
           "fretboard": 0.0315,
-          "pickup_magnet": 0.11275,
-          "pickup_winding": 0.11275,
+          "pickup_magnet": 0.07525,
+          "pickup_winding": 0.07525,
           "string_material": 0.6720000000000002,
-          "bridge": 0.25025000000000003,
+          "bridge": 0.2015,
           "scale_length": 0.21,
           "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 1.1397499999999998
+          "string_tuning": 1.0909999999999997
         }
       },
       {

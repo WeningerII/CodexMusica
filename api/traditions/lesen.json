@@ -5,7 +5,7 @@
   "lineage": "Lesen centers on spoken readings of written works, including German-language audiobook narration and literary performance.",
   "recipe": "classic lesen, spoken Word, narration branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 144,
-  "score": 1.079,
+  "score": 0.856,
   "config": {
     "traditions": [
       "lesen"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.2535,
+          "voice_ensemble_config": 0.222,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.2985,
+          "voice_multitrack_stack": 0.108,
           "voice_tessitura": 0
         }
       }

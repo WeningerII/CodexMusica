@@ -5,7 +5,7 @@
   "lineage": "Professional wrestling uses entrance themes and event music to establish character, anticipation and spectacle. Rock and metal are prominent approaches alongside hip-hop, electronic and orchestral music.",
   "recipe": "classic wrestling, distorted Rock. distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 203,
-  "score": 32.334,
+  "score": 32.011,
   "config": {
     "traditions": [
       "wrestling"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 5.525,
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -39,7 +39,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.9099999999999999,
+          "string_gauge": 0.8365,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,8 +58,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
-          "pickup_config": 0.063,
+          "body_wood": 0,
+          "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -88,11 +88,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.0315,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
+          "cymbal_alloy": -0.2,
           "cymbal_hammering": 8.649999999999999,
-          "cymbal_lathing": 8.681499999999998,
+          "cymbal_lathing": 8.649999999999999,
           "cymbal_finish": 0
         }
       }

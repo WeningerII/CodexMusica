@@ -5,7 +5,7 @@
   "lineage": "Eventyr connects Scandinavian fairy-tale traditions with literary collections, oral storytelling and recorded narration. Familiar plots and characters circulate across languages and generations rather than belonging to a single narrator or modern edition.",
   "recipe": "classic eventyr, spoken Word, narration branch. single lead single track no stacking. treated studio.",
   "recipe_chars": 101,
-  "score": 1.893,
+  "score": 1.619,
   "config": {
     "traditions": [
       "eventyr"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.29400000000000004,
-          "voice_ensemble_config": 0.231,
+          "voice_speech_song": 0.2205,
+          "voice_ensemble_config": 0.1995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 1.231,
+          "voice_multitrack_stack": 1.063,
           "voice_tessitura": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "cancion_infantil_mexicana",
   "name": "Cancion infantil mexicana",
   "family": "vernacular",
-  "lineage": "Tripas de gato — Jazzeando las rondas. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic cancion infantil mexicana, functional Song. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, saxophone, electric bass, dark musical bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 321,
-  "score": 8.55,
+  "lineage": "Mexican children’s music connects familiar rounds and play songs with contemporary recording and performance. Groups such as Tripas de Gato revisit this repertoire through jazz arrangements.",
+  "recipe": "classic cancion infantil mexicana, functional Song. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, walking fingerstyle electric bass, dark bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 405,
+  "score": 18.346,
   "config": {
     "traditions": [
       "cancion_infantil_mexicana"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5715000000000001,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
@@ -80,7 +80,7 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -101,9 +101,9 @@
           "sax_size": -0.035,
           "sax_reed": 0,
           "sax_body_alloy": -0.1,
-          "sax_mouthpiece": 0.39,
-          "sax_technique": 0.75,
-          "sax_maker_school": 0.7
+          "sax_mouthpiece": 0.1365,
+          "sax_technique": 3.25,
+          "sax_maker_school": 3.2
         }
       },
       {
@@ -125,7 +125,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.75,
+          "bass_technique": 3.25,
           "electric_bass_string_configuration": 0
         }
       },
@@ -152,7 +152,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 2.4699999999999998,
+          "cymbal_alloy": 4.030000000000001,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0

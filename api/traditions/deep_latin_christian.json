@@ -5,7 +5,7 @@
   "lineage": "Deep Latin Christian gathers devotional performers and repertoire circulating through Spanish-speaking faith communities. Contemporary songs connect worship, community singing and recorded popular-music approaches.",
   "recipe": "classic deep latin christian, ritual Devotional, christian gospel branch. one note per syllable. deep indian rosewood rosewood dreadnought acoustic guitar. live tracking.",
   "recipe_chars": 170,
-  "score": 4.056,
+  "score": 3.84,
   "config": {
     "traditions": [
       "deep_latin_christian"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 0.108,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.108,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

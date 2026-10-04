@@ -2,10 +2,10 @@
   "id": "chinese_experimental",
   "name": "Chinese experimental",
   "family": "electronic",
-  "lineage": "Li Yilei — 之 / OF (2021), synth/violin/guqin core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic early-2020s chinese experimental, experimental Elec, musique concrete branch. analog poly synth, European maple bosnian source flamed figure violin orchestral, modern lacquer no aged cracking guqin. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 298,
-  "score": 4.326,
+  "lineage": "Chinese experimental music includes sound art and composition crossing acoustic instruments, electronics and recorded environments. Artists such as Li Yilei connect migration, memory and everyday surroundings with exploratory listening.",
+  "recipe": "classic chinese experimental, experimental Elec, musique concrete branch. analog poly synth, violin orchestral, guqin. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 210,
+  "score": 1.717,
   "config": {
     "traditions": [
       "chinese_experimental"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 0.22049999999999997,
-          "poly_voices": 0.3,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       },
@@ -44,7 +44,7 @@
           "bowed_technique": -0.05,
           "orch_strings": 0.22049999999999997,
           "orch_top_wood": -0.1,
-          "orch_back_wood": 1.5045,
+          "orch_back_wood": -0.07,
           "orch_varnish": -0.1,
           "orch_setup_period": -0.07,
           "orch_bow": 0,
@@ -67,7 +67,7 @@
           "guqin_strings": 0.3675,
           "guqin_context": 0.315,
           "guqin_body_wood": 0.168,
-          "guqin_lacquer": 1.69
+          "guqin_lacquer": 0.9554999999999999
         }
       }
     ],

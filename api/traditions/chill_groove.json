@@ -2,10 +2,10 @@
   "id": "chill_groove",
   "name": "Chill groove",
   "family": "jazz",
-  "lineage": "Threestyle — A Little Longer (2016), tenor-sax/guitar/bass core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic mid-2010s chill groove, improv On Frame, smooth vocal branch. tenor selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electric bass, carved top solid spruce Gibson canon thomastik flatwound archtop. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 331,
-  "score": 49.414,
+  "lineage": "Chill groove brings melodic smooth jazz into contact with lounge, soul and relaxed listening music. Ensembles such as Threestyle move between these overlapping traditions in recordings and live performance.",
+  "recipe": "classic chill groove, improv On Frame, smooth vocal branch. tenor selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, pocket fingerstyle locked electric bass, carved top solid spruce Gibson canon thomastik flatwound archtop. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 347,
+  "score": 65.293,
   "config": {
     "traditions": [
       "chill_groove"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": 1.2865,
+          "sax_size": 2.5365,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.1995,
-          "sax_technique": 6.999999999999999,
-          "sax_maker_school": 9.034999999999998
+          "sax_technique": 8.75,
+          "sax_maker_school": 11.309999999999999
         }
       },
       {
@@ -51,7 +51,7 @@
           "string_type": 0,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
-          "bass_technique": -0.10500000000000001,
+          "bass_technique": 2.673,
           "electric_bass_string_configuration": 0
         }
       },
@@ -68,11 +68,11 @@
         },
         "scores": {
           "amp_make": 0,
-          "archtop_body": 7.472499999999999,
+          "archtop_body": 9.2225,
           "archtop_pickup": 0.4725,
-          "archtop_top_wood": 7.1049999999999995,
-          "archtop_strings": 9.099999999999998,
-          "archtop_technique": 7.440999999999999,
+          "archtop_top_wood": 8.855,
+          "archtop_strings": 11.375,
+          "archtop_technique": 9.491000000000001,
           "archtop_string_tuning": 0
         }
       }

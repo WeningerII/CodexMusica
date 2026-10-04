@@ -2,10 +2,10 @@
   "id": "canadian_electropop",
   "name": "Canadian electropop",
   "family": "vernacular",
-  "lineage": "Actor Director — Dear Friend (Remaster), The Last Take (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s canadian electropop, functional Song. analog poly analog mono synth, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 207,
-  "score": 1.902,
+  "lineage": "Canadian electropop joins electronic production with pop songwriting, including self-produced Prairie projects such as Saskatoon’s Actor Director. Independent recording connects synthesizer-based music with alternative-pop scenes.",
+  "recipe": "classic canadian electropop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. analog poly analog mono synth, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 273,
+  "score": 4.018,
   "config": {
     "traditions": [
       "canadian_electropop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.5715000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -63,7 +63,7 @@
         "scores": {
           "electronic_technique": -0.05,
           "poly_archetypes": 0,
-          "poly_voices": 0.3,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.05
         }
       },
@@ -78,8 +78,8 @@
         },
         "scores": {
           "electronic_technique": -0.05,
-          "mono_oscillator": 0.3,
-          "mono_filter": 0.3,
+          "mono_oscillator": 0,
+          "mono_filter": 0,
           "mono_archetypes": 0.054,
           "mono_maker_lineage": -0.05
         }

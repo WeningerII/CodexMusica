@@ -2,10 +2,10 @@
   "id": "arab_experimental",
   "name": "Arab experimental",
   "family": "electronic",
-  "lineage": "Arab experimental: Kareem Samara — Prayer for Rain (2020). Select the positively named pitched and electronic core; unspecified percussion is not assigned a guessed instrument. No source-session singer headcount is asserted. Sampler workflow, exact piano preparations and granular sample source are authored. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2020s arab experimental, experimental Elec, ambient branch. walnut ribs canonical mid tier pyramid nylon arab school oud, prepared piano, glitched textural sampler, glitched textural granular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 311,
-  "score": 35.766,
+  "lineage": "Arab experimental music explores relationships between inherited musical practices, contemporary technology and improvisation. Musicians such as Kareem Samara use the oud as a starting point for new sound worlds and collaborations across traditional and electronic instruments.",
+  "recipe": "classic arab experimental, experimental Elec, ambient branch. nylon plastic walnut ribs canonical mid tier pyramid oud, prepared piano, glitched textural sampler, glitched textural granular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 295,
+  "score": 35.224,
   "config": {
     "traditions": [
       "arab_experimental"
@@ -26,7 +26,7 @@
           "plucked_traditional_technique": -0.15000000000000002,
           "oud_school": 0.441,
           "oud_strings": 0,
-          "oud_pick": 0.1365,
+          "oud_pick": 1.1365,
           "oud_body_wood": 1.2285000000000001,
           "oud_soundboard_wood": 0.9555000000000002,
           "oud_string_material": 2.6
@@ -43,7 +43,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "prepared_piano_object": 0,
-          "prepared_piano_zone": 0,
+          "prepared_piano_zone": 0.3,
           "prepared_piano_instrument": 0.3045
         }
       },
@@ -57,11 +57,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 9.617999999999999,
+          "electronic_technique": 8.867999999999999,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.4515,
-          "sampler_workflow": 9.45,
-          "sampler_classic_context": 0.8925000000000001
+          "sampler_workflow": 8.7,
+          "sampler_classic_context": 1.3
         }
       },
       {
@@ -72,7 +72,7 @@
           "granular_synth_source": "granular_synth_sampled"
         },
         "scores": {
-          "electronic_technique": 9.617999999999999,
+          "electronic_technique": 8.867999999999999,
           "granular_use": 0.168,
           "granular_synth_source": 0.1575
         }

@@ -2,10 +2,10 @@
   "id": "cape_breton_indie",
   "name": "Cape breton indie",
   "family": "vernacular",
-  "lineage": "Alicia Penney — Inverness. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic cape breton indie, ballad Poetry. dreadnought acoustic guitar, electric bass, dark musical bronze bell bronze drum kit, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 239,
-  "score": 0.771,
+  "lineage": "Cape Breton’s independent scene includes songwriters and bands working across folk, rock and pop. Artists such as Alicia Penney bring local experience and personal stories into original songs.",
+  "recipe": "classic cape breton indie, ballad Poetry. dreadnought acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 19.68,
   "config": {
     "traditions": [
       "cape_breton_indie"
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": 2.45,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
@@ -108,16 +108,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.05,
+          "drum_technique": 2.5,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.273,
           "snare_wires": 0,
-          "cymbal_alloy": 1.0999999999999999,
-          "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 4.95,
+          "cymbal_lathing": 4.95,
           "cymbal_finish": 0
         }
       },
@@ -135,15 +135,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 2.45,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
-          "piano_hammer": -0.1,
-          "piano_rim": -0.1,
+          "piano_hammer": 0.8999999999999999,
+          "piano_rim": 0.8999999999999999,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       }
     ],

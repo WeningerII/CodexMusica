@@ -2,10 +2,10 @@
   "id": "western_saharan_folk",
   "name": "Western Saharan folk",
   "family": "vernacular",
-  "lineage": "Western Saharan folk is represented by Mariem Hassan and Luis Giménez — Hajili Madiya (Malmö, 26 April 2013). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic early-2010s western saharan folk, ballad Poetry, med east poetic branch. solo with instrumental accompaniment. basswood alnico lower tension down tuning humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 286,
-  "score": 17.67,
+  "lineage": "Western Saharan folk music is rooted in Sahrawi cultural life and the haul tradition. Poetic singing carries community memory and expression, while contemporary performers have brought this repertory into new concert and recording settings without abandoning its regional identity.",
+  "recipe": "classic western saharan folk, ballad Poetry, med east poetic branch. low-mid-thick articulate mahogany maple humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 234,
+  "score": 6.816,
   "config": {
     "traditions": [
       "western_saharan_folk"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.401999999999999,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -55,34 +55,34 @@
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_fingerstyle_country",
+          "electric_technique": "electric_overdriven_lead",
           "amp_make": "amp_modern_modeling",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
-          "string_tuning": "d_standard"
+          "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": -0.035,
-          "amp_make": 2.5000000000000004,
-          "body_wood": 1.69,
+          "electric_technique": 1.2,
+          "amp_make": 0.2,
+          "body_wood": 1.3,
           "neck_wood": 0.4095,
           "fretboard": 0.4095,
-          "pickup_magnet": 1.4365,
-          "pickup_winding": 1.3,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.3,
           "string_material": 0.4095,
-          "bridge": 1.4365,
-          "scale_length": 1.69,
-          "string_gauge": 1.3,
+          "bridge": 0.1365,
+          "scale_length": 0.39,
+          "string_gauge": 0.1365,
           "finish": 0,
-          "string_tuning": 1.69
+          "string_tuning": 1.1130000000000002
         }
       }
     ],

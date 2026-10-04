@@ -5,7 +5,7 @@
   "lineage": "Online fan-song creators build original songs, parodies and arrangements around games, internet characters and shared fictional worlds. The Pixel discovery field connects catchy pop writing, playful storytelling and digitally circulated reinterpretations across these communities.",
   "recipe": "classic pixel, functional Song. block chord upright piano. live tracking.",
   "recipe_chars": 73,
-  "score": 4.95,
+  "score": 5.058,
   "config": {
     "traditions": [
       "pixel"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 4.95,
-          "upright_use": 0,
+          "keyboard_technique": 5.0040000000000004,
+          "upright_use": 0.054,
           "upright_piano_size": 0
         }
       }

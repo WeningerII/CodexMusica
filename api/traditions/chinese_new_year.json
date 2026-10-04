@@ -2,10 +2,10 @@
   "id": "chinese_new_year",
   "name": "Chinese new year",
   "family": "vernacular",
-  "lineage": "Lang Lang — Happy Chinese New Year (2014), piano arrangement branch. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic mid-2010s chinese new year, functional Song. grand piano. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 157,
-  "score": 3.856,
+  "lineage": "Chinese New Year music accompanies Spring Festival celebrations across Chinese communities. Familiar festive repertoire appears in public performances, recordings and arrangements ranging from larger ensembles to solo piano.",
+  "recipe": "classic chinese new year, functional Song. grand piano. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 147,
+  "score": -0.469,
   "config": {
     "traditions": [
       "chinese_new_year"
@@ -26,13 +26,13 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.3,
+          "grand_piano_size": 0,
           "grand_piano_brand": 0.1365,
-          "piano_hammer": 0.7,
-          "piano_rim": 0.754,
-          "piano_soundboard": 0.7,
-          "piano_pinblock": 0.7,
-          "piano_plate": 0.7,
+          "piano_hammer": -0.1,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
         }
       }

@@ -2,10 +2,10 @@
   "id": "connecticut_indie",
   "name": "Connecticut indie",
   "family": "vernacular",
-  "lineage": "zanders — Couldn’t Help (2026). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s connecticut indie, functional Song. solo with instrumental accompaniment. tuning stability 7 ply quartersawn maple grand piano, conventional tuning standard pitch humbucker electric guitar, electric bass, low fundamental tuning maple drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 360,
-  "score": 11.587,
+  "lineage": "Connecticut indie spans locally rooted independent bands and songwriters. Acts such as zanders connect piano-led art-pop with the state’s alternative and indie-rock practice.",
+  "recipe": "classic connecticut indie, functional Song. solo with instrumental accompaniment, single lead single track no stacking. soft felt lacquer voiced 17 ply hard rock maple grand piano, humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 411,
+  "score": 24.279,
   "config": {
     "traditions": [
       "connecticut_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5715000000000001,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.7,
+          "keyboard_technique": 2.45,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.1905,
-          "piano_hammer": 0.26,
-          "piano_rim": -0.07,
+          "piano_hammer": 1.008,
+          "piano_rim": 1.17,
           "piano_soundboard": -0.1,
-          "piano_pinblock": 1.2,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
         }
@@ -95,7 +95,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.9999999999999998,
+          "electric_technique": 2.45,
           "amp_make": 0,
           "body_wood": 0.1905,
           "neck_wood": 0,
@@ -105,9 +105,9 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -149,16 +149,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drum_technique": 2.6365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.354,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 0.704,
-          "cymbal_lathing": 0.6499999999999999,
+          "cymbal_hammering": 5.0040000000000004,
+          "cymbal_lathing": 4.95,
           "cymbal_finish": 0
         }
       }

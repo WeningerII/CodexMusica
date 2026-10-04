@@ -2,10 +2,10 @@
   "id": "maltese_pop",
   "name": "Maltese pop",
   "family": "vernacular",
-  "lineage": "The Busker — FOUR-era historical five-member roster (2014), selected guitar/bass/sax/drum core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic mid-2010s maltese pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass, saxophone, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 362,
-  "score": 20.235,
+  "lineage": "Maltese pop grows through local bands and singer-songwriters drawing on international popular styles. The Busker’s early work connects melodic songwriting with folk and classic-pop influences.",
+  "recipe": "classic maltese pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass, saxophone, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 363,
+  "score": 27.698,
   "config": {
     "traditions": [
       "maltese_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5715000000000001,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.69,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.95,
+          "electric_technique": 7.45,
           "amp_make": 0,
           "body_wood": 0.1905,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 1,
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -145,16 +145,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 0.8865000000000001,
+          "drum_technique": -0.035,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 1.4299999999999997,
-          "cymbal_hammering": 4.7540000000000004,
-          "cymbal_lathing": 4.7,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 7.454000000000001,
+          "cymbal_lathing": 7.4,
           "cymbal_finish": 0
         }
       }

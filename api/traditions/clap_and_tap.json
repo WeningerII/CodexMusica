@@ -2,10 +2,10 @@
   "id": "clap_and_tap",
   "name": "Clap and tap",
   "family": "vernacular",
-  "lineage": "Nelson Mandela University — Clap and Tap Student Society. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic clap and tap, functional Song. group vocals. live room natural hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 180,
-  "score": 2.77,
+  "lineage": "Clap and tap is a South African choral practice connecting group singing with rhythmic hand percussion. Student and community ensembles maintain the practice through shared performance and cultural participation.",
+  "recipe": "classic clap and tap, functional Song. group vocals. hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 162,
+  "score": 2.08,
   "config": {
     "traditions": [
       "clap_and_tap"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "clap_technique": 0,
-          "clap_capture": 1.6
+          "clap_capture": 0
         }
       }
     ],

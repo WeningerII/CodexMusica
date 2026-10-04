@@ -3,9 +3,9 @@
   "name": "New Age Piano",
   "family": "classical",
   "lineage": "Solo acoustic piano branch of new age crystallised by Windham Hill Records in Palo Alto between 1979 and 1990 — George Winston's seasonal albums and Liz Story's and David Lanz's records established slow rubato tempi, sustained-pedal open-fifth left-hand ostinati, diatonic modal melody over unresolved suspended chords, close ribbon-and-condenser capture of a well-tuned grand, and long natural decay with no percussion or backbeat.",
-  "recipe": "classic late-1970s new age piano, experimental Elec, ambient branch, western modern art music, anglo singer song ballad poetry avant-garde neo-classical. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, sustained pad string machine, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium legato flute, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 588,
-  "score": 220.15,
+  "recipe": "classic late-1970s new age piano, experimental Elec, ambient branch, western modern art music, anglo singer song ballad poetry avant-garde neo-classical. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, sustained pad string machine, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium legato flute, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 574,
+  "score": 220.66,
   "config": {
     "traditions": [
       "new_age_piano",
@@ -20,7 +20,7 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "renner_blue_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
@@ -31,11 +31,11 @@
           "grand_piano_size": 0.84,
           "grand_piano_brand": 1.365,
           "piano_hammer": 15.440000000000001,
-          "piano_rim": 13.235000000000001,
+          "piano_rim": 13.5,
           "piano_soundboard": 12.5,
           "piano_pinblock": 12.5,
           "piano_plate": 14.75,
-          "piano_pitch_standard": 14.990000000000002
+          "piano_pitch_standard": 14.490000000000002
         }
       },
       {
@@ -69,7 +69,7 @@
         "scores": {
           "bowed_technique": 8.149999999999999,
           "cello_strings": 2.8600000000000003,
-          "cello_top_wood": 8.19,
+          "cello_top_wood": 7.689999999999999,
           "cello_back_wood": 13.190000000000001,
           "cello_varnish": 12.5,
           "cello_setup_period": 14.75,
@@ -91,8 +91,8 @@
           "wind_articulation": 7.895,
           "flute_size": 0.6299999999999999,
           "flute_material": 2.8600000000000003,
-          "flute_technique": 3.5100000000000002,
-          "flute_maker_school": 3.055
+          "flute_technique": 3.055,
+          "flute_maker_school": 4.355
         }
       },
       {

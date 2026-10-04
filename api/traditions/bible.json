@@ -5,7 +5,7 @@
   "lineage": "Spoken Bible recordings present scriptural texts through narrated reading for listening, study and devotion.",
   "recipe": "classic bible, spoken Word, narration branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 144,
-  "score": 0.988,
+  "score": 0.847,
   "config": {
     "traditions": [
       "bible"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.348,
-          "voice_ensemble_config": 0.2535,
+          "voice_speech_song": 0.29700000000000004,
+          "voice_ensemble_config": 0.222,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.3315,
           "voice_tessitura": 0
         }
       }

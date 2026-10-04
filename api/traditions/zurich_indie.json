@@ -5,7 +5,7 @@
   "lineage": "Zürich’s independent-music field includes experimental guitar rock, indie pop and cross-style songwriting. Artists such as Disco Doom connect the city with Swiss and international independent networks.",
   "recipe": "classic zürich indie, distorted Rock. low mid rich spectrum oily pore damping rosewood humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, upright piano, analog poly synth. live tracking.",
   "recipe_chars": 256,
-  "score": 43.184,
+  "score": 42.655,
   "config": {
     "traditions": [
       "zurich_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.0315,
-          "voice_ensemble_config": 0.0315,
+          "voice_speech_song": 0.273,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4095,
-          "voice_multitrack_stack": 0.0315,
+          "voice_processing_chain": 0.378,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": 1.95,
           "pickup_magnet": 0,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 2,
           "scale_length": 2,
-          "string_gauge": 0.9099999999999999,
+          "string_gauge": 0.8365,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,8 +99,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
-          "pickup_config": 0.063,
+          "body_wood": 0,
+          "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -129,11 +129,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.0315,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 2.34,
+          "cymbal_alloy": 1.7999999999999998,
           "cymbal_hammering": 11.2,
-          "cymbal_lathing": 11.231499999999999,
+          "cymbal_lathing": 11.2,
           "cymbal_finish": 0
         }
       },
@@ -160,8 +160,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 0.0315,
-          "poly_voices": 0,
+          "poly_archetypes": 0,
+          "poly_voices": 0.0315,
           "poly_maker_lineage": -0.05
         }
       }

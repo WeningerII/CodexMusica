@@ -2,10 +2,10 @@
   "id": "choro_contemporaneo",
   "name": "Choro contemporâneo",
   "family": "vernacular",
-  "lineage": "Paula Borghi — ten solo-guitar works of Maurício Carrilho. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic choro contemporâneo, art Music. classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 169,
-  "score": 1.139,
+  "lineage": "Contemporary choro develops the Brazilian instrumental tradition through new compositions, interpretations and concert repertoire. Maurício Carrilho’s works and Paula Borghi’s performances illustrate its continuing dialogue with guitar music.",
+  "recipe": "classic choro contemporâneo, art Music. cutting carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 3.809,
   "config": {
     "traditions": [
       "choro_contemporaneo"
@@ -22,12 +22,12 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": -0.25,
+          "acoustic_technique": 0.05000000000000002,
           "string_tuning": 0,
           "top_wood_classical": 0.1575,
           "bracing_classical": 0.4515,
-          "string_classical": 0.39,
-          "attack_technique_cl": 0.39
+          "string_classical": 1.575,
+          "attack_technique_cl": 1.575
         }
       }
     ],

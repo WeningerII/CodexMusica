@@ -5,7 +5,7 @@
   "lineage": "World fusion brings musical traditions into direct interaction through composition, arrangement and improvisation. Jazz musicians and cross-cultural ensembles have helped shape its varied instrumental and rhythmic language.",
   "recipe": "classic world fusion, improv On Frame. solo with instrumental accompaniment. upright bass, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bass clarinet, tombak. live tracking.",
   "recipe_chars": 211,
-  "score": 17.089,
+  "score": 17.02,
   "config": {
     "traditions": [
       "world_fusion"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.35700000000000004,
+          "voice_multitrack_stack": 0.189,
           "voice_tessitura": 0
         }
       },
@@ -76,10 +76,10 @@
         },
         "scores": {
           "wind_articulation": -0.07,
-          "sax_size": -0.05,
+          "sax_size": -0.035,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.063,
+          "sax_mouthpiece": 0.105,
           "sax_technique": 5.0315,
           "sax_maker_school": 4.9815000000000005
         }
@@ -102,7 +102,7 @@
           "tombak_school": "tombak_fusion"
         },
         "scores": {
-          "tombak_wood": 0.063,
+          "tombak_wood": 0.105,
           "tombak_school": 0.273
         }
       }

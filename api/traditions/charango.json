@@ -2,10 +2,10 @@
   "id": "charango",
   "name": "Charango",
   "family": "classical",
-  "lineage": "Greg Nicolett — Solidarity, Solo Charango Version (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s charango, art Music. andean classical charango. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 164,
-  "score": 2.165,
+  "lineage": "The charango developed within Andean musical life and spread through Bolivia, Peru and neighboring regions. Its solo and ensemble traditions also inspire contemporary concert and screen-music arrangements.",
+  "recipe": "classic charango, art Music. cedar andean andean classical charango. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 167,
+  "score": 5.723,
   "config": {
     "traditions": [
       "charango"
@@ -21,10 +21,10 @@
           "charango_string_material": "charango_nylon_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
-          "charango_back": 0.21,
-          "charango_top_wood": 0.3,
-          "charango_strings": 1.69,
+          "plucked_traditional_technique": 0.9129999999999998,
+          "charango_back": 1.21,
+          "charango_top_wood": 1,
+          "charango_strings": 2.6,
           "charango_string_material": 0
         }
       }

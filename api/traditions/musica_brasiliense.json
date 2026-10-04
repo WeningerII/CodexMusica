@@ -5,7 +5,7 @@
   "lineage": "Music of Brasília and the Federal District, including instrumental dialogue and contemporary popular expression.",
   "recipe": "classic música brasiliense, improv On Frame. harmonica, classical nylon-string guitar, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 216,
-  "score": 2.027,
+  "score": 2.174,
   "config": {
     "traditions": [
       "musica_brasiliense"
@@ -43,9 +43,9 @@
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 0.063,
-          "bracing_classical": 0.063,
-          "string_classical": 0.168,
+          "top_wood_classical": 0.19949999999999998,
+          "bracing_classical": 0.105,
+          "string_classical": 0.1365,
           "attack_technique_cl": 0
         }
       },

@@ -2,10 +2,10 @@
   "id": "luxembourgian_pop",
   "name": "Luxembourgian pop",
   "family": "vernacular",
-  "lineage": "Josh Island — Beautiful World (2021), credited vocal/guitar/bass/drum core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic early-2020s luxembourgian pop, functional Song. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic clean strummed humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 380,
-  "score": 21.988,
+  "lineage": "Luxembourg’s pop scene includes locally based songwriters and performers drawing on international pop, soul and R&B. Josh Island’s work connects personal songwriting with collaborative band and studio production.",
+  "recipe": "classic luxembourgian pop, functional Song. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic clean strummed humbucker electric guitar, pocket fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 405,
+  "score": 36.086,
   "config": {
     "traditions": [
       "luxembourgian_pop"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5715000000000001,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 3.95,
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
@@ -87,7 +87,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.95,
+          "electric_technique": 7.45,
           "amp_make": 0,
           "body_wood": 0.1905,
           "neck_wood": 0,
@@ -97,7 +97,7 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -121,7 +121,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.6499999999999999,
+          "bass_technique": 3.1500000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -148,9 +148,9 @@
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 2.4699999999999998,
-          "cymbal_hammering": 3.954,
-          "cymbal_lathing": 3.9000000000000004,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 7.454000000000001,
+          "cymbal_lathing": 7.4,
           "cymbal_finish": 0
         }
       }

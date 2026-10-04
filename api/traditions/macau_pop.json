@@ -2,10 +2,10 @@
   "id": "macau_pop",
   "name": "Macau pop",
   "family": "rock_punk",
-  "lineage": "Lavy — 2023 KoolTai-announced three-member pop-rock core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic early-2020s macau pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 272,
-  "score": 12.245,
+  "lineage": "Macao pop develops through local bands, songwriters, festivals and broadcasting. Groups such as Lavy have helped build the city’s live scene through original songs influenced by American pop-rock and other styles.",
+  "recipe": "classic macau pop, functional Song. clean strummed humbucker electric guitar, electric bass. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 184,
+  "score": 10.853,
   "config": {
     "traditions": [
       "macau_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5715000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 2.08,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.199999999999999,
+          "electric_technique": 8.2,
           "amp_make": 0,
           "body_wood": 0.1905,
           "neck_wood": 0,
@@ -80,7 +80,7 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }

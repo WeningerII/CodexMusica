@@ -5,7 +5,7 @@
   "lineage": "European-Israeli style codified 2002-2010 through Iboga, Digital Structures and Zenon-adjacent labels (Ace Ventura, Liquid Soul, Atmos, Perfect Stranger), slowing psytrance to 130-138 BPM with a deep round kick, a minimal two-or-three-note rolling bass, sparse morphing modular textures introduced one layer at a time, minor-key pads and very few breakdowns across an eight-minute groove-first arc.",
   "recipe": "classic mid-2000s progressive psytrance, electronic Dance, trance branch, deep house house, techno electronic dance canadian house float house. analog mono modular analog poly granular synth, roland tr 8s modern aira digital recreation TR-909, eurorack modular. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 465,
-  "score": 43.005,
+  "score": 42.355,
   "config": {
     "traditions": [
       "psyprog",
@@ -20,14 +20,14 @@
           "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "sh_101",
-          "mono_maker_lineage": "mono_roland_kakehashi"
+          "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
           "electronic_technique": 1.885,
           "mono_oscillator": 0.65,
           "mono_filter": 0.65,
           "mono_archetypes": 0.65,
-          "mono_maker_lineage": -1.7799999999999998
+          "mono_maker_lineage": -2.005
         }
       },
       {
@@ -40,20 +40,20 @@
         "scores": {
           "tr909_voice": 18.07,
           "drum_machine_909_context": 0.845,
-          "tr909_production_origin": 1.135
+          "tr909_production_origin": 1
         }
       },
       {
         "id": "modular_synth",
         "slots": {
           "electronic_technique": "electronic_modular_patch",
-          "mod_voltage_source": "mod_sequencer",
+          "mod_voltage_source": "mod_keyboard",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
           "electronic_technique": 2.125,
-          "mod_voltage_source": 1.495,
+          "mod_voltage_source": 1.4300000000000002,
           "mod_patch_density": 0.45499999999999996,
           "mod_lineage": 0.045
         }
@@ -68,9 +68,9 @@
         },
         "scores": {
           "electronic_technique": 1.885,
-          "poly_archetypes": 1.69,
-          "poly_voices": 1.69,
-          "poly_maker_lineage": -1.2200000000000002
+          "poly_archetypes": 1.645,
+          "poly_voices": 1.645,
+          "poly_maker_lineage": -1.355
         }
       },
       {

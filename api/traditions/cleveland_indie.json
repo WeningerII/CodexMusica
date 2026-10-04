@@ -2,10 +2,10 @@
   "id": "cleveland_indie",
   "name": "Cleveland Indie",
   "family": "pop_rock",
-  "lineage": "Biitchseat — Grow Up (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s cleveland indie, functional Song. humbucker electric guitar, electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 203,
-  "score": 1.275,
+  "lineage": "Cleveland indie connects the city’s independent bands and DIY recording culture. Groups such as Biitchseat bring indie rock, jangle pop and emo influences into local songwriting and performance.",
+  "recipe": "classic cleveland indie, functional Song. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 272,
+  "score": 15.127,
   "config": {
     "traditions": [
       "cleveland_indie"
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
+          "drum_technique": 2.6365,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
@@ -132,8 +132,8 @@
           "bearing_edges": 0,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_hammering": 5.7,
+          "cymbal_lathing": 5.7,
           "cymbal_finish": 0
         }
       }

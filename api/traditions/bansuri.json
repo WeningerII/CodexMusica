@@ -2,10 +2,10 @@
   "id": "bansuri",
   "name": "Bansuri",
   "family": "global",
-  "lineage": "Bansuri: David Philipson — Meditations for Bansuri (1997 concert;2015release). Distinct instrument-led recital branch with exactly the named flute, tabla and tanpura roles. Existing hindustani record is a broad multi-instrument umbrella; no existing hindustani_bansuri ID or narrow matching entry was found. Twelve-tone baseline is authored rather than a transcription of raga intonation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic late-1990s bansuri, improv On Frame, indian classical improv branch. low overtone rich kerala bamboo alternative south indian foundational concert bansuri continuous-airflow legato bansuri, indian rosewood rosewood copper tabla, drone like modal tanpura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 361,
-  "score": 35.462,
+  "lineage": "The bansuri is a bamboo flute used in North Indian classical music as well as lighter and folk-derived repertoire. The concert tradition associated with Pannalal Ghosh is continued by performers including David Philipson.",
+  "recipe": "classic bansuri, improv On Frame, indian classical improv branch. kerala bamboo alternative south indian foundational concert bansuri continuous-airflow legato bansuri, indian rosewood rosewood copper tabla, tanpura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 315,
+  "score": 35.184,
   "config": {
     "traditions": [
       "bansuri"
@@ -21,11 +21,11 @@
           "bansuri_lineage": "bansuri_pannalal_ghosh"
         },
         "scores": {
-          "wind_articulation": 4.4815000000000005,
-          "bansuri_length": 1.69,
-          "bansuri_ornament": 4.225,
-          "bansuri_body_material": 2.34,
-          "bansuri_lineage": 5.0455
+          "wind_articulation": 6.2315000000000005,
+          "bansuri_length": 0.39,
+          "bansuri_ornament": 0.975,
+          "bansuri_body_material": 4.55,
+          "bansuri_lineage": 3.7455
         }
       },
       {
@@ -36,9 +36,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 4.615,
-          "tabla_bayan": 2.34,
-          "tabla_syahi": 0.39
+          "tabla_dayan": 6.4350000000000005,
+          "tabla_bayan": 3.25,
+          "tabla_syahi": 1.3
         }
       },
       {
@@ -52,10 +52,10 @@
           "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 3.7775,
+          "plucked_traditional_technique": 1.2999999999999998,
           "tanpura_size": 0,
-          "tanpura_jawari": 4.5,
-          "tanpura_strings": 1.69,
+          "tanpura_jawari": 6.25,
+          "tanpura_strings": 0.39,
           "tanpura_string_material": 0.16799999999999998,
           "tanpura_body_wood": 0.1995
         }

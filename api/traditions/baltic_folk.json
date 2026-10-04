@@ -5,7 +5,7 @@
   "lineage": "Baltic folk encompasses distinct Estonian, Latvian and Lithuanian song and instrumental traditions and their contemporary continuations. Latvian kokle players such as Laima Jansone connect inherited plucked-string practice with solo improvisation and new collaborations.",
   "recipe": "classic modern baltic folk, improv On Frame. finger plucked melodic maple lime canonical latvian kokle. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 241,
-  "score": 4.216,
+  "score": 4.268,
   "config": {
     "traditions": [
       "baltic_folk"
@@ -21,8 +21,8 @@
         },
         "scores": {
           "kokle_form": 0.0315,
-          "kokle_playing": 1.909,
-          "kokle_string_material": 0.20049999999999998,
+          "kokle_playing": 2,
+          "kokle_string_material": 0.16149999999999998,
           "kokle_body_wood": 2
         }
       }

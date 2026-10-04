@@ -2,10 +2,10 @@
   "id": "cantautora_argentina",
   "name": "Cantautora argentina",
   "family": "vernacular",
-  "lineage": "Delfi Moore — Descansá Chiquita, from Amiga. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic cantautora argentina, ballad Poetry. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 172,
-  "score": 0.813,
+  "lineage": "Argentina’s women singer-songwriters develop personal repertoires across folk, roots and independent music. Artists such as Delfi Moore place their own words and melodies at the center of intimate acoustic songs and fuller band arrangements.",
+  "recipe": "classic cantautora argentina, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 240,
+  "score": 2.274,
   "config": {
     "traditions": [
       "cantautora_argentina"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.1505,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

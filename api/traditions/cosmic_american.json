@@ -2,10 +2,10 @@
   "id": "cosmic_american",
   "name": "Cosmic American",
   "family": "vernacular",
-  "lineage": "Goatroper — The Kinda Woman You Can Hold (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s cosmic american, functional Song. acoustic guitar, tuning stability 7 ply quartersawn maple grand piano, electric bass, low fundamental tuning maple drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 277,
-  "score": 3.478,
+  "lineage": "Cosmic American music brings country and roots songwriting into contact with rock and folk. Artists such as Goatroper use the field to connect vernacular song forms with a flexible contemporary band sound.",
+  "recipe": "classic cosmic american, functional Song. fingerpicked acoustic guitar, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 13.245,
   "config": {
     "traditions": [
       "cosmic_american"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 0.46799999999999997,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -66,7 +66,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0,
-          "acoustic_om_technique": -0.25
+          "acoustic_om_technique": 2.3000000000000007
         }
       },
       {
@@ -86,12 +86,12 @@
           "keyboard_technique": -0.1,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.1905,
-          "piano_hammer": -0.07,
-          "piano_rim": 0.26,
+          "piano_hammer": 1.008,
+          "piano_rim": 1.17,
           "piano_soundboard": -0.1,
-          "piano_pinblock": 1.2,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 1.2349999999999999
         }
       },
       {
@@ -133,16 +133,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drum_technique": 2.6365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.354,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": -0.10500000000000001,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_hammering": 2.454,
+          "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 0
         }
       }

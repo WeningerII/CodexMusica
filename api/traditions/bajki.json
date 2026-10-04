@@ -3,9 +3,9 @@
   "name": "Bajki (Polish fairy-tale narration)",
   "family": "global",
   "lineage": "Polish fairy-tale storytelling and children's audiobook narration, circulated through publishers, performers and recorded readings.",
-  "recipe": "classic bajki, spoken Word, narration branch. conversational, narrative. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 171,
-  "score": 3.206,
+  "recipe": "classic bajki, spoken Word, narration branch. narrative. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 155,
+  "score": 2.733,
   "config": {
     "traditions": [
       "bajki"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0.756,
+          "voice_quality": 0.483,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.231,
+          "voice_ensemble_config": 0.1995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.2625,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "canadian_soundtrack",
   "name": "Canadian soundtrack",
   "family": "vernacular",
-  "lineage": "Ice Locus — Breath of the Loci Soundtrack. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic canadian soundtrack, functional Song. shakuhachi, doepfer eurorack canonical 1995 present small format standardization modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 240,
-  "score": 1.576,
+  "lineage": "Canadian screen music brings composers and songwriters into film, television and audiovisual production. The field includes original dramatic scores, songs and experimental approaches to image and sound.",
+  "recipe": "classic canadian soundtrack, functional Song. shakuhachi, modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 171,
+  "score": 0.823,
   "config": {
     "traditions": [
       "canadian_soundtrack"
@@ -40,7 +40,7 @@
           "electronic_technique": -0.1,
           "mod_voltage_source": 0,
           "mod_patch_density": 0,
-          "mod_lineage": 1.69
+          "mod_lineage": 0.9359999999999999
         }
       }
     ],

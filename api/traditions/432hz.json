@@ -5,7 +5,7 @@
   "lineage": "432Hz is represented by Gian Marco La Serra — Two Lullabies for a Little Girl. Authored contemporary solo grand-piano realization of one source-labelled 432Hz piano release. Existing piano_pitch_standard=a_432_alternative carries the A=432 reference; twelve_tet denotes interval temperament, not a competing A=440 reference. Exact construction, room, chain, technique and axes are authored choices; artist-reported tuning has not been independently measured. No medical or therapeutic claims are imported.",
   "recipe": "classic 432hz, experimental Elec, ambient branch. no chemical hardener t rivet 17 ply hard rock maple Asian spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 226,
-  "score": 20.404,
+  "score": 20.016,
   "config": {
     "traditions": [
       "432hz"
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": 3.7,
           "grand_piano_size": 0.3045,
-          "grand_piano_brand": 1.168,
+          "grand_piano_brand": 1.3,
           "piano_hammer": 1.7,
-          "piano_rim": 2.0549999999999997,
-          "piano_soundboard": 2.128,
+          "piano_rim": 2.016,
+          "piano_soundboard": 1.8679999999999999,
           "piano_pinblock": 2.1755,
           "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 5.872999999999999
+          "piano_pitch_standard": 5.652
         }
       }
     ],

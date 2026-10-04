@@ -5,7 +5,7 @@
   "lineage": "Børnehistorier is Danish spoken storytelling for children.",
   "recipe": "classic bornehistorier, spoken Word, narration branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 153,
-  "score": 1.204,
+  "score": 0.963,
   "config": {
     "traditions": [
       "bornehistorier"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.348,
+          "voice_speech_song": 0.29700000000000004,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.32999999999999996,
+          "voice_multitrack_stack": 0.1395,
           "voice_tessitura": 0
         }
       }

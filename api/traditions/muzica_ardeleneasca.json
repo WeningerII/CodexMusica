@@ -5,7 +5,7 @@
   "lineage": "Complete issued Ardeleana track,1:21, on Rumanian Songs and Dances (Folkways FW04387,1958). Collector notes identify Ardeleana pe trei: Moise Zepa of Dobița, Hunedoara plays a six-hole fluier; dancers add shouted or rhythmically declaimed improvised strigaturi. Retain flute and spoken vocal contributions, with unknown number of dancers/speakers. The listed solo flute is accompaniment, not proof of a wholly instrumental solo. Neighboring track handclaps, whistles and fiddles are not transferred here. No sung role is positively described in this track; dancers movement is not an extra instrument. Authored faithful two-family realization of the full issued track, not recreation of1950s recording apparatus. Fluier uses existing six-hole block-flute construction preset labeled Wallachian as an editorial six-hole model, not an assertion of Wallachian regional identity or measured duct construction. Ash body and tight dance articulation are authored; existing hora/sarba articulation is a catalog approximation of lively dance phrasing, not claim this Ardeleana is hora or sarba. Unknown speaker count and tracking remain neutral, with positively rhythmic spoken delivery. No global tuning, source microphone, room or medium asserted. Broad improvOnFrame follows positively improvised verbal calls over the repeating dance metric frame, not a jazz ancestry claim.",
   "recipe": "classic late-1950s muzica ardeleneasca, improv On Frame. staccato lively dance driving fluier, syncopated speech rhythm rhythmic spoken flow no pitch human voice ensemble unspecified.",
   "recipe_chars": 183,
-  "score": 24.731,
+  "score": 25.109,
   "config": {
     "traditions": [
       "muzica_ardeleneasca"
@@ -19,9 +19,9 @@
           "fluier_body": "fluier_body_ash"
         },
         "scores": {
-          "fluier_form": 3.3615000000000004,
-          "fluier_idiom": 12.822999999999997,
-          "fluier_body": 0.7444999999999999
+          "fluier_form": 3.4665,
+          "fluier_idiom": 12.948999999999998,
+          "fluier_body": 0.7865
         }
       },
       {
@@ -56,7 +56,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.801999999999999,
+          "voice_speech_song": 7.906999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

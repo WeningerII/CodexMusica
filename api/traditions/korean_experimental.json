@@ -5,7 +5,7 @@
   "lineage": "Okkyung Lee — Ghil (2013). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2010s korean experimental, improv On Frame, jam free branch. oil varnish amber tinted pirastro cellisto cello specific cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 238,
-  "score": 5.005,
+  "score": 5.099,
   "config": {
     "traditions": [
       "korean_experimental"
@@ -30,10 +30,10 @@
           "cello_top_wood": -0.07,
           "cello_back_wood": 0.26,
           "cello_varnish": 1.2999999999999998,
-          "cello_setup_period": 0.826,
-          "cello_bow_grip": 0.063,
-          "cello_rosin": 1.3629999999999998,
-          "cello_bow_stick": 0.6814999999999999
+          "cello_setup_period": 0.9099999999999999,
+          "cello_bow_grip": 0.0315,
+          "cello_rosin": 1.4364999999999999,
+          "cello_bow_stick": 0.6499999999999999
         }
       }
     ],

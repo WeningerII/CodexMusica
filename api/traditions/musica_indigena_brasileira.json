@@ -5,7 +5,7 @@
   "lineage": "Music of Brazil’s Indigenous peoples, encompassing distinct community repertoires, ceremonies and contemporary expression.",
   "recipe": "classic musica indigena brasileira, ritual Devotional. live tracking.",
   "recipe_chars": 69,
-  "score": 0.894,
+  "score": 0.967,
   "config": {
     "traditions": [
       "musica_indigena_brasileira"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.189,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.15749999999999997,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }

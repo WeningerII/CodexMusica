@@ -2,10 +2,10 @@
   "id": "south_african_country",
   "name": "South African country",
   "family": "vernacular",
-  "lineage": "South African country: Hinds Brothers — Like a Stone, Ocean of Milk (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2010s south african country, functional Song, americana branch. pre war tone martin lifespan sealed dreadnought acoustic guitar, melodic straight accordion, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 382,
-  "score": 71.992,
+  "lineage": "South African country encompasses local approaches to country song and acoustic roots music. Alongside its broader popular-country audience, an alternative-country strand combines close vocal harmonies and guitar-led songwriting with instruments associated with country and folk ensembles.",
+  "recipe": "classic south african country, functional Song, americana branch. unprocessed natural acoustic. dreadnought acoustic guitar, castagnari Italian premium folk music straight accordion, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 391,
+  "score": 142.807,
   "config": {
     "traditions": [
       "south_african_country"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 1.5310000000000001,
           "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
@@ -56,17 +56,17 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": -0.07,
-          "string_tuning": 0.26,
+          "acoustic_technique": 0.2315,
+          "string_tuning": 0,
           "top_wood": 0.168,
           "back_sides": 0.0315,
-          "string_acoustic": 1.1365
+          "string_acoustic": 0.39
         }
       },
       {
@@ -74,20 +74,20 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "steel_reeds",
-          "musette_offset": "dry_tuning",
+          "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 9.494499999999999,
+          "free_reed_technique": 22.0445,
           "accordion_reed_material": 0.39,
-          "musette_offset": 0.0315,
+          "musette_offset": 0.3,
           "reed_config": 0.0315,
           "bellows": 0,
           "voicing_chamber": 0,
-          "accordion_maker_school": 0.8400000000000001
+          "accordion_maker_school": 2.6
         }
       },
       {
@@ -98,19 +98,19 @@
           "pickup_steel": "humbucker_steel",
           "string_setup": "standard_e9",
           "bar_material": "steel_bar",
-          "pedal_steel_brand": "mullen_d10",
+          "pedal_steel_brand": "sho_bud_classic",
           "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 10.774999999999999,
-          "amp_make": 9.982499999999996,
+          "electric_technique": 20.774999999999995,
+          "amp_make": 19.982499999999998,
           "pickup_steel": 0.1365,
-          "string_setup": 4.9399999999999995,
+          "string_setup": 10.14,
           "bar_material": 0.39,
-          "pedal_steel_brand": 9.967999999999998,
-          "pedal_steel_neck_config": 12.35,
-          "pedal_steel_strings": 9.8675
+          "pedal_steel_brand": 19.8595,
+          "pedal_steel_neck_config": 23.0595,
+          "pedal_steel_strings": 19.8675
         }
       },
       {

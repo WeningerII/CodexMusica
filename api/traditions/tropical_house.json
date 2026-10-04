@@ -5,7 +5,7 @@
   "lineage": "Style consolidated around 2013-2016 by Kygo, Thomas Jack, Klingande and Matoma out of Norway and northern Europe, running a slow 100-115 BPM four-on-the-floor with soft rounded kick, off-beat plucked marimba, steelpan and flute-like synth leads, wide reverberant pads, filtered saxophone hooks, and breathy singer-songwriter vocals mixed forward with pop rather than club balance.",
   "recipe": "classic 2013-2016 tropical house, electronic Dance, deep house branch, continental electronic dance gregorian dance new york garage house. extended whistle, breath veiled tone, slow rate, interlocked note trading. singing lead digital subtractive, steelpan, honking attack saxophone, singing lead wavetable synth, room natural cupped muffled hand clap. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 546,
-  "score": 193.815,
+  "score": 194.507,
   "config": {
     "traditions": [
       "tropical_house",
@@ -55,17 +55,17 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 9.892,
+          "voice_register": 10.402,
           "voice_quality": 8.190000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.265,
           "voice_articulation": 15.014999999999997,
           "voice_microtone": 15.664999999999994,
-          "voice_tradition": 7.993,
+          "voice_tradition": 7.843000000000001,
           "voice_mechanism_compound": 6.109999999999999,
           "voice_estill_quality": 3.38,
           "voice_speech_song": 16.834999999999997,
@@ -73,7 +73,7 @@
           "voice_ornament_system": 0.8499999999999999,
           "voice_pitch_organization": 1.3699999999999997,
           "voice_processing_chain": 20.52,
-          "voice_multitrack_stack": 4.160000000000001
+          "voice_multitrack_stack": 4.5825000000000005
         }
       },
       {
@@ -91,7 +91,7 @@
           "wind_articulation": 1.885,
           "sax_size": 5.525,
           "sax_reed": 0.845,
-          "sax_body_alloy": 0.54,
+          "sax_body_alloy": 0.495,
           "sax_mouthpiece": 0.845,
           "sax_technique": 1.42,
           "sax_maker_school": 0
@@ -120,7 +120,7 @@
         },
         "scores": {
           "clap_technique": 1.69,
-          "clap_capture": 1.932
+          "clap_capture": 1.887
         }
       }
     ],

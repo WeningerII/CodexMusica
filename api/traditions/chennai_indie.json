@@ -2,10 +2,10 @@
   "id": "chennai_indie",
   "name": "Chennai indie",
   "family": "rock_punk",
-  "lineage": "Skrat — Tin Can Man, IndiEarth Out There Season1 (2013), vocal/guitar/bass core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic early-2010s chennai indie, functional Song. humbucker electric guitar, electric bass. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 185,
-  "score": 2.293,
+  "lineage": "Chennai’s independent rock scene includes guitar bands such as Skrat, formed in 2006. Local gigs and independent recording platforms connect original songwriting with garage-rock and alternative influences.",
+  "recipe": "classic mid-2000s chennai indie, functional Song. humbucker electric guitar, electric bass, credited auxiliary percussion. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 214,
+  "score": 1.773,
   "config": {
     "traditions": [
       "chennai_indie"
@@ -80,7 +80,7 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -106,6 +106,15 @@
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
         }
       }
     ],
@@ -153,6 +162,9 @@
         "fretted_or_not",
         "bass_technique",
         "electric_bass_string_configuration"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
       ]
     },
     "room": "treated_studio",
@@ -209,7 +221,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

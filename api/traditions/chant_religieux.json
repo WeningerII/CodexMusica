@@ -2,10 +2,10 @@
   "id": "chant_religieux",
   "name": "Chant religieux",
   "family": "vernacular",
-  "lineage": "Jean-Claude Gianadda — French Christian prayer-song guitar practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic chant religieux, ritual Devotional, christian gospel branch. acoustic guitar 12 string. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 194,
-  "score": 0.663,
+  "lineage": "French religious song joins Christian devotional texts with accessible melodies for prayer and shared singing. Songwriters such as Jean-Claude Gianadda have helped circulate this repertoire through recordings and gatherings.",
+  "recipe": "classic chant religieux, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. acoustic guitar 12 string. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 232,
+  "score": 1.873,
   "config": {
     "traditions": [
       "chant_religieux"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },

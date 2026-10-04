@@ -2,10 +2,10 @@
   "id": "anime_cv",
   "name": "Anime cv",
   "family": "vernacular",
-  "lineage": "Anime cv: Gareki (CV: Hiroshi Kamiya) — Karneval Character SongVol5, Reach for the sky (LACM14105). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic anime cv, functional Song, east Asian pop branch. straight note core, equal tempered, notated speech melody, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 253,
-  "score": 13.719,
+  "lineage": "Anime character songs connect fictional characters with the performers who voice them. Japanese anime music labels release these songs under character names and character-voice credits, including both solo characters and combinations of cast members.",
+  "recipe": "classic anime cv, functional Song, east Asian pop branch. straight note core, equal tempered, notated speech melody, solo unaccompanied. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 235,
+  "score": 12.406,
   "config": {
     "traditions": [
       "anime_cv"
@@ -37,18 +37,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.585,
+          "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 0,
-          "voice_microtone": 5.899000000000001,
+          "voice_microtone": 3.899000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 6.045,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 5.135,
+          "voice_ensemble_config": 1.678,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.768,
+          "voice_multitrack_stack": 0.16799999999999998,
           "voice_tessitura": 0
         }
       }

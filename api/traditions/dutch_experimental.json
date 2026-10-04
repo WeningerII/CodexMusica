@@ -5,7 +5,7 @@
   "lineage": "Cor Fuhler — Stengam solo extended acoustic piano branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic dutch experimental, improv On Frame, jam free branch. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 13.31,
+  "score": 13.079,
   "config": {
     "traditions": [
       "dutch_experimental"
@@ -26,12 +26,12 @@
         },
         "scores": {
           "keyboard_technique": 5.831500000000001,
-          "grand_piano_size": 0.0315,
+          "grand_piano_size": 0,
           "grand_piano_brand": 0.39,
           "piano_hammer": 0.9099999999999999,
           "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 0.7314999999999999,
-          "piano_pinblock": 2.441,
+          "piano_soundboard": 0.8365,
+          "piano_pinblock": 2.1365,
           "piano_plate": 0.7,
           "piano_pitch_standard": 1.3649999999999998
         }

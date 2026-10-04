@@ -5,7 +5,7 @@
   "lineage": "Ostschlager developed through East German popular-song, broadcast and record-label institutions.",
   "recipe": "classic ostschlager, functional Song. solo with instrumental accompaniment. humbucker electric guitar, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 234,
-  "score": 4.781,
+  "score": 4.727,
   "config": {
     "traditions": [
       "ostschlager"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.1365,
-          "voice_ensemble_config": 0.6000000000000001,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -78,9 +78,9 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0.702,
+          "bridge": 0.46799999999999997,
           "scale_length": 0,
-          "string_gauge": 0.702,
+          "string_gauge": 0.46799999999999997,
           "finish": 0,
           "string_tuning": 0
         }
@@ -93,7 +93,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.23399999999999999
         }
       }
     ],

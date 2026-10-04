@@ -5,7 +5,7 @@
   "lineage": "New England’s experimental music community, spanning free improvisation, abstract sound and new composition.",
   "recipe": "classic new england experimental, improv On Frame, jam free branch. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 6.449,
+  "score": 6.448,
   "config": {
     "traditions": [
       "new_england_experimental"
@@ -27,7 +27,7 @@
           "sax_size": 0,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.1365,
+          "sax_mouthpiece": 0.168,
           "sax_technique": 2.5,
           "sax_maker_school": 2.5445
         }
@@ -50,7 +50,7 @@
           "brass_mute": 0,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.0315,
-          "trumpet_maker_school": 0.5459999999999999
+          "trumpet_maker_school": 0.5145
         }
       }
     ],

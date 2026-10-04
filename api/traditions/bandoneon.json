@@ -5,7 +5,7 @@
   "lineage": "Bandoneon music: Dino Saluzzi — Albores (ECM, 2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic early-2020s bandoneon music, improv On Frame. bandoneon. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 163,
-  "score": 2.03,
+  "score": 2.198,
   "config": {
     "traditions": [
       "bandoneon"
@@ -21,7 +21,7 @@
           "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
         },
         "scores": {
-          "free_reed_technique": 0.9999999999999998,
+          "free_reed_technique": 1.1679999999999997,
           "bandoneon_action": 0.39,
           "bandoneon_use": 0.39,
           "bandoneon_maker_school": 0.25,

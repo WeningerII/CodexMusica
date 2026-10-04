@@ -5,7 +5,7 @@
   "lineage": "Romántico gathers instrumental interpretations of romantic songs and familiar melodies, especially Latin American boleros and popular standards. Piano, guitar, harp, saxophone and light-orchestra recordings share this listening field, carrying recognizable song melodies across different instrumental colours.",
   "recipe": "classic romántico, functional Song. upright piano. live tracking.",
   "recipe_chars": 65,
-  "score": -0.1,
+  "score": -0.016,
   "config": {
     "traditions": [
       "romantico"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.1,
-          "upright_use": 0,
+          "keyboard_technique": -0.07,
+          "upright_use": 0.054,
           "upright_piano_size": 0
         }
       }

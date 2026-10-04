@@ -5,7 +5,7 @@
   "lineage": "Instrumental lullabies use melody and gentle pacing for quiet listening and rest without requiring sung words. Solo acoustic instruments form one branch alongside larger or electronic arrangements.",
   "recipe": "classic instrumental lullaby, lullaby. steel resonator guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 161,
-  "score": 0.9,
+  "score": 0.922,
   "config": {
     "traditions": [
       "instrumental_lullaby"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "acoustic_technique": 0.44999999999999996,
-          "string_tuning": 0.49999999999999994,
+          "string_tuning": 0.5225,
           "cone_type": -0.05,
           "body_resonator": 0,
           "res_strings": 0

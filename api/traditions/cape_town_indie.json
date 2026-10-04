@@ -2,10 +2,10 @@
   "id": "cape_town_indie",
   "name": "Cape town indie",
   "family": "vernacular",
-  "lineage": "Simon van Gend Band — Watermelons. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic cape town indie, ballad Poetry. solo with instrumental accompaniment. dreadnought acoustic guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 299,
-  "score": 6.615,
+  "lineage": "Cape Town indie encompasses local independent songwriting and alternative bands. The Simon van Gend Band represents an introspective folk-rock branch rooted in the city’s live and recorded music.",
+  "recipe": "classic cape town indie, ballad Poetry. dreadnought acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 272,
+  "score": 8.336,
   "config": {
     "traditions": [
       "cape_town_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8190000000000002,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 0.7,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
@@ -108,16 +108,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 0.75,
+          "drum_technique": 2.5,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.273,
           "snare_wires": 0,
-          "cymbal_alloy": 1.0999999999999999,
-          "cymbal_hammering": 1.45,
-          "cymbal_lathing": 1.45,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 2.4000000000000004,
+          "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 0
         }
       }

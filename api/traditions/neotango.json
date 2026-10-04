@@ -5,7 +5,7 @@
   "lineage": "Contemporary tango approaches that extend the dance tradition through improvisation and new ensemble treatments.",
   "recipe": "classic neotango, improv On Frame. upright bass, bellows articulated bandoneon, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 191,
-  "score": 8.651,
+  "score": 8.834,
   "config": {
     "traditions": [
       "neotango"
@@ -32,7 +32,7 @@
           "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
         },
         "scores": {
-          "free_reed_technique": 3.9815,
+          "free_reed_technique": 4.1495,
           "bandoneon_action": 1.663,
           "bandoneon_use": 0,
           "bandoneon_maker_school": -0.05,
@@ -53,7 +53,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.0315,
           "piano_hammer": -0.1,

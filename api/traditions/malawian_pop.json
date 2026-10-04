@@ -2,10 +2,10 @@
   "id": "malawian_pop",
   "name": "Malawian pop",
   "family": "vernacular",
-  "lineage": "Faith Mussa — festival-documented solo voice/guitar core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
+  "lineage": "Malawian pop joins local musical traditions with contemporary songwriting, soul and electronic production. Artists such as Faith Mussa connect community and family-band experience with international collaboration and solo performance.",
   "recipe": "classic malawian pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 248,
-  "score": 10.823,
+  "score": 11.878,
   "config": {
     "traditions": [
       "malawian_pop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 3.8715,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.69,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.7,
+          "electric_technique": 4.95,
           "amp_make": 0,
           "body_wood": 0.1905,
           "neck_wood": 0,
@@ -80,7 +80,7 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.08,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }

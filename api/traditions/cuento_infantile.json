@@ -3,9 +3,9 @@
   "name": "Cuento infantile",
   "family": "vernacular",
   "lineage": "Cuento infantile gathers Spanish-language stories, fables and literary tales addressed to children. Oral storytelling and recorded readings carry narrative traditions across homes, classrooms and publishing networks.",
-  "recipe": "classic cuento infantile, spoken Word, narration branch. conversational, narrative. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 182,
-  "score": 4.359,
+  "recipe": "classic cuento infantile, spoken Word, narration branch. narrative. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 166,
+  "score": 3.996,
   "config": {
     "traditions": [
       "cuento_infantile"
@@ -34,21 +34,21 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0.6194999999999999,
+          "voice_quality": 0.3465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 2.6880000000000006,
+          "voice_articulation": 2.7300000000000004,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.29400000000000004,
-          "voice_ensemble_config": 0.231,
+          "voice_speech_song": 0.2205,
+          "voice_ensemble_config": 0.1995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       }
