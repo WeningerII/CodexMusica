@@ -217,8 +217,10 @@ stale.
    pronunciations work? shouldn't it be that the checker is going to look for
    whether or not a pronunciation works not which pronunciation works?"*
    A check the song must PASS (a mandated rhyme, a declared relation, a slot
-   anchor) holds when ONE whole dictionary reading of each word involved
-   holds it; a check the song must AVOID (a collision) is charged only when
+   anchor, and since 2026-10-04 a line's fit to its declared bars,
+   `quality/fit.py`'s `fit_line`, which had kept refusing a line whose words'
+   readings disagree on the count or the stresses) holds when ONE whole
+   dictionary reading of each word involved holds it; a check the song must AVOID (a collision) is charged only when
    EVERY reading triggers it. Readings are whole dictionary pronunciations,
    never channels stitched from two (`quality/relations.py`, "THE
    ANY-READING RULE"), and a schema verdict that rests on one names it

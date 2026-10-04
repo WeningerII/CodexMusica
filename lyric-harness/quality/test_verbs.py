@@ -2257,6 +2257,29 @@ def test_song_exits_on_a_flag():
     print("\n16. `song` distinguishes certified flags, clean measurement and refusal")
     with tempfile.TemporaryDirectory() as d:
         bpp, txt = _noisy_song(d)
+        # REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter
+        # (HANDBOOK.md standing rule 5): the noisy fixture's unanswered
+        # obligations were nine meter lines whose words' dictionary readings
+        # disagree (meter:COUNT_IS_A_LOWER_BOUND:L5/6/9/10/14/15/16,
+        # meter:PROMINENCE_UNDECIDED:L11/12), now judged on one whole reading.
+        # As written it certifies with its flags standing (exit 3, the same
+        # 25 FLAG / 50 NOTE). The unjudged negative is the same draft with one
+        # word no dictionary reads on L1, which the ruling never guesses.
+        # ~~the fixture as written, exit 2~~
+        rc3, out3, _ = run("song", bpp, txt, MANDATE_THAT_FAILS,
+                           "--subdivision", "1", expect_rc=3)
+        judged = _machine_result(out3)
+        check("ANY READING: the noisy draft as written is judged on every line "
+              "and exits 3 with its flags standing",
+              rc3 == 3 and judged.get("coverage", {}).get("certified") is True
+              and judged.get("coverage", {}).get("refused_obligations") == [],
+              f"rc={rc3}; refused={judged.get('coverage', {}).get('refused_obligations')}")
+        for p in (bpp, txt):
+            with open(p, encoding="utf-8") as fh:
+                s = fh.read()
+            with open(p, "w", encoding="utf-8") as fh:
+                fh.write(s.replace("The bank foreclosed and boarded",
+                                   "The bank qzzxv and boarded", 1))
         rc, out, err = run("song", bpp, txt, MANDATE_THAT_FAILS,
                            "--subdivision", "1", expect_rc=2)
         measured = _machine_result(out)
@@ -5351,6 +5374,26 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     fresh = os.path.join(d, "ambiguous-fresh.txt")
     with open(fresh, "w", encoding="utf-8") as fh:
         fh.write("\n".join(uncertain) + "\n")
+    rca, outa, _ = run("finish", fresh, "--title=wakes the rain", *common)
+    judged = _machine_result(outa)
+    # REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter (HANDBOOK.md
+    # standing rule 5): 'into' (L4) and 'towels' (L10) are judged on one whole
+    # reading, so the draft with them certifies (SUCCESS, exit 0) -- the
+    # refusals the paragraph below describes are gone. The uncertified
+    # control keeps a GENUINE unknown: L10's 'towels' becomes a word no
+    # dictionary reads, which still refuses. ~~the 'into'/'towels' draft
+    # stays uncertified, exit 2~~
+    check("ANY READING: the formerly disputed readings are judged and the "
+          "draft certifies exit0",
+          rca == 0 and judged.get("stop_reason") == "SUCCESS"
+          and judged.get("coverage", {}).get("certified") is True
+          and judged.get("coverage", {}).get("refused_obligations") == [],
+          str((rca, judged.get("stop_reason"),
+               judged.get("coverage", {}).get("refused_obligations"))))
+    uncertain[9] = uncertain[9].replace("towels", "qzzxv")
+    fresh = os.path.join(d, "unreadable-fresh.txt")
+    with open(fresh, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(uncertain) + "\n")
     rcu, outu, _ = run("finish", fresh, "--title=wakes the rain", *common)
     unjudged = _machine_result(outu)
     # 2026-10-01, CLAUDE.md standing rule 5: the prominence band [2, 7] is
@@ -5363,11 +5406,12 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     # still cannot certify. superseded: {"prominence:L4", "prominence:L10"}
     # among the refused obligations.
     _uref = unjudged.get("coverage", {}).get("refused_obligations", [])
-    check("CONTROL: the prior ambiguous readings stay uncertified despite zero flags",
+    # ~~"the prior ambiguous readings stay uncertified", with
+    # meter:PROMINENCE_UNDECIDED:L4 among the refusals~~ (2026-10-04, above).
+    check("CONTROL: an unreadable word stays uncertified despite zero flags",
           rcu == 2 and unjudged.get("whole_flags") == []
           and unjudged.get("coverage", {}).get("certified") is False
-          and {"meter:PROMINENCE_UNDECIDED:L4",
-               "meter:COUNT_IS_A_LOWER_BOUND:L10"}.issubset(_uref)
+          and _uref == ["meter:COUNT_IS_A_LOWER_BOUND:L10"]
           and not any(x.startswith("prominence:") for x in _uref),
           str(_uref))
     shutil.rmtree(d, ignore_errors=True)
@@ -6365,9 +6409,13 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               # (rhyme:2:3:0/1, 8:9:4/5/6, 10:11:7/9) plus prominence:L2.
               and coverage.get("pairs_judged") == 4
               and coverage.get("pairs_refused") == 0
+              # REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter,
+              # MEASURED by this run: L2's `every` is judged on one whole
+              # reading; L6's `hummed`, which no dictionary reads, still
+              # refuses, so the song still cannot certify.
+              # ~~["meter:COUNT_IS_A_LOWER_BOUND:L2", ...:L6]~~
               and coverage.get("refused_obligations")
-              == ["meter:COUNT_IS_A_LOWER_BOUND:L2",
-                  "meter:COUNT_IS_A_LOWER_BOUND:L6"],
+              == ["meter:COUNT_IS_A_LOWER_BOUND:L6"],
               f"final lines={len(completed.get('final_draft', []))}; "
               f"judged/refused={coverage.get('pairs_judged')}/"
               f"{coverage.get('pairs_refused')}")

@@ -2967,6 +2967,10 @@ class Reviser:
                 ev = f.evidence
                 if f.conditional_on:
                     ev += f" CONDITIONAL ON: {f.conditional_on}"
+                if lf.units.reading:
+                    # THE ANY-READING RULE: which whole reading this line
+                    # was judged on (`fit.fit_line`).
+                    ev += f" READ AS: {lf.units.describe_reading()}"
                 per.setdefault(ln, []).append(Finding(
                     f.code, f.severity,
                     f.message, ev, [ln]))

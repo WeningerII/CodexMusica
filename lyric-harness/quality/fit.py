@@ -96,6 +96,7 @@ syncopation as a measurement rather than as a declared offset) remain refused.
 Run: python3 quality/fit.py quality/fixtures/mandate_song.blueprint.json
 """
 
+import itertools
 import json
 import math
 import os
@@ -235,6 +236,19 @@ class RefusedToken:
 
 
 @dataclass(frozen=True)
+class WordReadings:
+    """One sung word of a line and its whole dictionary readings, in line
+    order: `readings[k]` is a tuple of (nucleus, prominence) per syllable,
+    and `readings[0]` is the reading `LineUnits.units` was built from.
+    `refusal` is the `UNRESOLVED_READING` token `read_line` filed for the
+    word when its readings disagree on the count, else None."""
+    word: str
+    widx: int
+    readings: tuple
+    refusal: object = None
+
+
+@dataclass(frozen=True)
 class LineUnits:
     """The demand side: what this line's text asks the bar to hold."""
     text: str
@@ -246,6 +260,73 @@ class LineUnits:
     prominence_rule: str = ""
     language: str = ""
     prominence_refusal: object = None    # FitRefusal, or None
+    #: THE ANY-READING RULE (owner ruling 2026-10-01, HANDBOOK.md standing
+    #: rule 5), brought to the meter 2026-10-04. Every sung word of an
+    #: English line as a `WordReadings`, filled only when at least one of
+    #: them has readings that disagree on what the bar must hold (the
+    #: count or the stresses). `units`/`refused` above still read such a
+    #: word the old way -- left out of the count, or `?` -- because the
+    #: calibration in `quality/meter_bands.py` measures with this reader
+    #: and an instrument keeps its population (the same rule's carve-out).
+    #: The FIT reads `whole()`: one whole reading of the line at a time.
+    segments: tuple = ()
+    #: On a line `whole()` built: ((word, ((nucleus, prominence), ...)), ...)
+    #: for each disputed word, the reading this line was read under.
+    reading: tuple = ()
+
+    @property
+    def disputed(self):
+        return tuple(s for s in self.segments if len(s.readings) > 1)
+
+    def whole(self, pick=None):
+        """-> LineUnits: this line under ONE whole dictionary reading.
+
+        `pick(word_readings) -> index` chooses each disputed word's reading;
+        None takes the one `units` holds (the dictionary's first-listed, or
+        the writer's declared one). Units are re-read in line order, and the
+        `UNRESOLVED_READING` refusals of the words now read are dropped --
+        nothing else is: a word no dictionary reads keeps its refusal."""
+        if not self.disputed:
+            return self
+        units, chosen = [], []
+        for seg in self.segments:
+            k = pick(seg) if pick is not None and len(seg.readings) > 1 else 0
+            for nucleus, prominence in seg.readings[k]:
+                units.append(Unit(len(units), nucleus, seg.word, seg.widx,
+                                  prominence, 1))
+            if len(seg.readings) > 1:
+                chosen.append((seg.word, seg.readings[k]))
+        read = {id(s.refusal) for s in self.disputed if s.refusal is not None}
+        return LineUnits(
+            text=self.text, units=tuple(units),
+            refused=tuple(r for r in self.refused if id(r) not in read),
+            tokens=self.tokens, grid_unit=self.grid_unit,
+            unit_name=self.unit_name, prominence_rule=self.prominence_rule,
+            language=self.language,
+            prominence_refusal=self.prominence_refusal, reading=tuple(chosen))
+
+    def candidates(self):
+        """-> the whole readings `fit_line` judges, in the order it tries
+        them: the first-listed reading, then -- when it is a different one --
+        the reading with the fewest units (per disputed word the shortest
+        reading, the first-listed among equals). Every finding `fit_line`
+        marks unsatisfiable that reads the units at all is `SLOTS_EXCEEDED`,
+        and that one only rises with the count, so if ANY whole reading of
+        the line meets the declaration, the fewest-units one does
+        (`quality/test_fit.py` checks this against every combination)."""
+        if not self.disputed:
+            return (self,)
+        first = self.whole()
+        fewest = self.whole(lambda s: min(range(len(s.readings)),
+                                          key=lambda k: (len(s.readings[k]), k)))
+        return (first,) if fewest.reading == first.reading else (first, fewest)
+
+    def describe_reading(self):
+        """-> '' or "every = 2 syllables /., didn't = 1 syllable /"."""
+        return ", ".join(
+            f"{w} = {len(r)} syllable{'s' if len(r) != 1 else ''} "
+            + "".join("/" if p == 1 else "." for _, p in r)
+            for w, r in self.reading)
 
     @property
     def syllables(self):
@@ -481,7 +562,7 @@ def read_line(text, phon=None, strip_parens=True):
                 "syllables and "
                 "raises no refusal. The count without it is a LOWER BOUND."))
 
-    units = []
+    units, segments = [], []
     if hasattr(phon, "analyse_line"):
         analysis = phon.analyse_line(sung_text)
         chunks = list(analysis.tokens)
@@ -506,6 +587,7 @@ def read_line(text, phon=None, strip_parens=True):
         words = _lh.line_tokens(sung_text, strip_parens=False)
         uncertain_words = set()
         undecided_stresses = {}
+        alternatives, alt_pieces, unresolved = {}, {}, {}
         chunk_indices = {}
         cursor = 0
         for wi, word in enumerate(words):
@@ -519,10 +601,23 @@ def read_line(text, phon=None, strip_parens=True):
             piece_readings = [token_phon.parses(piece) if hasattr(token_phon, "parses") else
                               [token_phon.syllabify(piece)]
                               for piece in lex.for_token(wi).word_pieces(word) if piece]
+            # Every whole reading of the word, demoted exactly as
+            # `word_syllable_map` demotes a small word, kept when it asks the
+            # bar for something the others do not (`LineUnits.segments`).
+            sung_weak = _lh.weak_token(
+                lex.for_token(wi),
+                _lh.fold_apostrophes(word).lower().strip("'\".,;:!?()[]"),
+                phrase_final=wi == len(words) - 1)
+            alt_pieces[wi] = piece_readings
+            alternatives[wi] = [
+                tuple((s.nucleus, 0 if sung_weak else _resolve_prominence(s.prominence))
+                      for reading in combo for s in reading)
+                for combo in itertools.product(*piece_readings)]
             if any(len({len(r) for r in readings}) > 1 for readings in piece_readings):
                 uncertain_words.add(wi)
                 refused.append(RefusedToken(word, "UNRESOLVED_READING",
                     "pronunciations disagree on syllable count; no reading was selected"))
+                unresolved[wi] = refused[-1]
                 continue
             weak = _lh.weak_token(lex.for_token(wi), word,
                                   phrase_final=wi == len(words) - 1)
@@ -536,14 +631,38 @@ def read_line(text, phon=None, strip_parens=True):
                         if len(values) != 1 or None in values:
                             undecided_stresses[(wi, offset + si)] = None
                 offset += len(readings[0])
+        firsts = {}
         for s in mapped:
             wi, si = s["widx"], s.get("syl_in_word", 0)
+            firsts.setdefault(wi, []).append(
+                (s.get("nucleus", ""), 1 if s["stress"] in (1, 2) else 0))
             if wi in uncertain_words:
                 continue
             prominence = (None if (wi, si) in undecided_stresses else
                           1 if s["stress"] in (1, 2) else 0)
             units.append(Unit(len(units), s.get("nucleus", ""), s["word"], chunk_indices.get(wi, -1),
                               prominence, 1))
+        # The whole readings, per word in line order. The first is the one
+        # `mapped` read (the dictionary's first-listed, or the writer's
+        # declared reading); the rest are the word's other dictionary
+        # readings that differ from it in count or stresses.
+        for wi, word in enumerate(words):
+            first = tuple(firsts.get(wi, ()))
+            readings = [first]
+            seen = {tuple(p for _, p in first)}
+            for alt in alternatives.get(wi, ()) if first else ():
+                shape = tuple(p for _, p in alt)
+                # An empty reading is a piece nothing could read, never a
+                # zero-syllable way of singing the word.
+                if shape and shape not in seen and None not in shape \
+                        and all(all(r) for r in alt_pieces[wi]):
+                    seen.add(shape)
+                    readings.append(alt)
+            if first or wi in unresolved:
+                segments.append(WordReadings(word, chunk_indices.get(wi, -1),
+                                             tuple(readings), unresolved.get(wi)))
+        if not any(len(s.readings) > 1 for s in segments):
+            segments = []
         # The lexicon's Latin-only tokenizer cannot account for an unsupported
         # script. Check every sung lexical chunk against the same reader.
         by_chunk = {ci: wi for wi, ci in chunk_indices.items()}
@@ -599,7 +718,7 @@ def read_line(text, phon=None, strip_parens=True):
         unit_name=unit_name,
         prominence_rule=str(getattr(phon, "prominence_rule", "")),
         language=str(getattr(phon, "language", "")),
-        prominence_refusal=prom_refusal)
+        prominence_refusal=prom_refusal, segments=tuple(segments))
 
 
 _LEX = {}
@@ -1105,6 +1224,9 @@ class LineFit:
                f"  {u.text!r}",
                f"  {u.count} {u.unit_name}s over {_num(self.pulses)} pulses "
                f"{dens}{bound}"]
+        if u.reading:
+            out.append(f"  read as: {u.describe_reading()} (one whole "
+                       f"dictionary reading)")
         for f in self.findings:
             out.append("  " + str(f).replace("\n", "\n  "))
         for r in self.refusals:
@@ -1173,6 +1295,24 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
     """
     units = text if isinstance(text, LineUnits) else \
         read_line(text, phon, strip_parens=strip_parens)
+    # THE ANY-READING RULE (owner ruling 2026-10-01, HANDBOOK.md standing
+    # rule 5), brought to the meter 2026-10-04. Until then a word whose
+    # dictionary readings disagreed (`every`, `hour`, `didn't` on the count;
+    # `somebody`, `because`, `records` on the stresses) left its line
+    # unjudged here -- COUNT_IS_A_LOWER_BOUND or PROMINENCE_UNDECIDED -- and
+    # a 104-line song with no finding standing came back uncertified on 34
+    # such lines. Now the line is judged one whole reading at a time: the
+    # first-listed reading unless it fails the declaration, then the
+    # fewest-units one (`LineUnits.candidates`), and the reading that meets
+    # the declaration, if any does, is the one reported. A word no
+    # dictionary reads is still refused, as the ruling says.
+    if units.disputed:
+        fits = [fit_line(u, placement, phon=phon, subdivision=subdivision,
+                         assume=assume, beatgrid=beatgrid,
+                         line_index=line_index, strip_parens=strip_parens)
+                for u in units.candidates()]
+        return min(fits, key=lambda f: sum(not x.satisfiable
+                                           for x in f.findings))
     fit = LineFit(units=units, placement=placement)
     p, c = placement, placement.cycle
     F, R = fit.findings, fit.refusals
@@ -2103,8 +2243,9 @@ def fit_song(obj, phon=None, subdivision=None, assume=None,
         dp_work = 0
         for p, reading in zip(places, readings):
             slots = max(0, math.ceil(p.end * subdivision.s) - math.ceil(p.start * subdivision.s))
-            if len(reading.units) <= slots:
-                dp_work += (len(reading.units) + 1) * (slots + 1)
+            for whole in reading.candidates():
+                if len(whole.units) <= slots:
+                    dp_work += (len(whole.units) + 1) * (slots + 1)
         guard_expansion(dp_work, "song prominence DP cells", MAX_FIT_DP_CELLS)
     out = SongFit(sections=[SectionFit(name=s["name"], cycle=s["cycle"],
                                        bars=s["bars"], start_bar=s["start_bar"],
