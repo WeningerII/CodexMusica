@@ -171,9 +171,10 @@ villanelle entry and did not act on it.
 IDENTITY BY REFERENCE.** Printed songsters abbreviate a chorus return as
 `Oh, my poor Nelly Gray, &c.` — a stub that POINTS at the chorus instead of
 reproducing it. There are ~~**941**~~ ~~**777 in the 143 English files and 818
-across all languages**~~ **989 in the 1,297 English files and 1,036
+across all languages**~~ **989 in the English files and 1,036
 across all languages** in the staged corpus (RE-MEASURED 2026-08-21
-over the loaded tree, same predicate and same exclusions) (`lyric_harness.is_chorus_stub` over
+over the loaded tree, then 1,297 `eng_` files — a volatile count, not
+restated here: `ls corpus/song/eng_*.txt | wc -l` — same predicate and same exclusions) (`lyric_harness.is_chorus_stub` over
 verse lines only — blank, `#`, `---` and `[` excluded — measured 2026-08-11).
 **The 941 does not reproduce and no rule tried lands on it:** three plausible
 readings give 776 / 777 / 918. Either `is_chorus_stub` tightened after the count
@@ -1893,8 +1894,8 @@ stated.
 > FROM and NOTE. The air lives inside free-text TITLE strings.
 >
 > **~~331~~ 683 reproduces exactly, and it is a substring count.**
-> RE-MEASURED 2026-08-21 over the loaded tree: across the 1,297 English
-> files' 8,667 songs (~~143 files, 5,006 songs~~ on 2026-08-11), the
+> RE-MEASURED 2026-08-21 over the loaded tree: across that tree's 1,297
+> `eng_` files and 8,667 songs (~~143 files, 5,006 songs~~ on 2026-08-11), the
 > number of TITLE strings containing the word `air`
 > case-insensitively is **331** — the rule nobody wrote down. It counts _"The
 > Birds Of The Air"_, _"Thrice toss these oaken ashes in the air"_, _"The
@@ -1960,13 +1961,23 @@ Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
 > **scanned-broadside problem, not a rights problem**. Every one is out of
 > copyright and lives on archive.org / Wikisource / LoC / Levy / Bodleian, all
 > egress-blocked. Also unmined and already on disk: ~~\~250 further Scots
-> songwriters in Rogers's _Modern Scottish Minstrel_,~~ ~86 unclaimed
-> refrain-bearing hymns in the Otterbein Hymnal, and all fourteen Gilbert &
+> songwriters in Rogers's _Modern Scottish Minstrel_,~~ ~~\~86 unclaimed
+> refrain-bearing hymns in the Otterbein Hymnal,~~ and all fourteen Gilbert &
 > Sullivan libretti in GITenberg 808 with ~349 machine-separable number headings.
 > **STALE NOTE CORRECTED 2026-10-04: Rogers's _Minstrel_ is no longer
 > unmined** — 244 `corpus/song/eng_celtic_msm_*.txt` files are staged from it
-> (GITenberg 22515). The Otterbein and Gilbert & Sullivan halves were not
-> re-checked here.
+> (GITenberg 22515). The Gilbert & Sullivan half was not re-checked here.
+> **OTTERBEIN STAGED 2026-10-04.** Re-measured against the cited bytes (both
+> pinned md5s reproduce): 548 numbered hymns, 113 printing `Cho.--` or
+> `Ref.--`, of which 31 were already staged (one, Phoebe Cary's `One sweetly
+> solemn thought`, from another printing, so it is not staged twice) and 82
+> held no corpus file. 73 of the 82 are now staged — 66 in 47 new
+> `eng_hymn_*` files, 7 appended to the Bonar, Faber, Root, Rankin and Cooper
+> files under `--- SOURCE: PG16455` — and the other 9 are held out because the
+> source signs them to nobody (`Anon.`, `Unknown.`, a hymn book, or no
+> signature at all); `data/sources.tsv`'s Otterbein row names all ten. The text is not in the repository;
+> the cited GITenberg URL serves it. `quality/RESULTS_OTTERBEIN_M25_2026-10-04.md`
+> records the batch.
 
 ### K-1a · The printed record is BIASED AGAINST the chorus `OPEN` — sized 2026-08-21, and the concentration is WORSE than recorded
 **SIZED 2026-08-21 (re-measured under the shipped rule).** Corpus totals:
@@ -2050,8 +2061,12 @@ MISSING half was never told.**
 `negative_control.py`'s docstring §2 said _"143 files, one author each"_ while
 its own `THE RUN` block 65 lines below said 712 files over 9 groups. The
 "one author each" half was true only by filename convention — **exactly 5 of
-the 1,297 English files carry a `--- AUTHOR:` line at all** — so the docstring
-asserted a per-file property 1,292 of those files do not state. (Said
+the 1,297 `eng_` files of that tree carried a `--- AUTHOR:` line at all** — so the docstring
+asserted a per-file property 1,292 of those files did not state. (REPINNED
+2026-10-04: 57 `eng_` files carry one now — the Otterbein load of that date
+gives every item it staged a `--- AUTHOR:` line quoting the printed signature,
+52 files — and most files still state no per-item author, so the argument
+stands.) (Said
 positively on purpose: `CORPUS_MARKER_ABSENT` reads _"no `--- X:` marker"_ as
 a claim that the marker is unused ANYWHERE under `corpus/song/`, which is a
 different question and is false here — 10,616 occurrences, nearly all `ltc_`.

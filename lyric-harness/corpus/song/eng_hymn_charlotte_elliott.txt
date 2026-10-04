@@ -1,0 +1,66 @@
+# author: Charlotte Elliott
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, only a signature under each hymn, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the hymnal's origin (Dayton, Ohio) would be a guess. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# function: hymn
+# source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.txt md5 6dcb1e67cd2f7a53a6b29cc3a78f5789 (staged after CRLF->LF newline normalization, verified 2026-08-19) as 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
+# licence: public domain - Gutenberg; edition published 1892
+# attribution: every item carries its own `--- AUTHOR:` line quoting the signature the source prints under its last stanza; the name above is that signature without honorific, degree or date.
+# structure: [VERSE n] a stanza; [REFRAIN] the stanza the source labels `Cho.--` or `Ref.--`, printed once after the verse it follows. Not staged: the hymn number, tune name and metre heading, the italic topic line and its cross-reference number, stanza numerals, the signature line (quoted in `--- AUTHOR:`), and indentation.
+# staged: 2026-10-04, Pass 1 same-gate top-up (quality/CORPUS_LOADING_PROTOCOL.md): the Otterbein hymns that print a refrain and that no corpus file held
+# songs: 2
+
+--- TITLE: O holy Savior! Friend unseen
+--- AUTHOR: Charlotte Elliott. — the source's own signature under the last stanza, hymn 279, verbatim
+[VERSE 1]
+O holy Savior! Friend unseen,
+Since on thine arm thou bid'st me lean,
+Help me, throughout life's changing scene,
+By faith to cling to thee!
+[REFRAIN]
+Help me cling to thee, Savior,
+Help me cling to thee!
+Help me, throughout life's changing scene,
+By faith to cling to thee!
+[VERSE 2]
+Without a murmur I dismiss
+My former dreams of earthly bliss;
+My joy, my recompense be this,
+Each hour to cling to thee!
+[VERSE 3]
+Though faith and hope are often tried,
+I ask not, need not, aught beside;
+So safe, so calm, so satisfied,
+The soul that clings to thee!
+
+--- TITLE: O thou, the contrite sinner's Friend
+--- AUTHOR: Charlotte Elliott. — the source's own signature under the last stanza, hymn 354, verbatim
+[VERSE 1]
+O thou, the contrite sinner's Friend,
+Who loving, lov'st them to the end,
+On this alone my hopes depend
+That thou wilt plead for me.
+[REFRAIN]
+O Savior, plead for me,
+O Savior, plead for me,
+On this alone my hopes depend
+That thou wilt plead for me.
+[VERSE 2]
+When weary in the Christian race,
+Far off appears my resting place,
+And, fainting, I mistrust thy grace,
+Then, Savior, plead for me.
+[VERSE 3]
+When I have erred and gone astray,
+Afar from thine and wisdom's way,
+And see no glimmering, guiding ray,
+Still, Savior, plead for me.
+[VERSE 4]
+When Satan, by my sins made bold,
+Strives from thy cross to loose my hold,
+Then with thy pitying arms enfold,
+And plead, oh, plead for me!
+[VERSE 5]
+And when my dying hour draws near,
+Darkened with anguish, guilt and fear,
+Then to my fainting sight appear,
+Pleading in heaven for me.

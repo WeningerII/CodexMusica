@@ -1,0 +1,89 @@
+# author: M. E. Servoss
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, only a signature under each hymn, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the hymnal's origin (Dayton, Ohio) would be a guess. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# function: hymn
+# source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.txt md5 6dcb1e67cd2f7a53a6b29cc3a78f5789 (staged after CRLF->LF newline normalization, verified 2026-08-19) as 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
+# licence: public domain - Gutenberg; edition published 1892
+# attribution: every item carries its own `--- AUTHOR:` line quoting the signature the source prints under its last stanza; the name above is that signature without honorific, degree or date.
+# structure: [VERSE n] a stanza; [REFRAIN] the stanza the source labels `Cho.--` or `Ref.--`, printed once after the verse it follows. Not staged: the hymn number, tune name and metre heading, the italic topic line and its cross-reference number, stanza numerals, the signature line (quoted in `--- AUTHOR:`), and indentation.
+# staged: 2026-10-04, Pass 1 same-gate top-up (quality/CORPUS_LOADING_PROTOCOL.md): the Otterbein hymns that print a refrain and that no corpus file held
+# songs: 3
+
+--- TITLE: Lift up the Gates of Praise
+--- AUTHOR: M. E. Servoss. — the source's own signature under the last stanza, hymn 22, verbatim
+[VERSE 1]
+Lift up the Gates of Praise,
+That we may enter in,
+And o'er salvation's walls proclaim
+That Christ redeems from sin.
+[REFRAIN]
+The stars may praise the hand
+That decks the sky above,
+But man alone can tell the pow'r
+Of Christ's redeeming love.
+[VERSE 2]
+God's works reveal his might,
+His majesty and grace;
+But not the tender Father's love
+That saves a dying race.
+[VERSE 3]
+Then let the voice of praise
+To heavenly courts ascend,
+Till with the songs the angels sing
+Our hallelujahs blend.
+[VERSE 4]
+To him that hath redeemed
+Our souls from sin's dark maze;
+The Hope and Savior of mankind,
+Be everlasting praise.
+
+--- TITLE: What means this glorious radiance
+--- AUTHOR: M. E. Servoss. — the source's own signature under the last stanza, hymn 103, verbatim
+[VERSE 1]
+What means this glorious radiance
+Across Judea's plain?
+Those white-winged angels singing
+In such exultant strain?
+[REFRAIN]
+The King of glory cometh,
+Earth's broken hearts to bind,
+And God's salvation morning
+Hath dawned for all mankind.
+[VERSE 2]
+What means this wondrous story
+The holy angels tell?
+Of one who reigned in heaven,
+And now on earth would dwell?
+[VERSE 3]
+Why bend these Eastern sages
+To one of lowly birth?
+What means this heav'nly message
+Of love and peace on earth?
+[VERSE 4]
+Ye wand'rers in earth's darkness,
+On ocean deep and land,
+Hail! hail! the joyful tidings,
+The morning is at hand.
+
+--- TITLE: The door of salvation is open wide
+--- AUTHOR: M. E. Servoss. — the source's own signature under the last stanza, hymn 231, verbatim
+[VERSE 1]
+The door of salvation is open wide,
+And Jesus invites you to come;
+While mercy and pardon await within,
+Oh, enter while yet there is room.
+[REFRAIN]
+When the door once is shut,
+To entreat will be vain;
+'Twill never, no, never
+Be opened again.
+[VERSE 2]
+The feast of the gospel awaits its guests,
+The day and the hour are at hand;
+Ye hungry and perishing souls, draw near;
+Oh, why do you doubtingly stand?
+[VERSE 3]
+Dear friends, if you ever should stand without,
+And plead for admittance in vain,
+You'd think of the Savior's entreating voice,
+And long for this moment again.

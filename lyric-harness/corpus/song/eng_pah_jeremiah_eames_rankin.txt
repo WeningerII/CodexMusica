@@ -8,7 +8,10 @@
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 3
+# source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.txt md5 6dcb1e67cd2f7a53a6b29cc3a78f5789 (staged after CRLF->LF newline normalization, verified 2026-08-19) as 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
+# licence: public domain - Gutenberg; edition published 1892
+# staged-also: 2026-10-04, Pass 1 same-gate top-up (quality/CORPUS_LOADING_PROTOCOL.md): the Otterbein hymns that print a refrain and that no corpus file held; each carries `--- FUNCTION: hymn` (hymnal membership is the per-song evidence) and `--- SOURCE: PG16455`
+# songs: 6
 
 --- TITLE: THE WORD OF GOD TO LEYDEN CAME
 --- SOURCE: PG47476
@@ -154,3 +157,93 @@ We still maun luve the Giver mair,
 An' see Him in the given;
 An' sae she'll lead us up to Him,
 Our babie straight frae Heaven.
+
+--- TITLE: God be with you till we meet again
+--- FUNCTION: hymn
+--- SOURCE: PG16455
+--- AUTHOR: J.E. Rankin D.D. — the source's own signature under the last stanza, hymn 61, verbatim
+[VERSE 1]
+God be with you till we meet again,
+By his counsels guide, uphold you,
+With his sheep securely fold you,
+God be with you till we meet again
+[REFRAIN]
+Till we meet, till we meet,
+Till we meet at Jesus' feet;
+Till we meet, till we meet,
+God be with you till we meet again.
+[VERSE 2]
+God be with you till we meet again,
+'Neath his wings securely hide you,
+Daily manna still provide you,
+God be with you till we meet again.
+[VERSE 3]
+God be with you till we meet again,
+When life's perils thick confound you,
+Put his arms unfailing round you,
+God be with you till we meet again.
+[VERSE 4]
+God be with you till we meet again,
+Keep love's banner floating o'er you,
+Smite death's threat'ning wave before you,
+God be with you till we meet again.
+
+--- TITLE: So tender, so precious
+--- FUNCTION: hymn
+--- SOURCE: PG16455
+--- AUTHOR: J.E. Rankin, D.D. — the source's own signature under the last stanza, hymn 322, verbatim
+[VERSE 1]
+So tender, so precious.
+My Savior to me;
+So true, and so gracious,
+I've found him to be.
+[REFRAIN]
+How can I but love him?
+But love him, but love him?
+There's no friend above him,
+Poor sinner, for thee.
+[VERSE 2]
+So patient, so kindly
+Toward all of my ways;
+I blunder so blindly,
+He love still repays.
+[VERSE 3]
+Of all friends the fairest
+And truest is he;
+His love is the rarest,
+That ever can be.
+[VERSE 4]
+His beauty, tho' bleeding
+And circled with thorns,
+Is then most exceeding;
+For grief him adorns.
+
+--- TITLE: Are you weary, are you heavy-hearted?
+--- FUNCTION: hymn
+--- SOURCE: PG16455
+--- AUTHOR: J. E. Rankin, D. D. — the source's own signature under the last stanza, hymn 399, verbatim
+[VERSE 1]
+Are you weary, are you heavy-hearted?
+Tell it to Jesus.
+Are you grieving over joys departed?
+Tell it to Jesus alone.
+[REFRAIN]
+Tell it to Jesus, tell it to Jesus,
+He is a Friend that's well known;
+You have no other such a friend or brother!
+Tell it to Jesus alone.
+[VERSE 2]
+Do the tears flow down your cheeks unbidden?
+Tell it to Jesus.
+Have you sins that to man's eye are hidden?
+Tell it to Jesus alone.
+[VERSE 3]
+Do you fear the gath'ring clouds of sorrow?
+Tell it to Jesus.
+Are you anxious what shall be to-morrow?
+Tell it to Jesus alone.
+[VERSE 4]
+Are you troubled at the tho't of dying?
+Tell it to Jesus.
+For Christ's coming kingdom are you sighing?
+Tell it to Jesus alone.
