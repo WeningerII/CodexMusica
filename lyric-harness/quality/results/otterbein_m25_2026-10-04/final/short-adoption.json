@@ -1,0 +1,88 @@
+{
+  "draws": 2000,
+  "files": 728,
+  "held_out_fpr": {
+    "ANY": [
+      15.22,
+      11.36,
+      22.22
+    ],
+    "anaphora": [
+      3.84,
+      3.22,
+      7.35
+    ],
+    "cliche": [
+      4.51,
+      3.96,
+      5.08
+    ],
+    "cv": [
+      4.85,
+      3.37,
+      6.62
+    ],
+    "fwr": [
+      4.67,
+      2.78,
+      7.72
+    ],
+    "mattr": [
+      4.79,
+      1.94,
+      9.95
+    ],
+    "predictability": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "hi": 150,
+  "items": 3710,
+  "lo": 50,
+  "period": {
+    "anaphora": [
+      0.169,
+      0.0007
+    ],
+    "cv": [
+      0.118,
+      0.0193
+    ],
+    "fwr": [
+      0.13,
+      0.0108
+    ],
+    "mattr": [
+      -0.237,
+      0.0001
+    ],
+    "predictability": [
+      0.044,
+      0.3986
+    ]
+  },
+  "profile": "short",
+  "provenance": {
+    "comparator_fingerprint": "d8f5a5b15e172aa574eb4a1f5b830ec61b22771a6cfdf9c8bf691103de4aba8f",
+    "corpus_sha256": "b0d30dfcaa014a93b6d4d47e69aa2e9fa9f19c97653310217946c01af24332b8",
+    "nltk": "3.10.3",
+    "population_fingerprint": "73efe9cd7528670b3802c97c24c38376f49d584fedf47efca5e382af09568c8d",
+    "question_sha256": "d53e59446e1a8ac79e0fbacce1d57c090dd77ba3013ec280a33143c5e159af7f",
+    "tagger_sha256": "0189b5b3824b9c61b131d017c86749201a8e3962e089a67a811548aefcd195a3",
+    "version": 1,
+    "with_predictability": true
+  },
+  "sampled": null,
+  "seeds": 200,
+  "thresholds": {
+    "anaphora": 0.375,
+    "cv": 0.09517672242540683,
+    "fwr": 0.4944499320903815,
+    "mattr": 0.6648475073313783,
+    "predictability": 1.0
+  },
+  "version": 1,
+  "with_predictability": true
+}
