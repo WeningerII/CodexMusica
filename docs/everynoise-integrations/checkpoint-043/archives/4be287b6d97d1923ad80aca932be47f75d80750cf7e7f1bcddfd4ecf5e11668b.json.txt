@@ -1,0 +1,295 @@
+{
+  "entries": [
+    {
+      "id": "jain_bhajan",
+      "source_label": "jain bhajan",
+      "source_url": "https://everynoise.com/engenremap-jainbhajan.html",
+      "suggested_id": "jain_bhajan",
+      "allocation_ordinal": 3554,
+      "allocation_group_id": "143",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "jain_bhajan",
+        "name": "Jain bhajan",
+        "family": "global",
+        "lineage": "Jain bhajan, also called stavan, praises the Jinas and expresses Jain devotional ideals. Regional languages and folk-derived melodies connect temple, domestic and public singing, while modern recordings also draw on art-music and popular arrangements.",
+        "instruments": [
+          "voice",
+          "tabla",
+          "tanpura"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi",
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "four_string_classical",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        }
+      },
+      "extras": {
+        "parent": "praiseSong.indianSubcontinent",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": -1,
+          "harm": -1,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "intensity": 0,
+          "timbre": 0,
+          "cyclicity": 0
+        },
+        "description": "Devotional singing gives the text a clear melodic shape, with repetition and expressive phrasing supporting contemplation. A recorded art-music branch uses tabla and a sustained drone, alongside communal traditions with different accompaniment.",
+        "exemplars": [],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        22.3,
+        71.2,
+        "Gujarat",
+        "South Asia"
+      ],
+      "geo_rationale": "Approximate Gujarat land anchor for the documented western Indian Jain hymn traditions and Gujarati repertoire; not a specific session or claim of exclusive origin.",
+      "model_policy": "Representative contemporary recorded Jain devotional branch. The scholarly primary explicitly distinguishes regional folk-based Jain hymn practice from Sikh kirtan and documents modern Jain recordings with singing, drone and tabla. A four-string plucked tanpura is an authored physical realization of that positive drone role, not a source identification of an exact recording. Small-note-group sung phrasing, a single accompanied lead, copper/shisham tabla and acoustic recital setting are editable defaults; no male-only or universal classical technique is imposed. This is genre practice, not a stripped named master or whole temple ceremony. All physical and vocal controls retained.",
+      "neighbor_distinction": "Full existing bhajan explicitly defines Hindu deity-praise and associated congregational practice; kirtan names Hindu/Sikh branches and sikh_shabad_kirtan is Gurbani-centered. Jain bhajan shares devotional-song practices but praises Jinas and has its own theological, institutional and regional hymn traditions, positively differentiated in the scholarly comparison. No current or queued Jain bhajan/stavan duplicate was found. This is a religious repertoire boundary, not a new name for the Hindu bhajan example.",
+      "classification_evidence": "Scholarly research identifies Jain bhajan/stavan as praise of the Jinas, distinct from Hindu religious identity despite shared Indic bhakti history. The existing praiseSong.indianSubcontinent node explicitly includes Jain praise and the voice, tabla and tambura ensemble. It therefore supplies the representative primary taxonomy without a Hindu cross-reference. Creator map retrieval limitation remains unchanged.",
+      "source_scope_limitation": "Modern recorded singing/drone/tabla practice selected within a wider Jain hymn field. No exhaustive named recording or temple ensemble claimed. Harmonium, amplified popular arrangements and communal singing exist in the broader discussion but are not mandatory to this branch.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Jain devotional singing; representative single lead, not universally solo or gendered."
+        },
+        {
+          "instrument": "tabla",
+          "role": "Explicitly documented modern recorded accompaniment; construction defaults authored."
+        },
+        {
+          "instrument": "tanpura",
+          "role": "Authored conventional plucked realization of the explicitly documented drone; exact source instrument not asserted."
+        }
+      ],
+      "vocal_count_audit": {
+        "scope": "Single accompanied lead is representative, not a measured headcount; communal and other vocal arrangements remain part of the genre."
+      },
+      "sources": [
+        {
+          "url": "https://www.tandfonline.com/doi/full/10.1080/17448727.2019.1565304",
+          "kind": "scholarly comparative research",
+          "retrieval": "turn14109search0 full indexed text; direct14110view1 later403",
+          "support": "Jain devotional field, regional hymn history and contemporary recorded voice/drone/tabla branch."
+        },
+        {
+          "url": "https://www.tandfonline.com/doi/full/10.1080/17448727.2019.1601858",
+          "kind": "scholarly research introduction",
+          "retrieval": "turn14109search6",
+          "support": "Explicit Jain stavan/bhajan terminology and praise of Jinas."
+        }
+      ],
+      "source_retrieval_caveat": "Full indexed scholarly text freshly retrieved and retained raw; direct publisher and creator map later403. No audio audition, named-master reconstruction or fresh creator-artist membership asserted. Historical photo bytes inherited and fresh Commons rights14103view0 preserved.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "jain_bhajan",
+          "name": "Jain bhajan",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context; not Jain ritual equipment depiction",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn14103view0 confirms Commons CC BY2.5 and credited crop; historical023 byte/visual receipt inherited.",
+          "fresh_review_ref": "turn14103view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn14103view0 confirms Commons CC BY2.5 and credited crop; historical023 byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn14103view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative contemporary recorded Jain devotional branch. The scholarly primary explicitly distinguishes regional folk-based Jain hymn practice from Sikh kirtan and documents modern Jain recordings with singing, drone and tabla. A four-string plucked tanpura is an authored physical realization of that positive drone role, not a source identification of an exact recording. Small-note-group sung phrasing, a single accompanied lead, copper/shisham tabla and acoustic recital setting are editable defaults; no male-only or universal classical technique is imposed. This is genre practice, not a stripped named master or whole temple ceremony. All physical and vocal controls retained."
+        },
+        {
+          "instrument": "tabla",
+          "parts": {
+            "tabla_dayan": "shisham_dayan",
+            "tabla_bayan": "copper_bayan",
+            "tabla_syahi": "aged_syahi"
+          },
+          "policy": "Representative contemporary recorded Jain devotional branch. The scholarly primary explicitly distinguishes regional folk-based Jain hymn practice from Sikh kirtan and documents modern Jain recordings with singing, drone and tabla. A four-string plucked tanpura is an authored physical realization of that positive drone role, not a source identification of an exact recording. Small-note-group sung phrasing, a single accompanied lead, copper/shisham tabla and acoustic recital setting are editable defaults; no male-only or universal classical technique is imposed. This is genre practice, not a stripped named master or whole temple ceremony. All physical and vocal controls retained."
+        },
+        {
+          "instrument": "tanpura",
+          "parts": {
+            "plucked_traditional_technique": "plucked_drone_modal",
+            "tanpura_size": "female_size",
+            "tanpura_jawari": "curved_jawari",
+            "tanpura_strings": "four_string_classical",
+            "tanpura_string_material": "tanpura_bronze_steel",
+            "tanpura_body_wood": "tanpura_gourd_body"
+          },
+          "policy": "Representative contemporary recorded Jain devotional branch. The scholarly primary explicitly distinguishes regional folk-based Jain hymn practice from Sikh kirtan and documents modern Jain recordings with singing, drone and tabla. A four-string plucked tanpura is an authored physical realization of that positive drone role, not a source identification of an exact recording. Small-note-group sung phrasing, a single accompanied lead, copper/shisham tabla and acoustic recital setting are editable defaults; no male-only or universal classical technique is imposed. This is genre practice, not a stripped named master or whole temple ceremony. All physical and vocal controls retained."
+        }
+      ],
+      "signature_tokens": [],
+      "taxonomy_repair_evidence": {
+        "reason": "Jain praise of Jinas fits existing South Asian praise node, which explicitly includes Jain and voice/tabla/tambura branch. Move valid positive praise relation to primary taxonomy; remove erroneous Hindu classification and do not use broad multifaith branch as an instruction to blend unrelated faith repertoires. Scholarly source distinguishes Jain virtues-based praise despite historical Indic relations.",
+        "original_packet": "/tmp/batch041/qualified-frozen194.json",
+        "original_packet_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
+        "before_parent": "ritualDevotional",
+        "before_crossRefs": [
+          "ritualDevotional.hindu",
+          "praiseSong.indianSubcontinent"
+        ],
+        "scope": "Only taxonomy parent/crossRefs and corresponding classification rationale/provenance changed. Source facts, instruments, protected controls, photo, tuning, room and dependencies preserved.",
+        "prior_classification_evidence": "Scholarly primary explicitly identifies Jain hymn/bhakti practice and another journal introduction states Jain stavan is also called bhajan. Broad ritualDevotional avoids falsely classifying Jain practice as Hindu or Sikh. Creator map currently403; no fresh creator membership claim is made."
+      },
+      "axis_review_evidence": {
+        "scope": "One source-led two-axis correction, selected before running the engine; no parameter search or global-regression claim.",
+        "prior_packet": "/workspace/genre-continuation/repairs-next-2765/review024/api-taxonomy-followups/candidates.json",
+        "prior_packet_sha256": "fd974befbd4255b685644c0a772ceae70c3e950184ce083821c6f3aba485a239",
+        "before_axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1,
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "intensity": 0,
+          "timbre": 0,
+          "cyclicity": 0
+        },
+        "axis_contract": "references/03_rooms_chains_tunings.js AXIS_DEFINITIONS on original453cd: harm negative=modal/drone-tonic; soundTech negative=acoustic, positive=processed/synthesized. Recording distribution alone does not imply synthesis or processed timbre.",
+        "reasons": {
+          "harm": "-1 conservatively characterizes the explicitly selected drone-supported vocal branch. It does not impose universal raga, interval ratios, or claim all Jain music excludes other harmony.",
+          "soundTech": "-1 characterizes the selected acoustic voice/tabla/plucked-tanpura rendition with protected unprocessed voice. Recorded publication and authored hall reverberation do not make it synthesized; broader popular-electronic Jain arrangements remain outside this chosen branch."
+        },
+        "remaining_axes": "voice2 and percussion1 already match sung lead and metric tabla. Pitch/ornament/meter/transmission/improvisation/intensity/timbre/cyclicity/density remain0 where no branch-specific measured or necessary categorical strength is established. No devotional=slow or tabla=unvarying grid assumption.",
+        "fresh_primary": "MaxPlanck author-deposited complete17page comparative article15084view0, plus publisher indexed15083search0 confirms recorded art-music voice/drone/tabla branch.",
+        "primary_url": "https://pure.mpg.de/pubman/item/item_3018389_4/component/file_3018390/vanderLinden_2018_SongsToTheJinas.pdf",
+        "preservation": "All other tradition/extras fields, photos, sources, identity, taxonomy and physical pins preserved. This corrects musical classification, not religious matching by ad hoc numeric separation."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice008-fotbollslatar-metadata-corrected.json",
+  "sha256": "cdd019679e598c12f028d645be43802058a61888afb52a11cba5218e2017e055",
+  "packet_sha256": "cdd019679e598c12f028d645be43802058a61888afb52a11cba5218e2017e055",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "fotbollslatar",
+  "immutable_allocation": {
+    "source_label": "fotbollslatar",
+    "source_url": "https://everynoise.com/engenremap-fotbollslatar.html",
+    "suggested_id": "fotbollslatar",
+    "allocation_ordinal": 3309,
+    "allocation_group_id": "133"
+  },
+  "source_review": {
+    "finding": "Fresh federation1974 history turn15231view0 confirms songwriter/piano and players singing; current commissioning turn15244view0 and Sandgren original research turn15231view1 distinguish official club/national songs from supporter chants. Full creator corpus turn15249view1 independently corroborates Swedish club network. Compact voice/piano is candid representative arrangement, not orchestra omitted from a claimed master.",
+    "urls": [
+      "https://www.svenskfotboll.se/nyheter/landslag/2024/07/50-ar-sedan-1974/",
+      "https://www.svenskfotboll.se/nyheter/landslag/2023/06/vm-laten-2023/",
+      "https://journals.lub.lu.se/rig/article/download/10428/9426/25281",
+      "https://embed.spotify.com/?uri=spotify%3Aplaylist%3A2pmUHfzCVyrWGCUkmF4xah"
+    ]
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "football",
+      "fan_chant",
+      "swedish_pop"
+    ],
+    "finding": "Full Football already includes unaccompanied and accompanied supporter repertoires. Swedish commissioned tournament/club-song circulation is a positive institutional subset; not a mere translated word or different piano exemplar. Fan Chant also spans other sports and rhythmic slogans."
+  },
+  "source_limits": [
+    "General representative genre branch, not exact recording reconstruction.",
+    "Only photo matched_label changed from independently executed runtime input; all music/source/rights unchanged."
+  ],
+  "representative_practice": "Representative song-and-piano arrangement of the Swedish football-song field, not a transcription of the1974 national-team recording. SvFF positively documents composer/pianist \u00c5by and singing players; earlier retained evidence also names orchestra in that recording, which remains acknowledged and is not claimed reproduced by this compact default. The field includes instrumental bands and electronic productions, not mandatory roles in every rendition. Authored upright, block-chord accompaniment, a single connected syllabic melody and intimate parlor capture provide an editable songwriting rendition; neither solo staffing nor parlor acoustics describe the source recording. Functional-harmonic verse\u2013chorus\u2013bridge form is an authored arrangement choice, not a measured structure of every chant or song.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 20,
+    "pinned_parts": 20,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Wabi-rustic lexicon means plain soft acoustic aesthetic, compatible with authored intimate parlor songwriting rendition; continuous syllabic singing remains melodic, upright block chords retain accompaniment. No crowd count, orchestra or stadium capture claim.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/fotboll-runtime.json",
+    "runtime_sha256": "1a0262e2d5d4501bc46de8cad5eda082fd4c2cc74849788e1ce83b078284318e"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes.",
+  "atlas_review": {
+    "status": "PASS",
+    "policy": "scripts/_atlas_regions.js",
+    "geo": [
+      59.3293,
+      18.0686,
+      "Stockholm",
+      "Europe"
+    ],
+    "derivative_diff": "Only geo[3] Northern/Southern Europe to canonical Europe after approved photo-label derivative; all other fields identical."
+  }
+}

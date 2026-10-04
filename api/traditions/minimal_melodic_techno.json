@@ -1,0 +1,50 @@
+{
+  "id": "minimal_melodic_techno",
+  "name": "Minimal Melodic Techno",
+  "family": "electronic",
+  "lineage": "Minimal melodic techno brings expressive melodic development into the economical patterns of European minimal electronics. The 2000s Traum and Border Community networks and the later Hungry Music collective connect restrained rhythmic frameworks with distinctive melodic voices.",
+  "recipe": "classic mid-2000s minimal melodic techno, electronic Dance, techno branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 121,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "minimal_melodic_techno"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

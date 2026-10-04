@@ -1,0 +1,69 @@
+=== Documentation verification ===
+(183 active docs scanned: *.md + llms.txt + index.html + atlas.html; CHANGELOG/tests + codex.html excluded)
+
+[NUMERIC CLAIMS]  (22 count types)
+  ✗ AGENTS.md:4 — claims 6746 traditions (actual: 6765)
+      "**recipes** for **6746 recorded-music traditions** and data for **1653 instruments**."
+  ✗ AGENTS.md:22 — claims 6746 traditions (actual: 6765)
+      "**Fastest path — one fetch for everything:** `…/api/all.json` returns all 6746"
+  ✗ AGENTS.md:4 — claims 1653 instruments (actual: 1658)
+      "**recipes** for **6746 recorded-music traditions** and data for **1653 instruments**."
+  ✗ README.md:6 — claims 6746 traditions (actual: 6765)
+      "**6,746 traditions** and **1653 instruments** (with per-part variant decomposition),"
+  ✗ README.md:6 — claims 1653 instruments (actual: 1658)
+      "**6,746 traditions** and **1653 instruments** (with per-part variant decomposition),"
+  ✗ SKILL.md:3 — claims 6746 traditions (actual: 6765)
+      "description: Query, compose, validate, and mutate the Codex Musica dataset — 6746 recorded-music traditions (in a 317-no"
+  ✗ SKILL.md:857 — claims 6746 traditions (actual: 6765)
+      "(1653 instruments / 6746 traditions — a lot of tokens)."
+  ✗ SKILL.md:3 — claims 1653 instruments (actual: 1658)
+      "description: Query, compose, validate, and mutate the Codex Musica dataset — 6746 recorded-music traditions (in a 317-no"
+  ✗ SKILL.md:857 — claims 1653 instruments (actual: 1658)
+      "(1653 instruments / 6746 traditions — a lot of tokens)."
+  ✗ SKILL.md:60 — claims 6746 traditions_table (actual: 6765)
+      "| traditions | 6746 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |"
+  ✗ SKILL.md:61 — claims 6746 tradition_extras_table (actual: 6765)
+      "| tradition extras | 6746 | keyed by tradition id | `TRADITION_EXTRAS` (object) |"
+  ✗ SKILL.md:52 — claims 1653 instruments_table (actual: 1658)
+      "| instruments | 1653 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |"
+  ✗ SKILL.md:182 — claims 1653 insts_short (actual: 1658)
+      "# → loaded: 1653 insts, 6746 trads"
+  ✗ SKILL.md:182 — claims 6746 trads_short (actual: 6765)
+      "# → loaded: 1653 insts, 6746 trads"
+  ✗ SKILL.md:133 — claims 1485 global_family_count (actual: 1488)
+      "pop_rock`; `global` dominates at 1485/6746) — a top-level genre bucket, NOT an"
+  ✗ SKILL.md:133 — claims 6746 global_family_total (actual: 6765)
+      "pop_rock`; `global` dominates at 1485/6746) — a top-level genre bucket, NOT an"
+  ✗ docs/connector-directory-submission.md:47 — claims 6746 traditions (actual: 6765)
+      "structured catalog spanning 6746 traditions and 1653 instruments, plus a"
+  ✗ docs/connector-directory-submission.md:54 — claims 6746 traditions (actual: 6765)
+      "catalog places **6746 recorded-music traditions** in a 13-dimensional parameter"
+  ✗ docs/connector-directory-submission.md:47 — claims 1653 instruments (actual: 1658)
+      "structured catalog spanning 6746 traditions and 1653 instruments, plus a"
+  ✗ docs/connector-directory-submission.md:55 — claims 1653 instruments (actual: 1658)
+      "space alongside **1653 instruments** (decomposed into per-part variants), **256"
+  ✗ docs/connector.md:11 — claims 6746 traditions (actual: 6765)
+      "- **Catalog:** 6746 traditions · 1653 instruments (with per-part variants) ·"
+  ✗ docs/connector.md:11 — claims 1653 instruments (actual: 1658)
+      "- **Catalog:** 6746 traditions · 1653 instruments (with per-part variants) ·"
+  ✗ index.html:9 — claims 6746 traditions (actual: 6765)
+      "content="Codex Musica — recording recipes for 6746 music traditions and 1653 instruments. Human app at codex.html; machi"
+  ✗ index.html:68 — claims 6746 traditions (actual: 6765)
+      "<p>Recording recipes for <strong>6746 music traditions</strong> and 1653 instruments.</p>"
+  ✗ index.html:9 — claims 1653 instruments (actual: 1658)
+      "content="Codex Musica — recording recipes for 6746 music traditions and 1653 instruments. Human app at codex.html; machi"
+  ✗ index.html:68 — claims 1653 instruments (actual: 1658)
+      "<p>Recording recipes for <strong>6746 music traditions</strong> and 1653 instruments.</p>"
+  ✗ atlas.html:9 — claims 6746 traditions (actual: 6765)
+      "content="An atlas of 6746 music traditions, coloured by the catalog's own taxonomy rather than by geography. Every pin o"
+  ✗ atlas.html:22 — claims 6746 traditions (actual: 6765)
+      "<meta property="og:description" content="6746 music traditions, mapped by sound rather than by border." />"
+  ✗ package.json:5 — claims 6746 traditions_adj (actual: 6765)
+      ""description": "Compressed song-recipe descriptor engine over a 6746-tradition / 1653-instrument music codex. Generates "
+  ✗ package.json:5 — claims 1653 instruments_adj (actual: 1658)
+      ""description": "Compressed song-recipe descriptor engine over a 6746-tradition / 1653-instrument music codex. Generates "
+
+[SCRIPT REFERENCES]  (95 unique refs across active docs)
+  ✓ All script refs resolve to existing files.
+
+FAIL — 30 drift issue(s) above.

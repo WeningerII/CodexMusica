@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-1630.json",
+  "sha256": "c1ee4c7ec3432565e0d9521e10d262b911cdd0bf9e31147b1e2f59ffc197c1fc",
+  "packet_sha256": "c1ee4c7ec3432565e0d9521e10d262b911cdd0bf9e31147b1e2f59ffc197c1fc",
+  "baseline_head": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "id": "classic_bulgarian_pop",
+  "immutable_allocation": {
+    "source_label": "classic bulgarian pop",
+    "source_url": "https://everynoise.com/engenremap-classicbulgarianpop.html",
+    "suggested_id": "classic_bulgarian_pop",
+    "allocation_ordinal": 1630,
+    "allocation_group_id": "066"
+  },
+  "source_review": {
+    "finding": "Fresh BNR archive turn15201view2/turn15210view2 documents national estrada institutions, Golden Orpheus and Neykova singing/guitar practice. Independent BNR institutional tour history turn15207search2 defines Bulgarian estrada as mid-20th-century through 1990s entertainment/dance popular music. Two older BNR history URLs failed direct retrieval; no fresh access claimed.",
+    "urls": [
+      "https://old-news.bnr.bg/radiobulgaria/post/100234577/radioistoriya-na-bylgarskata-zabavna-pesen",
+      "https://archives.bnr.bg/archives/post/402699/maria_neykova",
+      "https://old-news.bnr.bg/radiobulgaria/post/100235498/radioistoriya-na-bylgarskata-estradna-pesen-4"
+    ],
+    "independent_additional_primary": "https://old-news.bnr.bg/radiobulgaria/post/101852359/lato-s-balgarskata-estradna-pesen?page_1_3=3"
+  },
+  "category_review": {
+    "status": "PASS",
+    "read_actual_neighbors": [
+      "bulgarian_pop",
+      "russian_estrada"
+    ],
+    "finding": "Full Bulgarian Pop is a broad national melodic popular-song field, not only its contemporary exemplar. Historic Bulgarian estrada is positively institutionally bounded by national radio, conservatory and festival networks. Russian Estrada includes Soviet/post-Soviet practice but is a distinct language/institutional field; overlap in arrangements is candid. No separate preexisting Bulgarian estrada row was found."
+  },
+  "source_limits": [
+    "Representative genre branch, not exact recording personnel, gear or universal headcount."
+  ],
+  "representative_practice": "Representative intimate singer-and-guitar branch supported by the national broadcaster’s archival artist testimony about guitar and singing, alongside positively documented larger orchestral settings. This does not reconstruct the film soundtrack or remove roles from a named orchestral concert. One accompanied syllabic lead, functional-harmonic verse–chorus–bridge organization, standard-tuned all-mahogany steel-string dreadnought with80/20strings and flatpicked chord support are authored choices, not a claim about original guitar construction, master personnel or universal song form. The brisk present-day rendition is one possible popular-song treatment, not a claim that Neykova’s reflective Dvama recording is fast. Live room and natural single-lead capture are authored; physiology unspecified.",
+  "control_review": {
+    "status": "PASS",
+    "applicable_parts": 22,
+    "pinned_parts": 22,
+    "orphans": 0,
+    "compiled_pins_survive": true,
+    "no_new_instruments": true,
+    "original_owner_count": 1653,
+    "preservation": "All original normalized owner objects exactly unchanged immediately after in-memory candidate injection. No instrument/dependency writes. Subsequent normal browser loading hydrates runtime data; no false claim that its runtime objects remain byte-identical to the unhydrated loader."
+  },
+  "literal_output_review": {
+    "status": "PASS",
+    "formats": [
+      "rich",
+      "prose",
+      "tags",
+      "compact"
+    ],
+    "browser_connector_parity": true,
+    "compiled_original_api_config_inspected": true,
+    "interpretation": "Syllabic melodic natural lead plus cheery flatpicked bronze-string dreadnought and controlled live room coherently implement the explicitly authored brisk contemporary rendition. The reflective original Dvama recording is not claimed reproduced. Verse-chorus-bridge and functional harmony are transparent arrangement choices; no extra orchestra or vocal layer. Generic compiled classic prefix is not additional historical evidence.",
+    "runtime_path": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/candidate-1630-runtime.json",
+    "runtime_sha256": "e9c896ac57177a435f833955c4b94ca5c52f1ebd2e98f2539d827bab16cf1209"
+  },
+  "photo_review": {
+    "status": "PASS",
+    "fresh_primary_ref": "turn14913view4",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "license": "CC BY 2.5 Generic",
+    "attribution": "Iain Fergusson; existing crop by Binksternet",
+    "receipt_source": "/workspace/CodexMusica-qualified041/docs/everynoise-integrations/data-only-023-evidence.json#baps",
+    "historical_receipt_comparison": "Exact image/thumbnail URLs, hash, bytes, dimensions, content type and credit/license fields match frozen receipt. Historical bytes and original visual observation explicitly inherited; no fresh local download or personal image inspection claimed.",
+    "generic_match": "LOW generic vocal recording context; no performer or source equipment claim."
+  },
+  "publication": "Review only. No registry, repository, schema, engine or frozen315 collection changes."
+}

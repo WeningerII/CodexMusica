@@ -1,0 +1,561 @@
+{
+  "scope": "Task-local data substitution through unchanged browser/connector; not static API, full regression or final integration approval.",
+  "packet": "/workspace/genre-continuation/original-three-current119/proposal-methodist-size-preserved.json",
+  "packet_sha256": "f118090e4966aa6414469565278174479e396caf7b92f3a9924e6dce3a8dbe5e",
+  "phase": "after",
+  "entries": [
+    {
+      "id": "gospel_quartet_male",
+      "results": [
+        {
+          "format": "rich",
+          "chars": 980,
+          "parity": true,
+          "recipe": "Gospel quartet (male), paschal voice: belt-quality-high-larynx-thick-fold, struggling choir: harmonically-rich-sustained, messianic grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce, annunciatory tonewheel-organ: hammond-b3-canonical-1955-1975-jazz-gospel-rock-standard fast-tremolo, samul-percussive electric-bass: alder heavy-gauge-flatwound, doxological drum-kit: sticks pocket, penitential tambourine: brass, twelve-tone-equal-temperament: Western, southern-black-pentecostal-baptist-church-gospel-choir-memphis-chicago-new-orleans: azusa-street-1906-pentecostal-roots mid-20th-century-black-gospel-vocal-canon, neumann-u47-tube-1947: vf14-tube-circuit m7-capsule, german-tube-broadcast-pre-v72-v76 german-tube-broadcast-v72-v76 school: tube-stage-equipped-channel headroom-modest, vari-mu-tube: slow-bus-time-constant vari-mu, pultec-style-passive-program: pultec passive-LC-low-shelf-up, analog-tape-15-ips: tape bias-bump-low-mid."
+        },
+        {
+          "format": "prose",
+          "chars": 460,
+          "parity": true,
+          "recipe": "Gospel quartet (male), paschal voice, struggling choir, messianic grand-piano, annunciatory tonewheel-organ, samul-percussive electric-bass, doxological drum-kit, penitential tambourine, twelve-tone-equal-temperament, southern-black-pentecostal-baptist-church-gospel-choir-memphis-chicago-new-orleans, neumann-u47-tube-1947, german-tube-broadcast-pre-v72-v76 german-tube-broadcast-v72-v76 school, vari-mu-tube, pultec-style-passive-program, analog-tape-15-ips."
+        },
+        {
+          "format": "tags",
+          "chars": 978,
+          "parity": true,
+          "recipe": "Gospel quartet (male), paschal voice: belt-quality-high-larynx-thick-fold, struggling choir: harmonically-rich-sustained, messianic grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce, annunciatory tonewheel-organ: hammond-b3-canonical-1955-1975-jazz-gospel-rock-standard, samul-percussive electric-bass: alder, doxological drum-kit: sticks, penitential tambourine: brass, twelve-tone-equal-temperament: Western, southern-black-pentecostal-baptist-church-gospel-choir-memphis-chicago-new-orleans: azusa-street-1906-pentecostal-roots mid-20th-century-black-gospel-vocal-canon, microphone-neumann-u47-tube-1947: vf14-tube-circuit, preamplifier-german-tube-broadcast-pre-v72-v76-school: headroom-modest, compression-vari-mu-tube: slow-bus-time-constant, equalizer-pultec-style-passive-program: pultec, medium-analog-tape-15-ips: tape bias-bump-low-mid, console-color-german-tube-broadcast-v72-v76-school: tube-stage-equipped-channel german."
+        },
+        {
+          "format": "compact",
+          "chars": 567,
+          "parity": true,
+          "recipe": "Gospel quartet (male), paschal voice,\nstruggling choir,\nmessianic grand piano,\nannunciatory tonewheel organ,\nsamul-percussive electric bass,\ndoxological drum kit,\npenitential tambourine,\nTwelve-tone equal temperament · Southern Black Pentecostal / Baptist church gospel choir (Memphis / Chicago / New Orleans) · microphone: Neumann U47 (tube, 1947) · preamplifier: German tube broadcast pre (V72/V76-school) · compression: Vari-mu (tube) · equalizer: Pultec-style passive program · medium: Analog tape (15 ips) · console color: German tube broadcast (V72/V76-school),"
+        }
+      ],
+      "owning_parts": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "mix_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "chest_mix_belt_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_melismatic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "gospel_pentecostal_tradition"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_call_response_leader_group"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_gospel_runs"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_belt"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "fast_vibrato"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "melisma_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_projected"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_size",
+          "variant": "mens_chorus"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_ensemble_repertoire",
+          "variant": "choir_ensemble_sacred_global"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_polyphonic_configuration",
+          "variant": "choir_polyphony_homophonic_chordal"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_regional_canonical_configuration",
+          "variant": "choir_regional_none"
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "keyboard_technique",
+          "variant": "keyboard_gospel_chord_runs"
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "variant": "a_440_modern"
+        },
+        {
+          "instrument": "tonewheel_organ",
+          "part": "keyboard_technique",
+          "variant": "keyboard_gospel_chord_runs"
+        },
+        {
+          "instrument": "tonewheel_organ",
+          "part": "drawbar_setting",
+          "variant": "gospel_drawbars"
+        },
+        {
+          "instrument": "tonewheel_organ",
+          "part": "rotary_speed",
+          "variant": "fast_tremolo"
+        },
+        {
+          "instrument": "tonewheel_organ",
+          "part": "tonewheel_model",
+          "variant": "tonewheel_hammond_b3"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "variant": "alder_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "variant": "split_coil"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "string_type",
+          "variant": "la_bella_flats_motown"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "variant": "long_scale_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "variant": "fretted"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "bass_technique",
+          "variant": "pick_motown"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "variant": "single_coated"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "variant": "sticks_motown"
+        },
+        {
+          "instrument": "tambourine_orch",
+          "part": "tambourine_orch_jingle",
+          "variant": "tambourine_orch_brass"
+        },
+        {
+          "instrument": "tambourine_orch",
+          "part": "tambourine_orch_context",
+          "variant": "tambourine_orch_orch"
+        }
+      ]
+    },
+    {
+      "id": "methodist_hymnody",
+      "results": [
+        {
+          "format": "rich",
+          "chars": 985,
+          "parity": true,
+          "recipe": "Methodist hymnody (18th-century English Protestant), spoken-flowing voice: all-voices-same-rhythm block-chord-motion continuous-phonation, technically-proficient choir: clean-articulation-low-blur homophonic-chordal-rhythm-aligned sacred-liturgical-global, widescreen pipe-organ: electric-pneumatic-canonical-20th-century-american equal-temperament-modern-standard-post-1850 henry-willis-canonical-english-victorian-1850s-1900, twelve-tone-equal-temperament: Western, cathedral-stone-gothic: stone diffuse long-tailed, large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm, tube-vintage-character: headroom-modest even-harmonic-rich tube, optical-classic-la-2a-school: losangeles-2a 2h-rich long-attack-LDR-thermal, pultec-style-passive-program: pultec passive-LC-low-shelf-up simultaneous-boost-cut, analog-tape-15-ips: tape bias-bump-low-mid head-bump-narrow-format, colored-vintage-transformer-iron: transformer-iron iron-bus-saturation summing-bus-saturation."
+        },
+        {
+          "format": "prose",
+          "chars": 347,
+          "parity": true,
+          "recipe": "Methodist hymnody (18th-century English Protestant), spoken-flowing voice, technically-proficient choir, widescreen pipe-organ, twelve-tone-equal-temperament, cathedral-stone-gothic, large-diaphragm-condenser, tube-vintage-character, optical-classic-la-2a-school, pultec-style-passive-program, analog-tape-15-ips, colored-vintage-transformer-iron."
+        },
+        {
+          "format": "tags",
+          "chars": 994,
+          "parity": true,
+          "recipe": "Methodist hymnody (18th-century English Protestant), spoken-flowing voice: all-voices-same-rhythm block-chord-motion, technically-proficient choir: clean-articulation-low-blur homophonic-chordal-rhythm-aligned, widescreen pipe-organ: electric-pneumatic-canonical-20th-century-american equal-temperament-modern-standard-post-1850 henry-willis-canonical-english-victorian-1850s-1900, twelve-tone-equal-temperament: Western, cathedral-stone-gothic: stone diffuse, microphone-large-diaphragm-condenser: proximity-bass-buildup hyped-top large-diaphragm, preamplifier-tube-vintage-character: headroom-modest even-harmonic-rich tube, compression-optical-classic-la-2a-school: losangeles-2a 2h-rich long-attack-LDR-thermal, equalizer-pultec-style-passive-program: pultec passive-LC-low-shelf-up simultaneous-boost-cut, medium-analog-tape-15-ips: tape bias-bump-low-mid head-bump-narrow-format, console-color-colored-vintage-transformer-iron: transformer-iron iron-bus-saturation summing-bus-saturation."
+        },
+        {
+          "format": "compact",
+          "chars": 437,
+          "parity": true,
+          "recipe": "Methodist hymnody (18th-century English Protestant), spoken-flowing voice,\ntechnically-proficient choir,\nwidescreen pipe organ,\nTwelve-tone equal temperament · Cathedral (stone gothic) · microphone: Large-diaphragm condenser · preamplifier: Tube (vintage character) · compression: Optical classic (LA-2A-school) · equalizer: Pultec-style passive program · medium: Analog tape (15 ips) · console color: Colored (vintage transformer-iron),"
+        }
+      ],
+      "owning_parts": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_homophonic_block"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_none"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "legato_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_moderate"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_size",
+          "variant": "chamber_choir"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_ensemble_repertoire",
+          "variant": "choir_ensemble_sacred_global"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_polyphonic_configuration",
+          "variant": "choir_polyphony_homophonic_chordal"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_regional_canonical_configuration",
+          "variant": "choir_regional_none"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "keyboard_technique",
+          "variant": "keyboard_classical_legato"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_class",
+          "variant": "pipe_organ_romantic"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_context",
+          "variant": "pipe_organ_liturgical"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_voicing_school",
+          "variant": "pipe_organ_henry_willis"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_pipe_alloy",
+          "variant": "pipe_organ_spotted_metal_50_50"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_temperament",
+          "variant": "pipe_organ_equal_temperament"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_action",
+          "variant": "pipe_organ_electric_pneumatic"
+        }
+      ]
+    },
+    {
+      "id": "groove_metal",
+      "results": [
+        {
+          "format": "rich",
+          "chars": 993,
+          "parity": true,
+          "recipe": "Groove metal, piercing voice: late-1980s-reverb-saturated-bus-stack arena-scale-wash, two-stepping humbucker-solid-body-electric-guitar: ceramic stainless-steel maple rosewood mahogany, prancing electric-bass: alder stainless-steel, strutting drum-kit: backbeat sticks, hard-rock-metal-blues-pentatonic-and-power-chords-vocabulary: blues-pentatonic-minor-default distorted-electric-guitar-foreground, san-francisco-bay-area-thrash-metal-studios-music-annex-prairie-sun-1983-1991: 80s-thrash-metal-engineering-lineage fast-tempo-tight-rhythm-section, ibanez-tube-screamer-ts9-ts808-mid-pushed-overdrive-1979: ibanez mid-pushed-eq-curve, shure-sm57-dynamic-1965: universal-workhorse presence-peak-5khz, british-inductor-input-mic-pre-1073 console-style-surgical-ssl british-solid-state-inline-ssl school: ssl-school mid-shift-flexible, smart-research-c1-c2-ssl-clone-bus-vca-1989: smart-research transparent-vca, analog-tape-2-inch-30-ips: hi-fi-tape head-bump-wide-format wow-and-flutter-light."
+        },
+        {
+          "format": "prose",
+          "chars": 522,
+          "parity": true,
+          "recipe": "Groove metal, piercing voice, two-stepping humbucker-solid-body-electric-guitar, prancing electric-bass, strutting drum-kit, hard-rock-metal-blues-pentatonic-and-power-chords-vocabulary, san-francisco-bay-area-thrash-metal-studios-music-annex-prairie-sun-1983-1991, ibanez-tube-screamer-ts9-ts808-mid-pushed-overdrive-1979, shure-sm57-dynamic-1965, british-inductor-input-mic-pre-1073 console-style-surgical-ssl british-solid-state-inline-ssl school, smart-research-c1-c2-ssl-clone-bus-vca-1989, analog-tape-2-inch-30-ips."
+        },
+        {
+          "format": "tags",
+          "chars": 986,
+          "parity": true,
+          "recipe": "Groove metal, piercing voice: late-1980s-reverb-saturated-bus-stack, two-stepping humbucker-solid-body-electric-guitar: ceramic stainless-steel maple rosewood mahogany, prancing electric-bass: alder stainless-steel, strutting drum-kit: backbeat, hard-rock-metal-blues-pentatonic-and-power-chords-vocabulary: blues-pentatonic-minor-default, san-francisco-bay-area-thrash-metal-studios-music-annex-prairie-sun-1983-1991: 80s-thrash-metal-engineering-lineage, effects-ibanez-tube-screamer-ts9-ts808-mid-pushed-overdrive-1979: ibanez, microphone-shure-sm57-dynamic-1965: universal-workhorse, preamplifier-british-inductor-input-mic-pre-1073-school: inductor-phase-shift, compression-smart-research-c1-c2-ssl-clone-bus-vca-1989: smart-research transparent-vca, equalizer-console-style-surgical-ssl-school: ssl-school mid-shift-flexible, medium-analog-tape-2-inch-30-ips: hi-fi-tape head-bump-wide-format, console-color-british-solid-state-inline-ssl-school: total-recall-clean clean-summing."
+        },
+        {
+          "format": "compact",
+          "chars": 654,
+          "parity": true,
+          "recipe": "Groove metal, piercing voice,\ntwo-stepping humbucker solid-body electric guitar,\nprancing electric bass,\nstrutting drum kit,\nHard rock / metal blues-pentatonic-and-power-chords vocabulary · San Francisco Bay Area thrash metal studios (Music Annex / Prairie Sun 1983-1991) · effects: Ibanez Tube Screamer TS9 / TS808 (mid-pushed overdrive, 1979) · microphone: Shure SM57 (dynamic, 1965) · preamplifier: British inductor-input mic-pre (1073-school) · compression: SMART Research C1/C2 (SSL-clone bus VCA, 1989) · equalizer: Console-style surgical (SSL-school) · medium: Analog tape (2-inch, 30 ips) · console color: British solid-state inline (SSL-school),"
+        }
+      ],
+      "owning_parts": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "variant": "chest_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "variant": "pressed_phonation_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "variant": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "variant": "modern_pop_vocal_training"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "variant": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "variant": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "variant": "voice_ensemble_solo_accompanied"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "variant": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "variant": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "variant": "voice_ornament_none"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "variant": "voice_estill_speech"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "variant": "slow_vibrato"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "variant": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "variant": "marcato_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "variant": "tract_neutral"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "variant": "effort_projected"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "variant": "ceramic_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_material",
+          "variant": "stainless_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "variant": "vibrato_arm"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "scale_length",
+          "variant": "scale_fender_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "electric_technique",
+          "variant": "electric_palm_muted_chug"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_tuning",
+          "variant": "standard_tuning"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "variant": "humbucker_mm"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "string_type",
+          "variant": "roundwound_s"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "variant": "long_scale_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "variant": "fretted"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "bass_technique",
+          "variant": "pick_aggressive"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "variant": "double_coated"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "variant": "sticks_rock"
+        }
+      ]
+    }
+  ]
+}

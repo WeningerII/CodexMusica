@@ -1,0 +1,13 @@
+REGRESSION: 0/1 fixture(s) match snapshot.
+
+── DIFFS (1) ──
+
+✗ groove_metal
+  expected: classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.
+  actual:   classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, slow rate, equal tempered, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.
+
+To accept these changes, run:
+  node scripts/regression_recipes.js --update
+Or for a single fixture:
+  node scripts/regression_recipes.js --update --fixture=<id>
+

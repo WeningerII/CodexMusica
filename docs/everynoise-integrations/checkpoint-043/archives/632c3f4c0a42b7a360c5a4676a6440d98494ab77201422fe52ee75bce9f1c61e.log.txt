@@ -1,0 +1,4 @@
+Built /tmp/codex_equiv_507467.html (22,224,700 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+EQUIVALENCE: 8/8 PASS — browser and node agree on descriptor sets and preface suggestions

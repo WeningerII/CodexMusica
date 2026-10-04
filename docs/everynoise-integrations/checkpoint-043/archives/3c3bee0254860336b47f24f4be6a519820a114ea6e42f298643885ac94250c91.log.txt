@@ -1,0 +1,5 @@
+publish_guard: BUILT_SHA is unset — refusing to guess what was built
+publish_guard: BUILT_SHA 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeef' is not a commit in this repo
+=== Publish guard (stale-artifact race) ===
+  12/12 case(s) behaved
+PASS — the guard stands down on the race and stays out of the way otherwise.

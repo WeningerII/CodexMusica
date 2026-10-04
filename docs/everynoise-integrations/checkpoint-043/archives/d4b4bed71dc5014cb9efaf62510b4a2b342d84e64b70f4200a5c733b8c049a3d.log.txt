@@ -1,0 +1,9 @@
+Building the embedded app twice — unminified and minified…
+Built /tmp/codex_min_off_507538.html (23,827,867 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+Built /tmp/codex_min_on_507538.html (22,224,700 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+
+MINIFIED EQUIVALENCE: PASS — the minified app matches the unminified one across 6765 traditions, 4 rendered surfaces, 6 imports, 4 recipe formats, 3 preface queries and 1495 CSS rules parsed in Chromium.

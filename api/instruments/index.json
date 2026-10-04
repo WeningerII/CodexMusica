@@ -1,5 +1,5 @@
 {
-  "count": 1653,
+  "count": 1658,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9918,6 +9918,36 @@
       "name": "Recorded household-appliance sound",
       "family": "electronic",
       "href": "instruments/recorded_appliance_sound.json"
+    },
+    {
+      "id": "produced_808_bass",
+      "name": "Produced 808 low bass",
+      "family": "electronic",
+      "href": "instruments/produced_808_bass.json"
+    },
+    {
+      "id": "ho_dama_kettle_drum",
+      "name": "Ho dama kettle drum",
+      "family": "percussion",
+      "href": "instruments/ho_dama_kettle_drum.json"
+    },
+    {
+      "id": "ho_dumang_double_headed_drum",
+      "name": "Ho dumang double-headed drum",
+      "family": "percussion",
+      "href": "instruments/ho_dumang_double_headed_drum.json"
+    },
+    {
+      "id": "zongora_maramures",
+      "name": "Zongoră (Maramureș accompaniment guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/zongora_maramures.json"
+    },
+    {
+      "id": "doba_maramures",
+      "name": "Dobă (Maramureș drum)",
+      "family": "percussion",
+      "href": "instruments/doba_maramures.json"
     }
   ]
 }

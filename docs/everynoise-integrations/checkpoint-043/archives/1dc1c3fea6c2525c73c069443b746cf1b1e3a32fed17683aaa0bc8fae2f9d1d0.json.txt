@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field51/practice001-funk-das-antigas.json",
+  "sha256": "a91a43806b4773e2b6d3206d0c5c625685280fe995f815e20ddadbe44aec37f3",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "source_review": [
+    {
+      "url": "https://www.campos.rj.gov.br/exibirNoticia.php?id_noticia=102496",
+      "ref": "turn15260search0",
+      "finding": "Fresh full indexed municipal account independently confirms DJ-led recurring dance gatherings and twice-weekly intergenerational teaching. Direct retrieval failed candidly."
+    },
+    {
+      "url": "https://www.rio.rj.gov.br/dlstatic/10112/13579468/4340164/PROJETOSAPTOSPARACAPTACAOEDITALDOPRODUTORN012021.pdf",
+      "ref": "turn15259search2",
+      "finding": "Fresh full indexed relevant WEC1546 passage confirms named heritage festival and transmission mission. Approval/eligibility is not execution."
+    },
+    {
+      "url": "https://www.camaraniteroi.rj.gov.br/site/arquivos-ldo-loa-ppa/PPA/2025/40ebdd019af074253c0989d5ce56d915.pdf",
+      "ref": "turn15259search0",
+      "finding": "Fresh indexed page157 explicitly continuing municipal Baile Funk das Antigas programme;24 target not actual event count."
+    },
+    {
+      "url": "https://www.furia.com/everynoise_public/engenremap-funkdasantigas.html",
+      "ref": "turn15261search0",
+      "finding": "Full indexed exact creator corpus independently recovered including romantic and broader MC/sound-system repertoire; direct timed out."
+    }
+  ],
+  "boundary_review": "Full actual baile_funk and funk_melody records read, not restricted to their exemplars. The candidate is an overlapping narrower living heritage-circulation and teaching practice, positively organized under the name across municipal projects, not merely old repertoire dates. Corpus is broader than romantic funk melody. No forced separate sonic grammar or strict exclusivity.",
+  "role_review": "Positive DJ-led community branch is a legitimate representative practice; not a reconstruction of the full wider live festival. Recorded voices remain in programme, additional live singers are not asserted absent. The dance teacher and audience do not by themselves require instrumental cards.",
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/funk-das-antigas-runtime117.json",
+  "controls": 1,
+  "literal_review": "All four browser outputs read; amplified layered DJ playback/mixing and authored up-tempo dance pace align with lively heritage baile. Compiled API preserves protected role. No fabricated live ensemble, genre mechanism or unrelated culture.",
+  "metadata": "All five immutable fields match immutable-entries; atlas returns no errors. No dependencies/new owners.",
+  "photo_review": {
+    "rights_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "fresh_ref": "turn15257view2 / turn15261view2",
+    "finding": "Iain Fergusson original, Binksternet crop, CC BY2.5 independently reproduced. Both exact inherited URLs/33015bytes/250x720/SHA7a97c264 retained. LOW generic recording context truthful, not claimed DJ equipment. No fresh download or personal visual review asserted."
+  },
+  "changes_requested": []
+}

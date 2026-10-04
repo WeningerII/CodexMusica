@@ -1,0 +1,38 @@
+{
+  "status": "PASS_ACTUAL_GENERATED_API",
+  "head": "12c8438a50527b5df6ba8eb63a880a9fc025b78d",
+  "api_root": "/tmp/CodexMusica-next043/api",
+  "traditions": 6765,
+  "instruments": 1658,
+  "old_traditions_audited": 6746,
+  "new_traditions_audited": 19,
+  "old_instruments_exact_bytes": 1653,
+  "new_instruments_exact_original_projection": 5,
+  "unexpected_configuration_differences": 0,
+  "unexpected_recipe_differences": 0,
+  "qualified_existing_changes": [
+    "gospel_quartet_male",
+    "groove_metal",
+    "indian_folk_lok_geet",
+    "methodist_hymnody",
+    "odia_pop",
+    "pakistani_pop"
+  ],
+  "qualified_existing_recipe_changes": [
+    "desi_pop",
+    "gospel_quartet_male",
+    "groove_metal",
+    "methodist_hymnody"
+  ],
+  "new_controls": 329,
+  "new_browser_formats_independently_read": 76,
+  "evidence": {
+    "actual043-tradition-audit.json": "3c8eccf19b24859b516e79b99b73c295b997773e62df03e297f7c1d0bb881f5f",
+    "actual043-payload-hashes.json": "ce497c075c069e8c51669c7d090c7b85b0787b4cd8b3c58edbfa93becce5b5b5",
+    "new-owner-actual-api-verification.json": "1124512bc097a5df467f58c3c3c819207d2efb3230c39c6cbefde1f9a3a7b6b5",
+    "integrated-source-verification.json": "3b143ee7b5dd6f424ddda23dbea04063c278aab348c7bcd3e19416e479cb0cdf",
+    "safe19-qualification461.json": "0ae4b2bff152b0f303d3ccbdb5d067d47be610a8338fb2f54ce0791ab660fa61"
+  },
+  "snapshot_engine_or_api_writes": false,
+  "limits": "Confirms actualgeneratedpayloads against exact independently reviewed expectedconfigs and recipes. Does not claim previously inherited unsupported defaults have all been repaired."
+}

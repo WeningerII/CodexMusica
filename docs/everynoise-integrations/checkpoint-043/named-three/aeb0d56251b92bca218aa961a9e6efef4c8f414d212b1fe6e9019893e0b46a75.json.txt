@@ -1,0 +1,936 @@
+{
+  "api_replayed": 320,
+  "api_changed": 3,
+  "api_collateral_musical": 0,
+  "fixture_replayed": 102,
+  "fixture_changed": 3,
+  "fixture_collateral_musical": 0,
+  "api_rows": [
+    {
+      "id": "gospel_quartet_male",
+      "named_target": true,
+      "musical_equal": false,
+      "recipe_equal": false,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "before": "effort_moderate",
+          "after": "effort_projected"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "praise_voice",
+          "after": "chest_mix_belt_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "delayed_vibrato",
+          "after": "fast_vibrato"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "chest_voice",
+          "after": "mix_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_quranic_tajwid",
+          "after": "voice_ornament_gospel_runs"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_chopped_sample_rhythmic_bed",
+          "after": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "before": "voice_sprechgesang_notated",
+          "after": "voice_melismatic_singing"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "mahogany_b",
+          "after": "alder_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "before": "soapbar",
+          "after": "split_coil"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretless",
+          "after": "fretted"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "extra_long_b",
+          "after": "long_scale_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "bass_technique",
+          "before": "sub_bass_synth_blend",
+          "after": "pick_motown"
+        },
+        {
+          "instrument": "tambourine_orch",
+          "part": "tambourine_orch_context",
+          "before": "tambourine_orch_film",
+          "after": "tambourine_orch_orch"
+        },
+        {
+          "instrument": "tambourine_orch",
+          "part": "tambourine_orch_jingle",
+          "before": "tambourine_orch_nickel",
+          "after": "tambourine_orch_brass"
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "before": "a_441_japanese",
+          "after": "a_440_modern"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "ec_pre_muffled_drumhead",
+          "after": "single_coated"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "before": "brushes_and_sticks",
+          "after": "sticks_motown"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_regional_canonical_configuration",
+          "before": "choir_regional_sardinian_cantu_a_tenore",
+          "after": "choir_regional_none"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_size",
+          "before": "a_cappella_small_ensemble_3_8",
+          "after": "mens_chorus"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_polyphonic_configuration",
+          "before": "choir_polyphony_polyrhythmic_layered",
+          "after": "choir_polyphony_homophonic_chordal"
+        }
+      ],
+      "before_recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "after_recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. multi note runs per syllable, equal tempered, gospel pentecostal, belt quality high larynx thick fold. sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sticks pocket drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "before_context": [
+        "gospel_quartet_male",
+        "bluegrass_gospel",
+        "family_gospel"
+      ],
+      "after_context": [
+        "gospel_quartet_male",
+        "bluegrass_gospel",
+        "family_gospel"
+      ]
+    },
+    {
+      "id": "methodist_hymnody",
+      "named_target": true,
+      "musical_equal": false,
+      "recipe_equal": false,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_carnatic_22_shruti",
+          "after": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "aspirated_voice",
+          "after": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "chest_voice",
+          "after": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "before": "hocket_voice",
+          "after": "legato_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "chinese_classical_vocal_tradition",
+          "after": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_quranic_tajwid",
+          "after": "voice_ornament_none"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1970s_thirds_fifths_octaves",
+          "after": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_tahrir_tekye_chain",
+          "after": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "before": "voice_sprechgesang_notated",
+          "after": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "before": "voice_ensemble_four_plus_polyphony",
+          "after": "voice_ensemble_homophonic_block"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_opera",
+          "after": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_pipe_alloy",
+          "before": "pipe_organ_zinc_pedal",
+          "after": "pipe_organ_spotted_metal_50_50"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_action",
+          "before": "pipe_organ_pneumatic",
+          "after": "pipe_organ_electric_pneumatic"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_voicing_school",
+          "before": "pipe_organ_silbermann_saxon",
+          "after": "pipe_organ_henry_willis"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_context",
+          "before": "pipe_organ_concert",
+          "after": "pipe_organ_liturgical"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_temperament",
+          "before": "pipe_organ_meantone_quarter",
+          "after": "pipe_organ_equal_temperament"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_regional_canonical_configuration",
+          "before": "choir_regional_kakhetian_three_voice",
+          "after": "choir_regional_none"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_size",
+          "before": "mixed_4_part_satb",
+          "after": "chamber_choir"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_polyphonic_configuration",
+          "before": "choir_polyphony_four_voice_polyphonic",
+          "after": "choir_polyphony_homophonic_chordal"
+        }
+      ],
+      "before_recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "after_recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. continuous-phonation, equal tempered, one note per syllable, all voices same rhythm. sacred liturgical global choir ensemble, henry willis canonical English victorian 1850s 1900 spotted metal 50 50 canonical mixtures bright historical electric pneumatic canonical 20th century American legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "before_context": [
+        "methodist_hymnody",
+        "british_choir",
+        "anglican_choral_cathedral"
+      ],
+      "after_context": [
+        "methodist_hymnody",
+        "british_choir",
+        "anglican_choral_cathedral"
+      ]
+    },
+    {
+      "id": "groove_metal",
+      "named_target": true,
+      "musical_equal": false,
+      "recipe_equal": false,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "before": "effort_moderate",
+          "after": "effort_projected"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_retune_10_50ms_natural",
+          "after": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "aspirated_voice",
+          "after": "pressed_phonation_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "slow_vibrato"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "before": "hocket_voice",
+          "after": "marcato_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "modern_pop_vocal_training"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_none"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_false_fold_distorted",
+          "after": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "before": "voice_sprechgesang_notated",
+          "after": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "before": "voice_ensemble_four_plus_polyphony",
+          "after": "voice_ensemble_solo_accompanied"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_speech"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "before": "alnico_8_h",
+          "after": "ceramic_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_material",
+          "before": "nickel_plated_h",
+          "after": "stainless_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_tuning",
+          "before": "drop_d",
+          "after": "standard_tuning"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "before": "stoptail",
+          "after": "vibrato_arm"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "scale_length",
+          "before": "scale_baritone_h",
+          "after": "scale_fender_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "electric_technique",
+          "before": "electric_power_chord",
+          "after": "electric_palm_muted_chug"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "short_scale_b",
+          "after": "long_scale_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "string_type",
+          "before": "ernie_ball_slinky_bass",
+          "after": "roundwound_s"
+        }
+      ],
+      "before_recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "after_recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, slow rate, equal tempered, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "before_context": [
+        "groove_metal",
+        "blackgaze",
+        "belgian_death_metal"
+      ],
+      "after_context": [
+        "groove_metal",
+        "blackgaze",
+        "belgian_death_metal"
+      ]
+    }
+  ],
+  "fixture_rows": [
+    {
+      "id": "gospel_quartet_male",
+      "named_target": true,
+      "musical_equal": false,
+      "recipe_equal": false,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "before": "effort_moderate",
+          "after": "effort_projected"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "praise_voice",
+          "after": "chest_mix_belt_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "delayed_vibrato",
+          "after": "fast_vibrato"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "chest_voice",
+          "after": "mix_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_quranic_tajwid",
+          "after": "voice_ornament_gospel_runs"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_chopped_sample_rhythmic_bed",
+          "after": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "before": "voice_sprechgesang_notated",
+          "after": "voice_melismatic_singing"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "mahogany_b",
+          "after": "alder_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "before": "soapbar",
+          "after": "split_coil"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretless",
+          "after": "fretted"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "extra_long_b",
+          "after": "long_scale_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "bass_technique",
+          "before": "sub_bass_synth_blend",
+          "after": "pick_motown"
+        },
+        {
+          "instrument": "tambourine_orch",
+          "part": "tambourine_orch_context",
+          "before": "tambourine_orch_film",
+          "after": "tambourine_orch_orch"
+        },
+        {
+          "instrument": "tambourine_orch",
+          "part": "tambourine_orch_jingle",
+          "before": "tambourine_orch_nickel",
+          "after": "tambourine_orch_brass"
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "before": "a_441_japanese",
+          "after": "a_440_modern"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "ec_pre_muffled_drumhead",
+          "after": "single_coated"
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "before": "brushes_and_sticks",
+          "after": "sticks_motown"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_regional_canonical_configuration",
+          "before": "choir_regional_sardinian_cantu_a_tenore",
+          "after": "choir_regional_none"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_size",
+          "before": "a_cappella_small_ensemble_3_8",
+          "after": "mens_chorus"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_polyphonic_configuration",
+          "before": "choir_polyphony_polyrhythmic_layered",
+          "after": "choir_polyphony_homophonic_chordal"
+        }
+      ],
+      "before_recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "after_recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. multi note runs per syllable, equal tempered, gospel pentecostal, belt quality high larynx thick fold. sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sticks pocket drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "before_context": [
+        "gospel_quartet_male",
+        "bluegrass_gospel",
+        "family_gospel"
+      ],
+      "after_context": [
+        "gospel_quartet_male",
+        "bluegrass_gospel",
+        "family_gospel"
+      ]
+    },
+    {
+      "id": "methodist_hymnody",
+      "named_target": true,
+      "musical_equal": false,
+      "recipe_equal": false,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_carnatic_22_shruti",
+          "after": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "aspirated_voice",
+          "after": "voice_quality_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "voice_vibrato_local_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "chest_voice",
+          "after": "voice_register_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "before": "hocket_voice",
+          "after": "legato_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "chinese_classical_vocal_tradition",
+          "after": "voice_tradition_source_unspecified"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_quranic_tajwid",
+          "after": "voice_ornament_none"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1970s_thirds_fifths_octaves",
+          "after": "voice_multitrack_live_ensemble"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_tahrir_tekye_chain",
+          "after": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "before": "voice_sprechgesang_notated",
+          "after": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "before": "voice_ensemble_four_plus_polyphony",
+          "after": "voice_ensemble_homophonic_block"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_opera",
+          "after": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_pipe_alloy",
+          "before": "pipe_organ_zinc_pedal",
+          "after": "pipe_organ_spotted_metal_50_50"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_action",
+          "before": "pipe_organ_pneumatic",
+          "after": "pipe_organ_electric_pneumatic"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_voicing_school",
+          "before": "pipe_organ_silbermann_saxon",
+          "after": "pipe_organ_henry_willis"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_context",
+          "before": "pipe_organ_concert",
+          "after": "pipe_organ_liturgical"
+        },
+        {
+          "instrument": "pipe_organ",
+          "part": "pipe_organ_temperament",
+          "before": "pipe_organ_meantone_quarter",
+          "after": "pipe_organ_equal_temperament"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_regional_canonical_configuration",
+          "before": "choir_regional_kakhetian_three_voice",
+          "after": "choir_regional_none"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_size",
+          "before": "mixed_4_part_satb",
+          "after": "chamber_choir"
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_polyphonic_configuration",
+          "before": "choir_polyphony_four_voice_polyphonic",
+          "after": "choir_polyphony_homophonic_chordal"
+        }
+      ],
+      "before_recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "after_recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. continuous-phonation, equal tempered, one note per syllable, all voices same rhythm. sacred liturgical global choir ensemble, henry willis canonical English victorian 1850s 1900 spotted metal 50 50 canonical mixtures bright historical electric pneumatic canonical 20th century American legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "before_context": [
+        "methodist_hymnody",
+        "british_choir",
+        "anglican_choral_cathedral"
+      ],
+      "after_context": [
+        "methodist_hymnody",
+        "british_choir",
+        "anglican_choral_cathedral"
+      ]
+    },
+    {
+      "id": "groove_metal",
+      "named_target": true,
+      "musical_equal": false,
+      "recipe_equal": false,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_equal_tempered_12"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "before": "effort_moderate",
+          "after": "effort_projected"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_retune_10_50ms_natural",
+          "after": "voice_processing_unprocessed"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "aspirated_voice",
+          "after": "pressed_phonation_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "slow_vibrato"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "before": "hocket_voice",
+          "after": "marcato_voice"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "modern_pop_vocal_training"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_none"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_false_fold_distorted",
+          "after": "voice_mechanism_single_source"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "before": "voice_sprechgesang_notated",
+          "after": "voice_syllabic_singing"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "before": "voice_ensemble_four_plus_polyphony",
+          "after": "voice_ensemble_solo_accompanied"
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_speech"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "before": "alnico_8_h",
+          "after": "ceramic_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_material",
+          "before": "nickel_plated_h",
+          "after": "stainless_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_tuning",
+          "before": "drop_d",
+          "after": "standard_tuning"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "before": "stoptail",
+          "after": "vibrato_arm"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "scale_length",
+          "before": "scale_baritone_h",
+          "after": "scale_fender_h"
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "electric_technique",
+          "before": "electric_power_chord",
+          "after": "electric_palm_muted_chug"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "short_scale_b",
+          "after": "long_scale_b"
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "string_type",
+          "before": "ernie_ball_slinky_bass",
+          "after": "roundwound_s"
+        }
+      ],
+      "before_recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "after_recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, slow rate, equal tempered, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "before_context": [
+        "groove_metal",
+        "blackgaze",
+        "belgian_death_metal"
+      ],
+      "after_context": [
+        "groove_metal",
+        "blackgaze",
+        "belgian_death_metal"
+      ]
+    }
+  ]
+}

@@ -33,10 +33,7 @@
           "fresh_review_ref": "turn14925view1"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -48,10 +45,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -67,9 +61,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -83,9 +75,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14925view1"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14925view1"],
         "fresh_rights_review": "Fresh14925view1 rights; exact historical023 binary/visual receipt retained without new download claim."
       },
       "id": "minimal_melodic_techno",
@@ -100,9 +90,7 @@
         "name": "Minimal Melodic Techno",
         "family": "electronic",
         "lineage": "Minimal melodic techno brings expressive melodic development into the economical patterns of European minimal electronics. The 2000s Traum and Border Community networks and the later Hungry Music collective connect restrained rhythmic frameworks with distinctive melodic voices.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -127,22 +115,11 @@
           "cyclicity": 0
         },
         "description": "Repeating rhythmic cells support evolving melodic figures, spacious textures and gradual transitions. Producers and selectors connect understated groove with cinematic, introspective or pop-shaped ideas without requiring one fixed arrangement.",
-        "exemplars": [
-          "Fairmont",
-          "NTO",
-          "Worakls",
-          "Joachim Pastor",
-          "Hungry Music"
-        ],
+        "exemplars": ["Fairmont", "NTO", "Worakls", "Joachim Pastor", "Hungry Music"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        52.52,
-        13.405,
-        "Berlin",
-        "Europe"
-      ],
+      "geo": [52.52, 13.405, "Berlin", "Europe"],
       "geo_rationale": "Editorial historical production anchor: Harald Björk first-person says he lived in Berlin during his2007 melodic-minimal Traum release. Not the label headquarters or exclusive origin of the international field.",
       "signature_tokens": [],
       "model_policy": "Representative published selection/mixing branch: 6AM commissioned an exclusive one-hour Hungry Music mix of the three founders’ own material, with thirteen listed selections. One neutral DJ mixing owner preserves all embedded piano, guitar, electronic and any vocal material without inventing generator hardware or live voices. The separate Hungry Band live practice positively includes piano, machines and guitar; this is documented as an alternative branch, not silently reduced to one performer or claimed as the source mix lineup. Controlled live-room playback presentation and brisk dance pacing are authored, not measured source tempo or source room. No tuning is imposed.",
@@ -197,10 +174,7 @@
         "name": "Drill Dominicano",
         "family": "hip_hop",
         "lineage": "Dominican drill connects Dominican and diasporic rappers with the international drill vocabulary. Producer collaborations and cross-border releases adapt the style to local speech, experience and multilingual performance.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -242,10 +216,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic verses and concise hooks interact with produced drill backing. Street narratives and personal themes coexist, while individual performers draw on different Dominican and wider Latin rap connections.",
-        "exemplars": [
-          "Queen Parker",
-          "MC Kario"
-        ],
+        "exemplars": ["Queen Parker", "MC Kario"],
         "status": "documented",
         "crossRefs": []
       },
@@ -281,10 +252,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -296,10 +264,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -315,9 +280,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -331,9 +294,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "drill dominicano",
@@ -343,12 +304,7 @@
       "allocation_group_id": "011",
       "id": "drill_dominicano",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        18.4861,
-        -69.9312,
-        "Santo Domingo",
-        "Latin America & Caribbean"
-      ],
+      "geo": [18.4861, -69.9312, "Santo Domingo", "Latin America & Caribbean"],
       "geo_rationale": "National practice anchor; not claimed location of the cited Venezuela or New Jersey sessions.",
       "sources": [
         {
@@ -364,11 +320,7 @@
           "support_notes": "Exact creator label corpus retrieved; selected practitioners are not asserted members of this finite playlist."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn15036view1",
-        "turn15033search2",
-        "turn15043view1"
-      ],
+      "primary_retrieval_refs": ["turn15036view1", "turn15033search2", "turn15043view1"],
       "neighbor_distinction": "Full rap_dominicano is the national rap field, not confined to MECAL cyphers. Full trap_dominicano already includes Bronx collaborations and drill overlap; this candidate does not pretend those influences were absent. Drill is the positively named production and performance subset illustrated by the firsthand collaboration and Dominican release, with overlap rather than mutually exclusive artists. Merengue and dembow are not inferred as mandatory rhythms or percussion from nationality.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -430,10 +382,7 @@
         "name": "Lithuanian Trap",
         "family": "hip_hop",
         "lineage": "Lithuanian trap developed through the country’s younger rap scene and its producers, alongside older hip-hop approaches. Local artists adapt an international style through their own collaborations, language and recording networks.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -475,10 +424,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic vocals and recurring hooks interact with produced backing. Electronic texture and beat design shape the delivery, while individual artists range from direct rap to more melodic or experimental approaches.",
-        "exemplars": [
-          "Despotin Fam",
-          "Vaiper"
-        ],
+        "exemplars": ["Despotin Fam", "Vaiper"],
         "status": "documented",
         "crossRefs": []
       },
@@ -514,10 +460,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -529,10 +472,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -548,9 +488,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -564,9 +502,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "lithuanian trap",
@@ -576,12 +512,7 @@
       "allocation_group_id": "016",
       "id": "lithuanian_trap",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        54.6872,
-        25.2797,
-        "Vilnius",
-        "Europe"
-      ],
+      "geo": [54.6872, 25.2797, "Vilnius", "Europe"],
       "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
       "sources": [
         {
@@ -589,10 +520,7 @@
           "support_notes": "Public broadcaster firsthand producer interview explicitly addresses Lithuanian trap, its young scene and production; separate eclectic DJ practice is not imported as an exact recording."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14982view0",
-        "turn14983view0"
-      ],
+      "primary_retrieval_refs": ["turn14982view0", "turn14983view0"],
       "neighbor_distinction": "The full lithuanian_hip_hop is the national hip-hop field, not limited to G&G Sindikatas or guitar. This is the positively identified trap subset discussed by a participating producer; it does not assert exclusive artists or a wholly separate national culture. Lithuanian pop is broader song-oriented practice. Representative voice and produced backing are not a reconstruction of a Despotin Fam album or Vaiper mixed-genre DJ set.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -653,10 +581,7 @@
         "name": "Middle East Hip Hop",
         "family": "hip_hop",
         "lineage": "Middle Eastern hip-hop links local rap scenes with diasporic artists and producer networks. Regional collaborations cross national and language boundaries, connecting Arabic-language rap with multilingual expression and different forms of cultural belonging.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -698,12 +623,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic verses move over produced beats, with flows and accents shaped by different languages and local musical references. Sample-based production, melodic passages and expanded live collaborations coexist within this broad regional field.",
-        "exemplars": [
-          "NARCY",
-          "DAM",
-          "Shabjdeed",
-          "The Synaptik"
-        ],
+        "exemplars": ["NARCY", "DAM", "Shabjdeed", "The Synaptik"],
         "status": "documented",
         "crossRefs": []
       },
@@ -739,10 +659,7 @@
           "fresh_review_ref": "turn15093view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -754,10 +671,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -773,9 +687,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -789,9 +701,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15093view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15093view3"],
         "fresh_rights_review": "Fresh rights only; inherited023 exact binary and visual receipt retained."
       },
       "source_label": "middle east hip hop",
@@ -801,12 +711,7 @@
       "allocation_group_id": "017",
       "id": "middle_east_hip_hop",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        25.2048,
-        55.2708,
-        "Dubai",
-        "Middle East"
-      ],
+      "geo": [25.2048, 55.2708, "Dubai", "Middle East"],
       "geo_rationale": "Documented UAE community anchor for the selected multilingual diasporic practice; not the birthplace of the entire field or an exact recording location.",
       "sources": [
         {
@@ -896,10 +801,7 @@
         "name": "NZ Gangsta Rap",
         "family": "hip_hop",
         "lineage": "New Zealand gangsta rap places local street narratives within the wider national hip-hop scene. South Auckland artists connected international rap influences with neighbourhood experience, including accounts of gang life, its consequences and leaving it behind.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -941,9 +843,7 @@
           "cyclicity": 0
         },
         "description": "Direct rhythmic storytelling rides produced beats and low-end backing. Forceful verses can alternate with hooks and guest voices, while local references distinguish the narratives from imported settings.",
-        "exemplars": [
-          "Ermehn"
-        ],
+        "exemplars": ["Ermehn"],
         "status": "documented",
         "crossRefs": []
       },
@@ -979,10 +879,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -994,10 +891,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1013,9 +907,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1029,9 +921,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "nz gangsta rap",
@@ -1041,12 +931,7 @@
       "allocation_group_id": "017",
       "id": "nz_gangsta_rap",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        -36.962,
-        174.873,
-        "Ōtara",
-        "Oceania & Pacific"
-      ],
+      "geo": [-36.962, 174.873, "Ōtara", "Oceania & Pacific"],
       "geo_rationale": "Documented South Auckland practice anchor, not the only New Zealand scene.",
       "sources": [
         {
@@ -1062,11 +947,7 @@
           "support_notes": "Producer-linked event announcement corroborates rap narrative over Anonymouz production; full guest album roster is context, not a reconstructed master."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn15038view0",
-        "turn15043view0",
-        "turn15040search3"
-      ],
+      "primary_retrieval_refs": ["turn15038view0", "turn15043view0", "turn15040search3"],
       "neighbor_distinction": "Full nz_hip_hop includes diverse Māori and Pacific participation, storytelling and beat production, not only Upper Hutt Posse or conscious rap. This is the positive gangsta-storytelling branch within that umbrella. Global gangsta rap overlaps in narrative conventions but does not replace the documented New Zealand community. Māori waiata and haka are separate practices, not compulsory instruments or vocal techniques for this branch. No inference that ethnicity or residence implies gang involvement; no claim that all local hip-hop is gangsta.",
       "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
       "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
@@ -1128,10 +1009,7 @@
         "name": "Rap Criolo",
         "family": "hip_hop",
         "lineage": "Rap Criolo connects Cape Verdean Kriolu language with hip-hop communities in the islands and diaspora, notably metropolitan Lisbon. Its lyrics explore neighbourhood life, migration, identity and social experience.",
-        "instruments": [
-          "voice",
-          "credited_beat_unspecified"
-        ],
+        "instruments": ["voice", "credited_beat_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -1173,11 +1051,7 @@
           "cyclicity": 0
         },
         "description": "Rhythmic Kriolu verses work with produced beats and low bass. Vocal phrasing and local language give the music its character; unaccompanied passages and melodic approaches also occur.",
-        "exemplars": [
-          "Chullage",
-          "LBC/Soldjah",
-          "Kromo"
-        ],
+        "exemplars": ["Chullage", "LBC/Soldjah", "Kromo"],
         "status": "documented",
         "crossRefs": []
       },
@@ -1213,10 +1087,7 @@
           "fresh_review_ref": "turn14889view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1228,10 +1099,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1247,9 +1115,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1263,9 +1129,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14889view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14889view2"],
         "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
       },
       "source_label": "rap criolo",
@@ -1275,12 +1139,7 @@
       "allocation_group_id": "019",
       "id": "rap_criolo",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        38.7223,
-        -9.1393,
-        "Lisbon",
-        "Europe"
-      ],
+      "geo": [38.7223, -9.1393, "Lisbon", "Europe"],
       "geo_rationale": "Documented diaspora scene anchor; does not restrict the Cape Verdean field to Portugal.",
       "sources": [
         {
@@ -1359,11 +1218,7 @@
         "name": "Türkçe Trap Metal",
         "family": "hip_hop",
         "lineage": "Türkçe trap metal connects Turkish-language rap with the intensity of metal-influenced vocal performance and contemporary beat production. Independent rappers and producers circulate releases and collaborations through a shared online underground, bringing screamed delivery alongside rhythmic verses.",
-        "instruments": [
-          "voice",
-          "produced_808_bass",
-          "credited_programmed_drums_unspecified"
-        ],
+        "instruments": ["voice", "produced_808_bass", "credited_programmed_drums_unspecified"],
         "room": "treated_studio",
         "pin_parts": true,
         "parts": {
@@ -1408,12 +1263,7 @@
           "cyclicity": 0
         },
         "description": "Forceful rhythmic verses and screamed accents meet programmed drums and distorted 808 low bass. Abrasive textures and sharply delivered phrases characterize this crossover, while individual tracks vary in vocal approach and instrumental color.",
-        "exemplars": [
-          "KHVN",
-          "Furkan Karakılıç",
-          "ERU",
-          "13 Killoki"
-        ],
+        "exemplars": ["KHVN", "Furkan Karakılıç", "ERU", "13 Killoki"],
         "status": "documented",
         "crossRefs": []
       },
@@ -1449,10 +1299,7 @@
           "fresh_review_ref": "turn15093view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1464,10 +1311,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1483,9 +1327,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1499,9 +1341,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15093view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15093view3"],
         "fresh_rights_review": "Fresh rights only; inherited023 exact binary and visual receipt retained."
       },
       "source_label": "turkce trap metal",
@@ -1511,12 +1351,7 @@
       "allocation_group_id": "025",
       "id": "turkce_trap_metal",
       "status": "READY_INDEPENDENT_REVIEW",
-      "geo": [
-        39.9334,
-        32.8597,
-        "Ankara",
-        "Middle East"
-      ],
+      "geo": [39.9334, 32.8597, "Ankara", "Middle East"],
       "geo_rationale": "First-person producer interview explicitly identifies Ankara upbringing and continuing local connections; approximate city anchor, not a recording address.",
       "sources": [
         {
@@ -1560,9 +1395,7 @@
         "unpinned_slots": []
       },
       "dependency_audit": {
-        "new_instruments": [
-          "produced_808_bass"
-        ],
+        "new_instruments": ["produced_808_bass"],
         "baseline_existing": 1653,
         "reuse": "Exact independently reviewed Necrotrap dependency fffbd180ff2bb3ebc9faa1eb2fc8efdb364e51133346b1fceded2b5f6b8245e0; do not append twice during combined integration."
       },
@@ -1627,10 +1460,7 @@
         "name": "Classic Bulgarian Pop",
         "family": "pop",
         "lineage": "Bulgarian estrada developed through radio, conservatory training and state-supported popular-song festivals in the second half of the twentieth century. The Golden Orpheus and Melody of the Year circuits connected singers, composers and arrangers, leaving a repertoire that continues to be performed and revisited.",
-        "instruments": [
-          "voice",
-          "acoustic_guitar_dread"
-        ],
+        "instruments": ["voice", "acoustic_guitar_dread"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -1676,21 +1506,11 @@
           "cyclicity": 0
         },
         "description": "Expressive lead melodies and lyrical songcraft connect intimate guitar-accompanied songs with larger dance-band and orchestral settings. Romantic, reflective and brighter popular songs share a historical recording and festival culture, with arrangements varying widely across artists.",
-        "exemplars": [
-          "Maria Neykova",
-          "Lili Ivanova",
-          "Yordanka Hristova",
-          "Bogdana Karadocheva"
-        ],
+        "exemplars": ["Maria Neykova", "Lili Ivanova", "Yordanka Hristova", "Bogdana Karadocheva"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        42.6977,
-        23.3219,
-        "Sofia",
-        "Europe"
-      ],
+      "geo": [42.6977, 23.3219, "Sofia", "Europe"],
       "geo_rationale": "Approximate broadcasting and conservatory community anchor, not the location of every festival or source recording.",
       "photo": {
         "manifest": {
@@ -1724,10 +1544,7 @@
           "fresh_review_ref": "turn15093view3"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1739,10 +1556,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1758,9 +1572,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1774,9 +1586,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15093view3"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15093view3"],
         "fresh_rights_review": "Fresh15093view3 rights; exact historical023 binary/visual receipt unchanged, no current download."
       },
       "model_policy": "Representative intimate singer-and-guitar branch supported by the national broadcaster’s archival artist testimony about guitar and singing, alongside positively documented larger orchestral settings. This does not reconstruct the film soundtrack or remove roles from a named orchestral concert. One accompanied syllabic lead, functional-harmonic verse–chorus–bridge organization, standard-tuned all-mahogany steel-string dreadnought with80/20strings and flatpicked chord support are authored choices, not a claim about original guitar construction, master personnel or universal song form. The brisk present-day rendition is one possible popular-song treatment, not a claim that Neykova’s reflective Dvama recording is fast. Live room and natural single-lead capture are authored; physiology unspecified.",
@@ -1798,11 +1608,7 @@
           "support_notes": "Fresh15115search3 describes state institutions organizing and producing musical estrada and two named competitions."
         }
       ],
-      "primary_retrieval_refs": [
-        "turn15115search0",
-        "turn15115search3",
-        "turn15124view1"
-      ],
+      "primary_retrieval_refs": ["turn15115search0", "turn15115search3", "turn15124view1"],
       "source_scope_limitation": "Genre-practice profile, not a complete film or festival master. Broader orchestral/band branches retained in public prose.",
       "source_retrieval_caveat": "BNR full archival page directly reproduced; historical field article indexed primary reproduced after direct failure. Exact creator map failed403/timeout; no membership assertion or audio audition.",
       "signature_tokens": []
@@ -1820,10 +1626,7 @@
         "name": "Vintage Swedish Pop",
         "family": "pop",
         "lineage": "Vintage Swedish pop gathers older Swedish-language entertainment songs from revue, radio, film, dance halls and domestic music-making. Schlager melodies, comic couplets and sentimental songs moved between stage performers, records and printed arrangements, forming a repertory that later revivals continue to revisit.",
-        "instruments": [
-          "voice",
-          "upright_piano"
-        ],
+        "instruments": ["voice", "upright_piano"],
         "room": "parlor",
         "pin_parts": true,
         "parts": {
@@ -1867,20 +1670,11 @@
           "cyclicity": 0
         },
         "description": "Clear sung melodies and text-led phrasing sit over a compact piano accompaniment. Sentimental warmth, gentle dance motion and theatrical turns coexist in this older entertainment repertory; intimate singing at the piano is one branch alongside larger radio and ballroom ensembles.",
-        "exemplars": [
-          "Bertil Boo",
-          "Ulla Billquist",
-          "Sven-Olof Sandberg"
-        ],
+        "exemplars": ["Bertil Boo", "Ulla Billquist", "Sven-Olof Sandberg"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        59.3293,
-        18.0686,
-        "Stockholm",
-        "Europe"
-      ],
+      "geo": [59.3293, 18.0686, "Stockholm", "Europe"],
       "geo_rationale": "Editorial Swedish radio/revue publishing anchor, not an exact historical session.",
       "signature_tokens": [],
       "model_policy": "Representative singing-and-piano branch supported by archival research documenting schlager songs and their printed piano settings as active domestic/performance media. This is not an exhaustive transcription of any historical recording or of the separate Salongsorkestern revival show, whose big band/strings/vocal trio are acknowledged as a different practice. Standard upright size, studio use, block-chord accompaniment, connected syllabic single-lead singing and parlor acoustics are deliberate contemporary rendition choices; original register, headcount, piano construction and recording apparatus are not inferred. Functional-harmonic verse–chorus–bridge organization is authored for the rendition, not asserted for every old song or score.",
@@ -1948,10 +1742,7 @@
           "fresh_review_ref": "turn14898view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1963,10 +1754,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -1982,9 +1770,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -1998,9 +1784,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14898view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14898view0"],
         "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
       },
       "dependency_audit": {
@@ -2023,10 +1807,7 @@
         "name": "Fotbollslåtar",
         "family": "vernacular",
         "lineage": "Swedish football songs connect club supporters, national-team campaigns and popular songwriting. Commissioned tournament songs and club hymns circulate through records, broadcasts and communal singing, while familiar melodies acquire new supporter texts.",
-        "instruments": [
-          "voice",
-          "upright_piano"
-        ],
+        "instruments": ["voice", "upright_piano"],
         "room": "parlor",
         "pin_parts": true,
         "parts": {
@@ -2070,20 +1851,11 @@
           "cyclicity": 0
         },
         "description": "Memorable refrains, direct lyrics and shared singing give football songs their rallying character. A sung melody with chordal piano accompaniment offers one compact rendition of this repertoire, alongside crowd chants, rock bands and electronic productions.",
-        "exemplars": [
-          "Georg Åby Ericson",
-          "Hammarby Fotbollslag",
-          "Miss Li"
-        ],
+        "exemplars": ["Georg Åby Ericson", "Hammarby Fotbollslag", "Miss Li"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        59.3293,
-        18.0686,
-        "Stockholm",
-        "Europe"
-      ],
+      "geo": [59.3293, 18.0686, "Stockholm", "Europe"],
       "geo_rationale": "Editorial Swedish federation and popular-song circulation anchor, not birthplace or exact recording site.",
       "signature_tokens": [],
       "model_policy": "Representative song-and-piano arrangement of the Swedish football-song field, not a transcription of the1974 national-team recording. SvFF positively documents composer/pianist Åby and singing players; earlier retained evidence also names orchestra in that recording, which remains acknowledged and is not claimed reproduced by this compact default. The field includes instrumental bands and electronic productions, not mandatory roles in every rendition. Authored upright, block-chord accompaniment, a single connected syllabic melody and intimate parlor capture provide an editable songwriting rendition; neither solo staffing nor parlor acoustics describe the source recording. Functional-harmonic verse–chorus–bridge form is an authored arrangement choice, not a measured structure of every chant or song.",
@@ -2147,10 +1919,7 @@
           "fresh_review_ref": "turn14898view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2162,10 +1931,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2181,9 +1947,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2197,9 +1961,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14898view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14898view0"],
         "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
       },
       "dependency_audit": {
@@ -2222,9 +1984,7 @@
         "name": "Gaita",
         "family": "global",
         "lineage": "Gaita brings together Iberian piping traditions and the musicians, makers and festivals that sustain them. Galician and Asturian repertories are central to this instrument-led field, which includes solo playing, pipe bands and collaborations with singers or other instruments.",
-        "instruments": [
-          "gaita_galega"
-        ],
+        "instruments": ["gaita_galega"],
         "room": "field_recording",
         "pin_parts": true,
         "parts": {
@@ -2254,20 +2014,11 @@
           "cyclicity": 0
         },
         "description": "A chanter melody unfolds over sustained drones, shaped by finger articulation and ornaments. Dawn pieces, dances and processional tunes form a varied repertory; the Galician solo branch offers a compact example without representing every regional pipe or ensemble.",
-        "exemplars": [
-          "Susana Seivane",
-          "Ricardo Portela",
-          "Xuacu Amieva"
-        ],
+        "exemplars": ["Susana Seivane", "Ricardo Portela", "Xuacu Amieva"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        42.8782,
-        -8.5448,
-        "Santiago de Compostela",
-        "Europe"
-      ],
+      "geo": [42.8782, -8.5448, "Santiago de Compostela", "Europe"],
       "geo_rationale": "Editorial anchor for selected Galician representative branch within a broader Iberian field, not universal origin or recording site.",
       "signature_tokens": [],
       "model_policy": "Representative solo Galician alborada branch, supported by maker accounts of solo piping and the named alborada repertory in the exact creator corpus. This replaces the earlier source-specific waltz route rather than changing that recording into an alborada. Authored three-drone configuration, boxwood chanter, cane reed, traditional goatskin bag and folk melodic articulation are existing meaningful instrument choices, not an assertion of exact Seivane equipment. Manufacturer describes semi-tempered modern tuning; no universal twelve-tone or just-intonation tuning is imposed. Outdoor field capture is authored. Other corpus practices include Asturian pipes, pipe bands, singing and the similarly named Navarre double-reed instrument; no source says these occur together in every performance.",
@@ -2336,10 +2087,7 @@
           "fresh_review_ref": "turn14898view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2351,10 +2099,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2370,9 +2115,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2386,9 +2129,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14898view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14898view0"],
         "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
       },
       "dependency_audit": {
@@ -2411,9 +2152,7 @@
         "name": "Grave Wave",
         "family": "electronic",
         "lineage": "Grave Wave emerged around a late-2000s and early-2010s network of dark independent music, web publications, labels and clubs. Witch house, post-punk, gothic synth music, industrial electronics and neofolk circulated together through compilations, remixes and DJ programmes.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -2438,21 +2177,11 @@
           "cyclicity": 0
         },
         "description": "Nocturnal atmosphere and a shared underground visual culture connect disparate song and electronic styles. DJ programmes move between dark rhythmic tracks, synth textures and guitar-based material rather than relying on one tempo or production method.",
-        "exemplars": [
-          "Ritualz",
-          "Cold Cave",
-          "Soft Metals",
-          "FUNERALS"
-        ],
+        "exemplars": ["Ritualz", "Cold Cave", "Soft Metals", "FUNERALS"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        40.7128,
-        -74.006,
-        "New York",
-        "North America"
-      ],
+      "geo": [40.7128, -74.006, "New York", "North America"],
       "geo_rationale": "Editorial institutional anchor at MishkaNYC, whose own primary names New York and issued the defining compilation; not every artist birthplace or a claimed recording site.",
       "signature_tokens": [],
       "model_policy": "Representative DJ-programming branch of the documented Grave Wave community. The artist-supplied Textbeak profile explicitly documents recurring radio mixes and DJ sets with this scene; FUNERALS likewise describes record-spinning events. This is actual mixed-programme practice, not a studio-master sampler shortcut or reconstruction of the 35-track compilation. All embedded vocals, instruments and effects remain in playback; exact decks, source production architectures and embedded voice count are unknown. No separately performed live singer is inferred. Neutral DJ owner preserves source-known playback/mixing while leaving medium and hardware unknown. Brisk dance presentation and controlled live-room listening are authored editable choices compatible with the documented dance-radio branch, not claims about every Grave Wave work or a measured venue/BPM. Broad electronicDance parent applies to this representative DJ branch, not the entire cross-style field.",
@@ -2525,10 +2254,7 @@
           "fresh_review_ref": "turn15283view1"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2540,10 +2266,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2559,9 +2282,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2575,9 +2296,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15283view1"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15283view1"],
         "fresh_rights_review": "Fresh turn15283view1 rights only; historical bytes and visual receipt unchanged."
       },
       "dependency_audit": {
@@ -2656,18 +2375,11 @@
           "cyclicity": 0
         },
         "description": "Sung phrases and flute melodies guide the dancers while a single-headed kettle drum and a double-headed drum articulate the shared pulse. Formations and song repertories change with the season and occasion; the ensemble supports communal movement rather than a fixed concert arrangement.",
-        "exemplars": [
-          "Uma Kumari and group"
-        ],
+        "exemplars": ["Uma Kumari and group"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        22.553,
-        85.802,
-        "Singhbhum",
-        "South Asia"
-      ],
+      "geo": [22.553, 85.802, "Singhbhum", "South Asia"],
       "geo_rationale": "Institutionally documented Ho Munda home region, not a claim about a Mumbai show recording location.",
       "signature_tokens": [],
       "model_policy": "Representative sung Ho community-dance branch, using all positive NCPA role classes: communal voice, bamboo flute, dama kettle drum and dumang double-headed drum. Government ethnography and the Ho vocabulary identify rutu as flute; NCPA’s loose percussion grouping is not interpreted as an additional drum. No precise performer count, voice range, flute holes, drum shell material, membrane species, dimensions, tuning, hand-versus-stick stroke or recording apparatus is inferred. Drum architecture and membrane counts are positively documented; striking excitation follows the explicit drummer/beat descriptions. Field acoustics are an authored community setting, not a measured Mumbai recording. Other documented Ho ritual branches use fiddle, bells or other drums; this chosen dance branch does not claim to exhaust all Ho musical practice. Existing voice controls retain source-neutral physiology and accompanied group identity; melodic syllabic delivery is an authored seasonal-song realization, not a transcription. Communal singing is realized as a live ensemble with no overdub stack, not a known recording-session claim. Punctuated syllabic seasonal-song articulation is authored; the generated clapping-and-syllabicizing adjective must be reviewed as a delivery description, not evidence of an added handclap instrument.",
@@ -2745,10 +2457,7 @@
           "fresh_review_ref": "turn15211view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2760,10 +2469,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2779,9 +2485,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -2795,9 +2499,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15211view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15211view0"],
         "fresh_rights_review": "Fresh turn15211view0 rights only; historical image bytes and visual receipt unchanged."
       },
       "dependency_audit": "Two reserved genuine Ho drum identities, three source-supported physical controls each; raw records cache-free. Runtime verifies1653 baseline owners unchanged around in-memory addition,26 protected controls and original API pins preserved.",
@@ -2816,11 +2518,7 @@
         "name": "Jain bhajan",
         "family": "global",
         "lineage": "Jain bhajan, also called stavan, praises the Jinas and expresses Jain devotional ideals. Regional languages and folk-derived melodies connect temple, domestic and public singing, while modern recordings also draw on art-music and popular arrangements.",
-        "instruments": [
-          "voice",
-          "tabla",
-          "tanpura"
-        ],
+        "instruments": ["voice", "tabla", "tanpura"],
         "room": "concert_hall_shoebox",
         "pin_parts": true,
         "parts": {
@@ -2874,12 +2572,7 @@
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        22.3,
-        71.2,
-        "Gujarat",
-        "South Asia"
-      ],
+      "geo": [22.3, 71.2, "Gujarat", "South Asia"],
       "geo_rationale": "Approximate Gujarat land anchor for the documented western Indian Jain hymn traditions and Gujarati repertoire; not a specific session or claim of exclusive origin.",
       "model_policy": "Representative contemporary recorded Jain devotional branch. The scholarly primary explicitly distinguishes regional folk-based Jain hymn practice from Sikh kirtan and documents modern Jain recordings with singing, drone and tabla. A four-string plucked tanpura is an authored physical realization of that positive drone role, not a source identification of an exact recording. Small-note-group sung phrasing, a single accompanied lead, copper/shisham tabla and acoustic recital setting are editable defaults; no male-only or universal classical technique is imposed. This is genre practice, not a stripped named master or whole temple ceremony. All physical and vocal controls retained.",
       "neighbor_distinction": "Full existing bhajan explicitly defines Hindu deity-praise and associated congregational practice; kirtan names Hindu/Sikh branches and sikh_shabad_kirtan is Gurbani-centered. Jain bhajan shares devotional-song practices but praises Jinas and has its own theological, institutional and regional hymn traditions, positively differentiated in the scholarly comparison. No current or queued Jain bhajan/stavan duplicate was found. This is a religious repertoire boundary, not a new name for the Hindu bhajan example.",
@@ -2949,10 +2642,7 @@
           "fresh_review_ref": "turn14103view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2964,10 +2654,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -2983,9 +2670,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3000,9 +2685,7 @@
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
         "fresh_rights_review": "Fresh turn14103view0 confirms Commons CC BY2.5 and credited crop; historical023 byte/visual receipt inherited.",
-        "fresh_rights_retrieval_refs": [
-          "turn14103view0"
-        ]
+        "fresh_rights_retrieval_refs": ["turn14103view0"]
       },
       "resolved_parts_audit": [
         {
@@ -3056,10 +2739,7 @@
         "original_packet": "/tmp/batch041/qualified-frozen194.json",
         "original_packet_sha256": "cdffb47e454c88d3c0cdc9b1f71d455cb6da0b12da64acd3f4e4ddbf17e6b707",
         "before_parent": "ritualDevotional",
-        "before_crossRefs": [
-          "ritualDevotional.hindu",
-          "praiseSong.indianSubcontinent"
-        ],
+        "before_crossRefs": ["ritualDevotional.hindu", "praiseSong.indianSubcontinent"],
         "scope": "Only taxonomy parent/crossRefs and corresponding classification rationale/provenance changed. Source facts, instruments, protected controls, photo, tuning, room and dependencies preserved.",
         "prior_classification_evidence": "Scholarly primary explicitly identifies Jain hymn/bhakti practice and another journal introduction states Jain stavan is also called bhajan. Broad ritualDevotional avoids falsely classifying Jain practice as Hindu or Sikh. Creator map currently403; no fresh creator membership claim is made."
       },
@@ -3106,10 +2786,7 @@
         "name": "Lai Hla",
         "family": "vernacular",
         "lineage": "Lai hla connects Chin song communities through local-language repertoire, recordings and everyday music-making. Hakha Chin lyric and chord collections bring contemporary songs, patriotic material and Christian repertoire into shared channels of learning and performance.",
-        "instruments": [
-          "voice",
-          "acoustic_guitar_dread"
-        ],
+        "instruments": ["voice", "acoustic_guitar_dread"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3155,21 +2832,11 @@
           "cyclicity": 0
         },
         "description": "A clear sung melody and guitar chords support an intimate, portable song setting. Repeated sections make lyrics easy to learn and share, while the wider repertoire also circulates through gospel groups, popular recordings and electronic arrangements.",
-        "exemplars": [
-          "David Lai",
-          "James Tluang",
-          "Bawi Hum",
-          "Lian Lian"
-        ],
+        "exemplars": ["David Lai", "James Tluang", "Bawi Hum", "Lian Lian"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        22.6458,
-        93.605,
-        "Hakha",
-        "Southeast Asia"
-      ],
+      "geo": [22.6458, 93.605, "Hakha", "Southeast Asia"],
       "geo_rationale": "Approximate regional language-community anchor in Hakha, not a claim of a single origin, present performer location or exclusive geographic extent.",
       "photo": {
         "manifest": {
@@ -3203,10 +2870,7 @@
           "fresh_review_ref": "turn14908view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3218,10 +2882,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3237,9 +2898,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3253,9 +2912,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14908view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14908view2"],
         "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
       },
       "model_policy": "Representative voice-and-guitar learning/performance branch directly supported by the community publisher’s Hakha Chin lyric-and-guitar-chord practice. The broader creator corpus includes contemporary, devotional and neighboring-language recordings; it is not defined as acoustic-only. Solo accompanied syllabic singing and a functional-harmonic verse–chorus–bridge realization are authored, not measured song form. Flatpicked standard-tuned steel-string dreadnought with all-mahogany body and80/20strings is an explicit representative construction, not an asserted David Lai instrument. Live-room presentation and moderate effort are authored; no exact physiology or voice count claimed. All22 controls protected. A brisk syllabic rendition is authored for the contemporary participatory-song branch, not an asserted tempo for every hymn or recording.",
@@ -3274,11 +2931,7 @@
           "checked_date": "2026-10-04"
         }
       ],
-      "primary_retrieval_refs": [
-        "turn15012view0",
-        "turn15010view1",
-        "turn15011view1"
-      ],
+      "primary_retrieval_refs": ["turn15012view0", "turn15010view1", "turn15011view1"],
       "source_scope_limitation": "Community genre-practice profile rather than an individual master. Karaoke and produced recordings remain documented alternative settings; this selected learning/performance realization uses singing and guitar. The unverified machine podcast transcript is not used as instrumental evidence.",
       "source_retrieval_caveat": "Both community publisher App Store text and complete creator embed directly retrieved. Exact guitar species, string alloy and flatpick choice are explicitly authored, not source observations.",
       "signature_tokens": []
@@ -3296,10 +2949,7 @@
         "name": "Marathi Balgeet",
         "family": "vernacular",
         "lineage": "Marathi balgeet brings Marathi-language children’s songs into family play, classrooms and contemporary educational media. Short rhymes, memorable phrases and coordinated actions help children share language and rhythm.",
-        "instruments": [
-          "voice",
-          "hand_clap"
-        ],
+        "instruments": ["voice", "hand_clap"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3342,18 +2992,11 @@
           "cyclicity": 1
         },
         "description": "Voices repeat compact phrases while hand patterns mark the pulse. Clapping games can alternate song with playful spoken sounds and gestures; arranged recordings offer additional ways of circulating the repertoire.",
-        "exemplars": [
-          "Apadi Thapadi Gulachi Papdi"
-        ],
+        "exemplars": ["Apadi Thapadi Gulachi Papdi"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        19.1075,
-        72.8263,
-        "Mumbai",
-        "South Asia"
-      ],
+      "geo": [19.1075, 72.8263, "Mumbai", "South Asia"],
       "geo_rationale": "Juhu school institutional language-song practice; regional repertoire is not restricted to this representative city anchor.",
       "photo": {
         "manifest": {
@@ -3387,10 +3030,7 @@
           "fresh_review_ref": "turn14908view2"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3402,10 +3042,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3421,9 +3058,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3437,9 +3072,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn14908view2"
-        ],
+        "fresh_rights_retrieval_refs": ["turn14908view2"],
         "fresh_rights_review": "Fresh turn14908view2 rights only; exact historical binary/visual receipts retained without new-download claims."
       },
       "model_policy": "Representative participatory rhyme-and-handclap practice, not reconstruction of the animation soundtrack. Full positive vocal, hand impact and playful vocalized syllable roles retained. Unknown participant number and adult/child vocal proportions remain unspecified. Group singing, single live-ensemble take, syllabic text setting and flat natural-room claps are authored practice choices; no particular age physiology, measured mode, exact melody or equipment is asserted. Occasional spoken/onomatopoeic actions are described, with one predominantly sung realization selected. Nursery-rhyme parent follows explicit action-game/language-learning function, not notation alone. No global tuning imposed.",
@@ -3458,10 +3091,7 @@
           "checked_date": "2026-10-04"
         }
       ],
-      "primary_retrieval_refs": [
-        "turn14930view1",
-        "turn14929search3"
-      ],
+      "primary_retrieval_refs": ["turn14930view1", "turn14929search3"],
       "source_scope_limitation": "Genre-level participatory practice, no claim specific released master is accompaniment-free. Handclaps and vocal actions are positive source roles; no missing keyboard/drum inferred from an unavailable recording.",
       "source_retrieval_caveat": "Producer full teaching page directly reproduced; school primary indexed passage reproduced, direct page timeout candid. Older unavailable piano video no longer controls this representative practice route.",
       "axis_review": {
@@ -3497,12 +3127,7 @@
         "name": "Muzică Maramureșeană",
         "family": "vernacular",
         "lineage": "Maramureș music brings together village singing, wedding repertories, dance tunes and pastoral music from northern Romania. The cetera fiddle and strummed zongoră form a characteristic instrumental partnership, often joined by a dobă drum. Solo long-song traditions coexist with lively collective performances.",
-        "instruments": [
-          "voice",
-          "fiddle",
-          "zongora_maramures",
-          "doba_maramures"
-        ],
+        "instruments": ["voice", "fiddle", "zongora_maramures", "doba_maramures"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3559,21 +3184,12 @@
           "cyclicity": 1
         },
         "description": "A decorated fiddle melody moves over insistent strummed chords and a drum pulse. Wedding musicians vary and elaborate the tunes, with shouted strigături adding vocal energy. Other parts of the regional repertoire favor free, sustained solo singing and quieter pastoral sounds.",
-        "exemplars": [
-          "Ionu’ lu Grigore",
-          "Ion Pop",
-          "Nicolae Pițiș"
-        ],
+        "exemplars": ["Ionu’ lu Grigore", "Ion Pop", "Nicolae Pițiș"],
         "status": "documented",
         "crossRefs": [],
         "signature_tokens": []
       },
-      "geo": [
-        47.653,
-        24.35,
-        "Săliștea de Sus",
-        "Europe"
-      ],
+      "geo": [47.653, 24.35, "Săliștea de Sus", "Europe"],
       "geo_rationale": "ICR directly locates the documented fiddler and wedding practice in Săliștea de Sus, Maramureș.",
       "photo": {
         "manifest": {
@@ -3607,10 +3223,7 @@
           "fresh_review_ref": "turn15196view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3622,10 +3235,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3641,9 +3251,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3657,9 +3265,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15196view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15196view0"],
         "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
       },
       "model_policy": "Representative lively wedding-dance branch with fiddle, zongoră, dobă and strigături retained. ICR directly describes the trio and energetic vocal calls/improvisation; the separate museum programme confirms regional sung and instrumental practice but is not treated as the same ensemble or recording. Projected shouted heightened speech realizes the positive calls without inventing exact words, number of callers or pitch anatomy. Fiddle melody uses the existing school-unspecified local melody control; steel-core strings/light rosin/unmuted bowing are authored practical choices. Modern four-string zongoră is positively documented by the Romanian national inventory; closely grouped rapid strumming and major-chord accompaniment preserve its distinct practice. Sitka soundboard, maple back/sides and80/20 strings are explicit authored guitar construction, not measured regional timbers or universal string alloy. Dobă preserves the documented medium double-headed form, separate unknown shell/head materials, and an authored stick-struck support gesture. No kick pedal, foreign drum identity, undocumented cymbal, or orchestral doubling is inferred. Broad improvOnFrame reflects the ICR-described creative melodic elaboration over strummed/drummed support. No exact master, uniform regional ensemble or global tuning is claimed.",
@@ -3727,11 +3333,7 @@
         "name": "Necrotrap",
         "family": "hip_hop",
         "lineage": "Necrotrap is an online underground rap field connecting dark trap production, abrasive low bass and screamed delivery. Its producers and performers circulate through small internet networks alongside dark trap and trap metal. Distortion and clipped 808 sounds are prominent options rather than a requirement for every release.",
-        "instruments": [
-          "voice",
-          "produced_808_bass",
-          "credited_programmed_drums_unspecified"
-        ],
+        "instruments": ["voice", "produced_808_bass", "credited_programmed_drums_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3776,20 +3378,11 @@
           "cyclicity": 1
         },
         "description": "Harsh rhythmic vocals confront forceful produced beats and low bass. Clipping, sparse threatening textures and abrupt vocal accents can intensify the delivery; calmer and more melodic productions also circulate within the field.",
-        "exemplars": [
-          "Gorejit",
-          "SLXNDXR",
-          "FXCY"
-        ],
+        "exemplars": ["Gorejit", "SLXNDXR", "FXCY"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        47.1625,
-        19.5033,
-        "Hungary",
-        "Europe"
-      ],
+      "geo": [47.1625, 19.5033, "Hungary", "Europe"],
       "geo_rationale": "Approximate land anchor for the Hungary-based first-person artist FXCY/Tigaro account. It is one documented participant location in an international internet field, not an asserted birthplace or exact residence.",
       "photo": {
         "manifest": {
@@ -3823,10 +3416,7 @@
           "fresh_review_ref": "turn15196view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3838,10 +3428,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -3857,9 +3444,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -3873,9 +3458,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15196view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15196view0"],
         "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
       },
       "model_policy": "Representative screamed-rap lead, produced 808 low bass and programmed percussion. SLXNDXR explicitly describes necrotrap beat production, 808 clipping and two master soft clippers; the isolated bass owner now preserves low-bass identity and soft-clipped amplitude processing as meaningful controls. Its long decay is an authored representative 808-bass choice, not a measured envelope from the source. The bass generator may be sampled or synthesized; no exact original Roland circuit, RD8, TR8S, plugin or hardware is invented. Remaining programmed percussion is retained separately, with drum generator and inventory unspecified. Overdriven scream effort and rhythmic spoken flow reflect the firsthand FXCY screaming branch without invented physiological technique. Voice is unprocessed in this authored rendition; source-described clipping belongs to backing production. Solo accompanied lead and live-room presentation are authored. The energetic pacing is a representative loud-trap rendition, not a universal measured tempo. This is a genre practice, not an exact master reconstruction.",
@@ -3900,11 +3483,7 @@
           "checked_date": "2026-10-04"
         }
       ],
-      "primary_retrieval_refs": [
-        "turn15194view0",
-        "turn15194view1",
-        "turn15196search0"
-      ],
+      "primary_retrieval_refs": ["turn15194view0", "turn15194view1", "turn15196search0"],
       "source_scope_limitation": "Representative voice, clipped 808 low bass and programmed percussion, preserving the production roles positively described by the producer. Unknown generator architectures are not converted into named hardware. No full sample inventory or exact artist session asserted.",
       "source_retrieval_caveat": "The artist interview is a first-person promotional submission. SoundBetter is producer-owned commercial testimony. Creator playlist was retrieved as a primary indexed Spotify result; no audio audition claimed.",
       "signature_tokens": []
@@ -3922,9 +3501,7 @@
         "name": "Rave",
         "family": "electronic",
         "lineage": "Rave developed around collective electronic dance events and DJ culture, connecting acid house, techno, breakbeats and subsequent hard-dance scenes. Its late-1980s and 1990s British history sits within wider international club and sound-system exchanges, with later generations continually revisiting and reshaping the repertoire.",
-        "instruments": [
-          "dj_playback_mixing_unspecified"
-        ],
+        "instruments": ["dj_playback_mixing_unspecified"],
         "room": "live_room",
         "pin_parts": true,
         "parts": {
@@ -3949,20 +3526,11 @@
           "cyclicity": 2
         },
         "description": "Selectors sustain dance-floor momentum through mixing, overlapping records and manipulating loops or short fragments. Repetition, low-frequency energy and contrasting electronic textures connect otherwise different styles; the surrounding gathering is central to the music’s identity.",
-        "exemplars": [
-          "Laurent Garnier",
-          "Rob Booth",
-          "Stormfield"
-        ],
+        "exemplars": ["Laurent Garnier", "Rob Booth", "Stormfield"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        51.5074,
-        -0.1278,
-        "London",
-        "Europe"
-      ],
+      "geo": [51.5074, -0.1278, "London", "Europe"],
       "geo_rationale": "Documented British rave historical branch and London Design Museum institutional context; an editorial anchor, not an exclusive origin for the international field.",
       "photo": {
         "manifest": {
@@ -3996,10 +3564,7 @@
           "fresh_review_ref": "turn15196view0"
         },
         "full": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4011,10 +3576,7 @@
           "receipt_scope": "inherited historical download; not downloaded in current environment"
         },
         "thumbnail": {
-          "dimensions": [
-            250,
-            720
-          ],
+          "dimensions": [250, 720],
           "bytes": 33015,
           "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
           "content_type": "image/jpeg",
@@ -4030,9 +3592,7 @@
           "checked_date": "2026-10-02",
           "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
           "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
-          "reviewed_paths": [
-            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
-          ],
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
           "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
         },
         "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
@@ -4046,9 +3606,7 @@
           "fresh_visual_review": false,
           "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
         },
-        "fresh_rights_retrieval_refs": [
-          "turn15196view0"
-        ],
+        "fresh_rights_retrieval_refs": ["turn15196view0"],
         "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
       },
       "model_policy": "Representative rave DJ practice supported by firsthand Booth/Stormfield and Garnier accounts, not a synthesized reconstruction of their source records. The source positively describes mixing records, loops and one-shots, sometimes four simultaneously; all those prerecorded musical and embedded vocal layers remain within DJ playback/mixing. No live singer or live 303/808 player is inferred from the records being mixed. Playback medium, mixer architecture and number of decks are unspecified; original owner preserves the actual source-positive mixing identity. Energetic up-tempo editorial treatment is compatible with the explicitly fast-paced, relentless and dance-directed practice. Live-room acoustic treatment is authored, not an observed rave venue. No universal tempo, fixed repertoire, tuning or hardware is asserted.",

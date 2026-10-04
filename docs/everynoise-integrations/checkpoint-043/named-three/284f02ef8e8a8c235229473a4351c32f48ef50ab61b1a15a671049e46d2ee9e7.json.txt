@@ -1,0 +1,10 @@
+{
+  "source_head": "251545a3451647afa77af76dd47a4640c760a288",
+  "api_all": 6746,
+  "old_api_graph_ids": 6725,
+  "new_targets_all_replayed": 21,
+  "api_affected_replayed": 341,
+  "fixtures_all": 1174,
+  "fixture_affected_replayed": 102,
+  "graph_unchanged": "Onlythreeexistingparts/pin_parts change; everygraph-definingfield unchanged. New21 allreplayed conservatively."
+}

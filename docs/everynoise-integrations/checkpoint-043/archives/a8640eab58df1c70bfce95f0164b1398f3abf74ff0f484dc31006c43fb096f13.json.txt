@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "base": "0af50f9684e194e75c64afa1d20b87ca52868f02",
+  "frozen_musical_source": "12c8438a50527b5df6ba8eb63a880a9fc025b78d",
+  "shared_engine_schema_ui_unchanged": true,
+  "only_app_change": "19 generated tradition signature entries; original build_signatures check required",
+  "snapshot_changes": "Only 3 independently reviewed named corrections; all other1146 exact; see named3-snapshot-review.json",
+  "old_instrument_payloads_exact": 1653,
+  "new_instrument_owners": 5,
+  "pr481_ancestor_preserved": true,
+  "source_sha256": {
+    "references/05_traditions.js": "61a35c90020297dcd6f3486d803b3c15b1e9c8149f449f2926cbd4d092202797",
+    "references/06_extras.js": "de7414ab80c5a9660776a1ad9d4f538fa7675e91c3a88e3d42e40348b776bb7f",
+    "references/02_instruments.js": "855d26bf7ea78ab933f2d89ceafc31e7a251539640a68a3323f507e5452a1b80",
+    "src/app.js": "845a8028e33edbd3a2e2d39be6b4ac347116835d4b34d79e3f92956e36dab2c5",
+    "tests/regression_snapshot.json": "c1d056a3da5e511214c57f05425340ad47b7a9acd73a22cfac584eab118c956f"
+  }
+}

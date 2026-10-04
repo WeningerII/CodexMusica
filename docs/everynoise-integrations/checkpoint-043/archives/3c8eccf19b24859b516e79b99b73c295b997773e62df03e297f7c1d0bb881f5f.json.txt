@@ -1,0 +1,25 @@
+{
+  "status": "PASS_OLD_AND_NEW_TRADITION_PAYLOADS",
+  "old_payloads": 6746,
+  "new_payloads": 19,
+  "old_config_changed_ids": [
+    "gospel_quartet_male",
+    "groove_metal",
+    "indian_folk_lok_geet",
+    "methodist_hymnody",
+    "odia_pop",
+    "pakistani_pop"
+  ],
+  "old_recipe_changed_ids": [
+    "desi_pop",
+    "gospel_quartet_male",
+    "groove_metal",
+    "methodist_hymnody"
+  ],
+  "errors": [],
+  "old_owner_payloads_compared": 1653,
+  "old_owner_changes": [],
+  "new_owner_check": "see separate new-owner-actual-api-verification.json",
+  "baseline": "042 readonly8576; namedthree exact reviewed043 projections; independently qualified six physical slot deltas and Desi material wording",
+  "scope": "Every musical configuration removes only derived numerical scores. Full recipes exact. No source/API writes."
+}
