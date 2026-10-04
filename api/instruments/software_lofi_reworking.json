@@ -1,0 +1,332 @@
+{
+  "id": "software_lofi_reworking",
+  "name": "Software lo-fi reworking processor",
+  "short": "Lo-fi reworking processor",
+  "family": "electronic",
+  "class": "software_lofi_reworking",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "description": "Software processing of a complete audio mix through independent tempo and pitch treatment, nonlinear coloration, bandwidth filtering and controlled added noise. The input recording retains its vocal and instrumental content.",
+  "parts": [
+    {
+      "id": "software_lofi_reworking_input",
+      "name": "Source programme",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_input_stereo_mix",
+          "name": "Complete stereo song mix",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "stereo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_tempo",
+      "name": "Tempo ratio",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_tempo_ninety_percent",
+          "name": "90 percent of input tempo",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "slow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_pitch",
+      "name": "Pitch relationship",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_pitch_preserved",
+          "name": "Input pitch preserved by time stretching",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_distortion",
+      "name": "Nonlinear processing",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_distortion_soft_clip",
+          "name": "Soft clipping",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_threshold",
+      "name": "Clipping threshold",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_threshold_minus_six_db",
+          "name": "Minus6dB clipping threshold",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_hardness",
+      "name": "Clipping hardness",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_hardness_twenty_percent",
+          "name": "20 percent hardness",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_makeup",
+      "name": "Make-up gain",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_makeup_none",
+          "name": "No make-up gain",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_cutoff",
+      "name": "Low-pass cutoff",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_cutoff_eight_khz",
+          "name": "8kHz cutoff",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "bandwidth-narrow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_slope",
+      "name": "Low-pass slope",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_slope_twelve_db_octave",
+          "name": "12dB per octave",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_noise",
+      "name": "Added noise character",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_noise_pink",
+          "name": "Pink noise",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_noise_level",
+      "name": "Added noise amplitude",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_noise_level_minus_fifty_db",
+          "name": "0.00316 peak amplitude, approximately minus50dBFS",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "https://tuoitre.vn/phunuonline/nhac-lofi-lua-chon-moi-cua-nguoi-tre-1101442536.htm",
+    "https://manual.audacityteam.org/man/change_tempo.html",
+    "https://manual.audacityteam.org/man/distortion.html",
+    "https://manual.audacityteam.org/man/low_pass_filter.html",
+    "https://manual.audacityteam.org/man/noise.html"
+  ],
+  "_ownParts": [
+    {
+      "id": "software_lofi_reworking_input",
+      "name": "Source programme",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_input_stereo_mix",
+          "name": "Complete stereo song mix",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "stereo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_tempo",
+      "name": "Tempo ratio",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_tempo_ninety_percent",
+          "name": "90 percent of input tempo",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "slow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_pitch",
+      "name": "Pitch relationship",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_pitch_preserved",
+          "name": "Input pitch preserved by time stretching",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_distortion",
+      "name": "Nonlinear processing",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_distortion_soft_clip",
+          "name": "Soft clipping",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "soft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_threshold",
+      "name": "Clipping threshold",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_threshold_minus_six_db",
+          "name": "Minus6dB clipping threshold",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_hardness",
+      "name": "Clipping hardness",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_hardness_twenty_percent",
+          "name": "20 percent hardness",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_makeup",
+      "name": "Make-up gain",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_makeup_none",
+          "name": "No make-up gain",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_cutoff",
+      "name": "Low-pass cutoff",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_cutoff_eight_khz",
+          "name": "8kHz cutoff",
+          "default": true,
+          "auto": false,
+          "descriptors": [
+            "bandwidth-narrow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_slope",
+      "name": "Low-pass slope",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_slope_twelve_db_octave",
+          "name": "12dB per octave",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_noise",
+      "name": "Added noise character",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_noise_pink",
+          "name": "Pink noise",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "software_lofi_reworking_noise_level",
+      "name": "Added noise amplitude",
+      "variants": [
+        {
+          "id": "software_lofi_reworking_noise_level_minus_fifty_db",
+          "name": "0.00316 peak amplitude, approximately minus50dBFS",
+          "default": true,
+          "auto": false,
+          "descriptors": []
+        }
+      ]
+    }
+  ]
+}

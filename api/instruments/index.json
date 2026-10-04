@@ -1,5 +1,5 @@
 {
-  "count": 1659,
+  "count": 1660,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9954,6 +9954,12 @@
       "name": "Cassette pause-tape beat production",
       "family": "electronic",
       "href": "instruments/cassette_pause_tape_looping.json"
+    },
+    {
+      "id": "software_lofi_reworking",
+      "name": "Software lo-fi reworking processor",
+      "family": "electronic",
+      "href": "instruments/software_lofi_reworking.json"
     }
   ]
 }

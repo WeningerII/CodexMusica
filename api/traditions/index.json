@@ -1,5 +1,5 @@
 {
-  "count": 6781,
+  "count": 6806,
   "items": [
     {
       "id": "honky_tonk",
@@ -40686,6 +40686,156 @@
       "name": "Underground Amapiano",
       "family": "electronic",
       "href": "traditions/underground_amapiano.json"
+    },
+    {
+      "id": "deep_tech_house",
+      "name": "Deep Tech House",
+      "family": "electronic",
+      "href": "traditions/deep_tech_house.json"
+    },
+    {
+      "id": "deep_psytrance",
+      "name": "Deep Psytrance",
+      "family": "electronic",
+      "href": "traditions/deep_psytrance.json"
+    },
+    {
+      "id": "chill_breakcore",
+      "name": "Chill Breakcore",
+      "family": "electronic",
+      "href": "traditions/chill_breakcore.json"
+    },
+    {
+      "id": "detroit_trap_en_espanol",
+      "name": "Detroit trap en español",
+      "family": "hip_hop",
+      "href": "traditions/detroit_trap_en_espanol.json"
+    },
+    {
+      "id": "modern_jangle_pop",
+      "name": "Modern Jangle Pop",
+      "family": "pop_rock",
+      "href": "traditions/modern_jangle_pop.json"
+    },
+    {
+      "id": "pop_reggaeton",
+      "name": "Pop Reggaeton",
+      "family": "pop",
+      "href": "traditions/pop_reggaeton.json"
+    },
+    {
+      "id": "calming_instrumental",
+      "name": "Calming Instrumental",
+      "family": "classical",
+      "href": "traditions/calming_instrumental.json"
+    },
+    {
+      "id": "carnaval_limburg",
+      "name": "Carnaval Limburg",
+      "family": "vernacular",
+      "href": "traditions/carnaval_limburg.json"
+    },
+    {
+      "id": "chill_lounge",
+      "name": "Chill Lounge",
+      "family": "electronic",
+      "href": "traditions/chill_lounge.json"
+    },
+    {
+      "id": "deep_darkpsy",
+      "name": "Deep Darkpsy",
+      "family": "electronic",
+      "href": "traditions/deep_darkpsy.json"
+    },
+    {
+      "id": "ghanaian_alternative",
+      "name": "Ghanaian Alternative",
+      "family": "global",
+      "href": "traditions/ghanaian_alternative.json"
+    },
+    {
+      "id": "ghoststep",
+      "name": "Ghoststep",
+      "family": "electronic",
+      "href": "traditions/ghoststep.json"
+    },
+    {
+      "id": "grimewave",
+      "name": "Grimewave",
+      "family": "electronic",
+      "href": "traditions/grimewave.json"
+    },
+    {
+      "id": "gruperas_inmortales",
+      "name": "Gruperas Inmortales",
+      "family": "pop",
+      "href": "traditions/gruperas_inmortales.json"
+    },
+    {
+      "id": "j_division",
+      "name": "J-Division",
+      "family": "pop",
+      "href": "traditions/j_division.json"
+    },
+    {
+      "id": "japanese_new_wave",
+      "name": "Japanese New Wave",
+      "family": "rock",
+      "href": "traditions/japanese_new_wave.json"
+    },
+    {
+      "id": "kizomba_antigas",
+      "name": "Kizomba Antigas",
+      "family": "global",
+      "href": "traditions/kizomba_antigas.json"
+    },
+    {
+      "id": "mezmur",
+      "name": "Mezmur",
+      "family": "sacred",
+      "href": "traditions/mezmur.json"
+    },
+    {
+      "id": "modern_enka",
+      "name": "Modern Enka",
+      "family": "pop",
+      "href": "traditions/modern_enka.json"
+    },
+    {
+      "id": "pygmy_music",
+      "name": "Pygmy music (Central African archival field)",
+      "family": "global",
+      "href": "traditions/pygmy_music.json"
+    },
+    {
+      "id": "rominimal",
+      "name": "Rominimal",
+      "family": "electronic",
+      "href": "traditions/rominimal.json"
+    },
+    {
+      "id": "russian_hyperpop",
+      "name": "Russian Hyperpop",
+      "family": "pop",
+      "href": "traditions/russian_hyperpop.json"
+    },
+    {
+      "id": "stomp_and_whittle",
+      "name": "Stomp and Whittle",
+      "family": "folk",
+      "href": "traditions/stomp_and_whittle.json"
+    },
+    {
+      "id": "viet_lo_fi",
+      "name": "Viet Lo-fi",
+      "family": "electronic",
+      "href": "traditions/viet_lo_fi.json"
+    },
+    {
+      "id": "voetbal",
+      "name": "Voetbal",
+      "family": "vernacular",
+      "href": "traditions/voetbal.json"
     }
   ]
 }

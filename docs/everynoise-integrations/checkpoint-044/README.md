@@ -1,5 +1,7 @@
 # Checkpoint 044: reviewed repairs and sixteen additions
 
+**STATUS:** SHIPPED
+
 This checkpoint applies 197 individually reviewed genre-data repairs and adds sixteen genre records with one cassette pause-tape-looping instrument. The resulting catalog contains 6,781 traditions and 1,659 instruments; the prior counts are retained in the baseline evidence.
 
 The source projection was qualified against frozen checkpoint 043 (`0b797c01948d0176f76dae9d2e4e511522efeab9`); merged main `075e974eaae127572d18401788c9f007937609d9` has the identical tree. The initial integrated source freeze is `fda8afc03cd6b9c0af3482ae1c780f8c8b7ee3db`.
