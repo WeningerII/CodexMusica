@@ -11,11 +11,14 @@ import { requestContext, withExecutionContext } from './execution_context.js';
 const ID = /^[a-f0-9]{64}$/;
 const STATES = new Set(['pending', 'completed', 'interrupted', 'retired']);
 const DEFAULT_TTL_MS = 24 * 60 * 60 * 1000;
-const MAX_RECORD_BYTES = 8 * 1024 * 1024;
+// The three caps that carry a run's state RAISED x2.25 on 2026-10-04 with
+// STATE_DECODED_BYTES (mcp/state_codec.js, 512 KiB -> 1152 KiB; owner's
+// ruling), from ~~8~~, ~~3~~ and ~~4~~ MiB. Intent and progress carry no state.
+const MAX_RECORD_BYTES = 18 * 1024 * 1024;
 const INTENT_BYTES = 2 * 1024 * 1024;
-const CHECKPOINT_BYTES = 3 * 1024 * 1024;
+const CHECKPOINT_BYTES = (6 * 1024 + 768) * 1024;
 const PROGRESS_BYTES = 2 * 1024 * 1024;
-const RESPONSE_BYTES = 4 * 1024 * 1024;
+const RESPONSE_BYTES = 9 * 1024 * 1024;
 function boundedPayload(value, limit, label) {
   if (Buffer.byteLength(JSON.stringify(value)) > limit)
     throw Object.assign(new Error(`${label} exceeds the durable wire-byte limit (${limit}).`), {

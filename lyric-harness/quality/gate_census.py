@@ -557,6 +557,12 @@ DISPOSITIONS = {
     "PROMOTED":    "was a PROMOTE_CANDIDATE and the owner ruled. It GATES "
                    "now, so it is counted in `gated` and this row records "
                    "which mechanism carries it rather than why it does not",
+    # ADDED 2026-10-04: the owner emptied `loop.MANDATORY_PURSUE`. A code the
+    # owner took OUT of a gate is ruled, not unruled, and the row says so.
+    "DEMOTED":     "was gated through `loop.MANDATORY_PURSUE` and the owner "
+                   "ruled it report-only (2026-10-04): on a 104-line song the "
+                   "loop kept reopening the same rhyme pairs and never "
+                   "finished. Still graded and reported as a note",
 }
 
 #: One ruling per disclosed-only code. `--check` FAILS on an unruled one, so a
@@ -662,7 +668,14 @@ DISPOSITION = {
     # the tier-1 ban it mirrors and would have repeated the `MODAL_RHYME`
     # error verbatim: `verify()` gates on flags, so it would start rejecting
     # revisions for introducing one.
-    "SHARED_SUFFIX": "PROMOTED",
+    # ~~"SHARED_SUFFIX": "PROMOTED",~~ DEMOTED 2026-10-04 with the other
+    # three members of `loop.MANDATORY_PURSUE` (owner's ruling).
+    "SHARED_SUFFIX": "DEMOTED",
+    # --- quality/revise.py + floor.py: the rest of the old pursue set,
+    # gated until 2026-10-04 and so never needing a row before.
+    "HOMEOTELEUTON": "DEMOTED",
+    "MODAL_RHYME": "DEMOTED",
+    "PREDICTABLE_RHYME": "DEMOTED",
 
     # --- quality/revise.py: almost none of these is about the DRAFT.
     "SCHEME_UNREADABLE": "REFUSAL",
@@ -806,7 +819,10 @@ def by_disposition(c=None):
 # replacement. Its flag `PROMINENCE_OUT_OF_BAND` (gated) and its refusal
 # note `BAND_UNJUDGED` (disclosed) went with it; no other code or disposition
 # moves: 76/24/52 -> 74/23/51.
-PINNED = {'codes': 74, 'gated': 23, 'disclosed_only': 51, 'undecidable': 0,
+# REPINNED 2026-10-04: the owner emptied `loop.MANDATORY_PURSUE`, so its four
+# note codes (HOMEOTELEUTON, MODAL_RHYME, PREDICTABLE_RHYME, SHARED_SUFFIX)
+# stop gating and each carries a DEMOTED ruling: 74/23/51 -> 74/19/55.
+PINNED = {'codes': 74, 'gated': 19, 'disclosed_only': 55, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

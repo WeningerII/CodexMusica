@@ -488,7 +488,8 @@ export async function createChatRouter({
       lyric: envelope.lyric,
       task: envelope.task,
     };
-    if (jsonBytes(recovered) > 4 * 1024 * 1024) return null;
+    // ~~4 MiB~~ -> 9 MiB 2026-10-04, x2.25 with STATE_DECODED_BYTES.
+    if (jsonBytes(recovered) > 9 * 1024 * 1024) return null;
     return { ...recovered, sig: sign(recovered) };
   };
   router.get('/chat/status', (_req, res) => {
@@ -868,7 +869,8 @@ export async function createChatRouter({
         cards: lastRecipe?.cards || null,
         // exit_code and banned_pairs ride along for the lyric verbs (null for
         // the recipe tools) so the page's tool chips can show the verdict the
-        // model may not relay — the two-tier ban is unskippable, and a count
+        // model may not relay — ~~the two-tier ban is unskippable~~ (report-only
+        // since 2026-10-04, owner's ruling), and a count
         // only the model ever saw protects nobody.
         // The loop record and the answer count join them for the same reason
         // one layer out (M-169): the flash battery records this array verbatim

@@ -45,7 +45,10 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
     'Morning light',
     'The window holds the frost',
     'I count the things I lost',
-    'Morning light',
+    // ~~'Morning light'~~ — since 2026-10-04 banned pairs no longer hold a line
+    // open (owner's ruling), so the park comes from a drifted declared return
+    // (L3 -> L6), a line FLAG no attempt-free run can close.
+    'Morning lights',
     'Down the road the old dog sleeps',
     'Down the lane the cold fog creeps',
     'Nobody calls the house at night',

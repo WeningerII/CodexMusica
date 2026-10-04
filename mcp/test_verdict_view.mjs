@@ -117,7 +117,9 @@ test('a finished grade or revise publishes the song and a short verdict', () => 
   assert.equal(short.status, 'stopped_with_open_lines');
   assert.deepEqual(short.loop_unresolved_lines, [2]);
   assert.equal(short.banned_pairs, 1);
-  assert.equal(short.notes, 3, 'every finding that does not stand is counted, none is listed');
+  // ~~3~~ -> 4 since 2026-10-04: a banned pair (MODAL_RHYME) is a note now,
+  // not a standing finding (owner's ruling).
+  assert.equal(short.notes, 4, 'every finding that does not stand is counted, none is listed');
   assert.equal(
     short.presentation_sha256,
     createHash('sha256').update(song).digest('hex'),
@@ -132,14 +134,14 @@ test('blocking: one line per thing that stands, merged, and one per unjudged lin
   assert.deepEqual(lines, [
     'L1/3: SLOTS_EXCEEDED — more syllables than slots (7 syllables, 6 slots)',
     "L1/3: SCHEME_VIOLATION — L1 and L3 are both in group A but do not stand in the relation it requires (NO_RELATION: no admitted relation); compared 'here' ~ 'near'",
-    'L2/3: MODAL_RHYME — L2/L3 rhyme on a modal pair (the whole explanation, at length)',
+    // ~~'L2/3: MODAL_RHYME — …'~~ — a banned pair no longer stands (2026-10-04).
     'L2: not judged — prominence, meter, rhyme with L3 (PROMINENCE_UNDECIDED); words with more than one reading: L2 Two',
     'L3: not judged — rhyme with L2; words with more than one reading: L2 Two',
   ]);
   const standing = findings.filter(isStanding).map((f) => f.code);
   assert.deepEqual(
     [...new Set(standing)],
-    ['SLOTS_EXCEEDED', 'SCHEME_VIOLATION', 'MODAL_RHYME'],
+    ['SLOTS_EXCEEDED', 'SCHEME_VIOLATION'],
     'what stands is the verdict’s own `standing` predicate'
   );
   const whole = blockingOf({

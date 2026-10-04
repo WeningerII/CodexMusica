@@ -319,6 +319,13 @@ RETURN_DRIFT = ["we counted every reason we were given",
 RETURN_DRIFT_MANDATE = SC.mandate([[1, 3], [2, 4]], n_lines=4,
                                   returns=[[1, 3]])
 
+#: THE PURSUE SET AS IT STOOD UNTIL 2026-10-04, when the owner emptied
+#: `loop.MANDATORY_PURSUE`. The sections ABOUT pursuit (§20, §21) declare it
+#: explicitly: a declared `pursue` is unioned exactly as the mandatory set
+#: was, so they still pin the mechanism a caller can opt into.
+PURSUED_UNTIL_2026_10_04 = frozenset({"MODAL_RHYME", "HOMEOTELEUTON",
+                                      "PREDICTABLE_RHYME", "SHARED_SUFFIX"})
+
 
 def test_success_stop():
     print("\n1. SUCCESS — nothing left flagged, the stock proposer alone")
@@ -337,10 +344,14 @@ def test_success_stop():
     # mid-round, `resolved_elsewhere`) rather than fixed on its own turn.
     # MEASURED: fixed [1, 2], resolved elsewhere [3], nothing unresolved,
     # and the fresh-Reviser re-check below still finds no flag.
-    check("both flagged lines were fixed, and the pursued lines were closed "
-          "by those fixes rather than re-opened by them",
+    # REPINNED 2026-10-04 from ~~and 4 in resolved_elsewhere~~: the owner
+    # emptied MANDATORY_PURSUE, so L3/L4's MODAL_RHYME notes open nothing and
+    # there is no pursued line left for a fix to close. MEASURED: fixed
+    # [1, 2], resolved elsewhere [].
+    check("both flagged lines were fixed, and no note held another line open "
+          "(pursuit ended 2026-10-04)",
           set(res.rounds[0].fixed_lines) == {1, 2}
-          and 4 in res.rounds[0].resolved_elsewhere,
+          and res.rounds[0].resolved_elsewhere == [],
           f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
           f"{res.rounds[0].resolved_elsewhere}")
     # REPINNED under the N-relation field: the stock proposer takes the
@@ -409,14 +420,18 @@ def test_round_limit_stop():
     # re-opening it, and L4's replacement is no longer "itself directionally
     # modal" — the screen is exactly what removed that word from the menu.
     # MEASURED: fixed [1, 4], nothing left standing at the round cap.
+    # REPINNED 2026-10-04 from ~~[1, 4]~~ / ~~nothing left standing~~: with
+    # MANDATORY_PURSUE emptied (owner's ruling) L4 is not pursued, so it is
+    # not repaired, and the pair finding on L2 that L4's repair used to
+    # dissolve stands — the picky proposer refuses L2 itself. MEASURED:
+    # fixed [1], L2 left on CLICHE_PAIR at the cap, coverage certified.
     check("L1 WAS fixed this round -- this is real progress, not a stall",
-          res.rounds[0].fixed_lines == [1, 4], res.rounds[0].fixed_lines)
-    # REPINNED under the N-relation field (was: L1/L3 left unjudged): L1's
-    # first offer is now judged under every reading. The invariant holds.
-    check("the round cap retains unknown readings after the judged repairs close",
-          res.unresolved_flagged == [] and res.unresolved_pursued == []
-          and res.unresolved == res.unresolved_unjudged
-          and res.coverage_certified == (not res.unresolved_unjudged),
+          res.rounds[0].fixed_lines == [1], res.rounds[0].fixed_lines)
+    check("the round cap leaves the refused line's FLAG standing, by name, "
+          "and nothing pursued",
+          [b.line_no for b in res.unresolved_flagged] == [2]
+          and res.unresolved_pursued == []
+          and res.coverage_certified,
           ([(b.line_no, [f.code for f in b.findings])
             for b in res.unresolved], res.coverage_certified))
     check("`max_rounds` is the declared bound that fired, not a hidden one",
@@ -552,11 +567,12 @@ def test_tier2_tries_and_correctly_rejects():
     # sharper: the REFUSED SEARCH changes nothing — every line the pivot's
     # conjunction touches (L1-L4) is byte-identical — while L5's repair
     # belongs to a different rule with its own regression suite.
-    check("the refused search changes nothing IT governs — L1-L4 are "
-          "byte-identical; L5 moved under tier 1 (night/bright, 'ight'), "
-          "a different rule",
-          res.lines[:4] == SILVER_NIGHT_LOCKED[:4]
-          and res.lines[4] != SILVER_NIGHT_LOCKED[4],
+    # REPINNED 2026-10-04 from ~~L5 moved under tier 1~~: HOMEOTELEUTON is
+    # reported, not pursued, since the owner emptied MANDATORY_PURSUE, so
+    # nothing opens L5 and the whole draft stays byte-identical.
+    check("the refused search changes nothing IT governs — L1-L5 are "
+          "byte-identical (L5's 'ight' pair is reported, not pursued)",
+          list(res.lines) == list(SILVER_NIGHT_LOCKED),
           f"changed: {[i + 1 for i in range(5) if res.lines[i] != SILVER_NIGHT_LOCKED[i]]}")
 
 
@@ -1500,9 +1516,10 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
     # converged pair (chairs/stairs) is itself modal, mandatory pursuit holds
     # it open, and the scripted proposer has no further answer. The subject
     # of this section is the re-brief, and that is unchanged.
-    check("the loop converges on this pair (and then refuses to bless the "
-          "modal pair it converged TO)",
-          res.stop_reason == "no_progress"
+    # REPINNED 2026-10-04 from ~~no_progress~~: the modal chairs/stairs pair
+    # is reported, not pursued (owner's ruling), so converging on it is SUCCESS.
+    check("the loop converges on this pair and stops there",
+          res.stop_reason == "success"
           and list(res.lines) == [ANSWER[1], ANSWER[2]],
           f"{res.stop_reason} -> {list(res.lines)}")
     check("L2 is told to rhyme with the word L1 ACTUALLY ENDS ON after L1 "
@@ -1883,12 +1900,16 @@ def test_pursuit_is_mandatory_and_success_below_it_unreportable():
     the loop unions it under every declaration, nothing subtracts from it,
     and success while a member stands is unreportable.
     """
-    print("\n20. pursuit is MANDATORY, and success below it is unreportable")
+    print("\n20. ~~pursuit is MANDATORY, and success below it is "
+          "unreportable~~ ENDED 2026-10-04: pursuit is opt-in, and a declared "
+          "pursue still holds its lines open")
     from quality.loop import MANDATORY_PURSUE
+    from quality.revise import ReviseDeclaration as _RD
 
-    check("the mandatory set exists, is non-empty, and carries the code the "
-          "order was given about",
-          "MODAL_RHYME" in MANDATORY_PURSUE, sorted(MANDATORY_PURSUE))
+    # ~~the mandatory set exists, is non-empty, and carries MODAL_RHYME~~ —
+    # REPINNED 2026-10-04: the owner emptied it.
+    check("the mandatory set is EMPTY (owner's ruling 2026-10-04)",
+          MANDATORY_PURSUE == frozenset(), sorted(MANDATORY_PURSUE))
 
     # MODAL_DRAFT: clean rhymes that ARE the modal answers — no flag anywhere.
     R2 = Reviser()
@@ -1898,37 +1919,38 @@ def test_pursuit_is_mandatory_and_success_below_it_unreportable():
           not any(f.severity == "flag" for b in bs for f in b.findings)
           and any(f.code == "MODAL_RHYME" for b in bs for f in b.findings))
 
-    # EMPTY DECLARATION, refusing proposer: the old behaviour was instant
-    # SUCCESS. Now the lines are opened anyway and the stop is loud.
+    # ~~an EMPTY declaration still pursues~~ — REPINNED 2026-10-04: with
+    # nothing declared, a MODAL_RHYME note opens nothing and the run succeeds.
     res = revise_loop(R2, list(MODAL_DRAFT), [[1, 3], [2, 4]],
                       propose=lambda *a, **k: None)
-    check("an EMPTY declaration still pursues — the loop cannot report "
-          "success while a mandatory finding stands",
-          res.stop_reason != "success"
-          and sorted(b.line_no for b in res.unresolved_pursued) == [3, 4],
+    check("an EMPTY declaration pursues nothing — the note is reported and "
+          "the run succeeds",
+          res.stop_reason == "success" and res.unresolved_pursued == [],
           f"stop={res.stop_reason} pursued="
           f"{[b.line_no for b in res.unresolved_pursued]}")
 
-    # ...and the default mechanical proposer CLEARS them, reaching the only
-    # reportable success: nothing actionable left.
-    res2 = revise_loop(Reviser(), list(MODAL_DRAFT), [[1, 3], [2, 4]])
-    bs2 = Reviser().brief(list(res2.lines), [[1, 3], [2, 4]])
-    check("with a proposer that answers, the loop revises to the only "
-          "success there is: zero mandatory findings standing",
-          res2.stop_reason == "success"
-          and not any(f.code in MANDATORY_PURSUE
-                      for b in bs2 for f in b.findings),
-          f"stop={res2.stop_reason}")
-
-    # A declaration may ADD, never subtract: the union always holds.
-    from quality.revise import ReviseDeclaration as _RD
-    R3 = Reviser(rdecl=_RD(pursue=frozenset({"CLICHE_PAIR"})))
+    # A DECLARED pursue still holds its lines open, and the stop is loud.
+    R3 = Reviser(rdecl=_RD(pursue=PURSUED_UNTIL_2026_10_04))
     res3 = revise_loop(R3, list(MODAL_DRAFT), [[1, 3], [2, 4]],
                        propose=lambda *a, **k: None)
-    check("a declaration that names OTHER codes still pursues the mandatory "
-          "set — `pursue` is additive only",
-          sorted(b.line_no for b in res3.unresolved_pursued) == [3, 4],
-          [b.line_no for b in res3.unresolved_pursued])
+    check("a declared pursue still opens the lines and refuses success "
+          "while the note stands",
+          res3.stop_reason != "success"
+          and sorted(b.line_no for b in res3.unresolved_pursued) == [3, 4],
+          f"stop={res3.stop_reason} pursued="
+          f"{[b.line_no for b in res3.unresolved_pursued]}")
+
+    # ...and the default mechanical proposer CLEARS them under that
+    # declaration, reaching success with nothing declared left standing.
+    rd = _RD(pursue=PURSUED_UNTIL_2026_10_04)
+    res2 = revise_loop(Reviser(rdecl=rd), list(MODAL_DRAFT), [[1, 3], [2, 4]])
+    bs2 = Reviser(rdecl=rd).brief(list(res2.lines), [[1, 3], [2, 4]])
+    check("with a proposer that answers, a declared pursue revises to "
+          "success with zero declared findings standing",
+          res2.stop_reason == "success"
+          and not any(f.code == "MODAL_RHYME"
+                      for b in bs2 for f in b.findings),
+          f"stop={res2.stop_reason}")
 
 
 def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
@@ -1963,11 +1985,14 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     import tempfile
     import lyric_harness as LH
     from quality.revise import draft_fingerprint
-    from quality.loop import MANDATORY_PURSUE
+    # DECLARED since 2026-10-04: this section's premise is a line held open
+    # by MODAL_RHYME, which the owner took out of the mandatory set, so it
+    # opts in to the set it was measured under (PURSUED_UNTIL_2026_10_04).
+    PURSUE = PURSUED_UNTIL_2026_10_04
 
     def actionable(briefs):
         return sorted(b.line_no for b in briefs
-                      if any(f.severity == "flag" or f.code in MANDATORY_PURSUE
+                      if any(f.severity == "flag" or f.code in PURSUE
                              for f in b.findings))
 
     # The historical fire/desire fixture was an uncertainty control until
@@ -2002,14 +2027,16 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # THE STOCK FIX FOR L1, taken off the loop's own proposer on the same
     # draft rather than typed, so the accepted answer is one the loop is
     # known to accept (test 1 fixes L1 in round 1 with it).
-    stock = revise_loop(Reviser(), list(draft), "ABAB")
+    stock = revise_loop(Reviser(rdecl=ReviseDeclaration(pursue=PURSUE)),
+                        list(draft), "ABAB")
     l1_fix = stock.lines[0]
     check("the stock proposer's L1 fix differs from L1 (so accepting it "
           "MOVES the draft)", l1_fix != draft[0])
 
     d = tempfile.mkdtemp()
     state = os.path.join(d, "state.json")
-    R = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, max_rounds=3))
+    R = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, max_rounds=3,
+                                        pursue=PURSUE))
     asked = []          # (line, attempt, round, draft) in the order asked
 
     def answer(line_no):

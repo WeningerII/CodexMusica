@@ -241,7 +241,8 @@ def rules_md():
            "line open in revise; `MANDATORY_PURSUE` (`quality/loop.py`) holds a line open on a "
            "note; `LENGTH_GATE_CODES` (`quality/floor.py`) blocks exit 0. "
            "Codes marked nothing are reported and stop nothing.\n",
-           f"Held open even as notes (`MANDATORY_PURSUE`): {', '.join(sorted(MANDATORY_PURSUE))}.\n",
+           f"Held open even as notes (`MANDATORY_PURSUE`): "
+           f"{', '.join(sorted(MANDATORY_PURSUE)) or 'none (emptied 2026-10-04, owner ruling)'}.\n",
            "| code | severity | stops a song | emitted in |", "|---|---|---|---|"]
     for code, r in rows:
         out.append(f"| {code} | {'/'.join(r['severities'])} | {', '.join(r['gates']) or '—'} | "

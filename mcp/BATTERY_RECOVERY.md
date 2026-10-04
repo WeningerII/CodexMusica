@@ -105,7 +105,8 @@ recorded; it does not prove progress that the server never returned or checkpoin
 Before every fresh paid request, the driver reserves 64MiB within the archive's
 128MiB plaintext limit and 16MiB of headroom on each file that does not rotate.
 It also reserves directory entries for new records. Request bodies are capped
-at 2MiB, received JSON at 4MiB both on the wire and after serialization, and driver
+at ~~2MiB~~ 4.5MiB, received JSON at ~~4MiB~~ 9MiB both on the wire and after serialization
+(both raised 2026-10-04 with the run record cap), and driver
 diagnostics at 4MiB per invocation. Snapshots use compact JSON; attempt journals
 rotate before they can reach the archive's 32MiB per-file limit. These reserves
 cover the duplicated analytical transcript, checkpoint, summary, and response

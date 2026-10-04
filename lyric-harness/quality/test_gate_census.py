@@ -91,10 +91,20 @@ def test_gate_sets_are_read_not_respelled():
                   c[code]["verdict"] == "GATED"
                   and "LENGTH_GATE_CODES" in c[code]["gates"],
                   f"{c[code]['gates']}")
+    # ~~any live code in MANDATORY_PURSUE~~ — REPINNED 2026-10-04: the owner
+    # emptied the pursue set, so no live note is pursued. The mechanism is
+    # still read: plant one note in the set the census reads and it gates.
+    from unittest.mock import patch
+    note = next(k for k in sorted(c) if c[k]["severities"] == ["note"])
+    with patch.object(GC, "_gate_sets",
+                      return_value=({note}, set(LENGTH_GATE_CODES))):
+        planted = GC.census()[note]
     check("a pursued NOTE is GATED — which is the whole reason a note is not "
           "automatically toothless, and the mechanism doctrine 9 needed",
-          any(c[k]["severities"] == ["note"] and k in MANDATORY_PURSUE
-              for k in c), "pursued notes count as enforcement")
+          not MANDATORY_PURSUE and planted["verdict"] == "GATED"
+          and "MANDATORY_PURSUE" in planted["gates"],
+          f"pursue set {sorted(MANDATORY_PURSUE)}; planted {note}: "
+          f"{planted['gates']}")
 
 
 def test_undecidable_is_never_counted_as_gated():
