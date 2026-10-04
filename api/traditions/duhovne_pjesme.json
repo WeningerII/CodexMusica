@@ -2,10 +2,10 @@
   "id": "duhovne_pjesme",
   "name": "Duhovne Pjesme",
   "family": "pop",
-  "lineage": "Božja pobjeda — Dubine (Oceans cover), complete official 2014 release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s duhovne pjesme, ritual Devotional, christian gospel branch. one note per syllable, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 327,
-  "score": 5.91,
+  "lineage": "Duhovne pjesme gathers Croatian-language Christian devotional songs and worship practices. Church communities, ministries and recordings connect inherited religious repertoire with contemporary song and translation.",
+  "recipe": "classic duhovne pjesme, ritual Devotional, christian gospel branch. one note per syllable, solo with instrumental accompaniment. dreadnought acoustic guitar, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 5.072,
   "config": {
     "traditions": [
       "duhovne_pjesme"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.17,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.6825000000000001,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.6,
-          "voice_multitrack_stack": 0.3,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 3.5,
+          "acoustic_technique": 2.45,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,

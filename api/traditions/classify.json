@@ -5,7 +5,7 @@
   "lineage": "Susan Tahmoosh — Titanium, Piano Instrumental (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic early-2010s classify, functional Song. block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 170,
-  "score": 2.801,
+  "score": 2.981,
   "config": {
     "traditions": [
       "classify"
@@ -26,8 +26,8 @@
         },
         "scores": {
           "keyboard_technique": 3.2,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_size": 0.126,
+          "grand_piano_brand": 0.1905,
           "piano_hammer": -0.1,
           "piano_rim": -0.1,
           "piano_soundboard": -0.1,

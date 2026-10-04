@@ -2,10 +2,10 @@
   "id": "russian_modern_classical",
   "name": "Russian modern classical",
   "family": "classical",
-  "lineage": "Russian modern classical is represented by Steven Osborne — Prokofiev: Piano Sonata No. 6. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
-  "recipe": "classic russian modern classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 235,
-  "score": 133.11,
+  "lineage": "Russian modern classical music includes twentieth-century concert works shaped by changing compositional and cultural currents. New harmonic and rhythmic approaches coexist with transformations of inherited forms.",
+  "recipe": "classic russian modern classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 257,
+  "score": 112.566,
   "config": {
     "traditions": [
       "russian_modern_classical"
@@ -18,22 +18,22 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 8.25,
-          "grand_piano_size": 0.294,
-          "grand_piano_brand": 1.25775,
-          "piano_hammer": 23.022,
-          "piano_rim": 20.3625,
-          "piano_soundboard": 18.68,
-          "piano_pinblock": 19.058749999999996,
-          "piano_plate": 21.39875,
-          "piano_pitch_standard": 20.78625
+          "keyboard_technique": 7.608,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.9989999999999999,
+          "piano_hammer": 19.209500000000002,
+          "piano_rim": 16.5545,
+          "piano_soundboard": 16.25,
+          "piano_pinblock": 16.25,
+          "piano_plate": 18.33125,
+          "piano_pitch_standard": 16.97375
         }
       }
     ],

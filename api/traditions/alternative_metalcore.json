@@ -2,10 +2,10 @@
   "id": "alternative_metalcore",
   "name": "Alternative metalcore",
   "family": "rock_punk",
-  "lineage": "The Every Noise discovery category is represented by its directly listed Columbus band Zonezero and their artist-credited Strychnine Dream EP. The artist calls its branch nu-metal; the allocation label is not imposed as a self-description or a claim about every modern use of metalcore.",
-  "recipe": "classic modern alternative metalcore, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 512,
-  "score": 54.701,
+  "lineage": "Alternative metalcore connects heavy guitar-band music with alternative and nu-metal approaches. Rhythmic riffs and contrasting vocal textures shape a field that overlaps broader modern heavy music.",
+  "recipe": "classic modern alternative metalcore, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 474,
+  "score": 52.413,
   "config": {
     "traditions": [
       "alternative_metalcore"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.188375,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.19799999999999998,
-          "voice_multitrack_stack": 0.5249999999999999,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 7.369999999999999,
-          "amp_make": 9.36,
-          "body_wood": 4.9399999999999995,
+          "electric_technique": 6.999875,
+          "amp_make": 8.385,
+          "body_wood": 4.55,
           "neck_wood": 0.5775,
           "fretboard": 0.315,
-          "pickup_magnet": 1.25275,
-          "pickup_winding": 1.04275,
+          "pickup_magnet": 1.21,
+          "pickup_winding": 1,
           "string_material": 0.105,
           "bridge": 0.5775,
-          "scale_length": 4.9399999999999995,
+          "scale_length": 4.55,
           "string_gauge": 0.7875,
           "finish": 0.105,
-          "string_tuning": 0.39
+          "string_tuning": 0
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.567,
+          "amp_make": 2.4815,
           "body_wood": 1.155,
-          "pickup_config": 1.04275,
+          "pickup_config": 1.037125,
           "string_type": 4.875,
           "scale_length_b": 1.3,
           "fretted_or_not": 0.1365,
-          "bass_technique": 3.7,
+          "bass_technique": 3.7371250000000003,
           "electric_bass_string_configuration": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "A Czech folk-rock scene with a selected Čechomor branch: Czech, Moravian and Slovak song material arranged for an active band. Violin and accordion retain the melodic center while guitar and a rhythm section provide support.",
   "recipe": "classic czech folk rock, functional Song, folk rock branch. five string low c extension bowed song accompaniment fiddle, accordion, strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 424,
-  "score": 69.885,
+  "score": 70.158,
   "config": {
     "traditions": [
       "czech_folk_rock"
@@ -23,7 +23,7 @@
         },
         "scores": {
           "bowed_technique": 4.55,
-          "fiddle_strings": 0.273,
+          "fiddle_strings": 0.40950000000000003,
           "fiddle_bow": 0,
           "fiddle_mute": 1.0290000000000001,
           "fiddle_articulation": 1.0315,
@@ -112,7 +112,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.39,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.2415,
+          "bearing_edges": 0.378,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 16.95,

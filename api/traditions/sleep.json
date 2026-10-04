@@ -5,7 +5,7 @@
   "lineage": "Matthew Labarge — Music From The Long Quiet (2020), complete nine-composition solo-piano album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s sleep, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 210,
-  "score": 41.175,
+  "score": 39.856,
   "config": {
     "traditions": [
       "sleep"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 5.831500000000001,
+          "keyboard_technique": 5.800000000000001,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 6.418,
-          "piano_rim": 6.812500000000001,
-          "piano_soundboard": 6.355,
-          "piano_pinblock": 8.537,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 6.25,
+          "piano_rim": 6.644500000000001,
+          "piano_soundboard": 6.25,
+          "piano_pinblock": 7.550000000000001,
           "piano_plate": 6.25,
-          "piano_pitch_standard": 0.876
+          "piano_pitch_standard": 0.975
         }
       }
     ],

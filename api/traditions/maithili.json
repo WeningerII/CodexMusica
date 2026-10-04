@@ -2,10 +2,10 @@
   "id": "maithili",
   "name": "Maithili",
   "family": "vernacular",
-  "lineage": "Swapan Boral and Patit Paban — Nivedana: Madhava, bahut minati kori toy, complete ARCE00038 track104 (2010). The selected devotional branch belongs under broad ritualDevotional. One accompanied singer uses unspecified source register, physiology, ornament and pitch organization; no exact raga, tala or equal temperament is guessed. An authored Bengali Gaudiya khol with terracotta shell and energetic kirtan support realizes the documented drum role: the existing Harinam-drive variant is an editorial accompaniment choice, not a claim this text is a Harinam chant or that the recorded take accelerates. Room and source-neutral unprocessed singing are authored recording choices; no session gear or original shell measurement is asserted.",
-  "recipe": "classic early-2010s maithili, ritual Devotional. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. traditional terracotta khol. live tracking.",
-  "recipe_chars": 198,
-  "score": 27.517,
+  "lineage": "Maithili music draws on the language and literary traditions of Mithila, spanning devotional poetry, folk song and contemporary repertoire. Vidyapati’s Krishna poetry has also circulated through neighboring devotional singing traditions.",
+  "recipe": "classic maithili, ritual Devotional. single lead single track no stacking. khol. live tracking.",
+  "recipe_chars": 95,
+  "score": 6.402,
   "config": {
     "traditions": [
       "maithili"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.38,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3945,
-          "voice_multitrack_stack": 4.159999999999999,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 1.2075,
           "voice_tessitura": 0
         }
       },
@@ -60,9 +60,9 @@
           "khol_body": "khol_body_clay"
         },
         "scores": {
-          "khol_form": 9.0825,
-          "khol_repertoire": 6.25,
-          "khol_body": 3.25
+          "khol_form": 4.8100000000000005,
+          "khol_repertoire": -0.05,
+          "khol_body": -0.05
         }
       }
     ],

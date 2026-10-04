@@ -2,10 +2,10 @@
   "id": "south_sudanese_pop",
   "name": "South Sudanese pop",
   "family": "pop",
-  "lineage": "Gordon Koang — ABC The Music Show,22June2019,complete two-song live segment. Authored representative arrangement: source-named four-string wooden thom retained as its own neutral identity, without inventing string material, body geometry, tuning or technique; piano realized as a coherent nine-foot Steinway D, bass as fingerstyle electric, djembe with authored lenke/goatskin and standard hand strokes, stick drumkit, and one solo singer. Original piano/bass models and drum materials are unspecified. Vocal physiology/training/pitch organization remain source-unspecified; global tuning omitted. Room and chain are authored, not measured broadcast equipment. Authored revision: a modern dual-single-coil electric bass preserves the credited bass role and fingerstyle groove. A shoebox concert-hall rendition replaces the earlier close studio reconstruction and specific capture chain; this is a new arrangement/recording setting, not an assertion about the ABC broadcast venue. All source roles, the one singer, four-string thom and djembe remain unchanged.",
-  "recipe": "classic south sudanese pop, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. thom nuer four string, djembe, maple bronze bell bronze machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, pocket fingerstyle locked electric bass. shoebox concert hall.",
-  "recipe_chars": 381,
-  "score": 94.819,
+  "lineage": "South Sudanese pop connects regional languages and song traditions with contemporary band and recording practices. Musicians such as Gordon Koang bring Nuer rhythmic and melodic expression into local and diaspora popular music.",
+  "recipe": "classic south sudanese pop, functional Song. solo with instrumental accompaniment. thom nuer four string, djembe, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, block chord upright piano, electric bass. live tracking.",
+  "recipe_chars": 260,
+  "score": 25.084,
   "config": {
     "traditions": [
       "south_sudanese_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 3.7564999999999995,
-          "voice_ensemble_config": 3.7715000000000005,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 2.08,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -69,9 +69,9 @@
           "djembe_play": "djembe_traditional_3"
         },
         "scores": {
-          "djembe_wood": 2.5999999999999996,
-          "djembe_skin": 2.6,
-          "djembe_play": 0.39
+          "djembe_wood": 0,
+          "djembe_skin": 0,
+          "djembe_play": 0.1365
         }
       },
       {
@@ -91,41 +91,29 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 2.5999999999999996,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.2540000000000004,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
-          "bearing_edges": 1.354,
-          "snare_wires": 0.7,
-          "cymbal_alloy": 1.0399999999999998,
-          "cymbal_hammering": 9.754,
-          "cymbal_lathing": 11,
+          "bearing_edges": 0.054,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 7.454000000000001,
+          "cymbal_lathing": 7.4,
           "cymbal_finish": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 6.449999999999999,
-          "grand_piano_size": 0.7,
-          "grand_piano_brand": 0.1905,
-          "piano_hammer": 3.3080000000000003,
-          "piano_rim": 6.4239999999999995,
-          "piano_soundboard": 3.2,
-          "piano_pinblock": 5.8,
-          "piano_plate": 3.2,
-          "piano_pitch_standard": 11.764000000000001
+          "keyboard_technique": 7.45,
+          "upright_use": 0,
+          "upright_piano_size": 0
         }
       },
       {
@@ -133,7 +121,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder",
-          "pickup_config": "dual_single",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -142,12 +130,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.7,
+          "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 0.7,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 1.3,
-          "bass_technique": 2.45,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       }
@@ -193,16 +181,10 @@
         "cymbal_lathing",
         "cymbal_finish"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ],
       "electric_bass": [
         "amp_make",
@@ -215,7 +197,7 @@
         "electric_bass_string_configuration"
       ]
     },
-    "room": "concert_hall_shoebox",
+    "room": "live_room",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -230,7 +212,7 @@
     "fx_extras": []
   },
   "source": {
-    "room": "concert_hall_shoebox",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -242,7 +224,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -251,7 +233,7 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "amp_make": "amp_unspecified",
       "body_wood": "alder",
-      "pickup_config": "dual_single",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -269,18 +251,12 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
       "thom_nuer_identity": "thom_nuer_four_string_wooden",
       "djembe_wood": "djembe_lenke",
       "djembe_skin": "djembe_goat_skin",
-      "djembe_play": "djembe_traditional_3"
+      "djembe_play": "djembe_traditional_3",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

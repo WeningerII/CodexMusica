@@ -2,10 +2,10 @@
   "id": "fluxwork",
   "name": "Fluxwork",
   "family": "electronic",
-  "lineage": "Suzanne Ciani and Kaitlyn Aurelia Smith — Sunergy (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s fluxwork, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 253,
-  "score": 7.949,
+  "lineage": "Fluxwork gathers exploratory electronic artists whose music develops through evolving patterns and textures. Modular synthesis offers one approach within this overlapping experimental field.",
+  "recipe": "classic fluxwork, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 243,
+  "score": 11.038,
   "config": {
     "traditions": [
       "fluxwork"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_buchla_west_coast"
         },
         "scores": {
-          "electronic_technique": 4.6255,
-          "mod_voltage_source": 0.78,
+          "electronic_technique": 8.556999999999999,
+          "mod_voltage_source": 1.3,
           "mod_patch_density": 0,
-          "mod_lineage": 2.5435000000000003
+          "mod_lineage": 1.181
         }
       }
     ],

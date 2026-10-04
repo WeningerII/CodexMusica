@@ -2,10 +2,10 @@
   "id": "dusseldorf_electronic",
   "name": "Dusseldorf electronic",
   "family": "electronic",
-  "lineage": "Dusseldorf electronic is represented here by Grandbrothers — Open-era piano and live-sampling core. This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic dusseldorf electronic, experimental Elec, idm glitch branch. 18 ply hard rock maple vintage production prepared grand piano, sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 221,
-  "score": 9.749,
+  "lineage": "Düsseldorf electronic music draws on a long history of electronic experimentation and independent production. Contemporary musicians continue to connect instrumental performance with new ways of generating and processing sound.",
+  "recipe": "classic dusseldorf electronic, experimental Elec, idm glitch branch. a 440 modern pitch us standard grand piano, sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 201,
+  "score": 3.069,
   "config": {
     "traditions": [
       "dusseldorf_electronic"
@@ -14,26 +14,26 @@
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_avant_prepared",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
+          "keyboard_technique": "keyboard_minimalist_repeated",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.7,
-          "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0.1365,
-          "piano_hammer": -0.035,
-          "piano_rim": 1.5045,
-          "piano_soundboard": 0.2,
-          "piano_pinblock": 0.26,
-          "piano_plate": 0.26,
-          "piano_pitch_standard": -0.035
+          "keyboard_technique": 0.25,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.0315,
+          "piano_hammer": -0.07,
+          "piano_rim": 0.26,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.2349999999999999
         }
       },
       {
@@ -43,23 +43,35 @@
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_industrial"
+          "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.147,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 3.65
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 1.3
         }
       }
     ],
     "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
       "sampler_classic": [
         "electronic_technique",
         "sampler_archetypes",
         "sampler_bit_depth",
-        "sampler_workflow"
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
@@ -84,7 +96,17 @@
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_loop_layered"
+      "sampler_workflow": "sampler_loop_layered",
+      "keyboard_technique": "keyboard_minimalist_repeated",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "sampler_classic_context": "sampler_classic_post"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

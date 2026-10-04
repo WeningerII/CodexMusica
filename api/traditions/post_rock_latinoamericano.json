@@ -2,10 +2,10 @@
   "id": "post_rock_latinoamericano",
   "name": "Post-rock latinoamericano",
   "family": "rock_punk",
-  "lineage": "Post-rock latinoamericano is represented here by La ciencia simple — III V VII. This documented branch is realized as an authored present-day recording arrangement.",
+  "lineage": "Latin American post-rock links instrumental-band scenes through layered guitars, electronic textures and evolving arrangements.",
   "recipe": "classic post-rock latinoamericano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 43.048,
+  "score": 37.471,
   "config": {
     "traditions": [
       "post_rock_latinoamericano"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 4.8100000000000005,
+          "amp_make": 4.42,
           "body_wood": 0.5565,
-          "neck_wood": 0.432,
-          "fretboard": 0.432,
+          "neck_wood": 0.5579999999999999,
+          "fretboard": 0.5579999999999999,
           "pickup_magnet": 0.147,
           "pickup_winding": 0.3045,
-          "string_material": 0.432,
-          "bridge": 1.69,
-          "scale_length": 1.0515,
-          "string_gauge": 1.69,
+          "string_material": 0.5579999999999999,
+          "bridge": 0.45625,
+          "scale_length": 1.1774999999999998,
+          "string_gauge": 0.39325,
           "finish": 0.1365,
-          "string_tuning": 0.39
+          "string_tuning": 0.08174999999999999
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.265,
+          "amp_make": 4.875,
           "body_wood": 0.21,
           "pickup_config": 0.1785,
-          "string_type": 12.35,
+          "string_type": 11.375,
           "scale_length_b": 0.273,
           "fretted_or_not": 0.03899999999999999,
           "bass_technique": -0.15000000000000002,
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.5,
-          "drumhead": 0.432,
+          "drum_technique": 8.75,
+          "drumhead": 0.5579999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -91,9 +91,9 @@
         },
         "scores": {
           "electronic_technique": 0.19500000000000003,
-          "oscillator": 0.5685,
+          "oscillator": 0.8025,
           "filter_topology": 0.39,
-          "envelope": 1.69,
+          "envelope": 0.5927499999999999,
           "modulation": 0.105
         }
       }

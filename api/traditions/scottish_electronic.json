@@ -2,10 +2,10 @@
   "id": "scottish_electronic",
   "name": "Scottish electronic",
   "family": "electronic",
-  "lineage": "Scottish electronic is represented here by Lord Of The Isles — Signals Aligned modular core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic scottish electronic, experimental Elec, ambient branch. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 235,
-  "score": 9.141,
+  "lineage": "Scottish electronic music connects club traditions with independent ambient and experimental production.",
+  "recipe": "classic scottish electronic, experimental Elec, ambient branch. evolving modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 175,
+  "score": 11.786,
   "config": {
     "traditions": [
       "scottish_electronic"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 5.891,
-          "mod_voltage_source": 0,
-          "mod_patch_density": 1.95,
-          "mod_lineage": 1.3
+          "electronic_technique": 7.0482499999999995,
+          "mod_voltage_source": 0.1425,
+          "mod_patch_density": 3.6399999999999997,
+          "mod_lineage": 0.9555000000000002
         }
       }
     ],

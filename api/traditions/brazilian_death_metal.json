@@ -2,10 +2,10 @@
   "id": "brazilian_death_metal",
   "name": "Brazilian death metal",
   "family": "rock_punk",
-  "lineage": "Brazilian death-metal discovery scope represented by the Krisiun trio from Ijuí. Direct drummer/guitarist accounts document high-energy death metal, live instrumental feel and contrasting groove/skank patterns.",
-  "recipe": "classic modern brazilian death metal, distorted Rock, death branch. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 393,
-  "score": 36.884,
+  "lineage": "Brazilian death metal developed through underground bands and international extreme-metal networks. Ijuí’s Krisiun exemplify a tightly interacting guitar, singing-bass and drum trio whose intense playing also makes room for thrash-derived rhythms and grooves.",
+  "recipe": "classic modern brazilian death metal, distorted Rock, death branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier palm muted humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 485,
+  "score": 42.961,
   "config": {
     "traditions": [
       "brazilian_death_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -29,11 +29,11 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 12.433,
-          "amp_make": 0,
+          "electric_technique": 11.683,
+          "amp_make": 5.655000000000001,
           "body_wood": 0.8714999999999999,
           "neck_wood": 0.3045,
-          "fretboard": 0.49349999999999994,
+          "fretboard": 0.39,
           "pickup_magnet": 0,
           "pickup_winding": 0.273,
           "string_material": 0.3045,
@@ -47,7 +47,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 3.575,
           "body_wood": 0.8714999999999999,
           "pickup_config": 0,
           "string_type": 0.44099999999999995,
           "scale_length_b": 0.63,
           "fretted_or_not": 0.0315,
-          "bass_technique": 4.889,
+          "bass_technique": 3.8890000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,7 +85,7 @@
         "scores": {
           "drum_technique": -0.05,
           "drumhead": 0.9099999999999999,
-          "drum_kit_kick_pedal": 0.39,
+          "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.47250000000000003,
           "shell_thickness": 0.0315,
           "bearing_edges": 0.44099999999999995,
@@ -128,7 +128,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3315,
@@ -139,7 +139,6 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -153,7 +152,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -246,7 +244,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_punk",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

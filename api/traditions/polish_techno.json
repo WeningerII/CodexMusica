@@ -2,10 +2,10 @@
   "id": "polish_techno",
   "name": "Polish techno",
   "family": "electronic",
-  "lineage": "Poland-centered techno production, represented by Jacek Sienkiewicz’s club and experimental practice through Recognition Records. The selected model combines synthesized figures and manipulated sample percussion; it is one documented branch of a broader national network.",
+  "lineage": "Polish techno developed through local producers and independent electronic-music networks, linking club tracks with experimental studio practice. Synthesis, sampling and changing rhythmic textures form an important strand of this history.",
   "recipe": "classic modern polish techno, electronic Dance, techno branch. analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 289,
-  "score": 7.781,
+  "score": 6.626,
   "config": {
     "traditions": [
       "polish_techno"
@@ -21,7 +21,7 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 1.0314999999999999,
+          "electronic_technique": 0.2315,
           "oscillator": 0.0315,
           "filter_topology": 0,
           "envelope": 0.168,
@@ -34,15 +34,15 @@
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 2.45,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 0.325,
-          "sampler_classic_context": 3.25
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 3.6399999999999997
         }
       }
     ],
@@ -90,7 +90,7 @@
       "modulation": "sample_hold",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_one_shot_pitched",
+      "sampler_workflow": "sampler_loop_layered",
       "sampler_classic_context": "sampler_classic_edm"
     },
     "pin_parts": true,

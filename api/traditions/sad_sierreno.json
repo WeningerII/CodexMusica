@@ -2,10 +2,10 @@
   "id": "sad_sierreno",
   "name": "Sad sierreño",
   "family": "vernacular",
-  "lineage": "Complete four-song DannyLux NPR Tiny Desk concert issued27September2023: Amar y perder, Si supieras, Te extraño y lo siento and Atrapado. Full five-person roster retains DannyLux lead voice/guitar, Victor Ramos backing voice/guitar, EddyJae bass and standup bass, Fransisco Ayala Martinez and José Guadalupe González each saxor/alto horn. Both guest horns join the final song; full programme retains them and both bass types, not a reduced core trio. Five people, two singers, two guitar instances, two distinct bass forms played by one doubler, two alto-horn instances; five catalog role families. Production crew are not additional players. Authored full concert-palette realization: two voices in live duet with source-unspecified physiology; two acoustic guitar instances aggregate into all-mahogany steel-string dreadnought card with flatpicked articulation, not measured source makes or string count. Generic bass credited separately from standup bass is realized as fingerstyle dual-single electric bass with alder body, while upright uses gut strings and pizzicato, both editorial construction choices. Source alto horns use existing E-flat alto/tenor-horn owner; nominal E-flat identity is an authored compatible realization, not verified source instrument key or a claim of British brass-band repertoire. Controlled live room is authored, not measured NPR acoustics. No global tuning or capture chain guessed.",
-  "recipe": "classic sad sierreño, functional Song, Mexican branch. duet, unprocessed natural acoustic, live take. mahogany phosphor bronze modern martin dreadnought acoustic guitar, alder fingerstyle locked electric vintage gut upright bass, tenor horn eb. live tracking.",
-  "recipe_chars": 259,
-  "score": 20.991,
+  "lineage": "Sad sierreño connects a younger Mexican and Mexican-American song community with sierreño guitar traditions and intimate pop production. Artists such as DannyLux bring reflective relationships and heartbreak into contemporary regional music circulation.",
+  "recipe": "classic sad sierreño, functional Song, Mexican branch. dreadnought acoustic guitar, upright bass. live tracking.",
+  "recipe_chars": 112,
+  "score": 1.048,
   "config": {
     "traditions": [
       "sad_sierreno"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.2044999999999995,
+          "voice_ensemble_config": 0.3045,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.0095,
-          "voice_multitrack_stack": 2.7994999999999997,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.1995,
           "voice_tessitura": 0
         }
       },
@@ -62,34 +62,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 1.2,
+          "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 4.2044999999999995
-        }
-      },
-      {
-        "id": "electric_bass",
-        "slots": {
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "dual_single",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
-        },
-        "scores": {
-          "amp_make": 0,
-          "body_wood": 1.573,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0,
-          "bass_technique": 1.15,
-          "electric_bass_string_configuration": 0
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.3045
         }
       },
       {
@@ -99,17 +76,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 1.3,
+          "upright_strings": 0,
           "upright_play": -0.05
-        }
-      },
-      {
-        "id": "tenor_horn_eb",
-        "slots": {
-          "tenor_horn_eb_identity": "tenor_horn_eb_scored"
-        },
-        "scores": {
-          "tenor_horn_eb_identity": 0
         }
       }
     ],
@@ -140,22 +108,9 @@
         "back_sides",
         "string_acoustic"
       ],
-      "electric_bass": [
-        "amp_make",
-        "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
-      ],
       "upright_bass": [
         "upright_strings",
         "upright_play"
-      ],
-      "tenor_horn_eb": [
-        "tenor_horn_eb_identity"
       ]
     },
     "room": "live_room",
@@ -197,17 +152,8 @@
       "top_wood": "mahogany_top",
       "back_sides": "mahogany_bs",
       "string_acoustic": "phosphor_bronze",
-      "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
-      "pickup_config": "dual_single",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "bass_technique": "fingerstyle_locked",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
       "upright_strings": "gut_upright",
-      "upright_play": "pizz_upright",
-      "tenor_horn_eb_identity": "tenor_horn_eb_scored"
+      "upright_play": "pizz_upright"
     },
     "pin_parts": true
   }

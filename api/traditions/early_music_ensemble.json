@@ -5,7 +5,7 @@
   "lineage": "Fretwork and Iestyn Davies — complete dated Purcell & Nyman: Music After Awhile concert programme,29October2019,Christ Church Cathedral,Vancouver. Presenter programme names Davies countertenor,Asako Morikawa and Emily Ashton treble viols,Joanna Levine tenor viol,Sam Stadlen and Richard Boothby bass viols. Five instrumentalists and one singer,three viol registers preserved in one explicitly composite consort owner. Whole programme includes Purcell fantasias and songs alongside contemporary Nyman commissions/arrangements. Complete event programme is the selected documented performance practice; linked presenter-issued If and Music for a While videos corroborate actual performance, not grounds for importing an unrelated album roster. No claim every musician sounds throughout every work; pre-concert discussion is not a musical speaker part. Authored modern concert rendition of the complete source palette,one accompanied voice plus mixed-register viol consort. Consort construction follows Viola da Gamba Society guidance: fretted bowed instruments,underhand bow grip and plain upper gut/silver-wound lower gut strings; this is explicit generic physical realization rather than measured Fretwork instrument makes or actual winding metals (silver is an authored choice). Wood species,bow-stick species,exact strings per instrument,concert pitch and temperament remain unspecified. Neutral vocal physiology remains unspecified despite the source countertenor label. Classical legato bow gesture,unprocessed one-lead voice and treated live-room capture are authored rendering choices,not a transcription of every articulation or measured cathedral acoustics; this is a fresh authored recording rendition, not venue reconstruction. No signal-chain hardware or global tuning imposed.",
   "recipe": "classic early music ensemble, art Music. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. consort gut tied frets movable underhand grip plain gut viol consort. live tracking.",
   "recipe_chars": 231,
-  "score": 34.576,
+  "score": 35.09,
   "config": {
     "traditions": [
       "early_music_ensemble"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.819,
+          "voice_ensemble_config": 1.1550000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 4.294499999999999,
+          "voice_processing_chain": 1.363,
+          "voice_multitrack_stack": 4.472999999999999,
           "voice_tessitura": 0
         }
       },
@@ -62,8 +62,8 @@
           "tenor_violin_strings": "tenor_violin_strings_plain_wound_gut"
         },
         "scores": {
-          "bowed_technique": 7.049999999999999,
-          "viol_consort_registers": 7.526,
+          "bowed_technique": 7.112999999999999,
+          "viol_consort_registers": 7.536499999999999,
           "viol_consort_frets": 2.5999999999999996,
           "viol_consort_bow_grip": 2.6,
           "tenor_violin_strings": 8.249999999999998

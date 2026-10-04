@@ -2,10 +2,10 @@
   "id": "classical_piano_trio",
   "name": "Classical piano trio",
   "family": "classical",
-  "lineage": "Classical piano trio is represented by The Florestan Trio — Mendelssohn: The Piano Trios. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic classical piano trio, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, carpathian spruce European maple sycamore maple oil varnish amber tinted cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 421,
-  "score": 188.758,
+  "lineage": "The classical piano trio is a chamber ensemble of piano, violin and cello, with repertoire spanning historical and contemporary composition. Its three contrasting instrumental voices create a flexible balance between melody, bass and harmony.",
+  "recipe": "classic classical piano trio, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, venice catlin high twist renaissance bass carpathian spruce European maple cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 442,
+  "score": 182.848,
   "config": {
     "traditions": [
       "classical_piano_trio"
@@ -16,24 +16,24 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.483,
-          "grand_piano_brand": 0.705,
-          "piano_hammer": 10.725,
-          "piano_rim": 10.318,
-          "piano_soundboard": 8.25,
-          "piano_pinblock": 8.355,
-          "piano_plate": 8.877,
-          "piano_pitch_standard": 8.5545
+          "grand_piano_size": 0.843,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 9.685,
+          "piano_rim": 8.116,
+          "piano_soundboard": 7.9725,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 10.5105
         }
       },
       {
@@ -43,7 +43,7 @@
           "orch_strings": "synthetic_orch",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "european_maple_general_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
@@ -51,41 +51,41 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.5,
+          "bowed_technique": 8.04,
           "orch_strings": 0.32549999999999996,
           "orch_top_wood": 7.5,
-          "orch_back_wood": 8.355,
-          "orch_varnish": 8.25,
-          "orch_setup_period": 8.772,
-          "orch_bow": 0.474,
-          "orch_bow_stick": 10.659999999999998,
-          "orch_articulation": 0.2835,
-          "orch_rosin": 8.772
+          "orch_back_wood": 7.555000000000001,
+          "orch_varnish": 7.8415,
+          "orch_setup_period": 8.755999999999998,
+          "orch_bow": 0.29400000000000004,
+          "orch_bow_stick": 9.620000000000001,
+          "orch_articulation": 0.6255,
+          "orch_rosin": 7.702
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
+          "cello_strings": "venice_catlin_cello",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
-          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 7.5,
-          "cello_strings": 0.39,
+          "bowed_technique": 8.04,
+          "cello_strings": 1.109,
           "cello_top_wood": 7.5,
-          "cello_back_wood": 8.355,
-          "cello_varnish": 8.25,
-          "cello_setup_period": 8.772,
+          "cello_back_wood": 7.555000000000001,
+          "cello_varnish": 7.8415,
+          "cello_setup_period": 8.755999999999998,
           "cello_bow_grip": 3.9,
-          "cello_rosin": 8.771999999999998,
-          "cello_bow_stick": 10.659999999999998
+          "cello_rosin": 8.978,
+          "cello_bow_stick": 9.620000000000001
         }
       }
     ],

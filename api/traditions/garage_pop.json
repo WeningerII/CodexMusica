@@ -2,10 +2,10 @@
   "id": "garage_pop",
   "name": "Garage pop",
   "family": "rock_punk",
-  "lineage": "A modern guitar-band discovery cluster joining garage-rock attack to concise pop songwriting. The selected early Ty Segall branch follows his own description of Melted as simple garage-pop music.",
-  "recipe": "classic modern garage pop, functional Song, pop rock branch. equal tempered, one note per syllable. single coil electric guitar, stainless steel roundwound electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 400,
-  "score": 42.194,
+  "lineage": "Garage pop combines the rough attack of garage rock with concise, melodic pop songwriting. Independent guitar-band scenes have renewed this combination through catchy songs, fuzzed textures and direct performances.",
+  "recipe": "classic modern garage pop, functional Song, pop rock branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 481,
+  "score": 43.885,
   "config": {
     "traditions": [
       "garage_pop"
@@ -36,14 +36,14 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
+          "voice_vibrato": 1.1372499999999999,
           "voice_articulation": 0,
-          "voice_microtone": 20.692749999999997,
+          "voice_microtone": 17.299999999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.0315,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 1.1485,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 0.07425,
@@ -54,7 +54,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_fuzz_riff",
-          "amp_make": "amp_american_fender_tweed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
@@ -68,10 +68,10 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.26,
-          "amp_make": -0.14,
-          "body_wood": 0.063,
-          "neck_wood": 0.384,
+          "electric_technique": 1.0365,
+          "amp_make": 3.1200000000000006,
+          "body_wood": 0.10575,
+          "neck_wood": 0.28425,
           "fretboard": -0.035,
           "pickup_magnet": 0.0315,
           "string_material": 0,
@@ -86,7 +86,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_fender_tweed",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -96,13 +96,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": -0.14,
-          "body_wood": 0.063,
+          "amp_make": 3.575,
+          "body_wood": 0.10575,
           "pickup_config": 0,
-          "string_type": 1.168,
-          "scale_length_b": 0,
+          "string_type": 0.168,
+          "scale_length_b": 0.08549999999999999,
           "fretted_or_not": 0,
-          "bass_technique": 7.055,
+          "bass_technique": 6.305000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 7.331499999999999,
-          "drumhead": 0,
+          "drum_technique": 6.62425,
+          "drumhead": 0.042749999999999996,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -141,7 +141,6 @@
       ],
       "electric_guitar_single_coil": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "fretboard",
         "pickup_magnet",
@@ -153,7 +152,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -215,7 +213,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "amp_make": "amp_american_fender_tweed",
       "body_wood": "alder",
       "fretboard": "rosewood_fb",
       "string_gauge": "g_10",

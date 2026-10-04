@@ -2,10 +2,10 @@
   "id": "japanese_dance_pop",
   "name": "Japanese dance pop",
   "family": "pop",
-  "lineage": "Japanese dance pop is represented here by THREE1989 — sampler/keyboard/vocal trio. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Japanese dance pop connects melodic popular song with dance-oriented rhythm and production. Electronic arrangement, DJ techniques and live performance contribute overlapping approaches.",
   "recipe": "classic japanese dance pop, functional Song, pop rock branch. solo with instrumental accompaniment. sampler drum machine, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 241,
-  "score": 4.38,
+  "score": 6.944,
   "config": {
     "traditions": [
       "japanese_dance_pop"
@@ -20,10 +20,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.2,
+          "electronic_technique": -0.1,
           "sample_bitdepth": 0.105,
-          "sample_swing": -0.05,
-          "sample_processing": 0
+          "sample_swing": 2.5,
+          "sample_processing": 0.063
         }
       },
       {
@@ -31,13 +31,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.254,
+          "electronic_technique": -0.07,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.39,
+          "poly_voices": 0.231,
           "poly_maker_lineage": -0.035
         }
       },
@@ -73,11 +73,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.234
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575
         }
       }
     ],

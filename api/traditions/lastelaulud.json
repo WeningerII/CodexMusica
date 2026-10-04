@@ -2,10 +2,10 @@
   "id": "lastelaulud",
   "name": "Lastelaulud",
   "family": "vernacular",
-  "lineage": "Arvo Pärt — Mina olen juba suur, original unison choir-and-piano scoring. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic lastelaulud, nursery Rhyme, European branch. choral. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 213,
-  "score": 4.813,
+  "lineage": "Estonian children’s songs — singing for play, learning and young ensembles.",
+  "recipe": "classic lastelaulud, nursery Rhyme, European branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 164,
+  "score": 1.981,
   "config": {
     "traditions": [
       "lastelaulud"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.8415000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,
-          "voice_multitrack_stack": 0.3315,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.3315,
-          "grand_piano_brand": 0.105,
+          "grand_piano_size": 0.0315,
+          "grand_piano_brand": 1.8415000000000001,
           "piano_hammer": -0.1,
-          "piano_rim": 0.6499999999999999,
+          "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": 1.3365,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "piano_pitch_standard": -0.035
         }
       }
     ],

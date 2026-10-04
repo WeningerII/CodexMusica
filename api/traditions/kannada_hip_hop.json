@@ -5,7 +5,7 @@
   "lineage": "Kannada hip hop spans several recording approaches. Chandan Shetty’s Kannada-language rap/EDM crossover, exemplified by 3 Peg, supplies this selected dance-oriented model.",
   "recipe": "classic modern kannada hip hop, mc Rhythm, intl hip hop branch. rap. sampled chopped sampler drum machine, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 263,
-  "score": 21.305,
+  "score": 21.413,
   "config": {
     "traditions": [
       "kannada_hip_hop"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 0.75,
           "sample_processing": 0.105
         }

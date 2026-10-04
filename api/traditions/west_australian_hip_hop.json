@@ -2,10 +2,10 @@
   "id": "west_australian_hip_hop",
   "name": "West Australian hip hop",
   "family": "hip_hop",
-  "lineage": "West Australian hip hop is represented by Drapht and Perth’s Syllabolix-associated MC/producer practice. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
+  "lineage": "Western Australian hip-hop connects local MC, DJ and producer communities, including Perth’s Syllabolix network.",
   "recipe": "classic modern west australian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 288,
-  "score": 28.543,
+  "score": 26.304,
   "config": {
     "traditions": [
       "west_australian_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 12.025,
+          "voice_quality": 11.05,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5912499999999999,
+          "voice_ensemble_config": 0.77125,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.2527499999999999
+          "voice_multitrack_stack": 0.03899999999999999
         }
       },
       {
@@ -59,9 +59,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.688999999999999,
+          "electronic_technique": 5.239,
           "sample_bitdepth": 0,
-          "sample_swing": 9.879999999999999,
+          "sample_swing": 9.1,
           "sample_processing": 0.105
         }
       }

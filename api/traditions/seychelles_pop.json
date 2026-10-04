@@ -2,10 +2,10 @@
   "id": "seychelles_pop",
   "name": "Seychelles pop",
   "family": "pop",
-  "lineage": "Grace Barbe and Antoinette Dodin — Mon Loreye (2021), complete single ensemble. Authored representative setup: clean-strummed single-coil electric guitar, fingerstyle electric bass, stick drumkit, architecture-neutral electronic keyboard, source-specified tenor sax realized with authored Selmer-style hardware, and two human singers as a live duet. Guitar/bass exact electric construction, source hardware and playing gestures are editorial choices, not documented original gear. Sax phrasing and all room/chain parameters are authored. Vocal physiology/training/pitch organization remain source-unspecified; optional global tuning omitted. Duet count refers to two named people rather than measured overdubs. Electric-bass construction is deliberately authored as a modern dual-single-coil J-style instrument, using the existing alder/roundwound/fingerstyle scaffold. Credits establish the bass-family role, not pickup topology; this is an editorial timbral choice, not an assertion about original equipment. All source-positive roles remain. Revised authored rendition uses an alder-body/maple-neck/rosewood-board single-coil electric guitar with pure-nickel strings and an alder dual-single-coil electric bass. A present-day shoebox concert-hall spatial model replaces the speculative studio apparatus; microphone, preamp, console, compressor and recording medium are omitted as unknown source equipment. This is an authored performance setting, not the original RADA studio or a claim of extra performers. All source-positive roles and the two named singers are unchanged.",
-  "recipe": "classic early-2020s seychelles pop, bass System, reggae diaspora branch. one note per syllable, duet, live take. alder maple rosewood nickel conventional tuning single coil electric guitar, alder nickel roundwound fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, tenor yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris saxophone. shoebox concert hall.",
-  "recipe_chars": 472,
-  "score": 83.37,
+  "lineage": "Seychelles pop connects Seychellois singers and bands with Creole-language and international popular-music influences. Regional recordings and collaborations draw on varied dance rhythms, song traditions and contemporary production.",
+  "recipe": "classic seychelles pop, bass System, reggae diaspora branch. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified, saxophone. shoebox concert hall.",
+  "recipe_chars": 275,
+  "score": 29.259,
   "config": {
     "traditions": [
       "seychelles_pop"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.3440000000000003,
-          "voice_ensemble_config": 4.9315,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.0315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 2.3314999999999997,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 8.299999999999999,
+          "electric_technique": 7.45,
           "amp_make": 0,
-          "body_wood": 5.082999999999999,
-          "neck_wood": 1.3,
-          "fretboard": 1.5965,
+          "body_wood": 0.9099999999999999,
+          "neck_wood": 0,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
-          "string_material": 1.4995,
-          "string_gauge": 2.8365,
-          "bridge": 1.3315000000000001,
+          "string_material": 0.1995,
+          "string_gauge": 1.5365,
+          "bridge": 0.0315,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 2.6,
+          "string_tuning": 0,
           "single_coil_pickup_construction": 0
         }
       },
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 5.082999999999999,
+          "body_wood": 0.9099999999999999,
           "pickup_config": 0,
-          "string_type": 3.3,
+          "string_type": 0.7,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 2.45,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 7.499999999999999,
+          "shell_wood": 0.7,
           "shell_thickness": 0,
-          "bearing_edges": 1.3315000000000001,
+          "bearing_edges": 0.0315,
           "snare_wires": 0.7,
-          "cymbal_alloy": 0.7999999999999998,
-          "cymbal_hammering": 8.95,
-          "cymbal_lathing": 9.913,
+          "cymbal_alloy": 0.49999999999999983,
+          "cymbal_hammering": 7.4,
+          "cymbal_lathing": 7.463,
           "cymbal_finish": 0
         }
       },
@@ -160,13 +160,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.1049999999999998,
-          "sax_size": 1.6284999999999998,
+          "wind_articulation": -0.10500000000000001,
+          "sax_size": -0.10500000000000001,
           "sax_reed": 0.7,
-          "sax_body_alloy": 3.4415,
-          "sax_mouthpiece": 0.3,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0,
           "sax_technique": -0.15000000000000002,
-          "sax_maker_school": 1.305
+          "sax_maker_school": -0.07
         }
       }
     ],

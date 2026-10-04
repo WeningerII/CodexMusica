@@ -2,10 +2,10 @@
   "id": "early_avant_garde",
   "name": "Early avant garde",
   "family": "classical",
-  "lineage": "Marcel Duchamp — complete Erratum Musical for three voices, authored realization of the1913 conception. Complete Erratum Musical for three voices is the selected work, not Duchamps similarly named instrumental second Erratum or the whole mixed-program album. Primary performing institution The Kitchen describes the three independent voice parts conceived for Marcel, Yvonne and Magdeleine Duchamp using notes drawn from a hat. Edition Block separately lists this three-voice work in its S.E.M. Ensemble/Petr Kotik1991 release and distinguishes the Cage spoken mesostic, music-box version and other instrumental work. This authored performance follows the complete three-voice conception; no claim identifies the1991 individual singers or adds those other tracks instruments. Three authored singers each realize one positively scored voice part, represented by a single groupvoice card. Physiology/register/training remain unspecified. Neutral sung/spoken delivery and live group tracking preserve source-defined vocal parts without imposing conventional tonal harmony, sacred chant, numerical overdubs or exact original recording practices. Controlled concert-room acoustics are authored, capture hardware and global temperament omitted. Broad artMusic.westernModern follows chance-derived atonal compositional procedure, not notation alone.",
-  "recipe": "classic early avant garde, art Music, western modern branch. group vocals, live take. shoebox concert hall.",
-  "recipe_chars": 107,
-  "score": 7.182,
+  "lineage": "Early avant-garde music challenged inherited assumptions about composition, sound and performance during the early twentieth century. Chance procedures, Dada experiments, unconventional instruments and new approaches to pitch and form opened paths for later experimental music.",
+  "recipe": "classic early avant garde, art Music, western modern branch. shoebox concert hall.",
+  "recipe_chars": 82,
+  "score": 0.683,
   "config": {
     "traditions": [
       "early_avant_garde"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.173,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.27299999999999996,
-          "voice_multitrack_stack": 2.7365,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       }

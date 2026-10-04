@@ -2,10 +2,10 @@
   "id": "amharic_pop",
   "name": "Amharic pop",
   "family": "pop",
-  "lineage": "Amharic pop is represented here by AvevA — Who Am I album core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic amharic pop, functional Song, African pop branch. clean strummed humbucker electric guitar, la bella flats Detroit soul bass canon fingerstyle locked electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 327,
-  "score": 43.356,
+  "lineage": "Amharic pop connects Amharic-language singing with contemporary popular-song styles in Ethiopia and its diaspora.",
+  "recipe": "classic amharic pop, functional Song, African pop branch. mahogany maple clean strummed humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 323,
+  "score": 34.736,
   "config": {
     "traditions": [
       "amharic_pop"
@@ -16,32 +16,32 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.45,
-          "amp_make": 1.5099999999999998,
-          "body_wood": 0.9135,
+          "electric_technique": 11.2,
+          "amp_make": 0.7149999999999997,
+          "body_wood": 1.3,
           "neck_wood": 0.3045,
           "fretboard": 0.273,
           "pickup_magnet": 0.336,
           "pickup_winding": 0.336,
           "string_material": 0,
-          "bridge": 1.5835,
+          "bridge": 0.3045,
           "scale_length": 0.8819999999999999,
-          "string_gauge": 1.447,
+          "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.1449999999999996,
+          "amp_make": 1.1699999999999995,
           "body_wood": 0.609,
           "pickup_config": 0.336,
-          "string_type": 2.2645,
+          "string_type": 1.2999999999999998,
           "scale_length_b": 0.609,
-          "fretted_or_not": 0.363,
-          "bass_technique": 1.4,
+          "fretted_or_not": 1.063,
+          "bass_technique": 0.6499999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 13.481499999999999,
+          "drumhead": 11.231499999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,7 +130,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 0.168,
-          "poly_voices": 0.21,
+          "poly_voices": 1.21,
           "poly_maker_lineage": -0.035
         }
       }

@@ -2,10 +2,10 @@
   "id": "reggae_gaucho",
   "name": "Reggae gaúcho",
   "family": "global",
-  "lineage": "Reggae gaúcho is represented by Chimarruts — artist-profile band configuration. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
-  "recipe": "classic reggae gaúcho, bass System, reggae diaspora branch. digital amplification profile based modeled amp modern rig humbucker electric guitar, modeled amp modern rig la bella flats Detroit soul bass canon electric bass, rim clicks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 342,
-  "score": 24.078,
+  "lineage": "Reggae gaúcho connects Rio Grande do Sul musicians and audiences with reggae song and band traditions. Porto Alegre is one centre of a regional field that includes roots influences and wider popular connections.",
+  "recipe": "classic reggae gaúcho, bass System, reggae diaspora branch. group vocals, live take. humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, rim clicks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 285,
+  "score": 20.122,
   "config": {
     "traditions": [
       "reggae_gaucho"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.276,
+          "voice_ensemble_config": 0.7619999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.1395,
+          "voice_multitrack_stack": 0.6255,
           "voice_tessitura": 0
         }
       },
@@ -56,10 +56,10 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
@@ -67,29 +67,29 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 3.25,
-          "body_wood": 0.39,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "amp_make": 0,
+          "body_wood": 0.1905,
+          "neck_wood": 0.054,
+          "fretboard": 0.054,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 1.3,
-          "scale_length": 0.39,
-          "string_gauge": 1.3,
+          "bridge": 0.15899999999999997,
+          "scale_length": 0.1935,
+          "string_gauge": 0.105,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.9135
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_modern_modeling",
-          "body_wood": "alder_b",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
@@ -98,11 +98,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.25,
-          "body_wood": 0,
-          "pickup_config": 0.39,
-          "string_type": 1.8199999999999998,
-          "scale_length_b": 0.39,
+          "amp_make": 2.6650000000000005,
+          "body_wood": 0.108,
+          "pickup_config": 0.0315,
+          "string_type": 2.6000000000000005,
+          "scale_length_b": 0.1935,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "rim_clicks_dub",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.45,
-          "drumhead": 0.75,
+          "drum_technique": 11.254,
+          "drumhead": 0.1275,
           "drum_kit_kick_pedal": 0
         }
       }

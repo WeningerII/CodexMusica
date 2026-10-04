@@ -2,10 +2,10 @@
   "id": "usbm",
   "name": "USBM (United States black metal)",
   "family": "rock",
-  "lineage": "Grandeur — Demo MMXXV (2025), full demo. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s usbm, distorted Rock, black branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 402,
-  "score": 36.355,
+  "lineage": "United States black metal brings together American bands working within and beyond the international black-metal tradition. Atmospheric writing, abrasive textures and varied local approaches coexist within the national scene.",
+  "recipe": "classic usbm, distorted Rock, black branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth. live tracking.",
+  "recipe_chars": 247,
+  "score": 26.839,
   "config": {
     "traditions": [
       "usbm"
@@ -15,9 +15,9 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "pressed_phonation_voice",
           "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
+          "voice_effort": "effort_overdriven_scream",
           "voice_vibrato": "voice_vibrato_local_unspecified",
           "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "voice_microtone_local_unspecified",
@@ -34,21 +34,21 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": -0.21,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
+          "voice_effort": -0.10500000000000001,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 0.399,
           "voice_ensemble_config": 1.3335,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.9944999999999999,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_tremolo_picking",
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,27 +70,27 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.6499999999999999,
+          "electric_technique": 0.26,
           "amp_make": 0,
-          "body_wood": 0.5459999999999999,
-          "neck_wood": 0.483,
+          "body_wood": 0.273,
+          "neck_wood": 0.4095,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.1995,
           "bridge": 0,
           "scale_length": 0.9659999999999999,
-          "string_gauge": 2.5414999999999996,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.063
+          "string_tuning": 0.063
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5459999999999999,
-          "pickup_config": 0,
+          "body_wood": 0.273,
+          "pickup_config": 0.40950000000000003,
           "string_type": 0,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 7.2725,
+          "bass_technique": 6.6725,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 0.78,
-          "drumhead": 1.063,
+          "drum_technique": 1.2914999999999999,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.063,
+          "shell_wood": 0.063,
           "shell_thickness": 0,
           "bearing_edges": 0.4095,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 6.15,
-          "cymbal_lathing": 7.723,
+          "cymbal_lathing": 6.423,
           "cymbal_finish": 0
         }
       },
@@ -146,8 +146,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.6499999999999999,
-          "poly_archetypes": 1.5415,
+          "electronic_technique": 0.26,
+          "poly_archetypes": 0.2415,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
@@ -218,15 +218,15 @@
         "poly_maker_lineage"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -235,12 +235,12 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "pressed_phonation_voice",
       "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
+      "voice_effort": "effort_overdriven_scream",
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_articulation": "voice_articulation_source_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
@@ -256,8 +256,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_tremolo_picking",
       "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -267,7 +267,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -289,12 +289,6 @@
       "poly_voices": "poly_5_voice",
       "poly_maker_lineage": "poly_sequential_smith"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

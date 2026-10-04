@@ -2,10 +2,10 @@
   "id": "springfield_mo_indie",
   "name": "Springfield MO indie",
   "family": "rock",
-  "lineage": "Paddlefish — Refrigerator (2017), complete nine-track digital debut. Artist credits one singer Owen Misterovich, guitars by Owen, Zaida Wade and Joe Misterovich, bass by Blake Nieman, and drums by Anthony Clark. All five positively named people and four sound families are retained. Three guitar contributors share one guitar-family card; no invented additional vocalists. The CD/cassette order differs, but the selected complete digital program and its album credits are explicit. Later Chicago trio biography is not substituted for the historical five-person album scope. Artist explicitly tags this album Springfield MO and indie rock. A contemporaneous firsthand interview independently places the group in the local Springfield network: members describe opening for Somebody Still Loves You Boris Yeltsin and local venues including Harvest House; the interviewer documents repeated local shows. This supports a specific city community, not merely a birthplace or different performer. Existing missouri_indie is the broader state umbrella and explicitly is not restricted to its Saint Louis exemplar; Springfield is a nested local discovery branch, not sonically disjoint or excluded by the state entry. Neither Kansas City swing/blues nor St Louis blues names this contemporary indie-rock community. DistortedRock.alternative follows positive artist alternative/indie-rock classification. The humbucker electric guitar is an authored amplified-guitar realization of source-unspecified guitars; alder/maple construction, power-chord articulation and dual-single-coil fingerstyle bass are compatible authored choices, not original hardware or measured gestures. Neutral vocal physiology and one singer are retained. Live-room capture is an authored combined rendition, not an assertion of simultaneous original basement tracking. No global tuning or apparatus is specified.",
-  "recipe": "classic late-2010s springfield mo indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. live tracking.",
-  "recipe_chars": 363,
-  "score": 84.637,
+  "lineage": "Springfield MO indie connects independent musicians, venues and audiences in Springfield, Missouri. Local bands and shared performance spaces sustain a city network within the wider state’s independent music community.",
+  "recipe": "classic springfield mo indie, distorted Rock, alternative branch. single lead single track no stacking. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 250,
+  "score": 27.224,
   "config": {
     "traditions": [
       "springfield_mo_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.449,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 5.7459999999999996,
+          "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.2,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 1.69,
-          "neck_wood": 1.405,
-          "fretboard": 1.3,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
+          "fretboard": 0,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.2730000000000001,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.69,
+          "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 16,
-          "drumhead": 1.7365000000000002,
+          "drum_technique": 6.999999999999999,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.4415000000000004,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 6.35,
-          "cymbal_hammering": 15.931499999999998,
-          "cymbal_lathing": 16.0365,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 6.9315,
+          "cymbal_lathing": 7.036499999999999,
           "cymbal_finish": 0
         }
       }

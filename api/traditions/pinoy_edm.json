@@ -2,10 +2,10 @@
   "id": "pinoy_edm",
   "name": "Pinoy EDM",
   "family": "electronic",
-  "lineage": "Pinoy EDM is represented here by Brian Cua — documented virtual-analog synthesizer core. This is a documented branch with an authored present-day studio realization.",
+  "lineage": "Pinoy EDM connects Filipino producers and performers with contemporary electronic dance styles and international club networks.",
   "recipe": "classic pinoy edm, electronic Dance. digital subtractive. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 137,
-  "score": 1.12,
+  "score": 3.661,
   "config": {
     "traditions": [
       "pinoy_edm"
@@ -19,9 +19,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": 0.2815,
           "va_archetypes": 0,
-          "digital_subtractive_context": 1.17
+          "digital_subtractive_context": 3.3799999999999994
         }
       }
     ],

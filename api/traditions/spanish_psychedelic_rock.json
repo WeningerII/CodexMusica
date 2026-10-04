@@ -2,10 +2,10 @@
   "id": "spanish_psychedelic_rock",
   "name": "Spanish psychedelic rock",
   "family": "rock",
-  "lineage": "Spanish psychedelic rock is represented here by CACHEMIRA — Jungla. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic spanish psychedelic rock, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp riff driven humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 371,
-  "score": 55.784,
+  "lineage": "Spanish psychedelic rock connects heavy guitar-band playing with exploratory textures and extended development.",
+  "recipe": "classic spanish psychedelic rock, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 395,
+  "score": 54.921,
   "config": {
     "traditions": [
       "spanish_psychedelic_rock"
@@ -20,49 +20,49 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 6.031499999999999,
-          "amp_make": 6.11,
+          "electric_technique": 4.9815000000000005,
+          "amp_make": 5.720000000000001,
           "body_wood": 0.7979999999999999,
-          "neck_wood": 0.39,
-          "fretboard": 0.39,
+          "neck_wood": 1.3,
+          "fretboard": 1.3,
           "pickup_magnet": 0.357,
-          "pickup_winding": 0.357,
-          "string_material": 0.39,
-          "bridge": 1.523875,
-          "scale_length": 0.39,
-          "string_gauge": 1.4608750000000001,
+          "pickup_winding": 0.39,
+          "string_material": 1.3,
+          "bridge": 0.363,
+          "scale_length": 1.3,
+          "string_gauge": 0.160875,
           "finish": 0.1365,
-          "string_tuning": 0.337125
+          "string_tuning": 0.03712499999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "swamp_ash_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
-          "body_wood": 0.21,
+          "amp_make": 6.175,
+          "body_wood": 0.39,
           "pickup_config": 0.38849999999999996,
-          "string_type": 15.6,
+          "string_type": 14.625,
           "scale_length_b": 0.483,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.39,
+          "drum_technique": 11.25,
+          "drumhead": 1.3,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.063,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

@@ -2,10 +2,10 @@
   "id": "lute",
   "name": "Lute",
   "family": "classical",
-  "lineage": "Nigel North — Nicolas Vallet: Le Secret des Muses (ATMA ACD2 2333). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2330s lute, art Music, western early branch. lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 175,
-  "score": 8.906,
+  "lineage": "Lute repertoire — plucked-string solo and ensemble music across historical traditions.",
+  "recipe": "classic lute, art Music, western early branch. yew ribs Italian brescian alpine spruce Italian pistoy bass gut plain gut treble lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 244,
+  "score": 12.656,
   "config": {
     "traditions": [
       "lute"
@@ -23,11 +23,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 2.5315,
-          "lute_courses": 0.1995,
-          "lute_renaissance_context": 4.68,
-          "lute_renaissance_ribs": 0.78,
-          "lute_renaissance_soundboard": 0.39,
-          "lute_renaissance_strings": 0.325
+          "lute_courses": 0.39,
+          "lute_renaissance_context": 5.59,
+          "lute_renaissance_ribs": 1.2599999999999998,
+          "lute_renaissance_soundboard": 1.2599999999999998,
+          "lute_renaissance_strings": 1.625
         }
       }
     ],

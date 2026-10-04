@@ -2,10 +2,10 @@
   "id": "swahili_gospel",
   "name": "Swahili Gospel",
   "family": "blues_gospel",
-  "lineage": "Kwaya Kuu Kikosi cha Injili — Hao Waliochaguliwa(A Cappella), complete released version. Whole explicitly titled Hao Waliochaguliwa(A Cappella) version from the choir’s2015 digital album release. Issuer-distributed artist catalog positively distinguishes this voice-only version; the other nine album tracks and instrumental sister releases are not silently reduced. Ensemble membership, scored parts and overdub technique are unspecified. One voice-family card represents the whole unaccompanied choir, with no invented headcount or extra instrumental role. Homophonic block ensemble and live-one-take stack are explicitly authored performance choices, not claims about the released recording; physiology/training/tuning/ornament remain unspecified. Global tuning omitted; concert-hall acoustics editorial; exact recording apparatus remains unspecified. Authored present-day acoustic concert-hall rendition with panoramic reverberant space. All source-positive roles and vocal configuration remain unchanged. Hall acoustics are an editorial rendition choice, not a claim about the original recording location. Exact microphone, preamplifier, console, compressor, equalizer and medium are unknown and omitted.",
-  "recipe": "classic swahili gospel, ritual Devotional, christian gospel branch. all voices same rhythm, unprocessed natural acoustic, live take. shoebox concert hall.",
-  "recipe_chars": 154,
-  "score": 11.96,
+  "lineage": "Swahili gospel organizes Christian song through a language shared across several East African national communities. Choirs and solo performers carry worship, testimony and praise through recordings, churches and public events.",
+  "recipe": "classic swahili gospel, ritual Devotional, christian gospel branch. gospel runs upright piano, electric bass, drum kit. live tracking.",
+  "recipe_chars": 134,
+  "score": 12.524,
   "config": {
     "traditions": [
       "swahili_gospel"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_homophonic_block",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,13 +43,78 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 3.5100000000000016,
+          "voice_speech_song": 0.453,
+          "voice_ensemble_config": 0.13000000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 6.759999999999999,
+          "voice_processing_chain": 0.054,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 11.309999999999999,
+          "upright_use": 0,
+          "upright_piano_size": 0.28350000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.054,
+          "pickup_config": 0.6210000000000001,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": 0.273,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": -0.10500000000000001,
+          "cymbal_finish": 0
         }
       }
     ],
@@ -72,9 +137,37 @@
         "voice_processing_chain",
         "voice_multitrack_stack",
         "voice_tessitura"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
-    "room": "concert_hall_shoebox",
+    "room": "live_room",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -84,12 +177,14 @@
       "amp": null,
       "medium": null
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "concert_hall_shoebox",
+    "tuning": "twelve_tet",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -101,13 +196,35 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_homophonic_block",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "keyboard_technique": "keyboard_gospel_chord_runs",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

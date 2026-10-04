@@ -5,7 +5,7 @@
   "lineage": "Australian talent show: Guy Sebastian — singing/songwriting and piano branch. Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
   "recipe": "classic australian talent show, functional Song, pop rock branch. thick, interlocked note trading, equal tempered, single source phonation. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 329,
-  "score": 53.557,
+  "score": 53.446,
   "config": {
     "traditions": [
       "australian_talent_show"
@@ -37,18 +37,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.09449999999999999,
+          "voice_vibrato": 0.27449999999999997,
           "voice_articulation": 5.3950000000000005,
-          "voice_microtone": 7.660000000000001,
+          "voice_microtone": 7.300000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 6.2115,
+          "voice_mechanism_compound": 6.0315,
           "voice_estill_quality": 1.1049999999999998,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2285000000000001,
+          "voice_ensemble_config": 1.8764999999999998,
           "voice_ornament_system": 1.71,
-          "voice_pitch_organization": 0.591,
+          "voice_pitch_organization": 0.231,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 3.2115,
+          "voice_multitrack_stack": 3.1575,
           "voice_tessitura": 0
         }
       },
@@ -68,13 +68,13 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 2.2625,
+          "grand_piano_brand": 2.4965,
           "piano_hammer": 3.931,
           "piano_rim": 3.7630000000000003,
-          "piano_soundboard": 6.88,
+          "piano_soundboard": 6.7,
           "piano_pinblock": -0.05,
           "piano_plate": 0.26,
-          "piano_pitch_standard": 1.625
+          "piano_pitch_standard": 1.5859999999999999
         }
       }
     ],

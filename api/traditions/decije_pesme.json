@@ -2,10 +2,10 @@
   "id": "decije_pesme",
   "name": "Dečije pesme",
   "family": "vernacular",
-  "lineage": "Ivona Damjanović and Mihajlo Parčetić — CD dečijih pesama, complete eleven-song school edition. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored acoustic recital realization in a treated concert hall with panoramic room sound. No specific microphone, preamplifier, console, compressor, equalizer or recording medium is asserted. The hall is a present-day performance choice, not a claim about the documented score or original recording venue. All positively documented voices and piano remain; unspecified vocal physiology and performer headcount are unchanged.",
-  "recipe": "classic dečije pesme, nursery Rhyme. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. shoebox concert hall.",
-  "recipe_chars": 232,
-  "score": 13.367,
+  "lineage": "Dečije pesme encompasses Serbian-language songs for children, shared through schools, families, publishing and recordings. Pedagogical songs, games and familiar melodies support learning, play and collective participation.",
+  "recipe": "classic dečije pesme, nursery Rhyme. solo with instrumental accompaniment. upright piano. shoebox concert hall.",
+  "recipe_chars": 111,
+  "score": 1.385,
   "config": {
     "traditions": [
       "decije_pesme"
@@ -44,37 +44,25 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.699,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.363,
-          "voice_multitrack_stack": 1.843,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.16649999999999998,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 1.2999999999999998,
-          "grand_piano_size": 0.7224999999999999,
-          "grand_piano_brand": 0.204,
-          "piano_hammer": -0.07,
-          "piano_rim": 0.6499999999999999,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": 1.2,
-          "piano_plate": -0.07,
-          "piano_pitch_standard": 4.625499999999999
+          "keyboard_technique": -0.1,
+          "upright_use": 0.363,
+          "upright_piano_size": 0.144
         }
       }
     ],
@@ -98,16 +86,10 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ]
     },
     "room": "concert_hall_shoebox",
@@ -147,14 +129,8 @@
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

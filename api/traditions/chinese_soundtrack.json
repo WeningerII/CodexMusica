@@ -2,10 +2,10 @@
   "id": "chinese_soundtrack",
   "name": "Chinese Soundtrack",
   "family": "classical",
-  "lineage": "Tan Dun: The Eternal Vow from Crouching Tiger, Hidden Dragon, complete separately published two-page piano-solo edition MN0081073, Sony/ATV publishing administered by Musicnotes. Publisher explicitly specifies instrumental solo, piano, D minor and freely phrased tempo. This models the entire independent edition, not the film-master orchestra or a stripped recording. No singer or original-film performer is transferred; zero scored voices. Full paid score pages not inspected; complete edition identity, scoring and page count verified from publisher metadata. Broad artMusic/classical models this composed instrumental dramatic film cue in its full published solo realization; notation alone is not the rationale. A standard-size studio upright and connected classical-legato touch are authored realizations of source-unspecified piano subtype and flexible phrase indication, not measured Tan Dun equipment or exact fingering. Authored shoebox concert hall, no global tuning or capture apparatus. No original soundtrack orchestral descriptors or extra people implied.",
-  "recipe": "classic chinese soundtrack, art Music. legato upright piano. shoebox concert hall.",
-  "recipe_chars": 82,
-  "score": 11.831,
+  "lineage": "Chinese soundtrack music serves film and other screen storytelling across a broad range of productions. Composers develop themes and dramatic cues using acoustic ensembles, electronic production and intimate instrumental settings.",
+  "recipe": "classic chinese soundtrack, art Music. upright piano. shoebox concert hall.",
+  "recipe_chars": 75,
+  "score": 2.531,
   "config": {
     "traditions": [
       "chinese_soundtrack"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 11.831499999999997,
-          "upright_use": 0,
+          "keyboard_technique": 2.5,
+          "upright_use": 0.0315,
           "upright_piano_size": 0
         }
       }

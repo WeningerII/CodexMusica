@@ -2,10 +2,10 @@
   "id": "rock_alagoano",
   "name": "Rock alagoano",
   "family": "rock",
-  "lineage": "Rock alagoano is represented here by Necro — Adiante. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Rock alagoano encompasses Alagoas guitar-band scenes, including hard-psych and progressive approaches associated with Maceió.",
   "recipe": "classic rock alagoano, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 306,
-  "score": 47.67,
+  "score": 41.458,
   "config": {
     "traditions": [
       "rock_alagoano"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.2,
-          "amp_make": 6.11,
-          "body_wood": 0.273,
+          "electric_technique": -0.1,
+          "amp_make": 5.720000000000001,
+          "body_wood": 0.39,
           "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 1.69,
+          "bridge": 0.21599999999999997,
           "scale_length": 0.7875000000000001,
-          "string_gauge": 1.69,
+          "string_gauge": 0.21599999999999997,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.10575
         }
       },
       {
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 6.175,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 15.6,
+          "string_type": 14.625,
           "scale_length_b": 0.063,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.38549999999999995,
+          "drum_technique": 11.25,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.17925,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3315,

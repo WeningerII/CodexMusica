@@ -2,10 +2,10 @@
   "id": "world_fusion",
   "name": "World fusion",
   "family": "jazz",
-  "lineage": "In Fuse — Jars of Emotions, complete 2022 album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s world fusion, improv On Frame. solo with instrumental accompaniment. upright bass, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bass clarinet, tombak. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 307,
-  "score": 19.031,
+  "lineage": "World fusion brings musical traditions into direct interaction through composition, arrangement and improvisation. Jazz musicians and cross-cultural ensembles have helped shape its varied instrumental and rhythmic language.",
+  "recipe": "classic world fusion, improv On Frame. solo with instrumental accompaniment. upright bass, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bass clarinet, tombak. live tracking.",
+  "recipe_chars": 211,
+  "score": 17.089,
   "config": {
     "traditions": [
       "world_fusion"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 1.1654999999999998,
+          "voice_speech_song": 0.21,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.35700000000000004,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "upright_strings": 0,
-          "upright_play": 4.75
+          "upright_play": 5
         }
       },
       {
@@ -75,13 +75,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.2,
-          "sax_size": 0.25,
+          "wind_articulation": -0.07,
+          "sax_size": -0.05,
           "sax_reed": 0,
-          "sax_body_alloy": 0.9099999999999999,
-          "sax_mouthpiece": 0.363,
-          "sax_technique": 5.050000000000001,
-          "sax_maker_school": 4.7315000000000005
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0.063,
+          "sax_technique": 5.0315,
+          "sax_maker_school": 4.9815000000000005
         }
       },
       {
@@ -91,8 +91,8 @@
           "bass_clarinet_style": "bass_clarinet_classical_legato"
         },
         "scores": {
-          "bass_clarinet_range": 0.6,
-          "bass_clarinet_style": 0.39
+          "bass_clarinet_range": 0,
+          "bass_clarinet_style": 0
         }
       },
       {
@@ -103,7 +103,7 @@
         },
         "scores": {
           "tombak_wood": 0.063,
-          "tombak_school": 0.168
+          "tombak_school": 0.273
         }
       }
     ],
@@ -149,15 +149,15 @@
         "tombak_school"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -166,7 +166,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -178,7 +178,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -199,12 +199,6 @@
       "tombak_wood": "tombak_mulberry",
       "tombak_school": "tombak_fusion"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

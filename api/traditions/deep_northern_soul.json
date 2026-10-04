@@ -2,10 +2,10 @@
   "id": "deep_northern_soul",
   "name": "Deep northern soul",
   "family": "global",
-  "lineage": "Deep northern soul: Little Ann — Deep Shadows, original title recording, label-described voice/vibes/piano/beat core. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
-  "recipe": "classic deep northern soul, functional Song, soul R&B branch. solo with instrumental accompaniment. vibraphone, Asian spruce hokkaido source wet sand cast cast iron modern mass production grand piano, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 309,
-  "score": 21.734,
+  "lineage": "Deep northern soul belongs to the rare-soul collecting and listening culture surrounding Northern Soul. Rediscovered recordings from Detroit and other American soul centres circulate through specialist labels and DJs, bringing overlooked singers such as Little Ann to new audiences.",
+  "recipe": "classic deep northern soul, functional Song, soul R&B branch. solo with instrumental accompaniment. vibraphone, cold pressed wurzen felt oversize maple tension resonator gospel runs grand piano, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 303,
+  "score": 22.676,
   "config": {
     "traditions": [
       "deep_northern_soul"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4814999999999998,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -72,36 +72,36 @@
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 9.9645,
+          "keyboard_technique": 17.4645,
           "grand_piano_size": 0.1995,
-          "grand_piano_brand": 0.4734999999999999,
-          "piano_hammer": 2.21,
-          "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 2.21,
-          "piano_pinblock": 0.8049999999999999,
-          "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 0.975
+          "grand_piano_brand": 0.8574999999999999,
+          "piano_hammer": 1.2349999999999999,
+          "piano_rim": 1.2349999999999999,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 0.325
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.7629999999999999,
+          "drumhead": 0.27299999999999996,
           "drum_kit_kick_pedal": 0
         }
       }

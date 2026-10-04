@@ -1,0 +1,249 @@
+{
+  "status": "REBUILT_AND_TESTED_NOT_QUALIFIED_FOR_MERGE",
+  "frozen_source_commit": "8bb2cee97d5feee7b48147b61da9a61ea5f5c71c",
+  "created_at": "2026-10-04T03:12:28.435446+00:00",
+  "frozen_source_sha256": {
+    "references/05_traditions.js": "db9326eb93db66b59942b168a6356aca083cfd0ab61e9b08b8bc882359f2ca3a",
+    "references/06_extras.js": "b644296dd1ced457b9ce264b7104b1f69c1c72aa0240b718b941e817599d8aa6"
+  },
+  "repaired_profiles": 2354,
+  "prose_only_partials_with_musical_holds": 336,
+  "reviewed_additions_not_imported": 178,
+  "original_baseline_records_and_extras_preserved": 2638,
+  "api_build": {
+    "status": "PASS",
+    "jobs": 2,
+    "seconds": 641.1,
+    "traditions": 6538,
+    "instruments": 1638,
+    "compile_failures": 0,
+    "self_verify": "PASS: every recipe <=1000, every id resolves"
+  },
+  "prerequisites": {
+    "references": "PASS",
+    "signature_parity": "PASS",
+    "descriptor_table_parity": "PASS",
+    "duplicates": "PASS",
+    "lint": "PASS",
+    "formatting": "PASS",
+    "full_documentation_checks": "PASS"
+  },
+  "supporting_checks": [
+    {
+      "check": "discovery",
+      "exit_code": 0,
+      "seconds": 0.0
+    },
+    {
+      "check": "api-contract",
+      "exit_code": 0,
+      "seconds": 1.3
+    },
+    {
+      "check": "atlas-geo",
+      "exit_code": 0,
+      "seconds": 0.3
+    },
+    {
+      "check": "atlas-tree",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "atlas-check",
+      "exit_code": 0,
+      "seconds": 14.4
+    },
+    {
+      "check": "html",
+      "exit_code": 0,
+      "seconds": 4.1
+    },
+    {
+      "check": "regression_prefaces",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "check_slot_picks",
+      "exit_code": 0,
+      "seconds": 2.1
+    },
+    {
+      "check": "app_recipe_regression",
+      "exit_code": 0,
+      "seconds": 10.2
+    },
+    {
+      "check": "equivalence",
+      "exit_code": 0,
+      "seconds": 11.3
+    },
+    {
+      "check": "check_lazy_app",
+      "exit_code": 0,
+      "seconds": 16.4
+    },
+    {
+      "check": "check_minified_equivalence",
+      "exit_code": 0,
+      "seconds": 28.0
+    },
+    {
+      "check": "check_connector_parity",
+      "exit_code": 0,
+      "seconds": 0.8
+    },
+    {
+      "check": "check_workspace_ops",
+      "exit_code": 0,
+      "seconds": 2.2
+    },
+    {
+      "check": "check_app_parity",
+      "exit_code": 0,
+      "seconds": 107.9
+    },
+    {
+      "check": "check_edit_parity",
+      "exit_code": 0,
+      "seconds": 5.4
+    },
+    {
+      "check": "check_edit_differential",
+      "exit_code": 0,
+      "seconds": 46.1
+    },
+    {
+      "check": "check_connector_contract",
+      "exit_code": 0,
+      "seconds": 1.9
+    },
+    {
+      "check": "check_name_isolation",
+      "exit_code": 0,
+      "seconds": 11.0
+    },
+    {
+      "check": "check_publish_guard",
+      "exit_code": 0,
+      "seconds": 0.2
+    },
+    {
+      "check": "eval_capabilities",
+      "exit_code": 0,
+      "seconds": 50.7
+    },
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.3
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 14.7
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 9.2
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 84.9
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 34.7
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 108.7
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 22.7
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 7.2
+    }
+  ],
+  "supporting_pass_count": 27,
+  "recipe_regression": {
+    "serial": true,
+    "passed": 1045,
+    "total": 1149,
+    "differences": 104,
+    "snapshot_updates": 0,
+    "independent_review": "frozen-regression-review.json",
+    "counterfactual": "All104 exact outputs/configurations/scores restored by reverting only genre data in process memory;168 scripts and1638 instrument owners unchanged. Causality does not approve semantics."
+  },
+  "ui_failures": {
+    "check_ui_foundation": "Exact complete failure log matches prior batch039 baseline: Delta Blues enlarged photo does not retain thumbnail. Historical comparison, not a new baseline execution.",
+    "ui_reachability_check": "Browser policy ERR_BLOCKED_BY_ADMINISTRATOR opening generated file URL, same failure class as prior baseline."
+  },
+  "generated_diff": {
+    "api_files": 3558,
+    "other_files": ["data/tree-map.json"]
+  },
+  "continuation_isolation": {
+    "branch": "codex/checkpoint480-continued-reviews",
+    "local_commit": "54a93b15",
+    "applied_profiles_at_save": 2542,
+    "scope": "Later reviews and unfinished work excluded from this frozen artifact snapshot."
+  },
+  "pending": [
+    "Qualification of104 regression differences including explicit emitted cultural/performance mismatches",
+    "Existing musical-default/render holds",
+    "Remaining source research and repairs",
+    "Exact-head CI and artifact reproducibility"
+  ],
+  "log_sha256": {
+    "app_recipe_regression.log": "fe4df73a288cf4e3857369eacbb46be654ed635aed294475c6fd27c2cf3b0513",
+    "eval_capabilities.log": "e583aa7139b2a916b84dcd05b2eb2572f5f4bbebc52400d1b4382efa55e297e9",
+    "check_connector_parity.log": "e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a",
+    "check_workbench.log": "db6ec88413170023c0b9e97bb2f21ba58a8305971cd1c66432986cefec5c2509",
+    "df.log": "f004b7ac31c45d5928fa15e8f8c08fed7ac3d6255724060175c2e9d0f215d42c",
+    "atlas-geo.log": "d5dc96a45fffc27e87fbbbcccb130f11de09fc933fb774389d0a936c14264e0b",
+    "check_layout_usability.log": "d37d43cab79e266293694d5ec16bc3caae20afad2667a71d9f9eeafab96f4487",
+    "check_minified_equivalence.log": "9f1f1bdf2b823564b3f3b73ce4296e8b251ae51c352e1c693598e969a3881423",
+    "check_name_isolation.log": "ea9489e29882bac11e60b948dcc9d4034f939a364afc794b2b530de8ae242be8",
+    "check-docs.log": "6576647ddba7c32d3d9041ef0d43d645571637ffc8e25d63561abdaa7863996d",
+    "check_mobile_layout.log": "791bd69430fade875a65bd3d40bc2879ee6b223c83c0a5e657ab27e95774183d",
+    "discovery.log": "7c1937d439aa50942782ed21c75fbad036e645391185b5dd48d30755cf56983b",
+    "lint.log": "fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57",
+    "docs.log": "8aea04ddef192ff653862e186d7cc7ee630754bcdf59723d2bc415c37f22ae31",
+    "check_lyrics_page.log": "10ada00d6dee79cc52424a8671d4e216690cee22f6fd995286522e54cb235adf",
+    "check_lazy_app.log": "afc08e8d0dad653b89fba9e26d242456c161ad815c895caf65bf3a53c44b5d73",
+    "check_workspace_ops.log": "408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36",
+    "check_edit_differential.log": "40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571",
+    "check_connector_contract.log": "24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02",
+    "validate.log": "160bba97b2bce560f4a7ee3580048482cb7749e4a693c8787cfcd39fbb6d9367",
+    "check_slot_picks.log": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+    "check_edit_parity.log": "3cd658a7699870d4e0338e1bab127fa143886f0d3f9003129f5453931708de21",
+    "ui_reachability_check.log": "99c2fcfcc28887b5305db32b9d044b417ed870555b3440d06594a5e3050bb8b5",
+    "regression-initial.log": "5216867fd32b8b246fbe8c9fe39f66e940562d72be65184d088e3d108a1fb3d3",
+    "equivalence.log": "1dcd96896e25ee6056f997e06b51c1ef7a834851dbd93eedfd10ef46aab9a04a",
+    "api-contract.log": "61cfc5ae871da70dc7ce73cf704a8938c516053bc069457d069659c0c23a7eb5",
+    "check_publish_guard.log": "3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91",
+    "format.log": "9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd",
+    "atlas-tree.log": "a9fef017de5ccfb09473fa654f645db611d9ae12e27a094b9800d94e5586a89a",
+    "signatures.log": "a8518349fa23b3ed15c27f59c29303058bd4c7d1bad45d5cd27ab18baa7538d2",
+    "html.log": "9f967d63ea17608402b1699383a35a9df55c6575c04d576e058dc59437c5e4f2",
+    "build-api.log": "2d76b4fb74bbe510130e764992f063d2621ef1ecf70105b539a8c917ecdcabbe",
+    "check_chat_counter.log": "33ace976f66d6be3aa2d3822069b9fc51fc35742d463d12e45e9290e5557fc4b",
+    "check_layout_geometry.log": "9a5aca9c6359cfc1ac045712cad002564872dbe1445c012d5e9c1cb4fa7375b5",
+    "check_ui_foundation.log": "fe7a3d7c7e282eacb79621090323b396da1d5ba6f7c0ae482980e6c625769f51",
+    "duplicates.log": "c2ae0cb25c5c430b2d4c44d581263fbdcb13989dddc1174f9c6ddc44787ce2be",
+    "atlas-check.log": "e019b949de42a38a07480183991f37faffcbf2a241fd77aaebfc75e4a8a5a8f3",
+    "check_app_parity.log": "5cb95e182b53afebd127227d28d46daf7cbc418773d640ef4ca5607dd8ccddd3",
+    "regression_prefaces.log": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc"
+  }
+}

@@ -2,28 +2,64 @@
   "id": "eletronica_underground_brasileira",
   "name": "Eletrônica underground brasileira",
   "family": "electronic",
-  "lineage": "Complete broadcaster-issued Renato Cohen Boiler Room x DGTL São Paulo2023 program, published on the official channel10January2024. Broadcaster supplies a continuous audio/video DJ program with a record tracklist and one named performer. The visible ungated tracklist shows only its first two records; no complete track count or duration is invented. A documented DJ performance is modeled, not the internal sound generators of an opaque produced single. Other festival performers, Cohen’s separate live-PA show at The Town and instruments mentioned in his general biography are not imported. Actual embedded or live vocal counts remain unknown; no separately credited added live singer is documented. Source-positive DJ playback and mixing retained with existing neutral owner. Exact decks, mixer, playback medium and generators unknown. No sampler-only studio-production claim or universal Brazilian acoustic percussion. Unknown voice counts remain null. No global tuning or signal chain imposed. Controlled live room and neutral axes are explicitly authored present-day capture; not the measured outdoor festival acoustics. Broad electronicDance parent follows the independently documented house/techno/disco DJ dance-program practice.",
-  "recipe": "classic eletrônica underground brasileira, electronic Dance. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 107,
-  "score": 0,
+  "lineage": "Brazilian underground electronic music develops through independent clubs, labels, producers and resident-DJ networks. House, techno, disco and experimental approaches intersect in a community distinct from, but connected to, the larger commercial dance economy.",
+  "recipe": "classic eletrônica underground brasileira, electronic Dance. analog synth, sampler. live tracking.",
+  "recipe_chars": 98,
+  "score": 7.309,
   "config": {
     "traditions": [
       "eletronica_underground_brasileira"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.035,
+          "oscillator": -0.035,
+          "filter_topology": 0.063,
+          "envelope": 0,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 7.344999999999999
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "live_room",
@@ -43,7 +79,15 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
     },
     "pin_parts": true
   }

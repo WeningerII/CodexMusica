@@ -5,7 +5,7 @@
   "lineage": "Retrospective French pop represented by Thierry Pastor’s early-1980s keyboard-led, danceable songwriting. His account describes composing and demoing with synthesizer and Fender piano, then singing at the keyboard. The model uses voice, electric piano and synth in a concise new arrangement, without claiming to recreate the original 16-track mix.",
   "recipe": "classic 1980-1983 classic french pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. electric piano tine, singing lead analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 427,
-  "score": 24.378,
+  "score": 23.921,
   "config": {
     "traditions": [
       "classic_french_pop"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
+          "voice_speech_song": 1.6099999999999999,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 1.5875
         }
       },
       {
@@ -72,7 +72,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 13.788499999999997,
+          "electronic_technique": 13.513499999999999,
           "poly_archetypes": 1.95,
           "poly_voices": 0.231,
           "poly_maker_lineage": -1.435

@@ -2,10 +2,10 @@
   "id": "russian_techno",
   "name": "Russian techno",
   "family": "electronic",
-  "lineage": "Russia-connected techno production and label networks, represented here by Nina Kraviz’s compact synthesizer-centered practice. The selected branch crosses the house/techno boundary; neither a single city nor one artist defines the full national category.",
+  "lineage": "Russian techno encompasses producers and label networks working across lean club grooves, noisier electronics and faster rhythmic styles. Hardware synthesis, computer sequencing and sampled percussion connect its varied production approaches.",
   "recipe": "classic modern russian techno, electronic Dance, techno branch. analog synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter spring reverb.",
   "recipe_chars": 317,
-  "score": 3.36,
+  "score": 4.058,
   "config": {
     "traditions": [
       "russian_techno"
@@ -24,7 +24,7 @@
           "electronic_technique": 0.19500000000000003,
           "oscillator": 0,
           "filter_topology": 0.39,
-          "envelope": 0.2565,
+          "envelope": 1.6476250000000001,
           "modulation": 0
         }
       },
@@ -37,10 +37,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 1.0608749999999998,
           "sample_bitdepth": 0.39,
           "sample_swing": 0,
-          "sample_processing": 0.12374999999999999
+          "sample_processing": 0
         }
       }
     ],

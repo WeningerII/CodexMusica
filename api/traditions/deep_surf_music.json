@@ -5,7 +5,7 @@
   "lineage": "The Thurston Lava Tube — 2003 instrumental quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic early-2000s deep surf music, distorted Rock, surf rock branch. humbucker electric guitar, combo organ, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 25.247,
+  "score": 25.063,
   "config": {
     "traditions": [
       "deep_surf_music"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.37799999999999995,
-          "neck_wood": 0.105,
+          "body_wood": 0.4095,
+          "neck_wood": 0.1365,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.22049999999999997,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.21,
-          "string_gauge": 1.69,
+          "scale_length": 0.2415,
+          "string_gauge": 1.6315,
           "finish": 0,
-          "string_tuning": 0.126
+          "string_tuning": 0.0315
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.37799999999999995,
+          "body_wood": 0.4095,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -101,13 +101,13 @@
         },
         "scores": {
           "drum_technique": 7.605,
-          "drumhead": 0.126,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.126,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.1685,
           "cymbal_hammering": 7.463,
           "cymbal_lathing": 7.4945,
           "cymbal_finish": 0

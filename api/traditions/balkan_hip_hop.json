@@ -5,7 +5,7 @@
   "lineage": "Balkan hip-hop networks; selected Dubioza Kolektiv live crossover branch",
   "recipe": "classic modern balkan hip hop, mc Rhythm, intl hip hop branch. duet. sampled chopped sampler, sub bass rompler workstation, clean strummed single coil electric guitar, electric bass, drum kit, saxophone. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 348,
-  "score": 32.118,
+  "score": 32.44,
   "config": {
     "traditions": [
       "balkan_hip_hop"
@@ -37,13 +37,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3,
+          "voice_articulation": 0.39,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.62875,
+          "voice_ensemble_config": 1.51175,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.1,
+          "electronic_technique": 6.138999999999999,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.46649999999999997,
+          "sampler_bit_depth": 0.5445,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 9.165
         }
@@ -76,7 +76,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 6.82775,
+          "electronic_technique": 6.74975,
           "rompler_preset_bank": 0.063,
           "rompler_context": 0,
           "rompler_lineage": 0
@@ -107,8 +107,8 @@
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.1365,
-          "string_gauge": 0.042749999999999996,
-          "bridge": 0.08549999999999999,
+          "string_gauge": 0.08174999999999999,
+          "bridge": 0.12449999999999999,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -132,7 +132,7 @@
           "body_wood": 0.042749999999999996,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.042749999999999996,
+          "scale_length_b": 0.08174999999999999,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -155,11 +155,11 @@
         },
         "scores": {
           "drum_technique": 0.75,
-          "drumhead": 0.042749999999999996,
+          "drumhead": 0.08174999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.34275,
+          "shell_wood": 0.38175,
           "shell_thickness": 0,
-          "bearing_edges": 0.08549999999999999,
+          "bearing_edges": 0.16349999999999998,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.1,
@@ -179,11 +179,11 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": -0.10500000000000001,
+          "wind_articulation": -0.10725000000000003,
           "sax_size": 0.15000000000000002,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.042749999999999996,
+          "sax_mouthpiece": 0.08174999999999999,
           "sax_technique": -0.15000000000000002,
           "sax_maker_school": 0.6315
         }

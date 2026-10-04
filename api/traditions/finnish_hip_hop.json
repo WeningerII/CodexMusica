@@ -5,7 +5,7 @@
   "lineage": "Finnish hip-hop scenes; selected Don Johnson Big Band multi-instrument studio branch",
   "recipe": "classic modern finnish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. rompler workstation, clean strummed single coil electric guitar, electric bass, drum kit, saxophone, flute. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 391,
-  "score": 27.745,
+  "score": 28.444,
   "config": {
     "traditions": [
       "finnish_hip_hop"
@@ -37,12 +37,12 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.08549999999999999,
+          "voice_articulation": 0.27075,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.575999999999999,
+          "voice_speech_song": 10.659999999999998,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -59,7 +59,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "rompler_preset_bank": 0.39,
           "rompler_context": 0,
           "rompler_lineage": 0
@@ -87,11 +87,11 @@
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.1365,
-          "fretboard": -0.05,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.1365,
-          "string_gauge": 0,
-          "bridge": 0,
+          "string_gauge": 0.042749999999999996,
+          "bridge": 0.042749999999999996,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -115,7 +115,7 @@
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.042749999999999996,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -138,11 +138,11 @@
         },
         "scores": {
           "drum_technique": -0.1,
-          "drumhead": 0,
+          "drumhead": 0.042749999999999996,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.042749999999999996,
           "shell_thickness": 0,
-          "bearing_edges": 0,
+          "bearing_edges": 0.08549999999999999,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.07,
@@ -166,7 +166,7 @@
           "sax_size": 0.44999999999999996,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.1425,
+          "sax_mouthpiece": 0.18524999999999997,
           "sax_technique": -0.035,
           "sax_maker_school": 0.1365
         }
@@ -182,7 +182,7 @@
         },
         "scores": {
           "wind_articulation": -0.035,
-          "flute_size": 0,
+          "flute_size": 0.042749999999999996,
           "flute_material": 0.2415,
           "flute_technique": 0,
           "flute_maker_school": 0.34725000000000006

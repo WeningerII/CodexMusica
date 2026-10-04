@@ -5,7 +5,7 @@
   "lineage": "Comic metal is retained as the source discovery label, whose roster spans parody, theatrical and humorous metal-adjacent acts. Nanowar of Steel supplies this explicit comedy-metal branch: a heavy-metal rhythm section supports theatrical sung exchanges and genre parody. The musicians describe humor as the project’s founding purpose, while the label documents polished metal parody. This authored guitar, bass, drums and two-voice model represents a band-centered branch; it does not declare every roster artist a parody act or invent a single comic-metal instrument formula.",
   "recipe": "classic modern comic metal, distorted Rock, metal branch. equal tempered, one note per syllable, aurally tuned. stainless steel steel power chord humbucker electric guitar, stainless steel roundwound electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 453,
-  "score": 65.799,
+  "score": 61.852,
   "config": {
     "traditions": [
       "comic_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 30.08150000000001,
+          "electric_technique": 30.06725000000001,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.62025,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.21075,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 1.405,
-          "bridge": 0.5775,
+          "bridge": 0.62025,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.6187499999999998
+          "string_tuning": 0.063
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.62025,
           "pickup_config": 0,
           "string_type": 1.405,
-          "scale_length_b": 0.7237499999999999,
-          "fretted_or_not": 0.5557499999999999,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.21075,
+          "fretted_or_not": 0,
+          "bass_technique": 3.82825,
           "electric_bass_string_configuration": 0
         }
       },
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.62025,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.42,
-          "shell_thickness": 0.5557499999999999,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.5275,
+          "cymbal_lathing": 3.97175,
           "cymbal_finish": 0
         }
       },
@@ -120,19 +120,19 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
+          "voice_effort": 0.08549999999999999,
           "voice_vibrato": 0,
           "voice_articulation": -0.07,
           "voice_microtone": 3.685250000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 3.076499999999999,
-          "voice_ensemble_config": 0.18525,
+          "voice_speech_song": 1.77975,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
+          "voice_pitch_organization": 0.5572499999999999,
           "voice_processing_chain": -0.07,
-          "voice_multitrack_stack": 0.18525
+          "voice_multitrack_stack": 0
         }
       }
     ],

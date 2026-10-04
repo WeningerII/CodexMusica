@@ -2,10 +2,10 @@
   "id": "chinese_electropop",
   "name": "Chinese Electropop",
   "family": "pop",
-  "lineage": "JADE EYES — complete announced forty-minute uninterrupted Baybeats programme, Esplanade Annexe Studio,6October2023. Presenter gives the entire three-person roster: Ling Chin voice/bass/keyboards, Yi Hsuan guitar, Yu Hsin programming. All five sound families and one positively credited singer retained. This is the dated2023 performing practice, not a reconstruction of2017 drummer/percussion roles or any studio album. Programming remains positive musical sound production with unknown generator/interface/protocol, not guessed MIDI, sample playback, synthesizer architecture or opaque playback of a finished master. Keyboard similarly remains architecture-unspecified; both positive roles are retained independently. Guitar is a candid authored clean single-coil electric realization of source bare guitar, bass an authored fretted electric fingerstyle realization. Neither source subtype nor equipment is measured. Controlled live-room and all wood/string/technique choices are new recording choices. Vocal physiology and pitch remain unspecified; one accompanied voice without additional singers. No global tuning or capture chain inferred. The live-room model produces an authored buoyant/up-tempo popular-song rendition compatible with the documented new-wave/deep-house influences; it is not a claim about the actual programme BPM or a denial of its dreamy atmosphere. Single-lead one-take stacking is a new arrangement choice, not proof of absent source overdubs.",
-  "recipe": "classic chinese electropop, functional Song, east Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, melodic chordal electronic keyboard credited programming unspecified. live tracking.",
-  "recipe_chars": 348,
-  "score": 26.74,
+  "lineage": "Chinese electropop connects popular songwriting with electronic sound and production across Chinese-language music networks. Bands and producers combine vocal melodies with keyboards, programming and other instruments.",
+  "recipe": "classic chinese electropop, functional Song, east Asian pop branch. solo with instrumental accompaniment. clean strummed single coil electric guitar, electric bass, electronic keyboard credited programming unspecified. live tracking.",
+  "recipe_chars": 233,
+  "score": 11.389,
   "config": {
     "traditions": [
       "chinese_electropop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.769999999999999,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 7.268,
+          "voice_multitrack_stack": 0.16799999999999998,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 9.854999999999999,
+          "electric_technique": 7.055,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.0945,
@@ -81,7 +81,7 @@
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 2.6315,
+          "string_tuning": 0.0315,
           "single_coil_pickup_construction": 0
         }
       },
@@ -104,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 1.17
+          "keyboard_technique": 0.399
         }
       },
       {

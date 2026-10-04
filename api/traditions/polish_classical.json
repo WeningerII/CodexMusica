@@ -2,10 +2,10 @@
   "id": "polish_classical",
   "name": "Polish classical",
   "family": "classical",
-  "lineage": "Polish classical is represented by Alina Ibragimova and Cédric Tiberghien — Szymanowski: Complete music for violin & piano. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
-  "recipe": "classic polish classical, art Music, western modern branch. half rectified carpathian spruce European maple sycamore maple oil varnish violin orchestral, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 321,
-  "score": 173.141,
+  "lineage": "Polish classical music includes composition and performance across a broad range of concert forms. Local musical references and international developments inform changing approaches to melody, harmony and structure.",
+  "recipe": "classic polish classical, art Music, western modern branch. half rectified norway spruce European alpine European maple sycamore maple violin orchestral, modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 163.586,
   "config": {
     "traditions": [
       "polish_classical"
@@ -16,7 +16,7 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "orch_strings": "half_rectified_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_top_wood": "norway_spruce_alpine_violin",
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
@@ -26,16 +26,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.605,
-          "orch_strings": 2.6595,
-          "orch_top_wood": 7.773,
-          "orch_back_wood": 12.273,
-          "orch_varnish": 12,
-          "orch_setup_period": 13.773,
+          "bowed_technique": 7.6905,
+          "orch_strings": 2.3594999999999997,
+          "orch_top_wood": 7.8655,
+          "orch_back_wood": 11.523,
+          "orch_varnish": 11.25,
+          "orch_setup_period": 12.9375,
           "orch_bow": 0.546,
-          "orch_bow_stick": 13.36,
-          "orch_articulation": 0.5775,
-          "orch_rosin": 13.9095
+          "orch_bow_stick": 12.61,
+          "orch_articulation": 0.76275,
+          "orch_rosin": 13.074
         }
       },
       {
@@ -44,8 +44,8 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
@@ -53,14 +53,14 @@
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.45825,
-          "grand_piano_brand": 0.9555,
-          "piano_hammer": 14.8195,
-          "piano_rim": 13.285,
-          "piano_soundboard": 12,
-          "piano_pinblock": 12.3,
-          "piano_plate": 14.073,
-          "piano_pitch_standard": 13.273
+          "grand_piano_size": 0.41550000000000004,
+          "grand_piano_brand": 1.098,
+          "piano_hammer": 13.2105,
+          "piano_rim": 11.5545,
+          "piano_soundboard": 11.25,
+          "piano_pinblock": 11.25,
+          "piano_plate": 12.9375,
+          "piano_pitch_standard": 13.75075
         }
       }
     ],

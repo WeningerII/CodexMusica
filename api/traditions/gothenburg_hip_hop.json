@@ -2,10 +2,10 @@
   "id": "gothenburg_hip_hop",
   "name": "Gothenburg hip hop",
   "family": "hip_hop",
-  "lineage": "Huset — complete five-person live lineup announced by United Stage for 2022. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s gothenburg hip hop, mc Rhythm. duet, live take. electronic keyboard unspecified, electric bass, low fundamental tuning all purpose maple drum kit, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 276,
-  "score": 11.42,
+  "lineage": "Gothenburg hip-hop forms a regional community within Swedish rap, combining local MC identities with independent production and live performance. Huset exemplifies its band-oriented strand.",
+  "recipe": "classic gothenburg hip hop, mc Rhythm. rap, rhythmic spoken flow no pitch, duet, live take. electronic keyboard unspecified, electric bass, drum kit, saxophone. live tracking.",
+  "recipe_chars": 175,
+  "score": 23.746,
   "config": {
     "traditions": [
       "gothenburg_hip_hop"
@@ -15,7 +15,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 11.375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 2.8465,
+          "voice_speech_song": 9.842,
+          "voice_ensemble_config": 1.3945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 2.452,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 1.3945,
           "voice_tessitura": 0
         }
       },
@@ -60,15 +60,15 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.063
+          "keyboard_technique": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -78,11 +78,11 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0,
+          "pickup_config": 0.126,
           "string_type": 0,
           "scale_length_b": 0,
-          "fretted_or_not": 0,
-          "bass_technique": 0.19500000000000003,
+          "fretted_or_not": 0.0315,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -102,16 +102,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 0.2815,
-          "drumhead": 2.08,
+          "drum_technique": -0.05,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.47,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.126,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.10500000000000001,
-          "cymbal_lathing": 0.19500000000000003,
+          "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0
         }
       },
@@ -127,13 +127,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.2,
-          "sax_size": 0.25,
+          "wind_articulation": -0.1,
+          "sax_size": -0.05,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.0315,
-          "sax_technique": 0.25,
-          "sax_maker_school": 0.2
+          "sax_mouthpiece": 0,
+          "sax_technique": -0.05,
+          "sax_maker_school": -0.1
         }
       }
     ],
@@ -194,25 +194,25 @@
         "sax_maker_school"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -221,7 +221,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
       "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -231,8 +231,8 @@
       "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
       "keyboard_technique": "electronic_keyboard_melodic_chordal",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
-      "pickup_config": "split_coil",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -257,12 +257,6 @@
       "sax_technique": "sax_continuous_legato",
       "sax_maker_school": "sax_selmer_mark_vi"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

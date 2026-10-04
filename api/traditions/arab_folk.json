@@ -2,10 +2,10 @@
   "id": "arab_folk",
   "name": "Arab folk",
   "family": "vernacular",
-  "lineage": "Arab folk is represented by Martin Gilmore / Eslam Elabaty — Bahariya (East–West). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic arab folk, drone Modal, string branch. phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, pyramid nylon arab school drone like modal oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 265,
-  "score": 17.762,
+  "lineage": "Arab folk encompasses regional song, instrumental and dance traditions across diverse communities. Contemporary collaborations can connect these practices with other acoustic and popular musical approaches.",
+  "recipe": "classic arab folk, drone Modal, string branch. fingerpicked dreadnought acoustic guitar, nylon plastic pyramid arab school drone like oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 237,
+  "score": 15.136,
   "config": {
     "traditions": [
       "arab_folk"
@@ -15,17 +15,17 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "mahogany_top",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 5.6129999999999995,
-          "string_tuning": 1.17,
+          "acoustic_technique": 4.863,
+          "string_tuning": 0,
           "top_wood": 0.147,
           "back_sides": 0.147,
-          "string_acoustic": 1.69
+          "string_acoustic": 0.4724999999999999
         }
       },
       {
@@ -34,18 +34,18 @@
           "plucked_traditional_technique": "plucked_drone_modal",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_thirteen",
-          "oud_pick": "risha_eagle_feather",
+          "oud_pick": "risha_plastic",
           "oud_body_wood": "oud_walnut_body",
-          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_soundboard_wood": "oud_western_red_cedar_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
           "plucked_traditional_technique": 3.7700000000000005,
-          "oud_school": 0.6719999999999999,
-          "oud_strings": 0.39,
-          "oud_pick": 0.672,
+          "oud_school": 0.79575,
+          "oud_strings": 0.273,
+          "oud_pick": 1.15525,
           "oud_body_wood": 0.5565,
-          "oud_soundboard_wood": 0.42,
+          "oud_soundboard_wood": 0.441,
           "oud_string_material": 2.5145
         }
       }

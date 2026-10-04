@@ -2,10 +2,10 @@
   "id": "blackened_screamo",
   "name": "Blackened screamo",
   "family": "rock_punk",
-  "lineage": "Blackened screamo is represented here by Demersal and its blackened screamo/emoviolence with post-rock contrasts. This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic blackened screamo, distorted Rock, emo branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, hard rock maple cremonese post 1740 softer varnish cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 528,
-  "score": 56.382,
+  "lineage": "Blackened screamo joins dense blackened guitar passages and urgent vocal expression with spacious, contrasting textures.",
+  "recipe": "classic blackened screamo, distorted Rock, emo branch. solo with instrumental accompaniment. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 347,
+  "score": 21.927,
   "config": {
     "traditions": [
       "blackened_screamo"
@@ -17,53 +17,53 @@
           "electric_technique": "electric_tremolo_picking",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 3.1200000000000006,
+          "amp_make": 1.8199999999999998,
           "body_wood": 1.5225,
-          "neck_wood": 0.3045,
-          "fretboard": 0.42,
-          "pickup_magnet": 0.693,
-          "pickup_winding": 0.5355000000000001,
+          "neck_wood": 0.168,
+          "fretboard": 0.105,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.168,
           "string_material": 0.168,
-          "bridge": 1.3,
-          "scale_length": 0.9660000000000002,
-          "string_gauge": 1.3,
-          "finish": 0.0315,
-          "string_tuning": 0.39
+          "bridge": 0.2415,
+          "scale_length": 0,
+          "string_gauge": 0.273,
+          "finish": 0,
+          "string_tuning": 0.105
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.575,
-          "body_wood": 0.8294999999999999,
-          "pickup_config": 0.525,
-          "string_type": 8.125,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.105,
-          "bass_technique": 6.2,
+          "amp_make": 2.275,
+          "body_wood": 1.5225,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -71,37 +71,37 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.25,
-          "drumhead": 0.378,
+          "drum_technique": 3.75,
+          "drumhead": 0.3045,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "fazioli",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.325,
-          "grand_piano_size": 0.3675,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 3.1200000000000006,
-          "piano_rim": 4.8100000000000005,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": 0.26,
-          "piano_plate": 0.26,
+          "keyboard_technique": -0.07,
+          "grand_piano_size": 0.1365,
+          "grand_piano_brand": 0.1365,
+          "piano_hammer": 1.8199999999999998,
+          "piano_rim": 1.8199999999999998,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
           "piano_pitch_standard": -0.035
         }
       },
@@ -109,25 +109,25 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "venice_catlin_cello",
-          "cello_top_wood": "carpathian_spruce_cello",
-          "cello_back_wood": "hard_rock_maple_cello_back",
-          "cello_varnish": "cremonese_post_1740_varnish_cello",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "oil_amber_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "german_bow_grip",
+          "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "snakewood_stick_cello"
+          "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 0.325,
-          "cello_top_wood": -0.035,
-          "cello_back_wood": 3.185,
-          "cello_varnish": 1.2349999999999999,
+          "cello_strings": 0.16799999999999998,
+          "cello_top_wood": -0.07,
+          "cello_back_wood": -0.07,
+          "cello_varnish": -0.1,
           "cello_setup_period": 0.26,
-          "cello_bow_grip": 0.2415,
-          "cello_rosin": 0.49999999999999994,
-          "cello_bow_stick": 0.2
+          "cello_bow_grip": 0.105,
+          "cello_rosin": 0.2,
+          "cello_bow_stick": -0.15000000000000002
         }
       },
       {
@@ -148,7 +148,8 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -162,25 +163,64 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
-          "voice_ornament_system": 0.39,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.78
+          "voice_multitrack_stack": 0.1995,
+          "voice_tessitura": 0
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
         "drum_kit_kick_pedal"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
       ],
       "voice": [
         "voice_register",
@@ -198,7 +238,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ]
     },
     "room": "treated_studio",
@@ -240,7 +281,41 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "pick_aggressive",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "bowed_technique": "bowed_legato_classical",
+      "cello_strings": "cello_synthetic",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

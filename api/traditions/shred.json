@@ -5,7 +5,7 @@
   "lineage": "Nicolas Waldo — Shredding! (2020), complete eight-track instrumental album. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2020s shred, distorted Rock, metal branch. conventional tuning standard pitch humbucker electric guitar, electric bass, electronic keyboard unspecified, maple double bass rapid double strokes machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 349,
-  "score": 31.456,
+  "score": 30.878,
   "config": {
     "traditions": [
       "shred"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 0.26,
           "amp_make": 0,
-          "body_wood": 0.8084999999999999,
+          "body_wood": 0.8399999999999999,
           "neck_wood": 0.5775,
           "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
+          "pickup_magnet": 0.105,
           "pickup_winding": 0.0315,
-          "string_material": 0.1365,
-          "bridge": 0.0315,
+          "string_material": 0.21,
+          "bridge": 0.105,
           "scale_length": 1.155,
-          "string_gauge": 1.852,
+          "string_gauge": 1.747,
           "finish": 0.105,
-          "string_tuning": 1.6045
+          "string_tuning": 1.363
         }
       },
       {
@@ -58,11 +58,11 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.8084999999999999,
+          "body_wood": 0.8399999999999999,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
           "bass_technique": 0.19500000000000003,
           "electric_bass_string_configuration": 0
         }
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.5774999999999999
+          "keyboard_technique": 0.6825000000000001
         }
       },
       {
@@ -94,17 +94,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 5.25,
-          "drumhead": 1.6045,
+          "drum_technique": 5.2815,
+          "drumhead": 1.573,
           "drum_kit_kick_pedal": 1.56,
-          "shell_wood": 2.5780000000000003,
+          "shell_wood": 2.3680000000000003,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": 0.5999999999999999,
           "cymbal_hammering": 5.2865,
-          "cymbal_lathing": 5.859500000000001,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 5.6495000000000015,
+          "cymbal_finish": 0.105
         }
       }
     ],

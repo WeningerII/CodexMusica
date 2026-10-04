@@ -5,7 +5,7 @@
   "lineage": "Estonian popular recording/performance culture represented by Kerli’s internationally produced, locally recognized alternative-pop work. The selected authored ensemble combines sung lead and backing, acoustic guitar, synthesizer, electric bass, drums and cello from the documented Love Is Dead album role inventory. It is an album-informed arrangement, not an asserted transcription of one track.",
   "recipe": "classic modern estonian pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar, analog poly synth, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, hard rock maple modern setup pirastro cellisto cello specific cello. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 528,
-  "score": 37.091,
+  "score": 36.906,
   "config": {
     "traditions": [
       "estonian_pop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.363,
-          "voice_ensemble_config": 1.389375,
+          "voice_ensemble_config": 1.2285000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 1.3315000000000001,
@@ -64,7 +64,7 @@
           "string_tuning": 0,
           "top_wood": 0.3465,
           "back_sides": 0.105,
-          "string_acoustic": 0.44099999999999995
+          "string_acoustic": 0.5774999999999999
         }
       },
       {
@@ -137,7 +137,7 @@
           "cello_top_wood": -0.035,
           "cello_back_wood": 1.885,
           "cello_varnish": -0.035,
-          "cello_setup_period": 1.56,
+          "cello_setup_period": 1.3995,
           "cello_bow_grip": 0.0315,
           "cello_rosin": 1.2315,
           "cello_bow_stick": -0.05

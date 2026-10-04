@@ -2,10 +2,10 @@
   "id": "norwegian_techno",
   "name": "Norwegian techno",
   "family": "electronic",
-  "lineage": "Norway-centered techno production networks, with a documented early Tromsø branch connecting Mental Overdrive, Ismistik and Geir Jenssen/Bleep. The default selects the spacious synthetic-rhythm and sampled-texture side of this history; it is not a claim that all Norwegian techno is ambient.",
-  "recipe": "classic mid-1980s norwegian techno, electronic Dance, techno branch. pad like pad analog synth, drum machine analog, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
-  "recipe_chars": 309,
-  "score": 12.159,
+  "lineage": "Norwegian techno developed through producer and label networks including an influential early Tromsø scene. Electronic dance rhythms, sampling and atmospheric synthesis connect this history with later harder and more varied club production.",
+  "recipe": "classic mid-1980s norwegian techno, electronic Dance, techno branch. analog synth, drum machine analog, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
+  "recipe_chars": 296,
+  "score": 9.511,
   "config": {
     "traditions": [
       "norwegian_techno"
@@ -21,10 +21,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.6680000000000006,
+          "electronic_technique": 0.26,
           "oscillator": 0.0315,
-          "filter_topology": 1,
-          "envelope": 1.468,
+          "filter_topology": 0,
+          "envelope": 0.168,
           "modulation": 0
         }
       },
@@ -40,7 +40,7 @@
           "kick_voice": 0,
           "snare_voice": 0.03599999999999999,
           "hat_voice": 0,
-          "shuffle_quantize": -0.035
+          "shuffle_quantize": 2.836
         }
       },
       {
@@ -53,11 +53,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.8999999999999999,
+          "electronic_technique": -0.1,
           "sampler_archetypes": 0,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 4.16
+          "sampler_classic_context": 4.55
         }
       }
     ],

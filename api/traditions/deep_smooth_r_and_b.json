@@ -2,10 +2,10 @@
   "id": "deep_smooth_r_and_b",
   "name": "Deep smooth r&b",
   "family": "global",
-  "lineage": "Deep smooth r&b: Rhonda Benin — Sound Room piano-bass-drums lineup documented on her artist press page. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
-  "recipe": "classic deep smooth r&b, functional Song, soul R&B branch. Asian spruce hokkaido source wet sand cast cast iron modern mass production grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, fiberskyn synthetic calf drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 33.014,
+  "lineage": "Deep smooth R&B connects intimate contemporary soul singing with jazz-informed club and concert practice. Vocalists such as Rhonda Benin move between blues, jazz and rhythm-and-blues repertoires with small accompanying ensembles.",
+  "recipe": "classic deep smooth r&b, functional Song, soul R&B branch. solo with instrumental accompaniment. gospel runs grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, 60s jazz canon vintage ambassador asymmetric drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 44.978,
   "config": {
     "traditions": [
       "deep_smooth_r_and_b"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.345,
           "voice_tessitura": 0
         }
       },
@@ -57,24 +57,24 @@
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "felt_piano_practice_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 4.2145,
+          "keyboard_technique": 6.7145,
           "grand_piano_size": 0.1995,
-          "grand_piano_brand": 0.4734999999999999,
-          "piano_hammer": 2.21,
-          "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 2.21,
-          "piano_pinblock": 0.8049999999999999,
-          "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 1.755
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 0.95,
+          "piano_rim": -0.035,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 0.7149999999999999
         }
       },
       {
@@ -90,13 +90,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.330500000000001,
+          "amp_make": 9.083499999999997,
           "body_wood": 0.399,
-          "pickup_config": 0.39,
-          "string_type": 6.5,
+          "pickup_config": 0.6315,
+          "string_type": 8.45,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 3.65,
+          "fretted_or_not": 1.3,
+          "bass_technique": 6.45,
           "electric_bass_string_configuration": 0
         }
       },
@@ -104,12 +104,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "fiberskyn_drumhead",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 1.5,
+          "drumhead": 5.265000000000001,
           "drum_kit_kick_pedal": 0
         }
       }

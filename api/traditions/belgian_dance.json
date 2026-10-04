@@ -5,7 +5,7 @@
   "lineage": "Regi — The Sound Of Belgium, 11 February 2016 (52:17 DJ program). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s belgian dance, electronic Dance. layered sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 166,
-  "score": 11.27,
+  "score": 11.486,
   "config": {
     "traditions": [
       "belgian_dance"
@@ -21,10 +21,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.25,
+          "electronic_technique": 0.313,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.3,
-          "sampler_workflow": 1,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 1.063,
           "sampler_classic_context": 8.969999999999999
         }
       }

@@ -2,10 +2,10 @@
   "id": "drone",
   "name": "Drone",
   "family": "global",
-  "lineage": "Sustained-tone music treats duration, closely controlled pitch and the interaction of held tones as form. Tony Conrad’s amplified violin work supplies the selected bowed-string practice model. Drone also includes electronic and other instrumental practices; this default is neither dark ambient nor a comprehensive instrument roster for all drone music.",
-  "recipe": "classic modern drone, drone Modal, string branch, modal electric drone modal, ambient experimental electric drone and dark ambient musique mauritanienne. copper wound carpathian spruce European maple bosnian source flamed figure violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital.",
-  "recipe_chars": 421,
-  "score": 27.178,
+  "lineage": "Sustained-tone music organizes long durations through held pitches, overtones and slowly changing relationships between tones. It became central to experimental minimalism in the 1960s and extends across bowed strings, amplified instruments and electronic sound.",
+  "recipe": "classic mid-1960s drone, drone Modal, string branch, modal electric drone modal, ambient experimental electric drone and dark ambient musique mauritanienne. copper wound sitka spruce hard rock maple acer saccharum pernambuco violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital.",
+  "recipe_chars": 417,
+  "score": 18.826,
   "config": {
     "traditions": [
       "drone",
@@ -18,9 +18,9 @@
         "slots": {
           "bowed_technique": "bowed_continuous_drone",
           "orch_strings": "copper_wound_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
@@ -28,16 +28,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 14.4179375,
-          "orch_strings": 7.034500000000001,
-          "orch_top_wood": 2.1284375,
-          "orch_back_wood": 2.1234374999999996,
-          "orch_varnish": 1.125,
-          "orch_setup_period": 1.8524999999999998,
+          "bowed_technique": 11.770125,
+          "orch_strings": 5.850000000000001,
+          "orch_top_wood": 2.1774999999999998,
+          "orch_back_wood": 1.3324999999999998,
+          "orch_varnish": 0.4875,
+          "orch_setup_period": 0.8125,
           "orch_bow": 0,
-          "orch_bow_stick": 2.43875,
-          "orch_articulation": 0.69,
-          "orch_rosin": 2.2671875
+          "orch_bow_stick": 1.6387499999999997,
+          "orch_articulation": 0.39,
+          "orch_rosin": 1.2675
         }
       }
     ],

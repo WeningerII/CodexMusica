@@ -2,10 +2,10 @@
   "id": "german_blues",
   "name": "German blues",
   "family": "blues_gospel",
-  "lineage": "German blues is represented by Kai Strauss & The Electric Blues All-Stars — regular quartet. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-  "recipe": "classic german blues, functional Song, blues electric branch. blues slide open string slide resonance humbucker electric guitar, electric bass, digital subtractive, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 273,
-  "score": 19.374,
+  "lineage": "German blues is sustained by touring bands, clubs and international collaborations. Kai Strauss and the Electric Blues All-Stars exemplify a guitar-led ensemble tradition that brings German performers together with musicians rooted in American and British blues.",
+  "recipe": "classic german blues, functional Song, blues electric branch. duet, live take. blues slide open string slide resonance humbucker electric guitar, pyramid pure nickel bass British mid 60s era electric bass, digital subtractive, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 335,
+  "score": 23.921,
   "config": {
     "traditions": [
       "german_blues"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1575,
+          "voice_ensemble_config": 1.1575,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 0.1575,
+          "voice_multitrack_stack": 1.1575,
           "voice_tessitura": 0
         }
       },
@@ -56,53 +56,53 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_60s_selmer",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_magnet": "alnico_5_h",
+          "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "open_g"
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 1.1049999999999998,
-          "body_wood": 0.39,
+          "amp_make": 1.17,
+          "body_wood": 0.36749999999999994,
           "neck_wood": 0.3045,
           "fretboard": 0.0315,
-          "pickup_magnet": 0.3315,
-          "pickup_winding": 0.3315,
+          "pickup_magnet": 0.19949999999999998,
+          "pickup_winding": 0.22049999999999997,
           "string_material": 0.0315,
-          "bridge": 1.0315,
+          "bridge": 0.3045,
           "scale_length": 0.609,
-          "string_gauge": 1.0315,
+          "string_gauge": 0.6825,
           "finish": 0.0315,
-          "string_tuning": 6.24
+          "string_tuning": 7.54
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_60s_selmer",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "tape_wound_bass",
-          "scale_length_b": "extra_long_b",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.1049999999999998,
+          "amp_make": 1.4299999999999997,
           "body_wood": 0.609,
-          "pickup_config": 0.363,
-          "string_type": 0.5355000000000001,
-          "scale_length_b": 0.39,
+          "pickup_config": 0.063,
+          "string_type": 1.56,
+          "scale_length_b": 0.3045,
           "fretted_or_not": 0.063,
           "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
@@ -111,26 +111,26 @@
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_pad_drone",
           "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
+          "electronic_technique": 0.8999999999999999,
           "va_archetypes": 0.19949999999999998,
-          "digital_subtractive_context": 3.3799999999999994
+          "digital_subtractive_context": 4.68
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.75,
+          "drumhead": 0.3045,
           "drum_kit_kick_pedal": 0
         }
       }

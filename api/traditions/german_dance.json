@@ -2,10 +2,10 @@
   "id": "german_dance",
   "name": "German dance",
   "family": "electronic",
-  "lineage": "German dance is represented by MEUTE — selected Elbphilharmonie Sessions brass and mallet rhythm core. One documented branch receives an authored present-day studio realization.",
-  "recipe": "classic german dance, electronic Dance, continental branch. red brass 90 10 darkest heavy one piece matched to monette horn trumpet, brass band sousaphone, bass drum, marimba orchestral. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 287,
-  "score": 6.837,
+  "lineage": "German dance music encompasses club production and performance traditions shaped by house, techno and other electronic styles. Some contemporary ensembles reinterpret this repertoire with acoustic instruments.",
+  "recipe": "classic german dance, electronic Dance, continental branch. trumpet, sousaphone, bass drum, marimba orchestral. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 212,
+  "score": 4.615,
   "config": {
     "traditions": [
       "german_dance"
@@ -14,22 +14,22 @@
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_bebop_runs",
+          "wind_articulation": "wind_breath_quiet",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_red_brass",
-          "trumpet_maker_school": "trumpet_schilke"
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.05,
+          "wind_articulation": 0.26,
           "brass_size": 0.26249999999999996,
-          "trumpet_mouthpiece": 1.2349999999999999,
-          "brass_mute": 0.168,
-          "trumpet_technique": -0.10500000000000001,
-          "trumpet_bell_metal": 1.4995,
-          "trumpet_maker_school": 0.546
+          "trumpet_mouthpiece": 0.7149999999999999,
+          "brass_mute": 0.39,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.441
         }
       },
       {
@@ -40,17 +40,17 @@
         },
         "scores": {
           "sousaphone_bore": 0.39,
-          "sousaphone_context": 1.69
+          "sousaphone_context": 0.39
         }
       },
       {
         "id": "bass_drum",
         "slots": {
-          "bass_drum_size": "bass_drum_concert",
-          "bass_drum_beater": "bass_drum_double_pedal"
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_felt_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.4095,
+          "bass_drum_size": 0.39,
           "bass_drum_beater": 0.39
         }
       },

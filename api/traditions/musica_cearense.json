@@ -2,10 +2,10 @@
   "id": "musica_cearense",
   "name": "Música cearense",
   "family": "pop",
-  "lineage": "Vitor Colares — complete eight-song música alheia (Mercúrio Música, 23 June 2020). The issuing label credits Vitor C. with voice and steel-string acoustic guitar, and Diego Maia only with mixing/mastering. The artist describes home-recorded acoustic versions of songs by fellow Ceará artists. All eight songs and both positively credited performing roles are retained; one singer. Listed songwriters and artwork contributors are not extra performers. No instrumentation of the original bands or the separate Clau Aniz/Vitor Colares duet is imported into these solo versions. Authored contemporary solo-song realization of the complete album: source-positive steel-string guitar is modeled by a strummed dreadnought with Engelmann top, rosewood back/sides, standard tuning and80/20strings. Exact size, woods, strings and strumming gesture are authored, not measured original gear. All17 human voice controls remain; a single accompanied singer uses source-unspecified physiology and an explicitly authored small-note-group neumatic setting. Broad functionalSong represents this authored recurring lyrical verse/refrain and chordal accompaniment, not an assertion that all Ceará music has the same form. Controlled live-room capture is an authored new recording environment; original source says recorded at home. Global tuning and recording apparatus are unspecified.",
-  "recipe": "classic early-2020s música cearense, functional Song. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. indian rosewood rosewood strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
-  "recipe_chars": 298,
-  "score": 25.614,
+  "lineage": "Música cearense connects Ceará’s cross-style musical community, from acoustic song and popular repertoire to forró and experimental groups. Regional artists, labels and performances link local repertoires with broader Brazilian musical currents.",
+  "recipe": "classic música cearense, functional Song. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 223,
+  "score": 9.149,
   "config": {
     "traditions": [
       "musica_cearense"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.0905000000000005,
-          "voice_ensemble_config": 8.971499999999999,
+          "voice_speech_song": 1.7905000000000002,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.3679999999999994,
-          "voice_multitrack_stack": 3.38,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -62,10 +62,10 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 4.5,
+          "acoustic_technique": 2.75,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 1.25,
+          "back_sides": -0.05,
           "string_acoustic": 0.054
         }
       }

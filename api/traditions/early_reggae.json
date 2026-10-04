@@ -5,7 +5,7 @@
   "lineage": "Jamaican style that appeared in Kingston studios around 1968 as rocksteady accelerated, driven by producers Lee Perry, Bunny Lee and Joe Gibbs and the Upsetters and Hippy Boys bands, marked by a bubbling organ shuffle, scratchy quaver guitar chops on the offbeat, a busy melodic bass, a snapping one-drop or four-beat kit at roughly 85-100 BPM, and vocal-group or DJ toasting over cheaply cut mono mixes for the sound systems.",
   "recipe": "classic Caribbean early reggae, bass System, Jamaican branch, dub descendants bass system, soul R&B functional song souldies doo-wop. thick, breath veiled tone, slow rate, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, Leslie rotary block chord combo organ, hohner melodica canonical 1959 dub roots tradition block chord melodica, bach 42 canonical American orchestral tenor ensemble bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 849,
-  "score": 331.935,
+  "score": 331.515,
   "config": {
     "traditions": [
       "early_reggae",
@@ -35,13 +35,13 @@
         },
         "scores": {
           "voice_register": 16.419999999999995,
-          "voice_quality": 20.480000000000004,
+          "voice_quality": 20.030000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.2099999999999995,
           "voice_articulation": 19.499999999999996,
           "voice_microtone": 18.71999999999999,
-          "voice_tradition": 13.049999999999997,
+          "voice_tradition": 13.289999999999997,
           "voice_mechanism_compound": 1.17,
           "voice_estill_quality": 11.999999999999996,
           "voice_speech_song": 23.529999999999998,
@@ -88,7 +88,7 @@
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_baritone",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
@@ -103,7 +103,7 @@
           "string_gauge": 2.2749999999999995,
           "bridge": 0.3,
           "scale_length": 0.39,
-          "finish": 0.3,
+          "finish": 0,
           "string_tuning": 1.69,
           "single_coil_pickup_construction": 0
         }
@@ -169,8 +169,8 @@
           "trombone_type": 0.585,
           "trombone_mouthpiece": 5.46,
           "trombone_mute": 0.15,
-          "trombone_technique": 0.735,
-          "trombone_bell_metal": 0.495,
+          "trombone_technique": 0.78,
+          "trombone_bell_metal": 0.54,
           "trombone_maker_school": 2.6449999999999996
         }
       }

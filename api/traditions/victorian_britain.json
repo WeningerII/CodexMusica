@@ -5,7 +5,7 @@
   "lineage": "Ethel Smyth — Sonata Op.7 (1887), complete work in Little/Lenehan2018 recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-1880s victorian britain, art Music. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 68.467,
+  "score": 67.176,
   "config": {
     "traditions": [
       "victorian_britain"
@@ -26,16 +26,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 4.300000000000001,
+          "bowed_technique": 4.331500000000001,
           "orch_strings": 0,
           "orch_top_wood": 3.95,
-          "orch_back_wood": 6.171,
+          "orch_back_wood": 5.184,
           "orch_varnish": 4.75,
-          "orch_setup_period": 5.081500000000001,
-          "orch_bow": 0,
-          "orch_bow_stick": 5.343500000000001,
-          "orch_articulation": 0,
-          "orch_rosin": 4.781500000000001
+          "orch_setup_period": 5.050000000000001,
+          "orch_bow": 0.0315,
+          "orch_bow_stick": 6.11,
+          "orch_articulation": 0.063,
+          "orch_rosin": 4.750000000000001
         }
       },
       {
@@ -52,15 +52,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 4.331500000000001,
+          "keyboard_technique": 4.300000000000001,
           "grand_piano_size": 0.3315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 4.8355,
-          "piano_rim": 5.23,
-          "piano_soundboard": 4.855,
-          "piano_pinblock": 8.217,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 4.804,
+          "piano_rim": 5.198500000000001,
+          "piano_soundboard": 4.75,
+          "piano_pinblock": 7.23,
           "piano_plate": 4.75,
-          "piano_pitch_standard": 1.476
+          "piano_pitch_standard": 1.4865
         }
       }
     ],

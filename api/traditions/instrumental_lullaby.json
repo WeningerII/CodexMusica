@@ -5,7 +5,7 @@
   "lineage": "Finn Ambers — SleepTite (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s instrumental lullaby, lullaby. steel resonator guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 171,
-  "score": 5.01,
+  "score": 4.6,
   "config": {
     "traditions": [
       "instrumental_lullaby"
@@ -21,8 +21,8 @@
           "res_strings": "eighty_twenty_res"
         },
         "scores": {
-          "acoustic_technique": 1.4865,
-          "string_tuning": 2.9730000000000003,
+          "acoustic_technique": 1.3499999999999999,
+          "string_tuning": 2.7,
           "cone_type": -0.05,
           "body_resonator": 0.3,
           "res_strings": 0.3

@@ -1,0 +1,278 @@
+{
+  "status": "UNAPPLIED_PROTECTED_ORIGINAL_DATA_PROPOSAL",
+  "frozen_head": "8bb2cee97d5feee7b48147b61da9a61ea5f5c71c",
+  "original_scope_approval_required": true,
+  "shared_engine_unchanged": true,
+  "repository_or_frozen_source_mutations": false,
+  "proposal_sha256": "837373fefc1f0b64b2c340aeb244493a7d346867e55f1c1a3c2322b6e31edbde",
+  "result_sha256": "ee2e720852a3eae9cf5bdee23e2a2a37e1b46103a192d8161f0a560d9e515781",
+  "tested": 3,
+  "named_emitted_mismatches_removed": 3,
+  "blanket_snapshot_authorization": false,
+  "full_catalog_qualification": false,
+  "entries": [
+    {
+      "id": "gospel_quartet_male",
+      "data_changes": [
+        {
+          "path": ".tradition.parts.voice_ensemble_config",
+          "before": "voice_ensemble_solo_accompanied",
+          "after": "voice_ensemble_call_response_leader_group"
+        },
+        {
+          "path": ".tradition.parts.voice_vocal_tract",
+          "before": null,
+          "after": "tract_neutral"
+        },
+        {
+          "path": ".tradition.parts.voice_ornament_system",
+          "before": "voice_ornament_none",
+          "after": "voice_ornament_gospel_runs"
+        },
+        {
+          "path": ".tradition.parts.choir_polyphonic_configuration",
+          "before": null,
+          "after": "choir_polyphony_homophonic_chordal"
+        },
+        {
+          "path": ".tradition.parts.choir_ensemble_repertoire",
+          "before": "choir_ensemble_global_traditional",
+          "after": "choir_ensemble_sacred_global"
+        },
+        {
+          "path": ".tradition.parts.choir_size",
+          "before": "gospel_choir",
+          "after": "mens_chorus"
+        },
+        {
+          "path": ".tradition.parts.voice_effort",
+          "before": null,
+          "after": "effort_projected"
+        },
+        {
+          "path": ".tradition.parts.choir_regional_canonical_configuration",
+          "before": null,
+          "after": "choir_regional_none"
+        },
+        {
+          "path": ".tradition.parts.voice_multitrack_stack",
+          "before": "voice_multitrack_mid_1960s_double_tracking_era",
+          "after": "voice_multitrack_live_ensemble"
+        },
+        {
+          "path": ".tradition.parts.voice_articulation",
+          "before": null,
+          "after": "melisma_voice"
+        },
+        {
+          "path": ".tradition.pin_parts",
+          "before": null,
+          "after": true
+        }
+      ],
+      "baseline_output": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "frozen_output": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "proposed_output": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. multi note runs per syllable, equal tempered, gospel pentecostal, belt quality high larynx thick fold. sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sticks pocket drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "protected_slot_count": 36,
+      "protected_slot_violations": [],
+      "retained_invariants": [
+        "roster",
+        "lineage",
+        "name",
+        "family",
+        "extras",
+        "room",
+        "chain",
+        "tuning",
+        "axes"
+      ],
+      "source_rationale": "Four-part African-American sacred quartet branch: homophonic group harmony, expressive lead and responses, natural ensemble recording. No listed Sardinian/Andean regional configuration applies. Voice and choir cards retain original lead/background roles without asserting an extra fifth performer.",
+      "sources": [
+        {
+          "url": "https://www.loc.gov/collections/songs-of-america/articles-and-essays/musical-styles/ritual-and-worship/african-american-gospel/",
+          "ref": "turn14292search4"
+        }
+      ],
+      "qualification_limit": "Explicit correction of named choir/drum selection and adjacent vocal topology. Unpinned physical controls still optimized. Does not independently certify every inherited setting."
+    },
+    {
+      "id": "methodist_hymnody",
+      "data_changes": [
+        {
+          "path": ".tradition.parts.voice_ensemble_config",
+          "before": "voice_ensemble_solo_accompanied",
+          "after": "voice_ensemble_homophonic_block"
+        },
+        {
+          "path": ".tradition.parts.voice_register",
+          "before": "head_voice",
+          "after": "voice_register_source_unspecified"
+        },
+        {
+          "path": ".tradition.parts.voice_effort",
+          "before": null,
+          "after": "effort_moderate"
+        },
+        {
+          "path": ".tradition.parts.voice_tradition",
+          "before": "baroque_ornamental_tradition",
+          "after": "voice_tradition_source_unspecified"
+        },
+        {
+          "path": ".tradition.parts.voice_vibrato",
+          "before": "fast_vibrato",
+          "after": "voice_vibrato_local_unspecified"
+        },
+        {
+          "path": ".tradition.parts.voice_vocal_tract",
+          "before": null,
+          "after": "tract_neutral"
+        },
+        {
+          "path": ".tradition.parts.voice_ornament_system",
+          "before": "voice_ornament_bel_canto",
+          "after": "voice_ornament_none"
+        },
+        {
+          "path": ".tradition.parts.choir_regional_canonical_configuration",
+          "before": null,
+          "after": "choir_regional_none"
+        },
+        {
+          "path": ".tradition.parts.voice_multitrack_stack",
+          "before": "voice_multitrack_mid_1960s_double_tracking_era",
+          "after": "voice_multitrack_live_ensemble"
+        },
+        {
+          "path": ".tradition.parts.choir_ensemble_repertoire",
+          "before": "choir_ensemble_renaissance",
+          "after": "choir_ensemble_sacred_global"
+        },
+        {
+          "path": ".tradition.parts.voice_quality",
+          "before": "opera_voice",
+          "after": "voice_quality_source_unspecified"
+        },
+        {
+          "path": ".tradition.parts.voice_speech_song",
+          "before": "voice_neumatic_singing",
+          "after": "voice_syllabic_singing"
+        },
+        {
+          "path": ".tradition.parts.voice_estill_quality",
+          "before": "voice_estill_opera",
+          "after": "voice_estill_quality_source_unspecified"
+        },
+        {
+          "path": ".tradition.parts.voice_articulation",
+          "before": null,
+          "after": "legato_voice"
+        },
+        {
+          "path": ".tradition.parts.choir_size",
+          "before": "chamber_choir",
+          "after": "mixed_4_part_satb"
+        },
+        {
+          "path": ".tradition.parts.choir_polyphonic_configuration",
+          "before": null,
+          "after": "choir_polyphony_homophonic_chordal"
+        },
+        {
+          "path": ".tradition.pin_parts",
+          "before": null,
+          "after": true
+        }
+      ],
+      "baseline_output": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "frozen_output": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music anglican cathedral-choral recording tradition french renaissance. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "proposed_output": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music anglican cathedral-choral recording tradition french renaissance. continuous-phonation, equal tempered, one note per syllable, all voices same rhythm. mixed satb canonical 4 part western sacred liturgical global choir ensemble, henry willis canonical English victorian 1850s 1900 spotted metal 50 50 canonical mixtures bright historical electric pneumatic canonical 20th century American legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "protected_slot_count": 27,
+      "protected_slot_violations": [],
+      "retained_invariants": [
+        "roster",
+        "lineage",
+        "name",
+        "family",
+        "extras",
+        "room",
+        "chain",
+        "tuning",
+        "axes"
+      ],
+      "source_rationale": "Representative harmonized Methodist hymn singing: aligned communal text and rhythm rather than hocket, bel-canto ornament, Georgian drone, or Sardinian overtone parts. Existing SATB option describes an authored harmonized choir branch; no claim every congregation sings four parts. Individual register and physiological school remain unspecified because communal directions do not establish them.",
+      "sources": [
+        {
+          "url": "https://www.wsumc.net/wesley_rules.html",
+          "ref": "turn14292search10"
+        },
+        {
+          "url": "https://www.umc.org/content/wesleys-take-the-web-directions-for-singing",
+          "ref": "turn14292search0"
+        }
+      ],
+      "qualification_limit": "Explicit correction of named choir/drum selection and adjacent vocal topology. Unpinned physical controls still optimized. Does not independently certify every inherited setting."
+    },
+    {
+      "id": "groove_metal",
+      "data_changes": [
+        {
+          "path": ".tradition.parts.voice_effort",
+          "before": null,
+          "after": "effort_projected"
+        },
+        {
+          "path": ".tradition.parts.voice_vocal_tract",
+          "before": null,
+          "after": "tract_neutral"
+        },
+        {
+          "path": ".tradition.parts.voice_articulation",
+          "before": null,
+          "after": "marcato_voice"
+        },
+        {
+          "path": ".tradition.pin_parts",
+          "before": null,
+          "after": true
+        }
+      ],
+      "baseline_output": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "frozen_output": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "proposed_output": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze belgian death metal. thick, slow rate, equal tempered, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "protected_slot_count": 29,
+      "protected_slot_violations": [],
+      "retained_invariants": [
+        "roster",
+        "lineage",
+        "name",
+        "family",
+        "extras",
+        "room",
+        "chain",
+        "tuning",
+        "axes"
+      ],
+      "source_rationale": "Retain original documented sticks-rock backbeat and metal vocal/guitar/bass choices under explicit schema pinning. Drummer firsthand practice supports forceful stick attack and heavy groove; brushes are not introduced. Projected articulated vocal realization preserves existing syllabic pressed source branch.",
+      "sources": [
+        {
+          "url": "https://www.moderndrummer.com/2018/06/vinnie-paul-the-king-of-thrash-metal-drumming/",
+          "ref": "turn14292search2"
+        }
+      ],
+      "qualification_limit": "Explicit correction of named choir/drum selection and adjacent vocal topology. Unpinned physical controls still optimized. Does not independently certify every inherited setting."
+    }
+  ],
+  "remaining_findings": [
+    "Methodist output retains historically later Henry Willis/Victorian organ and electric-pneumatic action beneath an early1700s label. These are retained original declared choices, newly respected by pinning, and require a separate source-scope/historical-realization decision.",
+    "Gospel lead/background cards retain original role palette; male quartet interpretation does not add a fifth performer. Four-part harmony and sacred repertoire are sourced; selected phonation remains representative rather than measured individual physiology.",
+    "Modern Drummer firsthand Vinnie Paul interview supports heavy groove and stick attack; no brushes are used by this proposed branch.",
+    "Ordinary prose corrections on repaired neighbors are accurate; synonym substitution solely to tune optimizer scores is not recommended. Minimal record exclusions are containment, not repair of old musical defects.",
+    "All three original2638 entries remain unmodified on disk. Root/user may select a source-qualified original-data repair only with explicit scope expansion."
+  ],
+  "fresh_source_retrieval_notes": {
+    "gospel": "Library of Congress indexedprimary14292search4 successful; direct14311view0 internal error. No fabricated direct read.",
+    "methodist": "Direct primary church reproduction of Wesley singing directions14311view1 read; harmony, aligned time and communal voice explicitly supported.",
+    "groove": "Direct firsthand drummer interview14311view2 read; heavy groove, double-bass technique and stick/beater practice documented."
+  }
+}

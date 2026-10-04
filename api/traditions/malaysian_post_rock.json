@@ -5,7 +5,7 @@
   "lineage": "Malaysian post-rock is represented here by mutesite — re: (selected instrumental core). This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic malaysian post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 335,
-  "score": 54.485,
+  "score": 55.075,
   "config": {
     "traditions": [
       "malaysian_post_rock"
@@ -32,16 +32,16 @@
           "electric_technique": -0.11850000000000002,
           "amp_make": 6.11,
           "body_wood": 0.5565,
-          "neck_wood": 0.42074999999999996,
-          "fretboard": 0.42074999999999996,
+          "neck_wood": 0.5632499999999999,
+          "fretboard": 0.5632499999999999,
           "pickup_magnet": 0.147,
-          "pickup_winding": 0.34725000000000006,
-          "string_material": 0.42074999999999996,
-          "bridge": 1.69,
-          "scale_length": 1.0402500000000001,
-          "string_gauge": 1.69,
+          "pickup_winding": 0.44700000000000006,
+          "string_material": 0.5632499999999999,
+          "bridge": 1.591,
+          "scale_length": 1.1827499999999997,
+          "string_gauge": 1.528,
           "finish": 0.1365,
-          "string_tuning": 0.39
+          "string_tuning": 0.34275
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 6.5649999999999995,
-          "body_wood": 0.126,
+          "body_wood": 0.16875,
           "pickup_config": 0.1785,
           "string_type": 15.6,
           "scale_length_b": 0.273,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 12,
-          "drumhead": 0.42074999999999996,
+          "drumhead": 0.5632499999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -91,7 +91,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 6.24,
-          "poly_voices": 0.042749999999999996,
+          "poly_voices": 0.08549999999999999,
           "poly_maker_lineage": -0.035
         }
       }

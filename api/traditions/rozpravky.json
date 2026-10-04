@@ -2,10 +2,10 @@
   "id": "rozpravky",
   "name": "Rozprávky",
   "family": "vernacular",
-  "lineage": "Complete Janko Hraško four-story Slovak reading issued8April2013 by Legamus, total1:05:34. Reader Andrej Konušík explicitly documents this as a solo recording in four mono MP3 files with Genre:Speech; final publisher credits him alone as reader, with Stanka Ratulovská proof-listening and Viktor cataloguing, not additional performers. Retain all four stories: Janko Hraško, Radúz a Ľudmila, Pani Mačička and Ružová Anička. One speaker, zero singers, no fictional characters multiplied into extra people. Voice-only authored realization follows the positive solo speech production record, not an unsupported reduction of a dramatic cast or known musical soundtrack. No waveform audition or universal no-music rule for Legamus claimed. Authored dry treated-studio solo spoken narration with pure-spoken/no-pitch choice, natural unprocessed one-lead voice, source-unspecified physiology, register, training and pitch organization. No global tuning or electronic apparatus specified. Original mono encoding and sole reader are documented; exact microphone, vocal anatomy and studio acoustics are not. No music, effects or extra voice cards added without positive source roles.",
-  "recipe": "classic rozprávky, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio.",
-  "recipe_chars": 183,
-  "score": 32.313,
+  "lineage": "Rozprávky connects Slovak fairy tales and storytelling with oral transmission, literature, radio and recorded narration. Familiar stories circulate through family listening and professional and community readers.",
+  "recipe": "classic rozprávky, spoken Word, narration branch. no pitch organization speech. treated studio.",
+  "recipe_chars": 95,
+  "score": 1.569,
   "config": {
     "traditions": [
       "rozpravky"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.9885,
-          "voice_ensemble_config": 4.130999999999999,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.7365,
-          "voice_multitrack_stack": 9.456999999999999,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.2625,
           "voice_tessitura": 0
         }
       }

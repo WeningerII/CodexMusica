@@ -2,10 +2,10 @@
   "id": "trombone_brasileiro",
   "name": "Trombone Brasileiro",
   "family": "classical",
-  "lineage": "Quarteto de Trombones do RN — complete advertised UFRN August2021 concert formation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic trombone brasileiro, art Music. tenor standard standard backbore trombone, bass trombone, low fundamental tuning maple drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 235,
-  "score": 7.155,
+  "lineage": "Brazilian trombone performance spans popular repertoire, arranged ensemble music and concert practice. Trombone groups bring Brazilian melodies and rhythmic traditions into a distinctive brass sound.",
+  "recipe": "classic trombone brasileiro, art Music. yellow brass canonical 70 30 bach 42 standard tenor standard standard backbore trombone, bass trombone, drum kit. live tracking.",
+  "recipe_chars": 168,
+  "score": 6.228,
   "config": {
     "traditions": [
       "trombone_brasileiro"
@@ -14,33 +14,33 @@
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_6half_al",
           "trombone_mute": "no_mute_trb",
-          "trombone_technique": "classical_trb",
+          "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 2.45,
-          "trombone_type": -0.05,
+          "wind_articulation": 1.2865,
+          "trombone_type": -0.035,
           "trombone_mouthpiece": 2.45,
-          "trombone_mute": 0.3,
-          "trombone_technique": 0,
-          "trombone_bell_metal": 0,
-          "trombone_maker_school": 0.0315
+          "trombone_mute": 0.0315,
+          "trombone_technique": 1.363,
+          "trombone_bell_metal": 1,
+          "trombone_maker_school": 0.34650000000000003
         }
       },
       {
         "id": "bass_trombone",
         "slots": {
           "bass_trombone_valves": "bass_trombone_single_trigger",
-          "bass_trombone_context": "bass_trombone_orchestral_legato"
+          "bass_trombone_context": "bass_trombone_big_band_section"
         },
         "scores": {
-          "bass_trombone_valves": 0,
-          "bass_trombone_context": 0.0315
+          "bass_trombone_valves": 0.1365,
+          "bass_trombone_context": 0
         }
       },
       {
@@ -60,15 +60,15 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 1.0185000000000002,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.05,
-          "shell_thickness": 0,
-          "bearing_edges": 0.0315,
-          "snare_wires": 0,
+          "shell_wood": 0.0315,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0,
+          "snare_wires": 0.0315,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": -0.11850000000000002,
-          "cymbal_lathing": 0.15000000000000002,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
       }
@@ -101,15 +101,15 @@
         "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -118,17 +118,17 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
-      "wind_articulation": "wind_continuous_legato",
+      "wind_articulation": "wind_punchy_ensemble",
       "trombone_type": "tenor_trombone",
       "trombone_mouthpiece": "bach_trombone_mp_6half_al",
       "trombone_mute": "no_mute_trb",
-      "trombone_technique": "classical_trb",
+      "trombone_technique": "big_band_punch",
       "trombone_bell_metal": "trombone_yellow_brass",
       "trombone_maker_school": "trombone_bach_42",
       "bass_trombone_valves": "bass_trombone_single_trigger",
-      "bass_trombone_context": "bass_trombone_orchestral_legato",
+      "bass_trombone_context": "bass_trombone_big_band_section",
       "drum_technique": "sticks_rock",
       "shell_wood": "maple_shell",
       "shell_thickness": "medium_shell",
@@ -141,12 +141,6 @@
       "cymbal_lathing": "full_lathe_both_sides",
       "cymbal_finish": "traditional_finish"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

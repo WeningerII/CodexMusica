@@ -5,7 +5,7 @@
   "lineage": "Anglican liturgy: Westminster Abbey Choir — Jonathan Dove Missa brevis, HyperionCDA68350. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic anglican liturgy, ritual Devotional, anglican choral branch. choir cathedral satb, equal temperament modern standard post 1850 pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 245,
-  "score": 9.723,
+  "score": 9.761,
   "config": {
     "traditions": [
       "anglican_liturgy"
@@ -39,8 +39,8 @@
           "pipe_organ_context": 1.0635000000000001,
           "pipe_organ_voicing_school": 0.168,
           "pipe_organ_pipe_alloy": 0.045,
-          "pipe_organ_temperament": 1.69,
-          "pipe_organ_action": 0.24
+          "pipe_organ_temperament": 1.6540000000000001,
+          "pipe_organ_action": 0.315
         }
       }
     ],

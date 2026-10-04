@@ -2,10 +2,10 @@
   "id": "irish_ballad",
   "name": "Irish ballad",
   "family": "vernacular",
-  "lineage": "The Irish Country Four — The Heights of Alma, complete track15 on Topic TSDL209 (1971). Publisher booklet explicitly credits the entire Heights of Alma track to Trevor Stewart and Jess Harpur singing unaccompanied. Its notes identify an1854 Crimean-war narrative circulated as a street ballad especially widely in Ireland. The group is documented in Northern Irish folk-song practice, with Belfast-linked performers and Ulster repertoire. Select this separately complete track, not a reduced full-album reproduction; accompaniment and other singers on the other sixteen selections are not imported. Irish ballad is a narrative-song repertoire category that can be realized by solo singers, duets and accompanied folk groups. Existing traditional_irish_singing explicitly models solo unaccompanied English-language practice; existing sean_nos_solo models Irish-Gaelic ornamented solo tradition. Both overlap this wider narrative repertoire but do not exhaust its ensemble/accompanied forms. The selected publisher positively documents an unaccompanied two-singer version, not just a different solo performer. Existing irish_rebel_song is a political/rebellion subset; a Crimean-war historical street ballad is not automatically Irish rebellion. Existing celtic_irish_trad foregrounds instrumental dance sessions rather than complete narrative song. No claim all Irish ballads exclude those categories or originate exclusively in Ireland: the booklet explicitly traces English, Scottish and Irish circulation. Celtic balladic parent fits the positively described narrative oral/broadside repertoire. Two positively named singers use an authored combined live duet with source-unspecified physiology, pitch system and articulation; exact original take or overdub count not asserted. Controlled live-room capture and omitted apparatus/global tuning are editorial choices, not claimed1971 studio facts.",
-  "recipe": "classic early-1970s irish ballad, ballad Poetry, Celtic balladic branch. duet, live take. live tracking.",
-  "recipe_chars": 104,
-  "score": 10.557,
+  "lineage": "Irish ballads carry narrative songs through oral tradition, broadside circulation and modern folk performance. Stories of historical events, journeys, relationships and political experience move between solo singers, duets and accompanied groups, often sharing repertory with neighboring song traditions.",
+  "recipe": "classic irish ballad, ballad Poetry, Celtic balladic branch. live tracking.",
+  "recipe_chars": 75,
+  "score": 0.158,
   "config": {
     "traditions": [
       "irish_ballad"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.294499999999999,
+          "voice_ensemble_config": 0.0945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 5.262999999999999,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       }

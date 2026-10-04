@@ -2,10 +2,10 @@
   "id": "northwest_china_indie",
   "name": "Northwest China indie",
   "family": "rock_punk",
-  "lineage": "FAZI — complete Invisible Water album-version track, Folding Story2022. The artist-issued 2022 album credits Liu Peng voice/synthesizer, Li Jiaxuan bass/synthesizer, Ma Cheng guitar/voice and Li Boyang drums/percussion. This complete album-version Invisible Water track uses the documented core palette, retaining both named singers, both synthesizer players and auxiliary percussion without guessing its subtype. The album explicitly assigns guest Rhodes/glock to Never Say Forever, piano to Body/Mind/Soul and piano/accordion/trumpet/tuba/口风琴 to Way To Atman: those other named tracks are outside this selected complete track. No claim to reconstruct the full album union or measure which core player sounds at every instant. Authored live-duet rendition preserves two credited human vocalists without claiming measured harmony or multitrack count. Neutral vocal physiology retained. Generic guitar realized as clean-strummed alder/maple humbucker, bass as dual-single-coil fingerstyle, maple acoustic kit with B20 machine-hammered traditionally finished cymbals. These are coherent authored physical and gesture settings, not measured source equipment. Bare synthesizer and percussion retain neutral existing architecture-unspecified owners; two synth players may share a family card. Controlled live room; no global tuning or recording apparatus. Punk parent reflects positive post-punk source practice.",
-  "recipe": "classic early-2020s northwest china indie, distorted Rock, punk branch. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, credited synthesizer unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. live tracking.",
-  "recipe_chars": 390,
-  "score": 51.4,
+  "lineage": "Northwest China indie connects independent musicians and audiences across the region, including Xi’an’s post-punk and psychedelic networks. Local scenes and labels link contrasting regional backgrounds with wider Chinese independent music.",
+  "recipe": "classic northwest china indie, distorted Rock, punk branch. humbucker electric guitar, electric bass, credited synthesizer unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 271,
+  "score": 13.1,
   "config": {
     "traditions": [
       "northwest_china_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.8999999999999995,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 2.5999999999999996,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.5000000000000004,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 2.9000000000000004,
-          "neck_wood": 2.663,
+          "body_wood": 0,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 2.3,
+          "string_gauge": 0.7,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.9000000000000004,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 4.45,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -134,15 +134,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.3,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.005,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 6.523,
-          "cymbal_lathing": 7.85,
+          "cymbal_hammering": 3.9230000000000005,
+          "cymbal_lathing": 3.6500000000000004,
           "cymbal_finish": 0
         }
       },

@@ -2,10 +2,10 @@
   "id": "british_contemporary_classical",
   "name": "British contemporary classical",
   "family": "classical",
-  "lineage": "British contemporary classical: Thomas Adès — Traced Overhead, Imogen Cooper premiere (1996). A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic mid-1990s british contemporary classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 276,
-  "score": 78.487,
+  "lineage": "British contemporary classical music includes new composition for solo performers, chamber groups, voices and larger ensembles. Its varied approaches explore musical form, instrumental technique and changing sound textures.",
+  "recipe": "classic british contemporary classical, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 249,
+  "score": 62.095,
   "config": {
     "traditions": [
       "british_contemporary_classical"
@@ -16,30 +16,38 @@
         "slots": {
           "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.3675,
-          "grand_piano_brand": 2.5505,
-          "piano_hammer": 13.6545,
-          "piano_rim": 11.5545,
+          "grand_piano_size": 0.564,
+          "grand_piano_brand": 0.4095,
+          "piano_hammer": 11.25,
+          "piano_rim": 11.34675,
           "piano_soundboard": 11.25,
-          "piano_pinblock": 11.754750000000001,
-          "piano_plate": 13.36125,
-          "piano_pitch_standard": 14.093499999999999
+          "piano_pinblock": 11.25,
+          "piano_plate": 11.25,
+          "piano_pitch_standard": 4.875
         }
       }
     ],
     "pinned": {
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "live_room",
@@ -61,7 +69,15 @@
     "tuning": "twelve_tet",
     "room": "live_room",
     "parts": {
-      "keyboard_technique": "keyboard_arpeggio_sustain_rich"
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

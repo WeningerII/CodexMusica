@@ -2,10 +2,10 @@
   "id": "brazilian_metal",
   "name": "Brazilian metal",
   "family": "rock_punk",
-  "lineage": "A broad Brazilian metal discovery umbrella spanning multiple substyles. The selected guitar-band branch uses Sepultura as one documented practitioner rather than treating its sound as the entire country’s metal practice.",
-  "recipe": "classic modern brazilian metal, distorted Rock, metal branch. solo with instrumental accompaniment. basswood power chord humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 379,
-  "score": 40.925,
+  "lineage": "Brazilian metal encompasses underground scenes and international touring networks across thrash, groove, power, progressive and other heavy styles. Sepultura are one influential example within this varied national field.",
+  "recipe": "classic modern brazilian metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 466,
+  "score": 41.534,
   "config": {
     "traditions": [
       "brazilian_metal"
@@ -15,10 +15,10 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -29,25 +29,25 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 16.7515,
-          "amp_make": 0,
-          "body_wood": 6.629999999999999,
+          "electric_technique": 14.275,
+          "amp_make": 4.355,
+          "body_wood": 4.55,
           "neck_wood": 0.5775,
-          "fretboard": 0.315,
-          "pickup_magnet": 0,
-          "pickup_winding": 0.3045,
-          "string_material": 0.105,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.03899999999999999,
+          "pickup_winding": 0.37799999999999995,
+          "string_material": 0.39,
           "bridge": 0.5775,
           "scale_length": 0,
           "string_gauge": 0.7875,
           "finish": 0.105,
-          "string_tuning": 0.29899999999999993
+          "string_tuning": 0.3
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 2.275,
           "body_wood": 1.155,
           "pickup_config": 0,
           "string_type": 0.39,
-          "scale_length_b": 0.33699999999999997,
-          "fretted_or_not": 0.16899999999999998,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 3.8335000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 3.7815,
           "drumhead": 0.7420000000000001,
           "drum_kit_kick_pedal": 0.39
         }
@@ -112,18 +112,17 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.0365,
+          "voice_ensemble_config": 1.369,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.288
+          "voice_multitrack_stack": 0.39
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "pickup_magnet",
         "string_material",
         "bridge",
@@ -131,7 +130,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "pickup_config",
         "string_type",
         "scale_length_b",
@@ -209,7 +207,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "drumhead": "double_coated",
       "drum_kit_kick_pedal": "dk_kick_double"

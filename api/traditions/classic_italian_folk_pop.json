@@ -2,10 +2,10 @@
   "id": "classic_italian_folk_pop",
   "name": "Classic italian folk pop",
   "family": "pop",
-  "lineage": "Classic italian folk pop is represented here by Roberta Cappelletti — dance-orchestra core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Classic Italian folk pop connects regional song traditions with popular dance-orchestra performance. Romagna ballroom and piazza ensembles form one enduring strand.",
   "recipe": "classic classic italian folk pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, castagnari Italian premium folk music straight accordion, saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 401,
-  "score": 61.649,
+  "score": 56.376,
   "config": {
     "traditions": [
       "classic_italian_folk_pop"
@@ -22,26 +22,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.1075,
+          "electric_technique": 11.3575,
           "amp_make": 1.8199999999999998,
           "body_wood": 0.6194999999999999,
           "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 2.3,
+          "pickup_winding": 2,
           "string_material": 0.0315,
-          "bridge": 1.4365,
-          "scale_length": 0.6405000000000001,
-          "string_gauge": 1.4995,
+          "bridge": 0.2415,
+          "scale_length": 0.39,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -62,7 +62,7 @@
           "pickup_config": 0.3045,
           "string_type": 4.875,
           "scale_length_b": 0.168,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 12.1915,
+          "drumhead": 11.4415,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.1575
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -131,13 +131,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 6.3115000000000006,
+          "free_reed_technique": 5.8615,
           "accordion_reed_material": 0.2625,
           "musette_offset": 0.378,
-          "reed_config": 2.3,
+          "reed_config": 2,
           "bellows": 0,
           "voicing_chamber": 0.063,
-          "accordion_maker_school": 5.1145
+          "accordion_maker_school": 4.5145
         }
       },
       {

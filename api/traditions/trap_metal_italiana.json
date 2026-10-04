@@ -2,10 +2,10 @@
   "id": "trap_metal_italiana",
   "name": "Trap metal italiana",
   "family": "hip_hop",
-  "lineage": "Milan rap/metal crossover represented by BLASTPHEMIAN’s transition from dark trap toward Resti.",
-  "recipe": "classic modern trap metal italiana, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine, basswood clean strummed humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 388,
-  "score": 42.47,
+  "lineage": "Italian trap-metal crossover joins rap and programmed beats with heavy guitar music and related emo or drill influences.",
+  "recipe": "classic modern trap metal italiana, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine, basswood palm muted humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 38.582,
   "config": {
     "traditions": [
       "trap_metal_italiana"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 10.075,
+          "voice_quality": 8.515,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.01,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 8.45,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -59,7 +59,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 2.5,
+          "electronic_technique": 2.2,
           "sample_bitdepth": 0.39,
           "sample_swing": 3.9,
           "sample_processing": 0.105
@@ -68,34 +68,34 @@
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.7,
-          "amp_make": 2.66,
-          "body_wood": 2.9779999999999998,
+          "electric_technique": 4.95,
+          "amp_make": 2.06,
+          "body_wood": 2.432,
           "neck_wood": 0.1365,
           "fretboard": 0.1365,
-          "pickup_magnet": 0.1365,
+          "pickup_magnet": 0,
           "pickup_winding": 0.105,
           "string_material": 0.2445,
-          "bridge": 0.0735,
-          "scale_length": 3.1144999999999996,
-          "string_gauge": 0.0735,
+          "bridge": 0.054,
+          "scale_length": 2.6,
+          "string_gauge": 0.3735,
           "finish": 0,
-          "string_tuning": 0.6
+          "string_tuning": 0
         }
       }
     ],
@@ -125,6 +125,10 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
+        "pickup_magnet",
+        "pickup_winding",
+        "bridge",
         "string_tuning"
       ]
     },
@@ -166,8 +170,12 @@
       "sample_bitdepth": "sixteen_bit",
       "sample_swing": "mid_swing",
       "sample_processing": "one_shots_layered",
-      "electric_technique": "electric_clean_strummed",
-      "string_tuning": "standard_tuning"
+      "electric_technique": "electric_palm_muted_chug",
+      "string_tuning": "standard_tuning",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "bridge": "stoptail",
+      "amp_make": "amp_mesa_dual_rectifier"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

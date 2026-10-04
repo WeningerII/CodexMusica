@@ -5,7 +5,7 @@
   "lineage": "An archival country discovery cluster including Kathy Mattea, Linda Davis, Rick Trevino and Mark Collie. Deep is treated as the classifier’s catalogue label, not as a historical claim of one hidden or acoustically deep subgenre.",
   "recipe": "classic modern deep contemporary country, functional Song, contemp main branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. deep indian rosewood rosewood dreadnought acoustic guitar, 17 ply hard rock maple a 440 modern pitch us standard grand piano, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 616,
-  "score": 133.825,
+  "score": 134.3,
   "config": {
     "traditions": [
       "deep_contemporary_country"
@@ -28,11 +28,11 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 9.335999999999993,
+          "voice_register": 9.378749999999993,
           "voice_quality": 1.6899999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -40,13 +40,13 @@
           "voice_articulation": -0.14,
           "voice_microtone": 1.6899999999999997,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.55875,
-          "voice_estill_quality": 9.873249999999999,
+          "voice_mechanism_compound": 0.6157499999999999,
+          "voice_estill_quality": 9.972999999999999,
           "voice_speech_song": 5.135,
           "voice_ensemble_config": 1.8199999999999998,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.107,
+          "voice_processing_chain": 2.2104999999999997,
           "voice_multitrack_stack": 0.78
         }
       },
@@ -60,7 +60,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.105,
           "back_sides": 2.95,
@@ -106,7 +106,7 @@
         },
         "scores": {
           "electric_technique": 10.690999999999999,
-          "amp_make": 9.721499999999997,
+          "amp_make": 9.764249999999997,
           "pickup_steel": 0.105,
           "string_setup": 4.9399999999999995,
           "bar_material": 0.39,
@@ -147,7 +147,7 @@
         },
         "scores": {
           "drum_technique": 1.95,
-          "drumhead": 0.105,
+          "drumhead": 0.20475,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "mluvene_slovo",
   "name": "Mluvené slovo",
   "family": "vernacular",
-  "lineage": "Jiří Štědroň — Krakatit, complete Kapitola1,2017SochaPavel edition. One positively credited reader is represented with pure spoken delivery, narrative articulation and source-unspecified register/physiology. An unprocessed single voice in an authored dry treated recording booth is a present-day narration realization, not a2017session reconstruction; the original recording room remains unknown. No sung pitch system, equal-temperament tuning, medical claim or recording chain is assigned. Performer field uses one human speaker, not one singer.",
-  "recipe": "classic mluvené slovo, spoken Word, narration branch. conversational, narrative, no pitch organization speech, unprocessed natural acoustic. treated studio.",
-  "recipe_chars": 156,
-  "score": 12.83,
+  "lineage": "Mluvené slovo is the Czech spoken-word publishing field, encompassing literary narration and other recorded voice forms. It includes adult fiction as well as children’s stories, dramatic readings and related spoken repertoire.",
+  "recipe": "classic mluvené slovo, spoken Word, narration branch. conversational. treated studio.",
+  "recipe_chars": 85,
+  "score": 2.169,
   "config": {
     "traditions": [
       "mluvene_slovo"
@@ -34,21 +34,21 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 1.69,
+          "voice_quality": 0.9240000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 1.5679999999999998,
+          "voice_articulation": 0.13000000000000003,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 3.5885000000000002,
+          "voice_speech_song": 0.3255,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 4.157,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.2625,
           "voice_tessitura": 0
         }
       }

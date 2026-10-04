@@ -5,7 +5,7 @@
   "lineage": "Latvian retrospective popular song includes the composed melody and piano-centered arranging of Raimonds Pauls, performed by singers such as Nora Bumbiere and Viktors Lapčenoks. This reduced piano-and-voice arrangement represents that estrada/songwriter lineage without claiming the full instrumentation of any original orchestral recording.",
   "recipe": "classic modern classic latvian pop, functional Song, pop rock branch. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 354,
-  "score": 32.616,
+  "score": 32.679,
   "config": {
     "traditions": [
       "classic_latvian_pop"
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 0.255,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.255
         }
       },
@@ -67,7 +67,7 @@
           "keyboard_technique": -0.05,
           "grand_piano_size": 0.063,
           "grand_piano_brand": 0.6014999999999999,
-          "piano_hammer": 8.8995,
+          "piano_hammer": 8.931,
           "piano_rim": 8.731499999999999,
           "piano_soundboard": 8.7,
           "piano_pinblock": -0.05,

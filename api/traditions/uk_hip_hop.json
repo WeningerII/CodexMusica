@@ -2,10 +2,10 @@
   "id": "uk_hip_hop",
   "name": "UK hip hop",
   "family": "hip_hop",
-  "lineage": "UK hip hop is a broad British scene category, represented here by Roots Manuva and the bass-culture/produced-beat branch associated with Big Dada. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
-  "recipe": "classic modern uk hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine, sub bass analog mono synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 372,
-  "score": 44.513,
+  "lineage": "British hip-hop developed through local MC and producer scenes, interacting with sound-system culture, reggae and electronic music.",
+  "recipe": "classic modern uk hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine, sub bass analog mono synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 40.67,
   "config": {
     "traditions": [
       "uk_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 9.294999999999998,
+          "voice_quality": 10.01,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.23,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 8.645,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.7709999999999999
+          "voice_multitrack_stack": 0
         }
       },
       {
@@ -59,9 +59,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.6499999999999995,
+          "electronic_technique": 5.5,
           "sample_bitdepth": 0,
-          "sample_swing": 9.879999999999999,
+          "sample_swing": 9.1,
           "sample_processing": 0.105
         }
       },
@@ -75,10 +75,10 @@
           "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 7.389749999999999,
+          "electronic_technique": 5.93975,
           "mono_oscillator": 0.105,
-          "mono_filter": 0.042749999999999996,
-          "mono_archetypes": 0.39,
+          "mono_filter": 0,
+          "mono_archetypes": 0,
           "mono_maker_lineage": -0.035
         }
       }

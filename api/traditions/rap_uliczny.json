@@ -5,7 +5,7 @@
   "lineage": "Polish street rap is represented by Hemp Gru’s Warsaw neighborhood narratives and sample-led production, rather than every Polish rap style.",
   "recipe": "classic modern rap uliczny, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 278,
-  "score": 40.165,
+  "score": 40.273,
   "config": {
     "traditions": [
       "rap_uliczny"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.964999999999998,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 15.018999999999998,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 2.2,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.213,
           "sampler_workflow": 0.254,
           "sampler_classic_context": 5.005
         }

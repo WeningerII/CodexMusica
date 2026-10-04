@@ -2,10 +2,10 @@
   "id": "electric_bass",
   "name": "Electric bass",
   "family": "jazz",
-  "lineage": "A performance-centered discovery category for electric-bass-led recordings rather than a single genre or synthesis-bass label. Victor Wooten’s documented solo practice provides this authored unaccompanied funk-oriented branch: thumb-and-pop articulation carries rhythm, low notes and melodic figures on one bass.",
+  "lineage": "Electric-bass-led music spans solo performance and ensembles across jazz, funk and related styles. Players such as Victor Wooten expand the instrument’s rhythmic and melodic roles through slap, harmonics, tapping and thumb techniques.",
   "recipe": "classic modern electric bass, improv On Frame, fusion branch. electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 222,
-  "score": 6.33,
+  "score": 5.987,
   "config": {
     "traditions": [
       "electric_bass"
@@ -28,8 +28,8 @@
           "body_wood": 0.273,
           "pickup_config": 0.315,
           "string_type": 0.8294999999999999,
-          "scale_length_b": 1,
-          "fretted_or_not": 0.39,
+          "scale_length_b": 0.3,
+          "fretted_or_not": 0.747,
           "bass_technique": 2.9469999999999996,
           "electric_bass_string_configuration": 0
         }

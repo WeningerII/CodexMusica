@@ -2,10 +2,10 @@
   "id": "ecuadorian_indie",
   "name": "Ecuadorian Indie",
   "family": "pop",
-  "lineage": "Marley Muerto — Fantasma featuring Da Pawn, AntiRock PM and Colegio SEK Los Valles choir (2012), complete released track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s ecuadorian indie, functional Song. one note per syllable, group vocals. strummed open chord ringing overtones dreadnought acoustic guitar, electronic keyboard unspecified, European maple bosnian source flamed figure modern setup pirastro cellisto cello, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 481,
-  "score": 27.04,
+  "lineage": "Ecuadorian indie develops through independent musicians, labels and performance networks across Ecuador. Local songwriting connects with alternative rock, acoustic pop and experimental production in a varied national scene.",
+  "recipe": "classic ecuadorian indie, functional Song. one note per syllable, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 25.332,
   "config": {
     "traditions": [
       "ecuadorian_indie"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.8565,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
+          "voice_processing_chain": 1.69,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -62,11 +62,11 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 4.25,
+          "acoustic_technique": 4.95,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
-          "string_acoustic": 0.354
+          "string_acoustic": 0.054
         }
       },
       {
@@ -78,31 +78,6 @@
         "scores": {
           "electronic_keyboard_identity": 0,
           "keyboard_technique": 0
-        }
-      },
-      {
-        "id": "cello",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
-          "cello_top_wood": "norway_spruce_alpine_cello",
-          "cello_back_wood": "bosnian_flamed_maple_cello",
-          "cello_varnish": "oil_amber_varnish_cello",
-          "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "pernambuco_stick_cello"
-        },
-        "scores": {
-          "bowed_technique": 0.25,
-          "cello_strings": 0.3,
-          "cello_top_wood": -0.1,
-          "cello_back_wood": 1.56,
-          "cello_varnish": 0.7,
-          "cello_setup_period": 1.0539999999999998,
-          "cello_bow_grip": 0.3705,
-          "cello_rosin": 1.9,
-          "cello_bow_stick": 0.8299999999999998
         }
       },
       {
@@ -121,26 +96,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 0.325,
-          "drumhead": 1.6,
+          "drum_technique": 2.6365,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6540000000000001,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
-          "bearing_edges": 0.354,
+          "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 0.13000000000000003,
-          "cymbal_hammering": 4.7540000000000004,
-          "cymbal_lathing": 4.7,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 7.5040000000000004,
+          "cymbal_lathing": 7.45,
           "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
         }
       }
     ],
@@ -175,17 +141,6 @@
         "electronic_keyboard_identity",
         "keyboard_technique"
       ],
-      "cello": [
-        "bowed_technique",
-        "cello_strings",
-        "cello_top_wood",
-        "cello_back_wood",
-        "cello_varnish",
-        "cello_setup_period",
-        "cello_bow_grip",
-        "cello_rosin",
-        "cello_bow_stick"
-      ],
       "drum_kit": [
         "drum_technique",
         "shell_wood",
@@ -198,9 +153,6 @@
         "cymbal_hammering",
         "cymbal_lathing",
         "cymbal_finish"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
       ]
     },
     "room": "treated_studio",
@@ -244,15 +196,6 @@
       "string_acoustic": "eighty_twenty",
       "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
       "keyboard_technique": "electronic_keyboard_melodic_chordal",
-      "bowed_technique": "bowed_legato_classical",
-      "cello_strings": "cello_synthetic",
-      "cello_top_wood": "norway_spruce_alpine_cello",
-      "cello_back_wood": "bosnian_flamed_maple_cello",
-      "cello_varnish": "oil_amber_varnish_cello",
-      "cello_setup_period": "modern_setup_cello",
-      "cello_bow_grip": "french_bow_grip",
-      "cello_rosin": "pirastro_cellisto_rosin",
-      "cello_bow_stick": "pernambuco_stick_cello",
       "drum_technique": "sticks_rock",
       "shell_wood": "maple_shell",
       "shell_thickness": "thin_shell",
@@ -263,8 +206,7 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

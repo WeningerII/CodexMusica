@@ -2,10 +2,10 @@
   "id": "spanish_rockabilly",
   "name": "Spanish rockabilly",
   "family": "rock",
-  "lineage": "Spanish rockabilly is represented here by Anita O'Night & the Mercury Trio — documented quartet. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic spanish rockabilly, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 344,
-  "score": 33.016,
+  "lineage": "Spanish rockabilly renews the guitar-led rockabilly tradition through local bands, recordings and dance-oriented performance.",
+  "recipe": "classic spanish rockabilly, distorted Rock, classic branch. Fender tweed amp American 50s amp tweed breakup humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 275,
+  "score": 29.547,
   "config": {
     "traditions": [
       "spanish_rockabilly"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_american_fender_tweed",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 8.71375,
-          "body_wood": 0.6307499999999999,
-          "neck_wood": 0.5257499999999999,
+          "amp_make": 8.591,
+          "body_wood": 0.588,
+          "neck_wood": 0.483,
           "fretboard": 0.0945,
           "pickup_magnet": 0.3,
           "pickup_winding": 1.95,
           "string_material": 0.1365,
-          "bridge": 1.69,
-          "scale_length": 1.0515,
-          "string_gauge": 1.69,
+          "bridge": 0.483,
+          "scale_length": 0.9660000000000002,
+          "string_gauge": 0.483,
           "finish": 0.3045,
-          "string_tuning": 0.39
+          "string_tuning": 0
         }
       },
       {
@@ -52,7 +52,7 @@
         },
         "scores": {
           "upright_strings": 0.75,
-          "upright_play": 3.3799999999999994
+          "upright_play": 3.8449999999999998
         }
       },
       {
@@ -63,7 +63,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.313,
+          "drum_technique": 7.062999999999999,
           "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
@@ -100,11 +100,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.08174999999999999,
-          "voice_multitrack_stack": 0.5939999999999999
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "instrumental_funk",
   "name": "Instrumental funk",
   "family": "blues_gospel",
-  "lineage": "Instrumental funk places interlocking bass, drums and recurring horn or guitar figures at the center without a lead singer. The selected Budos Band branch combines syncopated percussion, horn riffs and organ with Afro-soul and psychedelic influences.",
-  "recipe": "classic modern instrumental funk, groove Percussion, funk percussive branch. fuzzed riff driven single coil electric guitar, pocket fingerstyle locked electric bass, drum kit, saxophone, horn section ensemble trumpet, combo organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 434,
-  "score": 28.235,
+  "lineage": "Instrumental funk places interlocking bass and drums at the center, with recurring horn, guitar and keyboard figures carrying melodic interest. Bands such as The Budos Band connect syncopated grooves with Afro-soul and psychedelic influences.",
+  "recipe": "classic modern instrumental funk, groove Percussion, funk percussive branch. single coil electric guitar, pocket fingerstyle locked electric bass, drum kit, ensemble honking attack saxophone, ensemble trumpet, combo organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 426,
+  "score": 32.969,
   "config": {
     "traditions": [
       "instrumental_funk"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
+          "body_wood": "alder",
           "neck_wood": "maple",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
@@ -29,15 +29,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 3.2945,
+          "electric_technique": 2.5130000000000003,
           "amp_make": 0,
-          "body_wood": 0.7454999999999999,
+          "body_wood": 0.0315,
           "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0.0315,
           "string_material": 0,
           "string_gauge": 0,
-          "bridge": 0.063,
+          "bridge": 0.0315,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -48,8 +48,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.7454999999999999,
+          "body_wood": 0.0315,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 1.95,
-          "bass_technique": 12.9415,
+          "bass_technique": 11.7415,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,28 +83,28 @@
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_continuous_legato",
+          "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": -0.07,
+          "wind_articulation": 4.156,
           "sax_size": 0.6405,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.063,
-          "sax_technique": -0.035,
+          "sax_technique": 2.4,
           "sax_maker_school": -1.4699999999999998
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "bach_trumpet_mp_7c",
           "brass_mute": "no_mute_brass",
@@ -113,11 +113,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.07,
+          "wind_articulation": 4.156,
           "brass_size": 0.273,
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
-          "trumpet_technique": 6.569,
+          "trumpet_technique": 4.156,
           "trumpet_bell_metal": 0.3045,
           "trumpet_maker_school": 0.9029999999999999
         }
@@ -162,7 +162,8 @@
         "string_type",
         "scale_length_b",
         "fretted_or_not",
-        "bass_technique"
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -217,7 +218,7 @@
     "parts": {
       "electric_technique": "electric_fuzz_riff",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
+      "body_wood": "alder",
       "neck_wood": "maple",
       "fretboard": "rosewood_fb",
       "pickup_magnet": "alnico_2",
@@ -227,7 +228,7 @@
       "scale_length": "scale_fender",
       "finish": "nitro",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -235,12 +236,12 @@
       "drum_technique": "sticks_rock",
       "drumhead": "single_coated",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "wind_articulation": "wind_continuous_legato",
+      "wind_articulation": "wind_punchy_ensemble",
       "sax_size": "baritone_sax",
       "sax_reed": "medium_reed",
       "sax_body_alloy": "yellow_brass_sax",
       "sax_mouthpiece": "hard_rubber_mp",
-      "sax_technique": "sax_continuous_legato",
+      "sax_technique": "sax_honking_attack",
       "sax_maker_school": "sax_selmer_mark_vi",
       "brass_size": "trumpet_b_flat",
       "trumpet_mouthpiece": "bach_trumpet_mp_7c",
@@ -251,7 +252,8 @@
       "keyboard_technique": "keyboard_block_chord_pop",
       "combo_organ_model": "farfisa_combo_compact_deluxe",
       "combo_organ_voicing": "combo_organ_8_4_flute",
-      "combo_organ_context": "combo_organ_british_invasion"
+      "combo_organ_context": "combo_organ_british_invasion",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

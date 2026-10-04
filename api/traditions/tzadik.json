@@ -2,10 +2,10 @@
   "id": "tzadik",
   "name": "Tzadik",
   "family": "classical",
-  "lineage": "Marc Ribot — Exercises in Futility (Tzadik, 2008), complete solo classical-guitar release. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic late-2000s tzadik, art Music, western modern branch. classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 190,
-  "score": 6.429,
+  "lineage": "The international experimental-music community associated with the Tzadik label connects composed music, improvisation and unconventional instrumental approaches. Its catalogue crosses genre and national boundaries.",
+  "recipe": "classic tzadik, art Music, western modern branch. classical nylon-string guitar. live tracking.",
+  "recipe_chars": 95,
+  "score": 2.13,
   "config": {
     "traditions": [
       "tzadik"
@@ -22,12 +22,12 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.05000000000000002,
+          "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 0.78,
+          "top_wood_classical": 0.39,
           "bracing_classical": 0.7245,
-          "string_classical": 0.7149999999999999,
-          "attack_technique_cl": 4.159999999999999
+          "string_classical": -0.035,
+          "attack_technique_cl": 1.3
         }
       }
     ],
@@ -41,15 +41,15 @@
         "attack_technique_cl"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -58,7 +58,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "acoustic_technique": "acoustic_fingerpicked",
       "string_tuning": "standard_tuning",
@@ -67,12 +67,6 @@
       "string_classical": "nylon_normal_cl",
       "attack_technique_cl": "tirando_cl"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

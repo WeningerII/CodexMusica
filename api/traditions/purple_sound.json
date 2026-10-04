@@ -2,28 +2,55 @@
   "id": "purple_sound",
   "name": "Purple sound",
   "family": "electronic",
-  "lineage": "Joker — full RA.962 studio DJ mix,57:25, issued11November2024. Issuer interview has Joker personally explaining preparation and blending for this exact commissioned mix. Retain complete mixed programme, including grime/dubstep, edits and recorded Duke Ellington material; not every selection claimed exclusively Purple. Existing neutral DJ playback/mixing owner represents active selection/blending, not opaque substitution for an undocumented original production master. All prerecorded layers remain in the programme; embedded voices and instruments are not reclassified as additional live performers. No separately performed live singer established, actual embedded voice count unknown. Source describes normal USB practice separately; exact selected studio hardware/medium remains unspecified. Authored neutral playback-and-mixing practice with no guessed decks, synthesis engines, sampler architecture or recreated instruments inside the recordings. One existing source-unspecified DJ control retains positive operation. Controlled live-room is an editorial presentation, not the source studio room; global tuning and apparatus omitted. No asserted live one-take recording or added voice cards.",
-  "recipe": "classic purple sound, bass System, uk soundsystem branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 104,
-  "score": 0,
+  "lineage": "Purple sound emerged around Bristol producers including Joker, Guido and Gemmy, combining dubstep-related rhythm and bass with bright melodic synthesizer writing. Its connections with grime and other electronic scenes create an overlapping but recognizable production approach.",
+  "recipe": "classic purple sound, bass System, uk soundsystem branch. digital subtractive, drum machine analog. live tracking.",
+  "recipe_chars": 114,
+  "score": 4.98,
   "config": {
     "traditions": [
       "purple_sound"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "digital_subtractive",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.07,
+          "va_archetypes": 0.105,
+          "digital_subtractive_context": 4.68
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.3,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.035
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "live_room",
@@ -43,7 +70,13 @@
   "source": {
     "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

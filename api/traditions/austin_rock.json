@@ -5,7 +5,7 @@
   "lineage": "Austin rock is represented here by A Giant Dog. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic austin rock, distorted Rock, regional branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 355,
-  "score": 43.889,
+  "score": 43.448,
   "config": {
     "traditions": [
       "austin_rock"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 1.6075,
+          "bridge": 1.3735,
           "scale_length": 0.7875000000000001,
-          "string_gauge": 1.6075,
+          "string_gauge": 1.3735,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.363
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 10.25,
-          "drumhead": 0.354,
+          "drumhead": 0.3,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3,
+          "voice_ensemble_config": 0.354,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.3
+          "voice_multitrack_stack": 0.354
         }
       }
     ],

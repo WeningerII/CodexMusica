@@ -2,10 +2,10 @@
   "id": "waiata_mo_tamariki",
   "name": "Waiata mō Tamariki",
   "family": "vernacular",
-  "lineage": "Hine e Hine by Te Rangi Pai, Dorothy Buchanan complete1981 solo arrangement, SOUNZ Wellington, three-page score. National Library explicitly catalogs singer1 and piano1, English and Māori words. One voice and piano retain the whole published arrangement; no original recording, choir version or complete pedagogical collection claimed. Performer age, register and physiology unknown. No copyrighted score personally inspected. Author a gentle connected voice-and-piano recital, neutral voice physiology and legato gestures, standard modern upright-piano construction and shoebox hall spatial presentation. These are optional new performance choices, not measured score articulation, singer school, source recording or universal Māori practice. No Polynesian vocal preset, global pitch framework or microphone apparatus asserted. Broad functionalSong/vernacular represents an authored tonal lullaby-song rendition; no claim all children’s waiata follow that form. Source piano subtype unspecified; upright is authored, not documentary.",
-  "recipe": "classic waiata mō tamariki, functional Song. continuous-phonation, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. upright piano. shoebox concert hall.",
-  "recipe_chars": 202,
-  "score": 12.33,
+  "lineage": "Waiata mō tamariki connects Māori-language songs for children with learning, family and community practice. Lullabies, action songs and other repertoires support language, relationships and cultural participation.",
+  "recipe": "classic waiata mō tamariki, functional Song. one note per syllable, solo with instrumental accompaniment. upright piano. shoebox concert hall.",
+  "recipe_chars": 142,
+  "score": 2.33,
   "config": {
     "traditions": [
       "waiata_mo_tamariki"
@@ -38,17 +38,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 1.3,
+          "voice_articulation": 0.3,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 5.499999999999999,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -60,9 +60,9 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 1.25,
+          "keyboard_technique": -0.05,
           "upright_use": 0,
-          "upright_piano_size": 0.8999999999999999
+          "upright_piano_size": 0
         }
       }
     ],

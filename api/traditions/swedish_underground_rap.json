@@ -2,10 +2,10 @@
   "id": "swedish_underground_rap",
   "name": "Swedish underground rap",
   "family": "hip_hop",
-  "lineage": "E.T and Chukk Rukkuz — The O-Zone Battles premiere, complete separately presented competitive pairing (Lund, 2010). Authored recording arrangement of the complete documented competitive a cappella battle practice and named pairing, not a separately issued studio vocal stem and not a claim that the usual regional genre has no backing instruments. No source audio downloaded, reproduced or redistributed. Voice construction, room and chain are authored, not measured.",
-  "recipe": "classic early-2010s swedish underground rap, mc Rhythm. rhythmic spoken flow no pitch, solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 243,
-  "score": 14.88,
+  "lineage": "Swedish underground rap develops through independent MCs, producers and performance networks. Battle events such as the O-Zone series form one part of a broader recorded and live rap culture.",
+  "recipe": "classic swedish underground rap, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. live tracking.",
+  "recipe_chars": 154,
+  "score": 26.06,
   "config": {
     "traditions": [
       "swedish_underground_rap"
@@ -15,17 +15,17 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
-          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
@@ -34,22 +34,37 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 11.959,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.063,
+          "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.660499999999999,
-          "voice_ensemble_config": 0.9944999999999999,
+          "voice_speech_song": 11.341999999999999,
+          "voice_ensemble_config": 0.8924999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 4.066999999999999,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.33599999999999997,
           "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "sample_bitdepth": 0.126,
+          "sample_swing": 1.113,
+          "sample_processing": 0
         }
       }
     ],
@@ -72,49 +87,53 @@
         "voice_processing_chain",
         "voice_multitrack_stack",
         "voice_tessitura"
+      ],
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "spoken_voice",
+      "voice_articulation": "voice_articulation_source_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "one_shots_layered"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

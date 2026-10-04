@@ -2,10 +2,10 @@
   "id": "botswana_pop",
   "name": "Botswana pop",
   "family": "pop",
-  "lineage": "Botswana pop is represented here by Jordan MoOzy — BotswanaCraft guitar-and-keys core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic botswana pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 346,
-  "score": 38.069,
+  "lineage": "Botswana pop connects local singers and songwriting communities with contemporary pop and R&B approaches.",
+  "recipe": "classic botswana pop, functional Song, African pop branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 37.501,
   "config": {
     "traditions": [
       "botswana_pop"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.7,
-          "amp_make": 1.486,
+          "electric_technique": 14.5,
+          "amp_make": 0,
           "body_wood": 0.9135,
           "neck_wood": 0.3045,
           "fretboard": 0.273,
           "pickup_magnet": 0.336,
           "pickup_winding": 0.336,
           "string_material": 0,
-          "bridge": 1.5835,
+          "bridge": 0.3045,
           "scale_length": 0.8819999999999999,
-          "string_gauge": 1.447,
+          "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -52,7 +52,7 @@
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -62,7 +62,7 @@
           "pickup_config": 0.336,
           "string_type": 0.336,
           "scale_length_b": 0.609,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.363,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 12.731499999999999,
+          "drumhead": 13.731499999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7770000000000001
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -130,7 +130,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 0.168,
-          "poly_voices": 0.21,
+          "poly_voices": 1.21,
           "poly_maker_lineage": -0.035
         }
       }

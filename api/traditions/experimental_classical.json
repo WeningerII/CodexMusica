@@ -2,10 +2,10 @@
   "id": "experimental_classical",
   "name": "Experimental classical",
   "family": "classical",
-  "lineage": "Experimental classical is represented by John Luther Adams — The Wind in High Places, JACK Quartet2014 recording. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic experimental classical, art Music, western modern branch. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, synthetic core carpathian spruce eastern European source European maple general oil varnish viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 442,
-  "score": 256.401,
+  "lineage": "Experimental classical music investigates sound, musical structure and performance through new compositional approaches. Acoustic instruments, voices and electronics can serve as materials for sustained textures or sharply contrasted gestures.",
+  "recipe": "classic experimental classical, art Music, western modern branch. silver wound lamb gut core carpathian spruce European maple sycamore maple violin orchestral, synthetic core carpathian spruce eastern European source European maple general oil varnish viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 444,
+  "score": 240.563,
   "config": {
     "traditions": [
       "experimental_classical"
@@ -15,7 +15,7 @@
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_sul_tasto",
-          "orch_strings": "synthetic_orch",
+          "orch_strings": "silver_wound_lamb_gut_violin",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
@@ -26,16 +26,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.25,
-          "orch_strings": 0.5775,
-          "orch_top_wood": 8.523,
-          "orch_back_wood": 12.273,
-          "orch_varnish": 12,
-          "orch_setup_period": 13.908,
-          "orch_bow": 0.546,
-          "orch_bow_stick": 13.617999999999999,
-          "orch_articulation": 0.5775,
-          "orch_rosin": 14.0445
+          "bowed_technique": 7.5,
+          "orch_strings": 1.2349999999999999,
+          "orch_top_wood": 7.773,
+          "orch_back_wood": 11.523,
+          "orch_varnish": 11.25,
+          "orch_setup_period": 13.05,
+          "orch_bow": 0.6,
+          "orch_bow_stick": 12.76,
+          "orch_articulation": 0.6315000000000001,
+          "orch_rosin": 13.1865
         }
       },
       {
@@ -52,15 +52,15 @@
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 8.25,
-          "viola_size": 0.105,
+          "bowed_technique": 7.5,
+          "viola_size": 1.105,
           "viola_strings": 1.95,
-          "viola_top_wood": 8.523,
-          "viola_back_wood": 12.273,
-          "viola_varnish": 12,
-          "viola_setup_period": 13.908,
-          "viola_bow_stick": 13.617999999999999,
-          "viola_rosin": 14.207999999999998
+          "viola_top_wood": 7.773,
+          "viola_back_wood": 11.523,
+          "viola_varnish": 11.25,
+          "viola_setup_period": 13.05,
+          "viola_bow_stick": 12.76,
+          "viola_rosin": 13.05
         }
       },
       {
@@ -77,15 +77,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 8.25,
+          "bowed_technique": 7.5,
           "cello_strings": 1.95,
-          "cello_top_wood": 8.523,
-          "cello_back_wood": 12.273,
-          "cello_varnish": 12,
-          "cello_setup_period": 13.908,
-          "cello_bow_grip": 4.29,
-          "cello_rosin": 12.436499999999999,
-          "cello_bow_stick": 13.617999999999999
+          "cello_top_wood": 7.773,
+          "cello_back_wood": 11.523,
+          "cello_varnish": 11.25,
+          "cello_setup_period": 13.05,
+          "cello_bow_grip": 3.9,
+          "cello_rosin": 11.3865,
+          "cello_bow_stick": 12.76
         }
       }
     ],

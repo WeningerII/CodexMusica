@@ -2,10 +2,10 @@
   "id": "ukrainian_alternative_rock",
   "name": "Ukrainian alternative rock",
   "family": "rock",
-  "lineage": "Ukrainian alternative rock is represented here by Vøvk — Promin core band. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Ukrainian alternative rock connects guitar-driven songwriting with post-hardcore, progressive and atmospheric approaches.",
   "recipe": "classic ukrainian alternative rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 53.379,
+  "score": 49.692,
   "config": {
     "traditions": [
       "ukrainian_alternative_rock"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_2_h",
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 6.11,
-          "body_wood": 0.273,
+          "body_wood": 0.39,
           "neck_wood": 0.273,
           "fretboard": 0.273,
-          "pickup_magnet": 0.18525,
-          "pickup_winding": 0.18974999999999997,
+          "pickup_magnet": 0.042749999999999996,
+          "pickup_winding": 0.2895,
           "string_material": 0.273,
-          "bridge": 1.55875,
+          "bridge": 0.0735,
           "scale_length": 0.7875000000000001,
-          "string_gauge": 1.55875,
+          "string_gauge": 0.0735,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.063
         }
       },
       {
@@ -62,7 +62,7 @@
           "pickup_config": 0,
           "string_type": 15.6,
           "scale_length_b": 0.063,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 12,
-          "drumhead": 0.39,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.28425,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -124,13 +124,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.2,
+          "electronic_technique": -0.1,
           "poly_archetypes": 6.24,
-          "poly_voices": 0.3,
+          "poly_voices": 0.042749999999999996,
           "poly_maker_lineage": -0.035
         }
       }

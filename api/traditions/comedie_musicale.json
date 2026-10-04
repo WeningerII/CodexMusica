@@ -2,10 +2,10 @@
   "id": "comedie_musicale",
   "name": "Comedie Musicale",
   "family": "pop",
-  "lineage": "Les Dix Commandements — L'envie d'aimer, Noviscore piano-solo Level 1 arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "lineage": "Comédie musicale brings songs, characters and dramatic storytelling together on stage. French-language shows circulate both as theatrical works and through separately performed songs and instrumental arrangements.",
   "recipe": "classic comedie musicale, functional Song, europop branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 170,
-  "score": 2.161,
+  "score": 2.911,
   "config": {
     "traditions": [
       "comedie_musicale"
@@ -33,7 +33,7 @@
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.7149999999999999
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "classical_jazz_fusion",
   "name": "Classical jazz fusion",
   "family": "jazz",
-  "lineage": "Classical jazz fusion is represented by Fred Tompkins — Vertical. One documented branch is realized as an authored present-day recording arrangement. Sources establish the ensemble roles, genre boundary and practice locality. Exact instrument subtype, technique pins, room, signal chain, numeric axes and tuning baseline are authored choices, not assertions of original session equipment or universal regional practice.",
-  "recipe": "classic classical jazz fusion, improv On Frame, American jazz branch. grenadilla African blackwood traditional legato clarinet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 473,
-  "score": 157.479,
+  "lineage": "Classical jazz fusion brings composed chamber-music structures into contact with jazz phrasing and improvisation. The balance between notation and spontaneous playing varies across works.",
+  "recipe": "classic classical jazz fusion, improv On Frame, American jazz branch. grenadilla African blackwood traditional continuous-airflow legato clarinet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 479,
+  "score": 130.782,
   "config": {
     "traditions": [
       "classical_jazz_fusion"
@@ -14,17 +14,17 @@
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
+          "wind_articulation": "wind_continuous_legato",
           "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "a_clarinet",
-          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 6.499999999999999,
-          "clarinet_body": 6.578499999999999,
-          "clarinet_size": 2.6314999999999995,
-          "clarinet_reed": 0.105,
+          "wind_articulation": 4.95,
+          "clarinet_body": 5.0785,
+          "clarinet_size": 2.168,
+          "clarinet_reed": 0.276,
           "clarinet_articulation": 0
         }
       },
@@ -32,46 +32,46 @@
         "id": "saxophone",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "sax_size": "baritone_sax",
+          "sax_size": "soprano_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "ebonite_vintage",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 6.449999999999999,
-          "sax_size": 0.45924999999999994,
-          "sax_reed": 0.105,
-          "sax_body_alloy": 12.855,
-          "sax_mouthpiece": 0.1755,
-          "sax_technique": 12.75,
-          "sax_maker_school": 16.509999999999998
+          "wind_articulation": 4.95,
+          "sax_size": 0.3,
+          "sax_reed": 0.23249999999999998,
+          "sax_body_alloy": 13.855,
+          "sax_mouthpiece": 0.273,
+          "sax_technique": 13.75,
+          "sax_maker_school": 17.81
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 6.499999999999999,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.522,
-          "piano_hammer": 10.399999999999999,
-          "piano_rim": 10.399999999999999,
-          "piano_soundboard": 6.699499999999999,
-          "piano_pinblock": 8.806249999999999,
-          "piano_plate": 6.842999999999999,
-          "piano_pitch_standard": 7.76375
+          "keyboard_technique": 5,
+          "grand_piano_size": 0.147,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 5.5485,
+          "piano_rim": 5.70525,
+          "piano_soundboard": 5.058,
+          "piano_pinblock": 5.13525,
+          "piano_plate": 4.95,
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -82,13 +82,32 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.81,
-          "drumhead": 16.509999999999998,
+          "drum_technique": 17.354999999999997,
+          "drumhead": 17.81,
           "drum_kit_kick_pedal": 0
         }
       }
     ],
     "pinned": {
+      "clarinet": [
+        "wind_articulation"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
       "drum_kit": [
         "drum_technique"
       ]
@@ -112,7 +131,19 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "drum_technique": "brushes_and_sticks"
+      "drum_technique": "brushes_and_sticks",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "keyboard_technique": "keyboard_classical_legato",
+      "sax_size": "soprano_sax",
+      "sax_technique": "sax_continuous_legato",
+      "wind_articulation": "wind_continuous_legato"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

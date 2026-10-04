@@ -2,10 +2,10 @@
   "id": "quebec_death_metal",
   "name": "Quebec death metal",
   "family": "rock_punk",
-  "lineage": "Quebec death metal is represented here by Beyond Creation. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic quebec death metal, distorted Rock, death branch. solo with instrumental accompaniment. eight string electric, fretless bass, blast beat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 255,
-  "score": 9.197,
+  "lineage": "Québec death metal includes technically elaborate and progressive strains developed around Montréal and other regional communities.",
+  "recipe": "classic quebec death metal, distorted Rock, death branch. eight string electric, fretless bass, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 6.131,
   "config": {
     "traditions": [
       "quebec_death_metal"
@@ -27,18 +27,18 @@
         "slots": {
           "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_svt",
-          "fretless_use": "fretless_jazz",
-          "fretless_bass_construction": "fretless_bass_lined",
+          "fretless_use": "fretless_rock",
+          "fretless_bass_construction": "fretless_bass_factory",
           "fretless_fingerboard_wood": "fretless_ebony_unlined",
-          "fretless_bass_strings": "fretless_groundwound"
+          "fretless_bass_strings": "fretless_roundwound"
         },
         "scores": {
           "electric_technique": -0.15000000000000002,
-          "amp_make": 2.6650000000000005,
-          "fretless_use": 1.17675,
-          "fretless_bass_construction": 0.0315,
-          "fretless_fingerboard_wood": 0.7149999999999999,
-          "fretless_bass_strings": 0.0315
+          "amp_make": 2.275,
+          "fretless_use": 0.8714999999999999,
+          "fretless_bass_construction": 0,
+          "fretless_fingerboard_wood": 0.325,
+          "fretless_bass_strings": 0
         }
       },
       {
@@ -49,7 +49,7 @@
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 1.4287500000000002,
+          "drum_technique": 0.39,
           "drumhead": 1.0185,
           "drum_kit_kick_pedal": 0.78
         }
@@ -72,7 +72,8 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -86,11 +87,12 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.063,
+          "voice_tessitura": 0
         }
       }
     ],
@@ -100,7 +102,11 @@
         "eight_string_technique"
       ],
       "fretless_bass": [
-        "electric_technique"
+        "electric_technique",
+        "fretless_use",
+        "fretless_bass_construction",
+        "fretless_fingerboard_wood",
+        "fretless_bass_strings"
       ],
       "drum_kit": [
         "drum_technique",
@@ -122,7 +128,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ]
     },
     "room": "treated_studio",
@@ -164,7 +171,12 @@
       "drum_technique": "blast_beat_single_strokes",
       "drum_kit_kick_pedal": "dk_kick_double",
       "eight_string_tuning": "eight_string_low_f_sharp",
-      "eight_string_technique": "eight_string_djent_chug"
+      "eight_string_technique": "eight_string_djent_chug",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "fretless_use": "fretless_rock",
+      "fretless_bass_construction": "fretless_bass_factory",
+      "fretless_fingerboard_wood": "fretless_ebony_unlined",
+      "fretless_bass_strings": "fretless_roundwound"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

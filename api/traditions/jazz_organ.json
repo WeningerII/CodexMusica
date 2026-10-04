@@ -5,7 +5,7 @@
   "lineage": "Hammond-organ jazz; selected Goldings/Bernstein/Stewart organ trio",
   "recipe": "classic modern jazz organ, improv On Frame, soul jazz branch. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched ostinato slow chorale tonewheel organ, acoustic leaning carved top solid spruce Gibson canon thomastik archtop, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 501,
-  "score": 166.141,
+  "score": 166.174,
   "config": {
     "traditions": [
       "jazz_organ"
@@ -26,7 +26,7 @@
           "drawbar_setting": 16.862999999999996,
           "rotary_speed": 4,
           "percussion_setting": 16.5045,
-          "tonewheel_model": 18.067375,
+          "tonewheel_model": 18.077875,
           "leslie_cabinet_model": 1.7435
         }
       },
@@ -44,9 +44,9 @@
         "scores": {
           "amp_make": 0,
           "archtop_body": 16.900124999999996,
-          "archtop_pickup": 8.776874999999999,
+          "archtop_pickup": 8.782874999999999,
           "archtop_top_wood": 16.6365,
-          "archtop_strings": 18.282375,
+          "archtop_strings": 18.292875,
           "archtop_technique": -0.035,
           "archtop_string_tuning": 0
         }
@@ -74,9 +74,9 @@
           "shell_thickness": 0,
           "bearing_edges": 0.34162499999999996,
           "snare_wires": 0,
-          "cymbal_alloy": 16.349999999999998,
+          "cymbal_alloy": 16.365,
           "cymbal_hammering": 16.45,
-          "cymbal_lathing": -0.10500000000000004,
+          "cymbal_lathing": -0.11400000000000002,
           "cymbal_finish": 0
         }
       }

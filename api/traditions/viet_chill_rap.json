@@ -5,7 +5,7 @@
   "lineage": "Viet chill rap is a mood-and-production discovery category, represented by Đen’s reflective Vietnamese rap with accessible sung hooks. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
   "recipe": "classic modern viet chill rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 263,
-  "score": 26.724,
+  "score": 26.327,
   "config": {
     "traditions": [
       "viet_chill_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.000875,
+          "voice_quality": 16.8275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.031625,
+          "voice_ensemble_config": 1.992625,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.22012499999999996
+          "voice_multitrack_stack": 0.03599999999999999
         }
       },
       {

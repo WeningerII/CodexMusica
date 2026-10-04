@@ -2,10 +2,10 @@
   "id": "musique_alsacienne",
   "name": "Musique alsacienne",
   "family": "vernacular",
-  "lineage": "Paul Boistelle’s complete separately offered Danses Populaires d’Alsace, Série1, twelve-title accordion solo-or-duo edition, realized here using the expressly offered solo option. Composer catalog distinguishes this edition from its wind-orchestra instrumentation and from other beginner pieces expressly marked with singing. Retain one accordion and zero singers for this instrumental solo edition; do not strip instruments from the separately orchestrated version or mix its sung beginner pieces into the selected twelve-dance collection. Source-specific score pitches and original performance registration have not been inspected. Authored concert reading of the complete published solo accordion edition. The broad artMusic parent describes this formally transmitted notated concert realization, not a claim that the underlying whole regional folk field is classical. Bellows-articulated phrases, dry LM registration, steel reeds, cardboard/leather bellows and unchambered voicing are coherent editorial defaults with maker unspecified; none is asserted as the composer’s actual instrument, source registration or obligatory regional tuning. Controlled live-room capture is authored; no global temperament or original recording hardware asserted.",
-  "recipe": "classic musique alsacienne, art Music. steel leather bellows articulated accordion. live tracking.",
-  "recipe_chars": 98,
-  "score": 8.573,
+  "lineage": "Musique alsacienne connects Alsace’s regional dances, dialect songs and ensemble traditions. Musicians and arrangers transmit repertoire shaped by French and German musical exchange, including polkas, marches and Rhinländer.",
+  "recipe": "classic musique alsacienne, art Music. accordion. live tracking.",
+  "recipe_chars": 64,
+  "score": 0.846,
   "config": {
     "traditions": [
       "musique_alsacienne"
@@ -23,11 +23,11 @@
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 3.8,
-          "accordion_reed_material": 1.3,
-          "musette_offset": 0.0315,
-          "reed_config": 1.6315000000000002,
-          "bellows": 1.7365000000000002,
+          "free_reed_technique": 0.49999999999999994,
+          "accordion_reed_material": 0,
+          "musette_offset": 0.1365,
+          "reed_config": 0,
+          "bellows": 0.1365,
           "voicing_chamber": 0.0735,
           "accordion_maker_school": 0
         }

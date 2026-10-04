@@ -1,0 +1,16 @@
+{
+  "baseline_head": "2541e078c9f4326c2d75826779813d933a27f1bb",
+  "frozen_head": "d63210cbe63b8d9e7edb9b52de3fa0ee1971aa25",
+  "catalog_count": 6538,
+  "retained_repairs": 2153,
+  "deferred": 201,
+  "protected_original_rows": 2638,
+  "protected_original_differences": [],
+  "instruments": 1638,
+  "instrument_differences": [],
+  "scripts": 168,
+  "script_differences": [],
+  "candidate_catalog_semantic_sha256": "cd42f439755177107824991ac9f2180d6f5498be400ca1af0061b939e81da647",
+  "original_fixture_sha256": "c422a225d938613e2b873abd1523dab7fcf4805af5a830894b0f0121b4663048",
+  "source_mode": "In-process data restoration only; no repository writes."
+}

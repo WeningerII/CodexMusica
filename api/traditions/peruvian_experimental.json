@@ -5,7 +5,7 @@
   "lineage": "Wilder Gonzales Agreda — Patrocinado por el gobierno (2021), complete eight-piece album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s peruvian experimental, experimental Elec. analog synth, hybrid groovebox electribe2. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 1.992,
+  "score": 2.149,
   "config": {
     "traditions": [
       "peruvian_experimental"
@@ -21,9 +21,9 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 0.25,
+          "electronic_technique": 0.2815,
           "oscillator": 0,
-          "filter_topology": 1.4415,
+          "filter_topology": 1.4729999999999999,
           "envelope": 0.3,
           "modulation": 0
         }
@@ -35,8 +35,8 @@
           "hybrid_groovebox_workflow": "hybrid_groovebox_sequenced_layers"
         },
         "scores": {
-          "hybrid_groovebox_engine": 0,
-          "hybrid_groovebox_workflow": 0
+          "hybrid_groovebox_engine": 0.063,
+          "hybrid_groovebox_workflow": 0.0315
         }
       }
     ],

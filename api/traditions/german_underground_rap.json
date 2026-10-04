@@ -3,9 +3,9 @@
   "name": "German underground rap",
   "family": "hip_hop",
   "lineage": "German independent and underground rap; selected Retrogott and Hulk Hodn sample-collage branch",
-  "recipe": "classic modern german underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. chopped sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 270,
-  "score": 42.827,
+  "recipe": "classic modern german underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 42.988,
   "config": {
     "traditions": [
       "german_underground_rap"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 11.13525,
-          "voice_ensemble_config": 0.4717499999999999,
+          "voice_ensemble_config": 0.5954999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.03712499999999999,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "electronic_technique": 2.5,
-          "sampler_archetypes": 2.7108749999999997,
+          "sampler_archetypes": 2.7479999999999998,
           "sampler_bit_depth": 0.142125,
           "sampler_workflow": 2.1500000000000004,
           "sampler_classic_context": 6.694999999999999

@@ -3,9 +3,9 @@
   "name": "Czech swing",
   "family": "jazz",
   "lineage": "Czech swing is represented by Ondřej Havelka and His Melody Makers — selected singer/horns/rhythm branch. One documented branch is realized as an authored present-day recording arrangement. Sources establish the ensemble roles, genre boundary and practice locality. Exact instrument subtype, technique pins, room, signal chain, numeric axes and tuning baseline are authored choices, not assertions of original session equipment or universal regional practice.",
-  "recipe": "classic czech swing, improv On Frame, American jazz branch. bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, clarinet, cold pressed light felt practice grade oversize maple tension resonator grand piano, growly gut upright bass, jazz warm flatwound thomastik dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 422,
-  "score": 39.499,
+  "recipe": "classic czech swing, improv On Frame, American jazz branch. solo with instrumental accompaniment. bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, clarinet, cold pressed light felt practice grade oversize maple tension resonator grand piano, growly gut upright bass, jazz warm flatwound thomastik dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 460,
+  "score": 40.83,
   "config": {
     "traditions": [
       "czech_swing"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.48450000000000004,
+          "voice_ensemble_config": 1.6522500000000004,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1995,
-          "voice_multitrack_stack": 0.2535
+          "voice_multitrack_stack": 0.3075
         }
       },
       {
@@ -77,14 +77,14 @@
           "wind_articulation": "wind_split_tone_overblown",
           "clarinet_body": "hanson_btr_clarinet",
           "clarinet_size": "e_flat_clarinet",
-          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
           "wind_articulation": -0.035,
           "clarinet_body": -0.05,
           "clarinet_size": 0.0945,
-          "clarinet_reed": 0.105,
+          "clarinet_reed": 0.208125,
           "clarinet_articulation": 0
         }
       },
@@ -107,7 +107,7 @@
           "grand_piano_brand": 0.39,
           "piano_hammer": 2.535,
           "piano_rim": 1.885,
-          "piano_soundboard": 0.254,
+          "piano_soundboard": 0.26,
           "piano_pinblock": 1.56,
           "piano_plate": -0.035,
           "piano_pitch_standard": -0.035

@@ -2,28 +2,112 @@
   "id": "popping",
   "name": "Popping",
   "family": "electronic",
-  "lineage": "Rita Spirit — Popping Delight (Special for Styles Upon Styles), complete 36:43 DJ mix published May 7, 2023. The performer says it was made for the August 7–12 Las Vegas event; publication precedes the event, so this is not asserted to be a live August event recording. Artist profile independently lists this exact work under DJ Mixes. Preserve its whole mixed recorded program, including all embedded instrumental and vocal material. Source tags identify funk and G-funk alongside popping. Hardware, source media, track list, embedded voice count and additional live vocal activity are unspecified; no extra live singer card asserts no invented role, not zero singers in the audio. Existing dj_playback_mixing_unspecified retains the positively documented whole DJ practice, not a shortcut for reconstructing an undocumented studio song. Sole medium-unspecified identity is pinned. The selected funk/G-funk program fits groovePercussion.funkPercussive as a funk-descendant dance branch; this does not impose one-chord harmony or a uniform beat on every constituent recording or all popping repertoire. Authored treated-room listening realization, not measured source studio or Las Vegas venue. Global tuning and apparatus omitted because the mixed recordings and physical equipment are unknown. Neutral axes are editorial controls, not measured audio facts.",
-  "recipe": "classic early-2020s popping, groove Percussion, funk percussive branch. dj playback mixing unspecified. treated studio.",
-  "recipe_chars": 119,
-  "score": 0.105,
+  "lineage": "Popping music serves the rhythmic needs of a dance practice built around sharply timed muscular hits, controlled isolations and flowing movement. Funk, electro and related recorded repertoires circulate through dancers, DJs and competitions.",
+  "recipe": "classic popping, groove Percussion, funk percussive branch. pocket fingerstyle locked electric bass, drum kit, analog poly synth. treated studio.",
+  "recipe_chars": 145,
+  "score": 9.641,
   "config": {
     "traditions": [
       "popping"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "electric_bass",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.105
+          "amp_make": 0,
+          "body_wood": 0.0315,
+          "pickup_config": 0.168,
+          "string_type": 0,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 1.95,
+          "bass_technique": 6.391500000000001,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 0.3315,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.27299999999999996,
+          "shell_thickness": 0.0315,
+          "bearing_edges": 0.3045,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.1685,
+          "cymbal_hammering": -0.10500000000000001,
+          "cymbal_lathing": 0.18150000000000002,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
+          "poly_voices": 0.0315,
+          "poly_maker_lineage": -0.035
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +127,29 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true
   }

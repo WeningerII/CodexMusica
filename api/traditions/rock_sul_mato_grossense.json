@@ -2,10 +2,10 @@
   "id": "rock_sul_mato_grossense",
   "name": "Rock sul-mato-grossense",
   "family": "rock",
-  "lineage": "Rock sul-mato-grossense is represented here by O Bando do Velho Jack — documented 2025 lineup. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic mid-2020s rock sul-mato-grossense, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 383,
-  "score": 56.694,
+  "lineage": "Rock sul-mato-grossense encompasses Mato Grosso do Sul’s rock scenes, including classic-rock approaches from Campo Grande.",
+  "recipe": "classic rock sul-mato-grossense, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 335,
+  "score": 68.09,
   "config": {
     "traditions": [
       "rock_sul_mato_grossense"
@@ -16,8 +16,8 @@
         "slots": {
           "electric_technique": "electric_bent_note_blues_lead",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "maple_neck_h",
+          "body_wood": "mahogany_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.273,
-          "amp_make": 6.5,
-          "body_wood": 0.1365,
-          "neck_wood": 0.1365,
+          "electric_technique": 0.78,
+          "amp_make": 8.32,
+          "body_wood": 0.18,
+          "neck_wood": 0.18,
           "fretboard": 0.1365,
           "pickup_magnet": 0.0315,
-          "pickup_winding": 0.3735,
+          "pickup_winding": 1.0735,
           "string_material": 0.1365,
-          "bridge": 1.69,
+          "bridge": 0.3075,
           "scale_length": 0.378,
-          "string_gauge": 1.69,
+          "string_gauge": 0.3075,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.11699999999999999
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
-          "body_wood": 0,
+          "amp_make": 8.775,
+          "body_wood": 0.18,
           "pickup_config": 0,
-          "string_type": 16.575,
+          "string_type": 21.125,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.39,
+          "drum_technique": 16.25,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1395,
-          "voice_multitrack_stack": 0.1365
+          "voice_processing_chain": 0.3195,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -124,13 +124,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 6.629999999999999,
-          "poly_voices": 0,
+          "poly_archetypes": 8.45,
+          "poly_voices": 0.18,
           "poly_maker_lineage": -0.035
         }
       }

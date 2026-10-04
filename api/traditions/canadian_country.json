@@ -3,9 +3,9 @@
   "name": "Canadian country",
   "family": "vernacular",
   "lineage": "Canadian country ranges from regional traditions to international commercial recording. Shania Twain’s documented country-pop work supplies a selected studio branch, while the national category is not confined to her production style.",
-  "recipe": "classic modern canadian country, functional Song, country branch. breath veiled tone, wide pitch sway, leader call answered, equal tempered. strummed open chord ringing overtones dreadnought acoustic Fender tweed amp American 50s amp tweed breakup single coil electric guitar, fiddle, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, sampler drum machine, Fender tweed amp American 50s amp tweed breakup electric bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 606,
-  "score": 164.106,
+  "recipe": "classic modern canadian country, functional Song, country branch. breath veiled tone, wide pitch sway, leader call answered, equal tempered. strummed open chord ringing overtones dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, fiddle, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, sampler drum machine, Fender tweed amp American 50s amp tweed breakup electric bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 617,
+  "score": 165.848,
   "config": {
     "traditions": [
       "canadian_country"
@@ -36,18 +36,18 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.7,
-          "voice_articulation": 1.3499999999999999,
+          "voice_vibrato": 12.8365,
+          "voice_articulation": 1.3815,
           "voice_microtone": 3.000000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.23099999999999998,
-          "voice_estill_quality": 12.912499999999998,
+          "voice_mechanism_compound": 0.6405000000000001,
+          "voice_estill_quality": 13.290499999999998,
           "voice_speech_song": 3.835000000000001,
           "voice_ensemble_config": 0.9099999999999997,
           "voice_ornament_system": 1.8041124150158794e-17,
           "voice_pitch_organization": 0.3,
           "voice_processing_chain": 3.0550000000000006,
-          "voice_multitrack_stack": 0.2415
+          "voice_multitrack_stack": 0.1365
         }
       },
       {
@@ -60,10 +60,10 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 3.2945,
+          "acoustic_technique": 3.326,
           "string_tuning": 0,
           "top_wood": 0.105,
-          "back_sides": 0.22049999999999997,
+          "back_sides": 0.3675,
           "string_acoustic": 0.39
         }
       },
@@ -71,7 +71,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_fingerstyle_country",
-          "amp_make": "amp_american_fender_tweed",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "pine",
           "neck_wood": "maple",
           "fretboard": "maple_fb",
@@ -85,18 +85,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 12.876,
-          "amp_make": 12.704999999999998,
-          "body_wood": 0.22049999999999997,
+          "electric_technique": 13.0125,
+          "amp_make": 12.717999999999996,
+          "body_wood": 0.3675,
           "neck_wood": 0,
           "fretboard": 0.0315,
           "pickup_magnet": 0.105,
           "string_material": 0.39,
-          "string_gauge": 0.357,
-          "bridge": 0.063,
+          "string_gauge": 0.504,
+          "bridge": 0.0315,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.1995,
+          "string_tuning": 0.4095,
           "single_coil_pickup_construction": 0
         }
       },
@@ -114,8 +114,8 @@
           "bowed_technique": 1.95,
           "fiddle_strings": 0.39,
           "fiddle_bow": 0.1365,
-          "fiddle_mute": 0.357,
-          "fiddle_articulation": 0.1365,
+          "fiddle_mute": 0.5355,
+          "fiddle_articulation": 0.1995,
           "fiddle_string_configuration": 0
         }
       },
@@ -124,7 +124,7 @@
         "slots": {
           "electric_technique": "electric_steel_pedal_swells",
           "amp_make": "amp_american_fender_blackface",
-          "pickup_steel": "humbucker_steel",
+          "pickup_steel": "single_coil_steel",
           "string_setup": "standard_e9",
           "bar_material": "steel_bar",
           "pedal_steel_brand": "mullen_d10",
@@ -133,12 +133,12 @@
         },
         "scores": {
           "electric_technique": 13.720499999999998,
-          "amp_make": 12.686499999999997,
-          "pickup_steel": 0.0315,
+          "amp_make": 12.717999999999996,
+          "pickup_steel": 0,
           "string_setup": 6.629999999999999,
           "bar_material": 0.39,
-          "pedal_steel_brand": 13.128,
-          "pedal_steel_neck_config": 16.575,
+          "pedal_steel_brand": 13.0965,
+          "pedal_steel_neck_config": 16.488,
           "pedal_steel_strings": 13.0965
         }
       },
@@ -172,7 +172,7 @@
         "scores": {
           "amp_make": 12.704999999999998,
           "body_wood": 0.0315,
-          "pickup_config": 0.1995,
+          "pickup_config": 0.168,
           "string_type": 0.39,
           "scale_length_b": 0.0945,
           "fretted_or_not": 0.39,

@@ -2,10 +2,10 @@
   "id": "pop_ambient",
   "name": "Pop ambient (Kompakt beat-free electronics)",
   "family": "electronic",
-  "lineage": "Wolfgang Voigt’s Kompakt Pop Ambient compilations began in 2001 and foreground instrumental beat-free electronic atmosphere. This reverses neither the existing vocal ambient-pop category nor its song form. Piano and sample-based harmonic abstraction are documented in the 2013 edition; synthesis, build settings and recording chain are representative authored choices.",
+  "lineage": "The largely beat-free electronic idiom associated with Wolfgang Voigt’s Kompakt Pop Ambient compilations, launched in 2001. It develops pop’s harmonic immediacy into extended instrumental atmospheres rather than conventional vocal song arrangements.",
   "recipe": "classic early-2000s pop ambient, experimental Elec, ambient branch. sustained sampler, pad like sustained analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
   "recipe_chars": 356,
-  "score": 66.702,
+  "score": 52.941,
   "config": {
     "traditions": [
       "pop_ambient"
@@ -21,7 +21,7 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 13.76625,
+          "electronic_technique": 9.124625,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.28175,
           "sampler_workflow": -0.07,
@@ -38,10 +38,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 13.76625,
+          "electronic_technique": 9.124625,
           "oscillator": 1.336,
-          "filter_topology": 0.39,
-          "envelope": 7.02,
+          "filter_topology": 0.103875,
+          "envelope": 4.55,
           "modulation": 0
         }
       },
@@ -50,7 +50,7 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -61,13 +61,13 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.32075,
-          "grand_piano_brand": 0.9612500000000002,
-          "piano_hammer": 8.732,
-          "piano_rim": 8.458749999999998,
-          "piano_soundboard": 8.2945,
+          "grand_piano_brand": 1.2730000000000001,
+          "piano_hammer": 7.91,
+          "piano_rim": 7.63675,
+          "piano_soundboard": 7.5445,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       }
     ],

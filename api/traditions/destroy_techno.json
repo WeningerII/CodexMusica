@@ -2,10 +2,10 @@
   "id": "destroy_techno",
   "name": "Destroy techno",
   "family": "electronic",
-  "lineage": "An Every Noise discovery label joining electro-, techno- and fidget-adjacent club artists rather than a literal instruction to maximize distortion. Siriusmo supplies the selected keyboard-and-sampler branch, supported by his own descriptions of synthesis, electric piano and sampled beat making.",
-  "recipe": "classic modern destroy techno, electronic Dance, techno branch, house electronic dance detroit house latin house. analog synth, sampler, pocket ostinato wurlitzer ep. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 370,
-  "score": 41.312,
+  "lineage": "Destroy techno is a discovery label connecting electro, techno and fidget-adjacent club repertoire. Its varied artists combine rhythmic experimentation, synthesis and sample-based production with playful melodic ideas.",
+  "recipe": "classic modern destroy techno, electronic Dance, techno branch, house electronic dance detroit house latin house. analog synth, sampler, wurlitzer ep. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 354,
+  "score": 37.422,
   "config": {
     "traditions": [
       "destroy_techno",
@@ -40,11 +40,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.0499999999999998,
+          "electronic_technique": 0.26,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 1,
-          "sampler_workflow": -0.15000000000000002,
-          "sampler_classic_context": 39.81249999999999
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 0.15000000000000002,
+          "sampler_classic_context": 38.512499999999996
         }
       },
       {
@@ -57,7 +57,7 @@
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "keyboard_technique": 3.275,
+          "keyboard_technique": 2.9749999999999996,
           "wurlitzer_use": 0.15,
           "wurlitzer_ep_voice": 0,
           "wurlitzer_model": -1.9,

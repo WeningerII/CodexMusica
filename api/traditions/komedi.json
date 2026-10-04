@@ -2,10 +2,10 @@
   "id": "komedi",
   "name": "Komedi",
   "family": "vernacular",
-  "lineage": "Henrik Mattisson — Återfallskingen documented stand-up format. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic komedi, spoken Word. no pitch organization speech, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 195,
-  "score": 2.372,
+  "lineage": "Swedish-language comedy — stand-up, sketches and comic performance.",
+  "recipe": "classic komedi, spoken Word. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 127,
+  "score": 1.125,
   "config": {
     "traditions": [
       "komedi"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.17,
+          "voice_speech_song": 0.4515,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.78,
+          "voice_multitrack_stack": 0.252,
           "voice_tessitura": 0
         }
       }
@@ -84,13 +84,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",

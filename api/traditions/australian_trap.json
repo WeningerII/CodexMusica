@@ -5,7 +5,7 @@
   "lineage": "Australian trap and grime crossover; selected Tkay Maidza / Bok Bok branch",
   "recipe": "classic modern australian trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. melodic pitched sampler, low sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 304,
-  "score": 37.725,
+  "score": 37.867,
   "config": {
     "traditions": [
       "australian_trap"
@@ -37,7 +37,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.08549999999999999,
+          "voice_articulation": 0.27075,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -60,7 +60,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.2855000000000003,
+          "electronic_technique": 2.32825,
           "sampler_archetypes": 0.909,
           "sampler_bit_depth": 0.78,
           "sampler_workflow": 2.29275,
@@ -75,7 +75,7 @@
           "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 10.517999999999999,
+          "electronic_technique": 10.4325,
           "va_archetypes": 0,
           "digital_subtractive_context": 0.8865000000000001
         }

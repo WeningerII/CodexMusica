@@ -5,7 +5,7 @@
   "lineage": "Danish folk includes inherited dance tunes and contemporary roots ensembles. Trio Mio’s documented Scandinavian practice supplies this selected modern branch: fiddle, piano and guitar working between composed tunes and improvisation.",
   "recipe": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 384,
-  "score": 28.7,
+  "score": 28.323,
   "config": {
     "traditions": [
       "danish_folk"
@@ -22,11 +22,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.3315,
-          "fiddle_strings": 1.1365,
-          "fiddle_bow": 2.6995,
-          "fiddle_mute": 1.0290000000000001,
-          "fiddle_articulation": 0,
+          "bowed_technique": 0.39,
+          "fiddle_strings": 1.063,
+          "fiddle_bow": 2.5945,
+          "fiddle_mute": 0.8925000000000001,
+          "fiddle_articulation": 0.102,
           "fiddle_string_configuration": 0
         }
       },
@@ -45,14 +45,14 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 1.3315000000000001,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 1.4615,
           "piano_hammer": 2.765,
-          "piano_rim": 2.876,
+          "piano_rim": 2.8445,
           "piano_soundboard": 3.185,
           "piano_pinblock": 3.185,
-          "piano_plate": 2.6180000000000003,
-          "piano_pitch_standard": 3.604
+          "piano_plate": 2.5445,
+          "piano_pitch_standard": 3.4930000000000003
         }
       },
       {
@@ -67,9 +67,9 @@
         "scores": {
           "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 0.3315,
+          "top_wood": 0.3,
           "back_sides": 0,
-          "string_acoustic": 1.1365
+          "string_acoustic": 1.063
         }
       }
     ],

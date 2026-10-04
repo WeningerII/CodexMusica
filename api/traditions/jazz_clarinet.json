@@ -2,10 +2,10 @@
   "id": "jazz_clarinet",
   "name": "Jazz clarinet",
   "family": "jazz",
-  "lineage": "Clarinet-led jazz; selected clarinet/piano conversational duet",
-  "recipe": "classic modern jazz clarinet, improv On Frame, American jazz branch. clarinet, a 440 modern pitch us standard grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 267,
-  "score": 4.143,
+  "lineage": "Jazz clarinet developed through early ensemble jazz, swing and later improvising practices. Its flexible register, articulated attack and sustained tone support both melodic leadership and conversational small-group playing.",
+  "recipe": "classic modern jazz clarinet, improv On Frame, American jazz branch. clarinet, grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 236,
+  "score": 1.613,
   "config": {
     "traditions": [
       "jazz_clarinet"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "clarinet_body": 0.19500000000000003,
+          "clarinet_body": -0.10500000000000001,
           "clarinet_size": 0,
           "clarinet_reed": 0.1785,
           "clarinet_articulation": 0.8995
@@ -44,13 +44,13 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.168,
+          "grand_piano_brand": 0.348,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 2.275
+          "piano_pitch_standard": -0.035
         }
       }
     ],

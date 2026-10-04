@@ -2,10 +2,10 @@
   "id": "belarusian_pop",
   "name": "Belarusian pop",
   "family": "pop",
-  "lineage": "Belarusian pop is represented here by Hair Peace Salon — Gentleman. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Belarusian pop brings local popular songwriting together with guitar-based, electronic and other melodic styles.",
   "recipe": "classic belarusian pop, functional Song, europop branch. duet, live take. basswood humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 279,
-  "score": 20.673,
+  "score": 18.492,
   "config": {
     "traditions": [
       "belarusian_pop"
@@ -15,54 +15,54 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.15000000000000002,
-          "amp_make": 1.255,
+          "amp_make": 1.17,
           "body_wood": 1.0605000000000002,
           "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0.2415,
           "pickup_winding": 0.2415,
           "string_material": 0,
-          "bridge": 1.3315000000000001,
+          "bridge": 0.273,
           "scale_length": 0.8505,
-          "string_gauge": 1.3315000000000001,
+          "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.325,
+          "amp_make": 1.17,
           "body_wood": 0.546,
           "pickup_config": 0.2415,
           "string_type": 0.273,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 9.055,
+          "drumhead": 8.305,
           "drum_kit_kick_pedal": 0
         }
       },

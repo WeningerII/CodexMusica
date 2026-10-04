@@ -2,10 +2,10 @@
   "id": "triangle_indie",
   "name": "Triangle Indie",
   "family": "pop_rock",
-  "lineage": "RAVARY — Almanac (2024), complete four-song EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2020s triangle indie, functional Song, pop rock branch. clean strummed humbucker electric guitar, electric bass, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 396,
-  "score": 30.825,
+  "lineage": "Independent rock and pop associated with North Carolina’s Triangle region, including Raleigh, Durham and Chapel Hill. Local artists connect guitar-band traditions with keyboards and electronic production.",
+  "recipe": "classic triangle indie, functional Song, pop rock branch. clean strummed humbucker electric guitar, electric bass, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, analog poly synth. live tracking.",
+  "recipe_chars": 302,
+  "score": 44.692,
   "config": {
     "traditions": [
       "triangle_indie"
@@ -57,8 +57,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.6075,
+          "electric_technique": 7.107499999999999,
           "amp_make": 0,
-          "body_wood": 0.2415,
-          "neck_wood": 0.2415,
+          "body_wood": 0.063,
+          "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0.0315,
           "scale_length": 0.378,
-          "string_gauge": 1.4995,
+          "string_gauge": 0.8995,
           "finish": 0,
           "string_tuning": 0
         }
@@ -89,8 +89,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,8 +99,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.2415,
-          "pickup_config": 0,
+          "body_wood": 0.063,
+          "pickup_config": 0.3045,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -135,16 +135,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4.5315,
+          "drum_technique": 7.031499999999999,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.168,
           "snare_wires": 0,
-          "cymbal_alloy": 0.13000000000000003,
-          "cymbal_hammering": 9.212499999999999,
-          "cymbal_lathing": 9.139,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 14.212499999999997,
+          "cymbal_lathing": 14.138999999999998,
           "cymbal_finish": 0
         }
       },
@@ -245,15 +245,15 @@
         "poly_maker_lineage"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -262,7 +262,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -283,8 +283,8 @@
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -294,7 +294,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -319,12 +319,6 @@
       "poly_voices": "poly_5_voice",
       "poly_maker_lineage": "poly_sequential_smith"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "post_disco_soul",
   "name": "Post-disco soul",
   "family": "pop",
-  "lineage": "Post-disco soul is represented here by D Train — You’re the One for Me synth-bass and lead-voice core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic post-disco soul, functional Song, soul R&B branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 254,
-  "score": 5.703,
+  "lineage": "Post-disco soul connects expressive R&B singing with the electronic dance production that followed disco’s commercial peak. Early-1980s acts such as D Train helped bring synthesizer-led grooves into this crossover.",
+  "recipe": "classic 1980-1983 post-disco soul, functional Song, soul R&B branch. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 247,
+  "score": 2.651,
   "config": {
     "traditions": [
       "post_disco_soul"
@@ -16,14 +16,29 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 1.885,
+          "electronic_technique": 0.19500000000000003,
           "poly_archetypes": 0,
-          "poly_voices": 0.504,
-          "poly_maker_lineage": 0.325
+          "poly_voices": 0.168,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0.273,
+          "hat_voice": 0.273,
+          "shuffle_quantize": -0.05
         }
       },
       {
@@ -62,14 +77,22 @@
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.552
+          "voice_multitrack_stack": 0.39
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
         "electronic_technique",
-        "poly_archetypes"
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ],
       "voice": [
         "voice_register",
@@ -126,7 +149,13 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electronic_technique": "electronic_bass_sub",
-      "poly_archetypes": "prophet_5"
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

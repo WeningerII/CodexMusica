@@ -2,10 +2,10 @@
   "id": "baroque_brass",
   "name": "Baroque brass",
   "family": "classical",
-  "lineage": "Baroque brass: Seattle Trumpet Consort — documented natural-trumpet and timpani ensemble core. A documented branch is realized as an authored current studio arrangement.",
+  "lineage": "Baroque brass practice uses historical brass instruments and period-informed performance approaches in ceremonial, concert and ensemble repertoire. Natural-trumpet consorts form one prominent strand.",
   "recipe": "classic baroque brass, art Music, western common practice branch. valveless trumpet Baroque natural trumpet, timpani. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 219,
-  "score": 6.621,
+  "score": 4.686,
   "config": {
     "traditions": [
       "baroque_brass"
@@ -18,7 +18,7 @@
           "natural_trumpet_register": "natural_trumpet_clarino_high"
         },
         "scores": {
-          "natural_trumpet_type": 4.7364999999999995,
+          "natural_trumpet_type": 3.4364999999999997,
           "natural_trumpet_register": 0
         }
       },
@@ -32,7 +32,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "timpani_size": 1.3,
-          "timpani_head": 0.6347142857142857
+          "timpani_head": 0
         }
       }
     ],
@@ -55,13 +55,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "live_room",
     "parts": {
       "natural_trumpet_type": "natural_trumpet_baroque",

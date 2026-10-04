@@ -2,10 +2,10 @@
   "id": "classical_harp",
   "name": "Classical harp",
   "family": "classical",
-  "lineage": "Classical harp is represented by Susan Drake — Caprices and Fantasies. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic classical harp, art Music, western common practice branch. concert harp. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 181,
-  "score": 8.58,
+  "lineage": "Classical harp performance encompasses solo, chamber and orchestral repertoire for the concert harp. Pedal mechanisms support chromatic changes within an instrument capable of both melodic lines and resonant accompaniment.",
+  "recipe": "classic classical harp, art Music. concert harp. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 149,
+  "score": 10.4,
   "config": {
     "traditions": [
       "classical_harp"
@@ -18,8 +18,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 4.29,
-          "harp_pedals": 4.29
+          "harp_strings": 5.2,
+          "harp_pedals": 5.2
         }
       }
     ],

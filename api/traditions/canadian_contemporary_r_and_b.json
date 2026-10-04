@@ -5,7 +5,7 @@
   "lineage": "Canadian contemporary R&B is a Canadian recording and performance scene, represented here by Daniel Caesar’s Toronto-linked song practice. The selected 2018 Tiny Desk set is directly documented by NPR: foreground singing and rich supporting vocal harmony over piano, bass and drums, including the H.E.R. duet Best Part. The authored recording model follows those live roles while making no claim that all Canadian R&B uses acoustic piano or a live rhythm section.",
   "recipe": "classic late-2010s canadian contemporary r&b, functional Song, soul R&B branch. one note per syllable, group vocals, no specific ornament system, unprocessed natural acoustic. upright piano, alder fingerstyle locked electric bass, sticks pocket drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 458,
-  "score": 22.367,
+  "score": 21.92,
   "config": {
     "traditions": [
       "canadian_contemporary_r_and_b"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.5205,
-          "voice_ensemble_config": 3.1394999999999995,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 2.94825,
           "voice_ornament_system": 1.4365,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 2.9704999999999995
+          "voice_multitrack_stack": 2.7792499999999998
         }
       },
       {
@@ -95,7 +95,7 @@
         },
         "scores": {
           "drum_technique": 3.7,
-          "drumhead": 0.23399999999999999,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }
       }

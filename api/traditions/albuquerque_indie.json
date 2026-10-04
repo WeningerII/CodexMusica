@@ -2,10 +2,10 @@
   "id": "albuquerque_indie",
   "name": "Albuquerque indie",
   "family": "vernacular",
-  "lineage": "The Ordinary Things — IV. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic albuquerque indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, analog poly synth, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 409,
-  "score": 23.085,
+  "lineage": "Albuquerque indie encompasses local independent bands and recording activity. The Ordinary Things represents a guitar-centred strand whose songwriting combines everyday observations with a wider instrumental palette.",
+  "recipe": "classic albuquerque indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth, bach stradivarius 180 canonical American orchestral trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 373,
+  "score": 17.021,
   "config": {
     "traditions": [
       "albuquerque_indie"
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.39,
           "neck_wood": 0.5775,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -124,16 +124,16 @@
           "cymbal_finish": "hand_hammered"
         },
         "scores": {
-          "drum_technique": 4.5,
+          "drum_technique": 3.75,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 1.0999999999999999,
-          "cymbal_hammering": 4.431500000000001,
-          "cymbal_lathing": 4.5365,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 3.6815,
+          "cymbal_lathing": 3.7865,
           "cymbal_finish": 0.27299999999999996
         }
       },
@@ -169,7 +169,7 @@
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0,
           "trumpet_technique": -0.035,
-          "trumpet_bell_metal": 1.2285,
+          "trumpet_bell_metal": 0.39,
           "trumpet_maker_school": 2.1525
         }
       }

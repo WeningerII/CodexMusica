@@ -2,10 +2,10 @@
   "id": "nz_christian",
   "name": "NZ Christian",
   "family": "rock",
-  "lineage": "Thousandfold — complete published nine-person ensemble practice. Muzic.NZ publishes nine named members and six singers: Tania Anderson voice/guitar; Adrian Barnett drums/percussion; Bridget Barnett voice/keyboards; Shane Bennett bass; Paulette Collins and Jordan Heath voices; Teina Nimmo voice/bass; Rob Lorimer lead guitar; Moea Nimmo voice/guitar. All six sound families remain. This published lineup is not asserted to be every performer on the separately listed 2010 album. New Zealand Christian music is a regional faith-oriented artist and production network overlapping global CCM and Christian rock, not an assertion those umbrellas exclude New Zealand. This published profile positively identifies NZ Christian artist development by T Songs International and Cricklewood Productions NZ, with rock and soulful worship practice. The country-specific devotional field also crosscuts secular nz_pop and nz_indie. No unique sonic grammar or exact EveryNoise membership is asserted. Complete published band lineup rendered as an authored live-group ensemble; six is the count of positively named human vocalists, not a measured simultaneous harmony or track count. Neutral source-unspecified vocal physiology retained. Generic credited guitars realized as clean-strummed alder/maple humbucker instruments, bass as dual-single-coil fingerstyle, kit as maple stick-played drums with traditionally finished machine-hammered B20 cymbals. These compatible materials and gestures are authored choices, not source gear observations. Bare keyboards and percussion retain neutral existing owners without invented synthesizer architecture or percussion subtype. Controlled live-room rendition, no global tuning or recording apparatus. Christian gospel parent reflects explicitly documented worship purpose, without assigning a denomination.",
-  "recipe": "classic early-2010s nz christian, ritual Devotional, christian gospel branch. group vocals, live take. alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. live tracking.",
-  "recipe_chars": 373,
-  "score": 60.066,
+  "lineage": "NZ Christian connects Christian artists, recording networks and worship communities in New Zealand. Contemporary bands and songwriters overlap international Christian pop and rock while developing local ministry and performance relationships.",
+  "recipe": "classic nz christian, ritual Devotional, christian gospel branch. humbucker electric guitar, electric bass, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 276,
+  "score": 24.05,
   "config": {
     "traditions": [
       "nz_christian"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.336499999999999,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 4.8999999999999995,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,10 +70,10 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.5000000000000004,
+          "electric_technique": 2.45,
           "amp_make": 0,
-          "body_wood": 1.3,
-          "neck_wood": 2.5999999999999996,
+          "body_wood": 0,
+          "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.3,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.4095
+          "keyboard_technique": 0.39
         }
       },
       {
@@ -135,16 +135,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 9,
-          "drumhead": 1.3,
+          "drum_technique": 5,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 6.5,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.40950000000000003,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 11.499999999999996,
-          "cymbal_lathing": 8.899999999999999,
+          "cymbal_hammering": 7.45,
+          "cymbal_lathing": 7.45,
           "cymbal_finish": 0
         }
       },

@@ -2,10 +2,10 @@
   "id": "cook_islands_pop",
   "name": "Cook Islands pop",
   "family": "pop",
-  "lineage": "Alexeyeff — observed Rarotonga household island-music gatherings, late1990s. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic cook islands pop, functional Song. one note per syllable, group vocals. ukulele, found household percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 215,
-  "score": 6.59,
+  "lineage": "Cook Islands pop, often described locally as island music, circulates through community gatherings, recordings and diaspora audiences. Popular song connects shared musical memory with new compositions and contemporary performance.",
+  "recipe": "classic cook islands pop, functional Song. ukulele, found household percussion. live tracking.",
+  "recipe_chars": 94,
+  "score": 2.067,
   "config": {
     "traditions": [
       "cook_islands_pop"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 1.17,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -60,9 +60,9 @@
           "ukulele_wood": "ukulele_mahogany"
         },
         "scores": {
-          "ukulele_size": 0.7,
-          "ukulele_style": 2.95,
-          "ukulele_wood": 0.3
+          "ukulele_size": -0.1,
+          "ukulele_style": 1.25,
+          "ukulele_wood": 0
         }
       },
       {
@@ -104,22 +104,22 @@
         "found_household_percussion_objects"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -131,7 +131,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_neumatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -143,12 +143,6 @@
       "ukulele_wood": "ukulele_mahogany",
       "found_household_percussion_objects": "found_household_percussion_bottle_spoon_bowl_spatula"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

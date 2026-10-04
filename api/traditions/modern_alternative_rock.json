@@ -2,10 +2,10 @@
   "id": "modern_alternative_rock",
   "name": "Modern alternative rock",
   "family": "rock",
-  "lineage": "Modern alternative rock is represented here by Gooseberry — Simple Sucker. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic modern alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood alnico humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 450,
-  "score": 70.768,
+  "lineage": "Modern alternative rock combines contemporary songwriting with riff-led and texture-conscious electric-band playing.",
+  "recipe": "classic modern alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood alnico humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 412,
+  "score": 63.887,
   "config": {
     "traditions": [
       "modern_alternative_rock"
@@ -22,26 +22,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.26,
-          "amp_make": 6.11,
-          "body_wood": 2.9899999999999998,
+          "electric_technique": 1.2945,
+          "amp_make": 5.720000000000001,
+          "body_wood": 2.6,
           "neck_wood": 0.5775,
           "fretboard": 0.21000000000000002,
-          "pickup_magnet": 2.4364999999999997,
-          "pickup_winding": 2.4364999999999997,
+          "pickup_magnet": 2.1365,
+          "pickup_winding": 2.1365,
           "string_material": 0.105,
-          "bridge": 1.573,
-          "scale_length": 2.9899999999999998,
-          "string_gauge": 1.573,
+          "bridge": 0.5775,
+          "scale_length": 2.6,
+          "string_gauge": 0.5775,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -57,11 +57,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
+          "amp_make": 6.175,
           "body_wood": 1.1550000000000002,
-          "pickup_config": 2.7095,
-          "string_type": 15.6,
-          "scale_length_b": 2.573,
+          "pickup_config": 2.4095,
+          "string_type": 14.625,
+          "scale_length_b": 2.273,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 6.1594999999999995,
+          "drum_technique": 11.25,
+          "drumhead": 5.4094999999999995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.78
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

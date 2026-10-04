@@ -2,10 +2,10 @@
   "id": "experimental_techno",
   "name": "Experimental techno",
   "family": "electronic",
-  "lineage": "Techno experimentation that reworks machine rhythm, sound-source behavior and formal expectations. Pan Sonic and Mika Vainio supply one documented hardware-focused branch; the label is broader than this Finnish lineage.",
-  "recipe": "classic mid-1980s experimental techno, electronic Dance, techno branch. sampler, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
-  "recipe_chars": 278,
-  "score": 9.611,
+  "lineage": "Experimental techno reworks machine rhythm, electronic sound sources and the formal expectations of dance music. Hardware experimentation, sampling and noise-oriented production connect club structures with exploratory listening practices.",
+  "recipe": "classic mid-1980s experimental techno, electronic Dance, techno branch. glitched textural sampler, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
+  "recipe_chars": 296,
+  "score": 19.242,
   "config": {
     "traditions": [
       "experimental_techno"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 2.45,
+          "electronic_technique": 4.95,
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 2.45,
-          "sampler_classic_context": 3.2
+          "sampler_workflow": 4.95,
+          "sampler_classic_context": 7.45
         }
       },
       {
@@ -40,8 +40,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "oscillator": 0,
-          "filter_topology": 0.1397142857142857,
-          "envelope": 0.2415,
+          "filter_topology": 0.105,
+          "envelope": 0.3572142857142857,
           "modulation": 0
         }
       }

@@ -2,10 +2,10 @@
   "id": "classical_saxophone",
   "name": "Classical saxophone",
   "family": "classical",
-  "lineage": "Classical saxophone is represented by Claude and Odile Delangle — Croquembouches on À la française. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic classical saxophone, art Music, western modern branch. yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 348,
-  "score": 111.571,
+  "lineage": "Classical saxophone performance includes original concert works, chamber music and contemporary composition. Recital and ensemble traditions explore the instrument’s sustained tone, articulation and contrasting registers.",
+  "recipe": "classic classical saxophone, art Music, western modern branch. yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 362,
+  "score": 107.809,
   "config": {
     "traditions": [
       "classical_saxophone"
@@ -18,18 +18,18 @@
           "sax_size": "alto_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "metal_mp",
+          "sax_mouthpiece": "ebonite_vintage",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
           "wind_articulation": 7.45,
-          "sax_size": 0.325,
+          "sax_size": 0.7149999999999999,
           "sax_reed": 0.5775,
-          "sax_body_alloy": 14.076,
-          "sax_mouthpiece": 0.168,
+          "sax_body_alloy": 13.272,
+          "sax_mouthpiece": 0.23399999999999999,
           "sax_technique": -0.05,
-          "sax_maker_school": 2.34
+          "sax_maker_school": 1.95
         }
       },
       {
@@ -37,9 +37,9 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_blue_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
@@ -47,14 +47,14 @@
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.507,
-          "grand_piano_brand": 0.9555,
-          "piano_hammer": 14.181000000000001,
-          "piano_rim": 13.36,
-          "piano_soundboard": 12,
-          "piano_pinblock": 12,
-          "piano_plate": 13.908,
-          "piano_pitch_standard": 12.273
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 14.2195,
+          "piano_rim": 11.5545,
+          "piano_soundboard": 11.25,
+          "piano_pinblock": 11.25,
+          "piano_plate": 13.05,
+          "piano_pitch_standard": 12.237
         }
       }
     ],

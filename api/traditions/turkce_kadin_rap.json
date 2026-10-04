@@ -2,10 +2,10 @@
   "id": "turkce_kadin_rap",
   "name": "Turkce kadin rap",
   "family": "hip_hop",
-  "lineage": "Women-led Turkish-language rap represented by Ayben’s Istanbul recording and performance practice.",
-  "recipe": "classic modern turkce kadin rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 296,
-  "score": 34.518,
+  "lineage": "Women-led Turkish-language rap includes MCs whose work addresses personal and social experience within Turkey’s wider hip-hop scene.",
+  "recipe": "classic modern turkce kadin rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 350,
+  "score": 38.98,
   "config": {
     "traditions": [
       "turkce_kadin_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 13.714999999999998,
+          "voice_quality": 13.715,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.214999999999998,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 13.269,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.78
+          "voice_multitrack_stack": 0.522
         }
       },
       {
@@ -59,9 +59,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
-          "sample_swing": 3.9,
+          "electronic_technique": 3.7,
+          "sample_bitdepth": 0.213,
+          "sample_swing": 6.5,
           "sample_processing": 0.105
         }
       }

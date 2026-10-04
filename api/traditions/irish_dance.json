@@ -2,10 +2,10 @@
   "id": "irish_dance",
   "name": "Irish dance",
   "family": "vernacular",
-  "lineage": "Irish dance is represented by Lúnasa — contemporary instrumental dance-tune core. One documented branch receives an authored present-day studio realization.",
-  "recipe": "classic irish dance, improv On Frame, Celtic traditional branch. silver wound lamb gut core fiddle, breathy dance driving irish wooden flute, full band boxwood pre 1900 historical Irish cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, dreadnought acoustic guitar, upright bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 463,
-  "score": 43.824,
+  "lineage": "Irish dance music is rooted in social dancing and the transmission of tunes such as reels and jigs. Instrumental groups continue to develop this repertoire in sessions, concerts and recordings.",
+  "recipe": "classic irish dance, improv On Frame, Celtic traditional branch. fiddle, ornamented breathy dance driving irish wooden flute, full band boxwood pre 1900 historical Irish cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, dreadnought acoustic guitar, upright bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 447,
+  "score": 39.233,
   "config": {
     "traditions": [
       "irish_dance"
@@ -15,18 +15,18 @@
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_celtic_session",
-          "fiddle_strings": "silver_wound_lamb_gut_fiddle",
+          "fiddle_strings": "synthetic_core",
           "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "no_mute",
-          "fiddle_articulation": "sul_pont",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 3.7315,
-          "fiddle_strings": 1.055,
+          "bowed_technique": 4.0315,
+          "fiddle_strings": 0.0705,
           "fiddle_bow": 0.105,
-          "fiddle_mute": 1.105,
-          "fiddle_articulation": 0.378,
+          "fiddle_mute": 0.14024999999999999,
+          "fiddle_articulation": 0.39,
           "fiddle_string_configuration": 0
         }
       },
@@ -41,7 +41,7 @@
         "scores": {
           "irish_wooden_flute_pattern": 4.95,
           "irish_wooden_flute_keys": 1.885,
-          "irish_wooden_flute_idiom": 10.104999999999999,
+          "irish_wooden_flute_idiom": 7.734999999999999,
           "irish_wooden_flute_material": -0.05
         }
       },
@@ -57,8 +57,8 @@
           "uilleann_lineage": "uilleann_taylor_egan"
         },
         "scores": {
-          "wind_articulation": 3.805,
-          "uilleann_set": 2.9899999999999998,
+          "wind_articulation": 4.105,
+          "uilleann_set": 2.6,
           "uilleann_pipes_pitch": 1.95,
           "uilleann_chanter_wood": 2.6,
           "uilleann_reed": 2.6,
@@ -86,12 +86,12 @@
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "synthetic_upright",
-          "upright_play": "slap_upright"
+          "upright_strings": "gut_upright",
+          "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.03525,
-          "upright_play": 0.4095
+          "upright_strings": 0,
+          "upright_play": -0.05
         }
       }
     ],
@@ -102,6 +102,10 @@
       "acoustic_guitar_dread": [
         "acoustic_technique",
         "string_tuning"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
       ]
     },
     "room": "treated_studio",
@@ -125,7 +129,9 @@
     "parts": {
       "acoustic_technique": "acoustic_strummed_ringing",
       "string_tuning": "standard_tuning",
-      "bowed_technique": "bowed_celtic_session"
+      "bowed_technique": "bowed_celtic_session",
+      "upright_play": "pizz_upright",
+      "upright_strings": "gut_upright"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

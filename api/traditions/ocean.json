@@ -5,7 +5,7 @@
   "lineage": "Mindful Audio — Dunbar wave field recording (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s ocean, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 183,
-  "score": 14.331,
+  "score": 14.446,
   "config": {
     "traditions": [
       "ocean"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 6.204833333333334,
+          "electronic_technique": 6.239145833333334,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.4175,
-          "sampler_workflow": 6.5311875,
-          "sampler_classic_context": 1.2128333333333334
+          "sampler_workflow": 6.496875,
+          "sampler_classic_context": 1.3272083333333333
         }
       }
     ],

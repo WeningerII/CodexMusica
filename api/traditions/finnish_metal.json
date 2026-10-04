@@ -5,7 +5,7 @@
   "lineage": "Finnish metal is a broad geographic field. This selected Amorphis Circle-era piano-centered branch combines electric guitar, five-string electric bass, acoustic drums and voice with grand piano. The musicians distinguish simple melodic writing from merely displaying virtuosity. The recipe is an authored electric-band/piano arrangement, not a claim that one ensemble or the band’s folk influences define all Finnish metal.",
   "recipe": "classic modern finnish metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. humbucker electric guitar, five string electric bass electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 522,
-  "score": 53.01,
+  "score": 47.817,
   "config": {
     "traditions": [
       "finnish_metal"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6315000000000001,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.222,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.5775,
+          "bridge": 0.6315000000000001,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.7649999999999998
+          "string_tuning": 0.063
         }
       },
       {
@@ -58,13 +58,13 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6315000000000001,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.8699999999999999,
-          "fretted_or_not": 0.7019999999999998,
-          "bass_technique": 3.7,
-          "electric_bass_string_configuration": 10.14
+          "scale_length_b": 0.222,
+          "fretted_or_not": 0,
+          "bass_technique": 3.862,
+          "electric_bass_string_configuration": 9.237
         }
       },
       {
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.6315000000000001,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.42,
-          "shell_thickness": 0.7019999999999998,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.7225,
+          "cymbal_lathing": 4.0205,
           "cymbal_finish": 0
         }
       },
@@ -130,9 +130,9 @@
           "voice_speech_song": 1.69,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
+          "voice_pitch_organization": 0.5684999999999999,
           "voice_processing_chain": -0.07,
-          "voice_multitrack_stack": 1.8479999999999999
+          "voice_multitrack_stack": 0.7319999999999999
         }
       },
       {
@@ -149,9 +149,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": -0.07,
           "grand_piano_size": 0.1365,
-          "grand_piano_brand": 1.041,
+          "grand_piano_brand": 0.8069999999999999,
           "piano_hammer": 1.8199999999999998,
           "piano_rim": 3.5100000000000002,
           "piano_soundboard": -0.07,

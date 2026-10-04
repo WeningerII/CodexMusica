@@ -2,10 +2,10 @@
   "id": "serbian_electronic",
   "name": "Serbian electronic",
   "family": "pop",
-  "lineage": "Serbian electronic is represented by Barkod — Prototype electronic-vocal core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic serbian electronic, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 279,
-  "score": 12.482,
+  "lineage": "Serbian electronic music includes synthesizer-led songwriting as well as instrumental and club-oriented production. Independent projects connect local voices with a wider electronic-pop vocabulary.",
+  "recipe": "classic serbian electronic, functional Song. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 223,
+  "score": 5.3,
   "config": {
     "traditions": [
       "serbian_electronic"
@@ -15,30 +15,30 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.168,
-          "poly_maker_lineage": -0.035
+          "electronic_technique": -0.05,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "drum_machine_analog",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0.1365,
-          "sample_swing": 8.2815,
-          "sample_processing": 0
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 2.5
         }
       },
       {
@@ -73,22 +73,26 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 0.21,
+          "voice_ensemble_config": 2.846,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.1265
+          "voice_multitrack_stack": 0.054
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
-      "sampler_drum_machine": [
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ],
       "voice": [
         "voice_register",
@@ -145,9 +149,13 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electronic_technique": "electronic_arpeggiated",
-      "sample_bitdepth": "twenty_four_bit",
-      "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

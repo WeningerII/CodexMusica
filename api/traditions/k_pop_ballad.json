@@ -2,10 +2,10 @@
   "id": "k_pop_ballad",
   "name": "K-pop ballad",
   "family": "pop",
-  "lineage": "K-pop ballad is represented here by 10cm — October Rain acoustic trio. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic k-pop ballad, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, hard rock maple cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 314,
-  "score": 19.717,
+  "lineage": "K-pop ballads foreground expressive melody and vocal phrasing within Korean popular music. Intimate acoustic songs coexist with piano-led, band-based and orchestral arrangements.",
+  "recipe": "classic k-pop ballad, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 281,
+  "score": 11.242,
   "config": {
     "traditions": [
       "k_pop_ballad"
@@ -16,41 +16,41 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "top_wood": "engelmann",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "monel"
         },
         "scores": {
-          "acoustic_technique": 13.036,
+          "acoustic_technique": 7.45,
           "string_tuning": 0,
-          "top_wood": 0.2415,
-          "back_sides": 0.063,
-          "string_acoustic": 0.3045
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.354
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "silver_wound_lamb_gut_cello",
-          "cello_top_wood": "carpathian_spruce_cello",
-          "cello_back_wood": "hard_rock_maple_cello_back",
-          "cello_varnish": "cremonese_post_1740_varnish_cello",
+          "cello_strings": "cello_steel",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "brazilwood_stick_cello"
+          "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "cello_strings": 0.325,
-          "cello_top_wood": -0.035,
-          "cello_back_wood": 1.885,
-          "cello_varnish": -0.035,
+          "bowed_technique": 0.304,
+          "cello_strings": 0,
+          "cello_top_wood": -0.1,
+          "cello_back_wood": -0.1,
+          "cello_varnish": -0.1,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.23399999999999999,
-          "cello_rosin": 0.5315,
-          "cello_bow_stick": -0.05
+          "cello_bow_grip": 0.4635,
+          "cello_rosin": 0.2,
+          "cello_bow_stick": -0.15000000000000002
         }
       },
       {
@@ -85,11 +85,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0.3315,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0
         }
       }
     ],
@@ -97,6 +97,17 @@
       "acoustic_guitar_dread": [
         "acoustic_technique",
         "string_tuning"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
       ],
       "voice": [
         "voice_register",
@@ -153,7 +164,16 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "acoustic_technique": "acoustic_strummed_ringing",
-      "string_tuning": "standard_tuning"
+      "string_tuning": "standard_tuning",
+      "bowed_technique": "bowed_legato_classical",
+      "cello_strings": "cello_steel",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "european_maple_cello_back",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

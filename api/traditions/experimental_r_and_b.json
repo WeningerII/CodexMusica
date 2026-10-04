@@ -2,10 +2,10 @@
   "id": "experimental_r_and_b",
   "name": "Experimental r&b",
   "family": "blues_gospel",
-  "lineage": "Experimental r&b is represented by C.J. Robertson & 2nd Son — Grey Matter (2021). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-  "recipe": "classic early-2020s experimental r&b, functional Song, soul R&B branch. solo with instrumental accompaniment. field textural sampler, drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 458,
-  "score": 51.791,
+  "lineage": "Experimental R&B develops the expressive singing and songcraft of rhythm and blues through unconventional production, electronic textures and hybrid ensemble writing. Independent collaborations connect soul phrasing with sampling, live-band interplay and exploratory studio work.",
+  "recipe": "classic experimental r&b, functional Song, soul R&B branch. solo with instrumental accompaniment. field textural sampler, drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany maple humbucker electric guitar, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 461,
+  "score": 74.929,
   "config": {
     "traditions": [
       "experimental_r_and_b"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.356,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.43199999999999994,
+          "voice_multitrack_stack": 0.252,
           "voice_tessitura": 0
         }
       },
@@ -56,29 +56,29 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_industrial"
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 5.699999999999999,
-          "sampler_archetypes": 1.9425,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 6.1725,
-          "sampler_classic_context": 5.6499999999999995
+          "electronic_technique": 4.95,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 0.63,
+          "sampler_workflow": 6.0225,
+          "sampler_classic_context": 7.93
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.7629999999999999,
+          "drumhead": 0.4095,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -89,19 +89,19 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.6770000000000005,
+          "amp_make": 8.661,
           "body_wood": 0.6720000000000002,
-          "pickup_config": 0.39,
-          "string_type": 5.2,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.08549999999999999,
-          "bass_technique": 3.65,
+          "pickup_config": 0.45149999999999996,
+          "string_type": 8.06,
+          "scale_length_b": 0.33599999999999997,
+          "fretted_or_not": 1.2115,
+          "bass_technique": 6.15,
           "electric_bass_string_configuration": 0
         }
       },
@@ -110,45 +110,45 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "korina",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": -0.1,
-          "amp_make": 4.033,
-          "body_wood": 0.504,
+          "electric_technique": 3.2,
+          "amp_make": 8.263,
+          "body_wood": 1.3,
           "neck_wood": 0.33599999999999997,
           "fretboard": 0.2415,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "pickup_magnet": 0.315,
+          "pickup_winding": 0.315,
           "string_material": 0.2415,
-          "bridge": 1.2535,
-          "scale_length": 0.6720000000000002,
-          "string_gauge": 1.2535,
+          "bridge": 0.33599999999999997,
+          "scale_length": 1.092,
+          "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 1.0080000000000002
+          "string_tuning": 1.3
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_lead_line",
           "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
+          "electronic_technique": 1.17,
           "va_archetypes": 0.168,
-          "digital_subtractive_context": 3.769999999999999
+          "digital_subtractive_context": 6.369999999999999
         }
       }
     ],

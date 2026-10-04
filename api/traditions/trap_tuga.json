@@ -2,10 +2,10 @@
   "id": "trap_tuga",
   "name": "Trap tuga",
   "family": "hip_hop",
-  "lineage": "Portuguese trap recording network represented by ProfJam’s collaborations with producer Lhast.",
+  "lineage": "Portuguese trap grew through close collaboration between rappers and beat producers within the country’s hip-hop scene.",
   "recipe": "classic modern trap tuga, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 281,
-  "score": 27.595,
+  "score": 27.386,
   "config": {
     "traditions": [
       "trap_tuga"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 6.825,
+          "voice_quality": 6.76,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 6.76,
-          "voice_ensemble_config": 0.0315,
+          "voice_speech_song": 6.695,
+          "voice_ensemble_config": 0.2115,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 8.465999999999998
+          "voice_multitrack_stack": 8.915999999999999
         }
       },
       {
@@ -58,22 +58,22 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.397,
-          "drum_machine_808_context": 0.40049999999999997,
-          "tr808_production_origin": 0.267
+          "tr808_voice": 4.197,
+          "drum_machine_808_context": 0.39,
+          "tr808_production_origin": 0.159
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "va_archetypes": "access_virus",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 0.254,
-          "va_archetypes": 0.1365,
-          "digital_subtractive_context": 1.95
+          "electronic_technique": -0.07,
+          "va_archetypes": 0.054,
+          "digital_subtractive_context": -0.035
         }
       }
     ],
@@ -102,7 +102,9 @@
         "tr808_production_origin"
       ],
       "digital_subtractive": [
-        "electronic_technique"
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
       ]
     },
     "room": "studio_auteur_home_pro",
@@ -143,7 +145,9 @@
       "tr808_voice": "tr808_kick_long",
       "drum_machine_808_context": "drum_machine_808_trap",
       "tr808_production_origin": "tr808_tr_8s_modern",
-      "electronic_technique": "electronic_pluck_short"
+      "electronic_technique": "electronic_pluck_short",
+      "va_archetypes": "nord_lead",
+      "digital_subtractive_context": "digital_subtractive_pop"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

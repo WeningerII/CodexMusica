@@ -2,10 +2,10 @@
   "id": "musica_mocambicana",
   "name": "Música moçambicana",
   "family": "vernacular",
-  "lineage": "Complete four-track Revoada EP,20October2022, artist-issued by RAIA: SALA MANO-Ê, NZARINA, KA MAPUTSO and KINANI NJINJIRITANI. Full credits retain RAIA/António Bexiga viola campaniça and backing vocals, Lenna Bahule lead vocals, Dércio Gomate electronics. Cristina Viana is live illustration/cover art, not a fourth sound-producing role. Three musical performers, two named singers, three sound families. The nine-song premiere concert and Bahule’s MCIKA are separate works and not silently reduced to this four-track EP. Electronics architecture is unspecified; no sampler or synthesizer assumed. Authored contemporary vocal-song rendition retaining full EP palette. FunctionalSong is editorial recurring verse/refrain and tonal-support organization compatible with the song ensemble, not a measured structural analysis of every source track. Two named singers modeled as a live duet, not measured source harmonies or overdubs. Exact voice physiology, pitch system and ornaments remain unspecified. Existing viola campaniça low-tuning option and sparse-droning cante-support preset are chosen as authored song accompaniment; this does not classify the collaborative repertoire as cante alentejano or assert measured tuning. Electronics remain architecture-unspecified with no fictitious device. Controlled live room is a new arrangement setting, not reconstruction of RAIA Studio; global tuning and capture apparatus omitted.",
-  "recipe": "classic música moçambicana, functional Song. duet, live take. viola campanica, credited electronics unspecified. live tracking.",
-  "recipe_chars": 127,
-  "score": 14.768,
+  "lineage": "Música moçambicana connects Mozambique’s traditional, popular and contemporary musical communities, including artists working across borders. Marrabenta, sung repertoire, electronic collaborations and rap contribute to a broad national and diaspora field.",
+  "recipe": "classic música moçambicana, functional Song. dreadnought acoustic guitar, credited electronics unspecified. live tracking.",
+  "recipe_chars": 122,
+  "score": 0.372,
   "config": {
     "traditions": [
       "musica_mocambicana"
@@ -44,23 +44,29 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.499999999999999,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 5.199999999999999,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "viola_campanica",
+        "id": "acoustic_guitar_dread",
         "slots": {
-          "campanica_tuning": "campanica_baixa",
-          "campanica_role": "campanica_cante"
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "rosewood_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "campanica_tuning": 0,
-          "campanica_role": 2.6
+          "acoustic_technique": -0.1,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.05,
+          "string_acoustic": 0.054
         }
       },
       {
@@ -93,9 +99,12 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "viola_campanica": [
-        "campanica_tuning",
-        "campanica_role"
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
       ],
       "credited_electronics_unspecified": [
         "credited_electronics_identity"
@@ -135,9 +144,12 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "campanica_tuning": "campanica_baixa",
-      "campanica_role": "campanica_cante",
-      "credited_electronics_identity": "credited_electronics_generator_unspecified"
+      "credited_electronics_identity": "credited_electronics_generator_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood": "engelmann",
+      "back_sides": "rosewood_bs",
+      "string_acoustic": "eighty_twenty"
     },
     "pin_parts": true
   }

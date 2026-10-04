@@ -2,10 +2,10 @@
   "id": "irish_metal",
   "name": "Irish metal",
   "family": "rock_punk",
-  "lineage": "Irish metal as a broad discovery category, represented by Primordial’s epic, black-metal-rooted electric ensemble. Exact defaults are an authored contemporary realization.",
-  "recipe": "classic modern irish metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 434,
-  "score": 62.195,
+  "lineage": "Irish metal spans several styles, including the epic, black-metal-rooted and folk-inflected music of Primordial.",
+  "recipe": "classic modern irish metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 457,
+  "score": 53.774,
   "config": {
     "traditions": [
       "irish_metal"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 1.112625,
+          "voice_speech_song": 0.609,
+          "voice_ensemble_config": 1.28925,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -58,38 +58,38 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 17.97775,
-          "amp_make": 6.825,
-          "body_wood": 7.02,
-          "neck_wood": 0.5775,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.249,
-          "pickup_winding": 0.33899999999999997,
+          "electric_technique": 15.80125,
+          "amp_make": 5.655000000000001,
+          "body_wood": 5.85,
+          "neck_wood": 0.39,
+          "fretboard": 0.168,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.12999999999999998,
           "string_material": 0.39,
-          "bridge": 0.5775,
-          "scale_length": 7.409999999999999,
-          "string_gauge": 0.7875,
-          "finish": 0.105,
-          "string_tuning": 0.39
+          "bridge": 0.2415,
+          "scale_length": 0,
+          "string_gauge": 0.5775,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "basswood_h",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.155,
+          "body_wood": 5.85,
           "pickup_config": 0.21,
           "string_type": 4.875,
-          "scale_length_b": 0.5775,
-          "fretted_or_not": 0.168,
-          "bass_technique": 3.7371250000000003,
+          "scale_length_b": 0.609,
+          "fretted_or_not": 0.1995,
+          "bass_technique": 3.7630000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.789,
+          "drum_technique": 3.75,
           "drumhead": 0.705,
           "drum_kit_kick_pedal": 0
         }
@@ -144,9 +144,21 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -184,7 +196,7 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
@@ -192,7 +204,18 @@
       "electric_technique": "electric_power_chord",
       "string_tuning": "d_standard",
       "bass_technique": "pick_aggressive",
-      "drum_technique": "sticks_rock"
+      "drum_technique": "sticks_rock",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_11_hum",
+      "amp_make": "amp_mesa_dual_rectifier"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

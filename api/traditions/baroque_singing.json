@@ -2,10 +2,10 @@
   "id": "baroque_singing",
   "name": "Baroque singing",
   "family": "classical",
-  "lineage": "Baroque singing: Andreas Scholl and Tamar Halperin — Purcell songs, RheinVokal Koblenz program (2014). A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic mid-2010s baroque singing, art Music, western common practice branch. countertenor developed head, tahrir tekye chain mechanism, opera quality low larynx anchored, recitative rhythmically free pitched speech. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 403,
-  "score": 52.673,
+  "lineage": "Baroque singing interprets early vocal repertoire through phrasing, text and ornament. Solo songs and arias sit alongside choral and theatrical works, with both historical and modern accompaniment practices.",
+  "recipe": "classic baroque singing, art Music, western common practice branch. countertenor developed head, tahrir tekye chain mechanism, opera quality low larynx anchored, notated speech melody. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 364,
+  "score": 75.461,
   "config": {
     "traditions": [
       "baroque_singing"
@@ -24,7 +24,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 8.179,
+          "voice_register": 9.993,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -40,10 +40,10 @@
           "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 2.72175,
-          "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 7.45,
-          "voice_ensemble_config": 0.39,
+          "voice_mechanism_compound": 2.4,
+          "voice_estill_quality": 3.5100000000000002,
+          "voice_speech_song": 7.8,
+          "voice_ensemble_config": 4.948875,
           "voice_ornament_system": 2.4315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -57,22 +57,22 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_415_baroque"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 2.5,
-          "grand_piano_size": 0.567,
+          "grand_piano_size": 0.678375,
           "grand_piano_brand": 2.525,
-          "piano_hammer": 3.185,
-          "piano_rim": 3.185,
-          "piano_soundboard": 2.9725,
-          "piano_pinblock": 2.94575,
-          "piano_plate": 2.8070000000000004,
-          "piano_pitch_standard": 7.50475
+          "piano_hammer": 7.475,
+          "piano_rim": 6.41,
+          "piano_soundboard": 5.75,
+          "piano_pinblock": 5.855,
+          "piano_plate": 6.107,
+          "piano_pitch_standard": 6.888125
         }
       }
     ],

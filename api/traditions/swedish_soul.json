@@ -2,10 +2,10 @@
   "id": "swedish_soul",
   "name": "Swedish soul",
   "family": "blues_gospel",
-  "lineage": "Swedish soul: Tingsek — Our Song, original Home album version. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-  "recipe": "classic swedish soul, functional Song, soul R&B branch. pre war tone martin lifespan sealed dreadnought acoustic guitar, silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, silver wound lamb gut core carpathian spruce European maple bosnian source cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 395,
-  "score": 12.964,
+  "lineage": "Swedish soul connects American soul traditions with Swedish songwriting and collaborative music scenes. Artists such as Tingsek have developed a personal approach through recordings and international collaborations since the early 2000s.",
+  "recipe": "classic 2000-2003 swedish soul, functional Song, soul R&B branch. solo with instrumental accompaniment. dreadnought acoustic guitar, violin orchestral, cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 257,
+  "score": 5.274,
   "config": {
     "traditions": [
       "swedish_soul"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -59,40 +59,40 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.33599999999999997,
           "back_sides": 0.315,
-          "string_acoustic": 1.69
+          "string_acoustic": 0.6825000000000001
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "silver_wound_lamb_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_strings": "copper_wound_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "cremonese_post_1740_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "baroque_bow",
+          "orch_bow": "modern_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
-          "orch_articulation": "pizz_orch",
+          "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "orch_strings": 1.625,
-          "orch_top_wood": 1.625,
-          "orch_back_wood": 1.56,
+          "bowed_technique": 0.25,
+          "orch_strings": 0.325,
+          "orch_top_wood": 0.325,
+          "orch_back_wood": -0.035,
           "orch_varnish": -0.035,
           "orch_setup_period": -0.07,
-          "orch_bow": 0.3585,
+          "orch_bow": 0.39,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.0735,
+          "orch_articulation": 0.17099999999999999,
           "orch_rosin": -0.035
         }
       },
@@ -100,24 +100,24 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "silver_wound_lamb_gut_cello",
-          "cello_top_wood": "carpathian_spruce_cello",
-          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "cremonese_post_1740_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_rosin": "bernardel_rosin_cello",
           "cello_bow_stick": "brazilwood_stick_cello"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "cello_strings": 1.625,
-          "cello_top_wood": 1.625,
-          "cello_back_wood": 1.56,
+          "bowed_technique": 0.25,
+          "cello_strings": 0.315,
+          "cello_top_wood": -0.05,
+          "cello_back_wood": -0.035,
           "cello_varnish": -0.035,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.0315,
-          "cello_rosin": 0.26,
+          "cello_bow_grip": 0.39,
+          "cello_rosin": -0.035,
           "cello_bow_stick": -0.05
         }
       }

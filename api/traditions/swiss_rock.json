@@ -2,10 +2,10 @@
   "id": "swiss_rock",
   "name": "Swiss rock",
   "family": "rock",
-  "lineage": "Swiss rock is represented here by Spit Reckless — Heat Maker. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic swiss rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition hohner marine band 1896 canonical blues trossingen harmonica. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 485,
-  "score": 53.279,
+  "lineage": "Swiss rock encompasses guitar bands drawing on blues, pop, punk and other rock traditions.",
+  "recipe": "classic swiss rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 528,
+  "score": 74.514,
   "config": {
     "traditions": [
       "swiss_rock"
@@ -16,8 +16,8 @@
         "slots": {
           "electric_technique": "electric_bent_note_blues_lead",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "maple_neck_h",
+          "body_wood": "korina",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.39,
-          "amp_make": 7.0200000000000005,
-          "body_wood": 0.1365,
-          "neck_wood": 0.1365,
+          "electric_technique": 1.69,
+          "amp_make": 10.205,
+          "body_wood": 0.39,
+          "neck_wood": 0.18,
           "fretboard": 0.1365,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.0735,
           "string_material": 0.1365,
-          "bridge": 1.69,
+          "bridge": 0.3075,
           "scale_length": 0.378,
-          "string_gauge": 1.69,
+          "string_gauge": 0.3075,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.11699999999999999
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
-          "body_wood": 0,
+          "amp_make": 7.475,
+          "body_wood": 0.18,
           "pickup_config": 0,
-          "string_type": 15.6,
+          "string_type": 17.875,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.7,
+          "drum_technique": 13.75,
+          "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 1.1355000000000002,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1395,
-          "voice_multitrack_stack": 0.1365
+          "voice_processing_chain": 0.3195,
+          "voice_multitrack_stack": 0.2985
         }
       },
       {
@@ -130,12 +130,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.0315,
-          "harmonica_comb": 1.2999999999999998,
-          "harmonica_reed": 0.7945,
-          "harmonica_technique": 0.7314999999999999,
-          "harmonica_maker_school": 1.2999999999999998,
-          "harmonica_tuning": 0.39
+          "harmonica_type": 0.08549999999999999,
+          "harmonica_comb": 4.550000000000001,
+          "harmonica_reed": 3.4745,
+          "harmonica_technique": 3.2315,
+          "harmonica_maker_school": 4.218500000000001,
+          "harmonica_tuning": 1.4365
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "electronica_peruana",
   "name": "Electronica peruana",
   "family": "electronic",
-  "lineage": "Electronica peruana is represented here by Novalima — documented Afro/Coba Coba-era core ensemble and programming. This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic electronica peruana, electronic Dance. group vocals, live take. single coil electric guitar, pyramid pure nickel bass British mid 60s era electric bass, Hammond a 100 built in Leslie home spinet tonewheel organ, sampler, open back Afro peruvian tradition cajon peruano, cajita, open slap hand drum congas, open slap hand drum bongos, open slap hand drum timbales, donkey jawbone Afro peruvian tradition quijada. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 520,
-  "score": 28.563,
+  "lineage": "Electrónica peruana brings electronic production into contact with Peru’s varied musical practices. Afro-Peruvian percussion and singing form one important fusion branch within a broader contemporary field.",
+  "recipe": "classic electronica peruana, electronic Dance. single coil electric guitar, electric bass, Hammond a 100 built in Leslie home spinet tonewheel organ, sampler, open back Afro peruvian tradition cajon peruano, cajita, congas, bongos, timbales, donkey jawbone Afro peruvian tradition quijada. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 390,
+  "score": 21.715,
   "config": {
     "traditions": [
       "electronica_peruana"
@@ -14,55 +14,55 @@
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_jazz_comping",
-          "amp_make": "amp_american_fender_champ",
-          "body_wood": "alder",
-          "neck_wood": "maple",
-          "fretboard": "maple_fb",
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "pure_nickel",
-          "string_gauge": "g_10",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
-          "scale_length": "scale_baritone",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "standard_tuning",
+          "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.05,
-          "amp_make": 1.4949999999999999,
-          "body_wood": 0,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0,
+          "electric_technique": 0.9944999999999999,
+          "amp_make": 0,
+          "body_wood": 0.168,
+          "neck_wood": 0.168,
+          "fretboard": 0.063,
+          "pickup_magnet": 0.063,
           "string_material": 0,
-          "string_gauge": 1.3,
-          "bridge": 0,
-          "scale_length": 0.1365,
-          "finish": 0.1365,
-          "string_tuning": 0.39,
+          "string_gauge": 0.063,
+          "bridge": 0.063,
+          "scale_length": 0.231,
+          "finish": 0,
+          "string_tuning": 0.168,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
-          "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "long_scale_b",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 0,
+          "amp_make": 0.325,
+          "body_wood": 0.231,
           "pickup_config": 0,
-          "string_type": 1.131,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.063,
+          "string_type": 0.26,
+          "scale_length_b": 0.126,
+          "fretted_or_not": 1.0945,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,31 +75,31 @@
           "rotary_speed": "stopped_rotor",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_a100",
-          "leslie_cabinet_model": "leslie_122_canonical"
+          "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "drawbar_setting": -0.05,
-          "rotary_speed": 0,
+          "drawbar_setting": -0.035,
+          "rotary_speed": 0.3,
           "percussion_setting": 0.105,
-          "tonewheel_model": 1.1049999999999998,
-          "leslie_cabinet_model": 0.25
+          "tonewheel_model": 1.625,
+          "leslie_cabinet_model": 0
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_s1000",
+          "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 3.25,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": -0.1,
+          "sampler_archetypes": 0.21,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": -0.07,
           "sampler_classic_context": 2.7950000000000004
         }
       },
@@ -110,7 +110,7 @@
           "cajon_peruano_role": "cajon_peruano_festejo"
         },
         "scores": {
-          "cajon_peruano_construction": 1.6,
+          "cajon_peruano_construction": 2,
           "cajon_peruano_role": 0.105
         }
       },
@@ -128,29 +128,29 @@
       {
         "id": "congas",
         "slots": {
-          "percussion_technique": "percussion_open_slap",
+          "percussion_technique": "percussion_hands_layered",
           "conga_set": "tumba",
           "conga_skin": "conga_synthetic_head",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.2630000000000003,
-          "conga_set": 0.1365,
-          "conga_skin": 0.0315,
+          "percussion_technique": 2.5130000000000003,
+          "conga_set": 0.105,
+          "conga_skin": 0.063,
           "conga_shell_wood": 0
         }
       },
       {
         "id": "bongos",
         "slots": {
-          "percussion_technique": "percussion_open_slap",
+          "percussion_technique": "percussion_hands_layered",
           "bongos_skin": "bongos_synth",
           "bongos_context": "bongos_son",
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.2630000000000003,
-          "bongos_skin": 0.0315,
+          "percussion_technique": 2.5130000000000003,
+          "bongos_skin": 0.063,
           "bongos_context": 0.0315,
           "bongos_shell_wood": 0
         }
@@ -158,13 +158,13 @@
       {
         "id": "timbales",
         "slots": {
-          "percussion_technique": "percussion_open_slap",
+          "percussion_technique": "percussion_hands_layered",
           "timbales_shell": "timbales_bronze",
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 3.2630000000000003,
-          "timbales_shell": 0.39,
+          "percussion_technique": 2.5130000000000003,
+          "timbales_shell": 0.063,
           "timbales_context": 0.0315
         }
       },
@@ -176,8 +176,8 @@
           "quijada_preparation": "quijada_boiled_sundried"
         },
         "scores": {
-          "quijada_form": 1.6,
-          "quijada_context": 0,
+          "quijada_form": 2,
+          "quijada_context": 0.105,
           "quijada_preparation": 0
         }
       },
@@ -213,11 +213,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.6360000000000001,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.468
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

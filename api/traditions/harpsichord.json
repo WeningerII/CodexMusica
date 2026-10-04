@@ -5,7 +5,7 @@
   "lineage": "Yago Mahúgo — Armand-Louis Couperin Complete Solo Harpsichord Music. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic harpsichord, art Music. equal temperament modern concert standard harpsichord. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 185,
-  "score": 12.304,
+  "score": 13.018,
   "config": {
     "traditions": [
       "harpsichord"
@@ -22,12 +22,12 @@
           "harpsichord_temperament": "harpsichord_equal_modern"
         },
         "scores": {
-          "keyboard_technique": 2.5315,
+          "keyboard_technique": 2.5,
           "harpsichord_register": 0,
           "harpsichord_context": 5.2,
           "harpsichord_maker_school": 0.6,
-          "harpsichord_plectrum": 0.0315,
-          "harpsichord_temperament": 3.941
+          "harpsichord_plectrum": 0.378,
+          "harpsichord_temperament": 4.34
         }
       }
     ],

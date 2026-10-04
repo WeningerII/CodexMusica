@@ -2,10 +2,10 @@
   "id": "kannada_bhava_geethe",
   "name": "Kannada bhava geethe",
   "family": "vernacular",
-  "lineage": "Complete published audio Devaru Ruju Madidanu, poetry by Kuvempu, issued in Muraleedhara Upadhya Hiriadka's Kannada-literature audio post17October2012. Original uploader identifies Chandrashekara Kedlaya singing, Venugopal flute, Vishvanath Nakod tabla and Prajnana L.Upadhya harmonium, recorded at Gokhale Institute Bangalore. Four named performers, one positively credited singer and all four sound-source families retained. Uploader labels the actual recording Kannada Bhavageethe. No personal audition of the historical Vocaroo file or unidentified accompanying voice is claimed; source completeness is the publisher's whole named recording credits, not a crop of a larger ensemble. Authored acoustic literary-song rendition preserving one accompanied voice with source-unspecified physiological style and pitch system. Bare flute credit retains neutral isolated flute owner: no inferred bansuri versus venu, bamboo versus metal, finger-hole system or regional construction. Tabla shisham dayan/copper bayan/fresh syahi and harmonium hand bellows/lower reed voicing/folk-song support are coherent editorial physical choices, not source equipment measurements. Existing independently reviewed hand-pumped harmonium owner preserves keyboard/bellows action rather than false mouth-blown harmonica gesture. Controlled live room is editorial; global temperament and capture apparatus omitted.",
-  "recipe": "classic kannada bhava geethe, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. flute like credited flute unspecified, sustaining copper tabla, song accompaniment hand pumped harmonium. live tracking.",
-  "recipe_chars": 271,
-  "score": 17.816,
+  "lineage": "Kannada bhava geethe sets modern Kannada literary poetry to composed melodies. Singers and composers foreground a poem’s emotional expression and language, drawing on varied musical resources without simply reproducing film song or classical concert forms.",
+  "recipe": "classic kannada bhava geethe, ballad Poetry. solo with instrumental accompaniment. credited flute unspecified, sustaining copper tabla, song accompaniment hand pumped harmonium. live tracking.",
+  "recipe_chars": 192,
+  "score": 6.373,
   "config": {
     "traditions": [
       "kannada_bhava_geethe"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.47,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 3.1999999999999993,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "credited_flute_identity": "credited_flute_source_unspecified"
         },
         "scores": {
-          "credited_flute_identity": 3.8999999999999995
+          "credited_flute_identity": 0.3
         }
       },
       {
@@ -69,8 +69,8 @@
           "tabla_syahi": "fresh_syahi"
         },
         "scores": {
-          "tabla_dayan": 0.25,
-          "tabla_bayan": 1.6,
+          "tabla_dayan": 0.95,
+          "tabla_bayan": 1,
           "tabla_syahi": 0
         }
       },
@@ -83,10 +83,10 @@
           "free_reed_technique": "hand_pumped_harmonium_song_support"
         },
         "scores": {
-          "harmonium_action": 0.39,
+          "harmonium_action": 0.7364999999999999,
           "harmonium_voicing": 0.1365,
-          "harmonium_use": 4.159999999999999,
-          "free_reed_technique": 0.40950000000000003
+          "harmonium_use": 1.69,
+          "free_reed_technique": 0.78
         }
       }
     ],

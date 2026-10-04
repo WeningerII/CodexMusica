@@ -2,10 +2,10 @@
   "id": "hakkapop",
   "name": "Hakkapop",
   "family": "vernacular",
-  "lineage": "Lo Sirong and Gomoteu — artist-published historical quartet practice. Authored intimate song-poetry realization of the primary source explicitly literary songwriting branch: voice, acoustic guitar, mandolin, banjo and harmonica. Acoustic OM guitar with cedar top and mahogany back, flatpicked support, A-style carved mandolin, open-back five-string clawhammer banjo and diatonic blues harmonica are editorial physical and playing choices, not recovered actual instruments or asserted banjo string count. Source only identifies guitar/banjo families. Whole quartet role union retained; no claim every doubling sounds simultaneously. BalladPoetry reflects lyric-first small-ensemble practice without Anglophone taxonomy. No measured temperament asserted. Transparent controlled studio is authored, not source venue.",
-  "recipe": "classic hakkapop, ballad Poetry. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. cedar mahogany flatpicked acoustic guitar, acoustic only no pickup mandolin, old time clawhammer low bridge loose action open back banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 518,
-  "score": 49.62,
+  "lineage": "Hakkapop brings Hakka-language songwriting and cultural expression into contemporary popular music. Artists such as Lo Sirong draw on literary texts and mountain-song traditions while engaging with folk, blues and other international influences. The scene overlaps Taiwanese popular music without requiring a single style or ethnic background from every performer.",
+  "recipe": "classic hakkapop, ballad Poetry. solo with instrumental accompaniment, single lead single track no stacking. acoustic guitar, mandolin, banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 361,
+  "score": 15.243,
   "config": {
     "traditions": [
       "hakkapop"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 3.25,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.8999999999999995,
-          "voice_multitrack_stack": 2.8999999999999995,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 1.3,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 0.3,
-          "acoustic_om_technique": 1.25
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.05
         }
       },
       {
@@ -82,14 +82,14 @@
           "mandolin_pickup": "mandolin_no_pickup"
         },
         "scores": {
-          "acoustic_technique": 1.2,
+          "acoustic_technique": -0.1,
           "mandolin_shape": 0,
           "mandolin_top": -0.05,
           "mandolin_back": -0.05,
           "mandolin_bracing": -0.05,
-          "mandolin_strings": 0.3,
+          "mandolin_strings": 0,
           "mandolin_fingerboard": 0,
-          "mandolin_pickup": 7.1
+          "mandolin_pickup": 0.3
         }
       },
       {
@@ -108,15 +108,15 @@
         },
         "scores": {
           "banjo_back": 0,
-          "tone_ring": 1.3,
+          "tone_ring": 0,
           "banjo_head": 0,
-          "banjo_pot": 0.39,
+          "banjo_pot": 0.273,
           "banjo_play": 0,
           "banjo_rim_wood": -0.05,
           "banjo_neck_wood": -0.05,
           "banjo_strings": -0.05,
           "banjo_bridge": -0.05,
-          "banjo_setup_period": 5.199999999999999
+          "banjo_setup_period": 0
         }
       },
       {
@@ -130,12 +130,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0,
-          "harmonica_comb": 4.8500000000000005,
-          "harmonica_reed": 4.250000000000001,
-          "harmonica_technique": 3.95,
-          "harmonica_maker_school": 4.550000000000001,
-          "harmonica_tuning": 2.9000000000000004
+          "harmonica_type": 0.3,
+          "harmonica_comb": 2.45,
+          "harmonica_reed": 2.45,
+          "harmonica_technique": 2.45,
+          "harmonica_maker_school": 2.45,
+          "harmonica_tuning": 1
         }
       }
     ],

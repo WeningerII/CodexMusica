@@ -2,10 +2,10 @@
   "id": "dutch_trance",
   "name": "Dutch trance",
   "family": "electronic",
-  "lineage": "Netherlands-centered trance production network. Armin van Buuren’s theme-led work provides the representative studio branch: a recurring keyboard melody, synthesized bass and carefully arranged programmed drums, with vocal collaborations optional.",
+  "lineage": "Dutch trance grew through producers, clubs, labels and international DJ networks associated with the Netherlands. Theme-led electronic composition and carefully shaped builds connect instrumental tracks with vocal collaborations.",
   "recipe": "classic modern dutch trance, electronic Dance, trance branch. digital subtractive, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 308,
-  "score": 14.582,
+  "score": 18.021,
   "config": {
     "traditions": [
       "dutch_trance"
@@ -19,9 +19,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.25,
-          "va_archetypes": 4.9399999999999995,
-          "digital_subtractive_context": 2.08
+          "electronic_technique": -0.05,
+          "va_archetypes": 4.55,
+          "digital_subtractive_context": 4.159999999999999
         }
       },
       {
@@ -35,7 +35,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "sample_bitdepth": 0,
-          "sample_swing": 6.25,
+          "sample_swing": 8.75,
           "sample_processing": 0.1365
         }
       }

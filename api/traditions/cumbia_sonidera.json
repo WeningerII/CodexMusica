@@ -5,7 +5,7 @@
   "lineage": "Mexico City and Puebla sound-system cumbia culture, formalized from the late 1970s onward by sonideros such as Sonido La Changa, Sonido Fascinación and Sonido Duende who slowed Colombian and Peruvian cumbia records to 85-100 BPM, drenched them in tape and spring echo, and overlaid live shouted dedicatorias to named neighbourhoods and migrants; the studio-produced strain that followed keeps the guacharaca-and-güiro paseo pattern, syncopated electric bass, teclado organ leads and thick slapback on every voice.",
   "recipe": "classic South American 1977-1979 cumbia sonidera, groove Percussion, Latin am branch, dub descendants bass system, tropical song functional song trip hop chicha. thick, full chest belt, breath pulsed, interlocked note trading. accordion, guacharaca, guiro, open slap hand drum congas, open slap hand drum timbales, ampeg svt amp rock bass amp mahogany la bella flats Detroit soul bass canon electric bass, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, cencerro, turntable. boombox portable speaker. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 653,
-  "score": 196.865,
+  "score": 196.97,
   "config": {
     "traditions": [
       "cumbia_sonidera",
@@ -79,7 +79,7 @@
           "guacharaca_body": "guacharaca_palm_wood"
         },
         "scores": {
-          "guacharaca_body": 0.39
+          "guacharaca_body": 0.3
         }
       },
       {
@@ -102,7 +102,7 @@
           "conga_shell_wood": "conga_mahogany"
         },
         "scores": {
-          "percussion_technique": 4.4350000000000005,
+          "percussion_technique": 4.48,
           "conga_set": 0.65,
           "conga_skin": 0.39,
           "conga_shell_wood": 0.045
@@ -112,12 +112,12 @@
         "id": "timbales",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "timbales_shell": "timbales_bronze",
+          "timbales_shell": "timbales_steel",
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 4.4350000000000005,
-          "timbales_shell": 0.09,
+          "percussion_technique": 4.48,
+          "timbales_shell": 0,
           "timbales_context": 1.695
         }
       },
@@ -182,7 +182,7 @@
         },
         "scores": {
           "electronic_technique": 2.385,
-          "turntable_technique": 1.635
+          "turntable_technique": 1.83
         }
       }
     ],

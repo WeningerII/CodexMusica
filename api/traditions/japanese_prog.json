@@ -2,10 +2,10 @@
   "id": "japanese_prog",
   "name": "Japanese prog",
   "family": "rock",
-  "lineage": "RUINZHATOVA — Live in Somewhere, complete six-piece release (original2006; digital2020). The artist-run Magaibutsu/Ruins release describes Japanese progressive/experimental musicians and complete improvised free-rock performances; six pieces are listed. Its full personnel credits retain Yamamoto Seiichi guitar, Tsuyama Atsushi bass (credited Tsuyana on the page) and Yoshida Tatsuya drums. No singer is credited; the authored palette follows this complete three-instrument credit sheet rather than assuming uncredited vocals or synthesizers. The June2020 digital release explicitly identifies original January2006 issue. Japanese prog is a national progressive/experimental-rock network: the creator map includes Ruins, KENSO, Ars Nova, Koenjihyakkei, Sadistic Mika Band and Acoustic Asturias. The selected Ruinzhatova collaboration is on the Ruins artist-run release page and explicitly described as Japanese progressive free-rock; it is not asserted to be a separate creator-map member. Existing progressive_rock describes the classic UK-rooted composition-centered tradition and later revival, whereas this national network encompasses a documented free-improvising branch. Existing zeuhl and zeuhl_french legitimately include Japanese followers; Japanese prog is not equivalent to that narrower Magma-derived Kobaian/ostinato lineage. Existing japanese_psychedelic_rock and japanoise overlap artists but describe respectively psychedelic repetition/fuzz and saturated noise practice, not the whole documented progressive network. This is an overlapping regional umbrella, not a claim all Japanese progressive music has one distinct sound. Broad experimental-rock parent is limited to the selected extended free-rock improvisation rather than asserting composed classical suites. Authored rendition uses an alder/maple humbucker guitar with overdriven single-note lead, compatible alder/maple dual-single-coil fingerstyle bass, and conventional rock kit. Actual performer materials, amps, meter and recording apparatus are not documented and are not claimed. Controlled live-room capture and omitted global tuning/apparatus are editorial choices.",
-  "recipe": "classic japanese prog, distorted Rock, experimental branch. alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
-  "recipe_chars": 266,
-  "score": 107.368,
+  "lineage": "Japanese progressive rock encompasses composition-focused bands, experimental ensembles and free-rock collaborations. Artists including KENSO, Ars Nova, Ruins and Koenjihyakkei draw on differing progressive traditions rather than a single national sound.",
+  "recipe": "classic japanese prog, distorted Rock, experimental branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 206,
+  "score": 37.112,
   "config": {
     "traditions": [
       "japanese_prog"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.2,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 3.9629999999999996,
-          "neck_wood": 4.446,
+          "body_wood": 0.063,
+          "neck_wood": 0.39,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "pickup_winding": 1.3,
+          "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.126,
-          "string_gauge": 2,
+          "string_gauge": 0.7,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.9629999999999996,
+          "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.063,
+          "scale_length_b": 1.063,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,16 +83,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 25.75000000000001,
-          "drumhead": 1.363,
+          "drum_technique": 11.25,
+          "drumhead": 1.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.262999999999999,
+          "shell_wood": 0.063,
           "shell_thickness": 0,
-          "bearing_edges": 1.69,
+          "bearing_edges": 0.39,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 25.74450000000001,
-          "cymbal_lathing": 26.98150000000001,
+          "cymbal_hammering": 11.244499999999999,
+          "cymbal_lathing": 11.181499999999998,
           "cymbal_finish": 0
         }
       }

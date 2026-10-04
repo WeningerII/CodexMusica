@@ -5,7 +5,7 @@
   "lineage": "The Resonant Rogues — Hands in the Dirt (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-2010s north carolina roots, functional Song, country branch. melodic straight accordion, light steel clawhammer canon old time clawhammer low bridge loose action open back banjo 5 string, acoustic guitar, melodic bowed song accompaniment fiddle, upright bass, low fundamental tuning all purpose maple drum kit, tuning stability 7 ply quartersawn maple grand piano, classic country sho bud classic nashville mid 60s 70s canon single neck pedal steel, saxophone, European maple bosnian source flamed figure modern setup bowed cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 642,
-  "score": 63.219,
+  "score": 63.444,
   "config": {
     "traditions": [
       "north_carolina_roots"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.31499999999999995,
-          "voice_multitrack_stack": 0.3315,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -64,13 +64,13 @@
           "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": 4.7,
+          "free_reed_technique": 4.763,
           "accordion_reed_material": 0.78,
-          "musette_offset": 0.105,
+          "musette_offset": 0.0315,
           "reed_config": 0,
           "bellows": 0.105,
           "voicing_chamber": 0,
-          "accordion_maker_school": 0.063
+          "accordion_maker_school": 0.0315
         }
       },
       {
@@ -89,8 +89,8 @@
         },
         "scores": {
           "banjo_back": 0,
-          "tone_ring": 0.105,
-          "banjo_head": 0.1365,
+          "tone_ring": 0.1365,
+          "banjo_head": 0.105,
           "banjo_pot": 0.105,
           "banjo_play": 1.2,
           "banjo_rim_wood": 0.75,
@@ -129,10 +129,10 @@
         },
         "scores": {
           "bowed_technique": 4.29,
-          "fiddle_strings": 0.063,
-          "fiddle_bow": 0,
-          "fiddle_mute": 1.957,
-          "fiddle_articulation": 0.7364999999999999,
+          "fiddle_strings": 0.0315,
+          "fiddle_bow": 0.0315,
+          "fiddle_mute": 2.08,
+          "fiddle_articulation": 0.78,
           "fiddle_string_configuration": 0
         }
       },
@@ -168,7 +168,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1.9675000000000002,
           "shell_thickness": 1,
-          "bearing_edges": 0.063,
+          "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.11850000000000002,
@@ -192,10 +192,10 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.36749999999999994,
+          "grand_piano_brand": 0.3989999999999999,
           "piano_hammer": 0.26,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.1,
+          "piano_soundboard": -0.07,
           "piano_pinblock": 1.2945,
           "piano_plate": 0.26,
           "piano_pitch_standard": 0.325
@@ -264,8 +264,8 @@
           "cello_top_wood": -0.1,
           "cello_back_wood": 2.1315000000000004,
           "cello_varnish": -0.1,
-          "cello_setup_period": 1.0399999999999998,
-          "cello_bow_grip": 0.36749999999999994,
+          "cello_setup_period": 1.0204999999999997,
+          "cello_bow_grip": 0.3989999999999999,
           "cello_rosin": 0.7999999999999998,
           "cello_bow_stick": -0.15000000000000002
         }

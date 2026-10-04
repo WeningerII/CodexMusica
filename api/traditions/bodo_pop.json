@@ -2,10 +2,10 @@
   "id": "bodo_pop",
   "name": "Bodo pop",
   "family": "pop",
-  "lineage": "Bodo pop is represented here by Charle$ — Swlailangbai selected sung core. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Bodo pop connects Bodo-language singing with contemporary popular music, including rap and quieter song-based approaches.",
   "recipe": "classic bodo pop, functional Song, south Asian pop branch. solo with instrumental accompaniment. ukulele, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 3.034,
+  "score": 2.734,
   "config": {
     "traditions": [
       "bodo_pop"
@@ -15,7 +15,7 @@
         "id": "ukulele",
         "slots": {
           "ukulele_size": "ukulele_baritone",
-          "ukulele_style": "ukulele_strum",
+          "ukulele_style": "ukulele_fingerstyle",
           "ukulele_wood": "ukulele_mahogany"
         },
         "scores": {
@@ -33,7 +33,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.2,
+          "electronic_technique": -0.1,
           "sample_bitdepth": 0.378,
           "sample_swing": 0.063,
           "sample_processing": 0.21000000000000002

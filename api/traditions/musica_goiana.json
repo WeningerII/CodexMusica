@@ -5,7 +5,7 @@
   "lineage": "Ébrio — Emissary Of Death (2018), complete demo lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic late-2010s musica goiana, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 366,
-  "score": 33.34,
+  "score": 32.573,
   "config": {
     "traditions": [
       "musica_goiana"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.0815000000000001,
-          "voice_ensemble_config": 1.029,
+          "voice_speech_song": 0.7349999999999999,
+          "voice_ensemble_config": 1.344,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1575,
+          "voice_processing_chain": 0.0945,
           "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
@@ -75,14 +75,14 @@
           "body_wood": 0.6194999999999999,
           "neck_wood": 0.5775,
           "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
+          "pickup_magnet": 0.105,
           "pickup_winding": 0.0315,
-          "string_material": 0.1365,
-          "bridge": 0.0315,
+          "string_material": 0.21,
+          "bridge": 0.105,
           "scale_length": 1.155,
-          "string_gauge": 1.852,
+          "string_gauge": 1.747,
           "finish": 0.105,
-          "string_tuning": 0.3045
+          "string_tuning": 0.063
         }
       },
       {
@@ -102,8 +102,8 @@
           "body_wood": 0.6194999999999999,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
           "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -124,17 +124,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.25,
-          "drumhead": 0.3045,
+          "drum_technique": 6.2815,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.39,
-          "shell_thickness": 0.1365,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.2865,
-          "cymbal_lathing": 6.859500000000001,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 6.6495,
+          "cymbal_finish": 0.105
         }
       }
     ],

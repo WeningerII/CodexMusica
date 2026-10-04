@@ -2,10 +2,10 @@
   "id": "experimental_indie",
   "name": "Experimental Indie",
   "family": "rock",
-  "lineage": "TheHappyStrange — Remain, complete2018track. Complete separately credited Remain from TheHappyStrange ObliviousFiction,27January2018: MichaelEndoso voice/guitar,CameronEsch bassguitar/voice,WyattCroxton keyboard,RyanRossi RolandSPD30 and shaker. All fourpeople,two singers,six sound families retained. Exact track does not credit an acoustic kit; electronic pad role is not silently replaced by one. Artist directly tags experimental,electronic,indie/indierock and alternative rock,Portland. Two credited singers become an authored live duet, not source overdub/headcount beyond two named singers. Voice physiology,pitch-system and articulation remain unspecified. Generic guitar realized as clean-strummed alder/maple humbucker; bass alder dual-single-coil fingerstyle; bare keyboard uses neutral existing electronic-keyboard identity with authored melodic/chordal support. Shaker construction remains neutral. Positively namedSPD30 uses isolated full digital-percussion-pad identity with manufacturer-confirmed internal soundbank; played presets,padcount used,looping,external triggers and MIDI routing unknown, no assertion all available instrument sounds played. Room is authored controlled live-room rendition, not measured source session; capture and global tuning omitted.",
-  "recipe": "classic experimental indie, distorted Rock, alternative branch. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, melodic chordal electronic keyboard shaker source unspecified, digital percussion pad. live tracking.",
-  "recipe_chars": 332,
-  "score": 32.19,
+  "lineage": "Experimental indie connects independent songwriting and guitar-band communities with exploratory arrangement and production. Musicians combine acoustic and electronic resources without requiring a single historical style or technical method.",
+  "recipe": "classic experimental indie, distorted Rock, alternative branch. unprocessed natural acoustic. humbucker electric guitar, electric bass, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 273,
+  "score": 24.217,
   "config": {
     "traditions": [
       "experimental_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.8999999999999995,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.468,
-          "voice_multitrack_stack": 2.5999999999999996,
+          "voice_processing_chain": 1.168,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.468,
+          "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 4.3095,
-          "neck_wood": 1.405,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 2.273,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 4.3095,
+          "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,25 +116,36 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 3.104
+          "keyboard_technique": 0.504
         }
       },
       {
-        "id": "shaker_source_unspecified",
+        "id": "drum_kit",
         "slots": {
-          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "shaker_source_unspecified_identity": 0.273
-        }
-      },
-      {
-        "id": "digital_percussion_pad",
-        "slots": {
-          "digital_percussion_pad_identity": "digital_percussion_pad_spd30_internal_bank"
-        },
-        "scores": {
-          "digital_percussion_pad_identity": 0
+          "drum_technique": 6.25,
+          "drumhead": 0.1365,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.2415,
+          "shell_thickness": 0,
+          "bearing_edges": 0.105,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 6.181500000000001,
+          "cymbal_lathing": 6.2865,
+          "cymbal_finish": 0
         }
       }
     ],
@@ -187,11 +198,18 @@
         "electronic_keyboard_identity",
         "keyboard_technique"
       ],
-      "shaker_source_unspecified": [
-        "shaker_source_unspecified_identity"
-      ],
-      "digital_percussion_pad": [
-        "digital_percussion_pad_identity"
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
     "room": "live_room",
@@ -249,8 +267,17 @@
       "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
       "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
       "keyboard_technique": "electronic_keyboard_melodic_chordal",
-      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role",
-      "digital_percussion_pad_identity": "digital_percussion_pad_spd30_internal_bank"
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true
   }

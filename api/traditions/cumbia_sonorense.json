@@ -2,10 +2,10 @@
   "id": "cumbia_sonorense",
   "name": "Cumbia Sonorense",
   "family": "vernacular",
-  "lineage": "Complete nine-member Los Comandos del Oeste performance at La Sauceda, Hermosillo, June28,2026. Firsthand attendee names guitar, bass, two keyboardists, güiro, drum kit, saxophone, one vocalist and congas; both keyboardists aggregate to one family card. Eight families and the sole positively credited singer retained. This is the dated concert ensemble, not all historical members or an unspecified studio master. Authored contemporary live-room rendition, not actual source equipment or venue measurement: generic guitar becomes clean-strummed single-coil electric, bass fingerstyle dual-single-coil; shared alder body/maple neck remain physically coherent. Bare keyboards use neutral architecture, without inventing separate piano/synthesis. Güiro uses a Mexican PVC/wood realization with wooden scraper; source material is unknown. Congas use a middle-register staved-oak drum and synthetic head with layered hands, an authored representative register not proof only one source drum. Tenor saxophone/medium reed/hard-rubber mouthpiece and continuous-legato articulation are authored, not documented subtype or measured technique. Source-unspecified vocal physiology stays neutral; solo voice controls mean one singer, not an unaccompanied whole ensemble. All construction, gesture and room controls are editorial choices; no exact tempo, harmony or signal chain claimed. One lead singer is explicitly modeled as solo accompanied by the full credited band; no unaccompanied-performance claim.",
-  "recipe": "classic mid-2020s cumbia sonorense, groove Percussion, Latin am branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple single coil electric guitar, alder fingerstyle locked electric bass, electronic keyboard unspecified, pvc wood guiro, maple full lathed both sides lathed drum kit, tenor rubber continuous-airflow legato saxophone, synthetic remo fiberskyn modern stable oak staved canonical Cuban hands layered congas. live tracking.",
-  "recipe_chars": 476,
-  "score": 58.032,
+  "lineage": "Cumbia sonorense connects dance bands and audiences in Sonora, Mexico. Regional performers adapt cumbia through amplified ensembles and local performance networks.",
+  "recipe": "classic cumbia sonorense, groove Percussion, Latin am branch. solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, electric bass, electronic keyboard unspecified, guiro, drum kit, saxophone, oak staved canonical Cuban hands layered congas. live tracking.",
+  "recipe_chars": 306,
+  "score": 11.286,
   "config": {
     "traditions": [
       "cumbia_sonorense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.759999999999999,
+          "voice_ensemble_config": 1.8794999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3045,
-          "voice_multitrack_stack": 7.276999999999999,
+          "voice_multitrack_stack": 0.7770000000000001,
           "voice_tessitura": 0
         }
       },
@@ -70,14 +70,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 2.5000000000000004,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 3.1415,
-          "neck_wood": 1.363,
+          "body_wood": 0.2415,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0.105,
           "string_material": 0,
-          "string_gauge": 2.468,
+          "string_gauge": 0.8679999999999999,
           "bridge": 0.315,
           "scale_length": 0,
           "finish": 0,
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.1415,
+          "body_wood": 0.2415,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -115,7 +115,7 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0,
+          "electronic_keyboard_identity": 1,
           "keyboard_technique": 0.39
         }
       },
@@ -126,8 +126,8 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 1.51,
-          "guiro_striker": 1.4365
+          "guiro_origin": 0.21,
+          "guiro_striker": 0.1365
         }
       },
       {
@@ -149,13 +149,13 @@
           "drum_technique": -0.05,
           "drumhead": 0.105,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 4.305,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
           "bearing_edges": 0.27299999999999996,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.10500000000000001,
-          "cymbal_lathing": 2.918000000000001,
+          "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
       },
@@ -171,12 +171,12 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.5315000000000003,
-          "sax_size": 1.15,
+          "wind_articulation": -0.07,
+          "sax_size": -0.15000000000000002,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 1.5415,
-          "sax_technique": 2.5815,
+          "sax_mouthpiece": 0.2415,
+          "sax_technique": -0.035,
           "sax_maker_school": -0.07
         }
       },
@@ -189,10 +189,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.300000000000001,
+          "percussion_technique": 3.7,
           "conga_set": 0,
-          "conga_skin": 1.51,
-          "conga_shell_wood": 3.38
+          "conga_skin": 0.21,
+          "conga_shell_wood": 1.155
         }
       }
     ],

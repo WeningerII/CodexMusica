@@ -5,7 +5,7 @@
   "lineage": "Ceará rap is represented by Elementos Suspeitos, formed in Maracanaú and Pacatuba in 1997 with MCs and DJ Ice Jay. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic late-1990s rap cearense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 48.076,
+  "score": 48.238,
   "config": {
     "traditions": [
       "rap_cearense"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.165,
+          "voice_speech_song": 12.219,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 2.5,
           "sampler_archetypes": 3.9,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0.318,
           "sampler_workflow": 2.25,
           "sampler_classic_context": 7.084999999999999
         }

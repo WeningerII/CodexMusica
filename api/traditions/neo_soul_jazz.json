@@ -5,7 +5,7 @@
   "lineage": "Neo soul-jazz is represented here by Darrius Willrich with Folks Project — documented vocal piano-trio branch (2022). This is one documented branch with an authored present-day studio realization.",
   "recipe": "classic early-2020s neo soul-jazz, improv On Frame, soul jazz branch. solo with instrumental accompaniment. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 363,
-  "score": 69.135,
+  "score": 69.303,
   "config": {
     "traditions": [
       "neo_soul_jazz"
@@ -16,7 +16,7 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.0945,
-          "grand_piano_brand": 0.0945,
+          "grand_piano_brand": 0.1005,
           "piano_hammer": 1.885,
           "piano_rim": 1.885,
           "piano_soundboard": -0.035,
-          "piano_pinblock": 0.26,
+          "piano_pinblock": 0.25625000000000003,
           "piano_plate": 0.24000000000000002,
-          "piano_pitch_standard": 0.6844999999999999
+          "piano_pitch_standard": 0.701375
         }
       },
       {
@@ -56,7 +56,7 @@
         },
         "scores": {
           "drum_technique": 9.620000000000001,
-          "drumhead": 18.42275,
+          "drumhead": 18.4565,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -92,11 +92,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.7135,
+          "voice_ensemble_config": 2.8222499999999995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.005625
+          "voice_multitrack_stack": 0.01125
         }
       }
     ],

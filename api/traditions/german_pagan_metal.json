@@ -2,15 +2,15 @@
   "id": "german_pagan_metal",
   "name": "German pagan metal",
   "family": "rock_punk",
-  "lineage": "German pagan-metal discovery field represented by Finsterforst’s Black Forest post/black/pagan-metal branch and its Zerfall-era ensemble.",
-  "recipe": "classic modern german pagan metal, distorted Rock, folk metal branch, black metal, post metal metal greek black metal hungarian black metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 573,
-  "score": 132.93,
+  "lineage": "German pagan metal combines heavy-metal and black-metal influences with folk imagery, mythic themes and regional landscapes. Finsterforst represents its expansive Black Forest branch.",
+  "recipe": "classic modern german pagan metal, distorted Rock, folk metal branch, black metal, post metal metal atmospheric post-metal uk post-metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit, textural melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 638,
+  "score": 137.56,
   "config": {
     "traditions": [
       "german_pagan_metal",
-      "greek_black_metal",
-      "hungarian_black_metal"
+      "atmospheric_post_metal",
+      "uk_post_metal"
     ],
     "instruments": [
       {
@@ -19,52 +19,52 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 38.06,
-          "amp_make": 15.274999999999995,
-          "body_wood": 15.665,
-          "neck_wood": 0.69,
-          "fretboard": 0.5850000000000001,
-          "pickup_magnet": 0.195,
-          "pickup_winding": 0.195,
-          "string_material": 0.5850000000000001,
-          "bridge": 1.5675,
-          "scale_length": 15.469999999999999,
-          "string_gauge": 1.8199999999999998,
-          "finish": 0.24,
-          "string_tuning": 0.78
+          "electric_technique": 43.582499999999996,
+          "amp_make": 17.809999999999995,
+          "body_wood": 18.004999999999995,
+          "neck_wood": 0.39,
+          "fretboard": 0.045,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.39,
+          "bridge": 1.045,
+          "scale_length": 0,
+          "string_gauge": 0.69,
+          "finish": 0,
+          "string_tuning": 0.195
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "basswood_h",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.4350000000000005,
-          "body_wood": 1.3800000000000001,
+          "amp_make": 6.955000000000001,
+          "body_wood": 18.004999999999995,
           "pickup_config": 0.585,
-          "string_type": 14.3,
+          "string_type": 15.4375,
           "scale_length_b": 0.69,
-          "fretted_or_not": 0.5025,
+          "fretted_or_not": 0.045,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.09,
-          "drumhead": 1.8199999999999998,
+          "drum_technique": 11.965,
+          "drumhead": 0.45499999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -100,7 +100,7 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
         },
         "scores": {
           "voice_register": 0,
@@ -114,8 +114,8 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.95,
-          "voice_ornament_system": 0.39,
+          "voice_ensemble_config": 0.585,
+          "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.195,
           "voice_multitrack_stack": 0.195
@@ -130,9 +130,9 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 0.6499999999999999,
+          "electronic_technique": 1.8649999999999998,
           "rompler_preset_bank": -0.05,
-          "rompler_context": 1.8199999999999998,
+          "rompler_context": 1.2349999999999999,
           "rompler_lineage": 0
         }
       }
@@ -140,9 +140,21 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -173,7 +185,7 @@
         "rompler_lineage"
       ]
     },
-    "room": "live_room",
+    "room": "studio_auteur_home_pro",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "dynamic_mic",
@@ -191,7 +203,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "live_room",
+    "room": "studio_auteur_home_pro",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -208,7 +220,7 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "electric_technique": "electric_power_chord",
       "string_tuning": "d_standard",
       "bass_technique": "fingerstyle_locked",
@@ -216,7 +228,18 @@
       "electronic_technique": "electronic_pad_drone",
       "rompler_preset_bank": "rompler_preset_piano_orchestral",
       "rompler_context": "rompler_context_rock_band",
-      "rompler_lineage": "rompler_lineage_unspecified"
+      "rompler_lineage": "rompler_lineage_unspecified",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_11_hum",
+      "amp_make": "amp_mesa_dual_rectifier"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

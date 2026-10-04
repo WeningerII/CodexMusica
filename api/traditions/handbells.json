@@ -5,7 +5,7 @@
   "lineage": "William B. Bradbury / Jason W. Krug — The Solid Rock handbells-and-piano score. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic handbells, art Music. sustained handbells rung handbells, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 238,
-  "score": 18.107,
+  "score": 17.372,
   "config": {
     "traditions": [
       "handbells"
@@ -18,8 +18,8 @@
           "handbells_technique": "handbells_rung"
         },
         "scores": {
-          "handbells_set": 0,
-          "handbells_technique": 2.3
+          "handbells_set": 0.063,
+          "handbells_technique": 2.363
         }
       },
       {
@@ -38,11 +38,11 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 3.7815,
-          "piano_rim": 3.876,
-          "piano_soundboard": 2.555,
-          "piano_pinblock": 3.185,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 3.75,
+          "piano_rim": 3.8445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
           "piano_plate": 2.45,
           "piano_pitch_standard": -0.035
         }

@@ -2,10 +2,10 @@
   "id": "boy_pop",
   "name": "Boy pop",
   "family": "pop",
-  "lineage": "Boy pop is represented here by Oscar Stembridge — selected acoustic solo core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic boy pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 286,
-  "score": 18.994,
+  "lineage": "Boy pop centers youthful male pop performers and melody-led songwriting across acoustic and fuller produced styles.",
+  "recipe": "classic boy pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 248,
+  "score": 17.345,
   "config": {
     "traditions": [
       "boy_pop"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.9315000000000002,
+          "voice_processing_chain": 1.3315000000000001,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -54,14 +54,14 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.4225,
-          "string_tuning": 0.2,
+          "acoustic_technique": 14.1725,
+          "string_tuning": 0,
           "top_wood": 0.3465,
           "back_sides": 0.105,
           "string_acoustic": 0.5774999999999999

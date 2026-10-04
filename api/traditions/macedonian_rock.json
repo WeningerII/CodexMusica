@@ -2,10 +2,10 @@
   "id": "macedonian_rock",
   "name": "Macedonian rock",
   "family": "rock",
-  "lineage": "Macedonian rock is represented here by Bernays Propaganda — My Personal Holiday. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Macedonian rock includes guitar-led bands and new-wave and post-punk approaches associated with the Skopje scene.",
   "recipe": "classic macedonian rock, distorted Rock, alternative branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 371,
-  "score": 55.368,
+  "score": 52.796,
   "config": {
     "traditions": [
       "macedonian_rock"
@@ -22,26 +22,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 7.0200000000000005,
+          "amp_make": 8.905000000000001,
           "body_wood": 2.4255,
           "neck_wood": 0.441,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 1.69,
+          "bridge": 0.441,
           "scale_length": 1.743,
-          "string_gauge": 1.69,
+          "string_gauge": 0.441,
           "finish": 0,
-          "string_tuning": 0.34275
+          "string_tuning": 0
         }
       },
       {
@@ -52,7 +52,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -60,9 +60,9 @@
           "amp_make": 6.5649999999999995,
           "body_wood": 0.8820000000000001,
           "pickup_config": 0.273,
-          "string_type": 15.6,
+          "string_type": 14.625,
           "scale_length_b": 0.441,
-          "fretted_or_not": 0.0735,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
+          "drum_technique": 11.25,
           "drumhead": 0.5145,
           "drum_kit_kick_pedal": 0
         }
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,

@@ -5,7 +5,7 @@
   "lineage": "Richmond drill represented by RonBandup’s recorded local scene testimony and Traptize Ky’s self-published repertoire.",
   "recipe": "classic modern rva drill, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 19.613,
+  "score": 19.721,
   "config": {
     "traditions": [
       "rva_drill"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

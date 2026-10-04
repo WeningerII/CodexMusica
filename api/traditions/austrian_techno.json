@@ -2,150 +2,68 @@
   "id": "austrian_techno",
   "name": "Austrian Techno",
   "family": "electronic",
-  "lineage": "Elektro Guzzi — Triangle (2022), complete Vienna instrumental trio. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s austrian techno, electronic Dance. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 308,
-  "score": 12.489,
+  "lineage": "Austria’s techno field includes electronic production and live approaches that translate repetitive dance structures into instrumental performance. Vienna trio Elektro Guzzi exemplifies the latter with interlocking guitar, bass and drums.",
+  "recipe": "classic austrian techno, electronic Dance. drum machine analog, modular synth.",
+  "recipe_chars": 78,
+  "score": 0.513,
   "config": {
     "traditions": [
       "austrian_techno"
     ],
     "instruments": [
       {
-        "id": "electric_guitar_humbucker",
+        "id": "drum_machine_analog",
         "slots": {
-          "electric_technique": "electric_chicken_scratch",
-          "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electric_technique": 0.15000000000000002,
-          "amp_make": 0,
-          "body_wood": 0.063,
-          "neck_wood": 0,
-          "fretboard": -0.05,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0,
-          "string_gauge": 1.69,
-          "finish": 0.1365,
-          "string_tuning": 1.5835
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       },
       {
-        "id": "electric_bass",
+        "id": "modular_synth",
         "slots": {
-          "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "pickup_config": "split_coil",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_random",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 0.063,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.3,
-          "bass_technique": 0.44999999999999996,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "sticks_disco_four",
-          "drumhead": "single_coated",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "thin_shell",
-          "bearing_edges": "edge_45",
-          "snare_wires": "wires_20",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "traditional_finish"
-        },
-        "scores": {
-          "drum_technique": 1.1049999999999998,
-          "drumhead": 1.5835,
-          "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.5835,
-          "shell_thickness": 0,
-          "bearing_edges": 0.3,
-          "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 2.2809999999999997,
-          "cymbal_lathing": 1.45,
-          "cymbal_finish": 0
+          "electronic_technique": 0.2,
+          "mod_voltage_source": 0,
+          "mod_patch_density": 0.363,
+          "mod_lineage": 0
         }
       }
     ],
     "pinned": {
-      "electric_guitar_humbucker": [
-        "electric_technique",
-        "amp_make",
-        "body_wood",
-        "neck_wood",
-        "fretboard",
-        "pickup_magnet",
-        "pickup_winding",
-        "string_material",
-        "bridge",
-        "scale_length",
-        "string_gauge",
-        "finish",
-        "string_tuning"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ],
-      "electric_bass": [
-        "amp_make",
-        "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
-      ],
-      "drum_kit": [
-        "drum_technique",
-        "shell_wood",
-        "shell_thickness",
-        "bearing_edges",
-        "drumhead",
-        "snare_wires",
-        "drum_kit_kick_pedal",
-        "cymbal_alloy",
-        "cymbal_hammering",
-        "cymbal_lathing",
-        "cymbal_finish"
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
       ]
     },
-    "room": "treated_studio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -154,45 +72,16 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
     "parts": {
-      "electric_technique": "electric_chicken_scratch",
-      "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
-      "fretboard": "rosewood_fb_h",
-      "pickup_magnet": "alnico_2_h",
-      "pickup_winding": "mid_wind",
-      "string_material": "pure_nickel_h",
-      "bridge": "vibrato_arm",
-      "scale_length": "scale_gibson_h",
-      "string_gauge": "g_10_hum",
-      "finish": "nitro_hum",
-      "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "bass_technique": "fingerstyle_locked",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "drum_technique": "sticks_disco_four",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
-      "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_random",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

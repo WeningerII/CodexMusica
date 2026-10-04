@@ -2,10 +2,10 @@
   "id": "gotlandsk_musik",
   "name": "Gotländsk musik",
   "family": "pop",
-  "lineage": "Annika Fehling Trio — Hush Now, complete2021 single. Authored acoustic song realization preserves voice, acoustic guitars, lapsteel, piano and cello. Dry all-mahogany flatpicked OM supplies articulated accompaniment, nine-foot Steinway block chords realize source piano, open-E lapsteel song-accompaniment preset avoids unrelated Hawaiian or sacred-steel claims. Modern steel-string cello with soft sul-tasto bowed support is editorial, not measured bowing or construction. One accompanied singer with neutral physiology, no global temperament. Source chord-and-melody composition supports functionalSong; repeating song/refrain organization is an authored arrangement, not exact formal transcription. Studio signal chain is editorial, not original session gear.",
-  "recipe": "classic gotländsk musik, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany flatpicked acoustic guitar, open e song accompaniment lap steel, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, steel European maple bosnian source flamed figure oil varnish cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 463,
-  "score": 87.322,
+  "lineage": "Gotländsk musik connects Gotland’s musicians, repertoire and regional cultural institutions. Folk traditions, contemporary songwriting, pop and rock coexist within an island community whose music circulates beyond a single language or style.",
+  "recipe": "classic gotländsk musik, functional Song. solo with instrumental accompaniment, single lead single track no stacking. acoustic guitar, a 440 modern pitch us standard block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 289,
+  "score": 10.533,
   "config": {
     "traditions": [
       "gotlandsk_musik"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.182499999999999,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.1999999999999993,
-          "voice_multitrack_stack": 2.9000000000000004,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 1,
           "voice_tessitura": 0
         }
       },
@@ -63,21 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 2.6,
-          "back_sides": 2.6,
+          "top_wood": 0,
+          "back_sides": 0,
           "string_acoustic": 0,
-          "acoustic_om_technique": 2.5500000000000003
-        }
-      },
-      {
-        "id": "lap_steel",
-        "slots": {
-          "lap_steel_tuning": "lap_steel_open_e",
-          "lap_steel_style": "lap_steel_song_accompaniment"
-        },
-        "scores": {
-          "lap_steel_tuning": 2.6,
-          "lap_steel_style": 10.399999999999999
+          "acoustic_om_technique": -0.05
         }
       },
       {
@@ -94,40 +83,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 8.55,
+          "keyboard_technique": 4.95,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 4.800000000000001,
-          "piano_rim": 5.4,
-          "piano_soundboard": 3.3365,
-          "piano_pinblock": 3.2,
-          "piano_plate": 3.2,
-          "piano_pitch_standard": 4.123
-        }
-      },
-      {
-        "id": "cello",
-        "slots": {
-          "bowed_technique": "bowed_sul_tasto",
-          "cello_strings": "cello_steel",
-          "cello_top_wood": "norway_spruce_alpine_cello",
-          "cello_back_wood": "bosnian_flamed_maple_cello",
-          "cello_varnish": "oil_amber_varnish_cello",
-          "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "pernambuco_stick_cello"
-        },
-        "scores": {
-          "bowed_technique": -0.05,
-          "cello_strings": 2.5999999999999996,
-          "cello_top_wood": -0.1,
-          "cello_back_wood": 2.8,
-          "cello_varnish": 3.2,
-          "cello_setup_period": 3.2,
-          "cello_bow_grip": 0.39,
-          "cello_rosin": 6.1,
-          "cello_bow_stick": 3.1500000000000004
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": 0.8999999999999999,
+          "piano_rim": 0.8999999999999999,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.2229999999999999
         }
       }
     ],
@@ -158,10 +122,6 @@
         "string_acoustic",
         "acoustic_om_technique"
       ],
-      "lap_steel": [
-        "lap_steel_tuning",
-        "lap_steel_style"
-      ],
       "grand_piano": [
         "keyboard_technique",
         "grand_piano_size",
@@ -172,17 +132,6 @@
         "piano_pinblock",
         "piano_plate",
         "piano_pitch_standard"
-      ],
-      "cello": [
-        "bowed_technique",
-        "cello_strings",
-        "cello_top_wood",
-        "cello_back_wood",
-        "cello_varnish",
-        "cello_setup_period",
-        "cello_bow_grip",
-        "cello_rosin",
-        "cello_bow_stick"
       ]
     },
     "room": "treated_studio",
@@ -224,8 +173,6 @@
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",
       "acoustic_om_technique": "om_flatpicked_lead",
-      "lap_steel_tuning": "lap_steel_open_e",
-      "lap_steel_style": "lap_steel_song_accompaniment",
       "keyboard_technique": "keyboard_block_chord_pop",
       "grand_piano_size": "grand_9_foot",
       "grand_piano_brand": "steinway_d",
@@ -234,16 +181,7 @@
       "piano_soundboard": "sitka_spruce_diaphragmatic",
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "bowed_technique": "bowed_sul_tasto",
-      "cello_strings": "cello_steel",
-      "cello_top_wood": "norway_spruce_alpine_cello",
-      "cello_back_wood": "bosnian_flamed_maple_cello",
-      "cello_varnish": "oil_amber_varnish_cello",
-      "cello_setup_period": "modern_setup_cello",
-      "cello_bow_grip": "french_bow_grip",
-      "cello_rosin": "pirastro_cellisto_rosin",
-      "cello_bow_stick": "pernambuco_stick_cello"
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

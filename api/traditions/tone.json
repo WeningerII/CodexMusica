@@ -2,55 +2,49 @@
   "id": "tone",
   "name": "Tone",
   "family": "electronic",
-  "lineage": "Source Vibrations — Solfeggio Energy Tuners Pure Tone Series, complete nine-track recorded collection. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic tone, experimental Elec, ambient branch. fixed frequency tone recording. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 179,
-  "score": 0,
+  "lineage": "Tone-based listening music foregrounds sustained pitches, overtones and subtle changes in sound. Electronic tone recordings provide one approach within ambient and experimental listening.",
+  "recipe": "classic tone, experimental Elec, ambient branch. analog sine oscillator z3000. live tracking.",
+  "recipe_chars": 93,
+  "score": 5.277,
   "config": {
     "traditions": [
       "tone"
     ],
     "instruments": [
       {
-        "id": "fixed_frequency_tone_recording",
+        "id": "analog_sine_oscillator_z3000",
         "slots": {
-          "fixed_frequency_recording_identity": "fixed_tone_recording_undertones_harmonics"
+          "z3000_signal_identity": "z3000_direct_sine_signal"
         },
         "scores": {
-          "fixed_frequency_recording_identity": 0
+          "z3000_signal_identity": 5.2765
         }
       }
     ],
     "pinned": {
-      "fixed_frequency_tone_recording": [
-        "fixed_frequency_recording_identity"
+      "analog_sine_oscillator_z3000": [
+        "z3000_signal_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
-      "fixed_frequency_recording_identity": "fixed_tone_recording_undertones_harmonics"
+      "z3000_signal_identity": "z3000_direct_sine_signal"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

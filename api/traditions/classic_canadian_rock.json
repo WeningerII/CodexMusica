@@ -5,7 +5,7 @@
   "lineage": "A retrospective Canadian rock discovery label, represented here by Rush’s early-1980s guitar/bass/drums and synthesizer integration. The selected model draws on the band’s account of developing Tom Sawyer and the producer’s description of Moving Pictures sessions.",
   "recipe": "classic 1980-1983 classic canadian rock, distorted Rock, progressive rock branch. solo with instrumental accompaniment. electric bass, humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog synth. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, marshall super lead 1959, SSL inline console, 1176 FET, SSL surgical EQ. Studer 30ips tape analog bucket-brigade delay.",
   "recipe_chars": 452,
-  "score": 49.905,
+  "score": 49.569,
   "config": {
     "traditions": [
       "classic_canadian_rock"
@@ -62,9 +62,9 @@
           "string_material": 0.7769999999999999,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.5145,
+          "string_gauge": 0.378,
           "finish": 0,
-          "string_tuning": 0.126
+          "string_tuning": 0.0945
         }
       },
       {
@@ -84,7 +84,7 @@
         },
         "scores": {
           "drum_technique": 13.25,
-          "drumhead": 0.126,
+          "drumhead": 0.0945,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.39,
           "shell_thickness": 0,
@@ -109,7 +109,7 @@
           "electronic_technique": 0.6499999999999999,
           "oscillator": 0.39,
           "filter_topology": 2.8774999999999995,
-          "envelope": 0.8505,
+          "envelope": 0.714,
           "modulation": 0
         }
       },

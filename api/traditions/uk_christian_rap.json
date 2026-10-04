@@ -2,10 +2,10 @@
   "id": "uk_christian_rap",
   "name": "Uk christian rap",
   "family": "hip_hop",
-  "lineage": "London Christian rap represented by Guvna B’s Odd1Out-era recordings and church-linked collaborations.",
-  "recipe": "classic modern uk christian rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 296,
-  "score": 35.553,
+  "lineage": "Christian rap in the United Kingdom joins local hip-hop practice with faith-centered writing and church-linked creative networks.",
+  "recipe": "classic modern uk christian rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 350,
+  "score": 42.192,
   "config": {
     "traditions": [
       "uk_christian_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.3,
+          "voice_quality": 15.275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.665,
-          "voice_ensemble_config": 0.78,
+          "voice_speech_song": 14.469,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.522
         }
       },
       {
@@ -59,9 +59,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
-          "sample_swing": 3.9,
+          "electronic_technique": 3.7,
+          "sample_bitdepth": 0.213,
+          "sample_swing": 6.5,
           "sample_processing": 0.105
         }
       }

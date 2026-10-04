@@ -2,10 +2,10 @@
   "id": "swiss_alternative_rock",
   "name": "Swiss alternative rock",
   "family": "rock",
-  "lineage": "Swiss alternative rock is represented here by Ricochet Rabbit — I’ve Been Here Before. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Swiss alternative rock connects local guitar-band songwriting with indie and post-rock textures.",
   "recipe": "classic swiss alternative rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 372,
-  "score": 60.55,
+  "score": 61.632,
   "config": {
     "traditions": [
       "swiss_alternative_rock"
@@ -16,9 +16,9 @@
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.15000000000000002,
-          "amp_make": 6.89,
-          "body_wood": 0.3,
-          "neck_wood": 0.3,
-          "fretboard": 0.25,
+          "electric_technique": 2.4,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 0.39,
+          "neck_wood": 0.18,
+          "fretboard": 0.1365,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.0735,
           "string_material": 0.1365,
-          "bridge": 1.69,
+          "bridge": 0.3075,
           "scale_length": 0.378,
-          "string_gauge": 1.69,
+          "string_gauge": 0.3075,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.11699999999999999
         }
       },
       {
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.344999999999999,
-          "body_wood": 0.3,
+          "amp_make": 7.475,
+          "body_wood": 0.18,
           "pickup_config": 0,
-          "string_type": 17.55,
+          "string_type": 17.875,
           "scale_length_b": 0.063,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.5,
-          "drumhead": 0.39,
+          "drum_technique": 13.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1395,
-          "voice_multitrack_stack": 0.39
+          "voice_processing_chain": 0.3195,
+          "voice_multitrack_stack": 0.2985
         }
       },
       {
@@ -128,9 +128,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 7.02,
-          "poly_voices": 0.3,
+          "electronic_technique": 0.2,
+          "poly_archetypes": 7.15,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -0.035
         }
       }

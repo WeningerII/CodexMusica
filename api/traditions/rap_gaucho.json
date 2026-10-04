@@ -5,7 +5,7 @@
   "lineage": "Porto Alegre rap represented by Da Guedes’ MC-and-DJ formation.",
   "recipe": "classic modern rap gaúcho, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 311,
-  "score": 37.106,
+  "score": 37.214,
   "config": {
     "traditions": [
       "rap_gaucho"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

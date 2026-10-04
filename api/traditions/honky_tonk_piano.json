@@ -2,10 +2,10 @@
   "id": "honky_tonk_piano",
   "name": "Honky-tonk piano",
   "family": "vernacular",
-  "lineage": "Stefan Veit — Honky Tonk Piano: Play Songs & Improvise!, complete Schott ED21245 piano teaching edition. Selected sound model realizes its published piano-only repertoire and improvisation exercises, not an assertion about every source hit recording or the accompanying CD sound palette. Publisher identifies piano instrumentation,136pages, transcriptions, original compositions and improvisation work. Listed repertoire includes Honky Tonkin, Shine, Honky Tonk, Honky Tonk Train Blues, Barrelhouse Shake-Down, Boxcar Boogie, Honky Tonk Blues, Nottamun Town and Black and White Rag. One pianist, no scored voice or added band. Broad improvOnFrame fits the positively instructional improvisation-on-repertoire practice. A standard-sized upright with deliberately detuned honky-tonk color and the existing honky-tonk playing setting is an authored realization of this piano practice, not a documented instrument in the book recording. No thumbtacks, concert-grand equipment, performer singing or band invented. Live-room acoustics are editorial; no equal-tempered global tuning or unspecified capture hardware is asserted.",
+  "lineage": "Honky-tonk piano connects lively keyboard playing with country, blues, ragtime and early popular dance music. Its influence extends through R&B, rockabilly, rock-and-roll and jazz, crossing the boundaries of the vocal-country style that shares its name.",
   "recipe": "classic honky-tonk piano, improv On Frame. upright piano. live tracking.",
   "recipe_chars": 72,
-  "score": 18.4,
+  "score": 8,
   "config": {
     "traditions": [
       "honky_tonk_piano"
@@ -19,7 +19,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 18.400000000000006,
+          "keyboard_technique": 8,
           "upright_use": 0,
           "upright_piano_size": 0
         }

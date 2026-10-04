@@ -2,10 +2,10 @@
   "id": "transpop",
   "name": "Transpop",
   "family": "pop",
-  "lineage": "Skylar Kergil — Tell Me a Story (2015), complete title track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2010s transpop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. acoustic humbucker electric guitar, electric bass, cajon peruano, a 440 modern pitch us standard grand piano, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 360,
-  "score": 9.701,
+  "lineage": "A cross-style pop field connecting songwriting, performance and trans cultural visibility. Its repertoire encompasses acoustic song, rock and electronic pop rather than a single production technique.",
+  "recipe": "classic transpop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic clean strummed humbucker electric guitar, electric bass, cajon peruano, block chord upright piano, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 344,
+  "score": 28.571,
   "config": {
     "traditions": [
       "transpop"
@@ -43,30 +43,30 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.2445,
+          "voice_speech_song": 0.39,
           "voice_ensemble_config": 0.5715000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.3,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 1,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "acoustic_guitar_dread",
         "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka_om",
-          "back_sides": "rosewood_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
+          "acoustic_technique": 8.2,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.035,
-          "string_acoustic": 0,
-          "acoustic_om_technique": -0.25
+          "back_sides": 0,
+          "string_acoustic": 0
         }
       },
       {
@@ -74,8 +74,8 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -87,7 +87,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.45,
+          "electric_technique": 8.2,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0,
@@ -97,7 +97,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
           "string_tuning": 0
         }
@@ -106,8 +106,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -137,28 +137,16 @@
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 2.45,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
-          "piano_hammer": 0.2,
-          "piano_rim": 0.26,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 1.184
+          "keyboard_technique": 8.2,
+          "upright_use": 0,
+          "upright_piano_size": 0
         }
       },
       {
@@ -191,12 +179,12 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "acoustic_guitar_om": [
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning",
         "top_wood",
         "back_sides",
-        "string_acoustic",
-        "acoustic_om_technique"
+        "string_acoustic"
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
@@ -227,30 +215,24 @@
         "cajon_peruano_construction",
         "cajon_peruano_role"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ],
       "credited_auxiliary_percussion": [
         "credited_auxiliary_percussion_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -259,7 +241,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -279,14 +261,13 @@
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "string_tuning": "standard_tuning",
-      "top_wood": "sitka_om",
-      "back_sides": "rosewood_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_fingerpicked",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -295,7 +276,7 @@
       "scale_length": "scale_gibson_h",
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
-      "pickup_config": "split_coil",
+      "pickup_config": "soapbar",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -304,22 +285,11 @@
       "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
       "cajon_peruano_role": "cajon_peruano_role_source_unspecified",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

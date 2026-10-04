@@ -2,10 +2,10 @@
   "id": "oceania_soundtrack",
   "name": "Oceania soundtrack",
   "family": "classical",
-  "lineage": "Bruce Rowland — The Man from Snowy River, complete Hal Leonard Piano Solo Songbook HL00313565, ISBN9781458407948: all14 arrangements across64pages. Publisher explicitly specifies piano solo and lists the complete contents, including Jessica’s Theme and Clancy’s Theme. One piano family and no vocal part in this independently issued complete arranged edition; no reconstruction or truncation of the original film orchestra. Full score pages have not been inspected; publisher scoring and contents have. Broad artMusic/classical here models composed dramatic instrumental cue repertoire in its complete published piano realization; notation alone is not the category justification. A standard-size studio upright piano with connected classical-legato touch is an authored realization of the publisher’s subtype-unspecified piano scoring, not Rowland’s measured piano or source session; no grand-piano or orchestral timbre is asserted. Concert-hall room is authored; global tuning and recording apparatus omitted. No singer, sampled original soundtrack or uncredited instrument added.",
-  "recipe": "classic oceania soundtrack, art Music. legato upright piano. shoebox concert hall.",
-  "recipe_chars": 82,
-  "score": 10.331,
+  "lineage": "Oceania soundtrack connects screen composers and repertoire associated with Australia, New Zealand and the wider region. Music circulates through films, broadcasts, recordings and concert arrangements, encompassing contrasting eras and production approaches.",
+  "recipe": "classic oceania soundtrack, art Music. upright piano. shoebox concert hall.",
+  "recipe_chars": 75,
+  "score": 2.531,
   "config": {
     "traditions": [
       "oceania_soundtrack"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 10.331499999999998,
-          "upright_use": 0,
+          "keyboard_technique": 2.5,
+          "upright_use": 0.0315,
           "upright_piano_size": 0
         }
       }

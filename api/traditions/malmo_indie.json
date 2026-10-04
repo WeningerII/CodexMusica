@@ -2,10 +2,10 @@
   "id": "malmo_indie",
   "name": "Malmo Indie",
   "family": "pop_rock",
-  "lineage": "We Float — Let Go (2022), complete album roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic early-2020s malmo indie, functional Song. group vocals. electric bass, analog synth, song supporting rock context rhodes electric, grand piano, drum kit, credited auxiliary percussion, humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 318,
-  "score": 8.521,
+  "lineage": "Malmö indie includes independent pop and alternative bands working across the Swedish city’s recording and performance communities.",
+  "recipe": "classic malmo indie, functional Song. group vocals. electric bass, analog synth, song supporting rock context block chord rhodes electric, block chord grand piano, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, clean strummed humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 425,
+  "score": 21.811,
   "config": {
     "traditions": [
       "malmo_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.507,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0.18,
           "voice_tessitura": 0
         }
@@ -69,7 +69,7 @@
           "body_wood": 0.1365,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.3,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -87,7 +87,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "oscillator": 0,
-          "filter_topology": 0.27,
+          "filter_topology": 0.39,
           "envelope": 0,
           "modulation": 0
         }
@@ -103,12 +103,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 0.7,
+          "keyboard_technique": 3.2,
           "rhodes_model": -0.05,
-          "rhodes_use": 1.95,
-          "rhodes_tine_material": 0.3,
-          "rhodes_hammer_tip": 0.3,
-          "rhodes_pickup_position": 0.3
+          "rhodes_use": 2.34,
+          "rhodes_tine_material": 0,
+          "rhodes_hammer_tip": 0,
+          "rhodes_pickup_position": 0
         }
       },
       {
@@ -125,7 +125,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.7,
+          "keyboard_technique": 3.2,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.1365,
           "piano_hammer": -0.1,
@@ -153,15 +153,15 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0,
+          "drumhead": 0.3,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 0.6499999999999999,
-          "cymbal_lathing": 0.6499999999999999,
+          "cymbal_hammering": 3.1500000000000004,
+          "cymbal_lathing": 3.1500000000000004,
           "cymbal_finish": 0
         }
       },
@@ -192,7 +192,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7,
+          "electric_technique": 4,
           "amp_make": 0,
           "body_wood": 0.1365,
           "neck_wood": 0,
@@ -202,7 +202,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }

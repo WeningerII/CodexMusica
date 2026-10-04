@@ -2,28 +2,79 @@
   "id": "brazilian_percussion",
   "name": "Brazilian percussion",
   "family": "global",
-  "lineage": "Airto Moreira — complete separately issued Airto's Solo, track8 of Michel Cury's Brain Sync(2025),1:26. The producer's track-by-track full credits explicitly list only Airto on percussion plus Copicat Echo for this track. All other tracks' keyboard/bass/drum/singer guests have their own separate lists and are not part of track8. One credited performer and no credited singer in this complete solo-percussion track. The percussion object types and simultaneous count are unspecified; a single neutral percussion-family card preserves the complete credited palette without inventing pandeiro, drumkit, cuica or rattles. Echo is retained as an effect, not a second instrumentalist. Broad groovePercussion is scoped to the complete percussion-led solo, with no invented samba subtype, meter, pitch, string or drum construction. Existing neutral credited_auxiliary_percussion owner is used as a source-unspecified percussion palette; 'auxiliary' in its ID does not assert an absent accompanying band. Authored tape-echo treatment realizes the positively credited Copicat Echo effect; its particular Copicat model, tape/digital circuit and delay settings are not identified by the source. The generic tape effect is an editorial choice, not asserted original hardware architecture. A controlled live-room acoustic is an authored percussion recital setting, not the measured source room. Unspecified capture hardware is omitted while the positively documented echo remains; no exact source tempo, tuning or medical effect is inferred from the album title.",
-  "recipe": "classic mid-2020s brazilian percussion, groove Percussion. credited auxiliary percussion. live tracking. tape echo.",
-  "recipe_chars": 115,
-  "score": 0,
+  "lineage": "Brazilian percussion spans social dance, ritual, concert and popular-music traditions shaped by African, Indigenous and European histories. Performers such as Airto Moreira carry this rich rhythmic vocabulary into jazz and international ensemble music.",
+  "recipe": "classic brazilian percussion, groove Percussion. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, surdo, tamborim. live tracking.",
+  "recipe_chars": 210,
+  "score": 6.561,
   "config": {
     "traditions": [
       "brazilian_percussion"
     ],
     "instruments": [
       {
-        "id": "credited_auxiliary_percussion",
+        "id": "pandeiro",
         "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "credited_auxiliary_percussion_identity": 0
+          "percussion_technique": -0.07,
+          "pandeiro_size": 0.3,
+          "pandeiro_context": 0,
+          "pandeiro_head": 2,
+          "pandeiro_shell_wood": 2,
+          "pandeiro_jingles": 2.0315
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_primeira",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 0,
+          "surdo_skin": 0,
+          "surdo_shell": 0
+        }
+      },
+      {
+        "id": "tamborim",
+        "slots": {
+          "tamborim_skin": "tamborim_nylon",
+          "tamborim_striker": "tamborim_cluster",
+          "tamborim_shell": "tamborim_aluminum_canonical"
+        },
+        "scores": {
+          "tamborim_skin": 0,
+          "tamborim_striker": 0.3,
+          "tamborim_shell": 0
         }
       }
     ],
     "pinned": {
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
+      "pandeiro": [
+        "percussion_technique",
+        "pandeiro_size",
+        "pandeiro_context",
+        "pandeiro_head",
+        "pandeiro_shell_wood",
+        "pandeiro_jingles"
+      ],
+      "surdo": [
+        "surdo_size",
+        "surdo_skin",
+        "surdo_shell"
+      ],
+      "tamborim": [
+        "tamborim_skin",
+        "tamborim_striker",
+        "tamborim_shell"
       ]
     },
     "room": "live_room",
@@ -38,18 +89,24 @@
     },
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": [
-      "tape_echo"
-    ]
+    "fx_extras": []
   },
   "source": {
     "room": "live_room",
     "parts": {
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+      "percussion_technique": "percussion_hands_layered",
+      "pandeiro_size": "pandeiro_medio",
+      "pandeiro_context": "pandeiro_samba",
+      "pandeiro_head": "pandeiro_goatskin_canonical",
+      "pandeiro_shell_wood": "pandeiro_eucalyptus",
+      "pandeiro_jingles": "pandeiro_brass_platinelas",
+      "surdo_size": "surdo_primeira",
+      "surdo_skin": "surdo_nylon",
+      "surdo_shell": "surdo_aluminum_canonical",
+      "tamborim_skin": "tamborim_nylon",
+      "tamborim_striker": "tamborim_cluster",
+      "tamborim_shell": "tamborim_aluminum_canonical"
     },
-    "pin_parts": true,
-    "chain_fx": [
-      "tape_echo"
-    ]
+    "pin_parts": true
   }
 }

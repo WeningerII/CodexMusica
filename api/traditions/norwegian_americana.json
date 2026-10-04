@@ -5,7 +5,7 @@
   "lineage": "Norwegian Americana connects local songwriting and roots ensembles with transatlantic recording practice. Malin Pettersen, named in the exact roster, supplies a documented country-leaning band branch.",
   "recipe": "classic modern norwegian americana, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. dreadnought acoustic guitar, a 440 modern pitch us standard grand piano, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 539,
-  "score": 86.155,
+  "score": 87.083,
   "config": {
     "traditions": [
       "norwegian_americana"
@@ -27,7 +27,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_parallel_thirds",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
@@ -36,16 +36,16 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.2,
+          "voice_vibrato": 6.3740000000000006,
           "voice_articulation": -0.14,
           "voice_microtone": 2.0799999999999996,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.2025000000000001,
-          "voice_estill_quality": 7.395250000000001,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 7.84825,
           "voice_speech_song": 5.525000000000001,
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.0315,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 1.3,
           "voice_multitrack_stack": 0.78
         }
@@ -56,14 +56,14 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "engelmann",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.105,
-          "back_sides": 0.39,
+          "back_sides": 0.44625,
           "string_acoustic": 0.39
         }
       },
@@ -83,7 +83,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.564,
+          "grand_piano_brand": 0.5325,
           "piano_hammer": 0.9814999999999999,
           "piano_rim": -0.035,
           "piano_soundboard": -0.05,
@@ -97,20 +97,20 @@
         "slots": {
           "electric_technique": "electric_steel_pedal_swells",
           "amp_make": "amp_american_fender_blackface",
-          "pickup_steel": "humbucker_steel",
+          "pickup_steel": "single_coil_steel",
           "string_setup": "standard_e9",
-          "bar_material": "steel_bar",
+          "bar_material": "brass_bar",
           "pedal_steel_brand": "mullen_d10",
           "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
           "electric_technique": 7.342,
-          "amp_make": 6.1865000000000006,
-          "pickup_steel": 0.0315,
+          "amp_make": 6.22925,
+          "pickup_steel": 0,
           "string_setup": 3.25,
-          "bar_material": 0.39,
-          "pedal_steel_brand": 6.7255,
+          "bar_material": 0.4215,
+          "pedal_steel_brand": 6.68275,
           "pedal_steel_neck_config": 8.125,
           "pedal_steel_strings": 6.6715
         }
@@ -132,8 +132,8 @@
           "body_wood": 0.0315,
           "pickup_config": 0.39,
           "string_type": 0.39,
-          "scale_length_b": 0.11699999999999999,
-          "fretted_or_not": 0.43275,
+          "scale_length_b": 0.10575,
+          "fretted_or_not": 0.507,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -147,7 +147,7 @@
         },
         "scores": {
           "drum_technique": 2.34,
-          "drumhead": 0.29924999999999996,
+          "drumhead": 0.44625,
           "drum_kit_kick_pedal": 0
         }
       }

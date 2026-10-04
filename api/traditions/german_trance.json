@@ -2,10 +2,10 @@
   "id": "german_trance",
   "name": "German trance",
   "family": "electronic",
-  "lineage": "German trance production network, represented by Paul van Dyk’s melodic club recordings and his documented Roland-machine lineage. This default selects a classic hardware-inspired arpeggio, acid-bass and programmed-kick arrangement.",
+  "lineage": "German trance developed through electronic club networks and producers combining melodic synthesis with programmed rhythm. Hardware sequencing, acid textures and later software production connect several generations of the scene.",
   "recipe": "classic modern german trance, electronic Dance, trance branch. analog synth, classic acid monosynth acid bass, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 322,
-  "score": 15.876,
+  "score": 9.678,
   "config": {
     "traditions": [
       "german_trance"
@@ -21,9 +21,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "oscillator": 10.686499999999999,
-          "filter_topology": 1.21825,
+          "electronic_technique": -0.05,
+          "oscillator": 8.8865,
+          "filter_topology": 0.1755,
           "envelope": 0.1425,
           "modulation": 0
         }
@@ -37,10 +37,10 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "wave_acid": 0.26649999999999996,
-          "filter_acid": 2.9675000000000002,
-          "accent_acid": 1.3945
+          "electronic_technique": -0.05,
+          "wave_acid": 0.39,
+          "filter_acid": 1.3,
+          "accent_acid": 0.0945
         }
       },
       {
@@ -53,7 +53,7 @@
         "scores": {
           "tr909_voice": -0.035,
           "drum_machine_909_context": -0.035,
-          "tr909_production_origin": -0.7350000000000001
+          "tr909_production_origin": -1.56625
         }
       }
     ],

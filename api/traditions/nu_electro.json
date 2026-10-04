@@ -2,10 +2,10 @@
   "id": "nu_electro",
   "name": "Nu electro",
   "family": "electronic",
-  "lineage": "Nu electro is represented here by Anthony Rother — True Story from ROBO POP, selected keyboard/drum-machine core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic nu electro, electronic Dance. rompler workstation, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 160,
-  "score": 8.493,
+  "lineage": "Nu electro renewed electro’s machine rhythms and synthesizer vocabulary through late-twentieth-century and newer electronic production.",
+  "recipe": "classic nu electro, electronic Dance. rompler workstation, drum machine analog. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 159,
+  "score": -0.285,
   "config": {
     "traditions": [
       "nu_electro"
@@ -22,23 +22,23 @@
         "scores": {
           "electronic_technique": -0.1,
           "rompler_preset_bank": -0.1,
-          "rompler_context": 2.54275,
+          "rompler_context": -0.035,
           "rompler_lineage": 0
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "drum_machine_analog",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 6.25,
-          "sample_processing": 0
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
@@ -49,10 +49,11 @@
         "rompler_context",
         "rompler_lineage"
       ],
-      "sampler_drum_machine": [
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
     "room": "treated_studio",
@@ -78,9 +79,10 @@
       "rompler_lineage": "rompler_lineage_unspecified",
       "rompler_context": "rompler_context_pop_workstation",
       "rompler_preset_bank": "rompler_preset_dance_stabs",
-      "sample_bitdepth": "twenty_four_bit",
-      "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

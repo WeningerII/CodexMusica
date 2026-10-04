@@ -2,55 +2,61 @@
   "id": "drill_beats",
   "name": "Drill Beats",
   "family": "hip_hop",
-  "lineage": "Wella — Wanted complete UK Drill demonstration showreel (2019). Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
-  "recipe": "classic late-2010s drill beats, mc Rhythm, drill branch. software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 181,
-  "score": 0,
+  "lineage": "Drill beats are the producer-facing instrumental language of drill, used both for MC performances and as standalone beat releases. British drill production is an influential reference within the wider field.",
+  "recipe": "classic drill beats, mc Rhythm, drill branch. sampler drum machine. live tracking.",
+  "recipe_chars": 82,
+  "score": 1.05,
   "config": {
     "traditions": [
       "drill_beats"
     ],
     "instruments": [
       {
-        "id": "software_sample_playback",
+        "id": "sampler_drum_machine",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "sample_808_legato_slides"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.39,
+          "sample_swing": -0.05,
+          "sample_processing": 0.78
         }
       }
     ],
     "pinned": {
-      "software_sample_playback": [
-        "software_sample_playback_identity"
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
-      "software_sample_playback_identity": "software_sample_playback_digital"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "sample_808_legato_slides"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

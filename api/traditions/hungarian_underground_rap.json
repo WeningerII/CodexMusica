@@ -3,9 +3,9 @@
   "name": "Hungarian underground rap",
   "family": "hip_hop",
   "lineage": "Hungarian independent rap; selected Akkezdet Phiai sample-and-MC branch",
-  "recipe": "classic modern hungarian underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. chopped sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 341,
-  "score": 43.384,
+  "recipe": "classic modern hungarian underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 379,
+  "score": 44.346,
   "config": {
     "traditions": [
       "hungarian_underground_rap"
@@ -37,13 +37,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.07799999999999999,
+          "voice_articulation": 0.24699999999999994,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.535749999999998,
-          "voice_ensemble_config": 0.23850000000000002,
+          "voice_speech_song": 11.704749999999999,
+          "voice_ensemble_config": 0.5374999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.07799999999999999,
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.39875,
+          "electronic_technique": 2.4377500000000003,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.183,
           "sampler_workflow": 2.1500000000000004,
           "sampler_classic_context": 6.175
         }
@@ -74,8 +74,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 2.39875,
-          "turntable_technique": 2.578
+          "electronic_technique": 2.4377500000000003,
+          "turntable_technique": 2.747
         }
       }
     ],

@@ -2,10 +2,10 @@
   "id": "finnish_classical",
   "name": "Finnish classical",
   "family": "classical",
-  "lineage": "Finnish classical is represented by Jean Sibelius — Complete Original Piano Music, Volume 1, Erik T. Tawaststjerna. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic finnish classical, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 253,
-  "score": 66.256,
+  "lineage": "Finnish classical music includes a substantial compositional heritage and continuing concert traditions. Keyboard, chamber, orchestral and vocal repertoire connect local musical institutions with international performance.",
+  "recipe": "classic finnish classical, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 262,
+  "score": 62.192,
   "config": {
     "traditions": [
       "finnish_classical"
@@ -18,22 +18,22 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 8.61,
-          "grand_piano_size": 0.6105,
-          "grand_piano_brand": 0.7155,
-          "piano_hammer": 10.659999999999998,
-          "piano_rim": 9.878,
-          "piano_soundboard": 9.1635,
-          "piano_pinblock": 8.305,
-          "piano_plate": 8.665,
-          "piano_pitch_standard": 9.649
+          "keyboard_technique": 7.554,
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 0.798,
+          "piano_hammer": 9.685,
+          "piano_rim": 8.3635,
+          "piano_soundboard": 8.6865,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.8805000000000005,
+          "piano_pitch_standard": 10.369499999999999
         }
       }
     ],

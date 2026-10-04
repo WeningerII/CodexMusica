@@ -2,10 +2,10 @@
   "id": "kenyan_r_and_b",
   "name": "Kenyan R&B",
   "family": "blues_gospel",
-  "lineage": "Kenyan R&B: Jinku and Karun — Passenger 555, original title track. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
-  "recipe": "classic kenyan r&b, functional Song, soul R&B branch. solo with instrumental accompaniment, single lead single track no stacking. basswood humbucker electric guitar, la bella flats Detroit soul bass canon fingerstyle locked electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 337,
-  "score": 20.642,
+  "lineage": "Kenyan R&B develops through singers, producers and collaborative networks, including Nairobi artists such as Karun and Jinku. Contemporary soul and electronic production support personal songwriting about relationships, identity and emotional change.",
+  "recipe": "classic kenyan r&b, functional Song, soul R&B branch. basswood humbucker electric guitar, la bella flats Detroit soul bass canon fingerstyle locked electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 22.075,
   "config": {
     "traditions": [
       "kenyan_r_and_b"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.302,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 2.08,
+          "voice_multitrack_stack": 0.252,
           "voice_tessitura": 0
         }
       },
@@ -63,9 +63,9 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
@@ -78,9 +78,9 @@
           "pickup_magnet": 0.315,
           "pickup_winding": 0.315,
           "string_material": 0.2415,
-          "bridge": 1.2535,
+          "bridge": 0.33599999999999997,
           "scale_length": 1.092,
-          "string_gauge": 1.2535,
+          "string_gauge": 0.33599999999999997,
           "finish": 0,
           "string_tuning": 1.0080000000000002
         }
@@ -93,7 +93,7 @@
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -101,10 +101,10 @@
           "amp_make": -0.07,
           "body_wood": 0.6720000000000002,
           "pickup_config": 0.45149999999999996,
-          "string_type": 5.2,
+          "string_type": 8.45,
           "scale_length_b": 0.33599999999999997,
-          "fretted_or_not": 0.0735,
-          "bass_technique": 3.65,
+          "fretted_or_not": 0.3315,
+          "bass_technique": 6.15,
           "electric_bass_string_configuration": 0
         }
       }

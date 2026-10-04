@@ -5,7 +5,7 @@
   "lineage": "Baixada Fluminense rap includes Nova Iguaçu’s Morro Agudo collective practice led by Dudu de Morro Agudo and Comboio. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern rap baixada fluminense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 305,
-  "score": 41.894,
+  "score": 42.002,
   "config": {
     "traditions": [
       "rap_baixada_fluminense"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.915,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 12.969,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 2.5,
           "sampler_archetypes": 3.9,
-          "sampler_bit_depth": 0.21,
+          "sampler_bit_depth": 0.318,
           "sampler_workflow": 2.25,
           "sampler_classic_context": 5.005
         }

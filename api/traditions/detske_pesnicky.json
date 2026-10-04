@@ -2,10 +2,10 @@
   "id": "detske_pesnicky",
   "name": "Detské Pesničky",
   "family": "classical",
-  "lineage": "Štefan Németh-Šamorínsky / Viera Janusová — Detské hry(1964), complete voice-and-piano work in2020 collected edition. Publisher explicitly identifies Slovak regional folk and children’s songs/games in this volume; its own score-library entry separately identifies complete Detské hry(1964), text Viera Janusová, instrumentation v,pf. Selected complete named work, not all mixed-purpose volume relabeled children’s music. One voice and one pianist preserve full published scoring; singer age, physiological register and exact stage headcount beyond the prescribed solo roles are not inferred from child-oriented subject matter. Neutral source-unspecified voice physiology; authored syllabic single-lead singing and legato SteinwayD nine-foot piano with coherent construction are an editorial performance model, not original historical gear or exact phonation measurement. No global tuning asserted. Broad artMusic placement belongs only to this cataloged formally composed voice-and-piano work; whole language-specific children’s-song category includes other popular and oral practices. Authored acoustic recital realization uses a shoebox concert hall and connected legato voice gestures alongside the authored legato piano. These are optional interpretive/capture choices, not claims about every note in the score, historical singer physiology or original session. Specific microphone/electronic-chain apparatus is left unspecified. Renderer metaphoric prefaces reflect this authored setting, not an asserted vocal school.",
-  "recipe": "classic mid-1960s detské pesničky, art Music. continuous-phonation, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
-  "recipe_chars": 254,
-  "score": 50.813,
+  "lineage": "Detské pesničky encompasses Slovak-language children’s songs, including folk-derived games, educational repertoire and newly composed songs. Families, schools and publishers sustain melodies that connect language, play and shared cultural memory.",
+  "recipe": "classic detské pesničky, nursery Rhyme. upright piano. shoebox concert hall.",
+  "recipe_chars": 76,
+  "score": 1.897,
   "config": {
     "traditions": [
       "detske_pesnicky"
@@ -38,43 +38,31 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 2.6,
+          "voice_articulation": 0.195,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.988999999999999,
-          "voice_ensemble_config": 3.7190000000000003,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 4.2945,
+          "voice_processing_chain": 0.1515,
+          "voice_multitrack_stack": 0.46649999999999997,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 6.4315,
-          "grand_piano_size": 2.0315,
-          "grand_piano_brand": 1.363,
-          "piano_hammer": 2.6180000000000003,
-          "piano_rim": 5.3125,
-          "piano_soundboard": 2.555,
-          "piano_pinblock": 4.737,
-          "piano_plate": 3.75,
-          "piano_pitch_standard": 1.976
+          "keyboard_technique": -0.1,
+          "upright_use": 0.13949999999999999,
+          "upright_piano_size": 0.264
         }
       }
     ],
@@ -98,16 +86,10 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "grand_piano": [
+      "upright_piano": [
         "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+        "upright_use",
+        "upright_piano_size"
       ]
     },
     "room": "concert_hall_shoebox",
@@ -144,15 +126,9 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "keyboard_technique": "keyboard_classical_legato",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true
   }

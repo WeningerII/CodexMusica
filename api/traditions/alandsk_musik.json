@@ -2,10 +2,10 @@
   "id": "alandsk_musik",
   "name": "Åländsk musik",
   "family": "vernacular",
-  "lineage": "LAMORI — Symphony Of The Night. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic åländsk musik, distorted Rock, gothic rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 373,
-  "score": 38.813,
+  "lineage": "Åländsk musik encompasses musical activity associated with the Åland Islands, including local bands and a varied concert and festival culture. LAMORI, founded in 2009, represents a modern gothic-rock and metal strand within that regional scene.",
+  "recipe": "classic late-2000s åländsk musik, distorted Rock, gothic rock branch. solo with instrumental accompaniment, single lead single track no stacking. power chord humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 396,
+  "score": 52.436,
   "config": {
     "traditions": [
       "alandsk_musik"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6615,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.8600000000000003,
+          "electric_technique": 5.135,
           "amp_make": 0,
           "body_wood": 0.6405,
           "neck_wood": 0.504,
@@ -80,7 +80,7 @@
           "string_material": 0.105,
           "bridge": 0,
           "scale_length": 1.0079999999999998,
-          "string_gauge": 1.5835,
+          "string_gauge": 0.2835,
           "finish": 0.1365,
           "string_tuning": 0.063
         }
@@ -124,16 +124,16 @@
           "cymbal_finish": "hand_hammered"
         },
         "scores": {
-          "drum_technique": 8.3445,
+          "drum_technique": 10.8445,
           "drumhead": 0.26249999999999996,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39,
+          "shell_wood": 0.26249999999999996,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.39,
+          "bearing_edges": 1.1365,
           "snare_wires": 0,
-          "cymbal_alloy": 1.4299999999999997,
-          "cymbal_hammering": 9.4225,
-          "cymbal_lathing": 8.95,
+          "cymbal_alloy": 1.0399999999999998,
+          "cymbal_hammering": 13.6725,
+          "cymbal_lathing": 13.2,
           "cymbal_finish": 0.5355000000000001
         }
       },

@@ -2,10 +2,10 @@
   "id": "polish_jazz",
   "name": "Polish jazz",
   "family": "jazz",
-  "lineage": "Polish jazz scenes; selected Stańko ballad-suite quartet",
-  "recipe": "classic modern polish jazz, improv On Frame, American jazz branch. bach stradivarius 180 canonical American orchestral trumpet, sitka spruce diaphragmatic a 440 modern pitch us standard grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 426,
-  "score": 55.831,
+  "lineage": "Polish jazz developed through local scenes, composition and international exchange, spanning lyrical modern-jazz writing and freer improvisation. Small ensembles have cultivated distinctive melodic voices and a close relationship between written themes and collective response.",
+  "recipe": "classic modern polish jazz, improv On Frame, American jazz branch. bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 461,
+  "score": 85.258,
   "config": {
     "traditions": [
       "polish_jazz"
@@ -23,9 +23,9 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.05,
+          "wind_articulation": 1.2349999999999999,
           "brass_size": 0.168,
-          "trumpet_mouthpiece": 0.7314999999999999,
+          "trumpet_mouthpiece": 2.4815,
           "brass_mute": 0.0735,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.105,
@@ -48,13 +48,13 @@
         "scores": {
           "keyboard_technique": -0.05,
           "grand_piano_size": 0.0735,
-          "grand_piano_brand": 0.183,
-          "piano_hammer": 0.9099999999999999,
-          "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 1.078,
-          "piano_pinblock": 0.7427499999999999,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 1.755
+          "grand_piano_brand": 0.144,
+          "piano_hammer": 2.9435000000000002,
+          "piano_rim": 3.185,
+          "piano_soundboard": 2.49275,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 4.9399999999999995
         }
       },
       {
@@ -64,8 +64,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.102,
-          "upright_play": 12
+          "upright_strings": 0.063,
+          "upright_play": 13.75
         }
       },
       {
@@ -84,16 +84,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.89,
-          "drumhead": 0.042749999999999996,
+          "drum_technique": 13.389999999999997,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39,
-          "shell_thickness": 0.03899999999999999,
-          "bearing_edges": 0.17925,
+          "shell_wood": 0.0735,
+          "shell_thickness": 0.16899999999999998,
+          "bearing_edges": 0.1365,
           "snare_wires": 0.0735,
-          "cymbal_alloy": 12.223499999999996,
-          "cymbal_hammering": 12.391,
-          "cymbal_lathing": 0.8449999999999999,
+          "cymbal_alloy": 13.673499999999997,
+          "cymbal_hammering": 14.141,
+          "cymbal_lathing": 2.7714999999999996,
           "cymbal_finish": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Icelandic folk includes inherited songs and modern troubadour performance. Svavar Knútur’s explicit folk-heritage tribute Amma provides the selected contemporary song branch.",
   "recipe": "classic modern icelandic folk, ballad Poetry. thick, straight onset, neutral third half flat, notated speech melody. fingerpicked acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 284,
-  "score": 30.773,
+  "score": 31.061,
   "config": {
     "traditions": [
       "icelandic_folk"
@@ -36,7 +36,7 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8999999999999999,
+          "voice_vibrato": 1.0799999999999998,
           "voice_articulation": 0,
           "voice_microtone": 1.6899999999999997,
           "voice_tradition": 0,
@@ -62,9 +62,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0.054,
-          "back_sides": 0,
+          "back_sides": 0.054,
           "string_acoustic": 0.3,
-          "acoustic_om_technique": 9.654000000000002
+          "acoustic_om_technique": 9.708000000000002
         }
       }
     ],

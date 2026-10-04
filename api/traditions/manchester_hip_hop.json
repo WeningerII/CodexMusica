@@ -5,7 +5,7 @@
   "lineage": "Manchester hip hop includes grime-derived MC practice and melodic recorded rap. Bugzy Malone’s Make or Break collaboration with Toddla T, Chilly Gonzales and Shola Ama supplies this selected piano-led branch.",
   "recipe": "classic modern manchester hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. no chemical hardener t rivet a 440 modern pitch us standard grand piano, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 394,
-  "score": 23.505,
+  "score": 23.862,
   "config": {
     "traditions": [
       "manchester_hip_hop"
@@ -65,13 +65,13 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.276,
+          "grand_piano_size": 0.159,
+          "grand_piano_brand": 0.456,
           "piano_hammer": 1.254,
           "piano_rim": -0.035,
           "piano_soundboard": -0.035,
           "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
+          "piano_plate": -0.035,
           "piano_pitch_standard": 1.1049999999999998
         }
       },
@@ -85,7 +85,7 @@
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": -0.05,
           "sample_processing": 0.105
         }

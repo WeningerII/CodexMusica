@@ -3,9 +3,9 @@
   "name": "Flute rock",
   "family": "rock_punk",
   "lineage": "Rock in which flute is a foreground melodic and improvising instrument, represented by Ian Anderson’s early Jethro Tull practice. The flute engages directly with electric guitar, bass and drums rather than providing only decorative orchestral color. The authored model includes singing as a separate role.",
-  "recipe": "classic flute rock, distorted Rock, classic branch. one note per syllable, solo with instrumental accompaniment. powell boston canonical American orchestral flute, marshall plexi amp British rock amp mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp mahogany electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 412,
-  "score": 39.363,
+  "recipe": "classic flute rock, distorted Rock, classic branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. powell boston canonical American orchestral flute, marshall plexi amp British rock amp mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 441,
+  "score": 38.654,
   "config": {
     "traditions": [
       "flute_rock"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "wind_articulation": -0.05,
-          "flute_size": 1.3,
+          "flute_size": 1.33525,
           "flute_material": 0.6945,
           "flute_technique": 0.6,
           "flute_maker_school": 1.3
@@ -59,12 +59,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
+          "voice_speech_song": 1.3667500000000001,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.105,
-          "voice_processing_chain": 0.03471428571428571,
-          "voice_multitrack_stack": 0.4652142857142857
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.5004642857142856
         }
       },
       {
@@ -88,16 +88,16 @@
           "electric_technique": 2.8600000000000003,
           "amp_make": 4.42,
           "body_wood": 1.3,
-          "neck_wood": 0.51825,
+          "neck_wood": 0.483,
           "fretboard": 0.0945,
           "pickup_magnet": 0.1365,
           "pickup_winding": 1.95,
           "string_material": 0.1365,
-          "bridge": 0.51825,
-          "scale_length": 1.0365,
-          "string_gauge": 0.51825,
+          "bridge": 0.483,
+          "scale_length": 0.9660000000000002,
+          "string_gauge": 0.483,
           "finish": 0.3045,
-          "string_tuning": 0.0699642857142857
+          "string_tuning": 0
         }
       },
       {
@@ -114,11 +114,11 @@
         },
         "scores": {
           "amp_make": 5.785,
-          "body_wood": 1.0365,
+          "body_wood": 0.9660000000000002,
           "pickup_config": 0.3315,
           "string_type": 0,
-          "scale_length_b": 0.51825,
-          "fretted_or_not": 1,
+          "scale_length_b": 0.483,
+          "fretted_or_not": 1.03525,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -133,7 +133,7 @@
         },
         "scores": {
           "drum_technique": 8.813,
-          "drumhead": 0.24171428571428571,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0945
         }

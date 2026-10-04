@@ -5,7 +5,7 @@
   "lineage": "Spanish-language romantic rap overlaps intimate pop and sung delivery. Beret’s early piano-backed work supplies the selected crossover branch.",
   "recipe": "classic modern rap romántico, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 362,
-  "score": 46.818,
+  "score": 46.926,
   "config": {
     "traditions": [
       "rap_romantico"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.665,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 13.719,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -55,7 +55,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -65,8 +65,8 @@
         },
         "scores": {
           "keyboard_technique": 3.254,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 1.6540000000000001,
+          "grand_piano_size": 0.159,
+          "grand_piano_brand": 1.7080000000000002,
           "piano_hammer": 3.746,
           "piano_rim": 4.16,
           "piano_soundboard": 3.3275,

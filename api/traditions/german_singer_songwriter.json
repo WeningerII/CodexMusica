@@ -2,10 +2,10 @@
   "id": "german_singer_songwriter",
   "name": "German singer-songwriter",
   "family": "vernacular",
-  "lineage": "German singer-songwriter is a broad performer-authorship category across acoustic and amplified music. Gisbert zu Knyphausen’s own narrative songs supply the selected small-ensemble branch.",
-  "recipe": "classic modern german singer-songwriter, ballad Poetry. narrative, neutral third half flat, opera quality low larynx anchored, notated speech melody. dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 316,
-  "score": 15.866,
+  "lineage": "German singer-songwriters span acoustic and amplified forms, with performer-authored texts and distinctive delivery at their center. Artists such as Gisbert zu Knyphausen connect intimate narrative song with contemporary recording and live-band practice.",
+  "recipe": "classic modern german singer-songwriter, ballad Poetry. conversational, breath pulsed, narrative, neutral third half flat. dreadnought acoustic guitar. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 296,
+  "score": 27.223,
   "config": {
     "traditions": [
       "german_singer_songwriter"
@@ -18,34 +18,34 @@
           "voice_quality": "speech_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_octave_double_self"
         },
         "scores": {
-          "voice_register": 0.3,
-          "voice_quality": 0,
+          "voice_register": 0.054,
+          "voice_quality": 0.7,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.36,
-          "voice_articulation": 1.154,
-          "voice_microtone": 1.2999999999999998,
+          "voice_vibrato": 0.7,
+          "voice_articulation": 0.9079999999999998,
+          "voice_microtone": 4.290000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.453,
-          "voice_estill_quality": 2.3300000000000005,
-          "voice_speech_song": 1.885,
-          "voice_ensemble_config": 1.8199999999999998,
-          "voice_ornament_system": 2.3300000000000005,
-          "voice_pitch_organization": 0.06500000000000002,
+          "voice_mechanism_compound": 2.561,
+          "voice_estill_quality": 2.438,
+          "voice_speech_song": 6.5649999999999995,
+          "voice_ensemble_config": 2.6,
+          "voice_ornament_system": 2.0839999999999996,
+          "voice_pitch_organization": 0.05000000000000002,
           "voice_processing_chain": 1.534,
           "voice_multitrack_stack": 1
         }
@@ -60,10 +60,10 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 0.2,
+          "acoustic_technique": 0.254,
           "string_tuning": 0,
           "top_wood": 0.1365,
-          "back_sides": 0.1365,
+          "back_sides": 0.8365,
           "string_acoustic": 0.1365
         }
       }
@@ -72,13 +72,14 @@
       "voice": [
         "voice_quality",
         "voice_articulation",
-        "voice_tradition"
+        "voice_tradition",
+        "voice_ensemble_config"
       ],
       "acoustic_guitar_dread": [
         "acoustic_technique"
       ]
     },
-    "room": "parlor",
+    "room": "live_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -96,12 +97,13 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "parlor",
+    "room": "live_room",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_quality": "speech_voice",
       "acoustic_technique": "acoustic_strummed_ringing",
-      "voice_tradition": "voice_tradition_source_unspecified"
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

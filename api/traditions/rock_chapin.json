@@ -2,10 +2,10 @@
   "id": "rock_chapin",
   "name": "Rock chapin",
   "family": "rock",
-  "lineage": "Rock chapin is represented here by Alux Nahual — USAC anniversary performance. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic rock chapin, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, hard rock maple cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 365,
-  "score": 57.965,
+  "lineage": "Rock chapín connects Guatemalan bands and audiences through varied forms of rock songwriting and performance. Instrumental experimentation and local musical identity coexist with familiar electric-band foundations.",
+  "recipe": "classic rock chapin, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 349,
+  "score": 54.415,
   "config": {
     "traditions": [
       "rock_chapin"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 6.11,
+          "amp_make": 7.0200000000000005,
           "body_wood": 0.273,
-          "neck_wood": 0.273,
-          "fretboard": 0.273,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.147,
-          "string_material": 0.273,
-          "bridge": 1.55875,
-          "scale_length": 0.7875000000000001,
-          "string_gauge": 1.55875,
+          "string_material": 0.39,
+          "bridge": 0.0735,
+          "scale_length": 0.39,
+          "string_gauge": 0.0735,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.063
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
+          "amp_make": 7.475,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 15.6,
+          "string_type": 17.875,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.34275,
+          "drum_technique": 13.75,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,36 +112,36 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.2415
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "silver_wound_lamb_gut_cello",
-          "cello_top_wood": "engelmann_spruce_cello",
-          "cello_back_wood": "hard_rock_maple_cello_back",
-          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_strings": "cello_steel",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "brazilwood_stick_cello"
+          "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
           "bowed_technique": 0.25,
-          "cello_strings": 0.5499999999999999,
-          "cello_top_wood": -0.05,
-          "cello_back_wood": 6.175,
-          "cello_varnish": 0.325,
+          "cello_strings": 0.39,
+          "cello_top_wood": -0.1,
+          "cello_back_wood": -0.07,
+          "cello_varnish": -0.07,
           "cello_setup_period": 0.26,
           "cello_bow_grip": 0.1995,
-          "cello_rosin": 0.49999999999999994,
-          "cello_bow_stick": -0.05
+          "cello_rosin": 0.2,
+          "cello_bow_stick": -0.15000000000000002
         }
       }
     ],
@@ -176,7 +176,15 @@
         "voice_multitrack_stack"
       ],
       "cello": [
-        "bowed_technique"
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
       ]
     },
     "room": "treated_studio",
@@ -219,7 +227,15 @@
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "bowed_technique": "bowed_legato_classical"
+      "bowed_technique": "bowed_legato_classical",
+      "cello_strings": "cello_steel",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "european_maple_cello_back",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -5,7 +5,7 @@
   "lineage": "Thin — the overlapping nature of things (2025), complete EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s mathgrind, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. nitrocellulose conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 415,
-  "score": 50.305,
+  "score": 49.686,
   "config": {
     "traditions": [
       "mathgrind"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1575,
+          "voice_processing_chain": 0.0945,
           "voice_multitrack_stack": 1.17,
           "voice_tessitura": 0
         }
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": 7.735,
           "amp_make": 0,
-          "body_wood": 0.8084999999999999,
+          "body_wood": 0.8399999999999999,
           "neck_wood": 0.5775,
           "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
+          "pickup_magnet": 0.105,
           "pickup_winding": 0.0315,
-          "string_material": 0.1365,
-          "bridge": 0.0315,
+          "string_material": 0.21,
+          "bridge": 0.105,
           "scale_length": 1.155,
-          "string_gauge": 1.852,
+          "string_gauge": 1.747,
           "finish": 1.105,
-          "string_tuning": 1.6045
+          "string_tuning": 1.363
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.8084999999999999,
+          "body_wood": 0.8399999999999999,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 7.1000000000000005,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 7.226000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,17 +124,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.25,
-          "drumhead": 1.6045,
+          "drum_technique": 6.2815,
+          "drumhead": 1.573,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.9780000000000002,
+          "shell_wood": 1.768,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": 0.10000000000000002,
           "cymbal_hammering": 7.0865,
-          "cymbal_lathing": 7.6594999999999995,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 7.4495000000000005,
+          "cymbal_finish": 0.105
         }
       }
     ],

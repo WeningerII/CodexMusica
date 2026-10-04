@@ -2,10 +2,10 @@
   "id": "nueva_ola_peruana",
   "name": "Nueva ola peruana",
   "family": "pop",
-  "lineage": "Alfredo Correa y el show de Los Doltons — complete five-person performing lineup reported in the singer’s July2022 interview: Correa voice, Percy Tirado keyboard, Tito Arroyo drums, Abel La Torre guitar and Roberto Bolarte bass. This is the former vocalist’s own repertoire-revival ensemble, explicitly separate from the concurrent Los Doltons group led by Fernando BolarteJr; it is not a claim to the original1960s recording lineup or brand identity. Retain all five credited musical roles; no synth architecture guessed from bare keyboard credit. Authored contemporary live-band rendition preserves the named one-vocalist lineup with neutral physiology. Source guitar realized as clean-strummed alder/maple humbucker, bass as alder dual-single fingerstyle and maple kit with B20 machine-hammered traditionally finished cymbals; source-specific makes are not asserted. Bare keyboard retains the existing architecture-unspecified owner. Broad functionalSong is limited to authored functional-harmonic verse/refrain treatment of this documented popular-song revival, not a source score analysis. Controlled live room, no global tuning or guessed capture apparatus.",
-  "recipe": "classic nueva ola peruana, functional Song. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, electronic keyboard unspecified. live tracking.",
-  "recipe_chars": 357,
-  "score": 48.11,
+  "lineage": "Nueva ola peruana connects Peru’s early Spanish-language popular-rock movement and its continuing repertoire. Groups such as Los Doltons and later revival performers sustain songs associated with the country’s expanding youth and recording culture.",
+  "recipe": "classic nueva ola peruana, functional Song. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 261,
+  "score": 22.215,
   "config": {
     "traditions": [
       "nueva_ola_peruana"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.1715,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 5.4239999999999995,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,10 +70,10 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.05,
+          "electric_technique": 2.45,
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
-          "neck_wood": 2.6539999999999995,
+          "body_wood": 0,
+          "neck_wood": 0.054,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.5999999999999996,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 2.3865,
-          "drumhead": 1.3,
+          "drum_technique": 3.6865,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.554,
+          "shell_wood": 0.054,
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 1.4299999999999997,
-          "cymbal_hammering": 7.354,
-          "cymbal_lathing": 4.7,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 5.7540000000000004,
+          "cymbal_lathing": 6.000000000000001,
           "cymbal_finish": 0
         }
       },
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.6
         }
       }
     ],

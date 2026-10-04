@@ -2,10 +2,10 @@
   "id": "bohemian_baroque",
   "name": "Bohemian baroque",
   "family": "classical",
-  "lineage": "Bohemian baroque: Heinrich Ignaz Franz Biber — concluding Passacaglia for solo violin. A documented branch is realized as an authored current studio arrangement.",
+  "lineage": "Bohemian Baroque music encompasses composers and repertoire connected with Bohemia and neighbouring Central European courts and churches. Biber’s violin writing forms one influential strand alongside vocal and larger instrumental works.",
   "recipe": "classic bohemian baroque, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure violin orchestral. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 263,
-  "score": 49.652,
+  "score": 47.9,
   "config": {
     "traditions": [
       "bohemian_baroque"
@@ -20,22 +20,22 @@
           "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "cremonese_pre_1750_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "snakewood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.62,
+          "bowed_technique": 2.5,
           "orch_strings": -0.035,
-          "orch_top_wood": 8.25,
-          "orch_back_wood": 8.25,
-          "orch_varnish": 8.4075,
-          "orch_setup_period": 6.40975,
-          "orch_bow": 0.29400000000000004,
-          "orch_bow_stick": 6.246,
-          "orch_articulation": 0.2835,
-          "orch_rosin": 8.92675
+          "orch_top_wood": 8.5,
+          "orch_back_wood": 8.5,
+          "orch_varnish": 7.6575,
+          "orch_setup_period": 6.184,
+          "orch_bow": 0.3547499999999999,
+          "orch_bow_stick": 5.496,
+          "orch_articulation": 0.523125,
+          "orch_rosin": 8.2195
         }
       }
     ],

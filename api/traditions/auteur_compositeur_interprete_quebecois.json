@@ -5,7 +5,7 @@
   "lineage": "Auteur-compositeur-interprete quebecois: Ian Fournier — Déprimates (2018). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
   "recipe": "classic late-2010s auteur-compositeur-interprete quebecois, ballad Poetry, chanson fado branch. interlocked note trading, single source phonation, opera quality low larynx anchored, solo with instrumental accompaniment. transparent warm nickel bronze modern blend dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 391,
-  "score": 24.429,
+  "score": 24.641,
   "config": {
     "traditions": [
       "auteur_compositeur_interprete_quebecois"
@@ -27,7 +27,7 @@
           "voice_speech_song": "voice_speech_song_local_unspecified",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
@@ -37,16 +37,16 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.1365,
+          "voice_vibrato": 0.21150000000000002,
           "voice_articulation": 4.875,
-          "voice_microtone": -0.21,
+          "voice_microtone": -0.22649999999999998,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 7.9079999999999995,
+          "voice_mechanism_compound": 7.833,
           "voice_estill_quality": 1.1049999999999998,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.014,
+          "voice_ensemble_config": 1.284,
           "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 0.15,
+          "voice_pitch_organization": 0.108,
           "voice_processing_chain": 0.063,
           "voice_multitrack_stack": 3.9,
           "voice_tessitura": 0

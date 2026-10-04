@@ -2,10 +2,10 @@
   "id": "livetronica",
   "name": "Livetronica",
   "family": "jazz",
-  "lineage": "Chameleon Project / JChameleon — Hot Tub Command Center (2024), exact single. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2020s livetronica, improv On Frame, fusion branch. humbucker electric guitar, sampler, electric bass, dark bronze bell bronze drum kit, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 259,
-  "score": 20.429,
+  "lineage": "Livetronica — live instrumental performance integrated with electronic production and looping.",
+  "recipe": "classic livetronica, improv On Frame, fusion branch. humbucker electric guitar, sampler, electric bass, dark bronze bell bronze drum kit, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 249,
+  "score": 15.901,
   "config": {
     "traditions": [
       "livetronica"
@@ -17,7 +17,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -32,14 +32,14 @@
           "electric_technique": -0.1,
           "amp_make": 0,
           "body_wood": 0.1365,
-          "neck_wood": 0.1365,
+          "neck_wood": 0.4095,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.273,
-          "string_gauge": 2.068,
+          "string_gauge": 0.46799999999999997,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.3465,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 4.029999999999999
+          "sampler_classic_context": 2.7300000000000004
         }
       },
       {
@@ -66,7 +66,7 @@
         "slots": {
           "amp_make": "amp_unspecified",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -109,7 +109,7 @@
           "snare_wires": 0,
           "cymbal_alloy": 10.649999999999999,
           "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": 0.15000000000000002,
+          "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0
         }
       },
@@ -128,13 +128,13 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.3,
+          "grand_piano_size": 0,
           "grand_piano_brand": 0.273,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": 0.9314999999999999,
+          "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
-          "piano_plate": 0.2,
+          "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
         }
       }
@@ -219,7 +219,7 @@
       "electric_technique": "electric_clean_strummed",
       "amp_make": "amp_unspecified",
       "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -234,7 +234,7 @@
       "sampler_bit_depth": "sampler_sixteen_bit",
       "sampler_workflow": "sampler_loop_layered",
       "sampler_classic_context": "sampler_classic_edm",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",

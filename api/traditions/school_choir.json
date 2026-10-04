@@ -2,10 +2,10 @@
   "id": "school_choir",
   "name": "School choir",
   "family": "classical",
-  "lineage": "School choir is represented by Westminster School Choir and Ben Bloor — Martin: Novo profusi gaudio. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
-  "recipe": "classic school choir, art Music, western modern branch. cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 397,
-  "score": 17.59,
+  "lineage": "School choirs combine music education with collective performance across sacred, secular and contemporary repertoire. Singing together develops listening, phrasing and coordination within an ensemble.",
+  "recipe": "classic school choir, art Music, western modern branch. group vocals, live take. cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 422,
+  "score": 19.585,
   "config": {
     "traditions": [
       "school_choir"
@@ -43,18 +43,18 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 1.61575,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.27299999999999996,
-          "voice_multitrack_stack": 0.1365
+          "voice_multitrack_stack": 1.1365
         }
       },
       {
         "id": "pipe_organ",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_class": "pipe_organ_neo_baroque",
           "pipe_organ_context": "pipe_organ_concert",
           "pipe_organ_voicing_school": "pipe_organ_cavaille_coll",
           "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
@@ -63,11 +63,11 @@
         },
         "scores": {
           "keyboard_technique": 2.5,
-          "pipe_organ_class": 0,
-          "pipe_organ_context": 3.9,
+          "pipe_organ_class": 0.042749999999999996,
+          "pipe_organ_context": 5.2,
           "pipe_organ_voicing_school": 2.6985,
           "pipe_organ_pipe_alloy": 1.8795000000000002,
-          "pipe_organ_temperament": 3.6399999999999997,
+          "pipe_organ_temperament": 1.95,
           "pipe_organ_action": 2.2889999999999997
         }
       }

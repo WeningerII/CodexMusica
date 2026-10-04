@@ -2,10 +2,10 @@
   "id": "brisbane_hip_hop",
   "name": "Brisbane hip hop",
   "family": "hip_hop",
-  "lineage": "Nerve complete SexyBack reworking for ABC triple j Like A Version, published31July2026. Nerve lead rap/vocals; Miss Kaninna and Ruby Jackson backing vocals; Joy keys; Emma Greenhill violin; Charlotte Vance nee Roberts cello; Wy’es drums. Seven credited performers, three voices, five sound families. Broadcaster explicitly names newly added rap verses and strings; actual dated live cover is the source, not the original Timberlake studio recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic brisbane hip hop, mc Rhythm, intl hip hop branch. group vocals, live take. electronic keyboard unspecified, European maple bosnian source flamed figure violin orchestral, European maple bosnian source flamed figure pirastro cellisto cello specific cello, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 439,
-  "score": 24.917,
+  "lineage": "Brisbane hip-hop forms a city-based community within Australian rap, with artists such as Nerve linking local performance networks to national production and broadcasting.",
+  "recipe": "classic brisbane hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
+  "recipe_chars": 184,
+  "score": 42.678,
   "config": {
     "traditions": [
       "brisbane_hip_hop"
@@ -15,7 +15,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -24,17 +24,17 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 13.78,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,105 +43,28 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 4.367999999999999,
+          "voice_speech_song": 12.98,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 1.6,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "electronic_keyboard_unspecified",
+        "id": "sampler_drum_machine",
         "slots": {
-          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.1995
-        }
-      },
-      {
-        "id": "violin_orchestral",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "synthetic_orch",
-          "orch_top_wood": "norway_spruce_alpine_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
-          "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "pirastro_gold_rosin_orch"
-        },
-        "scores": {
-          "bowed_technique": -0.035,
-          "orch_strings": 0,
-          "orch_top_wood": -0.1,
-          "orch_back_wood": 2.2,
-          "orch_varnish": 0.7,
-          "orch_setup_period": 0.9099999999999999,
-          "orch_bow": 0,
-          "orch_bow_stick": 0.6499999999999999,
-          "orch_articulation": 0.1995,
-          "orch_rosin": 0.8785
-        }
-      },
-      {
-        "id": "cello",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
-          "cello_top_wood": "norway_spruce_alpine_cello",
-          "cello_back_wood": "bosnian_flamed_maple_cello",
-          "cello_varnish": "oil_amber_varnish_cello",
-          "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "pernambuco_stick_cello"
-        },
-        "scores": {
-          "bowed_technique": -0.035,
-          "cello_strings": 0.39,
-          "cello_top_wood": -0.1,
-          "cello_back_wood": 2.2,
-          "cello_varnish": 0.7,
-          "cello_setup_period": 0.9099999999999999,
-          "cello_bow_grip": 0,
-          "cello_rosin": 2.6314999999999995,
-          "cello_bow_stick": 0.6499999999999999
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "thin_shell",
-          "bearing_edges": "edge_45",
-          "snare_wires": "wires_20",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "traditional_finish"
-        },
-        "scores": {
-          "drum_technique": -0.05,
-          "drumhead": 1,
-          "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.3,
-          "shell_thickness": 0,
-          "bearing_edges": 0.39,
-          "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": 1.45,
-          "cymbal_lathing": 1.75,
-          "cymbal_finish": 0
+          "electronic_technique": 5.308,
+          "sample_bitdepth": 0.105,
+          "sample_swing": 9.1,
+          "sample_processing": 0.105
         }
       }
     ],
@@ -165,68 +88,32 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "electronic_keyboard_unspecified": [
-        "electronic_keyboard_identity",
-        "keyboard_technique"
-      ],
-      "violin_orchestral": [
-        "bowed_technique",
-        "orch_strings",
-        "orch_top_wood",
-        "orch_back_wood",
-        "orch_varnish",
-        "orch_setup_period",
-        "orch_bow",
-        "orch_bow_stick",
-        "orch_articulation",
-        "orch_rosin"
-      ],
-      "cello": [
-        "bowed_technique",
-        "cello_strings",
-        "cello_top_wood",
-        "cello_back_wood",
-        "cello_varnish",
-        "cello_setup_period",
-        "cello_bow_grip",
-        "cello_rosin",
-        "cello_bow_stick"
-      ],
-      "drum_kit": [
-        "drum_technique",
-        "shell_wood",
-        "shell_thickness",
-        "bearing_edges",
-        "drumhead",
-        "snare_wires",
-        "drum_kit_kick_pedal",
-        "cymbal_alloy",
-        "cymbal_hammering",
-        "cymbal_lathing",
-        "cymbal_finish"
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -235,51 +122,18 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "keyboard_technique": "electronic_keyboard_melodic_chordal",
-      "bowed_technique": "bowed_legato_classical",
-      "orch_strings": "synthetic_orch",
-      "orch_top_wood": "norway_spruce_alpine_violin",
-      "orch_back_wood": "bosnian_flamed_maple_violin",
-      "orch_varnish": "oil_amber_varnish_violin",
-      "orch_setup_period": "modern_setup_violin",
-      "orch_bow": "modern_bow",
-      "orch_bow_stick": "pernambuco_stick_orch",
-      "orch_articulation": "arco_orch",
-      "orch_rosin": "pirastro_gold_rosin_orch",
-      "cello_strings": "cello_synthetic",
-      "cello_top_wood": "norway_spruce_alpine_cello",
-      "cello_back_wood": "bosnian_flamed_maple_cello",
-      "cello_varnish": "oil_amber_varnish_cello",
-      "cello_setup_period": "modern_setup_cello",
-      "cello_bow_grip": "french_bow_grip",
-      "cello_rosin": "pirastro_cellisto_rosin",
-      "cello_bow_stick": "pernambuco_stick_cello",
-      "drum_technique": "sticks_rock",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
-      "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "one_shots_layered"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -2,10 +2,10 @@
   "id": "classical_piano_duo",
   "name": "Classical piano duo",
   "family": "classical",
-  "lineage": "Classical piano duo is represented by Tal & Groethuysen — Mozart Sonata for Piano Four-Hands K. 19d. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic classical piano duo, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 248,
-  "score": 63.767,
+  "lineage": "Classical piano duos perform music for two pianists at one or two keyboards. Original works and arrangements distribute musical material between four hands and extend the piano’s polyphonic possibilities.",
+  "recipe": "classic classical piano duo, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 255,
+  "score": 60.666,
   "config": {
     "traditions": [
       "classical_piano_duo"
@@ -16,24 +16,24 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.483,
-          "grand_piano_brand": 0.705,
-          "piano_hammer": 10.725,
-          "piano_rim": 10.318,
-          "piano_soundboard": 8.25,
-          "piano_pinblock": 8.355,
-          "piano_plate": 8.877,
-          "piano_pitch_standard": 8.5545
+          "grand_piano_size": 0.843,
+          "grand_piano_brand": 0.7589999999999999,
+          "piano_hammer": 9.685,
+          "piano_rim": 9.428,
+          "piano_soundboard": 7.9725,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 9.1165
         }
       }
     ],

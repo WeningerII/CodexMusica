@@ -5,7 +5,7 @@
   "lineage": "Icelandic electronic is represented by Kiasmos — selected 2014 piano, synthesis and programmed-rhythm core. One documented branch receives an authored present-day studio realization.",
   "recipe": "classic mid-2010s icelandic electronic, experimental Elec, idm glitch branch. one piece 17 ply hard rock maple grand piano, analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 265,
-  "score": 10.042,
+  "score": 10.036,
   "config": {
     "traditions": [
       "icelandic_electronic"
@@ -31,7 +31,7 @@
           "piano_hammer": -0.035,
           "piano_rim": 1.17,
           "piano_soundboard": -0.05,
-          "piano_pinblock": 0.26,
+          "piano_pinblock": 0.254,
           "piano_plate": -0.05,
           "piano_pitch_standard": -0.035
         }

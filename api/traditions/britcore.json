@@ -2,10 +2,10 @@
   "id": "britcore",
   "name": "Britcore",
   "family": "hip_hop",
-  "lineage": "Hardnoise — Untitled (Acapella), complete B2 version of the official Suspect Packages2006 reissue of the1990 Music of Life release. The issuing label explicitly lists the vocal-only edition separately from A1 original and B1 instrumental. This preserves the entire positive human-vocal role of a separately released version, not an arbitrary strip of a produced master. Number of vocal performers and layering/tracking are not specified by the issuer and remain unknown; no group-membership-to-track inference is made. No sampled instrumental or scratch roles from the original mix are transferred into the separately labeled acapella edition. Broad mcRhythm.intlHipHop follows the positively identified British rap release. An isolated human-voice owner preserves all original seventeen physical/vocal controls, replacing only its mandatory numerical/structural ensemble and tracking choices with neutral source-unspecified options. Rhythmic spoken-flow and rap delivery model the source genre; anatomy, register, vibrato, pitch organization and training remain neutral. Dry studio and unprocessed vocal capture are authored recording choices, not claims about source equipment. No equal-temperament or pitched accompaniment is introduced; no numerical singer count or solo/group geometry is invented.",
-  "recipe": "classic britcore, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch unprocessed natural acoustic rap human voice ensemble unspecified. treated studio.",
-  "recipe_chars": 162,
-  "score": 43.793,
+  "lineage": "Britcore emerged as a hard-edged branch of British hip-hop, associated with groups such as Hijack, Hardnoise and the Demon Boyz. Rapid rap, forceful breakbeats and turntable technique connect its sound with the UK’s wider sound-system and breakbeat cultures.",
+  "recipe": "classic britcore, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch rap human voice ensemble unspecified, chopped sampler, sampled chopped turntable. treated studio.",
+  "recipe_chars": 177,
+  "score": 52.341,
   "config": {
     "traditions": [
       "britcore"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.975499999999997,
+          "voice_quality": 11.245000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,13 +43,41 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 24.517999999999997,
+          "voice_speech_song": 10.868,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
+          "voice_processing_chain": 0,
           "human_voice_ensemble_source_status": 0,
           "human_voice_tracking_source_status": 0,
           "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 4,
+          "sampler_archetypes": 3.75,
+          "sampler_bit_depth": 0.1785,
+          "sampler_workflow": 3.95,
+          "sampler_classic_context": 9.945
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 4,
+          "turntable_technique": 4.405
         }
       }
     ],
@@ -72,6 +100,17 @@
         "voice_processing_chain",
         "human_voice_tracking_source_status",
         "voice_tessitura"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "turntable": [
+        "electronic_technique",
+        "turntable_technique"
       ]
     },
     "room": "treated_studio",
@@ -107,7 +146,13 @@
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "turntable_technique": "turntable_scratch"
     },
     "pin_parts": true
   }

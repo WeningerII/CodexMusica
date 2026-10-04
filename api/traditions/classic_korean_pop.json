@@ -2,10 +2,10 @@
   "id": "classic_korean_pop",
   "name": "Classic korean pop",
   "family": "pop",
-  "lineage": "Classic korean pop is represented here by Sanullim — early twin-vocal band. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic classic korean pop, functional Song, pop rock branch. humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 303,
-  "score": 37.967,
+  "lineage": "Classic Korean pop encompasses established popular-song repertoire and the bands whose songs continued across later generations. Folk-rock and psychedelic approaches contributed to its guitar-led strands.",
+  "recipe": "classic classic korean pop, functional Song, east Asian pop branch. humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 309,
+  "score": 27.95,
   "config": {
     "traditions": [
       "classic_korean_pop"
@@ -19,29 +19,29 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.10500000000000001,
-          "amp_make": 2.21,
-          "body_wood": 0.6194999999999999,
-          "neck_wood": 0.2415,
-          "fretboard": 0.0315,
-          "pickup_magnet": 0.1365,
-          "pickup_winding": 2.3,
-          "string_material": 0.0315,
-          "bridge": 1.4365,
-          "scale_length": 0.6405000000000001,
-          "string_gauge": 1.4995,
+          "amp_make": 1.17,
+          "body_wood": 0.6824999999999999,
+          "neck_wood": 0.231,
+          "fretboard": 0.0945,
+          "pickup_magnet": 0.16799999999999998,
+          "pickup_winding": 2.063,
+          "string_material": 0.0945,
+          "bridge": 0.231,
+          "scale_length": 0.609,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0.0315
         }
       },
       {
@@ -49,20 +49,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.6650000000000005,
-          "body_wood": 0.378,
-          "pickup_config": 0.3045,
-          "string_type": 5.85,
-          "scale_length_b": 0.168,
-          "fretted_or_not": 0.0315,
+          "amp_make": 1.625,
+          "body_wood": 0.43050000000000005,
+          "pickup_config": 0.1365,
+          "string_type": 2.8885,
+          "scale_length_b": 0.231,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 4.5315,
-          "drumhead": 12.1915,
+          "drum_technique": 2.5,
+          "drumhead": 11.536,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -84,14 +84,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "juno_60",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 2.34,
-          "poly_voices": 0.231,
+          "poly_archetypes": 2.126,
+          "poly_voices": 0.36750000000000005,
           "poly_maker_lineage": -0.035
         }
       },
@@ -127,11 +127,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.063,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 0.168,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.063
+          "voice_multitrack_stack": 0.168
         }
       }
     ],

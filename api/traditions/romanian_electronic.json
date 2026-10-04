@@ -2,10 +2,10 @@
   "id": "romanian_electronic",
   "name": "Romanian electronic",
   "family": "electronic",
-  "lineage": "Romanian electronic is represented here by Baba Dochia — XII Lambskins-era synth, drum-machine and guitar core. This is a documented branch with an authored present-day studio realization.",
+  "lineage": "Romanian electronic music includes club production and exploratory live projects that combine electronic and amplified instruments. Audiovisual performance provides one setting for these hybrid approaches.",
   "recipe": "classic romanian electronic, experimental Elec. analog poly synth, sampler drum machine, humbucker electric guitar. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 195,
-  "score": 14.252,
+  "score": 13.873,
   "config": {
     "traditions": [
       "romanian_electronic"
@@ -15,13 +15,13 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "poly_archetypes": 0.3,
+          "electronic_technique": -0.035,
+          "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
           "poly_maker_lineage": -0.05
         }
@@ -35,43 +35,43 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "sample_bitdepth": 0,
-          "sample_swing": 9,
-          "sample_processing": 0
+          "sample_swing": 10.75,
+          "sample_processing": 1
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_fuzz_riff",
-          "amp_make": "amp_american_fender_champ",
-          "body_wood": "mahogany_maple_cap",
+          "amp_make": "amp_unspecified",
+          "body_wood": "korina",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "dadgad"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.1049999999999998,
-          "body_wood": 0.1365,
+          "amp_make": 0,
+          "body_wood": 0.39,
           "neck_wood": 0.105,
-          "fretboard": 0.105,
-          "pickup_magnet": 0,
+          "fretboard": 0.3315,
+          "pickup_magnet": 0.3315,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 1.3,
+          "bridge": 0.105,
           "scale_length": 0.21,
-          "string_gauge": 1.3,
+          "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 0.78
+          "string_tuning": 0.273
         }
       }
     ],

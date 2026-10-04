@@ -2,10 +2,10 @@
   "id": "indie_cantabria",
   "name": "Indie Cantabria",
   "family": "rock",
-  "lineage": "Lunatic Catz — complete artist-described five-person band practice. Three credited guitar roles share an authored clean-strummed electric-guitar family card; source does not specify all guitar types, so this is an editorial ensemble realization, not an inventory of original pickups or independently fixed three gestures. Bare keyboard remains neutral electronic_keyboard_unspecified, with authored melodic/chordal support. Alder/maple humbucker, dual-single-coil fingerstyle bass, maple stick-played kit and machine-hammered traditionally finished cymbals are authored choices. One credited singer uses source-unspecified physiology and an authored single lead. Alternative-rock parent follows the explicit indie-rock band practice. Controlled room is authored; recording chain and global tuning omitted.",
-  "recipe": "classic indie cantabria, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, melodic chordal electronic keyboard unspecified. live tracking.",
-  "recipe_chars": 398,
-  "score": 84.144,
+  "lineage": "Cantabria indie brings together regional independent rock and pop practice within the broader Spanish scene. Groups such as Lunatic Catz build their music around songs, local performance and flexible guitar-band arrangements.",
+  "recipe": "classic indie cantabria, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 240,
+  "score": 38.961,
   "config": {
     "traditions": [
       "indie_cantabria"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 4.446,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.468,
+          "electric_technique": 2.6180000000000003,
           "amp_make": 0,
-          "body_wood": 2.0095,
-          "neck_wood": 2.7049999999999996,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 1.1550000000000002,
-          "string_gauge": 1.2730000000000001,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 2.0095,
+          "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 15.749999999999998,
-          "drumhead": 1.4365,
+          "drum_technique": 8.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 5.7415,
+          "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 19.0815,
-          "cymbal_lathing": 17.1865,
+          "cymbal_hammering": 11.231499999999999,
+          "cymbal_lathing": 11.3365,
           "cymbal_finish": 0
         }
       },
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 3.104
+          "keyboard_technique": 0.78
         }
       }
     ],

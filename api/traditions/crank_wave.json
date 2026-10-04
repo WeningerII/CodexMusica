@@ -2,10 +2,10 @@
   "id": "crank_wave",
   "name": "Crank wave",
   "family": "rock_punk",
-  "lineage": "Loveworms — complete self-titled2025 release. Authored present-day realization: power-chord humbucker guitar, fingerstyle electric bass, rock-stick drumkit with machine-hammered traditionally finished cymbals and five-voice Sequential Prophet-style pad synth. Synth architecture and exact guitar/bass construction are editorial choices for documented families, not recovered source hardware. One credited vocalist; physiological, training, pitch and speech/song mode remain source-unspecified rather than forcing all crank wave to recitation. Global tuning omitted; neutral axes and studio chain are authored. Both synth players aggregate to one family card without omission. Authored render refinement: an alder body on both electric guitar and bass, a maple electric-guitar neck, and a dual-single-coil bass pickup configuration replace the previous authored mahogany/maple-cap, mahogany-neck and split-coil choices. These are plausible alternative modern instrument constructions, not measurements or claims about the credited performers’ gear. All documented roles, performers, techniques and source boundaries remain intact. The original flat body_wood key applies the same compatible alder choice to both owning instruments.",
-  "recipe": "classic crank wave, distorted Rock, punk branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 502,
-  "score": 75.809,
+  "lineage": "Crank wave emerged as a name for a contemporary art-punk and post-punk current, initially associated with British groups and subsequently adopted elsewhere. Squid, Fontaines D.C., BODEGA and other acts connect guitar-band urgency with distinctive vocal characters and angular arrangements.",
+  "recipe": "classic crank wave, distorted Rock, punk branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 18.45,
   "config": {
     "traditions": [
       "crank_wave"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 2.5,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.2,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 3.2824999999999998,
-          "neck_wood": 2.663,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 1.3,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 2.6
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.2824999999999998,
+          "body_wood": 0.6825000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
-          "drumhead": 1.3,
+          "drum_technique": 3.75,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 7.504999999999999,
+          "shell_wood": 0.105,
           "shell_thickness": 0,
-          "bearing_edges": 1.7995,
+          "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 13.822999999999999,
-          "cymbal_lathing": 14.849999999999998,
+          "cymbal_hammering": 3.9230000000000005,
+          "cymbal_lathing": 3.6500000000000004,
           "cymbal_finish": 0
         }
       },
@@ -146,10 +146,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 1.2,
+          "electronic_technique": -0.1,
           "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": 3.3150000000000004
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.035
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Austrian stoner rock is represented here by Witchrider. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic austrian stoner rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 363,
-  "score": 48.413,
+  "score": 48.222,
   "config": {
     "traditions": [
       "austrian_stoner_rock"
@@ -32,16 +32,16 @@
           "electric_technique": -0.07,
           "amp_make": 5.2,
           "body_wood": 2.4255,
-          "neck_wood": 0.441,
+          "neck_wood": 0.48375000000000007,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 1.69,
+          "bridge": 1.573,
           "scale_length": 1.743,
-          "string_gauge": 1.69,
+          "string_gauge": 1.573,
           "finish": 0,
-          "string_tuning": 0.34275
+          "string_tuning": 0.3
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 5.654999999999999,
-          "body_wood": 0.8820000000000001,
+          "body_wood": 0.9247500000000002,
           "pickup_config": 0.273,
           "string_type": 13.325,
           "scale_length_b": 0.441,

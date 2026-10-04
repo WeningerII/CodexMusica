@@ -2,10 +2,10 @@
   "id": "winnipeg_hip_hop",
   "name": "Winnipeg hip hop",
   "family": "hip_hop",
-  "lineage": "Winnipeg hip hop is a city-scene category represented by The Lytics’ collaborative MC, beatmaker and DJ practice. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
+  "lineage": "Winnipeg hip-hop encompasses collaborative MC, beatmaker and DJ communities, including the soul-inflected work of The Lytics.",
   "recipe": "classic modern winnipeg hip hop, mc Rhythm, intl hip hop branch. rap, echo word punctuation. sampled chopped sampler drum machine, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 293,
-  "score": 44.89,
+  "score": 40.543,
   "config": {
     "traditions": [
       "winnipeg_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 11.634999999999998,
+          "voice_quality": 10.01,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.4112499999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.03899999999999999,
-          "voice_multitrack_stack": 5.7597499999999995
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 5.15
         }
       },
       {
@@ -59,9 +59,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.6499999999999995,
+          "electronic_technique": 5.239,
           "sample_bitdepth": 0,
-          "sample_swing": 9.879999999999999,
+          "sample_swing": 9.1,
           "sample_processing": 0.105
         }
       },
@@ -72,8 +72,8 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 5.6499999999999995,
-          "turntable_technique": 5.781749999999999
+          "electronic_technique": 5.239,
+          "turntable_technique": 5.289
         }
       }
     ],

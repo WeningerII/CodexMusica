@@ -2,10 +2,10 @@
   "id": "gospel_papiamento",
   "name": "Gospel papiamento",
   "family": "blues_gospel",
-  "lineage": "Gospel papiamento is represented by Cici Jacobino Isenia — Spera Riba Bo (Salmo 27), 2023 official video. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-  "recipe": "classic early-2020s gospel papiamento, ritual Devotional, christian gospel branch. 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, pre war tone martin lifespan sealed dreadnought acoustic humbucker electric guitar, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 351,
-  "score": 31.565,
+  "lineage": "Papiamentu-language gospel joins Christian songwriting with the musical life of the Dutch Caribbean and its diaspora. Artists such as Cici Isenia connect Curaçao and the Netherlands, drawing on Caribbean influences and contemporary international gospel networks.",
+  "recipe": "classic gospel papiamento, ritual Devotional, christian gospel branch. gospel runs grand piano, long life coated nanoweb dreadnought acoustic basswood humbucker electric guitar, long life coated elixir nanoweb electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 323,
+  "score": 23.97,
   "config": {
     "traditions": [
       "gospel_papiamento"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1365,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -58,94 +58,94 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "fazioli",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 11.1615,
+          "keyboard_technique": 12.9115,
           "grand_piano_size": 0.294,
-          "grand_piano_brand": 0.4095,
-          "piano_hammer": 2.21,
-          "piano_rim": 2.21,
-          "piano_soundboard": 1.7,
-          "piano_pinblock": 1,
-          "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 1.3649999999999998
+          "grand_piano_brand": 1.3,
+          "piano_hammer": -0.035,
+          "piano_rim": -0.035,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": -0.035
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "open_d",
-          "top_wood": "engelmann",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
           "acoustic_technique": -0.175,
-          "string_tuning": 0.2,
-          "top_wood": 0,
+          "string_tuning": 0,
+          "top_wood": 0.3,
           "back_sides": 0.294,
-          "string_acoustic": 1.3
+          "string_acoustic": 1
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_60s_selmer",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_c"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 0.8499999999999999,
-          "body_wood": 0.39,
+          "amp_make": 0,
+          "body_wood": 1.2285,
           "neck_wood": 0,
           "fretboard": 0,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "pickup_magnet": 0.40950000000000003,
+          "pickup_winding": 0.40950000000000003,
           "string_material": 0,
-          "bridge": 1.294,
-          "scale_length": 0.39,
-          "string_gauge": 1.294,
+          "bridge": 0.294,
+          "scale_length": 1.2285,
+          "string_gauge": 0.294,
           "finish": 0,
-          "string_tuning": 0.8190000000000002
+          "string_tuning": 1.2285
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_60s_selmer",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
+          "string_type": "coated_nano_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.8499999999999999,
+          "amp_make": 0.25,
           "body_wood": 0,
-          "pickup_config": 0.39,
-          "string_type": 0.39,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.273,
+          "pickup_config": 0.7035,
+          "string_type": 1,
+          "scale_length_b": 0.40950000000000003,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

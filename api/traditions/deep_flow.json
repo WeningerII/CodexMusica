@@ -2,10 +2,10 @@
   "id": "deep_flow",
   "name": "Deep Flow",
   "family": "hip_hop",
-  "lineage": "Stu Bangas — Bane Venom Instrumentals (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s deep flow, mc Rhythm, us hip hop branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 167,
-  "score": 2.553,
+  "lineage": "Deep flow gathers rap and beatmaking repertoire centered on rhythmic phrasing and production detail. Instrumental versions let the patterns and texture of a beat stand apart from its vocal interpretation.",
+  "recipe": "classic deep flow, mc Rhythm, us hip hop branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 156,
+  "score": 3.182,
   "config": {
     "traditions": [
       "deep_flow"
@@ -21,10 +21,10 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 2.2,
+          "electronic_technique": 2.5,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.1365,
-          "sampler_workflow": -0.07,
+          "sampler_workflow": 0.26,
           "sampler_classic_context": 0.33599999999999997
         }
       }

@@ -2,10 +2,10 @@
   "id": "friese_muziek",
   "name": "Friese Muziek",
   "family": "pop",
-  "lineage": "Marcel Smit — complete explicitly bookable solo Frisian singer-and-guitar performance practice, artist2015/2017 booking statement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s friese muziek, functional Song. solo with instrumental accompaniment. low mid rich spectrum full phosphor bronze bronze acoustic guitar. shoebox concert hall.",
-  "recipe_chars": 177,
-  "score": 8.133,
+  "lineage": "Friese muziek connects Frisian-language songwriting, regional repertoire and cultural institutions in Fryslân. Radio, theatre collaborations and local performers sustain a musical community that crosses folk, pop and other approaches.",
+  "recipe": "classic friese muziek, functional Song. solo with instrumental accompaniment. low mid rich spectrum full phosphor bronze bronze acoustic guitar. shoebox concert hall.",
+  "recipe_chars": 166,
+  "score": 2.82,
   "config": {
     "traditions": [
       "friese_muziek"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.3825,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.3,
+          "top_wood": 0,
           "back_sides": 0.3,
-          "string_acoustic": 2.5999999999999996,
-          "acoustic_om_technique": 0.25
+          "string_acoustic": 1.4,
+          "acoustic_om_technique": -0.05
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "West German electronic-psychedelic practice of roughly 1969-1978, centred on Berlin and Cologne around Tangerine Dream, Klaus Schulze, Ash Ra Tempel, Popol Vuh and producer Conny Plank — long-form sequencer and modular-synthesiser pieces over static or slowly shifting drones, minimal or absent vocals, tape-delay guitar washes, and either free-floating pulseless expanses or steady motorik eighth-note drumming.",
   "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal french indietronica berlin school. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, block chord tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 979,
-  "score": 152.258,
+  "score": 151.863,
   "config": {
     "traditions": [
       "kosmische",
@@ -22,7 +22,7 @@
           "mod_lineage": "mod_buchla_west_coast"
         },
         "scores": {
-          "electronic_technique": 15.859,
+          "electronic_technique": 15.7645,
           "mod_voltage_source": 1.69,
           "mod_patch_density": 4.16,
           "mod_lineage": 6.76
@@ -101,7 +101,7 @@
           "string_material": 0.78,
           "bridge": 0.87,
           "scale_length": 2.145,
-          "string_gauge": 1.2999999999999998,
+          "string_gauge": 0.9999999999999999,
           "finish": 0,
           "string_tuning": 4.68
         }

@@ -2,10 +2,10 @@
   "id": "kawaii_edm",
   "name": "Kawaii edm",
   "family": "electronic",
-  "lineage": "Kawaii edm is represented by Moe Shop — KORG 2021 Volca sample demonstration. One documented branch receives an authored present-day studio realization.",
-  "recipe": "classic early-2020s kawaii edm, electronic Dance, house branch. sampler drum machine, korg lineage canonical ms 20 1978 tokyo short envelope analog mono synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 260,
-  "score": 14.703,
+  "lineage": "Kawaii EDM connects electronic dance production with a playful, bright popular-music aesthetic. Melodic samples, vocal fragments and carefully shaped synthetic sounds contribute to its varied arrangements.",
+  "recipe": "classic kawaii edm, electronic Dance, house branch. sampler drum machine, plucked short envelope analog mono synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 216,
+  "score": 15.843,
   "config": {
     "traditions": [
       "kawaii_edm"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "sample_bitdepth": 0.1365,
-          "sample_swing": 6.999999999999999,
+          "sample_swing": 9.5,
           "sample_processing": 0.273
         }
       },
@@ -33,14 +33,14 @@
           "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_korg_kato"
+          "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 4.95,
+          "electronic_technique": 5.25,
           "mono_oscillator": 0.1365,
           "mono_filter": 0.273,
           "mono_archetypes": 0.40950000000000003,
-          "mono_maker_lineage": 1.625
+          "mono_maker_lineage": -0.035
         }
       }
     ],

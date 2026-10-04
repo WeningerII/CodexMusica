@@ -5,7 +5,7 @@
   "lineage": "Korean children's song (dongyo) tradition continuous from premodern Korean folk-play-song origins through early-20th-century Korean-modernization codification (the 1920s-1940s Korean dongyo movement specifically created modern children's-song repertoire for school-curriculum-and-radio-broadcast use) into modern continuous South-and-North-Korean childhood-practice",
   "recipe": "classic mid-1920s korean dongyo, nursery Rhyme, east Asian branch, European nursery rhyme, east Asian lullaby, east Asian funeral lament korean kok english nursery rhyme. thick, breath veiled tone, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 319,
-  "score": 135.983,
+  "score": 136.132,
   "config": {
     "traditions": [
       "korean_dongyo",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 32.650000000000006,
           "voice_pitch_organization": 5.069999999999999,
           "voice_processing_chain": 2.275,
-          "voice_multitrack_stack": 2.0525
+          "voice_multitrack_stack": 2.2025
         }
       }
     ],

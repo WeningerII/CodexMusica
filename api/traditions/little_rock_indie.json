@@ -5,7 +5,7 @@
   "lineage": "Little rock indie is represented here by American Princes. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic little rock indie, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 322,
-  "score": 54.301,
+  "score": 54.481,
   "config": {
     "traditions": [
       "little_rock_indie"
@@ -52,7 +52,7 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -62,7 +62,7 @@
           "pickup_config": 0.1365,
           "string_type": 16.575,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.18,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

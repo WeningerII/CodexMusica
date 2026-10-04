@@ -2,10 +2,10 @@
   "id": "rock_nica",
   "name": "Rock nica",
   "family": "rock",
-  "lineage": "Rock nica is represented here by Rexurgir HC — Números En la Memoria core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic rock nica, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 396,
-  "score": 62.054,
+  "lineage": "Rock nica encompasses Nicaragua’s rock scenes, including hardcore and punk bands from Managua.",
+  "recipe": "classic rock nica, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 65.334,
   "config": {
     "traditions": [
       "rock_nica"
@@ -22,26 +22,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 12.934999999999999,
+          "amp_make": 17.095,
           "body_wood": 1.722,
           "neck_wood": 0.40950000000000003,
           "fretboard": 0.1365,
           "pickup_magnet": 0.273,
           "pickup_winding": 0.147,
           "string_material": 0.063,
-          "bridge": 1.69,
+          "bridge": 0.40950000000000003,
           "scale_length": 1.3439999999999999,
-          "string_gauge": 1.62775,
+          "string_gauge": 0.40950000000000003,
           "finish": 0.1365,
-          "string_tuning": 0.38549999999999995
+          "string_tuning": 0
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.8190000000000002,
           "pickup_config": 0.1365,
-          "string_type": 16.575,
+          "string_type": 17.733999999999998,
           "scale_length_b": 0.40950000000000003,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
+          "drum_technique": 13.75,
           "drumhead": 0.40950000000000003,
           "drum_kit_kick_pedal": 0
         }
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0.042749999999999996,
+          "voice_ensemble_config": 0.36750000000000005,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.08549999999999999
+          "voice_multitrack_stack": 0.38549999999999995
         }
       }
     ],

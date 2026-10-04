@@ -2,28 +2,52 @@
   "id": "future_bounce",
   "name": "Future Bounce",
   "family": "electronic",
-  "lineage": "Mike Williams — complete artist-issued ADE Warm Up Mix2016, published28September2016. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Future House Music explicitly names Future Bounce as a future-house subgenre and identifies Mike Williams, Brooks, Mesto, Justin Mylo, Keanu Silva and Jordan Jay as its network. This is a documented narrower named branch inside broad existing future_house, not a claim of wholly separate ancestry, a date-only distinction or an equivalence with Australian melbourne_bounce. Existing future_house discusses the wider Tchami/Heldens/Don Diablo/Curbi lineage; overlap is acknowledged. The selected complete early artist DJ programme can contain other house styles; it is one documented practitioner realization, not a claim every mixed selection belongs exclusively to Future Bounce. Jamz Supernova’s identically named UK record label is not the category used here. Playback hardware, media format, deck count, source-track studio instruments and total embedded singer count remain unspecified. There are zero separately credited live vocal roles, not zero voices in the mixed music. Modern controlled room capture is an authored editorial setting, not the source’s measured location or equipment. No actual source tempo, global tuning or precise synthesis model is inferred.",
-  "recipe": "classic future bounce, electronic Dance, house branch. dj playback mixing unspecified. treated studio.",
-  "recipe_chars": 102,
-  "score": 0,
+  "lineage": "Future bounce developed within future-house production and festival culture, with Mike Williams, Brooks and Mesto among its prominent practitioners. It shares house rhythm and electronic production with the wider field while emphasizing buoyant melodic figures and sharply shaped releases of energy.",
+  "recipe": "classic future bounce, electronic Dance, house branch. digital subtractive, TR-909. treated studio.",
+  "recipe_chars": 99,
+  "score": 9.019,
   "config": {
     "traditions": [
       "future_bounce"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "digital_subtractive",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "electronic_technique": -0.07,
+          "va_archetypes": 0,
+          "digital_subtractive_context": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 8.75,
+          "drum_machine_909_context": 0.40950000000000003,
+          "tr909_production_origin": -0.035
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
       ]
     },
     "room": "treated_studio",
@@ -43,7 +67,12 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_pop",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
     },
     "pin_parts": true
   }

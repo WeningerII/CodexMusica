@@ -2,10 +2,10 @@
   "id": "estonian_electronic",
   "name": "Estonian electronic",
   "family": "electronic",
-  "lineage": "Estonian electronic is represented here by Ekke — Chasm, modular and recorded-object core (2016 edition). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-2010s estonian electronic, experimental Elec. emu modular 1971 1978 analog studio grade east coast precision modular modular synth, field textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 247,
-  "score": 25.837,
+  "lineage": "Estonian electronic music includes independent production, experimental synthesis and electro-acoustic sound work. Musicians connect local practice with wider electronic-music institutions and communities.",
+  "recipe": "classic estonian electronic, experimental Elec. glitched textural modular synth, field textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 184,
+  "score": 23.044,
   "config": {
     "traditions": [
       "estonian_electronic"
@@ -14,42 +14,47 @@
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_modular_patch",
+          "electronic_technique": "electronic_glitch_textural",
           "mod_voltage_source": "mod_sequencer",
           "mod_patch_density": "mod_dense_patch",
-          "mod_lineage": "mod_emu_modular"
+          "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 5.6655,
-          "mod_voltage_source": 2.0285,
-          "mod_patch_density": 0.378,
-          "mod_lineage": 3.3150000000000004
+          "electronic_technique": 6.5,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 0.39,
+          "mod_lineage": 0
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_industrial"
+          "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 3.7,
-          "sampler_archetypes": 2.5,
+          "electronic_technique": 6.5,
+          "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 4.6000000000000005,
-          "sampler_classic_context": 3.65
+          "sampler_workflow": 8.0145,
+          "sampler_classic_context": 1.3
         }
       }
     ],
     "pinned": {
       "modular_synth": [
         "electronic_technique",
-        "mod_voltage_source"
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
       ],
       "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
         "sampler_workflow",
         "sampler_classic_context"
       ]
@@ -73,10 +78,14 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_modular_patch",
+      "electronic_technique": "electronic_glitch_textural",
       "mod_voltage_source": "mod_sequencer",
       "sampler_workflow": "sampler_field_recordings",
-      "sampler_classic_context": "sampler_classic_industrial"
+      "sampler_classic_context": "sampler_classic_post",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit"
     },
     "pin_parts": true,
     "chain_pre": "transformerless",

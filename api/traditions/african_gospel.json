@@ -2,10 +2,10 @@
   "id": "african_gospel",
   "name": "African gospel",
   "family": "vernacular",
-  "lineage": "African gospel is represented by Soweto Gospel Choir — unaccompanied gospel repertoire. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+  "lineage": "African gospel brings Christian devotional song into dialogue with African vocal, rhythmic and community traditions. Local church practices, professional choirs and contemporary popular styles sustain a diverse field across regions and languages.",
   "recipe": "classic african gospel, ritual Devotional, christian gospel branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 166,
-  "score": 0.292,
+  "score": 0.546,
   "config": {
     "traditions": [
       "african_gospel"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1365,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.15599999999999997,

@@ -2,10 +2,10 @@
   "id": "brazilian_classical_piano",
   "name": "Brazilian classical piano",
   "family": "classical",
-  "lineage": "Brazilian classical piano is represented by Nelson Freire — Brasileiro solo-piano anthology. A documented solo-piano branch is given an authored present-day recording realization. Primary sources establish artist identity, repertoire, role and locality; exact grand-piano construction, legato default, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or a universal national style.",
+  "lineage": "Brazilian classical piano connects local composers and performers with a broad international concert tradition. Brazilian repertoire, including works by Villa-Lobos, forms an important strand alongside music from elsewhere.",
   "recipe": "classic brazilian classical piano, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 94.533,
+  "score": 83.049,
   "config": {
     "traditions": [
       "brazilian_classical_piano"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 9.43,
-          "grand_piano_size": 0.441,
+          "keyboard_technique": 7.5,
+          "grand_piano_size": 0.5145,
           "grand_piano_brand": 0.9555,
-          "piano_hammer": 14.876999999999999,
-          "piano_rim": 13.0545,
-          "piano_soundboard": 12.75,
-          "piano_pinblock": 12.804,
-          "piano_plate": 14.604,
-          "piano_pitch_standard": 15.617
+          "piano_hammer": 13.2105,
+          "piano_rim": 12.5545,
+          "piano_soundboard": 11.25,
+          "piano_pinblock": 11.25,
+          "piano_plate": 12.9375,
+          "piano_pitch_standard": 12.877
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "UK post-metal is represented here by Bossk. This selected branch has an authored present-day studio realization.",
   "recipe": "classic uk post-metal, distorted Rock, post metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 382,
-  "score": 43.929,
+  "score": 43.494,
   "config": {
     "traditions": [
       "uk_post_metal"
@@ -35,13 +35,13 @@
           "neck_wood": 0.173625,
           "fretboard": 0.173625,
           "pickup_magnet": 0.005625,
-          "pickup_winding": 0.23099999999999998,
+          "pickup_winding": 0.19949999999999998,
           "string_material": 0.173625,
-          "bridge": 1.571,
+          "bridge": 1.4416250000000002,
           "scale_length": 7.279999999999999,
-          "string_gauge": 1.6025,
+          "string_gauge": 1.473125,
           "finish": 0,
-          "string_tuning": 0.379875
+          "string_tuning": 0.31124999999999997
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.755625,
-          "drumhead": 0.37424999999999997,
+          "drumhead": 0.305625,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -115,8 +115,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.037125,
-          "voice_multitrack_stack": 0.045
+          "voice_processing_chain": 0.024375,
+          "voice_multitrack_stack": 0.050624999999999996
         }
       },
       {

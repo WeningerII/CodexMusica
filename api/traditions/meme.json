@@ -2,10 +2,10 @@
   "id": "meme",
   "name": "Meme music",
   "family": "pop",
-  "lineage": "Sheet Music Boss / Andrew Wrangell — Never Gonna Give You Up, complete nine-page licensed piano-solo edition MN0178381 in D-flat major, 4/4. Publisher explicitly specifies instrumental solo with no lyrics; Rick Astley additional-performer credit describes the underlying song, not a second performer or vocal part in this arrangement. Entire separately issued arrangement is selected, not all nineteen products in the publisher collection and not the original vocal studio master. Broad functionalSong/pop models the selected published dance-pop song as an explicitly authored functional-harmonic piano rendition. Coherent modern Steinway D nine-foot architecture and block-chord pop touch are editorial choices, not the arranger’s measured hardware or transcription of the paid score. No vocal, synthesizer, bass or drums from Rick Astley’s original recording are imported. Controlled live-room environment is authored, global tuning and specific capture apparatus omitted.",
-  "recipe": "classic meme music, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
-  "recipe_chars": 125,
-  "score": 39.636,
+  "lineage": "Meme music forms a changing repertoire through online quotation, remixing and humorous recontextualization. Older pop songs, game and film themes, novelty recordings and instrumental tunes can acquire new meanings through repeated reuse.",
+  "recipe": "classic meme music, functional Song. a 440 modern pitch us standard block chord grand piano. live tracking.",
+  "recipe_chars": 107,
+  "score": 6.326,
   "config": {
     "traditions": [
       "meme"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 15.549999999999997,
+          "keyboard_technique": 4.95,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.1905,
-          "piano_hammer": 3.3080000000000003,
-          "piano_rim": 3.824,
-          "piano_soundboard": 3.2,
-          "piano_pinblock": 4.800000000000001,
-          "piano_plate": 3.2,
-          "piano_pitch_standard": 5.564
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.625
         }
       }
     ],

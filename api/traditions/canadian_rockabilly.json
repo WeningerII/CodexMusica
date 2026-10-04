@@ -2,10 +2,10 @@
   "id": "canadian_rockabilly",
   "name": "Canadian rockabilly",
   "family": "rock_punk",
-  "lineage": "A Canadian rockabilly-related discovery label, represented here by The Creepshow’s contemporary psychobilly/punk-facing branch. Slapped upright bass, amplified guitar, organ, acoustic drums and singing form a distinct ensemble rather than an electric-bass-only rock template.",
-  "recipe": "classic canadian rockabilly, distorted Rock, regional branch. one note per syllable, group vocals, unprocessed natural acoustic, live take. upright bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation semi hollow, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, sticks backbeat drum kit. live tracking. shure SM57, console-strip pre, American tweed-style tube, parametric EQ. 24-bit digital spring reverb.",
-  "recipe_chars": 484,
-  "score": 38.082,
+  "lineage": "Canadian rockabilly connects rock-and-roll and country-derived rhythm with local bands and later punk-facing developments. Groups such as the Creepshow bring slapped upright bass, guitar, organ and band singing into an energetic contemporary branch.",
+  "recipe": "classic canadian rockabilly, distorted Rock, regional branch. one note per syllable. upright bass, Fender tweed amp American 50s amp tweed breakup semi hollow, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, sticks backbeat drum kit. live tracking. shure SM57, console-strip pre, American tweed-style tube, parametric EQ. 24-bit digital spring reverb.",
+  "recipe_chars": 390,
+  "score": 35.106,
   "config": {
     "traditions": [
       "canadian_rockabilly"
@@ -19,33 +19,33 @@
         },
         "scores": {
           "upright_strings": 0,
-          "upright_play": 2.8309999999999995
+          "upright_play": 2.5309999999999997
         }
       },
       {
         "id": "semi_hollow",
         "slots": {
           "electric_technique": "semi_overdriven_strum",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_american_fender_tweed",
           "semi_archetypes": "semi_hofner_verythin_ct",
           "semi_hollow_pickup": "semi_dual_humbucker",
           "semi_hollow_strings": "semi_nickel_plated",
           "semi_hollow_context": "semi_hollow_indie"
         },
         "scores": {
-          "electric_technique": 0.231,
-          "amp_make": 7.67,
+          "electric_technique": 0.39,
+          "amp_make": 7.673,
           "semi_archetypes": 0.6,
           "semi_hollow_pickup": 0,
           "semi_hollow_strings": 0,
-          "semi_hollow_context": 1.1792500000000001
+          "semi_hollow_context": 0.17925000000000002
         }
       },
       {
         "id": "tonewheel_organ",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "drawbar_setting": "gospel_drawbars",
+          "drawbar_setting": "rock_drawbars",
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_short",
           "tonewheel_model": "tonewheel_hammond_b3",
@@ -53,10 +53,10 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "drawbar_setting": 0.75,
-          "rotary_speed": 7.749999999999999,
-          "percussion_setting": 0.29275,
-          "tonewheel_model": 4.485,
+          "drawbar_setting": 6.2815,
+          "rotary_speed": 6.2,
+          "percussion_setting": -0.035,
+          "tonewheel_model": 3.0550000000000006,
           "leslie_cabinet_model": -0.035
         }
       },
@@ -70,10 +70,10 @@
           "cymbal_alloy": "b20"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
+          "drum_technique": 6.25,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39,
+          "shell_wood": 0.31575000000000003,
           "cymbal_alloy": -0.2
         }
       },
@@ -108,12 +108,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.62175,
-          "voice_ensemble_config": 1.3,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 0.384,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.174,
-          "voice_multitrack_stack": 1.1425
+          "voice_processing_chain": 0.174,
+          "voice_multitrack_stack": 0.1425
         }
       }
     ],
@@ -206,7 +206,7 @@
       "semi_hollow_strings": "semi_nickel_plated",
       "semi_hollow_context": "semi_hollow_indie",
       "keyboard_technique": "keyboard_block_chord_pop",
-      "drawbar_setting": "gospel_drawbars",
+      "drawbar_setting": "rock_drawbars",
       "rotary_speed": "fast_tremolo",
       "percussion_setting": "percussion_on_short",
       "tonewheel_model": "tonewheel_hammond_b3",

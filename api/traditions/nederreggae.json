@@ -2,10 +2,10 @@
   "id": "nederreggae",
   "name": "Nederreggae",
   "family": "global",
-  "lineage": "Awoei! — complete announced Doe Maar tribute band at Gebouw-T,3May2024. Seven musicians: Arjo Miedema bass/voice; Sergio Diaz Alvear guitar; Mike van Reijen drums; René Goedemans keys; Gert Maas trumpet/voice; Peter Maas trombone/backings; Ingrid van der Heijden saxophone/backings. Four positively credited singers and eight complete instrument families. The separate Kaellex support duo and retired frontman Pim de Bruijn are not members of this selected2024 roster. This is the complete announced live practice, not an inferred Doe Maar original master or isolated hit excerpt. Source bare guitar/bass realized as authored alder electric humbucker and long-scale electric bass, clean rhythmic chord strumming and locked fingerstyle bass; makes/woods/pickups not source gear. Maple stick/rim-click drum kit, B-flat Bach trumpet, tenor Bach trombone and alto Selmer sax are coherent authored constructions, not measured source models or sax transposition. Punchy brass and lyrical sax phrasing are authored ensemble gestures. Source keyboards retain unspecified electronic keyboard architecture. Four-person vocal group uses neutral physiology with an authored combined live-ensemble take, no claimed original tracking. No global tuning or source signal chain. Controlled live-room acoustics are a new rendition choice.",
-  "recipe": "classic nederreggae, bass System, reggae diaspora branch. group vocals, live take. alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble student friendly trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone. live tracking.",
-  "recipe_chars": 698,
-  "score": 89.761,
+  "lineage": "Nederreggae connects reggae performers and audiences in the Netherlands and neighboring Low Countries. Dutch-language songs and multilingual circulation link local bands with the wider reggae tradition.",
+  "recipe": "classic nederreggae, bass System, reggae diaspora branch. alder rosewood humbucker electric guitar, low coloration balanced alder electric bass, maple rim clicks drum kit, electronic keyboard unspecified, trumpet, trombone, low overtone rich traditional rubber saxophone. live tracking.",
+  "recipe_chars": 286,
+  "score": 20.268,
   "config": {
     "traditions": [
       "nederreggae"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 8.136,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 7.831499999999999,
+          "voice_multitrack_stack": 0.3315,
           "voice_tessitura": 0
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.75,
+          "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 1.6315000000000002,
-          "neck_wood": 1.3,
-          "fretboard": 0.325,
+          "body_wood": 1.0315,
+          "neck_wood": 0,
+          "fretboard": 1.2349999999999999,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.1995,
           "bridge": 0,
-          "scale_length": 0.39,
+          "scale_length": 1.3,
           "string_gauge": 0.8365,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.6315000000000002,
+          "body_wood": 1.0315,
           "pickup_config": 0.063,
           "string_type": 0,
-          "scale_length_b": 0.3,
+          "scale_length_b": 1,
           "fretted_or_not": 0,
-          "bass_technique": 2.4500000000000006,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.999999999999996,
-          "drumhead": 1.6,
+          "drum_technique": 8.7,
+          "drumhead": 1,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 3.5,
+          "shell_wood": 1,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 2.2,
-          "cymbal_lathing": 2.2630000000000003,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
       },
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.294
+          "keyboard_technique": 0.39
         }
       },
       {
@@ -160,13 +160,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.0905,
+          "wind_articulation": 0.19500000000000003,
           "brass_size": 0,
-          "trumpet_mouthpiece": 1.2,
+          "trumpet_mouthpiece": -0.1,
           "brass_mute": 0.0315,
-          "trumpet_technique": 3.0905,
-          "trumpet_bell_metal": 4.109999999999999,
-          "trumpet_maker_school": 2.7049999999999996
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 0.21,
+          "trumpet_maker_school": 0.105
         }
       },
       {
@@ -181,13 +181,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 3.0905,
+          "wind_articulation": 0.19500000000000003,
           "trombone_type": -0.05,
-          "trombone_mouthpiece": 1.305,
+          "trombone_mouthpiece": -0.07,
           "trombone_mute": 0.0315,
-          "trombone_technique": 2.999,
-          "trombone_bell_metal": 4.109999999999999,
-          "trombone_maker_school": 4.005
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 0.21,
+          "trombone_maker_school": 0.105
         }
       },
       {
@@ -202,13 +202,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 3.0905,
-          "sax_size": 2.6865,
+          "wind_articulation": 0.19500000000000003,
+          "sax_size": -0.035,
           "sax_reed": 0,
-          "sax_body_alloy": 1.4415,
-          "sax_mouthpiece": 0.3,
-          "sax_technique": 1.3865,
-          "sax_maker_school": 1.305
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 1,
+          "sax_technique": -0.035,
+          "sax_maker_school": -0.07
         }
       }
     ],

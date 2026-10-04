@@ -2,10 +2,10 @@
   "id": "fourth_world",
   "name": "Fourth world",
   "family": "electronic",
-  "lineage": "Jon Hassell — Blues Nile, Vernal Equinox (1977). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-1970s fourth world, experimental Elec, ambient branch. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, sustained pad modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 303,
-  "score": 9.677,
+  "lineage": "Fourth World developed around Jon Hassell’s meeting of trumpet practice, electronic sound and musical influences crossing inherited stylistic boundaries. Its atmospheric textures link instrumental phrasing with studio and synthesis processes.",
+  "recipe": "classic fourth world, experimental Elec, ambient branch. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, sustained pad modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 292,
+  "score": 8.727,
   "config": {
     "traditions": [
       "fourth_world"
@@ -25,7 +25,7 @@
         "scores": {
           "wind_articulation": -0.1,
           "brass_size": 0.273,
-          "trumpet_mouthpiece": 0.7,
+          "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 1.0605000000000002,
@@ -41,10 +41,10 @@
           "mod_lineage": "mod_serge_tcherepnin"
         },
         "scores": {
-          "electronic_technique": 3.8995,
-          "mod_voltage_source": 0,
+          "electronic_technique": 4.1995000000000005,
+          "mod_voltage_source": 0.3,
           "mod_patch_density": 1.95,
-          "mod_lineage": 0.7149999999999999
+          "mod_lineage": -0.035
         }
       }
     ],
@@ -75,13 +75,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "wind_articulation": "wind_continuous_legato",

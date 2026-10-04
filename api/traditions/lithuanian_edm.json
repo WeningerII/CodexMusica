@@ -2,10 +2,10 @@
   "id": "lithuanian_edm",
   "name": "Lithuanian edm",
   "family": "electronic",
-  "lineage": "Lithuanian edm is represented by Gaullin — Moonlight pitched-cover-sample core. One documented branch receives an authored present-day studio realization.",
+  "lineage": "Lithuanian EDM includes internationally circulating dance productions and local approaches to popular electronic music.",
   "recipe": "classic lithuanian edm, electronic Dance, house branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 178,
-  "score": 6.696,
+  "score": 9.059,
   "config": {
     "traditions": [
       "lithuanian_edm"
@@ -17,19 +17,22 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
           "electronic_technique": -0.1,
           "sample_bitdepth": 0.1365,
-          "sample_swing": 6.25,
-          "sample_processing": 0.40950000000000003
+          "sample_swing": 8.75,
+          "sample_processing": 0.273
         }
       }
     ],
     "pinned": {
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

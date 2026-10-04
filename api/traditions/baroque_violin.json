@@ -2,10 +2,10 @@
   "id": "baroque_violin",
   "name": "Baroque violin",
   "family": "classical",
-  "lineage": "Baroque violin: Rachel Podger — Biber Passacaglia in G minor (Guardian Angel) solo performance. A documented branch is realized as an authored current studio arrangement.",
+  "lineage": "Baroque violin practice connects early repertoire with historically informed instrument setup, articulation and ornament. Solo works, sonatas and ensemble music offer different settings for this performance tradition.",
   "recipe": "classic baroque violin, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure violin orchestral. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 261,
-  "score": 45.806,
+  "score": 49.693,
   "config": {
     "traditions": [
       "baroque_violin"
@@ -20,22 +20,22 @@
           "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "cremonese_pre_1750_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "snakewood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
           "bowed_technique": 2.5,
-          "orch_strings": -0.035,
-          "orch_top_wood": 7.5,
-          "orch_back_wood": 7.5,
+          "orch_strings": 0.325,
+          "orch_top_wood": 7.6425,
+          "orch_back_wood": 7.6425,
           "orch_varnish": 7.6575,
-          "orch_setup_period": 6.254625,
-          "orch_bow": 0.29400000000000004,
-          "orch_bow_stick": 5.496,
-          "orch_articulation": 0.2835,
-          "orch_rosin": 8.35575
+          "orch_setup_period": 8.2365,
+          "orch_bow": 0.39,
+          "orch_bow_stick": 6.296,
+          "orch_articulation": 0.39,
+          "orch_rosin": 8.613
         }
       }
     ],

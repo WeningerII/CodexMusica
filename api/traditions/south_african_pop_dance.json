@@ -2,10 +2,10 @@
   "id": "south_african_pop_dance",
   "name": "South African Pop Dance",
   "family": "pop",
-  "lineage": "Complete announced Mi Casa80-minute National Arts Festival concert, Guy Butler Theatre, Grahamstown,10July2015 at22:00. Organizer lists J’Something vocals, Mo-T trumpet, Dr Duda producer and keyboard, plus Kabelo Seleke saxophone, Carlo Jooste bass and Thomas Akuru percussion. All six credited people/six musical families retained, one credited singer. Production credit does not by itself identify an additional sound generator; unknown DJ equipment or drum programming not invented. This is the dated six-person festival practice, not the generic three-person brand lineup and not a later show with guitar. Announced roster rather than an independently auditioned set or confirmed every-night inventory. Source-compatible authored full-ensemble rendition: connected unprocessed solo voice with unspecified physiology, tenor saxophone as explicit authored choice for source-unspecified register, unmuted B-flat trumpet with compatible brass/mouthpiece, fingerstyle dual-single-coil alder electric bass with nickel roundwounds, generic electronic keyboard and auxiliary percussion with unknown architecture/subtype preserved. These physical settings and playing styles are not measured actual gear. Controlled live room and recurring verse/refrain functional-harmonic song realization are authored, not claims about published chords or every source number. No global tuning or capture chain imposed.",
-  "recipe": "classic south african pop dance, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. yellow brass canonical 70 30 bach stradivarius legato trumpet, electronic keyboard unspecified, tenor yellow brass modern standard saxophone, alder nickel roundwound fingerstyle locked electric bass, credited auxiliary percussion. live tracking.",
-  "recipe_chars": 401,
-  "score": 26.212,
+  "lineage": "South African pop dance connects melodic popular songs with dance-oriented production and performance. Groups and singers draw on the country’s diverse rhythmic and electronic-music communities.",
+  "recipe": "classic south african pop dance, functional Song. solo with instrumental accompaniment, single lead single track no stacking. trumpet, melodic chordal electronic keyboard unspecified, saxophone, electric bass, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 255,
+  "score": 4.672,
   "config": {
     "traditions": [
       "south_african_pop_dance"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 8.3715,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 4.16,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 1.224,
           "voice_tessitura": 0
         }
       },
@@ -67,9 +67,9 @@
           "wind_articulation": -0.1,
           "brass_size": 0.054,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 1.3,
-          "trumpet_technique": 1.95,
-          "trumpet_bell_metal": 1.3,
+          "brass_mute": 0,
+          "trumpet_technique": 0.6499999999999999,
+          "trumpet_bell_metal": 0,
           "trumpet_maker_school": 0
         }
       },
@@ -81,7 +81,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 1.3
         }
       },
       {
@@ -97,12 +97,12 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": 1.15,
+          "sax_size": -0.15000000000000002,
           "sax_reed": 0,
-          "sax_body_alloy": 1.2,
+          "sax_body_alloy": -0.1,
           "sax_mouthpiece": 0.1365,
-          "sax_technique": 0.75,
-          "sax_maker_school": 0.7
+          "sax_technique": -0.05,
+          "sax_maker_school": -0.1
         }
       },
       {
@@ -119,12 +119,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.3,
+          "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 1.3,
+          "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 1.15,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },

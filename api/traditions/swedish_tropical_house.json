@@ -2,10 +2,10 @@
   "id": "swedish_tropical_house",
   "name": "Swedish tropical house",
   "family": "electronic",
-  "lineage": "A Swedish song-centered tropical-house discovery cluster represented by Mike Perry, Lucas Estrada, John De Sohn and Hogland. Perry’s interviews describe his computer-and-synth production and a deliberate tropical-house strand, with The Ocean built around an accessible melody and Shy Martin’s sung hook.",
-  "recipe": "classic modern swedish tropical house, electronic Dance, deep house branch. solo with instrumental accompaniment. sampler drum machine, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 353,
-  "score": 14.206,
+  "lineage": "Swedish tropical house joins electronic producers and pop collaborators in a melodic dance-music field. Home-studio production, memorable sung hooks and international release networks connect its overlapping pop and club strands.",
+  "recipe": "classic modern swedish tropical house, electronic Dance, deep house branch. solo with instrumental accompaniment, plate reverb medium decay vocal classic. sampler drum machine, plucked short envelope analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 417,
+  "score": 20.381,
   "config": {
     "traditions": [
       "swedish_tropical_house"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.3109999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.26,
-          "voice_multitrack_stack": 0.2925
+          "voice_processing_chain": 3.3635,
+          "voice_multitrack_stack": 0.261
         }
       },
       {
@@ -61,7 +61,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.015,
-          "sample_swing": 7.844499999999999,
+          "sample_swing": 8.8445,
           "sample_processing": 0.0315
         }
       },
@@ -75,10 +75,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.1364999999999998,
-          "oscillator": 0.336,
-          "filter_topology": 0.699,
-          "envelope": 0.3465,
+          "electronic_technique": 5.3865,
+          "oscillator": 0.36750000000000005,
+          "filter_topology": 0.099,
+          "envelope": 0.04649999999999999,
           "modulation": 0
         }
       }

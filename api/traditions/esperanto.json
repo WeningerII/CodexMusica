@@ -2,10 +2,10 @@
   "id": "esperanto",
   "name": "Esperanto",
   "family": "vernacular",
-  "lineage": "Kjara — Nuda (2023), piano-and-voice EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s esperanto, functional Song. single lead single track no stacking. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 238,
-  "score": 3.854,
+  "lineage": "Esperanto music connects performers and listeners through a shared international language rather than a single national style. Songwriters bring varied acoustic and popular-music approaches to its repertoire.",
+  "recipe": "classic esperanto, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 284,
+  "score": 5.645,
   "config": {
     "traditions": [
       "esperanto"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.6825000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.6,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 1,
           "voice_tessitura": 0
         }
       },
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.7,
+          "keyboard_technique": -0.1,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
           "piano_hammer": -0.1,
-          "piano_rim": 0.49999999999999994,
+          "piano_rim": -0.1,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.2,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "piano_pitch_standard": 3.1229999999999998
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Jazz improvisation foregrounding harmonica, here the slide-button chromatic tradition of Toots Thielemans. His documented duo with pianist Kenny Werner supplies a sparse representative arrangement.",
   "recipe": "classic modern harmonica jazz, improv On Frame, bop branch. solo canonical chromatic lead chromatic harmonica, a 440 modern pitch us standard grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 299,
-  "score": 35.133,
+  "score": 34.995,
   "config": {
     "traditions": [
       "harmonica_jazz"
@@ -24,10 +24,10 @@
         "scores": {
           "harmonica_type": 5.85,
           "harmonica_comb": -0.035,
-          "harmonica_reed": 0.7945,
+          "harmonica_reed": 0.826,
           "harmonica_technique": 12.667000000000002,
           "harmonica_maker_school": 0,
-          "harmonica_tuning": 12.961250000000001
+          "harmonica_tuning": 12.792250000000001
         }
       },
       {

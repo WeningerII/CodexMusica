@@ -2,10 +2,10 @@
   "id": "bahamian_folk",
   "name": "Bahamian folk",
   "family": "vernacular",
-  "lineage": "Bahamian folk is represented by Joseph Spence — Bahaman Folk Guitar: Music of the Bahamas, Vol. 1 (1958 recordings). Representative authored present-day recording arrangement for one documented branch. Sources establish musical roles, category relationship and locality. Exact guitar body and materials, room, microphone and other signal-chain stages, twelve-tone equal-tempered baseline, technique settings and numeric axes are authored model choices, not a reconstruction of the 1958 session or universal Bahamian characteristics.",
-  "recipe": "classic late-1950s bahamian folk, functional Song, tropical song branch. solo with instrumental accompaniment. martin lifespan sealed fingerpicked dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 274,
-  "score": 12.252,
+  "lineage": "Bahamian folk includes varied song, instrumental and community music traditions. Guitar-centred performances form one distinctive strand alongside other vocal and ensemble practices.",
+  "recipe": "classic bahamian folk, functional Song, tropical song branch. solo with instrumental accompaniment. fingerpicked dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 240,
+  "score": 9.309,
   "config": {
     "traditions": [
       "bahamian_folk"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2045,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 0.47250000000000003,
           "voice_tessitura": 0
         }
       },
@@ -59,14 +59,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 8.049999999999997,
+          "acoustic_technique": 5.1000000000000005,
           "string_tuning": 0,
           "top_wood": 0.483,
           "back_sides": 0.3045,
-          "string_acoustic": 1.43
+          "string_acoustic": 0.7635
         }
       }
     ],
