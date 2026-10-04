@@ -1,13 +1,313 @@
 {
   "status": "LOCAL_REVIEWED_DATA_REPAIRS_NOT_FINAL_BUILD_OR_CI",
-  "updated_at": "2026-10-04T02:14:26.820Z",
+  "updated_at": "2026-10-04T02:28:17.454Z",
   "baseline_head": "2541e078c9f4326c2d75826779813d933a27f1bb",
   "historical_merged_additions": 3900,
   "repair_review_scope": 3900,
-  "locally_applied_repairs": 2100,
-  "substantive_default_changes": 1265,
+  "locally_applied_repairs": 2228,
+  "substantive_default_changes": 1344,
   "original_traditions_and_extras_preserved": 2638,
   "applied": [
+    {
+      "id": "nyc_pop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001.json",
+      "packet_sha256": "86109b3103d00c01bf38cab2f178681ae9dbd5e5ff256effc6a7ba19d06b299a",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001.json",
+          "packet_sha256": "86109b3103d00c01bf38cab2f178681ae9dbd5e5ff256effc6a7ba19d06b299a",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-root-review.json",
+          "checked_at": "2026-10-04T02:17:44.652853+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "pop_chileno",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001.json",
+      "packet_sha256": "86109b3103d00c01bf38cab2f178681ae9dbd5e5ff256effc6a7ba19d06b299a",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001.json",
+          "packet_sha256": "86109b3103d00c01bf38cab2f178681ae9dbd5e5ff256effc6a7ba19d06b299a",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-root-review.json",
+          "checked_at": "2026-10-04T02:17:44.652853+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "classic_mandopop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001.json",
+      "packet_sha256": "86109b3103d00c01bf38cab2f178681ae9dbd5e5ff256effc6a7ba19d06b299a",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001.json",
+          "packet_sha256": "86109b3103d00c01bf38cab2f178681ae9dbd5e5ff256effc6a7ba19d06b299a",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-root-review.json",
+          "checked_at": "2026-10-04T02:17:44.652853+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "classic_opm",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001.json",
+      "packet_sha256": "86109b3103d00c01bf38cab2f178681ae9dbd5e5ff256effc6a7ba19d06b299a",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001.json",
+          "packet_sha256": "86109b3103d00c01bf38cab2f178681ae9dbd5e5ff256effc6a7ba19d06b299a",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-001-root-review.json",
+          "checked_at": "2026-10-04T02:17:44.652853+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "classic_soundtrack",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002.json",
+      "packet_sha256": "331848f71101ae31288ae0c0507d6543b74d658e444d2c4faaf732aa12c13508",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002.json",
+          "packet_sha256": "331848f71101ae31288ae0c0507d6543b74d658e444d2c4faaf732aa12c13508",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-root-review.json",
+          "checked_at": "2026-10-04T02:17:45.900178+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "college_marching_band",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002.json",
+      "packet_sha256": "331848f71101ae31288ae0c0507d6543b74d658e444d2c4faaf732aa12c13508",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002.json",
+          "packet_sha256": "331848f71101ae31288ae0c0507d6543b74d658e444d2c4faaf732aa12c13508",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-root-review.json",
+          "checked_at": "2026-10-04T02:17:45.900178+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "comedie_musicale",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002.json",
+      "packet_sha256": "331848f71101ae31288ae0c0507d6543b74d658e444d2c4faaf732aa12c13508",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002.json",
+          "packet_sha256": "331848f71101ae31288ae0c0507d6543b74d658e444d2c4faaf732aa12c13508",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-root-review.json",
+          "checked_at": "2026-10-04T02:17:45.900178+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "dansk_comedy",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002.json",
+      "packet_sha256": "331848f71101ae31288ae0c0507d6543b74d658e444d2c4faaf732aa12c13508",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002.json",
+          "packet_sha256": "331848f71101ae31288ae0c0507d6543b74d658e444d2c4faaf732aa12c13508",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-002-root-review.json",
+          "checked_at": "2026-10-04T02:17:45.900178+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "deep_flow",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003.json",
+      "packet_sha256": "8c1326aa0d3620beb260a9db188819f37c7a1002160d32039887750c38c0de43",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003.json",
+          "packet_sha256": "8c1326aa0d3620beb260a9db188819f37c7a1002160d32039887750c38c0de43",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003-root-review.json",
+          "checked_at": "2026-10-04T02:17:47.156266+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "deep_freestyle",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003.json",
+      "packet_sha256": "8c1326aa0d3620beb260a9db188819f37c7a1002160d32039887750c38c0de43",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003.json",
+          "packet_sha256": "8c1326aa0d3620beb260a9db188819f37c7a1002160d32039887750c38c0de43",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003-root-review.json",
+          "checked_at": "2026-10-04T02:17:47.156266+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "deep_latin_christian",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003.json",
+      "packet_sha256": "8c1326aa0d3620beb260a9db188819f37c7a1002160d32039887750c38c0de43",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003.json",
+          "packet_sha256": "8c1326aa0d3620beb260a9db188819f37c7a1002160d32039887750c38c0de43",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-003-root-review.json",
+          "checked_at": "2026-10-04T02:17:47.156266+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "deep_liquid",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004.json",
+      "packet_sha256": "9522d902ccbe62bd9a0b67151f8ce2dd673efb45c77acdc54e9305f01cd353c0",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004.json",
+          "packet_sha256": "9522d902ccbe62bd9a0b67151f8ce2dd673efb45c77acdc54e9305f01cd353c0",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004-root-review.json",
+          "checked_at": "2026-10-04T02:25:50.499727+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "deep_new_wave",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004.json",
+      "packet_sha256": "9522d902ccbe62bd9a0b67151f8ce2dd673efb45c77acdc54e9305f01cd353c0",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004.json",
+          "packet_sha256": "9522d902ccbe62bd9a0b67151f8ce2dd673efb45c77acdc54e9305f01cd353c0",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004-root-review.json",
+          "checked_at": "2026-10-04T02:25:50.499727+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "denver_indie",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004.json",
+      "packet_sha256": "9522d902ccbe62bd9a0b67151f8ce2dd673efb45c77acdc54e9305f01cd353c0",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004.json",
+          "packet_sha256": "9522d902ccbe62bd9a0b67151f8ce2dd673efb45c77acdc54e9305f01cd353c0",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-004-root-review.json",
+          "checked_at": "2026-10-04T02:25:50.499727+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "detske_pisnicky",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005.json",
+      "packet_sha256": "49cbb5d4ac48979ab213c317296ec9304ca82757b79e45254d6e26b81d6b6da8",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005.json",
+          "packet_sha256": "49cbb5d4ac48979ab213c317296ec9304ca82757b79e45254d6e26b81d6b6da8",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005-root-review.json",
+          "checked_at": "2026-10-04T02:25:51.873517+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "detski_pesnichki",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005.json",
+      "packet_sha256": "49cbb5d4ac48979ab213c317296ec9304ca82757b79e45254d6e26b81d6b6da8",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005.json",
+          "packet_sha256": "49cbb5d4ac48979ab213c317296ec9304ca82757b79e45254d6e26b81d6b6da8",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005-root-review.json",
+          "checked_at": "2026-10-04T02:25:51.873517+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "detskie_rasskazy",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005.json",
+      "packet_sha256": "49cbb5d4ac48979ab213c317296ec9304ca82757b79e45254d6e26b81d6b6da8",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005.json",
+          "packet_sha256": "49cbb5d4ac48979ab213c317296ec9304ca82757b79e45254d6e26b81d6b6da8",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005-root-review.json",
+          "checked_at": "2026-10-04T02:25:51.873517+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "djembe",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005.json",
+      "packet_sha256": "49cbb5d4ac48979ab213c317296ec9304ca82757b79e45254d6e26b81d6b6da8",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005.json",
+          "packet_sha256": "49cbb5d4ac48979ab213c317296ec9304ca82757b79e45254d6e26b81d6b6da8",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-005-root-review.json",
+          "checked_at": "2026-10-04T02:25:51.873517+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "dutch_cabaret",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-006.json",
+      "packet_sha256": "abf1e8d219287edaa874aacc67c54005ba415578242131b705c715331a5510f2",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-006.json",
+          "packet_sha256": "abf1e8d219287edaa874aacc67c54005ba415578242131b705c715331a5510f2",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-006-root-review.json",
+          "checked_at": "2026-10-04T02:25:53.182485+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "dutch_experimental",
+      "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-006.json",
+      "packet_sha256": "abf1e8d219287edaa874aacc67c54005ba415578242131b705c715331a5510f2",
+      "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-006-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-006.json",
+          "packet_sha256": "abf1e8d219287edaa874aacc67c54005ba415578242131b705c715331a5510f2",
+          "review": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-006-root-review.json",
+          "checked_at": "2026-10-04T02:25:53.182485+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
     {
       "id": "atlanta_metal",
       "packet": "/workspace/genre-continuation/repairs-20261003/recover024/amp-class-verification-atlanta-arkansas.json",
@@ -3751,6 +4051,186 @@
           "packet_sha256": "897a5d5f3b4cb79fda97ed89ca944e97f7200ca169ffb52b296d023292426e67",
           "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0366-0420-root-review.json",
           "checked_at": "2026-10-04T02:01:49.094450+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "dfw_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "christlicher_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "aggressive_phonk",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "australian_underground_hip_hop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "bayerischer_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "birmingham_hip_hop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "czech_alternative_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "deep_southern_trap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "drill_italiana",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "hardcore_hip_hop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "hip_hop_galsen",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "jewish_hip_hop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+      "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+      "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460.json",
+          "packet_sha256": "36094dea61355554e41540a96a561bcbc5fd6f2d006dd5298ff0e903e76eb90c",
+          "review": "/workspace/genre-continuation/repairs-20261003/recover024/root-ready-0421-0460-root-review.json",
+          "checked_at": "2026-10-04T02:21:48.719945+00:00"
         }
       ],
       "defaults_changed": true
@@ -11962,6 +12442,516 @@
           "packet_sha256": "d252af3b52b7a9fde970c45146b902f9fe22bc28c55ea70575ee11824d58a2d2",
           "review": "/workspace/genre-continuation/repairs-20261003/research116/packet086-reviewed-root-review.json",
           "checked_at": "2026-10-04T02:09:14.258866+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "classic_greek_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+      "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+          "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:04.189689+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "classic_hungarian_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+      "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+          "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:04.189689+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "classic_russian_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+      "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+          "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:04.189689+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "deep_indie_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+      "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+          "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:04.189689+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "deep_space_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+      "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+          "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:04.189689+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "ecuadorian_alternative_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+      "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed.json",
+          "packet_sha256": "44ac7dba4e3e3c20c454e89cc72b6a50dd4170e42d960fc06641ada03d47e508",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet087-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:04.189689+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "english_indie_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed.json",
+      "packet_sha256": "df5e6fa6d1c6589d0f3ad01e0f5f856d28dc8667434f20026781bc5f232a03d6",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed.json",
+          "packet_sha256": "df5e6fa6d1c6589d0f3ad01e0f5f856d28dc8667434f20026781bc5f232a03d6",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:05.574524+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "experimental_indie_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed.json",
+      "packet_sha256": "df5e6fa6d1c6589d0f3ad01e0f5f856d28dc8667434f20026781bc5f232a03d6",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed.json",
+          "packet_sha256": "df5e6fa6d1c6589d0f3ad01e0f5f856d28dc8667434f20026781bc5f232a03d6",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:05.574524+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "finnish_rockabilly",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed.json",
+      "packet_sha256": "df5e6fa6d1c6589d0f3ad01e0f5f856d28dc8667434f20026781bc5f232a03d6",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed.json",
+          "packet_sha256": "df5e6fa6d1c6589d0f3ad01e0f5f856d28dc8667434f20026781bc5f232a03d6",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:05.574524+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "french_experimental_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed.json",
+      "packet_sha256": "df5e6fa6d1c6589d0f3ad01e0f5f856d28dc8667434f20026781bc5f232a03d6",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed.json",
+          "packet_sha256": "df5e6fa6d1c6589d0f3ad01e0f5f856d28dc8667434f20026781bc5f232a03d6",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet088-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:05.574524+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "french_rock_and_roll",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+      "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+          "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:06.970611+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "future_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+      "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+          "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:06.970611+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "hard_stoner_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+      "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+          "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:06.970611+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "heavy_gothic_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+      "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+          "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:06.970611+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "hong_kong_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+      "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed.json",
+          "packet_sha256": "fabf06e9ea2125a86e2fb0ba5bcea7f1af801bb576c5cec2f4d5929df753ee8e",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet089-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:19:06.970611+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "hungarian_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "icelandic_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "idol_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indian_instrumental_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indian_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indie_pop_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indie_rock_colombiano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indie_rock_italiano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indie_rock_mexicano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+      "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed.json",
+          "packet_sha256": "37dc2f766c354101fb7e12412ef39283dca38ba40ea8e500168c3947640b7bdb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet090-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:02.016601+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indie_rock_peruano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indie_shoegaze",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indonesian_alternative_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indonesian_indie_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indonesian_pop_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indonesian_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "indonesian_shoegaze",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "instrumental_math_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "instrumental_post_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "instrumental_stoner_rock",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+      "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+      "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed.json",
+          "packet_sha256": "ebd2c373e087236a0c5a4f45111a076007849dd236b74f61a7ed72307150d6b7",
+          "review": "/workspace/genre-continuation/repairs-20261003/research116/packet091-reviewed-root-review.json",
+          "checked_at": "2026-10-04T02:23:03.527270+00:00"
         }
       ],
       "defaults_changed": true
@@ -23379,6 +24369,381 @@
       "defaults_changed": false
     },
     {
+      "id": "mpb_gospel",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+      "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+          "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:55.942769+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "retro_soul",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+      "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+          "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:55.942769+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "r_and_b_italiano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+      "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+          "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:55.942769+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "scandinavian_r_and_b",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+      "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+          "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:55.942769+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "ugandan_gospel",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+      "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only.json",
+          "packet_sha256": "4ef99d01737dc3554187e19669cb592217bece7b7e19280755e521de64b115d3",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-024-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:55.942769+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "south_african_gospel",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+      "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+          "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:57.323840+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "swedish_soul",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+      "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+          "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:57.323840+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "r_and_b_argentino",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+      "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+          "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:57.323840+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "r_and_b_brasileiro",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+      "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+          "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:57.323840+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "sertanejo_gospel",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+      "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only.json",
+          "packet_sha256": "bbe206c1d2a3c7df8e111485843eb235dea93e9380fa60c1a749e3ee0e64f366",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-025-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:57.323840+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "traditional_soul",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+      "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+          "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:58.662137+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "samba_gospel",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+      "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+          "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:58.662137+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "vintage_gospel",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+      "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+          "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:58.662137+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "south_african_r_and_b",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+      "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+          "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:58.662137+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "zim_gospel",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+      "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only.json",
+          "packet_sha256": "4c3035a6eb3054213ac69c925865dc8983de09a7256884e175a4edc7bc62610b",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-026-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:21:58.662137+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "acoustic_chill",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+      "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+          "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:00.016668+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "acoustic_cover",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+      "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+          "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:00.016668+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "acoustic_guitar_cover",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+      "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+          "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:00.016668+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "adelaide_indie",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+      "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+          "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:00.016668+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "adventista",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+      "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only.json",
+          "packet_sha256": "70a21ec0235d8dc5c927a4732192d6bae4e9a7cdd8011dbd7ded6d59338a7dcb",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-027-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:00.016668+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "alabama_indie",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+      "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+          "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:01.384812+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "afrikaans",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+      "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+          "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:01.384812+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "adoracion",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+      "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+          "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:01.384812+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "aggro_chileno",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+      "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+          "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:01.384812+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "afrobeat_fusion",
+      "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+      "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+      "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only.json",
+          "packet_sha256": "2a3515139b08a308b121898317b8902314aeb6429f0564ed8cd428c34bafd0a1",
+          "review": "/workspace/genre-continuation/repairs-20261003/research119/review-028-five-prose-only-root-review.json",
+          "checked_at": "2026-10-04T02:22:01.384812+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
       "id": "uk_alternative_pop",
       "packet": "/workspace/genre-continuation/repairs-20261003/review461/repairs-001.json",
       "packet_sha256": "28dbc20796ecc3585bbaf73d4b172a4dafee538cc3348ac337341e3c94403912",
@@ -24244,6 +25609,216 @@
           "packet_sha256": "9adae983ac1f80591e353ceb19f7106a330a5767e34ba2c11fe85757619ce5b6",
           "review": "/workspace/genre-continuation/repairs-20261003/review461/repairs-007-root-review.json",
           "checked_at": "2026-10-03T23:10:11.254316+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "irish_neo_traditional",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "kritika",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "lagu_lampung",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "lagu_sabahan",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "viral_pop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "kenyan_alternative",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "kermis",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "kingston_on_indie",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "kolsche_karneval",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "lldm",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+      "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014.json",
+          "packet_sha256": "f9b864d29a5ff04d9dcee29a46f7c5bac5c1472d80b982217686a4dd5f735fd5",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-prose-only-009-014-root-review.json",
+          "checked_at": "2026-10-04T02:27:02.382329+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "alternative_dance",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014.json",
+      "packet_sha256": "3f611fa0bbc14a98797abe9439105cbf5517ade88a6fb305827ef27337b79ee0",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014.json",
+          "packet_sha256": "3f611fa0bbc14a98797abe9439105cbf5517ade88a6fb305827ef27337b79ee0",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014-root-review.json",
+          "checked_at": "2026-10-04T02:28:13.557590+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "comfy_synth",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014.json",
+      "packet_sha256": "3f611fa0bbc14a98797abe9439105cbf5517ade88a6fb305827ef27337b79ee0",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014.json",
+          "packet_sha256": "3f611fa0bbc14a98797abe9439105cbf5517ade88a6fb305827ef27337b79ee0",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014-root-review.json",
+          "checked_at": "2026-10-04T02:28:13.557590+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "kinderliedjies",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014.json",
+      "packet_sha256": "3f611fa0bbc14a98797abe9439105cbf5517ade88a6fb305827ef27337b79ee0",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014.json",
+          "packet_sha256": "3f611fa0bbc14a98797abe9439105cbf5517ade88a6fb305827ef27337b79ee0",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014-root-review.json",
+          "checked_at": "2026-10-04T02:28:13.557590+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "lesen",
+      "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014.json",
+      "packet_sha256": "3f611fa0bbc14a98797abe9439105cbf5517ade88a6fb305827ef27337b79ee0",
+      "review": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014.json",
+          "packet_sha256": "3f611fa0bbc14a98797abe9439105cbf5517ade88a6fb305827ef27337b79ee0",
+          "review": "/workspace/genre-continuation/repairs-20261003/review461/root-ready-011-014-root-review.json",
+          "checked_at": "2026-10-04T02:28:13.557590+00:00"
         }
       ],
       "defaults_changed": true
@@ -31690,6 +33265,351 @@
           "packet_sha256": "ece6ae8a33795017ff91a71f024c88f9647f4d7c9c70cf850e310f2b84c37d69",
           "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-062-root-review.json",
           "checked_at": "2026-10-04T02:14:21.660044+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "balkan_trap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+      "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+          "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+          "checked_at": "2026-10-04T02:20:38.308991+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "bisaya_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+      "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+          "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+          "checked_at": "2026-10-04T02:20:38.308991+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "czech_drill",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+      "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+          "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+          "checked_at": "2026-10-04T02:20:38.308991+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "emo_rap_italiano",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+      "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+          "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+          "checked_at": "2026-10-04T02:20:38.308991+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "georgian_hip_hop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+      "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+          "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+          "checked_at": "2026-10-04T02:20:38.308991+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "gospel_drill",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+      "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+          "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+          "checked_at": "2026-10-04T02:20:38.308991+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "hip_hop_reunionnais",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+      "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+          "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+          "checked_at": "2026-10-04T02:20:38.308991+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "iraqi_hip_hop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+      "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063.json",
+          "packet_sha256": "c924ad195365a02165e6a49b0ee28801c4a8a220821cd9ce35cc0483a0e0a10f",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-063-root-review.json",
+          "checked_at": "2026-10-04T02:20:38.308991+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "lo_fi_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+      "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+          "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+          "checked_at": "2026-10-04T02:20:39.835460+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "new_jersey_underground_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+      "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+          "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+          "checked_at": "2026-10-04T02:20:39.835460+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "ottawa_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+      "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+          "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+          "checked_at": "2026-10-04T02:20:39.835460+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "persian_hip_hop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+      "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+          "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+          "checked_at": "2026-10-04T02:20:39.835460+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "rap_antillais",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+      "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+          "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+          "checked_at": "2026-10-04T02:20:39.835460+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "rap_boricua",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+      "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+          "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+          "checked_at": "2026-10-04T02:20:39.835460+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "rap_congolais",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+      "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064.json",
+          "packet_sha256": "a860b10401254f876ac241e04c140591c55408221b29467643232a47f2bb56da",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-064-root-review.json",
+          "checked_at": "2026-10-04T02:20:39.835460+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "rap_nica",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+      "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+          "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+          "checked_at": "2026-10-04T02:20:41.251608+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "rap_potiguar",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+      "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+          "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+          "checked_at": "2026-10-04T02:20:41.251608+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_emo_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+      "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+          "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+          "checked_at": "2026-10-04T02:20:41.251608+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "russian_viral_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+      "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+          "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+          "checked_at": "2026-10-04T02:20:41.251608+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "samurai_trap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+      "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+          "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+          "checked_at": "2026-10-04T02:20:41.251608+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "swedish_pop_rap",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+      "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+          "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+          "checked_at": "2026-10-04T02:20:41.251608+00:00"
+        }
+      ],
+      "defaults_changed": true
+    },
+    {
+      "id": "novo_rock_gaucho",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+      "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+          "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+          "checked_at": "2026-10-04T02:20:41.251608+00:00"
+        }
+      ],
+      "defaults_changed": false
+    },
+    {
+      "id": "chechen_pop",
+      "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+      "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+      "review_history": [
+        {
+          "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065.json",
+          "packet_sha256": "339751503cdf04c8209213386f5952f7ef2126b1f149c9217654481c62e54ff9",
+          "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-065-root-review.json",
+          "checked_at": "2026-10-04T02:20:41.251608+00:00"
         }
       ],
       "defaults_changed": true
