@@ -278,7 +278,10 @@ PINNED = {
     # 2026-09-15: 136 labels attached only to nonlyric material are now
     # preserved as apparatus (101 VERSE, 33 CHORUS, 2 REFRAIN); 77052 -> 76916.
     # 2026-09-16: seven Burns standalone chorus labels rejoin their stanza.
-    "typed": 76909, "decided": 125501, "undecided": 32, "apparatus": 1,
+    # 2026-10-04: typed ~~76,909~~ 75,639, exactly +372 marks from the 73
+    # Otterbein refrain hymns and -1,642 [VERSE] marks M-25(a) annotated as
+    # apparatus; decided and undecided UNMOVED (125,501 / 32).
+    "typed": 75639, "decided": 125501, "undecided": 32, "apparatus": 1,
     "declared_functions": 22, "witnessed": 5,
 }
 

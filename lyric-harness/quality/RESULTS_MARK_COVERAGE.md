@@ -1,6 +1,22 @@
 # RESULTS — mark coverage: what the section vocabulary cannot type
 
-## Current measurement, 2026-09-16
+## Current measurement, 2026-10-04
+
+The census has **75,639 typed blocks**, 125,501 decided refusals, 32
+undecided marks and one numeral-apparatus block. Typed fell from 76,909 by
+exactly the batch of that date: +372 marks in the 73 Otterbein refrain hymns
+and −1,642 `[VERSE]` marks that `MISSING.md` M-25(a) annotated as apparatus
+(`data/english_apparatus_m25_2026-10-04.json`). Decided and undecided did not
+move, so no mark anybody had not already considered entered the census.
+
+Chorus pointers: **1,144 total; 442 resolved; 35 ambiguous; 667 unmatched;
+0 without an incipit**. The 19 that left were never chorus pointers: 16 Watts
+scripture arguments whose verse reference ends `&c.` (`The nativity of
+Christ, Luke 1. 30 &c. Luke 2, 10 &c.`), two Lovelace editorial notes and one
+Herrick note, all now apparatus. Resolved and ambiguous are unmoved, so the
+unresolved pile shrank only by things that were not references.
+
+## Superseded measurement, 2026-09-16 (kept as written)
 
 The census has **76,909 typed blocks**, 125,501 decided refusals, 32
 undecided marks and one numeral-apparatus block. Seven Burns standalone

@@ -602,7 +602,9 @@ LAYER.declare(FrequencySource(
     #: commits (13990 -> 13952 -> 13948). The check below is what caught it.
     # 2026-09-08: shared normalized reader, explicit one-work population; full rebuild.
     # 2026-09-15 apparatus annotations: 13856 -> 13836 measured endword types.
-    n_types=13836,
+    # 2026-10-04 Otterbein refrain hymns (+73) and M-25(a) apparatus
+    # annotations (1,639 rows out): 13836 -> 13787 measured endword types.
+    n_types=13787,
     n_types_from="distinct0:data/song_endword_en.tsv",
     pool="corpus/song/eng_*",
     loo_unit="author",

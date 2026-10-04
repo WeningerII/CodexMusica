@@ -264,7 +264,7 @@ D1_2026_09_17 = {
 # RE-MEASURED THE SAME DAY after `nucleus_agreement` became "licensed" (a near
 # vowel no longer carries RHYME): ~~false/admits 6, false/rejects 674,
 # refused/admits 7, refused/rejects 304, agreement 677/689~~.
-D1_RECORDED = {
+D1_2026_09_22 = {
     "pool": 4390056,
     "measured": "2026-09-22",
     "population": "1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated",
@@ -272,6 +272,27 @@ D1_RECORDED = {
               ("false", "admits"): 2, ("false", "rejects"): 678,
               ("refused", "admits"): 6, ("refused", "rejects"): 305},
     "agree": (681, 689),
+}
+
+# REPINNED 2026-10-04 — THE POPULATION MOVED, not the judge. The loading
+# batch of that date added 73 Otterbein refrain hymns (47 new eng_hymn_*
+# files) and annotated 1,639 one-line apparatus rows `# APPARATUS:` in place
+# (MISSING.md M-25(a); data/english_apparatus_m25_2026-10-04.json), so the
+# pool fell 4,390,056 -> 4,351,811 pairs. D1 is a seeded draw of 1,000 pairs
+# FROM that pool, and a changed pool is a changed draw: every cell moves as a
+# re-sample, with no change to admits() or to the judge (the artifact arm,
+# which is a different population, HOLDS in all nine figures). Agreement over
+# judged reads 712/717 (99.3%) against 681/689 (98.8%); refusals apart.
+# Measured by `python3 quality/structure_census.py --check` on the closing
+# sitting's tree. D1_2026_09_22 kept above.
+D1_RECORDED = {
+    "pool": 4351811,
+    "measured": "2026-10-04",
+    "population": "1344 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated (2026-09-15 and M-25(a) 2026-10-04)",
+    "table": {("true", "admits"): 5, ("true", "rejects"): 3,
+              ("false", "admits"): 2, ("false", "rejects"): 707,
+              ("refused", "admits"): 4, ("refused", "rejects"): 279},
+    "agree": (712, 717),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.
