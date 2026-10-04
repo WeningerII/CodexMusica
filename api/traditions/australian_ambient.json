@@ -5,7 +5,7 @@
   "lineage": "Australia’s ambient and experimental sound scene includes electronic composition, environmental listening and electroacoustic work. Independent networks such as Brisbane’s ROOM40 connect local sound practices with international collaborations and releases.",
   "recipe": "classic modern australian ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art electroacoustic composition. field sustained sampler, sustained analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 412,
-  "score": 42.888,
+  "score": 43.038,
   "config": {
     "traditions": [
       "australian_ambient",
@@ -43,7 +43,7 @@
           "electronic_technique": 10.3,
           "oscillator": 0,
           "filter_topology": 0.195,
-          "envelope": 0.3,
+          "envelope": 0.44999999999999996,
           "modulation": 0
         }
       }

@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-04",
-  "count": 6904,
+  "count": 6932,
   "items": [
     {
       "id": "honky_tonk",
@@ -1436,8 +1436,8 @@
       "id": "hardstyle",
       "name": "Hardstyle",
       "family": "electronic",
-      "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance balkan beats french touch / filter house. digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-      "recipe_chars": 323
+      "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance balkan beats deep discofox. digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+      "recipe_chars": 309
     },
     {
       "id": "gabber",
@@ -2780,8 +2780,8 @@
       "id": "plunderphonics",
       "name": "Plunderphonics",
       "family": "global",
-      "recipe": "classic Asian mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm gangsta rap houston chopped and screwed. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-      "recipe_chars": 374
+      "recipe": "classic modern plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm gangsta rap cloud rap. pitched chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. large-diaphragm condenser, transformerless solid-state pre, empirical labs distressor, GML massenburg parametric. 24-bit digital.",
+      "recipe_chars": 351
     },
     {
       "id": "early_rock_and_roll_50s",
@@ -3921,8 +3921,8 @@
       "id": "kapuka_kenyan",
       "name": "Kapuka (Kenyan urban pop)",
       "family": "global",
-      "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm chinese melodic rap san antonio rap. extended whistle, rap, slow rate, interlocked note trading. TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 480
+      "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm belarusian hip hop chinese melodic rap. equal tempered, solo with instrumental accompaniment. TR-808, analog synth, mid rich alder electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 418
     },
     {
       "id": "kabyle_music_algerian",
@@ -13126,8 +13126,8 @@
       "id": "musica_jibara",
       "name": "Música Jíbara",
       "family": "global",
-      "recipe": "classic North American mid-1930s música jíbara, ballad Poetry, Latin am troubadour branch, tropical song functional song, iberian functional song rumba catalana asturian folk. sygyt, breath veiled tone, slow rate, interlocked note trading. mahogany puerto rican traditional strummed cuatro pr, cedar fingerpicked fan strum classical nylon-string guitar, bordonua, guiro, maracas. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 536
+      "recipe": "classic North American mid-1930s música jíbara, ballad Poetry, Latin am troubadour branch, tropical song functional song, iberian functional song música llanera polca paraguaya. nasal, straight note core, small note groups per syllable. mahogany puerto rican traditional strummed cuatro pr, cedar fingerpicked classical nylon-string guitar, bordonua, guiro, maracas. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 523
     },
     {
       "id": "cuatro_puertorriqueno",
@@ -14820,8 +14820,8 @@
       "id": "guitarrada_portuguesa",
       "name": "Guitarrada (Portuguese Guitar Instrumental)",
       "family": "vernacular",
-      "recipe": "classic Iberian mid-1920s guitarrada, ballad Poetry, fado lisboa branch, chanson fado fado coimbra, iberian functional song asturian folk. twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa, cedar fingerpicked classical nylon-string guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, viola campanica. coimbra university outdoor quad. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 578
+      "recipe": "classic Iberian mid-1920s guitarrada, ballad Poetry, fado lisboa branch, chanson fado fado coimbra, iberian functional song. twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa, cedar fingerpicked classical nylon-string guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, viola campanica. coimbra university outdoor quad. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 564
     },
     {
       "id": "cante_alentejano",
@@ -48331,6 +48331,202 @@
       "family": "hip_hop",
       "recipe": "classic westcoast flow, mc Rhythm, us hip hop branch. solo with instrumental accompaniment. sampler. treated studio.",
       "recipe_chars": 116
+    },
+    {
+      "id": "deep_turkish_pop",
+      "name": "Deep Turkish Pop",
+      "family": "pop",
+      "recipe": "classic deep turkish pop, functional Song. upright piano. live tracking.",
+      "recipe_chars": 72
+    },
+    {
+      "id": "carnaval_cadiz",
+      "name": "Carnaval de Cádiz",
+      "family": "vernacular",
+      "recipe": "classic carnaval de cádiz, carnival Processional. kazoo. festival stage.",
+      "recipe_chars": 72
+    },
+    {
+      "id": "pop_electronico",
+      "name": "Pop Electrónico",
+      "family": "pop",
+      "recipe": "classic pop electrónico, functional Song. one note per syllable, solo with instrumental accompaniment. credited synthesizer credited programming unspecified. live tracking.",
+      "recipe_chars": 172
+    },
+    {
+      "id": "dark_minimal_techno",
+      "name": "Dark minimal techno",
+      "family": "electronic",
+      "recipe": "classic dark minimal techno, electronic Dance, techno branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 108
+    },
+    {
+      "id": "dutch_drill",
+      "name": "Dutch Drill",
+      "family": "hip_hop",
+      "recipe": "classic dutch drill, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 164
+    },
+    {
+      "id": "polish_trap",
+      "name": "Polish Trap",
+      "family": "hip_hop",
+      "recipe": "classic polish trap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 164
+    },
+    {
+      "id": "soda_pop",
+      "name": "Soda Pop",
+      "family": "pop",
+      "recipe": "classic soda pop, functional Song. group vocals. live tracking.",
+      "recipe_chars": 63
+    },
+    {
+      "id": "deep_pop_edm",
+      "name": "Deep Pop EDM",
+      "family": "electronic",
+      "recipe": "classic deep pop edm, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. upright piano, saxophone, credited programming unspecified. live tracking.",
+      "recipe_chars": 181
+    },
+    {
+      "id": "twee_indie_pop",
+      "name": "Twee Indie Pop",
+      "family": "pop",
+      "recipe": "classic twee indie pop, functional Song, pop rock branch. conversational, equal tempered, modern pop training, solo with instrumental accompaniment. arpeggiated clean single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 315
+    },
+    {
+      "id": "deep_big_room",
+      "name": "Deep Big Room",
+      "family": "electronic",
+      "recipe": "classic deep big room, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 101
+    },
+    {
+      "id": "czsk_electropop",
+      "name": "czsk electropop",
+      "family": "electronic",
+      "recipe": "classic czsk electropop, functional Song. analog poly synth, credited programming unspecified. live tracking.",
+      "recipe_chars": 109
+    },
+    {
+      "id": "melanesian_pop",
+      "name": "Melanesian Pop",
+      "family": "pop",
+      "recipe": "classic melanesian pop, functional Song. clean strummed single coil electric guitar, electric bass, electronic keyboard unspecified, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 178
+    },
+    {
+      "id": "marathi_hip_hop",
+      "name": "Marathi hip hop",
+      "family": "hip_hop",
+      "recipe": "classic marathi hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler. treated studio.",
+      "recipe_chars": 133
+    },
+    {
+      "id": "study_beats",
+      "name": "Study Beats",
+      "family": "electronic",
+      "recipe": "classic study beats, experimental Elec. software sample playback, credited programmed drums unspecified. treated studio.",
+      "recipe_chars": 120
+    },
+    {
+      "id": "greek_fem_rap",
+      "name": "Greek Fem Rap",
+      "family": "hip_hop",
+      "recipe": "classic greek fem rap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 166
+    },
+    {
+      "id": "deep_discofox",
+      "name": "Deep Discofox",
+      "family": "electronic",
+      "recipe": "classic deep discofox, electronic Dance, continental branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 107
+    },
+    {
+      "id": "dutch_indie",
+      "name": "Dutch Indie",
+      "family": "rock",
+      "recipe": "classic dutch indie, functional Song. duet, live take. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 203
+    },
+    {
+      "id": "hjemmesnekk",
+      "name": "Hjemmesnekk",
+      "family": "pop",
+      "recipe": "classic hjemmesnekk, functional Song. small note groups per syllable. credited beat unspecified. treated studio.",
+      "recipe_chars": 112
+    },
+    {
+      "id": "belarusian_hip_hop",
+      "name": "Belarusian Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic belarusian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 176
+    },
+    {
+      "id": "rap_regio",
+      "name": "Rap Regio",
+      "family": "hip_hop",
+      "recipe": "classic rap regio, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 162
+    },
+    {
+      "id": "gothic_alternative",
+      "name": "gothic alternative",
+      "family": "rock",
+      "recipe": "classic gothic alternative, functional Song. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, upright piano. live tracking.",
+      "recipe_chars": 299
+    },
+    {
+      "id": "aesthetic_rap",
+      "name": "Aesthetic Rap",
+      "family": "hip_hop",
+      "recipe": "classic aesthetic rap, mc Rhythm. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. treated studio.",
+      "recipe_chars": 132
+    },
+    {
+      "id": "libyan_hip_hop",
+      "name": "Libyan Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic libyan hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "russian_trap_metal",
+      "name": "Russian Trap Metal",
+      "family": "hip_hop",
+      "recipe": "classic russian trap metal, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment. credited beat unspecified. treated studio.",
+      "recipe_chars": 140
+    },
+    {
+      "id": "glitch_beats",
+      "name": "Glitch Beats",
+      "family": "electronic",
+      "recipe": "classic glitch beats, experimental Elec. apple es2 software synth, midi programmed sound unspecified. treated studio.",
+      "recipe_chars": 117
+    },
+    {
+      "id": "taiwanese_indie",
+      "name": "Taiwanese Indie",
+      "family": "rock",
+      "recipe": "classic taiwanese indie, functional Song. small note groups per syllable, group vocals. humbucker electric guitar, electric bass, full lathed both sides lathed sticks backbeat drum kit. live tracking.",
+      "recipe_chars": 200
+    },
+    {
+      "id": "flamenco_fusion",
+      "name": "Flamenco Fusion",
+      "family": "global",
+      "recipe": "classic flamenco fusion, functional Song, iberian branch. many notes per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, credited auxiliary percussion, flamenco zapateado shoes. shoebox concert hall.",
+      "recipe_chars": 375
+    },
+    {
+      "id": "redneck",
+      "name": "Redneck",
+      "family": "hip_hop",
+      "recipe": "classic redneck, mc Rhythm, southern branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 160
     }
   ]
 }

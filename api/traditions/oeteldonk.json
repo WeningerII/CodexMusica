@@ -5,7 +5,7 @@
   "lineage": "Oeteldonk music belongs to the carnival culture of ’s-Hertogenbosch, sustained by local clubs, song competitions and community celebrations. New carnival songs join familiar refrains in the Kwèkfestijn and a shared repertoire associated with the city’s festive identity.",
   "recipe": "classic oeteldonk, carnival Processional. trumpet, trombone, saxophone section alto tenor, baritone horn bb, tuba, drum kit. live tracking.",
   "recipe_chars": 139,
-  "score": 1.756,
+  "score": 2.119,
   "config": {
     "traditions": [
       "oeteldonk"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.0975,
-          "voice_ensemble_config": 0.09,
+          "voice_speech_song": 0.3075,
+          "voice_ensemble_config": 0.1215,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0225,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -64,11 +64,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "brass_size": 0,
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0.0225,
-          "trumpet_technique": -0.12750000000000003,
+          "trumpet_technique": -0.10500000000000001,
           "trumpet_bell_metal": 0.363,
           "trumpet_maker_school": 0.075
         }
@@ -85,7 +85,7 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "trombone_type": -0.035,
           "trombone_mouthpiece": -0.1,
           "trombone_mute": 0.0225,
@@ -123,7 +123,7 @@
           "tuba_maker_school": "tuba_miraphone_german"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "tuba_pitch": 0,
           "tuba_context": 0.39,
           "tuba_bell_metal": 0.363,

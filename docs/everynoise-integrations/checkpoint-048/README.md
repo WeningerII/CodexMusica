@@ -1,5 +1,7 @@
 # Checkpoint 048
 
+**STATUS:** SHIPPED — merged in PR490 at `cef6c5359c65b9b4ed966a26a9adf752a6ca286f`; historical checkpoint counts are preserved.
+
 This checkpoint adds 43 individually reviewed genre profiles and one recorded-music rate-processing instrument, and applies the separately researched Eurobeat vocal and synth-model correction. The expected catalogue contains 6904 traditions and 1662 instruments. The original engine, schema and existing instrument definitions remain unchanged.
 
 The complete 52-addition proposal is preserved. Nine additions remain outside this checkpoint because their combined effects introduced unsupported defaults in existing recipes or needed further source context: Classic Luk Thung, Electropop, Deep Hardtechno, Dubstep Product, Deep Uplifting Trance, Goa Psytrance, Filthstep, Flamenco Fusion and Redneck. Their source evidence and the proposed flamenco-shoe instrument remain available for later work; this does not declare the genres themselves invalid.

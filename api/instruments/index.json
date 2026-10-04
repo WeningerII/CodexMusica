@@ -1,5 +1,5 @@
 {
-  "count": 1662,
+  "count": 1664,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9972,6 +9972,18 @@
       "name": "Recorded music rate processing",
       "family": "electronic",
       "href": "instruments/recorded_music_rate_processing.json"
+    },
+    {
+      "id": "apple_es2_software_synth",
+      "name": "Apple ES2 software hybrid synthesizer",
+      "family": "electronic",
+      "href": "instruments/apple_es2_software_synth.json"
+    },
+    {
+      "id": "flamenco_zapateado_shoes",
+      "name": "Flamenco zapateado shoes",
+      "family": "percussion",
+      "href": "instruments/flamenco_zapateado_shoes.json"
     }
   ]
 }
