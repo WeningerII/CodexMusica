@@ -1,0 +1,289 @@
+{
+  "entries": [
+    {
+      "source_label": "south african soulful deep house",
+      "source_url": "https://everynoise.com/engenremap-southafricansoulfuldeephouse.html",
+      "suggested_id": "south_african_soulful_deep_house",
+      "allocation_ordinal": 65,
+      "allocation_group_id": "003",
+      "id": "south_african_soulful_deep_house",
+      "tradition": {
+        "id": "south_african_soulful_deep_house",
+        "name": "South African Soulful Deep House",
+        "family": "electronic",
+        "lineage": "A soulful branch of South African deep-house production and DJ culture, combining melodic electronic textures, sustained bass grooves and influences from gospel, jazz and disco.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 1,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 2,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "South African soulful deep house emphasizes melodic atmosphere, sustained electronic textures and steady dance grooves within the country’s deep-house scene. Producers draw on soul, gospel, jazz, disco and local rhythmic influences, while DJ mixes connect established tracks with independent releases. It overlaps South African house, deep house and international soulful house.",
+        "exemplars": [
+          "Tiyani",
+          "Academic Deep",
+          "Beat Soul"
+        ],
+        "status": "documented",
+        "crossRefs": [],
+        "signature_tokens": []
+      },
+      "geo": [
+        -26.2485,
+        27.854,
+        "Soweto",
+        "Africa"
+      ],
+      "geo_rationale": "Label identifies Tiyani as from Soweto, Johannesburg; editorial community anchor, not recording-site claim.",
+      "signature_tokens": [],
+      "neighbor_distinction": "The actual south_african_deep_house and south_african_house records already include soulful material; those umbrellas are not artificially narrowed. A named soulful emphasis used by local producers and curators can be represented within that overlap without proving an exclusive institution or a different instrument. Exact creator label plus firsthand curatorial practice supports addition, not a forced synonym.",
+      "classification_evidence": {
+        "mode": "named_creator_label_and_positive_practitioner_usage",
+        "note": "The actual south_african_deep_house and south_african_house records already include soulful material; those umbrellas are not artificially narrowed. A named soulful emphasis used by local producers and curators can be represented within that overlap without proving an exclusive institution or a different instrument. Exact creator label plus firsthand curatorial practice supports addition, not a forced synonym."
+      },
+      "source_scope_limitation": "Tiyani — complete issued Tiyani's Birthday mix_2023 (Mix #01), published10December2023, publisher duration1h3m. The artist's own podcast description explicitly selects South African deep and soulful house, with eleven named selections, including Spin Worx/Academic Deep and a Beat Soul remix. This is the entire DJ programme, not one undocumented studio master. Every embedded instrumental and vocal layer remains within the mixed recordings; human counts and original recording equipment remain unknown. No additional live singer or commentator is positively credited.",
+      "source_retrieval_caveat": "Fresh Tiyani artist-issued podcast, STORK issuer field account and exact creator playlist all reproduced. Prior specific-event evidence remains in repair_evidence.",
+      "model_policy": "Representative documented DJ playback/mixing branch; existing neutral owner and its full meaningful control preserved. Embedded source voices/instruments and exact equipment remain unknown. This is not a claim that every studio production uses one instrument or an opaque master replaced by an invented sampler. Live-room presentation is authored; no global tuning or named physical decks imposed.",
+      "vocal_count_audit": {
+        "count": null,
+        "decision": "Embedded voices preserved in entire DJ mix, unknown count; no separate live singer positively documented."
+      },
+      "instrument_role_audit": {
+        "scope": "Tiyani — complete issued Tiyani's Birthday mix_2023 (Mix #01), published10December2023, publisher duration1h3m. The artist's own podcast description explicitly selects South African deep and soulful house, with eleven named selections, including Spin Worx/Academic Deep and a Beat Soul remix. This is the entire DJ programme, not one undocumented studio master. Every embedded instrumental and vocal layer remains within the mixed recordings; human counts and original recording equipment remain unknown. No additional live singer or commentator is positively credited.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Whole artist-issued mixed programme"
+        },
+        "authored_defaults": "Existing source-unspecified DJ playback/mixing retains the whole positively documented assembled programme and its unknown embedded voices/instruments. No invented decks, vinyl, scratch, synthesis or physical equipment. Broad electronicDance fits the documented house-mix practice. Controlled live-room presentation and brisk up-tempo editorial rendition are authored, not measured source BPM or venue; the label's separate comments on mid-tempo specific releases are not transferred to every mix selection. No global tuning or added live voice."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Existing source-unspecified DJ playback/mixing retains the whole positively documented assembled programme and its unknown embedded voices/instruments. No invented decks, vinyl, scratch, synthesis or physical equipment. Broad electronicDance fits the documented house-mix practice. Controlled live-room presentation and brisk up-tempo editorial rendition are authored, not measured source BPM or venue; the label's separate comments on mid-tempo specific releases are not transferred to every mix selection. No global tuning or added live voice."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Sole applicable original identity part explicitly pinned."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1658
+      },
+      "sources": [
+        {
+          "url": "https://podcasts.apple.com/us/podcast/tiyani-tea-ya-knee-monthly-mix/id1734188555",
+          "title": "Tiyani own complete podcast editions and11-selection birthday mix",
+          "support_notes": "13260search0/13262view1 own full programme,63min, explicit SA soulful/deep curation.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.storkrecordings.com/depth/south-african-deep-house-producers.html",
+          "title": "Issuer firstperson national deep/soulful producer community",
+          "support_notes": "13259view1 Tiyani Soweto identity and podcast, soulful specialization, collaborative community.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4CgnLs5P0WWC60Ja8a60qO",
+          "title": "Exact creator South African Soulful Deep House",
+          "support_notes": "13262view0 Academic Deep11/Beat Soul23; overlapping full national field, not Tiyani membership claim.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://podcasts.apple.com/us/podcast/tiyani-tea-ya-knee-monthly-mix/id1734188555",
+          "checked_date": "2026-10-04",
+          "support_notes": "Fresh current artist-issued source verifies label/practice; exact refs turn15469view2, turn15469view3, turn15474view3"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "south_african_soulful_deep_house",
+          "name": "South African Soulful Deep House",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15476view1 reproduces Iain Fergusson credit, Binksternet crop and CC BY 2.5; historical byte/visual receipts preserved.",
+          "fresh_review_ref": "turn15476view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15476view1"
+        ],
+        "fresh_rights_review": "Fresh Commons turn15476view1 confirms attribution/crop/CC BY2.5; historical byte and visual receipts retained."
+      },
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "verification_status": "Author local qualification passed: all1658 original owners preserved; one protected DJ control, four browser/connector formats and compiled API reviewed. Independent peer pending.",
+      "primary_retrieval_refs": [
+        "turn15469view2",
+        "turn15469view3",
+        "turn15474view3",
+        "turn15476view1"
+      ],
+      "repair_evidence": {
+        "prior_packet": "/tmp/batch040/resume-sourceaudit-22.json",
+        "sha256": "01333336398dfde697db2e71373dc87aa0f16feec1428ded1973b301dd0f6818",
+        "preserved_prior_fields": {
+          "tradition": {
+            "id": "south_african_soulful_deep_house",
+            "name": "South African Soulful Deep House",
+            "family": "electronic",
+            "lineage": "Tiyani — complete issued Tiyani's Birthday mix_2023 (Mix #01), published10December2023, publisher duration1h3m. The artist's own podcast description explicitly selects South African deep and soulful house, with eleven named selections, including Spin Worx/Academic Deep and a Beat Soul remix. This is the entire DJ programme, not one undocumented studio master. Every embedded instrumental and vocal layer remains within the mixed recordings; human counts and original recording equipment remain unknown. No additional live singer or commentator is positively credited. Existing source-unspecified DJ playback/mixing retains the whole positively documented assembled programme and its unknown embedded voices/instruments. No invented decks, vinyl, scratch, synthesis or physical equipment. Broad electronicDance fits the documented house-mix practice. Controlled live-room presentation and brisk up-tempo editorial rendition are authored, not measured source BPM or venue; the label's separate comments on mid-tempo specific releases are not transferred to every mix selection. No global tuning or added live voice.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Tiyani — complete issued Tiyani's Birthday mix_2023 (Mix #01), published10December2023, publisher duration1h3m. The artist's own podcast description explicitly selects South African deep and soulful house, with eleven named selections, including Spin Worx/Academic Deep and a Beat Soul remix. This is the entire DJ programme, not one undocumented studio master. Every embedded instrumental and vocal layer remains within the mixed recordings; human counts and original recording equipment remain unknown. No additional live singer or commentator is positively credited. The exact creator South African Soulful Deep House playlist includes Academic Deep11 and Beat Soul23, both positively named in the selected mix; Tiyani himself is not asserted a creator member. His own recurring podcast expressly curates this South African deep-and-soulful community, and issuer STORK independently describes the national soulful house producer network, emotional/melodic textures, collaborative releases and DJ circulation. Existing south_african_deep_house remains a broad regional deep-house field already including soulful/jazzy/Afro-house practices, not merely Jazzuelle's one programme. Existing south_african_house also explicitly includes gospel-inflected voices, Rhodes/pads and deep chords. The proposed category is a narrower soulful curatorial/production branch within those overlapping fields, not a claim of exclusion, a new nationality or a distinct instrument. International deep_house and soulful/garage practices likewise overlap; regional community organization plus the explicit soulful specialization supports this discovery axis. No equation with all Afro House, amapiano or all South African electronic music is asserted. Existing source-unspecified DJ playback/mixing retains the whole positively documented assembled programme and its unknown embedded voices/instruments. No invented decks, vinyl, scratch, synthesis or physical equipment. Broad electronicDance fits the documented house-mix practice. Controlled live-room presentation and brisk up-tempo editorial rendition are authored, not measured source BPM or venue; the label's separate comments on mid-tempo specific releases are not transferred to every mix selection. No global tuning or added live voice.",
+            "exemplars": [
+              "Tiyani — complete Birthday mix_2023 (Mix #01)"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "neighbor_distinction": "The exact creator South African Soulful Deep House playlist includes Academic Deep11 and Beat Soul23, both positively named in the selected mix; Tiyani himself is not asserted a creator member. His own recurring podcast expressly curates this South African deep-and-soulful community, and issuer STORK independently describes the national soulful house producer network, emotional/melodic textures, collaborative releases and DJ circulation. Existing south_african_deep_house remains a broad regional deep-house field already including soulful/jazzy/Afro-house practices, not merely Jazzuelle's one programme. Existing south_african_house also explicitly includes gospel-inflected voices, Rhodes/pads and deep chords. The proposed category is a narrower soulful curatorial/production branch within those overlapping fields, not a claim of exclusion, a new nationality or a distinct instrument. International deep_house and soulful/garage practices likewise overlap; regional community organization plus the explicit soulful specialization supports this discovery axis. No equation with all Afro House, amapiano or all South African electronic music is asserted.",
+          "classification_evidence": "The exact creator South African Soulful Deep House playlist includes Academic Deep11 and Beat Soul23, both positively named in the selected mix; Tiyani himself is not asserted a creator member. His own recurring podcast expressly curates this South African deep-and-soulful community, and issuer STORK independently describes the national soulful house producer network, emotional/melodic textures, collaborative releases and DJ circulation. Existing south_african_deep_house remains a broad regional deep-house field already including soulful/jazzy/Afro-house practices, not merely Jazzuelle's one programme. Existing south_african_house also explicitly includes gospel-inflected voices, Rhodes/pads and deep chords. The proposed category is a narrower soulful curatorial/production branch within those overlapping fields, not a claim of exclusion, a new nationality or a distinct instrument. International deep_house and soulful/garage practices likewise overlap; regional community organization plus the explicit soulful specialization supports this discovery axis. No equation with all Afro House, amapiano or all South African electronic music is asserted.",
+          "model_policy": "Existing source-unspecified DJ playback/mixing retains the whole positively documented assembled programme and its unknown embedded voices/instruments. No invented decks, vinyl, scratch, synthesis or physical equipment. Broad electronicDance fits the documented house-mix practice. Controlled live-room presentation and brisk up-tempo editorial rendition are authored, not measured source BPM or venue; the label's separate comments on mid-tempo specific releases are not transferred to every mix selection. No global tuning or added live voice.",
+          "verification_status": "Pending original preflight and independent review.",
+          "primary_retrieval_refs": [
+            "turn13260search0",
+            "turn13262view1",
+            "turn13259view1",
+            "turn13262view0"
+          ]
+        },
+        "authority": "Parent/user corrected field scope: named labels may overlap broad genres; no exclusive new network, corpus, institution or timbre requirement. This derivative preserves earlier hold evidence and source roles.",
+        "public_profile_change": "Session/audit details moved out of public lineage/description; representative documented DJ practice retained."
+      },
+      "axis_review": {
+        "policy": "One source-grounded characterization, not a parameter search. Other axes remain neutral because the playback performance does not establish a unique source-level voicing, temperament, density or human ensemble.",
+        "directional": {
+          "harm": 1,
+          "meter": 2,
+          "soundTech": 2,
+          "percussion": 2,
+          "cyclicity": 2
+        }
+      },
+      "metadata_amendment": {
+        "original_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice002-south-african-soulful-deep-house.json",
+        "original_sha256": "8f1f1032bb928e8c8b0a73d2049bd668ead8a9f0e476aa20bd09b9f1ae7548ec",
+        "change": "Public exemplars reduced to names; stale baseline/rights/qualification notes synchronized. No source-role, musical, physical, geo, license or byte-receipt change."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

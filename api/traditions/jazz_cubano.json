@@ -2,10 +2,10 @@
   "id": "jazz_cubano",
   "name": "Jazz cubano",
   "family": "jazz",
-  "lineage": "Cuban jazz musicians and diaspora; selected Rubalcaba solo-piano branch",
+  "lineage": "Cuban jazz brings Cuban musicians and diaspora communities into dialogue with jazz harmony, improvisation and Afro-Caribbean musical languages. Solo, small-group and larger-ensemble practices balance rhythmic invention with melodic and harmonic exploration.",
   "recipe": "classic modern jazz cubano, improv On Frame, Latin jazz branch. grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 221,
-  "score": 1.664,
+  "score": 0.455,
   "config": {
     "traditions": [
       "jazz_cubano"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.363,
+          "grand_piano_size": 0.063,
           "grand_piano_brand": 0.0315,
           "piano_hammer": -0.1,
-          "piano_rim": 0.2,
+          "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
-          "piano_plate": 0.26,
-          "piano_pitch_standard": 0.325
+          "piano_plate": -0.07,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

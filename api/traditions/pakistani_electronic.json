@@ -2,10 +2,10 @@
   "id": "pakistani_electronic",
   "name": "Pakistani electronic",
   "family": "electronic",
-  "lineage": "Pakistani electronic is represented here by Rudoh — Tales of Scrap sampling core. This is a documented branch with an authored present-day studio realization.",
+  "lineage": "Pakistani electronic music includes DIY producers and collaborative communities, with Karachi’s independent networks supporting experimental approaches.",
   "recipe": "classic pakistani electronic, experimental Elec, idm glitch branch. sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 156,
-  "score": 3.952,
+  "score": 6.122,
   "config": {
     "traditions": [
       "pakistani_electronic"
@@ -24,8 +24,8 @@
           "electronic_technique": -0.07,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.147,
-          "sampler_workflow": 0.26,
-          "sampler_classic_context": 3.65
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 6.15
         }
       }
     ],

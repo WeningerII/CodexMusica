@@ -2,10 +2,10 @@
   "id": "pirate",
   "name": "Pirate",
   "family": "vernacular",
-  "lineage": "SharkTooth Sam / Thom Mesrobian — Be A Pirate! (2022 opening song). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s pirate, functional Song. unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 228,
-  "score": 3.405,
+  "lineage": "Pirate-themed songs and theatrical music drawing on adventure, comic storytelling and imagined seafaring life.",
+  "recipe": "classic pirate, functional Song. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 148,
+  "score": 1.005,
   "config": {
     "traditions": [
       "pirate"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.8999999999999999,
-          "voice_multitrack_stack": 1.7999999999999998,
+          "voice_processing_chain": 0.3,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.3,
+          "string_acoustic": 0,
           "acoustic_om_technique": 0.05000000000000002
         }
       }

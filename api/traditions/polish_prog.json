@@ -2,10 +2,10 @@
   "id": "polish_prog",
   "name": "Polish prog",
   "family": "rock",
-  "lineage": "Riverside — Rapid Eye Movement (2007). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2000s polish prog, distorted Rock, progressive rock branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. electric bass, acoustic conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 474,
-  "score": 43.554,
+  "lineage": "Polish progressive rock, connecting extended rock forms with melodic and textural exploration.",
+  "recipe": "classic polish prog, distorted Rock, progressive rock branch. solo with instrumental accompaniment. electric bass, acoustic humbucker electric guitar, melodic chordal electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 388,
+  "score": 51.29,
   "config": {
     "traditions": [
       "polish_prog"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.6275,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.0365,
-          "voice_multitrack_stack": 0.78,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -71,7 +71,7 @@
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -87,9 +87,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.035,
+          "back_sides": 0.325,
           "string_acoustic": 0,
-          "acoustic_om_technique": 0.06500000000000002
+          "acoustic_om_technique": -0.175
         }
       },
       {
@@ -120,9 +120,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.678,
+          "string_gauge": 0.2415,
           "finish": 0,
-          "string_tuning": 1.3945
+          "string_tuning": 0.063
         }
       },
       {
@@ -133,7 +133,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.0315,
-          "keyboard_technique": 0.0945
+          "keyboard_technique": 1.126
         }
       },
       {
@@ -152,16 +152,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.75,
-          "drumhead": 1.3945,
+          "drum_technique": 15,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.7890000000000001,
+          "shell_wood": 0.1575,
           "shell_thickness": 0,
-          "bearing_edges": 0.8505,
+          "bearing_edges": 1.3,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 10.9545,
-          "cymbal_lathing": 10.681499999999998,
+          "cymbal_hammering": 15.2045,
+          "cymbal_lathing": 14.931499999999998,
           "cymbal_finish": 0
         }
       }

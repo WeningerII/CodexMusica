@@ -1,0 +1,41 @@
+{
+  "status": "PASS_SOURCE_CONTEXT_COMPATIBILITY",
+  "rows": [
+    {
+      "id": "jersey_club",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/0/slots/voice_processing_chain",
+          "before": "voice_processing_stutter_edit",
+          "after": "voice_processing_vocoder_32_band_carrier_saw"
+        },
+        {
+          "path": "/traditions/2",
+          "before": "electro_grime",
+          "after": "deep_dubstep"
+        }
+      ],
+      "recipe_changed": true,
+      "rationale": "Existing tradition parts already request16-band vocoding, and UK soundsystem crossRef is explicit.32-band saw carrier is a coherent unpinned vocoder alternative; chopped sampler remains. DeepDubstep replaces ElectroGrime within that optional soundsystem blend. No new unknown live instrument."
+    },
+    {
+      "id": "banda_peruana",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/1/slots/sax_reed",
+          "before": "medium_reed",
+          "after": "hard_reed"
+        }
+      ],
+      "recipe_changed": false,
+      "rationale": "Hard instead of medium alto reed is qualified ordinary unpinned physical option in representative festive wind band; recipe unchanged."
+    }
+  ],
+  "restored_cases": [
+    "tropical_house",
+    "raggacore"
+  ],
+  "limits": "Inherited source/default gaps are not repaired or newly qualified. Only exact changed slots assessed; all original18 and deferred proposals preserved."
+}

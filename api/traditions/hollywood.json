@@ -2,10 +2,10 @@
   "id": "hollywood",
   "name": "Hollywood",
   "family": "pop",
-  "lineage": "Slipping Through My Fingers — Barrie Carson Turner published piano-solo arrangement, Really Easy Piano: Musicals. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic hollywood, functional Song. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 202,
-  "score": 4.795,
+  "lineage": "Hollywood repertoire connects film-related songs and musical-theatre adaptations with popular listening. Familiar melodies circulate beyond their original productions through new vocal and instrumental arrangements.",
+  "recipe": "classic hollywood, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 147,
+  "score": 2.715,
   "config": {
     "traditions": [
       "hollywood"
@@ -31,9 +31,9 @@
           "piano_hammer": -0.1,
           "piano_rim": -0.1,
           "piano_soundboard": -0.07,
-          "piano_pinblock": 1.2,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": 1.1049999999999998
+          "piano_pitch_standard": 0.325
         }
       }
     ],

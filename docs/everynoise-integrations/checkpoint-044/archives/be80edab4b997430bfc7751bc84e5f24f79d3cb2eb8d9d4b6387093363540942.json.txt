@@ -1,0 +1,27 @@
+[
+  {
+    "check": "regression_prefaces",
+    "exit_code": 0,
+    "seconds": 0.7
+  },
+  {
+    "check": "check_slot_picks",
+    "exit_code": 0,
+    "seconds": 2.1
+  },
+  {
+    "check": "app_recipe_regression",
+    "exit_code": 0,
+    "seconds": 10.9
+  },
+  {
+    "check": "equivalence",
+    "exit_code": 0,
+    "seconds": 10.9
+  },
+  {
+    "check": "check_lazy_app",
+    "exit_code": 0,
+    "seconds": 17.0
+  }
+]

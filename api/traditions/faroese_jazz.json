@@ -5,7 +5,7 @@
   "lineage": "Faroe Islands jazz scenes; selected Yggdrasil drummerless mixed ensemble",
   "recipe": "classic modern faroese jazz, improv On Frame, avant branch. meaningless syllables carrying melody. a 440 modern pitch us standard grand piano, saxophone, flute, single coil electric guitar, upright bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 348,
-  "score": 17.993,
+  "score": 18.044,
   "config": {
     "traditions": [
       "faroese_jazz"
@@ -31,7 +31,7 @@
           "piano_hammer": -0.07,
           "piano_rim": 0.26,
           "piano_soundboard": 0.2315,
-          "piano_pinblock": -0.07,
+          "piano_pinblock": -0.1,
           "piano_plate": -0.1,
           "piano_pitch_standard": 1.1049999999999998
         }
@@ -103,7 +103,7 @@
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.2027142857142857,
+          "string_tuning": 0.16799999999999998,
           "single_coil_pickup_construction": 0
         }
       },
@@ -153,7 +153,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.1787142857142857,
           "voice_multitrack_stack": 0.39
         }
       }

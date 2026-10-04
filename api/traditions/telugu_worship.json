@@ -5,7 +5,7 @@
   "lineage": "Prabhu Pammi and Jessy Paul — Naa Snehithuda, complete 2021 acoustic release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s telugu worship, ritual Devotional. group vocals, unprocessed natural acoustic. acoustic guitar, natural acoustic bass credited acoustic bass, cajon peruano, kanjira, flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 291,
-  "score": 14.633,
+  "score": 14.73,
   "config": {
     "traditions": [
       "telugu_worship"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 2.563,
-          "voice_multitrack_stack": 0.2205,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -63,9 +63,9 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0,
+          "top_wood": 0.0735,
           "back_sides": 0.325,
-          "string_acoustic": 0.3315,
+          "string_acoustic": 0.39,
           "acoustic_om_technique": 0.05000000000000002
         }
       },
@@ -98,7 +98,7 @@
           "kanjira_jingle": "kanjira_brass_jingle"
         },
         "scores": {
-          "kanjira_skin": 0.9314999999999999,
+          "kanjira_skin": 0.8999999999999999,
           "kanjira_context": 2.4699999999999998,
           "kanjira_shell_wood": 0.25,
           "kanjira_jingle": 0
@@ -114,10 +114,10 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 1.2179999999999997,
+          "wind_articulation": 1.2914999999999999,
           "flute_size": 0,
-          "flute_material": 0.6315,
-          "flute_technique": 0.3735,
+          "flute_material": 0.6,
+          "flute_technique": 0.39,
           "flute_maker_school": 0.0315
         }
       }

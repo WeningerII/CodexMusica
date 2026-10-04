@@ -2,9 +2,9 @@
   "id": "pink_noise",
   "name": "Pink noise",
   "family": "electronic",
-  "lineage": "Wallace Robert Holt — Pink - Wall42A (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s pink noise, experimental Elec. software pink noise generator. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 180,
+  "lineage": "Electronically generated noise used in listening, sound design and experimental composition.",
+  "recipe": "classic pink noise, experimental Elec. software pink noise generator. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 168,
   "score": 0.3,
   "config": {
     "traditions": [

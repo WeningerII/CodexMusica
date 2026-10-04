@@ -2,10 +2,10 @@
   "id": "paidika_tragoudia",
   "name": "Paidika Tragoudia",
   "family": "global",
-  "lineage": "Lahana kai Hahana —24 Greek schoolbook songs, Kostas Ganoselis published voice-and-piano transcription. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic paidika tragoudia, ballad Poetry. solo with instrumental accompaniment, single lead single track no stacking. sitka spruce diaphragmatic 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 286,
-  "score": 10.53,
+  "lineage": "Greek childrens songs used in family, school and stage settings.",
+  "recipe": "classic paidika tragoudia, ballad Poetry. solo with instrumental accompaniment. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 191,
+  "score": 0.535,
   "config": {
     "traditions": [
       "paidika_tragoudia"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.8999999999999999,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -66,15 +66,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.7,
+          "keyboard_technique": -0.1,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 0.7,
-          "piano_rim": 0.7,
-          "piano_soundboard": 1,
-          "piano_pinblock": 2,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 2.6595
+          "piano_hammer": -0.1,
+          "piano_rim": -0.1,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

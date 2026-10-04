@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice015-hopebeat-arrangement-clarified.json",
+  "packet_sha256": "f52dc3d386947370d48edc7387e953834f5795d20ec4fe6c617b9d6723f72ea9",
+  "reviewer": "source_audit",
+  "baseline": {
+    "path": "/workspace/CodexMusica-qualified041",
+    "head": "453cd0f1",
+    "owners": 1653
+  },
+  "primary_evidence": {
+    "refs": [
+      "turn15473view0",
+      "turn15473view1",
+      "turn15473view2",
+      "turn15473view3"
+    ],
+    "raw": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/hopebeat-peer-primary-raw.json",
+    "finding": "Times Square programme expressly names hopebeat and the electropop/alt-rock practice. Own artist page supports bright electronic pop and organic instrumentation. Eyewitness positively retains lead voice, two guitars, keys and drum kit, with disclosed personal connection. No bassist or additional studio hardware inferred; exact creator roster independently reproduced without claiming SUM SUN playlist membership."
+  },
+  "category_review": "Full indie_poptimism is broad artist-centered indie pop, not merely MUNA instrumentation. Metropopolis foregrounds electro-funk/boogie influences. Overlap remains candid: requested named creator field plus actual presenter usage and faithful representative musical practice support Hopebeat; disjoint timbre or exclusive institution is neither asserted nor required.",
+  "source_scope": "Live band branch, not universal electronic-studio inventory or exact-master reconstruction. All positively witnessed roles retained.",
+  "taxonomy": "functionalSong.popRock supported by authored functional-harmonic verse–chorus–bridge rendition; no source transcription claim.",
+  "literal_semantics": "All four actual strings inspected. Up-tempo denotes fast/lifting pulse, explicitly authored brisk vocal delivery and consistent with energetic live-source context. Trudging lexicon contains weighty low-frequency/stick/backbeat vocabulary; selected low-fundamental kit is explicitly authored as grounding beneath brisk melody, not a whole-song sluggish tempo or Brazilian bateria ancestry. Happy/witty guitar/keyboard affect is compatible with bright optimistic pop. No missing instrument or physical mechanism contradiction found.",
+  "runtime": {
+    "path": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/hopebeat-peer-runtime.json",
+    "protected_controls": 43,
+    "four_formats_max_chars": 998,
+    "compiled_api": "actual seed/search/translate, no pin errors",
+    "old_owners_preserved": 1653
+  },
+  "immutable_five_fields": "exact",
+  "atlas": "New York / North America valid and primary programme location",
+  "photo_rights": {
+    "fresh_independent_ref": "turn15447view0",
+    "license": "CC BY2.5",
+    "creator": "Iain Fergusson; crop by Binksternet",
+    "receipt": "Exact inherited250px URL/SHA/bytes/dimensions retained. Fresh rights, no new byte/visual claim."
+  },
+  "remaining_blockers": []
+}

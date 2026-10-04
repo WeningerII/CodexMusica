@@ -2,10 +2,10 @@
   "id": "ostschlager",
   "name": "Ostschlager",
   "family": "pop",
-  "lineage": "Eine kleine Burg im weißen Sand — Lied der Zeit seven-page piano/vocal songbook, Frank Schöbel repertoire. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic ostschlager, functional Song. solo with instrumental accompaniment. block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 199,
-  "score": 4.266,
+  "lineage": "Ostschlager developed through East German popular-song, broadcast and record-label institutions.",
+  "recipe": "classic ostschlager, functional Song. solo with instrumental accompaniment. humbucker electric guitar, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 234,
+  "score": 4.781,
   "config": {
     "traditions": [
       "ostschlager"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 0.1365,
           "voice_ensemble_config": 0.6000000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -53,28 +53,47 @@
         }
       },
       {
-        "id": "grand_piano",
+        "id": "electric_guitar_humbucker",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_10_hum",
+          "finish": "poly_hum",
+          "string_tuning": "standard_tuning"
         },
         "scores": {
-          "keyboard_technique": 3.2,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
-          "piano_hammer": -0.07,
-          "piano_rim": -0.07,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "electric_technique": 2.45,
+          "amp_make": 0,
+          "body_wood": 0.1365,
+          "neck_wood": 0,
+          "fretboard": 0,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0,
+          "bridge": 0.702,
+          "scale_length": 0,
+          "string_gauge": 0.702,
+          "finish": 0,
+          "string_tuning": 0
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0
         }
       }
     ],
@@ -98,16 +117,23 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
       ]
     },
     "room": "treated_studio",
@@ -146,15 +172,20 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "keyboard_technique": "keyboard_block_chord_pop",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern"
+      "electric_technique": "electric_clean_strummed",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_material": "nickel_plated_h",
+      "bridge": "string_thru",
+      "scale_length": "scale_fender_h",
+      "string_gauge": "g_10_hum",
+      "finish": "poly_hum",
+      "string_tuning": "standard_tuning",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",
@@ -162,6 +193,7 @@
     "chain_comp": "comp_none",
     "chain_eq": "eq_none",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "console_in_the_box",
+    "chain_amp_guitar": "amp_unspecified"
   }
 }

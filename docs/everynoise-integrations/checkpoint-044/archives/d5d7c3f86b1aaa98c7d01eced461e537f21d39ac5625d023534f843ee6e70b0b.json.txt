@@ -1,0 +1,722 @@
+{
+  "entries": [
+    {
+      "source_label": "malayalam hip hop",
+      "source_url": "https://everynoise.com/engenremap-malayalamhiphop.html",
+      "suggested_id": "malayalam_hip_hop",
+      "allocation_ordinal": 391,
+      "allocation_group_id": "016",
+      "id": "malayalam_hip_hop",
+      "tradition": {
+        "id": "malayalam_hip_hop",
+        "name": "Malayalam Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Malayalam hip-hop developed through independent Kerala-based crews, online circulation and experimentation with the rhythms of the Malayalam language. Street Academics links early spoken-word and cassette-loop practices with later influences from jazz, soul, ambient music, glitch and grime.",
+        "instruments": [
+          "voice",
+          "cassette_pause_tape_looping"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "cassette_pause_tape_looping_medium": "cassette_pause_tape_looping_medium_cassette",
+          "cassette_pause_tape_looping_repetition": "cassette_pause_tape_looping_repetition_manual_loop",
+          "cassette_pause_tape_looping_speed": "cassette_pause_tape_looping_speed_unspecified",
+          "cassette_pause_tape_looping_channels": "cassette_pause_tape_looping_channels_unspecified",
+          "cassette_pause_tape_looping_processing": "cassette_pause_tape_looping_processing_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Malayalam rap moves between independent crews, film collaborations and online releases. Rhythmic spoken delivery carries regional-language wordplay over repeated beats; early cassette-loop experiments coexist with later soul, jazz, ambient, glitch and grime production.",
+        "exemplars": [
+          "Street Academics",
+          "Rjv Ernesto",
+          "Imbachi"
+        ],
+        "crossRefs": []
+      },
+      "geo": [
+        10.8505,
+        76.2711,
+        "Kerala",
+        "South Asia"
+      ],
+      "geo_rationale": "Regional community anchor supported by firsthand founder interview; not claimed exact studio address or every participant birthplace.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Founder RJV firsthand traces a deliberately Malayalam branch of desi hip-hop, its regional-language network and later multilingual collaborations. Exact creator playlist includes Street Academics23, The Imbachi6 and Earthgrime46; this bridges the chosen crew without calling every guest Malayali or every verse Malayalam. Full desi_hip_hop already spans South Asian languages and diaspora, so this is its overlapping language-community branch, not a claim that desi hip-hop means only Hindi or DIVINE. Desi trap is a narrower production style and does not exhaust Malayalam rap; Malayalam pop and indie are broader language song/independent fields, whose selected band palettes do not restrict their definitions. Mappila paattu names a historically rooted Arabi-Malayalam song literature and religious/social practices, not all Kerala hip-hop. Later Mappila Lahala collaboration is evidence of overlap, not equivalence.",
+      "classification_evidence": {
+        "note": "Founder RJV firsthand traces a deliberately Malayalam branch of desi hip-hop, its regional-language network and later multilingual collaborations. Exact creator playlist includes Street Academics23, The Imbachi6 and Earthgrime46; this bridges the chosen crew without calling every guest Malayali or every verse Malayalam. Full desi_hip_hop already spans South Asian languages and diaspora, so this is its overlapping language-community branch, not a claim that desi hip-hop means only Hindi or DIVINE. Desi trap is a narrower production style and does not exhaust Malayalam rap; Malayalam pop and indie are broader language song/independent fields, whose selected band palettes do not restrict their definitions. Mappila paattu names a historically rooted Arabi-Malayalam song literature and religious/social practices, not all Kerala hip-hop. Later Mappila Lahala collaboration is evidence of overlap, not equivalence."
+      },
+      "model_policy": "Historical representative pause-tape production branch positively described by founder Rjv Ernesto. Keep rhythmic spoken rap plus repeated recorded beat phrases. This is a present-day ensemble rendition of that documented early practice, not a claim all current Malayalam tracks use cassette or that the later four-rappers acappella cypher had backing. Replace an explicitly authored digital MPC surrogate with the genuinely documented analog medium. Manual loop construction is source-positive; exact recorder model, speed, channel/track count, tape stock, sample origin, overdubbing and added signal processing remain unknown. Existing neutral-physiology group rap controls and controlled live room are retained authored listening choices, not a fixed performer census or source room reconstruction. Brisk loop playback and projected syncopated word delivery are authored performance gestures for this representative rendition, not measured original tape tempo or a claim of cabaret/burlesque genre ancestry.",
+      "source_scope_limitation": "Historical tape-beat representative branch of wider Malayalam-language hip-hop; no whole named master reconstructed.",
+      "vocal_count_audit": {
+        "source_count": "Previous specific source count retained only in repair_evidence.",
+        "current_default": "Authored live rap group, numerical headcount unspecified."
+      },
+      "instrument_role_audit": {
+        "voice": "Rhythmic spoken words/rap positively documented; representative group card, unknown universal performer count.",
+        "cassette_pause_tape_looping": "Analog cassette beat construction directly documented; medium and manual repetition retained without digital hardware assumption."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Historical representative pause-tape production branch positively described by founder Rjv Ernesto. Keep rhythmic spoken rap plus repeated recorded beat phrases. This is a present-day ensemble rendition of that documented early practice, not a claim all current Malayalam tracks use cassette or that the later four-rappers acappella cypher had backing. Replace an explicitly authored digital MPC surrogate with the genuinely documented analog medium. Manual loop construction is source-positive; exact recorder model, speed, channel/track count, tape stock, sample origin, overdubbing and added signal processing remain unknown. Existing neutral-physiology group rap controls and controlled live room are retained authored listening choices, not a fixed performer census or source room reconstruction. Brisk loop playback and projected syncopated word delivery are authored performance gestures for this representative rendition, not measured original tape tempo or a claim of cabaret/burlesque genre ancestry."
+        },
+        {
+          "instrument": "cassette_pause_tape_looping",
+          "parts": {
+            "cassette_pause_tape_looping_medium": "cassette_pause_tape_looping_medium_cassette",
+            "cassette_pause_tape_looping_repetition": "cassette_pause_tape_looping_repetition_manual_loop",
+            "cassette_pause_tape_looping_speed": "cassette_pause_tape_looping_speed_unspecified",
+            "cassette_pause_tape_looping_channels": "cassette_pause_tape_looping_channels_unspecified",
+            "cassette_pause_tape_looping_processing": "cassette_pause_tape_looping_processing_unspecified"
+          },
+          "policy": "Historical representative pause-tape production branch positively described by founder Rjv Ernesto. Keep rhythmic spoken rap plus repeated recorded beat phrases. This is a present-day ensemble rendition of that documented early practice, not a claim all current Malayalam tracks use cassette or that the later four-rappers acappella cypher had backing. Replace an explicitly authored digital MPC surrogate with the genuinely documented analog medium. Manual loop construction is source-positive; exact recorder model, speed, channel/track count, tape stock, sample origin, overdubbing and added signal processing remain unknown. Existing neutral-physiology group rap controls and controlled live room are retained authored listening choices, not a fixed performer census or source room reconstruction. Brisk loop playback and projected syncopated word delivery are authored performance gestures for this representative rendition, not measured original tape tempo or a claim of cabaret/burlesque genre ancestry."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "17 vocal controls plus5 independent cassette-production controls protected, no shared-slot collision."
+      },
+      "dependency_audit": {
+        "new_instruments": [
+          "cassette_pause_tape_looping"
+        ],
+        "baseline_existing": 1653,
+        "preservation": "Requires independent original-merge preservation check; no duplicate digital/live-loop owner."
+      },
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=_PuinnumR2M",
+          "title": "Glitch Collective issued Street Academics Cypher",
+          "support_notes": "Fresh indexed primary turn136136youtube0 full description names all four and studio cypher; actual unmodified response saved malayalam-cypher-primary-raw024.json. Direct page fetch blocked; no audition asserted.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.pinklungi.com/rap-cyphers-that-dropped-straight-outta-kerala/",
+          "title": "Specific published listening account by Navaneethakrishnan Unnikrishnan",
+          "support_notes": "turn12069view0 and12070search0 exact first cypher section names same four and expressly no beats/acapella. This is a critical listening account, not issuer liner notes or assistant audio verification.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.indulgexpress.com/culture/music/2019/jul/12/street-academics-tracing-the-evolution-of-malayalamhip-hop-music-16372.html",
+          "title": "Firsthand founder interview on Malayalam hip-hop field",
+          "support_notes": "turn12080view1 distinct regional language-network practice; later2019 musicians/equipment not transferred.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0fUhZu1asF2EgEPctPsC8v",
+          "title": "Exact creator Malayalam Hip Hop corpus",
+          "support_notes": "turn12101view1 Street Academics23,Imbachi6,Earthgrime46.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.indulgexpress.com/culture/music/2019/jul/12/street-academics-tracing-the-evolution-of-malayalamhip-hop-music-16372.html",
+          "title": "Fresh founder firsthand cassette beat-making account",
+          "support_notes": "turn15430view0, explicit 1999 pause tapes/spoken words and later regional-language network, not current universal gear."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "malayalam_hip_hop",
+          "name": "Malayalam Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11999view3 Commons CC BY2.5 Iain Fergusson and Binksternet crop confirmed. Exact023 historical bytes and visual receipt retained, no fresh download.",
+          "fresh_review_ref": "turn11999view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11999view3"
+        ]
+      },
+      "status": "frozen_for_independent_review",
+      "verification_status": "22 owning controls protected; original453 browser four formats and compiled API pass. New five-control cassette owner retains all1653 existing owners and uses known frozen descriptors. Independent source/semantic/dependency review pending; historical photo receipts preserved.",
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume024-7.json",
+        "original_sha256": "44a231affca860787fce8e82c02d2909747ddb16a8e007459f0541d12342c7bd",
+        "prior_entry": {
+          "source_label": "malayalam hip hop",
+          "source_url": "https://everynoise.com/engenremap-malayalamhiphop.html",
+          "suggested_id": "malayalam_hip_hop",
+          "allocation_ordinal": 391,
+          "allocation_group_id": "016",
+          "id": "malayalam_hip_hop",
+          "tradition": {
+            "id": "malayalam_hip_hop",
+            "name": "Malayalam Hip Hop",
+            "family": "hip_hop",
+            "lineage": "Street Academics Cypher — complete Glitch Collective issued programme published15March2015, named A-List (Ashwini Mishra), RJV Ernesto, Earthgrime and Imbachi (Double J), at Glitch Studios. The issuer lists all four rappers and freestyle-cypher practice; the published PinkLungi listening account expressly describes this exact whole cypher as beatless/acapella, with all rhythm supplied by rap verses. This positive listening account, not an assistant audition or mere omission of instrument credits, supports the voice-only palette. No separate studio song, six-member2019 band roster, DJ or unrelated later cypher backing is imported. Exact duration, room measurements and original tracking unknown. Four named human rappers are retained; audience/background incidental speech count is not established. Guest A-List is from Mumbai; not every participant or verse is claimed Malayalam. Four credited rappers aggregate in one live-group voice card with authored live-ensemble tracking, preserving successive verses without asserting four simultaneous contrapuntal lines. Rhythmic spoken flow and neutral unprocessed delivery are authored faithful rap realization; range, physiology, voice mechanism, pitch and ornament remain source-unspecified. Controlled live room is a new rendition, not measured Glitch Studio acoustics. No global tuning or invented capture equipment. Broad spokenWord fits this complete unaccompanied cypher; no back-line or DJ card is fabricated. Neutral axes are editorial. The generated burlesque voice descriptor is interpreted only as the original lexicon’s lively/projecting/syncopated theatrical affect of this authored cypher rendition, not a claim that the source belongs to burlesque entertainment or has brass accompaniment; no measured source affect is claimed.",
+            "instruments": [
+              "voice"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_rhythmic_spoken_flow",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "spokenWord",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Street Academics Cypher — complete Glitch Collective issued programme published15March2015, named A-List (Ashwini Mishra), RJV Ernesto, Earthgrime and Imbachi (Double J), at Glitch Studios. The issuer lists all four rappers and freestyle-cypher practice; the published PinkLungi listening account expressly describes this exact whole cypher as beatless/acapella, with all rhythm supplied by rap verses. This positive listening account, not an assistant audition or mere omission of instrument credits, supports the voice-only palette. No separate studio song, six-member2019 band roster, DJ or unrelated later cypher backing is imported. Exact duration, room measurements and original tracking unknown. Four named human rappers are retained; audience/background incidental speech count is not established. Guest A-List is from Mumbai; not every participant or verse is claimed Malayalam. Founder RJV firsthand traces a deliberately Malayalam branch of desi hip-hop, its regional-language network and later multilingual collaborations. Exact creator playlist includes Street Academics23, The Imbachi6 and Earthgrime46; this bridges the chosen crew without calling every guest Malayali or every verse Malayalam. Full desi_hip_hop already spans South Asian languages and diaspora, so this is its overlapping language-community branch, not a claim that desi hip-hop means only Hindi or DIVINE. Desi trap is a narrower production style and does not exhaust Malayalam rap; Malayalam pop and indie are broader language song/independent fields, whose selected band palettes do not restrict their definitions. Mappila paattu names a historically rooted Arabi-Malayalam song literature and religious/social practices, not all Kerala hip-hop. Later Mappila Lahala collaboration is evidence of overlap, not equivalence. Four credited rappers aggregate in one live-group voice card with authored live-ensemble tracking, preserving successive verses without asserting four simultaneous contrapuntal lines. Rhythmic spoken flow and neutral unprocessed delivery are authored faithful rap realization; range, physiology, voice mechanism, pitch and ornament remain source-unspecified. Controlled live room is a new rendition, not measured Glitch Studio acoustics. No global tuning or invented capture equipment. Broad spokenWord fits this complete unaccompanied cypher; no back-line or DJ card is fabricated. Neutral axes are editorial. The generated burlesque voice descriptor is interpreted only as the original lexicon’s lively/projecting/syncopated theatrical affect of this authored cypher rendition, not a claim that the source belongs to burlesque entertainment or has brass accompaniment; no measured source affect is claimed.",
+            "exemplars": [
+              "Street Academics — complete Glitch Collective2015 cypher with A-List"
+            ],
+            "crossRefs": []
+          },
+          "geo": [
+            10.8505,
+            76.2711,
+            "Kerala",
+            "South Asia"
+          ],
+          "geo_rationale": "Regional community anchor supported by firsthand founder interview; not claimed exact studio address or every participant birthplace.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Founder RJV firsthand traces a deliberately Malayalam branch of desi hip-hop, its regional-language network and later multilingual collaborations. Exact creator playlist includes Street Academics23, The Imbachi6 and Earthgrime46; this bridges the chosen crew without calling every guest Malayali or every verse Malayalam. Full desi_hip_hop already spans South Asian languages and diaspora, so this is its overlapping language-community branch, not a claim that desi hip-hop means only Hindi or DIVINE. Desi trap is a narrower production style and does not exhaust Malayalam rap; Malayalam pop and indie are broader language song/independent fields, whose selected band palettes do not restrict their definitions. Mappila paattu names a historically rooted Arabi-Malayalam song literature and religious/social practices, not all Kerala hip-hop. Later Mappila Lahala collaboration is evidence of overlap, not equivalence.",
+          "classification_evidence": {
+            "note": "Founder RJV firsthand traces a deliberately Malayalam branch of desi hip-hop, its regional-language network and later multilingual collaborations. Exact creator playlist includes Street Academics23, The Imbachi6 and Earthgrime46; this bridges the chosen crew without calling every guest Malayali or every verse Malayalam. Full desi_hip_hop already spans South Asian languages and diaspora, so this is its overlapping language-community branch, not a claim that desi hip-hop means only Hindi or DIVINE. Desi trap is a narrower production style and does not exhaust Malayalam rap; Malayalam pop and indie are broader language song/independent fields, whose selected band palettes do not restrict their definitions. Mappila paattu names a historically rooted Arabi-Malayalam song literature and religious/social practices, not all Kerala hip-hop. Later Mappila Lahala collaboration is evidence of overlap, not equivalence."
+          },
+          "model_policy": "Four credited rappers aggregate in one live-group voice card with authored live-ensemble tracking, preserving successive verses without asserting four simultaneous contrapuntal lines. Rhythmic spoken flow and neutral unprocessed delivery are authored faithful rap realization; range, physiology, voice mechanism, pitch and ornament remain source-unspecified. Controlled live room is a new rendition, not measured Glitch Studio acoustics. No global tuning or invented capture equipment. Broad spokenWord fits this complete unaccompanied cypher; no back-line or DJ card is fabricated. Neutral axes are editorial. The generated burlesque voice descriptor is interpreted only as the original lexicon’s lively/projecting/syncopated theatrical affect of this authored cypher rendition, not a claim that the source belongs to burlesque entertainment or has brass accompaniment; no measured source affect is claimed.",
+          "source_scope_limitation": "Street Academics Cypher — complete Glitch Collective issued programme published15March2015, named A-List (Ashwini Mishra), RJV Ernesto, Earthgrime and Imbachi (Double J), at Glitch Studios. The issuer lists all four rappers and freestyle-cypher practice; the published PinkLungi listening account expressly describes this exact whole cypher as beatless/acapella, with all rhythm supplied by rap verses. This positive listening account, not an assistant audition or mere omission of instrument credits, supports the voice-only palette. No separate studio song, six-member2019 band roster, DJ or unrelated later cypher backing is imported. Exact duration, room measurements and original tracking unknown. Four named human rappers are retained; audience/background incidental speech count is not established. Guest A-List is from Mumbai; not every participant or verse is claimed Malayalam.",
+          "vocal_count_audit": {
+            "named_rappers_count": 4,
+            "named_people": [
+              "A-List / Ashwini Mishra",
+              "RJV Ernesto",
+              "Earthgrime",
+              "Imbachi / Double J"
+            ],
+            "decision": "Four named verse performers retained in one group card; unknown incidental/background voices not invented; no instrumental track inferred."
+          },
+          "instrument_role_audit": {
+            "scope": "Street Academics Cypher — complete Glitch Collective issued programme published15March2015, named A-List (Ashwini Mishra), RJV Ernesto, Earthgrime and Imbachi (Double J), at Glitch Studios. The issuer lists all four rappers and freestyle-cypher practice; the published PinkLungi listening account expressly describes this exact whole cypher as beatless/acapella, with all rhythm supplied by rap verses. This positive listening account, not an assistant audition or mere omission of instrument credits, supports the voice-only palette. No separate studio song, six-member2019 band roster, DJ or unrelated later cypher backing is imported. Exact duration, room measurements and original tracking unknown. Four named human rappers are retained; audience/background incidental speech count is not established. Guest A-List is from Mumbai; not every participant or verse is claimed Malayalam.",
+            "roles": {
+              "voice": "Complete four-rappers cypher, no beats according to exact published listening account"
+            },
+            "authored_defaults": "Four credited rappers aggregate in one live-group voice card with authored live-ensemble tracking, preserving successive verses without asserting four simultaneous contrapuntal lines. Rhythmic spoken flow and neutral unprocessed delivery are authored faithful rap realization; range, physiology, voice mechanism, pitch and ornament remain source-unspecified. Controlled live room is a new rendition, not measured Glitch Studio acoustics. No global tuning or invented capture equipment. Broad spokenWord fits this complete unaccompanied cypher; no back-line or DJ card is fabricated. Neutral axes are editorial. The generated burlesque voice descriptor is interpreted only as the original lexicon’s lively/projecting/syncopated theatrical affect of this authored cypher rendition, not a claim that the source belongs to burlesque entertainment or has brass accompaniment; no measured source affect is claimed."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_rhythmic_spoken_flow",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Four credited rappers aggregate in one live-group voice card with authored live-ensemble tracking, preserving successive verses without asserting four simultaneous contrapuntal lines. Rhythmic spoken flow and neutral unprocessed delivery are authored faithful rap realization; range, physiology, voice mechanism, pitch and ornament remain source-unspecified. Controlled live room is a new rendition, not measured Glitch Studio acoustics. No global tuning or invented capture equipment. Broad spokenWord fits this complete unaccompanied cypher; no back-line or DJ card is fabricated. Neutral axes are editorial. The generated burlesque voice descriptor is interpreted only as the original lexicon’s lively/projecting/syncopated theatrical affect of this authored cypher rendition, not a claim that the source belongs to burlesque entertainment or has brass accompaniment; no measured source affect is claimed."
+            }
+          ],
+          "flat_pin_resolution": "All17 applicable voice parts explicitly protected, no shared owner conflict or imported fallback.",
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "voice"
+            ]
+          },
+          "sources": [
+            {
+              "url": "https://www.youtube.com/watch?v=_PuinnumR2M",
+              "title": "Glitch Collective issued Street Academics Cypher",
+              "support_notes": "Fresh indexed primary turn136136youtube0 full description names all four and studio cypher; actual unmodified response saved malayalam-cypher-primary-raw024.json. Direct page fetch blocked; no audition asserted.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://www.pinklungi.com/rap-cyphers-that-dropped-straight-outta-kerala/",
+              "title": "Specific published listening account by Navaneethakrishnan Unnikrishnan",
+              "support_notes": "turn12069view0 and12070search0 exact first cypher section names same four and expressly no beats/acapella. This is a critical listening account, not issuer liner notes or assistant audio verification.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://www.indulgexpress.com/culture/music/2019/jul/12/street-academics-tracing-the-evolution-of-malayalamhip-hop-music-16372.html",
+              "title": "Firsthand founder interview on Malayalam hip-hop field",
+              "support_notes": "turn12080view1 distinct regional language-network practice; later2019 musicians/equipment not transferred.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/0fUhZu1asF2EgEPctPsC8v",
+              "title": "Exact creator Malayalam Hip Hop corpus",
+              "support_notes": "turn12101view1 Street Academics23,Imbachi6,Earthgrime46.",
+              "checked_date": "2026-10-03"
+            }
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "malayalam_hip_hop",
+              "name": "Malayalam Hip Hop",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording microphone context, not the four rappers or their actual studio equipment.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh turn11999view3 Commons CC BY2.5 Iain Fergusson and Binksternet crop confirmed. Exact023 historical bytes and visual receipt retained, no fresh download.",
+              "fresh_review_ref": "turn11999view3"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn11999view3"
+            ]
+          },
+          "status": "frozen_for_independent_review",
+          "verification_status": "17 applicable parts protected,1638 old owners unchanged, exact historical photo and four actual original formats pass; scope and render affect await independent judgment."
+        },
+        "decision": "Restore a controllable loop-based beat-production branch rather than make a single unaccompanied cypher the whole genre default. Fresh founder firsthand interview turn13702view1 describes physically cutting/pasting cassette beats, pause-tape looping, spoken words and later glitch/grime/jazz productions. Authored16-bit Akai MPC3000-style phrase-sampling rendition translates that positively documented cut/loop operation into an existing modern controllable owner; NOT claimed original tape hardware or original cypher instrumentation. All five sampler controls preserved, group rap retained; no opaque whole-master sample substitute, guessed melodic instruments or exact track reconstruction."
+      },
+      "repair116": {
+        "original_path": "/workspace/genre-continuation/repairs-20261003/recover024/queued-malayalam-hip-hop-genre-production.json",
+        "fresh_primary_url": "https://www.indulgexpress.com/culture/music/2019/jul/12/street-academics-tracing-the-evolution-of-malayalamhip-hop-music-16372.html",
+        "fresh_ref": "turn14658view0",
+        "rationale": "Founder explicitly describes development into ambient/glitch/grime. Authored glitch-textural processing of retained loop-based sampler is a representative current experimental rap branch, not a transcription of historical cassette construction or acappella cypher. Group rhythmic spoken voices and full sampler physical/workflow controls retained."
+      },
+      "authored_render_scope": "Historical representative pause-tape production branch positively described by founder Rjv Ernesto. Keep rhythmic spoken rap plus repeated recorded beat phrases. This is a present-day ensemble rendition of that documented early practice, not a claim all current Malayalam tracks use cassette or that the later four-rappers acappella cypher had backing. Replace an explicitly authored digital MPC surrogate with the genuinely documented analog medium. Manual loop construction is source-positive; exact recorder model, speed, channel/track count, tape stock, sample origin, overdubbing and added signal processing remain unknown. Existing neutral-physiology group rap controls and controlled live room are retained authored listening choices, not a fixed performer census or source room reconstruction. Brisk loop playback and projected syncopated word delivery are authored performance gestures for this representative rendition, not measured original tape tempo or a claim of cabaret/burlesque genre ancestry.",
+      "source_retrieval_caveat": "Fresh complete firsthand founder interview15430view0. Earlier separate acappella and digital-surrogate evidence preserved as historical proposals.",
+      "held16_repair": {
+        "before": "/workspace/genre-continuation/research/held16-research117/malayalam_hip_hop-meaningful-prior.json",
+        "reason": "Source-specific analog cassette architecture is genuinely distinct from authored digital MPC surrogate and live-loop capture.",
+        "historical_model_policy": "Restore a controllable loop-based beat-production branch rather than make a single unaccompanied cypher the whole genre default. Fresh founder firsthand interview turn13702view1 describes physically cutting/pasting cassette beats, pause-tape looping, spoken words and later glitch/grime/jazz productions. Authored16-bit Akai MPC3000-style phrase-sampling rendition translates that positively documented cut/loop operation into an existing modern controllable owner; NOT claimed original tape hardware or original cypher instrumentation. All five sampler controls preserved, group rap retained; no opaque whole-master sample substitute, guessed melodic instruments or exact track reconstruction."
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "cassette_pause_tape_looping",
+        "name": "Cassette pause-tape beat production",
+        "short": "Cassette beat loops",
+        "family": "electronic",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "cassette_pause_tape_looping_medium",
+            "name": "Recording medium",
+            "variants": [
+              {
+                "id": "cassette_pause_tape_looping_medium_cassette",
+                "name": "Analog cassette-tape recording and playback",
+                "default": true,
+                "descriptors": [
+                  "analog"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "cassette_pause_tape_looping_repetition",
+            "name": "Beat repetition and editing",
+            "variants": [
+              {
+                "id": "cassette_pause_tape_looping_repetition_manual_loop",
+                "name": "Manual cassette pause/cut-and-repeat beat construction",
+                "default": true,
+                "descriptors": [
+                  "looped"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "cassette_pause_tape_looping_speed",
+            "name": "Tape speed and pitch",
+            "variants": [
+              {
+                "id": "cassette_pause_tape_looping_speed_unspecified",
+                "name": "Original speed and pitch manipulation unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "cassette_pause_tape_looping_channels",
+            "name": "Track and channel layout",
+            "variants": [
+              {
+                "id": "cassette_pause_tape_looping_channels_unspecified",
+                "name": "Original channel count and layering layout unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "cassette_pause_tape_looping_processing",
+            "name": "Additional signal processing",
+            "variants": [
+              {
+                "id": "cassette_pause_tape_looping_processing_unspecified",
+                "name": "Original saturation, filtering and processing unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Manual analog cassette recording/playback used to construct repeated beat phrases, distinct from digital memory sampling and from live instrument-loop capture. Media and repetition workflow are positively documented; speed, channel layout and processing remain unspecified.",
+        "sources": [
+          "https://www.indulgexpress.com/culture/music/2019/jul/12/street-academics-tracing-the-evolution-of-malayalamhip-hop-music-16372.html"
+        ],
+        "class": "cassette_pause_tape_looping"
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "cassette_pause_tape_looping",
+        "name": "Cassette pause-tape beat production",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "cassette_pause_tape_looping",
+          "name": "Cassette pause-tape beat production",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11999view3 Commons CC BY2.5 Iain Fergusson and Binksternet crop confirmed. Exact023 historical bytes and visual receipt retained, no fresh download.",
+          "fresh_review_ref": "turn11999view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11999view3"
+        ]
+      },
+      "sources": [
+        "https://www.indulgexpress.com/culture/music/2019/jul/12/street-academics-tracing-the-evolution-of-malayalamhip-hop-music-16372.html"
+      ],
+      "source_evidence": "Fresh firsthand founder turn15430view0 lines85–90 explicitly pause tapes, cut/paste cassette beats and spoken words; no digital sampler architecture transferred.",
+      "preservation_policy": "Isolated data-only owner. No existing record, family part, descriptor table or runtime change; meaningful five controls and original unknowns retained."
+    }
+  ]
+}

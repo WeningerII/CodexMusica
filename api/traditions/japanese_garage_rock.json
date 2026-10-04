@@ -3,9 +3,9 @@
   "name": "Japanese garage rock",
   "family": "rock_punk",
   "lineage": "Japanese garage rock draws on raw rock and roll, garage-band sound and punk energy. Groups such as Guitar Wolf emphasize intense live performance, forceful vocal delivery and a compact electric rhythm section.",
-  "recipe": "classic modern japanese garage rock, distorted Rock, classic branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, full lathed both sides lathed sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 349,
-  "score": 46.654,
+  "recipe": "classic modern japanese garage rock, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, full lathed both sides lathed sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 387,
+  "score": 46.981,
   "config": {
     "traditions": [
       "japanese_garage_rock"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.3,
+          "voice_effort": 0.34275,
           "voice_vibrato": 0,
           "voice_articulation": -0.05,
           "voice_microtone": 0,
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.7665,
+          "voice_ensemble_config": 0.909,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.43049999999999994,
+          "voice_multitrack_stack": 0.573,
           "voice_tessitura": 0
         }
       },
@@ -104,7 +104,7 @@
           "string_type": 0,
           "scale_length_b": 0.3,
           "fretted_or_not": 0,
-          "bass_technique": 14.1445,
+          "bass_technique": 14.18725,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 11.655750000000001,
+          "drum_technique": 11.613000000000001,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,

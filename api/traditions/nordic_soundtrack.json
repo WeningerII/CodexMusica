@@ -2,10 +2,10 @@
   "id": "nordic_soundtrack",
   "name": "Nordic Soundtrack",
   "family": "classical",
-  "lineage": "Jóhann Jóhannsson / Alice Sara Ott — Piano Works, complete 2026 solo-piano transcription recording. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic mid-2020s nordic soundtrack, art Music. upright soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 228,
-  "score": 31.254,
+  "lineage": "Film and screen composition associated with Nordic composers and production communities.",
+  "recipe": "classic nordic soundtrack, art Music. upright soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 218,
+  "score": 13.977,
   "config": {
     "traditions": [
       "nordic_soundtrack"
@@ -19,7 +19,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 1.0499999999999998,
+          "keyboard_technique": 0.75,
           "upright_use": 0.0315,
           "upright_piano_size": 0
         }
@@ -38,15 +38,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.0499999999999998,
-          "grand_piano_size": 0.6315,
+          "keyboard_technique": 0.75,
+          "grand_piano_size": 0.0315,
           "grand_piano_brand": 0.105,
-          "piano_hammer": 4.7,
-          "piano_rim": 5.094500000000001,
-          "piano_soundboard": 4.7,
-          "piano_pinblock": 6.3,
-          "piano_plate": 5.000000000000001,
-          "piano_pitch_standard": 2.5915
+          "piano_hammer": 2.45,
+          "piano_rim": 2.5445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

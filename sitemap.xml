@@ -6774,6 +6774,22 @@
   <url><loc>https://codexmusica.com/api/traditions/muzica_maramureseana.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/necrotrap.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/rave.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/south_african_soulful_deep_house.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_dubstep.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/malayalam_hip_hop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/chhattisgarhi_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/dakke_dak.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/healing_hz.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/hopebeat.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/louvor.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/modern_downshift.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/movie_tunes.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/new_jack_smooth.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nova_musica_amazonense.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/oeteldonk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/sunset_lounge.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/swazi_traditional.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/underground_amapiano.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/choir_ensemble.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/griot_voice.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/pansori_voice.json</loc></url>
@@ -8432,4 +8448,5 @@
   <url><loc>https://codexmusica.com/api/instruments/ho_dumang_double_headed_drum.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/zongora_maramures.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/doba_maramures.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/cassette_pause_tape_looping.json</loc></url>
 </urlset>

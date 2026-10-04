@@ -2,10 +2,10 @@
   "id": "musica_acoriana",
   "name": "Música açoriana",
   "family": "vernacular",
-  "lineage": "Manuel Costa — Eu Sou uma Ilha concert, Teatro Micaelense, 26 January 2019. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s música açoriana, functional Song. single lead single track no stacking. acoustic guitar, upright bass, 7 ply quartersawn maple a 440 modern pitch us standard grand piano, European maple bosnian source flamed figure violin orchestral, viola da terra, credited auxiliary percussion, steel canonical Portuguese guitarra portuguesa. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 446,
-  "score": 13.82,
+  "lineage": "Azorean music, connecting island song and plucked-string traditions with contemporary ensemble writing.",
+  "recipe": "classic música açoriana, functional Song. solo with instrumental accompaniment. acoustic guitar, upright bass, a 440 modern pitch us standard grand piano, violin orchestral, plucked chordal viola da terra, credited auxiliary percussion, twelve string paired courses high pitched ringing fado lisboa tradition guitarra portuguesa. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 428,
+  "score": 6.581,
   "config": {
     "traditions": [
       "musica_acoriana"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.6,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.8999999999999999,
+          "string_acoustic": 0,
           "acoustic_om_technique": -0.25
         }
       },
@@ -94,15 +94,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.25,
-          "grand_piano_size": 1.2,
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0,
           "grand_piano_brand": 0.40950000000000003,
           "piano_hammer": -0.1,
-          "piano_rim": 0.2,
-          "piano_soundboard": 0.26,
-          "piano_pinblock": 1.2,
-          "piano_plate": 0.7999999999999998,
-          "piano_pitch_standard": 1.823
+          "piano_rim": -0.1,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.5230000000000001
         }
       },
       {
@@ -120,15 +120,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.25,
+          "bowed_technique": -0.05,
           "orch_strings": 0,
           "orch_top_wood": -0.1,
-          "orch_back_wood": 1.5,
+          "orch_back_wood": -0.1,
           "orch_varnish": -0.1,
-          "orch_setup_period": 0.49999999999999994,
+          "orch_setup_period": 0.2,
           "orch_bow": 0.1365,
           "orch_bow_stick": -0.15000000000000002,
-          "orch_articulation": 0.8999999999999999,
+          "orch_articulation": 0,
           "orch_rosin": -0.1
         }
       },
@@ -139,8 +139,8 @@
           "viola_da_terra_playing": "viola_da_terra_plucked_chordal"
         },
         "scores": {
-          "viola_da_terra_construction": 0.3,
-          "viola_da_terra_playing": 0.3
+          "viola_da_terra_construction": 1,
+          "viola_da_terra_playing": 1
         }
       },
       {
@@ -162,10 +162,10 @@
           "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
         },
         "scores": {
-          "guitarra_tuning_school": 0.6,
-          "guitarra_body_wood": 0.8499999999999999,
+          "guitarra_tuning_school": 1,
+          "guitarra_body_wood": 0.25,
           "guitarra_top_wood": 0,
-          "guitarra_strings": 1.2,
+          "guitarra_strings": 0.3,
           "guitarra_technique": 0.1365
         }
       }

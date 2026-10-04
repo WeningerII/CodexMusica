@@ -2,10 +2,10 @@
   "id": "musica_popular_paraense",
   "name": "Música Popular Paraense",
   "family": "vernacular",
-  "lineage": "Vital Lima — O Olho de Alfredo no rio passando, Centro da Música Carioca April2023. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic música popular paraense, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 283,
-  "score": 6.442,
+  "lineage": "Popular songwriting of Pará, connecting regional literary and musical expression with Brazilian song.",
+  "recipe": "classic música popular paraense, ballad Poetry. solo with instrumental accompaniment. classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 215,
+  "score": 5.222,
   "config": {
     "traditions": [
       "musica_popular_paraense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8190000000000002,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.6,
-          "voice_multitrack_stack": 1.3,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,11 +63,11 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 2.623,
+          "acoustic_technique": 2.323,
           "string_tuning": 0,
-          "top_wood_classical": 0.39,
+          "top_wood_classical": 0.40950000000000003,
           "bracing_classical": 0.40950000000000003,
-          "string_classical": 0.3,
+          "string_classical": 0,
           "attack_technique_cl": 0
         }
       }

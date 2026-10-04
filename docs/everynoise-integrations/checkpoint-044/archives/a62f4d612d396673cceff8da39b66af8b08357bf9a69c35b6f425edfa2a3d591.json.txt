@@ -1,0 +1,197 @@
+{
+  "entries": [
+    {
+      "source_label": "movie tunes",
+      "source_url": "https://everynoise.com/engenremap-movietunes.html",
+      "suggested_id": "movie_tunes",
+      "allocation_ordinal": 3815,
+      "allocation_group_id": "153",
+      "id": "movie_tunes",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "movie_tunes",
+        "name": "Movie Tunes",
+        "family": "pop",
+        "lineage": "Movie tunes circulate film melodies and songs beyond the screen through recordings, sheet music and everyday performance. Musical-film repertoire, animated-film songs and familiar cinema themes meet in this listening and performing tradition.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Recognizable melodies and song phrases remain central as arrangements move between singers, orchestras, bands and keyboards. A solo-piano branch places the melody above chordal accompaniment, retaining the tunes in an accessible instrumental setting.",
+        "exemplars": [
+          "Alan Menken",
+          "Richard Rodgers"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        34.0928,
+        -118.3287,
+        "Hollywood",
+        "North America"
+      ],
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.halleonard.com/dealers/bin/MiscDisneybrochure2014.pdf",
+          "title": "Publisher Disney mixed-folios catalogue",
+          "support_notes": "Fresh15448view1/15449view0 page9 explicitly Disney movie tunes and complete12-song DisneyMovieMemories piano-solo editionHL00313185."
+        },
+        {
+          "url": "https://scholarsjunction.msstate.edu/cht-sheet-music/8731/",
+          "title": "Mississippi State original sheet-music collection",
+          "support_notes": "Fresh15449view1 classifies1935 My Romance under MovieTunes and ShowTunes, openly demonstrating overlapping categories."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1gauLmjFqDP3iP7yKiJCHt",
+          "title": "Exact creator Movie Tunes corpus",
+          "support_notes": "Prior independently retrieved11353view1 includes film-cast and Disney repertoire plus stage/nonfilm periphery. No animation-only or exclusive-film corpus claimed."
+        }
+      ],
+      "neighbor_distinction": "Full Hollywood covers film-performer musical repertoire; full ShowTunes covers stage AND screen including Disney. MovieTunes substantially overlaps both and is retained as the requested named film-tune tag, positively used by publisher and library. No independent novel sound, exclusive repertoire, or proven semantic equivalence is claimed. Broad film_score/soundtrack include nondiegetic instrumental composition beyond memorable song/tune circulation.",
+      "model_policy": "Representative instrumental film-song piano arrangement, directly supported by complete publisher piano-solo edition. Standard upright and block-chord melody support in a controlled live room are authored choices, not original film equipment. Tonal functional-harmonic verse–chorus–bridge realization is explicitly authored for this song branch, not a transcription or universal film form. No singers/orchestra from original soundtrack are silently removed; this is the established piano-arrangement practice, not a master reconstruction. Hollywood point locates film-industry context, not every work or performer.",
+      "authored_render_scope": "Representative instrumental film-song piano arrangement, directly supported by complete publisher piano-solo edition. Standard upright and block-chord melody support in a controlled live room are authored choices, not original film equipment. Tonal functional-harmonic verse–chorus–bridge realization is explicitly authored for this song branch, not a transcription or universal film form. No singers/orchestra from original soundtrack are silently removed; this is the established piano-arrangement practice, not a master reconstruction. Hollywood point locates film-industry context, not every work or performer.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Representative instrumental film-song piano arrangement, directly supported by complete publisher piano-solo edition. Standard upright and block-chord melody support in a controlled live room are authored choices, not original film equipment. Tonal functional-harmonic verse–chorus–bridge realization is explicitly authored for this song branch, not a transcription or universal film form. No singers/orchestra from original soundtrack are silently removed; this is the established piano-arrangement practice, not a master reconstruction. Hollywood point locates film-industry context, not every work or performer."
+        }
+      ],
+      "instrument_role_audit": {
+        "upright_piano": "Positive documented representative performance/selection practice; no original-master reconstruction."
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "Every applicable owning control protected; no collision."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "vocal_count_audit": {
+        "additional_voice_cards": 0,
+        "scope": "No separate singer in the positively documented piano arrangement."
+      },
+      "source_scope_limitation": "Named-label coverage with candid overlap; genre-level representative branch, not claim unique sound or exhaustive fixed orchestra.",
+      "source_retrieval_caveat": "Fresh primary issuer/institution evidence identified in sources; older creator/institution receipt remains honestly historical. No audition or full paid notation access claimed.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "movie_tunes",
+          "name": "Movie Tunes",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic audio recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh15461view3 confirms original/crop attribution and CC BY2.5.",
+          "fresh_review_ref": "turn15461view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15461view3"
+        ],
+        "fresh_rights_review": "Fresh rights only; exact historical023 bytes and visual observation retained, no new download or personal re-view claimed."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

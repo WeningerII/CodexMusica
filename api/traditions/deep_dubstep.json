@@ -1,0 +1,50 @@
+{
+  "id": "deep_dubstep",
+  "name": "Deep Dubstep",
+  "family": "electronic",
+  "lineage": "Bass-centered dubstep associated with soundsystem listening, restrained percussion and dark atmospheric space, continuing through international producer labels and DJ circulation.",
+  "recipe": "classic deep dubstep, bass System, uk soundsystem branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 104,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "deep_dubstep"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

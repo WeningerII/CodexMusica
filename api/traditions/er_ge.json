@@ -5,7 +5,7 @@
   "lineage": "Er ge encompasses Chinese-language children’s songs and associated childhood listening repertoire. Familiar melodies circulate through family, educational and recorded settings, alongside instrumental adaptations and spoken stories.",
   "recipe": "classic er ge, nursery Rhyme. solo with instrumental accompaniment. upright piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 181,
-  "score": 5.764,
+  "score": 5.753,
   "config": {
     "traditions": [
       "er_ge"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.129,
-          "voice_multitrack_stack": 0.054,
+          "voice_multitrack_stack": 0.042749999999999996,
           "voice_tessitura": 0
         }
       },

@@ -2,10 +2,10 @@
   "id": "nordnorsk_musikk",
   "name": "Nordnorsk Musikk",
   "family": "vernacular",
-  "lineage": "Fotefar — documented Vise i Vestavind trio concert practice, 2023–2024. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic 2023-2024 nordnorsk musikk, ballad Poetry. solo with instrumental accompaniment. fiddle, fingerpicked acoustic guitar, pump organ harmonium. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 247,
-  "score": 9.74,
+  "lineage": "Music of northern Norway, including regional songs, traditional melodies and contemporary songwriting.",
+  "recipe": "classic nordnorsk musikk, ballad Poetry. solo with instrumental accompaniment. fiddle, fingerpicked acoustic guitar, pump organ harmonium. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 237,
+  "score": 6.739,
   "config": {
     "traditions": [
       "nordnorsk_musikk"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 0.40950000000000003,
           "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -66,7 +66,7 @@
           "bowed_technique": 0.78,
           "fiddle_strings": 0,
           "fiddle_bow": 0.273,
-          "fiddle_mute": 1.3,
+          "fiddle_mute": 0,
           "fiddle_articulation": 0.40950000000000003,
           "fiddle_string_configuration": 0
         }
@@ -85,7 +85,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0,
-          "acoustic_om_technique": 3.873
+          "acoustic_om_technique": 3.1229999999999998
         }
       },
       {
@@ -96,9 +96,9 @@
           "pump_organ_stops": "pump_organ_diapason_stop"
         },
         "scores": {
-          "keyboard_technique": 0.8499999999999999,
+          "keyboard_technique": -0.05,
           "pump_organ_construction": -0.05,
-          "pump_organ_stops": 0.78
+          "pump_organ_stops": 0.40950000000000003
         }
       }
     ],

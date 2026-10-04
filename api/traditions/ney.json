@@ -2,10 +2,10 @@
   "id": "ney",
   "name": "Ney",
   "family": "classical",
-  "lineage": "Hasan Kasa'i — Shushtari, Smithsonian Folkways SFW40438_109. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "lineage": "End-blown reed-flute traditions across West and Central Asian art and folk music.",
   "recipe": "classic ney, improv On Frame. ney persian interdental. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 153,
-  "score": 1.8,
+  "score": 0.3,
   "config": {
     "traditions": [
       "ney"
@@ -20,10 +20,10 @@
           "ney_persian_practice": "ney_persian_dastgah_improvisation"
         },
         "scores": {
-          "ney_persian_construction": 0.8999999999999999,
-          "ney_persian_embouchure": 0.3,
+          "ney_persian_construction": 0,
+          "ney_persian_embouchure": 0,
           "ney_persian_register": 0,
-          "ney_persian_practice": 0.6
+          "ney_persian_practice": 0.3
         }
       }
     ],

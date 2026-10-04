@@ -1,0 +1,164 @@
+{
+  "id": "cassette_pause_tape_looping",
+  "name": "Cassette pause-tape beat production",
+  "short": "Cassette beat loops",
+  "family": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "cassette_pause_tape_looping_medium",
+      "name": "Recording medium",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_medium_cassette",
+          "name": "Analog cassette-tape recording and playback",
+          "default": true,
+          "descriptors": [
+            "analog"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cassette_pause_tape_looping_repetition",
+      "name": "Beat repetition and editing",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_repetition_manual_loop",
+          "name": "Manual cassette pause/cut-and-repeat beat construction",
+          "default": true,
+          "descriptors": [
+            "looped"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cassette_pause_tape_looping_speed",
+      "name": "Tape speed and pitch",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_speed_unspecified",
+          "name": "Original speed and pitch manipulation unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cassette_pause_tape_looping_channels",
+      "name": "Track and channel layout",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_channels_unspecified",
+          "name": "Original channel count and layering layout unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cassette_pause_tape_looping_processing",
+      "name": "Additional signal processing",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_processing_unspecified",
+          "name": "Original saturation, filtering and processing unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Manual analog cassette recording/playback used to construct repeated beat phrases, distinct from digital memory sampling and from live instrument-loop capture. Media and repetition workflow are positively documented; speed, channel layout and processing remain unspecified.",
+  "sources": [
+    "https://www.indulgexpress.com/culture/music/2019/jul/12/street-academics-tracing-the-evolution-of-malayalamhip-hop-music-16372.html"
+  ],
+  "class": "cassette_pause_tape_looping",
+  "_ownParts": [
+    {
+      "id": "cassette_pause_tape_looping_medium",
+      "name": "Recording medium",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_medium_cassette",
+          "name": "Analog cassette-tape recording and playback",
+          "default": true,
+          "descriptors": [
+            "analog"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cassette_pause_tape_looping_repetition",
+      "name": "Beat repetition and editing",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_repetition_manual_loop",
+          "name": "Manual cassette pause/cut-and-repeat beat construction",
+          "default": true,
+          "descriptors": [
+            "looped"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cassette_pause_tape_looping_speed",
+      "name": "Tape speed and pitch",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_speed_unspecified",
+          "name": "Original speed and pitch manipulation unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cassette_pause_tape_looping_channels",
+      "name": "Track and channel layout",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_channels_unspecified",
+          "name": "Original channel count and layering layout unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cassette_pause_tape_looping_processing",
+      "name": "Additional signal processing",
+      "variants": [
+        {
+          "id": "cassette_pause_tape_looping_processing_unspecified",
+          "name": "Original saturation, filtering and processing unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "status": "PASS_JOINT_SOURCE_GLOBAL_CONFIG_AND_LITERAL_QUALIFICATION",
+  "baseline_commit": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+  "source_projection": {
+    "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/candidate.json",
+    "sha256": "0d786fd4c67290ed0bc5b293b074bd07507f1fb9f5c6373688a4cac120093227"
+  },
+  "additions_packet": {
+    "path": "/workspace/genre-continuation/research/next-additions-projection461/v5/candidate-safe16.json",
+    "sha256": "a8af1098e1cebf13313efe22434ca6132b484750566c1202fd5d044dfbfb2d09"
+  },
+  "repair_packet": {
+    "path": "/workspace/genre-continuation/repairs197-on043-119/candidate.json",
+    "sha256": "1ae2290c4bb97976d67c86911fc1a29b9d132f1af6457988258951fe7667a331"
+  },
+  "repairs": 197,
+  "additions": 16,
+  "new_instruments": 1,
+  "expected_traditions": 6781,
+  "expected_instruments": 1659,
+  "source_preservation": {
+    "status": "PASS",
+    "baseline": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+    "old_genres": 6765,
+    "exact_approved_repairs": 197,
+    "other_old_genres_unchanged": 6568,
+    "new_genres": 16,
+    "old_owners_exact": 1658,
+    "new_owners": 1,
+    "traditions": 6781,
+    "instruments": 1659,
+    "candidate_sha256": "0d786fd4c67290ed0bc5b293b074bd07507f1fb9f5c6373688a4cac120093227"
+  },
+  "baseline_repair_qualification": {
+    "path": "/workspace/genre-continuation/repairs197-on043-119/combined-proof.json",
+    "sha256": "ec182b6a979c483c9b0af845d2e7639e5933affa44cf0deb138cc4894fddfa76",
+    "api_expected_overrides": "/workspace/genre-continuation/repairs197-on043-119/qualified-api-overrides.json",
+    "fixture_expected_overrides": "/workspace/genre-continuation/repairs197-on043-119/qualified-fixture-overrides.json"
+  },
+  "graph_coverage": {
+    "api": {
+      "definitions": 6765,
+      "unique_ids": 6765,
+      "affected": 59,
+      "affected_ids": [
+        "chicago_house",
+        "peak_techno",
+        "southern_trap",
+        "jamaican_dancehall",
+        "jersey_club",
+        "vocal_trance",
+        "madchester_baggy",
+        "atlanta_trap_modern",
+        "snap_music",
+        "drift_phonk_modern",
+        "melodic_techno",
+        "brostep",
+        "melodic_dubstep_2010s",
+        "ghettotech_detroit",
+        "chiptune_8bit",
+        "future_bass",
+        "festival_trap",
+        "dance_pop_2010s",
+        "greek_nanourisma",
+        "scottish_gaelic_taladh",
+        "indian_baraat",
+        "chinese_xiqing_wedding",
+        "house",
+        "xhosa_iimbongi",
+        "maori_whaikorero_oratory",
+        "hawaiian_haa_ancestral_chant",
+        "french_touch",
+        "disco_house",
+        "acid_breaks",
+        "freestyle_house",
+        "hardbag",
+        "hip_house",
+        "us_garage",
+        "vocal_house",
+        "liquid_dub",
+        "acid_trance",
+        "drumfunk",
+        "future_funk_edit_scene",
+        "ballroom_house",
+        "miami_electro",
+        "proto_techno",
+        "new_york_garage_house",
+        "dinka_song_traditions",
+        "tchiloli_music",
+        "haida_welcome_song",
+        "detroit_house",
+        "organic_house",
+        "speed_house",
+        "deep_disco_house",
+        "belgian_techno",
+        "classic_house",
+        "brazilian_tech_house",
+        "uk_tech_house",
+        "destroy_techno",
+        "indie_rock_mexicano",
+        "banda_carnavalera",
+        "banda_peruana",
+        "dweilorkest",
+        "medimeisterschaften"
+      ],
+      "affected_indexes": [
+        74,
+        77,
+        85,
+        94,
+        202,
+        282,
+        764,
+        789,
+        794,
+        796,
+        822,
+        829,
+        831,
+        837,
+        847,
+        850,
+        851,
+        875,
+        890,
+        892,
+        926,
+        927,
+        1056,
+        1085,
+        1123,
+        1124,
+        1144,
+        1268,
+        1499,
+        1517,
+        1520,
+        1521,
+        1526,
+        1527,
+        1528,
+        1534,
+        1564,
+        2281,
+        2318,
+        2351,
+        2354,
+        2452,
+        2514,
+        2570,
+        2584,
+        2618,
+        2620,
+        2621,
+        2622,
+        2638,
+        2640,
+        2663,
+        2665,
+        2714,
+        3997,
+        4928,
+        4930,
+        6248,
+        6691
+      ],
+      "conservative_replay_count": 113,
+      "all_affected_covered": true
+    },
+    "fixture": {
+      "definitions": 1174,
+      "unique_ids": 1149,
+      "affected": 24,
+      "affected_ids": [
+        "southern_trap",
+        "jamaican_dancehall",
+        "chicago_house",
+        "jersey_club",
+        "vocal_trance",
+        "blend_gospel_house_chicago",
+        "wedding_indian_baraat",
+        "dance_pop_2010s",
+        "peak_techno",
+        "melodic_techno",
+        "brostep",
+        "chiptune_8bit",
+        "future_bass",
+        "chinese_xiqing_wedding",
+        "madchester_baggy",
+        "atlanta_trap_modern",
+        "snap_music",
+        "drift_phonk_modern",
+        "melodic_dubstep_2010s",
+        "ghettotech_detroit",
+        "festival_trap",
+        "greek_nanourisma",
+        "scottish_gaelic_taladh",
+        "indian_baraat"
+      ],
+      "affected_indexes": [
+        7,
+        57,
+        62,
+        95,
+        166,
+        209,
+        262,
+        328,
+        390,
+        530,
+        533,
+        540,
+        543,
+        714,
+        973,
+        993,
+        997,
+        998,
+        1022,
+        1025,
+        1030,
+        1058,
+        1060,
+        1085
+      ],
+      "conservative_replay_count": 31,
+      "all_affected_covered": true
+    }
+  },
+  "actual_replays": {
+    "api": 113,
+    "fixture_definitions": 31,
+    "new_target_compiled_configs": 16,
+    "new_target_browser_formats": 64,
+    "new_target_protected_controls": 270
+  },
+  "changed_old_config_ids": [
+    "jersey_club",
+    "banda_peruana"
+  ],
+  "changed_old_recipe_ids": [
+    "jersey_club"
+  ],
+  "compatibility_review": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/collateral-semantic-review461.json",
+  "restored_problem_configs": [
+    "tropical_house",
+    "raggacore"
+  ],
+  "coverage_reasoning": "197-only complete6765/1174 graph and484API/50fixture qualification is independently bound. Addition-sensitive graph covers every old ID/definition and identifies59 API/24fixture contexts. Conservative113API/31fixture actual joint replays cover all; remaining inputs/readsets are unchanged from qualified197. All16 new target configs and64 browser outputs exactly match source-reviewed standalone targets.",
+  "preserved_holds": {
+    "original18": "/workspace/genre-continuation/research/next-additions-projection461/v5/candidate18.json",
+    "newly_deferred": [
+      "groove_room",
+      "chill_breakcore"
+    ],
+    "repair_holds": 118,
+    "historical_addition_holds_preserved": true
+  },
+  "limits": [
+    "No production files, snapshots, engine, family behavior, registry or API build changed.",
+    "Actual post-integration API build and final serial regression remain root tasks.",
+    "Inherited unchanged musical/source gaps are not represented as newly repaired."
+  ],
+  "evidence": {
+    "candidate.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/candidate.json",
+      "sha256": "0d786fd4c67290ed0bc5b293b074bd07507f1fb9f5c6373688a4cac120093227"
+    },
+    "source-preservation.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/source-preservation.json",
+      "sha256": "39a8c45dd5049f76997ca65367a58ceced6f0ccbb21531a3df20119f7a59808e"
+    },
+    "source-evidence-bindings.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/source-evidence-bindings.json",
+      "sha256": "54a9e5f26943a5e950d2630b94687ca4c253a139e38917b90debb9011fe379d3"
+    },
+    "graph-coverage.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/graph-coverage.json",
+      "sha256": "ea20f63d069c7a4ba943c8008445077a2884a0eb5a4c14c919d0bb52908199a4"
+    },
+    "api-candidate-graph.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/api-candidate-graph.json",
+      "sha256": "439b90bbe3e8512d8e61b80698eb527080010d6755eb73294afd2afb4cbd0641"
+    },
+    "fixture-candidate-graph.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/fixture-candidate-graph.json",
+      "sha256": "700e8a8c8bbfede364c1f5559c9d244d81a39b0bb1877b6179ade4d6b2357a6e"
+    },
+    "api-baseline-replays.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/api-baseline-replays.json",
+      "sha256": "e89b0cf0be82cf1a76cd4df7fdb2bdebc24804f264de35115e4a409880dff708"
+    },
+    "api-candidate-replays.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/api-candidate-replays.json",
+      "sha256": "d5108acba6f248db25d92fb47b0e86b54269e5084a1a109c5d3e807f8327c278"
+    },
+    "fixture-baseline-replays.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/fixture-baseline-replays.json",
+      "sha256": "20a218c3231c4c9101fc5cdb36510c1aac703fcb487d305f08d60363b707e7c6"
+    },
+    "fixture-candidate-replays.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/fixture-candidate-replays.json",
+      "sha256": "985366eda67e6abe7341c36e4f9bcf26ba0b238055af979c38022089be6b0ef2"
+    },
+    "replay-comparison.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/replay-comparison.json",
+      "sha256": "d1fafb5b853b00a39ab39040d504bed6ec6fa2b2bf9a20d864e0538b61b4ff20"
+    },
+    "collateral-semantic-review461.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/collateral-semantic-review461.json",
+      "sha256": "672af5b1757787ee29e123d70b3909721a564da913e76b578db5d80c1ce8cea1"
+    },
+    "new-combined-runtime.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/new-combined-runtime.json",
+      "sha256": "26b027184315bf6a070735158b7cc9e910aa7e5d9ce2089df075e16429022724"
+    },
+    "new-target-comparison.json": {
+      "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-joint197-safe16-043/new-target-comparison.json",
+      "sha256": "6b60ce25338db8ba332620db0095b6c80702fec35d4682fd4f8bafd6b6e449ea"
+    }
+  },
+  "atlas": {
+    "status": "PASS_16_SUBSET_OF_PRIOR18",
+    "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v5-043/atlas-review.json",
+    "sha256": "84a8e7f9e3c6fe57c7b55ee20a3a5b61b285e61f7ad4cc9aa78d08cc50640c25"
+  }
+}

@@ -1,0 +1,1156 @@
+=== duplicate gate ===
+
+known, ruled but unresolved — 1:
+  instrument tar_persian  <>  tar_azerbaijani
+             tār  ·  tar
+             both label as "tar" — two genuinely different instruments, so NOT a data duplicate — but both print as 'tar', which breaks the catalog-wide unique-short-label invariant and makes a recipe naming one unreadable. The fix is a label rename, not a delete; it churns the rendered recipe for the three traditions that use them, so it is left for a deliberate pass.
+
+REVIEW — 382 pair(s) worth a look (advisory):
+  instrument donso_ngoni  <>  donso_ngoni_eight_string
+             donso ngoni  ·  eight-string donso ngoni
+             same name once the qualifier is stripped
+  instrument tanbur_persian  <>  tanbur_maltese
+             tanbur  ·  Maltese tanbur drum
+             same name once the qualifier is stripped
+  instrument agogo  <>  agogo_source_unspecified
+             agogô  ·  source-unspecified agogo
+             same name once the qualifier is stripped
+  instrument janggu  <>  janggu_concert_accompaniment
+             janggu  ·  Concert janggu
+             same name once the qualifier is stripped
+  instrument timbales  <>  timbales_stick_played
+             timbales  ·  Stick-played timbales
+             same name once the qualifier is stripped
+  instrument uilleann_pipes  <>  uilleann_pipes_three_quarter
+             uilleann pipes  ·  three-quarter uilleann pipes
+             same name once the qualifier is stripped
+  instrument nadaswaram  <>  nadaswaram_concert_duo
+             nadaswaram  ·  Concert nadaswaram
+             same name once the qualifier is stripped
+  instrument dung_chen  <>  dung_chen_contemporary
+             dung chen  ·  Contemporary dung chen
+             same name once the qualifier is stripped
+  instrument toy_piano  <>  toy_piano_concert
+             toypiano  ·  Concert toy piano
+             same name once the qualifier is stripped
+  instrument native_american_flute  <>  native_american_flute_source_unspecified
+             Native American flute  ·  Credited Native American flute
+             same name once the qualifier is stripped
+  instrument bacurinha  <>  bahian_bacurinha_credited
+             bacurinha  ·  Bacurinha with unspecified construction
+             same name once the qualifier is stripped
+  instrument prepared_piano  <>  prepared_piano_cage_sonatas
+             prepared piano  ·  Cage Sonatas mixed-preparation piano
+             same name once the qualifier is stripped
+  instrument saxophone_section_tenor_baritone  <>  saxophone_section_alto_two_tenors
+             tenor-baritone saxophone section  ·  alto and two tenor saxophone section
+             same name once the qualifier is stripped
+  instrument saxophone_section_tenor_baritone  <>  saxophone_section_alto_tenor_baritone
+             tenor-baritone saxophone section  ·  Alto-tenor-baritone saxophone section
+             same name once the qualifier is stripped
+  instrument saxophone_section_tenor_baritone  <>  saxophone_section_alto_tenor
+             tenor-baritone saxophone section  ·  alto-tenor saxophone section
+             same name once the qualifier is stripped
+  instrument saxophone_section_tenor_baritone  <>  saxophone_section_alto_two_baritones
+             tenor-baritone saxophone section  ·  Alto/two-baritone sax section
+             same name once the qualifier is stripped
+  instrument saxophone_section_alto_two_tenors  <>  saxophone_section_alto_tenor_baritone
+             alto and two tenor saxophone section  ·  Alto-tenor-baritone saxophone section
+             same name once the qualifier is stripped
+  instrument saxophone_section_alto_two_tenors  <>  saxophone_section_alto_tenor
+             alto and two tenor saxophone section  ·  alto-tenor saxophone section
+             same name once the qualifier is stripped
+  instrument saxophone_section_alto_two_tenors  <>  saxophone_section_alto_two_baritones
+             alto and two tenor saxophone section  ·  Alto/two-baritone sax section
+             same name once the qualifier is stripped
+  instrument saxophone_section_alto_tenor_baritone  <>  saxophone_section_alto_tenor
+             Alto-tenor-baritone saxophone section  ·  alto-tenor saxophone section
+             same name once the qualifier is stripped
+  instrument saxophone_section_alto_tenor_baritone  <>  saxophone_section_alto_two_baritones
+             Alto-tenor-baritone saxophone section  ·  Alto/two-baritone sax section
+             same name once the qualifier is stripped
+  instrument saxophone_section_alto_tenor  <>  saxophone_section_alto_two_baritones
+             alto-tenor saxophone section  ·  Alto/two-baritone sax section
+             same name once the qualifier is stripped
+  instrument saxophone_palette_soprano_unspecified  <>  saxophone_section_soprano_alto_tenor
+             Soprano and unspecified saxophone  ·  Soprano-alto-tenor saxophone palette
+             same name once the qualifier is stripped
+  tradition  bhangra_modern  <>  bhangra_dhol_folk
+             Bhangra (modern)  ·  Bhangra (Punjabi harvest dhol dance)
+             same name once the qualifier is stripped
+  tradition  laiko  <>  laiko_modern
+             Laikó  ·  Laïkó (modern Greek popular song)
+             same name once the qualifier is stripped
+  tradition  sami_yoik  <>  sami_yoik_tradition
+             Sámi yoik  ·  Sami yoik (Sápmi vocal tradition)
+             same name once the qualifier is stripped
+  tradition  sami_yoik_tracking  <>  sami_yoik_tradition
+             Sami yoik — animal-tracking and hunting song  ·  Sami yoik (Sápmi vocal tradition)
+             same name once the qualifier is stripped
+  tradition  naat_devotional  <>  naat_south_asian
+             Naʿat (Islamic devotional song)  ·  Naat (South Asian Prophetic praise recitation)
+             same name once the qualifier is stripped
+  tradition  country_rap_hick_hop  <>  country_rap
+             Country rap (hick-hop)  ·  Country Rap
+             same name once the qualifier is stripped
+  tradition  bomba_puertorican  <>  bomba
+             Bomba (Puerto Rican)  ·  Bomba (Puerto Rico)
+             same name once the qualifier is stripped
+  tradition  punta_garifuna  <>  punta
+             Punta (Garifuna)  ·  Punta (Honduras Garifuna traditional)
+             same name once the qualifier is stripped
+  tradition  shaabi_egyptian  <>  shaabi
+             Shaabi (Egyptian)  ·  Shaabi (pan-Arab popular street music)
+             same name once the qualifier is stripped
+  tradition  arabesk_turkish  <>  arabesk
+             Arabesk (Turkish)  ·  Arabesk
+             same name once the qualifier is stripped
+  tradition  mizrahi_israeli  <>  mizrahi
+             Mizrahi (Israeli)  ·  Mizrahi (Israeli Mediterranean Music)
+             same name once the qualifier is stripped
+  tradition  shashmaqam_central_asian  <>  shashmaqam
+             Shashmaqam (Tajik-Uzbek classical)  ·  Shashmaqam
+             same name once the qualifier is stripped
+  tradition  apala_yoruba  <>  apala
+             Apàlà (Yoruba Muslim percussion-song)  ·  Apala
+             same name once the qualifier is stripped
+  tradition  sakara_yoruba  <>  sakara_music
+             Sákárà (Yoruba Muslim frame-drum song)  ·  Sákárà (Lagos sakara-drum praise song)
+             same name once the qualifier is stripped
+  tradition  singeli_tanzanian  <>  singeli
+             Singeli (Tanzanian high-tempo electronic)  ·  Singeli
+             same name once the qualifier is stripped
+  tradition  khaliji_gulf  <>  khaliji
+             Khaliji (Arabian Gulf music)  ·  Khalījī (Gulf dance song)
+             same name once the qualifier is stripped
+  tradition  sawt_bahraini_kuwaiti  <>  sawt_khaliji
+             Sawt (Bahraini-Kuwaiti chamber song)  ·  Sawt (Gulf khaliji urban song)
+             same name once the qualifier is stripped
+  tradition  lavani_maharashtra  <>  lavani_dholki
+             Lavani (Marathi women's song-dance)  ·  Lavani (Maharashtrian dholki stage song)
+             same name once the qualifier is stripped
+  tradition  merengue_tipico  <>  tipico
+             Merengue típico (Cibao traditional)  ·  Merengue Típico (Perico Ripiao)
+             same name once the qualifier is stripped
+  tradition  chutney_indo_caribbean  <>  chutney_bhojpuri
+             Chutney (Indo-Caribbean)  ·  Chutney (Trinidad-Guyana Bhojpuri dance song)
+             same name once the qualifier is stripped
+  tradition  twoubadou_haitian  <>  kompa_twoubadou_ballad
+             Twoubadou (Haitian troubadour)  ·  Twoubadou (Haitian guitar-and-accordion ballad)
+             same name once the qualifier is stripped
+  tradition  rasin_haitian  <>  rasin
+             Rasin (Haitian roots-Vodou rock)  ·  Rasin
+             same name once the qualifier is stripped
+  tradition  chacarera_argentina  <>  chacarera_doble
+             Chacarera (Argentine northwest)  ·  Chacarera (doble, Santiago del Estero core form)
+             same name once the qualifier is stripped
+  tradition  zamba_argentina  <>  zamba_folklorica
+             Zamba (Argentine slow-romantic)  ·  Zamba (Argentine folklore pañuelo dance)
+             same name once the qualifier is stripped
+  tradition  festejo_afroperuano  <>  festejo
+             Festejo (Afro-Peruvian celebration)  ·  Festejo (Lima criollo cajón dance)
+             same name once the qualifier is stripped
+  tradition  champeta_cartagenera  <>  champeta
+             Champeta (Cartagena Afro-Colombian)  ·  Champeta (Colombian Caribbean picó style)
+             same name once the qualifier is stripped
+  tradition  acousmatic_music  <>  acousmatic
+             Acousmatic music (Schaeffer school post-musique-concrète)  ·  Acousmatic Music (loudspeaker concert practice)
+             same name once the qualifier is stripped
+  tradition  nu_jazz_2000s  <>  nu_jazz
+             Nu jazz / electro-jazz  ·  Nu Jazz
+             same name once the qualifier is stripped
+  tradition  d_beat_swedish  <>  d_beat
+             D-beat (Swedish hardcore)  ·  D-beat (Discharge lineage)
+             same name once the qualifier is stripped
+  tradition  madchester_baggy  <>  madchester
+             Madchester / baggy  ·  Madchester (Manchester Scene)
+             same name once the qualifier is stripped
+  tradition  zeuhl_french  <>  zeuhl
+             Zeuhl (French progressive Magma)  ·  Zeuhl (Kobaïan movement)
+             same name once the qualifier is stripped
+  tradition  memphis_rap_horrorcore  <>  memphis_rap
+             Memphis rap (mid-1990s through 2000s Tennessee horrorcore)  ·  Memphis rap (Bluff City lineage)
+             same name once the qualifier is stripped
+  tradition  phonk_old_memphis  <>  phonk
+             Phonk (lo-fi Memphis sample-based)  ·  Phonk
+             same name once the qualifier is stripped
+  tradition  drift_phonk_modern  <>  drift_phonk
+             Drift phonk (2020s TikTok)  ·  Drift Phonk
+             same name once the qualifier is stripped
+  tradition  schranz_hard_techno  <>  schranz
+             Schranz (hard German techno)  ·  Schranz
+             same name once the qualifier is stripped
+  tradition  jump_up_dnb  <>  jump_up
+             Jump-up (drum-and-bass)  ·  Jump-Up
+             same name once the qualifier is stripped
+  tradition  sambass_brazilian_dnb  <>  sambass
+             Sambass (Brazilian drum-and-bass)  ·  Sambass
+             same name once the qualifier is stripped
+  tradition  bassline_uk  <>  bassline
+             Bassline (UK Sheffield-Niche)  ·  Bassline
+             same name once the qualifier is stripped
+  tradition  ghettotech_detroit  <>  ghettotech
+             Ghettotech (Detroit)  ·  Ghettotech
+             same name once the qualifier is stripped
+  tradition  dark_ambient_industrial  <>  dark_ambient
+             Dark ambient (1980s industrial-adjacent menacing drone)  ·  Dark Ambient (cavernous ritual drone)
+             same name once the qualifier is stripped
+  tradition  drill_n_bass  <>  drill_and_bass
+             Drill'n'bass (mid-1990s UK extreme-virtuoso drum-and-bass)  ·  Drill'n'bass
+             same name once the qualifier is stripped
+  tradition  future_funk_vaporwave  <>  future_funk_edit_scene
+             Future funk (vaporwave subgenre)  ·  Future funk (Japanese city-pop edit scene)
+             same name once the qualifier is stripped
+  tradition  neo_soul_classic  <>  neo_soul
+             Neo-soul (classic 90s-00s)  ·  Neo Soul
+             same name once the qualifier is stripped
+  tradition  hauntology_uk_2010s  <>  hauntology_aesthetic
+             Hauntology (UK Ghost Box)  ·  Hauntology (library-music aesthetic)
+             same name once the qualifier is stripped
+  tradition  fusion_70s_electric  <>  jazz_fusion
+             Jazz fusion (1970s post-Bitches-Brew electric jazz-rock)  ·  Jazz Fusion (electric jazz-rock idiom)
+             same name once the qualifier is stripped
+  tradition  anison_anime_song  <>  anison
+             Anison (anime song)  ·  Anison (Japanese anime theme song)
+             same name once the qualifier is stripped
+  tradition  lounge_exotica  <>  lounge_music
+             Lounge (exotica-era easy listening)  ·  Lounge (cocktail-bar mood music)
+             same name once the qualifier is stripped
+  tradition  dutch_pop  <>  nederpop
+             Nederpop (Dutch pop)  ·  Nederpop
+             same name once the qualifier is stripped
+  tradition  thai_pop  <>  t_pop
+             T-pop (Thai idol and mainstream Thai pop)  ·  T-Pop
+             same name once the qualifier is stripped
+  tradition  classic_blues_women  <>  classic_female_blues
+             Classic blues women  ·  Classic Female Blues
+             6 shared exemplar artists, name similarity 0.61
+  tradition  neo_soul_classic  <>  neo_soul
+             Neo-soul (classic 90s-00s)  ·  Neo Soul
+             6 shared exemplar artists, name similarity 0.48
+  tradition  musica_afroperuana  <>  festejo
+             Música afroperuana  ·  Festejo (Lima criollo cajón dance)
+             6 shared exemplar artists, name similarity 0.09
+  tradition  gothic_rock  <>  goth
+             Gothic rock  ·  Goth
+             5 shared exemplar artists, name similarity 0.50
+  tradition  anadolu_rock  <>  anatolian_rock
+             Anadolu rock  ·  Anatolian Rock
+             5 shared exemplar artists, name similarity 0.55
+  tradition  plunderphonics  <>  sound_collage
+             Plunderphonics  ·  Sound Collage
+             5 shared exemplar artists, name similarity 0.17
+  tradition  singeli_tanzanian  <>  singeli
+             Singeli (Tanzanian high-tempo electronic)  ·  Singeli
+             5 shared exemplar artists, name similarity 0.30
+  tradition  kabyle_music_algerian  <>  kabyle
+             Kabyle music (Algerian Berber)  ·  Kabyle (Kabylie chanson)
+             5 shared exemplar artists, name similarity 0.28
+  tradition  early_romantic_19c  <>  early_romantic_era
+             Early Romantic (1800-1850)  ·  Early Romantic Era
+             5 shared exemplar artists, name similarity 0.69
+  tradition  ska_punk_third_wave  <>  ska_punk
+             Third-wave ska punk  ·  Ska Punk
+             5 shared exemplar artists, name similarity 0.57
+  tradition  snap_music  <>  snap
+             Snap music (mid-2000s Atlanta)  ·  Snap
+             5 shared exemplar artists, name similarity 0.23
+  tradition  uk_grime_classic  <>  grime
+             UK grime (classic mid-2000s)  ·  Grime
+             5 shared exemplar artists, name similarity 0.32
+  tradition  dark_electro_aggrotech  <>  aggrotech
+             Dark electro / aggrotech  ·  Aggrotech
+             5 shared exemplar artists, name similarity 0.59
+  tradition  catalan_nova_canco  <>  nova_canco
+             Catalan Nova Cançó  ·  Nova Cançó (Catalan singer-songwriter movement, 1960s)
+             5 shared exemplar artists, name similarity 0.47
+  tradition  french_touch  <>  french_house
+             French touch / filter house  ·  French House
+             5 shared exemplar artists, name similarity 0.58
+  tradition  contemporary_worship  <>  praise_and_worship
+             Contemporary Worship  ·  Praise and Worship
+             5 shared exemplar artists, name similarity 0.42
+  tradition  operatic_pop  <>  popera
+             Operatic Pop  ·  Popera (classical crossover)
+             5 shared exemplar artists, name similarity 0.36
+  tradition  trancecore  <>  electronicore
+             Trancecore (electronicore)  ·  Electronicore (Metalcore Hybrid)
+             5 shared exemplar artists, name similarity 0.61
+  tradition  moroccan_pop  <>  chaabi_marocain
+             Moroccan Pop  ·  Chaabi marocain (Moroccan wedding chaabi)
+             5 shared exemplar artists, name similarity 0.32
+  tradition  memphis_hip_hop_tape  <>  memphis_phonk
+             Memphis hip-hop (Bluff City tape scene)  ·  Memphis phonk
+             5 shared exemplar artists, name similarity 0.39
+  tradition  memphis_hip_hop_tape  <>  memphis_rap
+             Memphis hip-hop (Bluff City tape scene)  ·  Memphis rap (Bluff City lineage)
+             5 shared exemplar artists, name similarity 0.62
+  tradition  acoustic_blues  <>  country_blues
+             Acoustic Blues  ·  Country Blues
+             5 shared exemplar artists, name similarity 0.52
+  tradition  louisiana_blues  <>  swamp_blues
+             Louisiana Blues  ·  Swamp Blues
+             5 shared exemplar artists, name similarity 0.36
+  tradition  dansband  <>  danseband
+             Dansband  ·  Danseband (Nordic dance-band pop)
+             5 shared exemplar artists, name similarity 0.36
+  tradition  yorkshire_bleeps_and_bass  <>  bleep_techno
+             Yorkshire Bleeps and Bass  ·  Bleep Techno
+             5 shared exemplar artists, name similarity 0.26
+  tradition  yorkshire_bleeps_and_bass  <>  sheffield_bleep_techno
+             Yorkshire Bleeps and Bass  ·  Sheffield bleep techno
+             5 shared exemplar artists, name similarity 0.30
+  tradition  neofolk  <>  dark_folk
+             Neofolk  ·  Dark Folk
+             5 shared exemplar artists, name similarity 0.46
+  tradition  mbase_jazz  <>  m_base
+             M-Base Jazz  ·  M-Base (odd-metre Brooklyn jazz language)
+             5 shared exemplar artists, name similarity 0.35
+  tradition  neo_swing  <>  swing_revival
+             Neo-Swing  ·  Swing Revival
+             5 shared exemplar artists, name similarity 0.44
+  tradition  bleep_techno  <>  sheffield_bleep_techno
+             Bleep Techno  ·  Sheffield bleep techno
+             5 shared exemplar artists, name similarity 0.69
+  tradition  emo  <>  emocore
+             Emo  ·  Emocore
+             4 shared exemplar artists, name similarity 0.50
+  tradition  hard_bop  <>  blue_note
+             Hard bop  ·  Blue Note (hard bop house style)
+             4 shared exemplar artists, name similarity 0.40
+  tradition  surf_rock  <>  surf_music
+             Surf rock  ·  Surf Music
+             4 shared exemplar artists, name similarity 0.40
+  tradition  desert_blues  <>  african_blues
+             Tuareg desert blues (Ishumar / Tishoumaren / Assouf)  ·  African Blues
+             4 shared exemplar artists, name similarity 0.16
+  tradition  desert_blues  <>  tuareg_guitar
+             Tuareg desert blues (Ishumar / Tishoumaren / Assouf)  ·  Tuareg guitar (assouf electric style)
+             4 shared exemplar artists, name similarity 0.31
+  tradition  jamaican_dancehall  <>  dancehall
+             Jamaican dancehall  ·  Dancehall
+             4 shared exemplar artists, name similarity 0.67
+  tradition  hawaiian_slack_key  <>  slack_key_guitar
+             Hawaiian slack-key (kī hōʻalu)  ·  Slack-key guitar (kī hōʻalu instrumental)
+             4 shared exemplar artists, name similarity 0.52
+  tradition  philly_soul_intl  <>  philly_soul
+             Philadelphia International soul  ·  Philly Soul
+             4 shared exemplar artists, name similarity 0.32
+  tradition  pagode  <>  roda_de_samba
+             Pagode  ·  Roda de Samba
+             4 shared exemplar artists, name similarity 0.27
+  tradition  jam_band  <>  jam_bands
+             Jam band  ·  Jam Bands (festival circuit)
+             4 shared exemplar artists, name similarity 0.43
+  tradition  anadolu_rock  <>  turkish_psych
+             Anadolu rock  ·  Turkish psychedelic (Anadolu psych)
+             4 shared exemplar artists, name similarity 0.36
+  tradition  golden_age_hip_hop_1986_1991  <>  golden_age_hip_hop
+             Golden-age sample-collage hip-hop (1986-1991)  ·  Golden Age Hip Hop
+             4 shared exemplar artists, name similarity 0.57
+  tradition  british_invasion_rb  <>  british_invasion
+             British R&B and British Invasion (1962–1968)  ·  British Invasion
+             4 shared exemplar artists, name similarity 0.55
+  tradition  arabesk_turkish  <>  arabesk
+             Arabesk (Turkish)  ·  Arabesk
+             4 shared exemplar artists, name similarity 0.63
+  tradition  corsican_paghjella  <>  polyphonies_corses
+             Corsican paghjella three-voice unaccompanied  ·  Polyphonies corses (Corsican ensemble polyphony)
+             4 shared exemplar artists, name similarity 0.25
+  tradition  lavani_maharashtra  <>  lavani_dholki
+             Lavani (Marathi women's song-dance)  ·  Lavani (Maharashtrian dholki stage song)
+             4 shared exemplar artists, name similarity 0.43
+  tradition  thai_luk_thung  <>  luk_thung
+             Thai lûk thûng ("child of the field," country song)  ·  Luk Thung
+             4 shared exemplar artists, name similarity 0.32
+  tradition  french_musette  <>  musette
+             French musette (Parisian accordion-led)  ·  Valse musette (accordion virtuoso repertoire)
+             4 shared exemplar artists, name similarity 0.46
+  tradition  festejo_afroperuano  <>  musica_afroperuana
+             Festejo (Afro-Peruvian celebration)  ·  Música afroperuana
+             4 shared exemplar artists, name similarity 0.36
+  tradition  festejo_afroperuano  <>  festejo
+             Festejo (Afro-Peruvian celebration)  ·  Festejo (Lima criollo cajón dance)
+             4 shared exemplar artists, name similarity 0.39
+  tradition  forro_pe_de_serra  <>  forro_tradicional
+             Forró pé-de-serra (traditional forró)  ·  Forró Tradicional (trio nordestino forró)
+             4 shared exemplar artists, name similarity 0.60
+  tradition  acousmatic_music  <>  acousmatic
+             Acousmatic music (Schaeffer school post-musique-concrète)  ·  Acousmatic Music (loudspeaker concert practice)
+             4 shared exemplar artists, name similarity 0.41
+  tradition  renaissance_madrigal  <>  madrigal
+             Renaissance madrigal (Italian, English)  ·  Madrigal
+             4 shared exemplar artists, name similarity 0.36
+  tradition  madchester_baggy  <>  baggy
+             Madchester / baggy  ·  Baggy (Indie-Dance)
+             4 shared exemplar artists, name similarity 0.29
+  tradition  bay_area_hyphy  <>  hyphy
+             Bay Area hyphy  ·  Hyphy
+             4 shared exemplar artists, name similarity 0.53
+  tradition  dc_go_go  <>  go_go
+             DC go-go (1970s-onward)  ·  Go-go
+             4 shared exemplar artists, name similarity 0.32
+  tradition  glitch_2000s  <>  laptronica
+             Glitch (late-1990s through 2000s German-and-Austrian digital-error electronic)  ·  Laptronica
+             4 shared exemplar artists, name similarity 0.16
+  tradition  hauntology_uk_2010s  <>  hauntology_aesthetic
+             Hauntology (UK Ghost Box)  ·  Hauntology (library-music aesthetic)
+             4 shared exemplar artists, name similarity 0.41
+  tradition  uk_hardcore_breakbeat  <>  breakbeat_hardcore
+             UK hardcore (pre-jungle 91-93)  ·  Breakbeat Hardcore
+             4 shared exemplar artists, name similarity 0.42
+  tradition  chilean_nueva_cancion  <>  musica_andina_chilena
+             Chilean nueva canción  ·  Música andina chilena (Norte Grande / nueva canción Andean)
+             4 shared exemplar artists, name similarity 0.52
+  tradition  new_orleans_brass_parade  <>  second_line
+             New Orleans brass band second-line  ·  Second line
+             4 shared exemplar artists, name similarity 0.49
+  tradition  mongolian_hunting_khoomei  <>  siberian_folk
+             Mongolian hunting-khoomei (throat-singing)  ·  Siberian folk music (Sakha, Tuva, Altai)
+             4 shared exemplar artists, name similarity 0.18
+  tradition  indietronica  <>  glitch_pop
+             Indietronica  ·  Glitch Pop
+             4 shared exemplar artists, name similarity 0.00
+  tradition  adult_standards  <>  traditional_pop_music
+             Adult Standards  ·  Traditional Pop Music
+             4 shared exemplar artists, name similarity 0.06
+  tradition  orchestral_soundtrack  <>  original_score
+             Orchestral Soundtrack (symphonic film score)  ·  Original Score (Film & Media)
+             4 shared exemplar artists, name similarity 0.36
+  tradition  lounge_exotica  <>  lounge_music
+             Lounge (exotica-era easy listening)  ·  Lounge (cocktail-bar mood music)
+             4 shared exemplar artists, name similarity 0.23
+  tradition  lounge_exotica  <>  exotica
+             Lounge (exotica-era easy listening)  ·  Exotica
+             4 shared exemplar artists, name similarity 0.35
+  tradition  trap_boricua  <>  trap_latino
+             Trap boricua (Puerto Rican trap)  ·  Trap Latino (pan-Hispanic trap)
+             4 shared exemplar artists, name similarity 0.33
+  tradition  urbano_chileno  <>  reggaeton_chileno
+             Urbano chileno (Chilean urbano)  ·  Reggaeton Chileno
+             4 shared exemplar artists, name similarity 0.30
+  tradition  tejano  <>  new_tejano
+             Tejano (Tejano pop and orquesta)  ·  New Tejano
+             4 shared exemplar artists, name similarity 0.30
+  tradition  folklore_argentino  <>  zamba_folklorica
+             Folklore Argentino  ·  Zamba (Argentine folklore pañuelo dance)
+             4 shared exemplar artists, name similarity 0.57
+  tradition  israeli_pop  <>  mizrahi
+             Israeli Pop  ·  Mizrahi (Israeli Mediterranean Music)
+             4 shared exemplar artists, name similarity 0.30
+  tradition  german_rock  <>  deutschrock
+             German Rock (Deutschrock)  ·  Deutschrock (German-language rock mainstream)
+             4 shared exemplar artists, name similarity 0.62
+  tradition  dutch_pop  <>  nederpop
+             Nederpop (Dutch pop)  ·  Nederpop
+             4 shared exemplar artists, name similarity 0.64
+  tradition  oakland_hip_hop  <>  bay_area_hip_hop
+             Oakland hip-hop  ·  Bay Area hip-hop (mobb music lineage)
+             4 shared exemplar artists, name similarity 0.25
+  tradition  african_blues  <>  tuareg_guitar
+             African Blues  ·  Tuareg guitar (assouf electric style)
+             4 shared exemplar artists, name similarity 0.10
+  tradition  piano_blues  <>  barrelhouse_piano
+             Piano Blues  ·  Barrelhouse piano
+             4 shared exemplar artists, name similarity 0.33
+  tradition  twelve_tone  <>  serialism
+             Twelve-tone (Dodecaphony)  ·  Serialism
+             4 shared exemplar artists, name similarity 0.00
+  tradition  electroswing  <>  swing_house
+             Electro Swing  ·  Swing House
+             4 shared exemplar artists, name similarity 0.40
+  tradition  electro_backbeat  <>  electro
+             Electro Backbeat  ·  Electro
+             4 shared exemplar artists, name similarity 0.60
+  tradition  live_coding  <>  algorave
+             Live Coding  ·  Algorave (live-coded algorithmic dance music)
+             4 shared exemplar artists, name similarity 0.26
+  tradition  neo_swing  <>  vintage_swing
+             Neo-Swing  ·  Vintage swing (retro-swing revival)
+             4 shared exemplar artists, name similarity 0.29
+  tradition  raices  <>  musica_andina_chilena
+             Raíces  ·  Música andina chilena (Norte Grande / nueva canción Andean)
+             4 shared exemplar artists, name similarity 0.08
+  tradition  anatolian_rock  <>  turkish_psych
+             Anatolian Rock  ·  Turkish psychedelic (Anadolu psych)
+             4 shared exemplar artists, name similarity 0.20
+  tradition  negro_spiritual  <>  spirituals
+             Negro Spiritual (concert arrangement)  ·  Spirituals (arranged concert tradition)
+             4 shared exemplar artists, name similarity 0.63
+  tradition  pop_sunda  <>  lagu_sunda
+             Pop Sunda  ·  Lagu Sunda (Pop Sunda)
+             4 shared exemplar artists, name similarity 0.61
+  tradition  forro_tradicional  <>  sanfona_nordestina
+             Forró Tradicional (trio nordestino forró)  ·  Sanfona nordestina (Brazilian accordion tradition)
+             4 shared exemplar artists, name similarity 0.49
+  tradition  cumbia_amazonica  <>  chicha
+             Cumbia amazónica  ·  Chicha (Peruvian Amazonian psychedelic cumbia)
+             4 shared exemplar artists, name similarity 0.45
+  tradition  chacarera_doble  <>  folclore_santiagueno
+             Chacarera (doble, Santiago del Estero core form)  ·  Folclore santiagueño
+             4 shared exemplar artists, name similarity 0.36
+  tradition  molam  <>  thai_folk
+             Molam  ·  Thai Folk (Village Traditions)
+             4 shared exemplar artists, name similarity 0.14
+  tradition  denpa_kei  <>  denpa_song
+             Denpa-kei  ·  Denpa Song
+             4 shared exemplar artists, name similarity 0.53
+  tradition  memphis_phonk  <>  memphis_rap
+             Memphis phonk  ·  Memphis rap (Bluff City lineage)
+             4 shared exemplar artists, name similarity 0.33
+  tradition  ballroom_house  <>  vogue_beat
+             Ballroom (House Ballroom Scene)  ·  Vogue Beat
+             4 shared exemplar artists, name similarity 0.06
+  tradition  swing_revival  <>  vintage_swing
+             Swing Revival  ·  Vintage swing (retro-swing revival)
+             4 shared exemplar artists, name similarity 0.56
+  tradition  j_rap  <>  japanese_old_school_hip_hop
+             J-rap  ·  Japanese old school hip hop
+             4 shared exemplar artists, name similarity 0.08
+  tradition  delta_blues  <>  acoustic_blues
+             Delta blues  ·  Acoustic Blues
+             3 shared exemplar artists, name similarity 0.38
+  tradition  delta_blues  <>  country_blues
+             Delta blues  ·  Country Blues
+             3 shared exemplar artists, name similarity 0.40
+  tradition  stride_piano  <>  stride
+             Stride piano  ·  Stride
+             3 shared exemplar artists, name similarity 0.67
+  tradition  conscious_hip_hop  <>  golden_age_hip_hop
+             Conscious hip-hop  ·  Golden Age Hip Hop
+             3 shared exemplar artists, name similarity 0.36
+  tradition  free_jazz  <>  avant_garde_jazz
+             Free jazz  ·  Avant-Garde Jazz
+             3 shared exemplar artists, name similarity 0.40
+  tradition  beijing_opera  <>  chinese_opera
+             Beijing opera (jingju)  ·  Chinese Opera (xiqu regional traditions)
+             3 shared exemplar artists, name similarity 0.20
+  tradition  hair_metal  <>  glam_metal
+             Hair metal  ·  Glam Metal
+             3 shared exemplar artists, name similarity 0.50
+  tradition  alternative_rock  <>  indie_rock
+             Alternative rock  ·  Indie Rock
+             3 shared exemplar artists, name similarity 0.36
+  tradition  dub_techno  <>  berlin_minimal_techno
+             Dub techno  ·  Berlin Minimal Techno
+             3 shared exemplar artists, name similarity 0.38
+  tradition  southern_trap  <>  atl_trap
+             Trap (southern)  ·  ATL trap (Atlanta canon)
+             3 shared exemplar artists, name similarity 0.21
+  tradition  morna  <>  coladeira
+             Morna  ·  Coladeira
+             3 shared exemplar artists, name similarity 0.00
+  tradition  spirituals_african_american  <>  negro_spiritual
+             African-American spirituals  ·  Negro Spiritual (concert arrangement)
+             3 shared exemplar artists, name similarity 0.40
+  tradition  milonga  <>  zamba_folklorica
+             Milonga  ·  Zamba (Argentine folklore pañuelo dance)
+             3 shared exemplar artists, name similarity 0.05
+  tradition  milonga  <>  folklore_surero
+             Milonga  ·  Folklore surero (Argentine pampa)
+             3 shared exemplar artists, name similarity 0.06
+  tradition  tuvan_throat  <>  siberian_folk
+             Tuvan throat singing (khoomei)  ·  Siberian folk music (Sakha, Tuva, Altai)
+             3 shared exemplar artists, name similarity 0.26
+  tradition  rai  <>  rai_algerien
+             Raï  ·  Raï algérien (Oran pop-raï)
+             3 shared exemplar artists, name similarity 0.18
+  tradition  andean_huayno  <>  huayno_peruano
+             Huayno  ·  Huayno peruano
+             3 shared exemplar artists, name similarity 0.59
+  tradition  great_american_songbook  <>  standards
+             Great American Songbook (vocal jazz pop)  ·  Standards (Great American Songbook)
+             3 shared exemplar artists, name similarity 0.66
+  tradition  rumba_cubana  <>  cuban_rumba
+             Rumba cubana  ·  Cuban Rumba (guaguancó, yambú, columbia complex)
+             3 shared exemplar artists, name similarity 0.38
+  tradition  cumbia_peruvian  <>  cumbia_amazonica
+             Cumbia peruana (chicha)  ·  Cumbia amazónica
+             3 shared exemplar artists, name similarity 0.38
+  tradition  cumbia_peruvian  <>  chicha
+             Cumbia peruana (chicha)  ·  Chicha (Peruvian Amazonian psychedelic cumbia)
+             3 shared exemplar artists, name similarity 0.56
+  tradition  joropo  <>  folklore_venezolano
+             Joropo  ·  Folklore Venezolano
+             3 shared exemplar artists, name similarity 0.09
+  tradition  forro_brasileiro  <>  forro_tradicional
+             Forró brasileiro  ·  Forró Tradicional (trio nordestino forró)
+             3 shared exemplar artists, name similarity 0.25
+  tradition  forro_brasileiro  <>  sanfona_nordestina
+             Forró brasileiro  ·  Sanfona nordestina (Brazilian accordion tradition)
+             3 shared exemplar artists, name similarity 0.18
+  tradition  cumbia_electronica  <>  nu_cumbia
+             Cumbia electrónica  ·  Nu-Cumbia
+             3 shared exemplar artists, name similarity 0.43
+  tradition  ska_revival_2tone  <>  two_tone_ska
+             2-Tone ska revival  ·  2-Tone
+             3 shared exemplar artists, name similarity 0.44
+  tradition  polish_poezja_spiewana  <>  sung_poetry
+             Polish poezja śpiewana  ·  Sung Poetry (Poezja Śpiewana)
+             3 shared exemplar artists, name similarity 0.67
+  tradition  uilleann_pipe_solo  <>  uilleann_pipes
+             Uilleann pipe solo  ·  Uilleann piping (Irish pipe tradition)
+             3 shared exemplar artists, name similarity 0.48
+  tradition  chanson_classique  <>  chanson
+             Chanson classique  ·  Chanson
+             3 shared exemplar artists, name similarity 0.57
+  tradition  free_improvisation  <>  european_free_jazz
+             Free improvisation (non-idiomatic)  ·  European Free Jazz
+             3 shared exemplar artists, name similarity 0.19
+  tradition  electroacoustic_improv  <>  onkyokei
+             Electroacoustic improvisation  ·  Onkyokei (Japanese onkyo improvisation)
+             3 shared exemplar artists, name similarity 0.40
+  tradition  minneapolis_synth_funk_pop  <>  minneapolis_sound
+             Minneapolis synth-funk-pop  ·  Minneapolis Sound
+             3 shared exemplar artists, name similarity 0.65
+  tradition  baiao  <>  forro_tradicional
+             Baião  ·  Forró Tradicional (trio nordestino forró)
+             3 shared exemplar artists, name similarity 0.00
+  tradition  punta_garifuna  <>  garifuna_folk
+             Punta (Garifuna)  ·  Garifuna Folk Music
+             3 shared exemplar artists, name similarity 0.50
+  tradition  garifuna_paranda  <>  garifuna_folk
+             Paranda (Garifuna)  ·  Garifuna Folk Music
+             3 shared exemplar artists, name similarity 0.47
+  tradition  kompa_direkt  <>  compas_direk
+             Kompa-direkt (Haitian)  ·  Compas (Haitian konpa dirèk)
+             3 shared exemplar artists, name similarity 0.77
+  tradition  mizrahi_israeli  <>  mizrahi
+             Mizrahi (Israeli)  ·  Mizrahi (Israeli Mediterranean Music)
+             3 shared exemplar artists, name similarity 0.59
+  tradition  ecm_jazz_aesthetic  <>  ecm_style_jazz
+             ECM-school jazz aesthetic  ·  ECM-style Jazz
+             3 shared exemplar artists, name similarity 0.44
+  tradition  swedish_nyckelharpa_folk  <>  nyckelharpa_tradition
+             Swedish nyckelharpa folk  ·  Nyckelharpa (keyed-fiddle tradition)
+             3 shared exemplar artists, name similarity 0.47
+  tradition  bulgarian_dance_traditional  <>  bulgarian_folk
+             Bulgarian dance traditional (horo, ruchenitsa)  ·  Bulgarian folk (narodna muzika ensemble tradition)
+             3 shared exemplar artists, name similarity 0.50
+  tradition  turkish_romani_cumbus  <>  oyun_havasi
+             Turkish-Romani çümbüş music  ·  Oyun Havası
+             3 shared exemplar artists, name similarity 0.00
+  tradition  british_brass_band  <>  brass_band
+             British brass band (Northern English)  ·  Brass Band (British)
+             3 shared exemplar artists, name similarity 0.62
+  tradition  apala_yoruba  <>  apala
+             Apàlà (Yoruba Muslim percussion-song)  ·  Apala
+             3 shared exemplar artists, name similarity 0.24
+  tradition  algerian_chaabi  <>  chaabi_algerien
+             Algerian chaabi (Algiers urban folk)  ·  Chaabi algérien (Algiers casbah chaabi)
+             3 shared exemplar artists, name similarity 0.59
+  tradition  filipino_kundiman  <>  kundiman
+             Filipino kundiman (romantic art-song)  ·  Kundiman
+             3 shared exemplar artists, name similarity 0.38
+  tradition  singaporean_xinyao  <>  xinyao
+             Singaporean xinyao (Mandarin youth folk)  ·  Xinyao
+             3 shared exemplar artists, name similarity 0.26
+  tradition  quechua_wayno_traditional  <>  huayno_peruano
+             Quechua wayno (traditional Andean)  ·  Huayno peruano
+             3 shared exemplar artists, name similarity 0.30
+  tradition  mapuche_ulkantun  <>  musica_mapuche
+             Mapuche ülkantun (sung-poetry beyond tayil)  ·  Música Mapuche
+             3 shared exemplar artists, name similarity 0.26
+  tradition  pizzica_salentina  <>  tarantella
+             Pizzica salentina (Salento spider-dance)  ·  Tarantella (pan-southern Italian dance complex)
+             3 shared exemplar artists, name similarity 0.22
+  tradition  cante_jondo_siguiriya  <>  cante_flamenco
+             Cante jondo siguiriya (deepest flamenco)  ·  Cante flamenco (the vocal art)
+             3 shared exemplar artists, name similarity 0.39
+  tradition  flamenco_solea  <>  cante_flamenco
+             Soleá (flamenco "mother of cante")  ·  Cante flamenco (the vocal art)
+             3 shared exemplar artists, name similarity 0.58
+  tradition  romanian_lautari  <>  muzica_lautareasca
+             Romanian lăutari (Roma tavern-band tradition)  ·  Muzică lăutărească
+             3 shared exemplar artists, name similarity 0.19
+  tradition  hardingfele_slatt  <>  norwegian_folk
+             Hardingfele slått (Hardanger-fiddle dance-tunes)  ·  Norwegian folk music (norsk folkemusikk)
+             3 shared exemplar artists, name similarity 0.03
+  tradition  hardingfele_slatt  <>  hardingfele
+             Hardingfele slått (Hardanger-fiddle dance-tunes)  ·  Hardingfele (Hardanger-fiddle practice)
+             3 shared exemplar artists, name similarity 0.68
+  tradition  asturian_gaita  <>  asturian_folk
+             Asturian gaita (Iberian Celtic bagpipe)  ·  Asturian folk
+             3 shared exemplar artists, name similarity 0.33
+  tradition  merengue_tipico  <>  tipico
+             Merengue típico (Cibao traditional)  ·  Merengue Típico (Perico Ripiao)
+             3 shared exemplar artists, name similarity 0.52
+  tradition  chacarera_argentina  <>  zamba_folklorica
+             Chacarera (Argentine northwest)  ·  Zamba (Argentine folklore pañuelo dance)
+             3 shared exemplar artists, name similarity 0.37
+  tradition  zamba_argentina  <>  folclore_tucumano
+             Zamba (Argentine slow-romantic)  ·  Folclore tucumano
+             3 shared exemplar artists, name similarity 0.15
+  tradition  champeta_cartagenera  <>  champeta
+             Champeta (Cartagena Afro-Colombian)  ·  Champeta (Colombian Caribbean picó style)
+             3 shared exemplar artists, name similarity 0.57
+  tradition  forro_pe_de_serra  <>  sanfona_nordestina
+             Forró pé-de-serra (traditional forró)  ·  Sanfona nordestina (Brazilian accordion tradition)
+             3 shared exemplar artists, name similarity 0.42
+  tradition  coco_brasileiro  <>  coco
+             Coco brasileiro (NE Brazilian work-song)  ·  Coco de Roda (Northeastern Brazilian circle coco)
+             3 shared exemplar artists, name similarity 0.44
+  tradition  late_romantic_19c  <>  late_romantic_era
+             Late Romantic (1850-1910)  ·  Late Romantic Era
+             3 shared exemplar artists, name similarity 0.67
+  tradition  second_viennese_school  <>  expressionist_art_music
+             Second Viennese School (atonal serialism)  ·  Expressionist (Art Music)
+             3 shared exemplar artists, name similarity 0.11
+  tradition  second_viennese_school  <>  twelve_tone
+             Second Viennese School (atonal serialism)  ·  Twelve-tone (Dodecaphony)
+             3 shared exemplar artists, name similarity 0.22
+  tradition  darmstadt_school_total_serialism  <>  live_electronics
+             Darmstadt School (total serialism)  ·  Live Electronics
+             3 shared exemplar artists, name similarity 0.05
+  tradition  darmstadt_school_total_serialism  <>  serialism
+             Darmstadt School (total serialism)  ·  Serialism
+             3 shared exemplar artists, name similarity 0.44
+  tradition  zarzuela_spanish  <>  zarzuela_genero_chico
+             Zarzuela (Spanish lyric theatre)  ·  Zarzuela género chico (one-act Madrid tradition)
+             3 shared exemplar artists, name similarity 0.37
+  tradition  m_base_collective  <>  mbase_jazz
+             M-Base collective (late-1980s Brooklyn-based jazz-avant-garde)  ·  M-Base Jazz
+             3 shared exemplar artists, name similarity 0.24
+  tradition  m_base_collective  <>  m_base
+             M-Base collective (late-1980s Brooklyn-based jazz-avant-garde)  ·  M-Base (odd-metre Brooklyn jazz language)
+             3 shared exemplar artists, name similarity 0.39
+  tradition  d_beat_swedish  <>  d_beat
+             D-beat (Swedish hardcore)  ·  D-beat (Discharge lineage)
+             3 shared exemplar artists, name similarity 0.41
+  tradition  screamo_skramz  <>  skramz
+             Scramz / screamo  ·  Skramz
+             3 shared exemplar artists, name similarity 0.35
+  tradition  midwest_emo  <>  emocore
+             Midwest emo  ·  Emocore
+             3 shared exemplar artists, name similarity 0.27
+  tradition  madchester_baggy  <>  madchester
+             Madchester / baggy  ·  Madchester (Manchester Scene)
+             3 shared exemplar artists, name similarity 0.47
+  tradition  atlanta_trap_classic  <>  atl_trap
+             Atlanta trap (classic 2000s)  ·  ATL trap (Atlanta canon)
+             3 shared exemplar artists, name similarity 0.50
+  tradition  phonk_old_memphis  <>  phonk
+             Phonk (lo-fi Memphis sample-based)  ·  Phonk
+             3 shared exemplar artists, name similarity 0.27
+  tradition  pluggnb  <>  dream_plugg
+             Pluggnb (R&B-plugg hybrid)  ·  Dream Plugg
+             3 shared exemplar artists, name similarity 0.26
+  tradition  sad_rap_emo_trap  <>  emo_rap
+             Sad rap / emo trap  ·  Emo Rap
+             3 shared exemplar artists, name similarity 0.47
+  tradition  chiptune_8bit  <>  chipmusic_lsdj_tracker
+             Chiptune / 8-bit  ·  Chipmusic (LSDj and Game Boy live scene)
+             3 shared exemplar artists, name similarity 0.19
+  tradition  drill_n_bass  <>  drill_and_bass
+             Drill'n'bass (mid-1990s UK extreme-virtuoso drum-and-bass)  ·  Drill'n'bass
+             3 shared exemplar artists, name similarity 0.33
+  tradition  future_funk_vaporwave  <>  future_funk_edit_scene
+             Future funk (vaporwave subgenre)  ·  Future funk (Japanese city-pop edit scene)
+             3 shared exemplar artists, name similarity 0.44
+  tradition  happy_hardcore  <>  four_beat_hardcore
+             Happy hardcore (UK 90s)  ·  4-Beat (UK Hardcore)
+             3 shared exemplar artists, name similarity 0.52
+  tradition  shona_mbira_praise  <>  mbira_dzavadzimu_ceremony
+             Shona mbira praise music (Zimbabwe)  ·  Mbira dzaVadzimu Ceremonial Music
+             3 shared exemplar artists, name similarity 0.42
+  tradition  bulgarian_zhetvarski  <>  bulgarian_folk
+             Bulgarian zhetvarski pesni (harvest songs)  ·  Bulgarian folk (narodna muzika ensemble tradition)
+             3 shared exemplar artists, name similarity 0.29
+  tradition  sami_yoik_tracking  <>  sami_yoik_tradition
+             Sami yoik — animal-tracking and hunting song  ·  Sami yoik (Sápmi vocal tradition)
+             3 shared exemplar artists, name similarity 0.43
+  tradition  hebridean_waulking  <>  scottish_gaelic_folk
+             Hebridean waulking song (òrain luaidh)  ·  Scottish Gaelic folk song
+             3 shared exemplar artists, name similarity 0.15
+  tradition  trap  <>  atl_trap
+             Trap  ·  ATL trap (Atlanta canon)
+             3 shared exemplar artists, name similarity 0.29
+  tradition  darkpsy  <>  dark_psytrance
+             Darkpsy  ·  Dark Psytrance
+             3 shared exemplar artists, name similarity 0.67
+  tradition  urbano_latino  <>  trap_latino
+             Urbano latino  ·  Trap Latino (pan-Hispanic trap)
+             3 shared exemplar artists, name similarity 0.34
+  tradition  adult_standards  <>  standards
+             Adult Standards  ·  Standards (Great American Songbook)
+             3 shared exemplar artists, name similarity 0.38
+  tradition  grupera  <>  cumbia_ranchera
+             Grupera  ·  Cumbia ranchera
+             3 shared exemplar artists, name similarity 0.21
+  tradition  lounge_exotica  <>  space_age_pop
+             Lounge (exotica-era easy listening)  ·  Space Age Pop
+             3 shared exemplar artists, name similarity 0.11
+  tradition  azontobeats  <>  azonto
+             Azontobeats  ·  Azonto
+             3 shared exemplar artists, name similarity 0.67
+  tradition  cancion_melodica  <>  baladas_y_boleros
+             Canción melódica  ·  Baladas y Boleros
+             3 shared exemplar artists, name similarity 0.00
+  tradition  cancion_melodica  <>  latin_ballad
+             Canción melódica  ·  Latin Ballad (balada romántica)
+             3 shared exemplar artists, name similarity 0.15
+  tradition  video_game_music  <>  japanese_vgm
+             Video game music  ·  Japanese VGM
+             3 shared exemplar artists, name similarity 0.00
+  tradition  swamp_rock  <>  roots_rock
+             Swamp rock  ·  Roots Rock
+             3 shared exemplar artists, name similarity 0.38
+  tradition  javanese_dangdut  <>  dangdut_koplo
+             Javanese Dangdut  ·  Dangdut koplo (East Javanese kendang koplo)
+             3 shared exemplar artists, name similarity 0.53
+  tradition  cantautora_mexicana  <>  nuevo_folklore_mexicano
+             Cantautora Mexicana  ·  Nuevo folklore mexicano
+             3 shared exemplar artists, name similarity 0.38
+  tradition  scenecore  <>  crunkcore
+             Scenecore  ·  Crunkcore
+             3 shared exemplar artists, name similarity 0.38
+  tradition  disco_house  <>  french_house
+             Disco House  ·  French House
+             3 shared exemplar artists, name similarity 0.42
+  tradition  cumbia_420  <>  rkt
+             Cumbia 420  ·  RKT (Argentine reggaetón-cumbia)
+             3 shared exemplar artists, name similarity 0.29
+  tradition  trap_chileno  <>  reggaeton_chileno
+             Trap chileno  ·  Reggaeton Chileno
+             3 shared exemplar artists, name similarity 0.48
+  tradition  trancecore  <>  synthcore
+             Trancecore (electronicore)  ·  Synthcore
+             3 shared exemplar artists, name similarity 0.20
+  tradition  piseiro  <>  forro_de_favela
+             Piseiro  ·  Forró de Favela (forró eletrônico das periferias)
+             3 shared exemplar artists, name similarity 0.04
+  tradition  folklore_argentino  <>  folclore_salteno
+             Folklore Argentino  ·  Folclore salteño
+             3 shared exemplar artists, name similarity 0.47
+  tradition  impressionism  <>  impressionist_art_music
+             Musical impressionism  ·  Impressionist (Art Music)
+             3 shared exemplar artists, name similarity 0.77
+  tradition  turkish_folk  <>  baglama_asik
+             Turkish Folk (Türk Halk Müziği)  ·  Bağlama (Aşık Saz Tradition)
+             3 shared exemplar artists, name similarity 0.00
+  tradition  mexican_pop  <>  baladas_y_boleros
+             Mexican Pop  ·  Baladas y Boleros
+             3 shared exemplar artists, name similarity 0.00
+  tradition  japanese_electropop  <>  j_synth
+             Japanese technopop (electropop)  ·  J-Synth (Japanese technopop)
+             3 shared exemplar artists, name similarity 0.67
+  tradition  taiwan_pop  <>  c_pop
+             Taiwanese Mandopop (Taipei ballad industry)  ·  C-Pop (Chinese-Language Popular Song)
+             3 shared exemplar artists, name similarity 0.28
+  tradition  nyc_rap  <>  mafioso_rap
+             New York City rap (five-borough mainstream)  ·  Mafioso Rap
+             3 shared exemplar artists, name similarity 0.23
+  tradition  kansas_city_blues  <>  kansas_city_jazz
+             Kansas City Blues  ·  Kansas City Jazz
+             3 shared exemplar artists, name similarity 0.67
+  tradition  expressionist_art_music  <>  twelve_tone
+             Expressionist (Art Music)  ·  Twelve-tone (Dodecaphony)
+             3 shared exemplar artists, name similarity 0.05
+  tradition  sonata_form  <>  classical_era
+             Sonata (Classical Instrumental Form)  ·  Viennese Classical Era
+             3 shared exemplar artists, name similarity 0.37
+  tradition  progressive_bluegrass  <>  new_acoustic
+             Progressive Bluegrass  ·  New Acoustic
+             3 shared exemplar artists, name similarity 0.00
+  tradition  nu_skool_breaks  <>  funky_breaks
+             Nu Skool Breaks  ·  Funky Breaks
+             3 shared exemplar artists, name similarity 0.45
+  tradition  us_garage  <>  new_york_garage_house
+             US Garage  ·  New York Garage House
+             3 shared exemplar artists, name similarity 0.50
+  tradition  lounge_music  <>  space_age_pop
+             Lounge (cocktail-bar mood music)  ·  Space Age Pop
+             3 shared exemplar artists, name similarity 0.06
+  tradition  lounge_music  <>  exotica
+             Lounge (cocktail-bar mood music)  ·  Exotica
+             3 shared exemplar artists, name similarity 0.06
+  tradition  electro_grime  <>  grime
+             Electro-Grime  ·  Grime
+             3 shared exemplar artists, name similarity 0.53
+  tradition  live_electronics  <>  serialism
+             Live Electronics  ·  Serialism
+             3 shared exemplar artists, name similarity 0.09
+  tradition  baggy  <>  madchester
+             Baggy (Indie-Dance)  ·  Madchester (Manchester Scene)
+             3 shared exemplar artists, name similarity 0.16
+  tradition  eurobeat  <>  super_eurobeat
+             Eurobeat  ·  Super Eurobeat
+             3 shared exemplar artists, name similarity 0.74
+  tradition  british_folk_revival  <>  industrial_folk
+             British Folk Revival  ·  Industrial Folk
+             3 shared exemplar artists, name similarity 0.33
+  tradition  ska_jazz  <>  traditional_ska
+             Ska Jazz  ·  Traditional Ska (early-60s instrumental)
+             3 shared exemplar artists, name similarity 0.10
+  tradition  baladas_y_boleros  <>  latin_ballad
+             Baladas y Boleros  ·  Latin Ballad (balada romántica)
+             3 shared exemplar artists, name similarity 0.31
+  tradition  raices  <>  nueva_trova_chilena
+             Raíces  ·  Nueva trova chilena
+             3 shared exemplar artists, name similarity 0.00
+  tradition  space_age_pop  <>  exotica
+             Space Age Pop  ·  Exotica
+             3 shared exemplar artists, name similarity 0.00
+  tradition  boogie_post_disco  <>  post_disco
+             Boogie (Post-Disco)  ·  Post-Disco
+             3 shared exemplar artists, name similarity 0.73
+  tradition  tex_mex  <>  conjunto
+             Tex-Mex  ·  Conjunto (Tejano)
+             3 shared exemplar artists, name similarity 0.11
+  tradition  yodel  <>  alpine_yodeling
+             Yodel  ·  Alpine Yodeling
+             3 shared exemplar artists, name similarity 0.47
+  tradition  museve  <>  sungura
+             Museve  ·  Sungura
+             3 shared exemplar artists, name similarity 0.00
+  tradition  nueva_trova_chilena  <>  musica_andina_chilena
+             Nueva trova chilena  ·  Música andina chilena (Norte Grande / nueva canción Andean)
+             3 shared exemplar artists, name similarity 0.35
+  tradition  canto_popular_uruguayo  <>  folklore_uruguayo
+             Canto popular uruguayo  ·  Folklore Uruguayo
+             3 shared exemplar artists, name similarity 0.41
+  tradition  tinku_bolivia  <>  folklore_boliviano
+             Tinku (Bolivian Norte Potosí)  ·  Folklore Boliviano
+             3 shared exemplar artists, name similarity 0.46
+  tradition  musica_llanera  <>  folklore_venezolano
+             Música llanera  ·  Folklore Venezolano
+             3 shared exemplar artists, name similarity 0.21
+  tradition  musica_andina  <>  folklore_boliviano
+             Música andina (pan-Andean folkloric)  ·  Folklore Boliviano
+             3 shared exemplar artists, name similarity 0.31
+  tradition  tonada  <>  folklore_chileno
+             Tonada chilena  ·  Folklore Chileno
+             3 shared exemplar artists, name similarity 0.38
+  tradition  throat_singing  <>  tuvan_folk
+             Throat Singing (Overtone Singing)  ·  Tuvan Folk Music
+             3 shared exemplar artists, name similarity 0.05
+  tradition  throat_singing  <>  siberian_folk
+             Throat Singing (Overtone Singing)  ·  Siberian folk music (Sakha, Tuva, Altai)
+             3 shared exemplar artists, name similarity 0.14
+  tradition  new_orleans_funk  <>  new_orleans_soul
+             New Orleans funk  ·  New Orleans Soul
+             3 shared exemplar artists, name similarity 0.69
+  tradition  puirt_a_beul  <>  scottish_gaelic_folk
+             Puirt-à-beul (Gaelic mouth music)  ·  Scottish Gaelic folk song
+             3 shared exemplar artists, name similarity 0.22
+  tradition  bulgarian_folk  <>  horo
+             Bulgarian folk (narodna muzika ensemble tradition)  ·  Horo (Bulgarian dance music)
+             3 shared exemplar artists, name similarity 0.34
+  tradition  norwegian_folk  <>  hardingfele
+             Norwegian folk music (norsk folkemusikk)  ·  Hardingfele (Hardanger-fiddle practice)
+             3 shared exemplar artists, name similarity 0.06
+  tradition  tar_persian_classical  <>  setar_persian_solo
+             Tar (Persian Classical Lute)  ·  Setar (Persian Solo Lute)
+             3 shared exemplar artists, name similarity 0.59
+  tradition  uk82  <>  street_punk
+             UK82  ·  Street Punk
+             3 shared exemplar artists, name similarity 0.00
+  tradition  acidcore  <>  acid_techno
+             Acidcore  ·  Acid Techno
+             3 shared exemplar artists, name similarity 0.38
+  tradition  trip_hop  <>  bristol_trip_hop
+             Trip hop  ·  Bristol trip hop
+             3 shared exemplar artists, name similarity 0.63
+  tradition  drone_folk  <>  new_weird_america
+             Drone Folk  ·  New Weird America
+             3 shared exemplar artists, name similarity 0.09
+  tradition  jazztronica  <>  nu_jazz
+             Jazztronica  ·  Nu Jazz
+             3 shared exemplar artists, name similarity 0.40
+  tradition  dark_plugg  <>  dream_plugg
+             Dark plugg  ·  Dream Plugg
+             3 shared exemplar artists, name similarity 0.47
+  tradition  western_americana  <>  canadian_contemporary_country
+             Western Americana  ·  Canadian contemporary country
+             3 shared exemplar artists, name similarity 0.20
+  tradition  traditional_country  <>  country_dawn
+             Traditional country  ·  Country dawn
+             3 shared exemplar artists, name similarity 0.44
+  tradition  deep_underground_hip_hop  <>  kentucky_hip_hop
+             Deep underground hip hop  ·  Kentucky hip hop
+             3 shared exemplar artists, name similarity 0.30
+  tradition  texas_conjunto  <>  conjunto
+             Texas conjunto  ·  Conjunto (Tejano)
+             2 shared exemplar artists, name similarity 0.64
+  tradition  delta_blues  <>  deep_delta_blues
+             Delta blues  ·  Deep delta blues
+             2 shared exemplar artists, name similarity 0.82
+  tradition  kansas_city_swing  <>  kansas_city_blues
+             Kansas City swing  ·  Kansas City Blues
+             2 shared exemplar artists, name similarity 0.64
+  tradition  kansas_city_swing  <>  kansas_city_jazz
+             Kansas City swing  ·  Kansas City Jazz
+             2 shared exemplar artists, name similarity 0.67
+  tradition  flamenco  <>  nuevo_flamenco
+             Flamenco  ·  Nuevo Flamenco
+             2 shared exemplar artists, name similarity 0.74
+  tradition  western_swing  <>  western_music
+             Western swing  ·  Western
+             2 shared exemplar artists, name similarity 0.71
+  tradition  mor_lam  <>  molam
+             Mor lam  ·  Molam
+             2 shared exemplar artists, name similarity 0.67
+  tradition  sludge_metal  <>  sludge
+             Sludge metal  ·  Sludge
+             2 shared exemplar artists, name similarity 0.67
+  tradition  psytrance  <>  full_on
+             Psytrance  ·  Full On (Psytrance)
+             2 shared exemplar artists, name similarity 0.73
+  tradition  uk_garage_2step  <>  uk_garage
+             UK garage and 2-step  ·  UK Garage
+             2 shared exemplar artists, name similarity 0.64
+  tradition  dubstep_140  <>  classic_dubstep
+             Dubstep (140 bass-music)  ·  Classic dubstep
+             2 shared exemplar artists, name similarity 0.65
+  tradition  country_rap_hick_hop  <>  country_rap
+             Country rap (hick-hop)  ·  Country Rap
+             2 shared exemplar artists, name similarity 0.72
+  tradition  italian_southern_folk  <>  tarantella
+             Italian southern folk (tarantella, pizzica)  ·  Tarantella (pan-southern Italian dance complex)
+             2 shared exemplar artists, name similarity 0.65
+  tradition  georgian_three_voice_polyphony  <>  georgian_polyphony
+             Georgian three-voice polyphony  ·  Georgian Polyphony
+             2 shared exemplar artists, name similarity 0.71
+  tradition  maya_marimba  <>  marimba_de_guatemala
+             Maya marimba (Guatemalan Highland)  ·  Marimba de Guatemala
+             2 shared exemplar artists, name similarity 0.62
+  tradition  brega_tecnobrega  <>  tecnobrega
+             Brega and tecnobrega (Belém-Pará)  ·  Tecnobrega (Belém aparelhagem style)
+             2 shared exemplar artists, name similarity 0.61
+  tradition  lambada_carimbo  <>  carimbo
+             Lambada and carimbó (Amazonian Pará)  ·  Carimbó (Pará Amazonian carimbó)
+             2 shared exemplar artists, name similarity 0.69
+  tradition  drift_phonk_modern  <>  drift_phonk
+             Drift phonk (2020s TikTok)  ·  Drift Phonk
+             2 shared exemplar artists, name similarity 0.62
+  tradition  ghettotech_detroit  <>  ghettotech
+             Ghettotech (Detroit)  ·  Ghettotech
+             2 shared exemplar artists, name similarity 0.72
+  tradition  baltimore_club  <>  bmore_club
+             Baltimore club  ·  Bmore club
+             2 shared exemplar artists, name similarity 0.70
+  tradition  country  <>  country_gospel
+             Country  ·  Country Gospel
+             2 shared exemplar artists, name similarity 0.67
+  tradition  dubstep  <>  classic_dubstep
+             Dubstep  ·  Classic dubstep
+             2 shared exemplar artists, name similarity 0.63
+  tradition  anison_anime_song  <>  anison
+             Anison (anime song)  ·  Anison (Japanese anime theme song)
+             2 shared exemplar artists, name similarity 0.63
+  tradition  christian_rock  <>  christian_alternative_rock
+             Christian rock  ·  Christian alternative rock
+             2 shared exemplar artists, name similarity 0.63
+  tradition  uk_hard_house  <>  hard_house
+             UK Hard House  ·  Hard House
+             2 shared exemplar artists, name similarity 0.89
+  tradition  german_folk  <>  volksmusik
+             German Folk (Volksmusik)  ·  Volksmusik
+             2 shared exemplar artists, name similarity 0.64
+  tradition  tuvan_folk  <>  siberian_folk
+             Tuvan Folk Music  ·  Siberian folk music (Sakha, Tuva, Altai)
+             2 shared exemplar artists, name similarity 0.60
+  tradition  traditional_folk  <>  traditional_southern_folk
+             Traditional folk  ·  Traditional Southern folk
+             2 shared exemplar artists, name similarity 0.72
+  tradition  canadian_old_school_hip_hop  <>  canadian_hip_hop
+             Canadian old school hip hop  ·  Canadian hip hop
+             2 shared exemplar artists, name similarity 0.69
+  instrument saxophone_section_tenor_baritone  <>  saxophone_section_alto_tenor_baritone
+             tenor-baritone saxophone section  ·  Alto-tenor-baritone saxophone section
+             same family and class, name similarity 0.93, axis distance 0.33
+  instrument saxophone_section_alto_two_tenors  <>  saxophone_section_alto_tenor
+             alto and two tenor saxophone section  ·  alto-tenor saxophone section
+             same family and class, name similarity 0.89, axis distance 0.00
+  instrument hardware_cr78_rhythm_complete  <>  hardware_tr808_rhythm_complete
+             CR-78 hardware rhythm machine  ·  TR-808 hardware rhythm machine
+             same family and class, name similarity 0.86, axis distance 0.00
+  instrument hardware_tr606_rhythm_complete  <>  hardware_tr808_rhythm_complete
+             TR-606 hardware rhythm machine  ·  TR-808 hardware rhythm machine
+             same family and class, name similarity 0.84, axis distance 0.00
+  instrument hardware_tr606_rhythm_complete  <>  hardware_tr909_rhythm_complete
+             TR-606 hardware rhythm machine  ·  TR-909 hardware rhythm machine
+             same family and class, name similarity 0.84, axis distance 0.00
+  instrument hardware_tr808_rhythm_complete  <>  hardware_tr909_rhythm_complete
+             TR-808 hardware rhythm machine  ·  TR-909 hardware rhythm machine
+             same family and class, name similarity 0.84, axis distance 0.00
+  instrument saxophone_section_alto_tenor_baritone  <>  saxophone_section_alto_tenor
+             Alto-tenor-baritone saxophone section  ·  alto-tenor saxophone section
+             same family and class, name similarity 0.82, axis distance 0.00
+  instrument hardware_cr78_rhythm_complete  <>  hardware_tr606_rhythm_complete
+             CR-78 hardware rhythm machine  ·  TR-606 hardware rhythm machine
+             same family and class, name similarity 0.82, axis distance 0.00
+  instrument hardware_cr78_rhythm_complete  <>  hardware_tr909_rhythm_complete
+             CR-78 hardware rhythm machine  ·  TR-909 hardware rhythm machine
+             same family and class, name similarity 0.82, axis distance 0.00
+  instrument microtonal_guitar_unspecified  <>  microtonal_mandolin_unspecified
+             source-unspecified microtonal guitar  ·  source-unspecified microtonal mandolin
+             same family and class, name similarity 0.79, axis distance 0.00
+  instrument software_pink_noise_generator  <>  software_white_noise_generator
+             Software-generated pink noise  ·  Software-generated white noise
+             same family and class, name similarity 0.78, axis distance 0.00
+  instrument saxophone_section_tenor_baritone  <>  saxophone_section_alto_tenor
+             tenor-baritone saxophone section  ·  alto-tenor saxophone section
+             same family and class, name similarity 0.77, axis distance 0.33
+  instrument rain_environmental_recording  <>  whale_environmental_recording
+             Rain field recording  ·  Whale field recording
+             same family and class, name similarity 0.74, axis distance 0.00
+  instrument saxophone_section_alto_two_tenors  <>  saxophone_section_alto_tenor_baritone
+             alto and two tenor saxophone section  ·  Alto-tenor-baritone saxophone section
+             same family and class, name similarity 0.74, axis distance 0.00
+  instrument nadaswaram  <>  nadaswaram_concert_duo
+             nadaswaram  ·  Concert nadaswaram
+             same family and class, name similarity 0.72, axis distance 0.00
+  instrument saxophone_quartet_soprano_alto_tenor_baritone  <>  saxophone_section_soprano_alto_tenor
+             soprano-alto-tenor-baritone saxophone quartet  ·  Soprano-alto-tenor saxophone palette
+             same family and class, name similarity 0.71, axis distance 0.47
+  instrument saxophone_quartet_soprano_alto_tenor_baritone  <>  saxophone_section_alto_tenor_baritone
+             soprano-alto-tenor-baritone saxophone quartet  ·  Alto-tenor-baritone saxophone section
+             same family and class, name similarity 0.70, axis distance 0.33
+  instrument saxophone_section_tenor_baritone  <>  saxophone_section_alto_two_tenors
+             tenor-baritone saxophone section  ·  alto and two tenor saxophone section
+             same family and class, name similarity 0.69, axis distance 0.33
+  instrument uilleann_pipes  <>  uilleann_pipes_three_quarter
+             uilleann pipes  ·  three-quarter uilleann pipes
+             same family and class, name similarity 0.67, axis distance 0.00
+  instrument toy_piano  <>  toy_piano_concert
+             toypiano  ·  Concert toy piano
+             same family and class, name similarity 0.67, axis distance 0.00
+  instrument vimbuza_drums  <>  budima_drums
+             Vimbuza drums  ·  Budima drums
+             same family and class, name similarity 0.67, axis distance 0.00
+  instrument awasa_drums  <>  moutya_drum_trio
+             awasa drum trio  ·  moutya drum trio
+             same family and class, name similarity 0.64, axis distance 0.00
+  instrument credited_washboard_unspecified  <>  credited_leather_percussion_unspecified
+             Credited washboard percussion  ·  Credited leather percussion
+             same family and class, name similarity 0.64, axis distance 0.00
+  instrument credited_auxiliary_percussion  <>  credited_washboard_unspecified
+             Unspecified credited percussion  ·  Credited washboard percussion
+             same family and class, name similarity 0.63, axis distance 0.00
+  instrument saxophone_quartet_soprano_alto_tenor_baritone  <>  saxophone_section_tenor_baritone
+             soprano-alto-tenor-baritone saxophone quartet  ·  tenor-baritone saxophone section
+             same family and class, name similarity 0.63, axis distance 0.47
+  instrument saxophone_section_alto_two_tenors  <>  saxophone_section_soprano_alto_tenor
+             alto and two tenor saxophone section  ·  Soprano-alto-tenor saxophone palette
+             same family and class, name similarity 0.62, axis distance 0.33
+  instrument donso_ngoni  <>  donso_ngoni_eight_string
+             donso ngoni  ·  eight-string donso ngoni
+             same family and class, name similarity 0.62, axis distance 0.00
+  instrument saxophone_section_soprano_alto_tenor  <>  saxophone_section_alto_tenor
+             Soprano-alto-tenor saxophone palette  ·  alto-tenor saxophone section
+             same family and class, name similarity 0.62, axis distance 0.33
+  instrument harmonium_indian  <>  hand_pumped_harmonium
+             harmonium  ·  hand-pumped harmonium
+             same family and class, name similarity 0.62, axis distance 0.00
+  instrument credited_auxiliary_percussion  <>  credited_leather_percussion_unspecified
+             Unspecified credited percussion  ·  Credited leather percussion
+             same family and class, name similarity 0.62, axis distance 0.00
+  instrument daw_phrase_source_unspecified  <>  daw_bass_source_unspecified
+             DAW phrase source  ·  DAW bass source
+             same family and class, name similarity 0.62, axis distance 0.00
+  instrument credited_ney  <>  credited_kawala
+             Credited ney  ·  Credited kawala
+             same family and class, name similarity 0.61, axis distance 0.00
+
+DUPLICATE GATE: PASS — 9558 entities, 0 unruled identity collisions, 1 known unresolved, 382 advisory review pair(s).

@@ -1,5 +1,5 @@
 {
-  "count": 1658,
+  "count": 1659,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9948,6 +9948,12 @@
       "name": "Dobă (Maramureș drum)",
       "family": "percussion",
       "href": "instruments/doba_maramures.json"
+    },
+    {
+      "id": "cassette_pause_tape_looping",
+      "name": "Cassette pause-tape beat production",
+      "family": "electronic",
+      "href": "instruments/cassette_pause_tape_looping.json"
     }
   ]
 }

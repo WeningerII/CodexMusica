@@ -2,10 +2,10 @@
   "id": "piano_worship",
   "name": "Piano Worship",
   "family": "global",
-  "lineage": "Richard Samuels — Solo Piano Worship (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s piano worship, ritual Devotional, christian gospel branch. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 245,
-  "score": 7.142,
+  "lineage": "Instrumental piano interpretations of Christian worship repertoire.",
+  "recipe": "classic piano worship, ritual Devotional, christian gospel branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 178,
+  "score": 0.322,
   "config": {
     "traditions": [
       "piano_worship"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.2,
+          "keyboard_technique": -0.1,
           "grand_piano_size": 0.294,
           "grand_piano_brand": 0.273,
-          "piano_hammer": 0.7,
-          "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 0.7,
-          "piano_pinblock": 2,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 1.3649999999999998
+          "piano_hammer": -0.1,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],

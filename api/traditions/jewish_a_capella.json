@@ -2,10 +2,10 @@
   "id": "jewish_a_capella",
   "name": "Jewish a cappella",
   "family": "pop",
-  "lineage": "Six13 — documented six-person all-vocal concert format. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic jewish a cappella, functional Song. group vocals, live take. vocal percussion ensemble layer vocal percussion voice. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 223,
-  "score": 7.057,
+  "lineage": "Jewish a cappella connects Jewish repertoire and community identity with contemporary all-vocal arranging. Groups combine melodic leads, harmonies, vocal bass and imitated percussion.",
+  "recipe": "classic jewish a cappella, functional Song. vocal percussion ensemble layer vocal percussion voice. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 204,
+  "score": 5.83,
   "config": {
     "traditions": [
       "jewish_a_capella"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.18,
-          "voice_multitrack_stack": 0.7364999999999999,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -61,10 +61,10 @@
           "vocal_percussion_context": "vocal_percussion_context_ensemble"
         },
         "scores": {
-          "vocal_percussion_airstream_mechanism": 0.3,
-          "vocal_percussion_beatbox_articulation": 0.8999999999999999,
+          "vocal_percussion_airstream_mechanism": 0,
+          "vocal_percussion_beatbox_articulation": 0,
           "vocal_percussion_syllabic_drum_system": 0,
-          "vocal_percussion_context": 3.7705
+          "vocal_percussion_context": 4.870499999999999
         }
       }
     ],
@@ -95,7 +95,7 @@
         "vocal_percussion_context"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "transformerless",
@@ -112,7 +112,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",

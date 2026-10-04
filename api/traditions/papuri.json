@@ -2,10 +2,10 @@
   "id": "papuri",
   "name": "Papuri",
   "family": "global",
-  "lineage": "Aldy Santos — Pagkat Ang Diyos Ay Pag-ibig (Papuri), published SATB choir and piano arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic papuri, ritual Devotional. live take. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 210,
-  "score": 9.133,
+  "lineage": "A Filipino Christian songwriting and ministry movement established in 1979.",
+  "recipe": "classic late-1970s papuri, ritual Devotional. a 440 modern pitch us standard grand piano. shoebox concert hall.",
+  "recipe_chars": 111,
+  "score": 2.146,
   "config": {
     "traditions": [
       "papuri"
@@ -19,7 +19,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "legato_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.189,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.15749999999999997,
-          "voice_multitrack_stack": 0.7575,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.0315,
+          "grand_piano_size": 0.7314999999999999,
           "grand_piano_brand": 0.126,
-          "piano_hammer": 0.7314999999999999,
-          "piano_rim": 1.2205,
-          "piano_soundboard": 0.7314999999999999,
-          "piano_pinblock": 2.6,
-          "piano_plate": 0.7314999999999999,
-          "piano_pitch_standard": 1.755
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
+          "piano_pitch_standard": 1.2349999999999999
         }
       }
     ],
@@ -110,15 +110,15 @@
         "piano_pitch_standard"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -127,14 +127,14 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_articulation": "legato_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
@@ -156,12 +156,6 @@
       "piano_plate": "gray_iron_full_perimeter_plate",
       "piano_pitch_standard": "a_440_modern"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

@@ -1,0 +1,10 @@
+{
+  "baseline_commit": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+  "source_files": {
+    "references/05_traditions.js": "61a35c90020297dcd6f3486d803b3c15b1e9c8149f449f2926cbd4d092202797",
+    "references/06_extras.js": "de7414ab80c5a9660776a1ad9d4f538fa7675e91c3a88e3d42e40348b776bb7f"
+  },
+  "original197_sha256": "a505a6704dacae2d503f74f43ede6dd2f49daec0a11336c6af86f889f94dec2b",
+  "status": "EXACT197_BEFORE_GUARDS_PASS_ON043",
+  "preserve": "All043 source rows and owners outside197 unchanged; named3 are disjoint."
+}

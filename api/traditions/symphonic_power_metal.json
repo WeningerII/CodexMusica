@@ -5,7 +5,7 @@
   "lineage": "Symphonic power metal is represented here by Twilight Force. This selected branch has an authored present-day studio realization.",
   "recipe": "classic symphonic power metal, distorted Rock, power branch. lead plus third fifth harmony stack 3 part. Fender champ amp low wattage studio grit basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 474,
-  "score": 40.288,
+  "score": 40.13,
   "config": {
     "traditions": [
       "symphonic_power_metal"
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.6615
+          "voice_multitrack_stack": 0.5984999999999999
         }
       },
       {
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.5564999999999999,
+          "rompler_preset_bank": 0.46199999999999997,
           "rompler_context": 0.47250000000000003,
           "rompler_lineage": 1.573
         }

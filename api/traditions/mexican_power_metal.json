@@ -5,7 +5,7 @@
   "lineage": "Mexican power metal represented by Sky Wanderer’s Guadalajara melodic power-metal EP. Exact defaults are an authored present-day recording model.",
   "recipe": "classic modern mexican power metal, distorted Rock, power branch. Fender champ amp low wattage studio grit basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 367,
-  "score": 44.23,
+  "score": 44.125,
   "config": {
     "traditions": [
       "mexican_power_metal"
@@ -132,7 +132,7 @@
         "scores": {
           "electronic_technique": 0.26,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.5145,
+          "poly_voices": 0.4095,
           "poly_maker_lineage": -0.035
         }
       }

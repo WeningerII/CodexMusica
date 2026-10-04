@@ -5,7 +5,7 @@
   "lineage": "Mexican indie rock includes groups developing sustained noise and rough guitar textures.",
   "recipe": "classic indie rock mexicano, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood feedback humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital silicon fuzz.",
   "recipe_chars": 337,
-  "score": 31.212,
+  "score": 30.661,
   "config": {
     "traditions": [
       "indie_rock_mexicano"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 4.2,
           "amp_make": 4.8100000000000005,
-          "body_wood": 2.4255,
+          "body_wood": 2.1645000000000003,
           "neck_wood": 0.105,
-          "fretboard": 0.21000000000000002,
+          "fretboard": 0.1365,
           "pickup_magnet": 0,
-          "pickup_winding": 0.1365,
+          "pickup_winding": 0.1425,
           "string_material": 0.105,
-          "bridge": 0.273,
+          "bridge": 0.37274999999999997,
           "scale_length": 0.03899999999999999,
-          "string_gauge": 0.273,
+          "string_gauge": 0.37274999999999997,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 5.265,
-          "body_wood": 2.4255,
+          "body_wood": 2.1645000000000003,
           "pickup_config": 0,
           "string_type": 0.03899999999999999,
           "scale_length_b": 0.1755,
-          "fretted_or_not": 0.11249999999999999,
-          "bass_technique": -0.15000000000000002,
+          "fretted_or_not": 0.03899999999999999,
+          "bass_technique": -0.10725000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.5,
-          "drumhead": 0.5535,
+          "drum_technique": 9.54275,
+          "drumhead": 0.51675,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,7 +114,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.273,
-          "voice_ornament_system": 0.273,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
           "voice_multitrack_stack": 0,

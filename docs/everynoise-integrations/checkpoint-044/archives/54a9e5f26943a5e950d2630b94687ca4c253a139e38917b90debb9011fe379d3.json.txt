@@ -1,0 +1,151 @@
+{
+  "status": "EXACT_HASHES_AND_IMMUTABLE_FIELDS_PASS",
+  "candidate": "/workspace/genre-continuation/research/next-additions-projection461/v5/candidate-safe16.json",
+  "candidate_sha256": "a8af1098e1cebf13313efe22434ca6132b484750566c1202fd5d044dfbfb2d09",
+  "provenance": [
+    {
+      "id": "malayalam_hip_hop",
+      "source_packet": "/workspace/genre-continuation/research/held16-research117/malayalam_hip_hop-cassette-final.json",
+      "source_sha256": "d5d7c3f86b1aaa98c7d01eced461e537f21d39ac5625d023534f843ee6e70b0b",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/malayalam-cassette-independent-review461.json",
+      "review_sha256": "b5e85dba844672a9a44dcb1f7cd6dc1731c74e4521eed77c45b5f66453aa6701",
+      "scope": "REGISTERED_QUEUE_OVERRIDE",
+      "historical_hold_reassessment_required": true
+    },
+    {
+      "id": "oeteldonk",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-005.json",
+      "source_sha256": "998128b06af81f4e298bb0e9b1fe3f32a3e756f01e32abb688b4543fbce5fd4b",
+      "review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-005-root-review.json",
+      "review_sha256": "bf7aafc34be654439593ccec20125fce3f4efd03740c4f59573b664e5b6bf586",
+      "scope": "REGISTERED_QUEUE_OVERRIDE",
+      "historical_hold_reassessment_required": true
+    },
+    {
+      "id": "chhattisgarhi_pop",
+      "source_packet": "/workspace/genre-continuation/research/held16-research117/chhattisgarhi_pop-live-realization-scope-final.json",
+      "source_sha256": "1970bc72caf79a3034c0d4be41b732daad718b196f13a6b0707e0e5f34f6d37d",
+      "review": "/workspace/genre-continuation/research/held16-research117/chhattisgarhi-pop-independent-review116.json",
+      "review_sha256": "93e739455cdc45d6228f51f3cdfe1e1e377a31459699345d36973c71e58feae8",
+      "scope": "REGISTERED_QUEUE_OVERRIDE",
+      "historical_hold_reassessment_required": true
+    },
+    {
+      "id": "underground_amapiano",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice015-underground-amapiano.json",
+      "source_sha256": "bf45ebe49e89f64f4da727f88b01f4fcbde4c2d0562acbf4845dd933c8e5edea",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4474-scope-reassessment-pass461.json",
+      "review_sha256": "694b7293b6856ee9d1215012350c99ae144d69c01d2cc45e1d36376036d34812",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "healing_hz",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice014-healing-hz.json",
+      "source_sha256": "37b9b9aec97969a66cf9cda080424145c7c37ad065792d7327ea9af40c80731b",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice014-healing-hz-independent-review-sourceaudit.json",
+      "review_sha256": "b1c828c1606cb2fffee2ef17fc811dad0a06575611b73de92cf173b5469919f4",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "swazi_traditional",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice016-swazi-traditional-signature-corrected.json",
+      "source_sha256": "bf2d66bc2bcbd8727bdc9d8c3ff39d46dbbb04f24f10158d167556203bce0c95",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice016-swazi-traditional-independent-review116.json",
+      "review_sha256": "6c95cf90eb4795fde0c3a0f301354d5e2249f7534c893e97f6e6d7628e53b55a",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "modern_downshift",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice017-modern-downshift.json",
+      "source_sha256": "982e51d24c7a45e00169f23e56793f273ddd08459adf149c5db5fdc240225bf5",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/modern-downshift-independent-review117.json",
+      "review_sha256": "63a7d641c8fb70bc225fbee6a11c350858ec483be2f44b777fb3a06c758b5101",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "hopebeat",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice015-hopebeat-arrangement-clarified.json",
+      "source_sha256": "f52dc3d386947370d48edc7387e953834f5795d20ec4fe6c617b9d6723f72ea9",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice015-hopebeat-arrangement-clarified-independent-review-sourceaudit.json",
+      "review_sha256": "e4d26f3eabe49a75522701b356ddff01525dfdd34d98c4f8a79a45e15c592ce7",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "louvor",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice018-louvor-pacing-clarified.json",
+      "source_sha256": "e27f22a1768b01299bb931e4dd00432e57449162472274cf3fd68f58142915b0",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice018-louvor-independent-review116.json",
+      "review_sha256": "0f5465ed2c8ad00a523911a210dfadc412bf667dae2230455df04a45217105eb",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "movie_tunes",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3815-final.json",
+      "source_sha256": "a62f4d612d396673cceff8da39b66af8b08357bf9a69c35b6f425edfa2a3d591",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/3815-independent-review461.json",
+      "review_sha256": "3cd852648806ffde069a5df5157bca002ddd77a0eb1d179840fbc953e481f84a",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "sunset_lounge",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4360-final.json",
+      "source_sha256": "59a48fbd795009a693b4c31d0aa0baf2184934650b4cf416c1cbe4f90f557fe3",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4360-independent-review461.json",
+      "review_sha256": "285765d0273fc6918a1b13377f6f252517ff690cca427f32f1d8356bae454724",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "new_jack_smooth",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4002-final.json",
+      "source_sha256": "fd305f5f0932cd128067affa5d42bf29c692c740143428fce4212047ac8a6747",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4002-independent-review461.json",
+      "review_sha256": "2ca3f1314bbb5b9adcd62caadfe63ea098cee829c312eb851470d8027b1b05ae",
+      "scope": "REGISTERED_SOURCE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "nova_musica_amazonense",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4040-articulation-clarified.json",
+      "source_sha256": "6a21c0c5f8fe016187ef25df40161cceae5c129e71d00a4d758917f458912a45",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4040-independent-review116.json",
+      "review_sha256": "fbbd7551241c30e2c197bf130dcc3c140a4abaaed1cbff6d15b388152bbf9de5",
+      "scope": "REGISTERED_LATE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "south_african_soulful_deep_house",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice002-south-african-soulful-deep-house-metadata-final024.json",
+      "source_sha256": "d5596b0f501977951b9c5759a4f297cfd19c6d26b750bb7bf5db5e5289c4d8ee",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/sa-soulful-independent-review117.json",
+      "review_sha256": "bfb830270ab9f1ece72658a7f32de87d1ff978e2c7daa110e4bf14a73b5a92b6",
+      "scope": "REGISTERED_LATE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "deep_dubstep",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice003-deep-dubstep-qualified024.json",
+      "source_sha256": "ab87027eb8417bd5860a6c8825f5eb2b8db4d0dc9047e9bd7d7cf9adcd193016",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice003-deep-dubstep-independent-review-sourceaudit.json",
+      "review_sha256": "e2340fd1b22b05f36ac2938ddc923ba0f3e30ac976065f96ecdd9af3015ea79a",
+      "scope": "REGISTERED_LATE_PASS",
+      "historical_hold_reassessment_required": false
+    },
+    {
+      "id": "dakke_dak",
+      "source_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice017-dakke-dak-controls-corrected.json",
+      "source_sha256": "c5cb5049c175efeadc86361512a7e887c226056194829d04d52ec4b6788969ba",
+      "review": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice017-dakke-dak-independent-review-sourceaudit.json",
+      "review_sha256": "d99bbdded7e1bade2362c368330962ce13c437491b843dc7c60cfe90768b8b72",
+      "scope": "REGISTERED_LATE_PASS",
+      "historical_hold_reassessment_required": false
+    }
+  ]
+}

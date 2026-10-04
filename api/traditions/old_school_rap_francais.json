@@ -2,10 +2,10 @@
   "id": "old_school_rap_francais",
   "name": "Old school rap français",
   "family": "hip_hop",
-  "lineage": "French rap’s formative recorded generations; selected IAM early-1990s funk-sample branch",
-  "recipe": "classic 1990-1993 old school rap français, mc Rhythm, intl hip hop branch. rap, rhythmic, rhythmic spoken flow no pitch. sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 275,
-  "score": 37.093,
+  "lineage": "Old-school rap français connects the formative recorded generations of French-language hip-hop. Marseille group IAM exemplify an early1990s approach shaped by funk-party culture and sample-based production.",
+  "recipe": "classic modern old school rap français, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 278,
+  "score": 46.515,
   "config": {
     "traditions": [
       "old_school_rap_francais"
@@ -19,7 +19,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_projected",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
@@ -27,27 +27,29 @@
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_aural_relative",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 11.765,
+          "voice_quality": 14.494999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0.16149999999999998,
           "voice_vibrato": 0,
-          "voice_articulation": 0.6,
+          "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.587,
-          "voice_ensemble_config": 0.4809999999999999,
+          "voice_speech_song": 13.087,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.1365,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
         }
       },
       {
@@ -60,11 +62,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.578,
-          "sampler_archetypes": 3.835,
+          "electronic_technique": 4.078,
+          "sampler_archetypes": 6.4350000000000005,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": 0.239,
-          "sampler_classic_context": 4.485
+          "sampler_classic_context": 6.954999999999999
         }
       }
     ],
@@ -85,7 +87,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "sampler_classic": [
         "electronic_technique",
@@ -106,31 +109,30 @@
       "amp": null,
       "medium": "tape_15ips"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_projected",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "spoken_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_aural_relative",
-      "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "electronic_technique": "electronic_sample_chopped",
       "sampler_archetypes": "emu_sp1200",
       "sampler_bit_depth": "sampler_twelve_bit",

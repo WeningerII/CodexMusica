@@ -2,10 +2,10 @@
   "id": "neo_progressive",
   "name": "Neo-Progressive",
   "family": "rock",
-  "lineage": "Unicorn — Ever Since1993 full album credited palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic neo-progressive, distorted Rock, progressive rock branch. one note per syllable. electronic keyboard unspecified, conventional tuning standard pitch humbucker electric guitar, synthetic European maple bosnian source flamed figure cello, electric bass, saxophone, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 478,
-  "score": 50.722,
+  "lineage": "A later progressive-rock current extending symphonic rock through melodic songs and keyboard-led arrangements.",
+  "recipe": "classic neo-progressive, distorted Rock, progressive rock branch. one note per syllable. melodic chordal electronic keyboard unspecified, humbucker electric guitar, cello, electric bass, saxophone, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 417,
+  "score": 48.749,
   "config": {
     "traditions": [
       "neo_progressive"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.861,
+          "voice_speech_song": 0.6825,
           "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.0315,
-          "keyboard_technique": 0.0945
+          "keyboard_technique": 1.126
         }
       },
       {
@@ -83,17 +83,17 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.168,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0.2415,
-          "string_material": 0.3,
+          "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 2.978,
+          "string_gauge": 0.2415,
           "finish": 0,
-          "string_tuning": 1.3945
+          "string_tuning": 0.063
         }
       },
       {
@@ -111,13 +111,13 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 1.3735,
+          "cello_strings": 0.0735,
           "cello_top_wood": -0.1,
-          "cello_back_wood": 1.863,
+          "cello_back_wood": -0.07,
           "cello_varnish": -0.1,
-          "cello_setup_period": 0.6499999999999999,
-          "cello_bow_grip": 0.336,
-          "cello_rosin": 0.6365,
+          "cello_setup_period": 0.26,
+          "cello_bow_grip": 0.36750000000000005,
+          "cello_rosin": -0.07,
           "cello_bow_stick": -0.10500000000000001
         }
       },
@@ -135,12 +135,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.168,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 0.15000000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -181,16 +181,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 11.5,
-          "drumhead": 1.3945,
+          "drum_technique": 15,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.489,
+          "shell_wood": 0.1575,
           "shell_thickness": 0,
-          "bearing_edges": 0.8505,
+          "bearing_edges": 0.39,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 11.7045,
-          "cymbal_lathing": 12.731499999999997,
+          "cymbal_hammering": 15.2045,
+          "cymbal_lathing": 14.931499999999998,
           "cymbal_finish": 0
         }
       },

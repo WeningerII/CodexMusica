@@ -1,0 +1,19 @@
+{
+  "status": "PASS_EXACT_RAW_DEPENDENCY_ORIGINAL_MERGE_AND_STRIP",
+  "owners": [
+    "cassette_pause_tape_looping"
+  ],
+  "meaningful_controls": [
+    {
+      "id": "cassette_pause_tape_looping",
+      "parts": [
+        "cassette_pause_tape_looping_medium",
+        "cassette_pause_tape_looping_repetition",
+        "cassette_pause_tape_looping_speed",
+        "cassette_pause_tape_looping_channels",
+        "cassette_pause_tape_looping_processing"
+      ]
+    }
+  ],
+  "old_owners": "Checked byte-identical separately across all1658 API payloads."
+}

@@ -1,0 +1,50 @@
+{
+  "id": "sunset_lounge",
+  "name": "Sunset Lounge",
+  "family": "electronic",
+  "lineage": "Sunset lounge connects Ibiza sunset listening with later chill-out radio and compilation culture. Selectors combine relaxed house, ambient music and lounge songs, adapting the atmosphere to evening gatherings and quieter listening.",
+  "recipe": "classic sunset lounge, electronic Dance, house branch. dj playback mixing unspecified. parlor.",
+  "recipe_chars": 94,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "sunset_lounge"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "parlor",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "parlor",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

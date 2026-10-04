@@ -2,10 +2,10 @@
   "id": "piano_mpb",
   "name": "Piano MPB",
   "family": "jazz",
-  "lineage": "Heloísa Fernandes — FACES, piano solo (2017), published solo release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s piano mpb, improv On Frame. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 211,
-  "score": 7.252,
+  "lineage": "Piano-centered interpretations of Brazilian popular music, connecting composition and improvisation.",
+  "recipe": "classic piano mpb, improv On Frame. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 147,
+  "score": -0.244,
   "config": {
     "traditions": [
       "piano_mpb"
@@ -28,12 +28,12 @@
           "keyboard_technique": -0.1,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.0315,
-          "piano_hammer": 0.7,
-          "piano_rim": 1.126,
-          "piano_soundboard": 0.7,
-          "piano_pinblock": 2.5999999999999996,
-          "piano_plate": 0.7,
-          "piano_pitch_standard": 1.4949999999999999
+          "piano_hammer": 0.2,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       }
     ],

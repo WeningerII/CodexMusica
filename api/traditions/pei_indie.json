@@ -2,10 +2,10 @@
   "id": "pei_indie",
   "name": "PEI Indie",
   "family": "pop_rock",
-  "lineage": "Nikkie Gallant — Subtle Motions (2022), complete seven-track album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s pei indie, functional Song, pop rock branch. conventional tuning standard pitch clean strummed humbucker electric guitar, steel c6 song accompaniment lap steel, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, electronic keyboard unspecified, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, European maple bosnian source flamed figure modern setup longer neck violin orchestral, European maple bosnian source flamed figure modern setup longer neck viola classical, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 707,
-  "score": 78.367,
+  "lineage": "Independent songwriting from Prince Edward Island, including pop, rock and chamber-pop approaches.",
+  "recipe": "classic pei indie, functional Song, pop rock branch. clean strummed humbucker electric guitar, slide sustained song accompaniment lap steel, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, electronic keyboard unspecified, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple block chord grand piano, violin orchestral, viola classical, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 547,
+  "score": 69.945,
   "config": {
     "traditions": [
       "pei_indie"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.063,
+          "voice_multitrack_stack": 0.363,
           "voice_tessitura": 0
         }
       },
@@ -70,9 +70,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 6.7075,
+          "electric_technique": 9.6075,
           "amp_make": 0,
-          "body_wood": 0.16799999999999998,
+          "body_wood": 0.39,
           "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -80,9 +80,9 @@
           "string_material": 0,
           "bridge": 0.2415,
           "scale_length": 0.378,
-          "string_gauge": 2.0995,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 1.3
+          "string_tuning": 0
         }
       },
       {
@@ -92,8 +92,8 @@
           "lap_steel_style": "lap_steel_song_accompaniment"
         },
         "scores": {
-          "lap_steel_tuning": 1.005,
-          "lap_steel_style": 3.12
+          "lap_steel_tuning": 0.39,
+          "lap_steel_style": 1.95
         }
       },
       {
@@ -110,7 +110,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.16799999999999998,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -135,16 +135,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.7815,
-          "drumhead": 1.3,
+          "drum_technique": 6.2815,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "bearing_edges": 0.168,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 10.7625,
-          "cymbal_lathing": 11.589,
+          "cymbal_hammering": 15.962499999999999,
+          "cymbal_lathing": 15.889,
           "cymbal_finish": 0
         }
       },
@@ -165,7 +165,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.4095
+          "keyboard_technique": 0.39
         }
       },
       {
@@ -178,9 +178,9 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 0.663,
+          "poly_archetypes": 0.063,
           "poly_voices": 0,
-          "poly_maker_lineage": 0.325
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -197,15 +197,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 6.391,
-          "grand_piano_size": 0.6945,
-          "grand_piano_brand": 0.2625,
-          "piano_hammer": 2.8600000000000003,
-          "piano_rim": 3.25,
-          "piano_soundboard": 0.9099999999999999,
-          "piano_pinblock": 2.063,
-          "piano_plate": 1.3629999999999998,
-          "piano_pitch_standard": 1.3649999999999998
+          "keyboard_technique": 9.891,
+          "grand_piano_size": 0.0945,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 3.1200000000000006,
+          "piano_rim": 3.1200000000000006,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -226,13 +226,13 @@
           "bowed_technique": -0.05,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
-          "orch_back_wood": 1.5315,
-          "orch_varnish": 0.7,
-          "orch_setup_period": 1.1995,
-          "orch_bow": 0.231,
-          "orch_bow_stick": 0.8449999999999999,
-          "orch_articulation": 0.78,
-          "orch_rosin": 0.8365
+          "orch_back_wood": -0.07,
+          "orch_varnish": -0.1,
+          "orch_setup_period": 0.26,
+          "orch_bow": 0.39,
+          "orch_bow_stick": -0.10500000000000001,
+          "orch_articulation": 0.39,
+          "orch_rosin": -0.07
         }
       },
       {
@@ -251,13 +251,13 @@
         "scores": {
           "bowed_technique": -0.05,
           "viola_size": 0.0315,
-          "viola_strings": 0.39,
+          "viola_strings": 0.1365,
           "viola_top_wood": -0.07,
-          "viola_back_wood": 1.5315,
-          "viola_varnish": 0.7,
-          "viola_setup_period": 1.1995,
-          "viola_bow_stick": 0.8449999999999999,
-          "viola_rosin": 1.168
+          "viola_back_wood": -0.07,
+          "viola_varnish": -0.1,
+          "viola_setup_period": 0.26,
+          "viola_bow_stick": -0.10500000000000001,
+          "viola_rosin": -0.07
         }
       },
       {
@@ -273,9 +273,9 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "sax_size": 0.325,
+          "sax_size": -0.035,
           "sax_reed": 0,
-          "sax_body_alloy": 0.9099999999999999,
+          "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.105,
           "sax_technique": -0.05,
           "sax_maker_school": -0.07

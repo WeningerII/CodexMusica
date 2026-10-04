@@ -2,10 +2,10 @@
   "id": "musica_madeirense",
   "name": "Musica Madeirense",
   "family": "vernacular",
-  "lineage": "Gorete Vieira and Gilberto Reis — Despique madeirense, Domingo há Desgarrada, 2 November2025. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic musica madeirense, improv On Frame. braguinha viola arame madeira. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 173,
-  "score": 1.587,
+  "lineage": "Music of Madeira, including local string traditions, social song and improvised verse.",
+  "recipe": "classic musica madeirense, improv On Frame. braguinha viola arame madeira. live tracking.",
+  "recipe_chars": 89,
+  "score": 1.417,
   "config": {
     "traditions": [
       "musica_madeirense"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 0.2205,
           "voice_ensemble_config": 0.2625,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -104,15 +104,15 @@
         "viola_arame_madeira_gesture"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -121,7 +121,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -145,12 +145,6 @@
       "viola_arame_madeira_identity": "viola_arame_madeira_documented_form",
       "viola_arame_madeira_gesture": "viola_arame_madeira_strummed"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }
