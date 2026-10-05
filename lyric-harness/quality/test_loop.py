@@ -1085,10 +1085,14 @@ def test_group_brief_carries_the_situation():
     # lyric is 3,244 tokens under the corrected tokenizer.
     # 2026-09-15: (4, 3244) -> (10, 3244) after preserving apparatus-only
     # material outside the lyric population; the restoration reads this range.
+    # 2026-10-04: (10, 3244) -> (4, 3244), the Otterbein / M-25 closing
+    # sitting's re-adoption. The 4-token item is a Lovelace epigraph citation
+    # the label and apparatus pass left as sung (`MISSING.md` M-25, residue
+    # paragraph; `test_floor.py` pins the same fact on the coverage side).
     check("...and the perturbation is restored, so no later section "
           "inherits a narrowed floor",
           [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]
-          .band() == (10, 3244) and _sec.lo == 28,
+          .band() == (4, 3244) and _sec.lo == 28,
           (_sheet.band(), _sec.lo))
     check("8 groups proposed = 2 two-line group(s) x width 2 x width 2",
           len(seen) == 8 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
