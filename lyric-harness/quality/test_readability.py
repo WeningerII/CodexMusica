@@ -451,7 +451,9 @@ def test_corpus_song_rate_is_pinned():
     # readability RATE below is unmoved: the merge rehoused 6 items and
     # changed no verse byte, so only the file count moves. That the rates
     # hold across a merge is the check that it was a merge.
-    check("1297 ENGLISH song files present", len(paths) == 1297, f"{len(paths)}")
+    # REPINNED 2026-10-04 (Otterbein refrain hymns): 1297 -> 1344, the 47
+    # new `eng_hymn_*` files.
+    check("1344 ENGLISH song files present", len(paths) == 1344, f"{len(paths)}")
     check("and the corpus is no longer monolingual, which is why the scope "
           "is now explicit", len(others) > len(paths),
           f"{len(others)} files total across "
@@ -1066,8 +1068,12 @@ def test_the_manufactured_rhyme_is_refused():
     # the size the record claimed. The check below is UNMOVED and still
     # passes: all 118 still yield the IDENTICAL would-be anchor, because the
     # only piece that reads is still the participial prefix's schwa.
-    check("118 distinct `a-` participles end a line in this one file with "
-          "their last piece unread", len(klass) == 118,
+    # REPINNED 2026-10-04: 118 -> 116. Both that left were never verse:
+    # `A WIFE A-PRAÏS'D.` (an embedded poem title) and `_Anne an' Joey
+    # a-ta'ken._` (the heading under RIDDLES), each a one-line `[VERSE]`
+    # block M-25(a)'s two readers marked as apparatus.
+    check("116 distinct `a-` participles end a line in this one file with "
+          "their last piece unread", len(klass) == 116,
           f"{len(klass)}: {sorted(klass)[:6]} ... (29 before the "
           f"LATIN_SCRIPT repin, and the other 89 were not even ONE token)")
     phones = {w: tuple(LEX.transcribe(w)[0]) for w in klass}
@@ -1415,9 +1421,21 @@ def test_the_bracket_rules_are_declared_and_read():
           bool(ph) and "Phoebus" in ph[0], repr(ph[:1]))
 
     lovelace = os.path.join(SONG, "eng_british_richard_lovelace.txt")
-    bw = [l for l in read_lines(lovelace) if "BOWES BARNE" in l]
+    # 2026-10-04: the printed line this check reads (`OF MY DEAREST COSIN
+    # MRS. BOWES BARNE[S].`) is the second line of an embedded poem title,
+    # and the label and apparatus pass marked it `# APPARATUS:`, so
+    # `read_lines` no longer returns it -- correctly. The RULE under test is
+    # the bracket normalisation, not whether the title is sung, so the check
+    # now applies that rule to the same printed line under the same file.
+    # It still requires the line to exist on disk, and the rule is
+    # file-scoped: the same text with no file stays `BARNE[S].`.
+    raw = [l.strip().replace("# APPARATUS:", "").strip()
+           for l in open(lovelace, encoding="utf-8") if "BOWES BARNE[S]" in l]
+    bw = [LH.normalise_bracket_spans(l, lovelace) for l in raw]
     check("an editor-supplied letter is KEPT — `BARNE[S].` reads `BARNES.`",
-          bool(bw) and "BARNES." in bw[0], repr(bw[:1]))
+          len(raw) == 1 and "BARNES." in bw[0]
+          and "BARNE[S]." in LH.normalise_bracket_spans(raw[0], ""),
+          repr(bw[:1]))
 
     check("the orphan caption tail is apparatus by content — the line that "
           "put `jpg` into the Welsh corpus's end words",
