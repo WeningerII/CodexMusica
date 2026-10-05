@@ -1,10 +1,13 @@
 # Otterbein refrain hymns and the M-25(a) apparatus pass — 2026-10-04
 
-Status: LOADING BATCH OPEN. The Otterbein staging below is committed; the
-M-25(a) annotation pass and the closing sitting
-(`quality/CORPUS_LOADING_PROTOCOL.md`) have not run yet, so
-`quality/corpus_manifest.py --check` reports drift and nothing calibrated has
-been re-adopted. This file is completed by the closing sitting.
+Status: CLOSED, with one suite still running. Every lane of the closing sitting
+(`quality/CORPUS_LOADING_PROTOCOL.md`) ran over the finished tree (§4), every
+re-derived constant is re-adopted and pinned, and `corpus_manifest.py --check`
+is byte-identical. All 112 other suites pass. `test_mutation` is still running
+(§4). The residue the label pass left (`MISSING.md` M-25) is recorded for the
+next batch.
+~~LOADING BATCH OPEN. The Otterbein staging below is committed; the M-25(a)
+annotation pass and the closing sitting have not run yet.~~
 
 ## 1. Otterbein Hymnal: Pass 1 same-gate top-up
 
@@ -263,3 +266,101 @@ predictability. That puts the sub-bin's 95th percentile at its ceiling.
 Without the hymns the band holds at 150–400. The profile grades nothing, so
 this is recorded and parked rather than acted on. The same concentration is a
 fact about hymnal text (`MISSING.md` K-1a), and the active curves absorb it.
+
+## 4. Closing sitting, final run
+
+Run again over the tree carrying §1, §2 and §2b, in the order
+`quality/CORPUS_LOADING_PROTOCOL.md` prescribes. Every output named here is in
+`quality/results/otterbein_m25_2026-10-04/final/`. The "§3" column is the
+first run, which this one supersedes. Each changed constant carries a dated
+note beside its superseded value.
+
+| lane | §3 (superseded) | final | verdict |
+|---|---|---|---|
+| rhyme-position tables | 13,787 end types; 23,736 pair types | 13,663; 23,702 (247,781 / 190,588 occurrences) | rebuilt; `frequency.py` pin moved; both `sources.tsv` rows record the rebuild |
+| meter bands | density [5, 12], prominence [2, 7] over 231,798 lines | same, over 230,974 lines | HOLDS |
+| structure census D1 | pool 4,351,811; agreement 712/717 | pool 4,315,964; 672/677 | repinned (a re-draw of the seeded 1,000 pairs from a changed pool) |
+| mark coverage | typed 75,639; undecided 32 | typed 75,318; undecided 31; decided 125,501 unmoved | repinned: −321 typed marks the §2b pass annotated; the one undecided that left was `[GEORGE]`, a Lovelace note bracket |
+| chorus pointers | 1,144 / 442 / 35 / 667 | 1,131 / 442 / 35 / 654 / 0 without an incipit | the 13 that left were Watts scripture references, a Shelley line and a Lovelace note; resolved and ambiguous unmoved |
+| section marks | VERSE 72,829 / 1,435 files; REFRAIN 785 / 92; BURDEN 1,753 / 35 | VERSE 72,572 / 1,435; REFRAIN 725 / 91; BURDEN 1,749 / 35; CHORUS 234 / 62 unmoved | remeasured |
+| capacity witnesses | 81, every one re-verified unchanged | 81 re-verified unchanged (0 repair rounds); max certified chain 39 (EH-R) | table header only; runtime verification 81/81; `capacity.py --check` PASS |
+| calibration rows | 8,609 works, 279,503 sung lines | 8,597 works, 278,152 sung lines, 1,343 files (235 s, field cache reused) | rebuilt |
+| `lyric` length curves (the active floor) | range 9–3,244; mattr C1, fwr C2, anaphora C2, cv C2, predictability CK | range 4–3,244; mattr C1, **fwr C1**, anaphora C2, cv C2, predictability CK; 21/21 bins for every check | re-adopted; `SHIPPED_MODEL` repinned; check HOLDS |
+| superseded `song` / `short` bands | 200–400 / 50–150 | 150–350 (3,251 items) / 50–150 (3,710 items) | re-recorded as bookkeeping; never applied (`MISSING.md` M-317) |
+| manifest | 1,477 files | 1,477 files, over the finished tree | written; `--check` byte-identical |
+| runtime asset pins | | rhyme tables, `sources.tsv`, capacity table, section marks | repinned; `release_assets.py --integrity` clean |
+| suite sweep (`quality/suite_sweep.py`, 113 suites) | not run | 94 PASS on their sweep run, 16 FAIL, 2 CANNOT RUN at their bound; `test_mutation` run on its own | 13 FAILs were pins this batch moved, now repinned with per-stage notes; 3 were missing resources in this container; every suite passes when run to completion (`test_mutation`: see below) |
+
+The function-word ratio is back on the straight line. The first run had 22
+bins, and C1 failed bin 20 there. The final fit has 21 bins, C1 passes every
+one, and the registered pick is the fewest parameters passing every bin. The
+predictability pick is CK, the registered 2026-09-04 deviation
+(`LENGTH_CURVE_PREREGISTRATION.md`, amendment after §4): the constant C0 sits
+at the statistic's ceiling and passes by never firing. The anaphora and cv
+quadratics turn inside the corpus range (N = 911 and N = 1,071), which the fit
+discloses under E3. The predictability curve first becomes informative at 141
+tokens, the same as §3.
+
+**The calibrated range now starts at 4 tokens, down from 9, and the item
+that sets it is not a song.** It is Lovelace's `Mart. lib. I. Epig. 26.`, the
+one line of an editor's title page that §2b did not annotate. Every
+calibration item under 10 tokens is one of the residue items `MISSING.md`
+M-25 now records: 37 note lines left as sung in 15 items, and 8 one-line
+blocks the pass created by annotating the rest of their block. The shortest
+item outside them is Gay's 10-token `Air LVII`. Three pins move only because
+of it, and each says so where it stands: `test_floor.py` (the floor now
+reaches 696 of the lengths 1–699 rather than 690), `test_loop.py` (the
+restored band is (4, 3244)) and `test_plan.py` (the planner's gradeable span
+starts at one line rather than two). The residue is to be read with the same
+two-blind-reader protocol at the start of the next batch, so that batch's
+closing sitting absorbs it instead of this one being run a third time. That
+ordering is this sitting's call under the owner's "finish closing the batch
+first"; the owner has not ruled on it.
+
+**The suite sweep.** The 113 suites ran in four slices. The m–q slice did not
+finish inside the session's two-hour background limit, because it holds
+`test_mutation`, whose own bound is 7,200 s. It was re-run in groups, with
+`test_mutation` detached. Three verdicts, never summed:
+
+* **94 PASS** on their sweep run.
+* **16 FAIL.** Thirteen were pins this batch moved. Each was measured at the
+  batch base (`f9bc020c`, where every one holds), after the Otterbein staging,
+  after M-25(a) and after §2b, then repinned with a dated note naming its
+  stage: `test_corpus_audit`, `test_corpus_taxonomy` (with
+  `audit_corpus.PINNED_SHAPE` and `RESULTS_CORPUS_AUDIT.md`), `test_floor`,
+  `test_grid`, `test_loop`, `test_plan`, `test_readability`, `test_relations`,
+  `test_production_data`, `test_song_function`, `test_structure_census`,
+  `test_triage` (M-317 now carries its TESTED WHILE OPEN declaration) and
+  `test_provenance`. The last one caught a stale record: the `sources.tsv`
+  rows for the two rhyme-position tables still claimed the 2026-09-15 build.
+  They now record this rebuild and name `data/lyric_label_prefixes.json` as
+  part of the reader. The other three FAILs were this container, not the
+  tree: the concreteness norms were not staged (`test_crosslinguistic`,
+  `test_discriminate`; `fetch_data.py --research`), and numpy and
+  scikit-learn were not installed (`test_rhyme_organization`, and the joint
+  half of `test_discriminate`), which CI installs. All three pass once
+  staged, `test_discriminate` with 69 of 69 checks.
+* **2 CANNOT RUN**, `test_revise` and `test_verbs`, both at their bound with no
+  check red. Run to completion they PASS (2,351 s and 4,916 s, on a machine
+  running four suites at once).
+
+Every repinned suite was re-run to green after its repin.
+`counters.py --check`, `verify_entries.py`, `backlog_status.py --check`,
+`release_assets.py --integrity` and `map/build.py --check` all pass.
+
+**`test_mutation` is still running when this is written** (2026-10-05): its baseline measured 20 of 20 test files PASS, and 40 of its 59 planted mutations had resolved after 10,172 s, with none reported surviving so far. Its verdict is added here when it finishes. Until then it is neither a PASS nor a FAIL (doctrine 20).
+
+Three readings the repins needed, kept here because the pins only name them:
+
+* The label pass emptied 11 items, each wholly editorial: a Rossetti
+  birth-and-death record, Arnold's dramatis personae, four Lovelace notes, an
+  editor's note on variants filed as Shelley's `The Daemon Of The World: Part
+  2`, two Browning notes and two Herrick index entries. Each was read before
+  `test_structure_census` named it, and no verse was among them.
+* The cross-function shared-line pairs rose 60 → 84. All 24 new ones are
+  refrain hymns whose refrain sings the verse's closing line again (`I love to
+  tell the story!`). That is a verse line the refrain also sings, never a
+  reprise, and every one is a refrain/verse pair the shipped default does not
+  ask.
+* The readability population: the hymns add 1,640 sung lines and refuse at
+  2.2%. The 2,894 lines the two apparatus passes removed refused at 17%.
