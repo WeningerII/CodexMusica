@@ -2732,15 +2732,19 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # 2026-09-15: the measured lyric minimum is 10 tokens after apparatus
     # annotations, so the former one-line lower endpoint becomes two.
     # Interior continuity still holds; the unmeasured endpoint is not filled.
-    # 2026-10-04: two lines -> ONE, and the gain is not a lyric. The
-    # re-adopted range starts at 4 tokens because a Lovelace epigraph
-    # citation (`Mart. lib. I. Epig. 26.`) is still read as sung after the
-    # label and apparatus pass marked the rest of its title page --
-    # `MISSING.md` M-25's residue paragraph; `test_floor.py` pins the same
-    # fact on the coverage side. The next batch's residue reading is
-    # expected to move this back to two.
-    check("the measured song span starts at one line (its low end a residue "
-          "citation, M-25) and has no interior "
+    # 2026-10-04: two lines -> ONE. The re-adopted range starts at 4 tokens
+    # because a Lovelace epigraph citation (`Mart. lib. I. Epig. 26.`) is
+    # still read as sung after the two passes marked the rest of its title
+    # page (`MISSING.md` M-25's residue paragraph; `test_floor.py` pins the
+    # same fact on the coverage side). ~~and the gain is not a lyric ... the
+    # next batch's residue reading is expected to move this back to two~~
+    # CORRECTED 2026-10-05, measured with `plan`'s caches cleared: the
+    # one-line start does NOT depend on the citation. The next item up is
+    # Lovelace's 9-token verse translation `In English` (`Cinna seems poor in
+    # show, / And he is so.`), a real lyric, and a low end of 9 tokens still
+    # gives one line at the band's 9.0 tokens-per-line; only 10 gives two. So
+    # the residue reading is expected to leave this at one line.
+    check("the measured song span starts at one line and has no interior "
           "hole — the former seams between calibrated bands stay closed",
           song == set(range(1, max(song) + 1)) and _PL.line_count_gaps(song) == []
           and _PL.line_count_gaps(union) == [],
@@ -3994,10 +3998,12 @@ def test_the_delegated_rulings(FAILURES=None):
           "gradeable set to 6 lines~~ ~~the 2026-09-15 length-curve profile "
           "starts at 2 lines (10 tokens at the band's highest tokens-per-line)~~ "
           "the 2026-10-04 profile starts at 1 line (4 tokens, a residue "
-          "citation, M-25) and the fillable floor is 12",
+          "citation, M-25; the 9-token verse above it gives 1 line too) and "
+          "the fillable floor is 12",
           # The 2026-09-14 lower endpoint was one line / four tokens; the
           # 2026-09-15 one two lines / ten tokens; 2026-10-04 one line / four
-          # tokens again, set by a residue line (see the span check above).
+          # tokens again. The four tokens are a residue line; the one line is
+          # not, since a 9-token low end also gives one (see the span check).
           # The fillable floor (12) is unmoved, because the form's minimum
           # sections decide it, not the profile's low end.
           fill <= grade and min(fill) == 12 and min(grade) == 1

@@ -8202,37 +8202,59 @@ stay as sung. Receipt `data/english_apparatus_labels_2026-10-04.json`; the
 results file §2b records it. What (a) still leaves open is unchanged: the false-unit
 splits, the non-English blocks, and the section-mark reader, which reads
 prefixed lines whole.
-**RESIDUE FOUND AT THE FINAL CLOSING SITTING, 2026-10-04: the pass annotated
-editorial-note paragraphs but left single lines of them as sung.** Its
-candidates came from the checklist's terms plus the continuation lines the
-readers proposed, so a note line that matched no term and that no reader named
-was never read. Measured by comparing every item the two passes touched before
-and after (items reduced to 3 sung lines or fewer, or to under a third of
-their lines): **15 items now consist of 37 leftover lines**. Lovelace has 10
-of them (his editor's notes section, staged as titled items), Herrick and
-Browning 2 each, Burns 1: `eng_british_richard_lovelace` 634, 688, 799, 879,
-1137, 1307, 1316, 1464, 2367, 3351; `eng_british_robert_browning` 176, 463;
-`eng_british_robert_herrick` 4933, 9562; `eng_celtic_robert_burns` 10520
-(title lines). Before the pass these items were wholly editorial and scored as
-sung, so this is what is left of an older error, not a new one. It is still
-the pass's own gap, and one figure shows it: the shortest calibration item is
-now Lovelace's `Mart. lib. I. Epig. 26.` (4 tokens), so the `lyric` curves
-report a calibrated range of 4–3,244 tokens. Partial notes inside items that
-are otherwise sung are not counted here. The one-line census in
-`quality/test_corpus_audit.py` shows the same gap from the other side. The pass
-CREATED 8 one-line `[VERSE]` blocks (734 -> 742) by annotating every other line
-of a block. They include a `Robert Burns.` signature, a Watts argument line and
-Lovelace note prose: `eng_celtic_robert_burns` `Robert Burns.`, `eng_hymn_watts`
-`Benefit of afflictions, and support under them.`, five Lovelace lines and one
-Hemans line. Sung rows sitting next to prose the
-pass annotated total 819 in 43 files, but most are correct (Watts's stanzas
-under their annotated scripture headings are 393 of them), so this is an
-upper bound for the next reading to work through, not a count. **Ordering
-(this sitting's call, under the owner's "finish closing the batch first"; the
-owner has not ruled on it):** the closing sitting finishes as it stands. Read
-these lines with the same two-blind-reader protocol at the start of the next
-batch, so that batch's closing sitting absorbs them instead of this one being
-run a third time.
+**RESIDUE FOUND AT THE FINAL CLOSING SITTING, 2026-10-04: the two passes
+annotated editorial-note paragraphs but left ~~single lines of them~~ whole note
+blocks, and stray lines of blocks they partly annotated, as sung.**
+CORRECTED 2026-10-05, after every claim in this paragraph was checked against
+the evidence by independent readers; the struck figures are the first writing.
+The label pass's candidates were the checklist's label terms, structural and
+pattern tests (one-line blocks under any mark, label prefixes, capitals,
+brackets, italic-only lines, directions, numerals, dates, tune and metre lines,
+scholarly and scripture references) and every line of a block that held a strong
+editorial marker, plus the 454 neighbour lines both readers named. A note line
+outside all of these was never read. MEASURED by
+`quality/results/otterbein_m25_2026-10-04/final/residue_measure.py` (output
+`residue_measure.json` beside it), which compares every item either pass touched
+before (62b4fb87) and after: 15 items were left with 3 sung lines or fewer, or
+under 34% of their lines, holding 37 lines. READ, two of the 15 are not residue.
+Burns 10520 keeps its epigram (`With Esop's lion, Burns says: Sore I feel /
+Each other's scorn, but damn that ass' heel!`), and Lovelace 3351 (`In English`)
+keeps his own verse translation of Martial (`Cinna seems poor in show, / And he
+is so.`). In both, the passes marked the prose and kept the verse. **The residue
+is ~~15 items / 37 lines~~ 13 items holding 33 note lines:**
+`eng_british_richard_lovelace` 634, 688, 799, 879, 1137, 1307, 1316 and 2367
+(Hazlitt's editorial footnotes, each staged as a titled item straight after the
+poem it annotates) and 1464 (the *Posthume Poems* title page);
+`eng_british_robert_browning` 176, 463; `eng_british_robert_herrick` 4933, 9562
+(title lines). Four of the Lovelace items (634, 1307, 1316, and 3351, which is
+not residue) carry only M-25(a)'s annotations; the label pass never touched
+them. Before the passes these 13 items were wholly editorial and scored as sung,
+so this is what is left of an older error, not a new one. It is still the
+passes' own gap, and one figure shows it: the shortest calibration item is now
+Lovelace's `Mart. lib. I. Epig. 26.` (4 tokens), so the `lyric` curves report a
+calibrated range of 4–3,244 tokens. With the residue read, the next shortest is
+the Cinna couplet at 9 tokens, not 10. Partial notes inside items that are
+otherwise sung are not counted here. The one-line census in
+`quality/test_corpus_audit.py` shows the same gap from the other side. The label
+pass CREATED 8 one-line `[VERSE]` blocks (734 -> 742) by annotating every other
+line of a block. ~~They include a `Robert Burns.` signature~~ Seven are candidate
+apparatus (`eng_hymn_watts` `Benefit of afflictions, and support under them.`,
+five Lovelace lines and one Hemans line). The eighth, Burns's `Robert Burns.`,
+is sung: it rhymes with `concerns` in a mock-legal subscription. Sung rows next
+to prose either pass annotated total 819 in 43 files. The rule: a sung row whose
+nearest line above or below, skipping only bracketed marks, is an annotated line
+of 25 characters or more that is not itself a mark. 672 sit next to M-25(a)'s
+annotations, 145 next to the label pass's and 2 next to both. Most are correctly
+sung (Watts's stanzas under their annotated scripture headings are 393 of them),
+and leftover note lines also continue past the first row the rule finds (for
+example Lovelace 1052–1055, 2455–2457 and 2635, Herrick 9583–9585, Burns
+9146–9148). So the 819 is ~~an upper bound~~ neither a count nor an upper bound.
+It is where the next reading starts, following each note to its end.
+**Ordering (this sitting's call, under the owner's "finish closing the batch
+first"; the owner has not ruled on it):** the closing sitting finishes as it
+stands. Read these lines with the same two-blind-reader protocol at the start of
+the next batch, so that batch's closing sitting absorbs them instead of this one
+being run a third time.
 
 **Found 2026-08-21. Each is a file whose own header or content contradicts how
 it is marked, and none is visible to any current check.**
@@ -28900,11 +28922,12 @@ its own M-311 and #398 takes M-312.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~370~~ -> **371**.
 
-### M-317 · The superseded `song` and `short` band profiles are re-measured and re-recorded by every closing sitting, and nothing applies them `OPEN` — parked 2026-10-04 by the owner
+### M-317 · The superseded `song` and `short` band profiles are re-measured and re-recorded by every closing sitting, and ~~nothing applies them~~ nothing applies their percentiles, but their bands still set CLICHE_PAIR's flag range `OPEN` — parked 2026-10-04 by the owner
 
 **Found 2026-10-04 in the Otterbein / M-25(a) closing sitting.** Both profiles
-carry `superseded_by="lyric"` in `quality/floor.py` (M-239) and are never
-applied to a song; they stay "for their own drift check", so each closing
+carry `superseded_by="lyric"` in `quality/floor.py` (M-239) and ~~are never
+applied to a song~~ their five percentile thresholds are never applied to a
+song; they stay "for their own drift check", so each closing
 sitting measures both bands (200 author-held-out splits, 2,000 period draws)
 and re-records them. This sitting the unchanged band rule moved `song` from
 150–400 to 200–400 tokens — 18 Otterbein hymns in the 150–200 bin put its
@@ -28924,10 +28947,30 @@ bookkeeping; the measurements are in
 `quality/results/otterbein_m25_2026-10-04/`.
 The final run of the same sitting (over the tree after the label and apparatus
 pass) re-recorded `song` at 150–350 tokens over 3,251 items, and `short`
-unchanged at 50–150 over 3,710 items (`…/final/adoption.txt`).
+unchanged at 50–150 over 3,710 items
+(`quality/results/otterbein_m25_2026-10-04/final/adoption.txt`).
+**CORRECTED 2026-10-05: the bands are not bookkeeping, and this entry said they
+were.** `floor.cliche_rate_rows()` returns every profile carrying a measured
+`cliche` rate, superseded or not, and `SlopFloor.check` lets CLICHE_PAIR FLAG
+only on a sheet whose token count one of those rows `covers()`, or that sits
+exactly at a stanza profile (`section`, `sonnet`, whose reaches end far below
+350 tokens); everywhere else it is a NOTE. `quality/floor.py` recorded this on 2026-09-24 as the
+rows' "ONE LIVE CONSEQUENCE", and this entry was written without reading it.
+So every re-recording of the `song` band moves live grading. This sitting's
+first run (150–400 -> 200–400, superseded within the sitting) would have made
+CLICHE_PAIR a NOTE on 150–199-token sheets. The final run (150–400 -> 150–350)
+DID make it a NOTE on lyric sheets of 351–400 tokens, where it could flag
+before. Measured, not inferred: at the batch base the rows cover 50–400 tokens,
+at HEAD 50–350. The owner's "not now" was given on the earlier description, so
+the description is corrected here and the ruling is reported back rather than
+assumed to stand. Retiring or freezing the profiles would now also have to
+decide what licenses CLICHE_PAIR to reject: a measured rate per length bin
+over the current lyric range, which `floor.py` already says is owed (M-239).
 > **TESTED WHILE OPEN.** `quality/test_floor.py` names this entry beside its
 > pin on the superseded `song` profile, which covers its five thresholds and
-> its band and count (150–350 tokens, 3,251 items). That pin holds exactly the
-> bookkeeping this entry describes, and it goes red whenever a sitting
-> re-records the profile without editing it. It is retired along with the
-> profiles when this entry closes.
+> its band and count (150–350 tokens, 3,251 items). The thresholds are
+> bookkeeping; ~~That pin holds exactly the bookkeeping this entry describes~~
+> the band is not, because it sets CLICHE_PAIR's flag range (the correction
+> above). The pin goes red whenever a sitting re-records the profile without
+> editing it, which is what makes a band move visible. It is retired along
+> with the profiles when this entry closes.

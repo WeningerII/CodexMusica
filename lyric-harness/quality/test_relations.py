@@ -3085,7 +3085,8 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
     # 13836 / 248513 -> 13663 types / 247781 tokens, and literal `word`
     # 407 -> 412: +7 line-final `word` in the Otterbein hymns (Faber 1,
     # Baltzell 2, David Nelson 1, Hankey 1, Stockton 1, Whittle 1) and -2 in
-    # Watts, whose lines the apparatus passes marked. Still all counted.
+    # Watts: two lines the label and apparatus pass (5b3ba18c) marked
+    # `# APPARATUS:`, not M-25(a). Still all counted.
     check("the exact TSV header does not consume literal `word` entries",
           tot["word"] == 412 and len(tot) == 13663
           and sum(tot.values()) == 247781,

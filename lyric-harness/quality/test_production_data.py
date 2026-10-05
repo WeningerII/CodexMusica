@@ -316,7 +316,8 @@ print("WordNet staging contract holds")
         end, pair, _ = layer._song_tables(source)
         # 2026-10-04, the Otterbein / M-25 closing sitting's final rebuild:
         # 13836 / 248513 -> 13663 / 247781, literal `word` 407 -> 412
-        # (+7 hymn line endings, -2 Watts lines the apparatus passes marked).
+        # (+7 hymn line endings, -2 Watts lines the label and apparatus pass
+        # marked).
         self.assertEqual((len(end), sum(sum(per.values()) for per in end.values())), (13663, 247781))
         self.assertEqual(sum(end["word"].values()), 412)
         self.assertEqual(set(pair["a"]), {"ca", "the"})

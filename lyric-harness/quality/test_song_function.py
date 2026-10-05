@@ -1128,12 +1128,16 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
     # count is UNMOVED and only the denominator fell (M-47's follow rule).
     # REPINNED 2026-10-04: 60 of 896 (6.7%) -> 84 of 947 (8.9%). The 24 new
     # shared lines are ALL Otterbein refrain hymns (21 new `eng_hymn_*`
-    # items, plus Cooper's and two of Rankin's appended ones), each read in
-    # the diff: the gospel-hymn shape, a refrain that sings the verse's
-    # closing line again (`I love to tell the story!`, `God be with you till
-    # we meet again.`). That is a verse line the refrain also sings -- the
-    # same class as the war-song chorus line below -- and every one is a
-    # refrain/verse pair, so the check after this one still holds.
+    # items, plus Cooper's and two of Rankin's appended ones), each pair's
+    # shared line listed in the base-vs-HEAD diff of `corpus_scan`'s
+    # examples and checked against its hymn on 2026-10-05: the gospel-hymn
+    # shape. In 23 the refrain sings a verse's closing line again (`God be
+    # with you till we meet again.`, `Trusting Jesus, that is all.`); in
+    # Hankey's it sings the verse's opening line (`I love to tell the
+    # story!`) -- ~~all 24 the closing line~~, corrected 2026-10-05. Either
+    # way it is a verse line the refrain also sings -- the same class as the
+    # war-song chorus line below -- and every one is a refrain/verse pair, so
+    # the check after this one still holds.
     check("ASKING EVERY PAIR WOULD BE WRONG 8.9% OF THE TIME — this is the "
           "number the declared asked set exists for",
           c["cross_shared"] == 84 and abs(rate - 0.0887) < 0.001,

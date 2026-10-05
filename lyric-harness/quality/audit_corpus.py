@@ -3253,11 +3253,17 @@ def main(argv=None):
 #: REPINNED 2026-10-04 (the Otterbein refrain hymns, M-25(a) and the label and
 #: apparatus pass, one loading batch): files ~~1430~~ -> 1477, WARN ~~95~~ ->
 #: 38, NOTE ~~1195~~ -> 1214, FAIL 0. Files +47, the new `eng_hymn_*` files.
-#: WARN -57 and NOTE -16 are all check H (65/54 -> 8/38 files): the one-line
-#: `[VERSE]` blocks the two passes marked as apparatus. NOTE +36 is check G,
+#: WARN -57 and NOTE -16 are all check H (65/54 -> 8/38 files). ~~the one-line
+#: `[VERSE]` blocks the two passes marked as apparatus~~ CORRECTED 2026-10-05:
+#: M-25(a) alone marked one-line blocks (65/54 -> 8/35, NOTE -19); the label
+#: and apparatus pass then CREATED 8 residue one-line blocks, putting 3 more
+#: files in the NOTE half (35 -> 38). NOTE +36 is check G,
 #: one elision-orthography note on each of 36 new hymn files. NOTE -1 is
-#: check E, the Watts title echo whose echoing line M-25(a) marked as an
-#: embedded title. 1195 + 36 - 16 - 1 = 1214. Nothing else moved.
+#: check E, the Watts title echo whose echoing line ~~M-25(a) marked as an
+#: embedded title~~ the label and apparatus pass marked (a two-line block;
+#: its receipt classes the line an editorial note). 1195 + 36 - 16 - 1 = 1214.
+#: ~~Nothing else moved.~~ No other finding COUNT moved; several measurements
+#: did (`quality/RESULTS_CORPUS_AUDIT.md`, the 2026-10-04 result).
 PINNED_SHAPE = {"files": 1477, "FAIL": 0, "WARN": 38, "NOTE": 1214}
 
 

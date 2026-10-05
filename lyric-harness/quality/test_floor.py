@@ -863,9 +863,13 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # ~~0.47871873227323464~~, cv ~~0.11080070804250827~~; anaphora and
     # predictability unmoved. quality/results/n_relation_2026-09-22/.
     # RE-RECORDED 2026-10-04 (the Otterbein / M-25 closing sitting): the
-    # superseded `song` profile is never applied (M-239; `MISSING.md` M-317
-    # parks its re-measure), but its constants are still re-derived at each
-    # closing sitting, and this pins what that sitting wrote: ~~(150, 400,
+    # superseded `song` profile's ~~is never applied~~ five percentiles are
+    # never applied (M-239), but its BAND still sets CLICHE_PAIR's flag range
+    # through `floor.cliche_rate_rows()` -- this re-recording made CLICHE_PAIR
+    # a NOTE on lyric sheets of 351-400 tokens (corrected 2026-10-05;
+    # `MISSING.md` M-317 parks its re-measure and records the correction).
+    # Its constants are re-derived at each closing sitting, and this pins
+    # what that sitting wrote: ~~(150, 400,
     # 3533)~~ -> (150, 350, 3251), mattr ~~0.7127694818441452~~, fwr
     # ~~0.4776852961798566~~, anaphora ~~0.3000~~, cv ~~0.10939281388850974~~,
     # predictability ~~0.9285714285714286~~.
@@ -878,8 +882,10 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
                                "predictable_pair_fraction_max": 0.9333333333333333}
           and (song.lo, song.hi, song.n_human) == (150, 350, 3251),
           "RE-RECORDED 2026-10-04 at the Otterbein / M-25 closing sitting: "
-          "150-350 tokens, 3,251 items; the profile is superseded and never "
-          "applied. ~~RE-ADOPTED 2026-09-24 under the N-relation comparator: "
+          "150-350 tokens, 3,251 items; the profile's percentiles are "
+          "superseded and never applied, and its band still sets "
+          "CLICHE_PAIR's flag range. ~~RE-ADOPTED 2026-09-24 under the "
+          "N-relation comparator: "
           "full 200-seed derivation, 150-400 tokens, 3,533 items~~, "
           "MATTR window50, from the committed provenance-verified rows. "
           "~~2026-09-15: 200-400 tokens, 2,231 items~~. "
@@ -1564,12 +1570,15 @@ def test_the_length_gate_is_a_gate():
     # REPINNED 2026-10-04, AND THE GAIN IS NOT A LYRIC: 690/9 -> 696/3,
     # because the re-adopted `lyric` range starts at 4 tokens. The 4-token
     # item is `Mart. lib. I. Epig. 26.`, an epigraph citation on a Lovelace
-    # title page that the label and apparatus pass left as sung when it
-    # marked the rest of that page (`MISSING.md` M-25, the residue paragraph).
-    # Every calibration item under 10 tokens is one of that paragraph's
-    # residue items, and the shortest outside them is Gay's 10-token `Air
-    # LVII`. This pins what the adopted constants do; the residue reading in
-    # the next batch is expected to move it back.
+    # title page that the two passes left as sung after marking the rest of
+    # that page (M-25(a) the one-line byline block, the label pass the rest;
+    # `MISSING.md` M-25, the residue paragraph). Every calibration item under
+    # 9 tokens is one of that paragraph's residue items. ~~the shortest
+    # outside them is Gay's 10-token `Air LVII`~~ CORRECTED 2026-10-05: the
+    # 9-token item is Lovelace's `In English` (`Cinna seems poor in show, /
+    # And he is so.`), a real verse translation and not residue. This pins
+    # what the adopted constants do; the residue reading in the next batch is
+    # expected to move it to 691/8 (lo 9), ~~back~~ not back to 690/9.
     check("AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 "
           "tokens the floor can FLAG at 99.6% of lengths and reaches no "
           "profile at all at 0.4% — lengths 1-3 are below the adopted "

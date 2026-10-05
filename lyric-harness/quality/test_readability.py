@@ -624,9 +624,10 @@ def test_corpus_song_rate_is_pinned():
     # refusals 989 -> 980. Piece refusals remain 428 and silent substitutions
     # remain zero. This source-reader population is not the weighted
     # calibration population. Both full runs are retained with the batch.
-    # REPINNED 2026-10-04, ONE LOADING BATCH IN THREE MEASURED STEPS (each
-    # step's `corpus_rate` run on a worktree of its commit; base f9bc020c
-    # reproduces every 2026-09-15 figure exactly):
+    # REPINNED 2026-10-04, ONE LOADING BATCH IN THREE MEASURED STEPS (the
+    # base and the first two steps run on worktrees of their commits, the
+    # label-pass step on the live tree at HEAD, whose readability inputs are
+    # 5b3ba18c's; base f9bc020c reproduces every 2026-09-15 figure exactly):
     #                     base    +Otterbein  +M-25(a)  +label pass
     #   countable       281764      283404     281834     280510
     #   token refusals   17202       17237      16939      16748
@@ -659,7 +660,8 @@ def test_corpus_song_rate_is_pinned():
           f"15958 before the LATIN_SCRIPT repin; 11658 before the Tier-1 load)")
     check("rate on that quantity is 5.97% — the LATIN_SCRIPT rise from 5.64% "
           "was the harness reading the whole word instead of an ASCII "
-          "fragment; the apparatus passes then took it down from 6.11%",
+          "fragment; this batch then took it down from 6.11% (the hymns to "
+          "6.08%, the apparatus passes from there to 5.97%)",
           abs(r["rate_token"] - 16748 / 280510) < 1e-12,
           f"{r['rate_token']:.4%}  (6.1051% before the Otterbein / M-25 "
           f"batch; 5.6440% before the LATIN_SCRIPT repin; "
@@ -1096,12 +1098,15 @@ def test_the_manufactured_rhyme_is_refused():
     # only piece that reads is still the participial prefix's schwa.
     # REPINNED 2026-10-04: 118 -> 116. Both that left were never verse:
     # `A WIFE A-PRAÏS'D.` (an embedded poem title) and `_Anne an' Joey
-    # a-ta'ken._` (the heading under RIDDLES), each a one-line `[VERSE]`
-    # block M-25(a)'s two readers marked as apparatus.
+    # a-ta'ken._` (~~the heading under RIDDLES~~ the stage direction under
+    # RIDDLES naming the dialogue's speakers), each a one-line `[VERSE]`
+    # block M-25(a)'s two readers marked as apparatus. One was pure ASCII and
+    # one was not, so the split below moves 29/89 -> 28/88.
     check("116 distinct `a-` participles end a line in this one file with "
           "their last piece unread", len(klass) == 116,
-          f"{len(klass)}: {sorted(klass)[:6]} ... (29 before the "
-          f"LATIN_SCRIPT repin, and the other 89 were not even ONE token)")
+          f"{len(klass)}: {sorted(klass)[:6]} ... (28 of these are the "
+          f"pure-ASCII ones, 29 before the LATIN_SCRIPT repin; the other 88 "
+          f"were not even ONE token before it)")
     phones = {w: tuple(LEX.transcribe(w)[0]) for w in klass}
     distinct = set(phones.values())
     check("and ALL of them would have anchored on the IDENTICAL phone list — "

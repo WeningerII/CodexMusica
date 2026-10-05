@@ -909,10 +909,13 @@ def test_item_level_near_duplication_series():
     # filed as `M-20` rather than silently relabelled here. Nothing was lost:
     # 19 -> 21 corpus-wide, gained 2, lost 0.
     # 2026-09-15: contents/title-page text retained as apparatus; prior 4/11/5.
-    # REPINNED 2026-10-04: TITLE 4 -> 3. M-25(a) annotated the one-line
-    # `[VERSE]` that opened Watts's 'To the tune of the 113th Psalm' ('The
-    # book of nature and scripture.', an embedded title), so that echo is
-    # apparatus now. RUN-ON unmoved at 10.
+    # REPINNED 2026-10-04: TITLE 4 -> 3. ~~M-25(a) annotated the one-line
+    # `[VERSE]`~~ CORRECTED 2026-10-05: the label and apparatus pass
+    # annotated the two-line `[VERSE 1]` that opened Watts's 'To the tune of
+    # the 113th Psalm' ('To the tune of the 113th Psalm.' / 'The book of
+    # nature and scripture.'; its receipt classes the echoing line an
+    # editorial note), so that echo is apparatus now. The stage runs agree:
+    # this pin still held after M-25(a). RUN-ON unmoved at 10.
     check("No CONTENTS pages; 10 RUN-ONs and 3 TITLE echoes remain, all named",
           shapes == {"RUN-ON": 10, "TITLE": 3}, shapes)
 
@@ -1280,10 +1283,13 @@ def test_check_H_on_the_real_corpus():
     # by two blind readers (2,376 -> 734 = 247 English blocks kept as sung +
     # 487 non-English, never read; matched 309, all of them non-English).
     # The label and apparatus pass then ADDED 8 (734 -> 742, all residue):
-    # annotating the other lines of a block left one line standing. On their
+    # annotating the other lines of a block left one line standing. ~~On their
     # face at least five of the eight are apparatus too (a `Robert Burns.`
-    # signature, a Watts argument line, Lovelace note prose); no reader has
-    # judged them. They are the pass's own residue, recorded in MISSING.md
+    # signature, ...)~~ CORRECTED 2026-10-05: seven are candidate apparatus
+    # (a Watts argument line, five Lovelace lines, one Hemans line); the
+    # eighth, `Robert Burns.`, is sung -- it rhymes with `concerns` in a
+    # mock-legal subscription. No two-reader verdict has been given on any
+    # of them. The seven are the pass's own residue, recorded in MISSING.md
     # M-25 for the next batch's reading, not adjudicated here.
     check("742 one-line `[VERSE]` blocks under corpus/song/", one == 742,
           one)
@@ -1338,9 +1344,12 @@ def test_check_I_reads_the_indent_and_charges_nothing():
           and "inside the null" in summary[0].measured,
           [f.path for f in summary])
     # REPINNED 2026-10-04: AGREES 517 -> 516, the population 545 -> 544. No
-    # file changed class: `eng_oxford_henry_constable.txt` LEFT, because its
-    # only second indent depth was its indented sonnet numerals (`IX`,
-    # `LXII`), which the label and apparatus pass marked as apparatus.
+    # file changed class: `eng_oxford_henry_constable.txt` LEFT. ~~because
+    # its only second indent depth was its indented sonnet numerals~~
+    # CORRECTED 2026-10-05: it still has a second depth (a sonnet's indented
+    # closing couplet); once the label and apparatus pass marked its indented
+    # numerals (`IX`, `LXII`) as apparatus, its different-depth pairs fell
+    # from 52 below `_INDENT_MIN_PAIRS` (40), so check I has no witness for it.
     check("516 agree / 6 opposite / 22 inside the null",
           summary and "AGREES 516 | runs OPPOSITE 6 | inside the null 22"
           in summary[0].measured, summary and summary[0].measured[:70])

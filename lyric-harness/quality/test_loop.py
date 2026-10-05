@@ -1087,8 +1087,10 @@ def test_group_brief_carries_the_situation():
     # material outside the lyric population; the restoration reads this range.
     # 2026-10-04: (10, 3244) -> (4, 3244), the Otterbein / M-25 closing
     # sitting's re-adoption. The 4-token item is a Lovelace epigraph citation
-    # the label and apparatus pass left as sung (`MISSING.md` M-25, residue
-    # paragraph; `test_floor.py` pins the same fact on the coverage side).
+    # the two passes left as sung after marking the rest of its title page
+    # (`MISSING.md` M-25, residue paragraph; `test_floor.py` pins the same
+    # fact on the coverage side). Once the residue is read the low end is
+    # expected at 9 tokens (a real verse translation), not 10.
     check("...and the perturbation is restored, so no later section "
           "inherits a narrowed floor",
           [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]

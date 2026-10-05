@@ -1,11 +1,16 @@
 # Otterbein refrain hymns and the M-25(a) apparatus pass — 2026-10-04
 
-Status: CLOSED, with one suite still running. Every lane of the closing sitting
-(`quality/CORPUS_LOADING_PROTOCOL.md`) ran over the finished tree (§4), every
-re-derived constant is re-adopted and pinned, and `corpus_manifest.py --check`
-is byte-identical. All 112 other suites pass. `test_mutation` is still running
-(§4). The residue the label pass left (`MISSING.md` M-25) is recorded for the
-next batch.
+Status: CLOSED, with one suite's verdict outstanding. Every lane of the closing
+sitting (`quality/CORPUS_LOADING_PROTOCOL.md`) ran in §4 ~~over the finished
+tree~~; five of them first ran one corpus edit early and were re-run over the
+finished tree on 2026-10-05, all PASS (§4). Every re-derived constant is
+re-adopted and pinned, and `corpus_manifest.py --check` is byte-identical. All
+112 other suites pass. `test_mutation` is still outstanding (§4). The residue
+the two passes left (`MISSING.md` M-25) is recorded for the next batch.
+CORRECTED 2026-10-05: every claim this file, the repin notes and the register
+entries made on 2026-10-04 and 2026-10-05 was checked against the evidence by
+independent readers, and each one that did not hold is struck and corrected
+where it stands.
 ~~LOADING BATCH OPEN. The Otterbein staging below is committed; the M-25(a)
 annotation pass and the closing sitting have not run yet.~~
 
@@ -269,11 +274,21 @@ fact about hymnal text (`MISSING.md` K-1a), and the active curves absorb it.
 
 ## 4. Closing sitting, final run
 
-Run again over the tree carrying §1, §2 and §2b, in the order
-`quality/CORPUS_LOADING_PROTOCOL.md` prescribes. Every output named here is in
-`quality/results/otterbein_m25_2026-10-04/final/`. The "§3" column is the
-first run, which this one supersedes. Each changed constant carries a dated
-note beside its superseded value.
+Run again over the tree carrying §1, §2 and §2b, with every lane of
+`quality/CORPUS_LOADING_PROTOCOL.md`. Two corrections to how that was first
+written here (2026-10-05). ~~in the order the protocol prescribes~~ The
+manifest was written (e23cf872, 22:41) before the capacity recertification
+finished (5ddebdbf, 22:56), in its own commit. The manifest covers corpus
+files only, so the capacity table could not move it. ~~Every output named here
+is in final/~~ The five lanes whose first final outputs predate 7e8e3546 (the
+restore of 7 Burns `[CHORUS]` marks, 22:04) were re-run over the finished tree
+on 2026-10-05, into `final/head-*.txt` and `final/head-mark_coverage.json`.
+Rhyme tables rebuilt byte-identical; meter bands, structure census, mark
+coverage and section marks `--check` PASS. That is also where the table's
+chorus-pointer counts now come from. The suite sweep's verdicts are in
+`final/sweep/`. The "§3" column is the first run, which this one supersedes.
+Each changed constant carries a dated note beside its superseded value;
+`song_profile_calibration.PROFILE_PERIOD` lacked one until 2026-10-05.
 
 | lane | §3 (superseded) | final | verdict |
 |---|---|---|---|
@@ -286,7 +301,7 @@ note beside its superseded value.
 | capacity witnesses | 81, every one re-verified unchanged | 81 re-verified unchanged (0 repair rounds); max certified chain 39 (EH-R) | table header only; runtime verification 81/81; `capacity.py --check` PASS |
 | calibration rows | 8,609 works, 279,503 sung lines | 8,597 works, 278,152 sung lines, 1,343 files (235 s, field cache reused) | rebuilt |
 | `lyric` length curves (the active floor) | range 9–3,244; mattr C1, fwr C2, anaphora C2, cv C2, predictability CK | range 4–3,244; mattr C1, **fwr C1**, anaphora C2, cv C2, predictability CK; 21/21 bins for every check | re-adopted; `SHIPPED_MODEL` repinned; check HOLDS |
-| superseded `song` / `short` bands | 200–400 / 50–150 | 150–350 (3,251 items) / 50–150 (3,710 items) | re-recorded as bookkeeping; never applied (`MISSING.md` M-317) |
+| superseded `song` / `short` bands | 200–400 / 50–150 | 150–350 (3,251 items) / 50–150 (3,710 items) | re-recorded. ~~as bookkeeping; never applied~~ Their percentiles are never applied, but their bands set CLICHE_PAIR's flag range: it is now a NOTE on lyric sheets of 351–400 tokens, where it could FLAG before (`MISSING.md` M-317, corrected 2026-10-05) |
 | manifest | 1,477 files | 1,477 files, over the finished tree | written; `--check` byte-identical |
 | runtime asset pins | | rhyme tables, `sources.tsv`, capacity table, section marks | repinned; `release_assets.py --integrity` clean |
 | suite sweep (`quality/suite_sweep.py`, 113 suites) | not run | 94 PASS on their sweep run, 16 FAIL, 2 CANNOT RUN at their bound; `test_mutation` run on its own | 13 FAILs were pins this batch moved, now repinned with per-stage notes; 3 were missing resources in this container; every suite passes when run to completion (`test_mutation`: see below) |
@@ -295,7 +310,8 @@ The function-word ratio is back on the straight line. The first run had 22
 bins, and C1 failed bin 20 there. The final fit has 21 bins, C1 passes every
 one, and the registered pick is the fewest parameters passing every bin. The
 predictability pick is CK, the registered 2026-09-04 deviation
-(`LENGTH_CURVE_PREREGISTRATION.md`, amendment after §4): the constant C0 sits
+(`LENGTH_CURVE_PREREGISTRATION.md` §4, the amendment after "The pick"): the
+constant C0 sits
 at the statistic's ceiling and passes by never firing. The anaphora and cv
 quadratics turn inside the corpus range (N = 911 and N = 1,071), which the fit
 discloses under E3. The predictability curve first becomes informative at 141
@@ -303,15 +319,20 @@ tokens, the same as §3.
 
 **The calibrated range now starts at 4 tokens, down from 9, and the item
 that sets it is not a song.** It is Lovelace's `Mart. lib. I. Epig. 26.`, the
-one line of an editor's title page that §2b did not annotate. Every
-calibration item under 10 tokens is one of the residue items `MISSING.md`
-M-25 now records: 37 note lines left as sung in 15 items, and 8 one-line
-blocks the pass created by annotating the rest of their block. The shortest
-item outside them is Gay's 10-token `Air LVII`. Three pins move only because
-of it, and each says so where it stands: `test_floor.py` (the floor now
-reaches 696 of the lengths 1–699 rather than 690), `test_loop.py` (the
-restored band is (4, 3244)) and `test_plan.py` (the planner's gradeable span
-starts at one line rather than two). The residue is to be read with the same
+one line of an editor's title page the two passes did not annotate. Every
+calibration item under 9 tokens is one of the residue items `MISSING.md` M-25
+now records: ~~37 note lines left as sung in 15 items~~ 33 note lines left as
+sung in 13 items, plus 7 candidate one-line blocks the label pass created by
+annotating the rest of their block. ~~The shortest item outside them is Gay's
+10-token `Air LVII`.~~ The 9-token item is Lovelace's verse translation `In
+English`, a real lyric, so once the residue is read the range is expected to
+start at 9, not 10. Two pins move only because of the citation, and each says
+so where it stands: `test_floor.py` (the floor reaches 696 of the lengths
+1–699 rather than 690; expected 691 after the reading) and `test_loop.py` (the
+restored band is (4, 3244)). ~~and `test_plan.py` (the planner's gradeable span
+starts at one line rather than two)~~ The planner's span also starts at one
+line rather than two, but not because of the citation: a 9-token low end gives
+one line too, measured with `plan`'s caches cleared. The residue is to be read with the same
 two-blind-reader protocol at the start of the next batch, so that batch's
 closing sitting absorbs it instead of this one being run a third time. That
 ordering is this sitting's call under the owner's "finish closing the batch
@@ -323,18 +344,23 @@ finish inside the session's two-hour background limit, because it holds
 `test_mutation` detached. Three verdicts, never summed:
 
 * **94 PASS** on their sweep run.
-* **16 FAIL.** Thirteen were pins this batch moved. Each was measured at the
-  batch base (`f9bc020c`, where every one holds), after the Otterbein staging,
-  after M-25(a) and after §2b, then repinned with a dated note naming its
-  stage: `test_corpus_audit`, `test_corpus_taxonomy` (with
-  `audit_corpus.PINNED_SHAPE` and `RESULTS_CORPUS_AUDIT.md`), `test_floor`,
-  `test_grid`, `test_loop`, `test_plan`, `test_readability`, `test_relations`,
-  `test_production_data`, `test_song_function`, `test_structure_census`,
-  `test_triage` (M-317 now carries its TESTED WHILE OPEN declaration) and
-  `test_provenance`. The last one caught a stale record: the `sources.tsv`
-  rows for the two rhyme-position tables still claimed the 2026-09-15 build.
-  They now record this rebuild and name `data/lyric_label_prefixes.json` as
-  part of the reader. The other three FAILs were this container, not the
+* **16 FAIL.** Thirteen were this batch's doing. Eleven were pins the batch
+  moved, each repinned with a dated note naming its cause: `test_corpus_audit`
+  and `test_corpus_taxonomy` (with `audit_corpus.PINNED_SHAPE` and
+  `RESULTS_CORPUS_AUDIT.md`), `test_grid`, `test_readability`,
+  `test_song_function` and `test_structure_census`, each measured at the batch
+  base (`f9bc020c`, where every one holds), after the Otterbein staging, after
+  M-25(a) and after §2b; `test_relations` and `test_production_data`, measured
+  at the base, at §3's rebuild and at the final one; and `test_floor`,
+  `test_loop` and `test_plan`, which follow the adopted curve and band
+  constants and were attributed by reading those constants, not by a stage
+  run. Two were fixed in the records rather than repinned. `test_triage`: M-317
+  now carries its TESTED WHILE OPEN declaration. `test_provenance`: it caught
+  an orphan, `data/lyric_label_prefixes.json`, which no `sources.tsv` row
+  reached. Repairing that turned up a stale record: the rows for the two
+  rhyme-position tables still claimed the 2026-09-15 build. They now record
+  this rebuild and name the prefix table as part of the reader. The other
+  three FAILs were this container, not the
   tree: the concreteness norms were not staged (`test_crosslinguistic`,
   `test_discriminate`; `fetch_data.py --research`), and numpy and
   scikit-learn were not installed (`test_rhyme_organization`, and the joint
@@ -347,6 +373,14 @@ finish inside the session's two-hour background limit, because it holds
 Every repinned suite was re-run to green after its repin.
 `counters.py --check`, `verify_entries.py`, `backlog_status.py --check`,
 `release_assets.py --integrity` and `map/build.py --check` all pass.
+**And CI had not run any of this.** Every completed CI run on the branch from
+c16ce9d1 (2026-10-04 17:55) on stopped at the gate job's `prettier --check`,
+on 13 JSON result files this batch wrote. The one before it, on fc3844e6,
+passed the gate, and its suites failed on pins not yet repinned. The commit
+that formatted the 13 files (a5ed1ad6) says "every push", which overstates
+this. The files were reformatted with the repo's own prettier; none is pinned
+by hash, each parses to identical JSON, and every later gate step passes
+locally.
 
 **`test_mutation` is still running when this is written** (2026-10-05): its baseline measured 20 of 20 test files PASS, and 40 of its 59 planted mutations had resolved after 10,172 s, with none reported surviving so far. Its verdict is added here when it finishes. Until then it is neither a PASS nor a FAIL (doctrine 20).
 
@@ -358,8 +392,10 @@ Three readings the repins needed, kept here because the pins only name them:
   2`, two Browning notes and two Herrick index entries. Each was read before
   `test_structure_census` named it, and no verse was among them.
 * The cross-function shared-line pairs rose 60 → 84. All 24 new ones are
-  refrain hymns whose refrain sings the verse's closing line again (`I love to
-  tell the story!`). That is a verse line the refrain also sings, never a
+  refrain hymns. In 23 the refrain sings a verse's closing line again (`God be
+  with you till we meet again.`); in Hankey's it sings the verse's opening line
+  (`I love to tell the story!`; ~~all 24 the closing line~~, corrected
+  2026-10-05). Either way it is a verse line the refrain also sings, never a
   reprise, and every one is a refrain/verse pair the shipped default does not
   ask.
 * The readability population: the hymns add 1,640 sung lines and refuse at

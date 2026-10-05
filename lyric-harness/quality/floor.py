@@ -845,6 +845,20 @@ PROFILES = [
         lo=150, hi=350, n_lines=0, n_human=3251, n_generated=0,
         superseded_by="lyric",  # 2026-09-04, M-239: the length-curve profile below
         tolerance=1.25,
+        #: RE-RECORDED 2026-10-04 at the Otterbein / M-25 closing sitting
+        #: (`quality/RESULTS_OTTERBEIN_M25_2026-10-04.md` §4): band
+        #: ~~150-400~~ 150-350, n_human ~~3,533~~ 3,251; the five percentiles
+        #: are in `test_floor.py`'s pin. THE LIVE CONSEQUENCE, recorded
+        #: 2026-10-05 because the sitting first called this re-recording
+        #: bookkeeping (`MISSING.md` M-317, corrected): the 2026-09-24 note
+        #: below says this row is superseded for its PERCENTILES but not for
+        #: its CLICHE rate, and `cliche_rate_rows()` still reads its band by
+        #: `covers()`. So CLICHE_PAIR is a NOTE, not a FLAG, on lyric sheets of
+        #: 351-400 tokens from this re-recording on. Measured: the rows covered
+        #: 50-400 tokens at the batch base and cover 50-350 at the re-recording.
+        #: The row's cliche rate is now the one measured over 150-350: held-out
+        #: median [5th-95th] ~~6.78 [5.41-7.89]~~ 7.33 [5.69-8.71]
+        #: (`quality/results/otterbein_m25_2026-10-04/final/song-adoption.json`).
         #: RE-ADOPTED 2026-09-24 AS A SET, AND THE BAND MOVED BACK FOR THE
         #: REASON IT MOVED ON 2026-08-26. The N-relation comparator (M-309,
         #: #375; landing through PR #380; fingerprint 1e2d0c2dc62c) changed
