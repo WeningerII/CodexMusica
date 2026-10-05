@@ -419,8 +419,16 @@ writes `rss: null` when its resident set reads zero, a process that has
 released its pages on the way out; its comment calls unknown the conservative
 direction. The validator in `scripts/lyrics_capacity_runtime.py` accepts an
 unmeasured sample only when its kind is empty too. The two
-disagree, and this branch touches neither file. The failed cell is to be
-re-run once; its result is added here.
+disagree, and this branch touches neither file. ~~The failed cell is to be
+re-run once; its result is added here.~~ **The one re-run never started.**
+Attempt 2 of run 37357749476 queued the `upper` cell at 20:41 UTC. GitHub
+cancelled it at 20:56 with no runner ever assigned, exactly as it had cancelled
+the first attempt's result job (queued 20:19, cancelled 20:34). CI on this
+branch's next push got runners in the same window and passed every job, so
+runners in general were not unavailable. Why these two jobs were not picked up
+is not known. The matrix cannot be dispatched on its own (`workflow_call`
+only), so the cell's verdict stands at the first attempt's failure on the
+validator line above (recorded 2026-10-05).
 
 Three readings the repins needed, kept here because the pins only name them:
 
