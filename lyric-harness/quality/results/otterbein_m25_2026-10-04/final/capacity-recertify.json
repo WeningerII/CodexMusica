@@ -983,13 +983,7 @@
     {
       "family": "AW-S",
       "chain_lo": 5,
-      "witness": [
-        "mouse",
-        "klaus",
-        "strauss",
-        "slaughterhouse",
-        "waterhouse"
-      ],
+      "witness": ["mouse", "klaus", "strauss", "slaughterhouse", "waterhouse"],
       "rounds": 0,
       "elapsed_s": 0.9574902659987856,
       "mode": "reverified"
@@ -1017,16 +1011,7 @@
     {
       "family": "IH-P",
       "chain_lo": 8,
-      "witness": [
-        "ship",
-        "tripp",
-        "yip",
-        "courtship",
-        "airstrip",
-        "gyp",
-        "equip",
-        "fingertip"
-      ],
+      "witness": ["ship", "tripp", "yip", "courtship", "airstrip", "gyp", "equip", "fingertip"],
       "rounds": 0,
       "elapsed_s": 2.3747645800031023,
       "mode": "reverified"
@@ -2034,12 +2019,7 @@
     {
       "family": "IY-L-D",
       "chain_lo": 4,
-      "witness": [
-        "wield",
-        "sealed",
-        "battlefield",
-        "windshield"
-      ],
+      "witness": ["wield", "sealed", "battlefield", "windshield"],
       "rounds": 0,
       "elapsed_s": 0.6785312669999257,
       "mode": "reverified"
@@ -2047,15 +2027,7 @@
     {
       "family": "AW-N",
       "chain_lo": 7,
-      "witness": [
-        "crown",
-        "hometown",
-        "showdown",
-        "browne",
-        "noun",
-        "hoedown",
-        "godown"
-      ],
+      "witness": ["crown", "hometown", "showdown", "browne", "noun", "hoedown", "godown"],
       "rounds": 0,
       "elapsed_s": 4.582351692002703,
       "mode": "reverified"
