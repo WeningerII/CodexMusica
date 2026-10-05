@@ -26590,7 +26590,7 @@ Full scope and verification: `quality/RESULTS_M279_2026-09-17.md`.
 
 **THE RED.** `capacity-matrix / cells pole` failed on PR #284 at `b2192eb4` with `{"failures": ["instrument child process measurements are invalid"], "production_qualified": false}`. Every cell had run to completion — 31/20260910 and 24/20260909, cold and worker, all four sub-runs — and only the record's self-validation refused. **The same job on the same commit PASSED in the concurrent push run 34985217641 while failing in the pull-request run**, which is what established it as a race rather than a property of the tree, and it cleared on re-run.
 
-**THE MECHANISM, MEASURED NOT ASSUMED.** `instrumentChildren()` in `scripts/lyrics_capacity_queue.mjs` samples three `/proc` files per child — `cmdline`, a `cwd` readlink, and `status` — and they are not atomic. Driven against a real forked-and-unreaped process on this box: a zombie **is still listed** in `/proc/<pid>/task/<pid>/children`, its `cmdline` reads empty, **its `cwd` readlink throws ENOENT**, and its `status` exists **with no `VmRSS` line**. The loop's only `try` sat OUTSIDE it, so that one ENOENT returned `null` for the WHOLE inventory — every sibling discarded, including the long-running lyric child the proof is about. A capacity shard runs a 250-second `revise`; the processes that die inside a microsecond-wide sampling window are incidental ones. So an irrelevant process, by exiting, destroyed the evidence for the relevant one.
+**THE MECHANISM, MEASURED NOT ASSUMED.** `instrumentChildren()` in `scripts/lyrics_capacity_queue.mjs` samples three `/proc` files per child — `cmdline`, a `cwd` readlink, and `status` — and they are not atomic. Driven against a real forked-and-unreaped process on this box: a zombie **is still listed** in `/proc/<pid>/task/<pid>/children`, its `cmdline` reads empty, **its `cwd` readlink throws ENOENT**, and its `status` exists **with no `VmRSS` line**. The loop's only `try` sat OUTSIDE it, so that one ENOENT returned `null` for the WHOLE inventory — every sibling discarded, including the long-running lyric child the proof is about. ~~A capacity shard runs a 250-second `revise`; the processes that die inside a microsecond-wide sampling window are incidental ones.~~ (struck 2026-10-05: an exiting child's teardown window lasts tens of milliseconds on a large child, and the child sampled in it can be the lyric child itself; see the amendment below) So an irrelevant process, by exiting, destroyed the evidence for the relevant one.
 
 A second, narrower path reaches the same refusal without any exception: a child alive through `cwd` but dying before `status` is read yields a `status` with no `VmRSS`, and the producer recorded that as `rss: null`, which `number(child.get('rss'), 1)` rejects. `VmRSS: 0 kB` — a process that has released every page — reached it too, as `0`.
 
@@ -26605,6 +26605,50 @@ A second, narrower path reaches the same refusal without any exception: a child 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~344~~ -> **345**.
 
 **345** with this entry (2026-09-15).
+
+**AMENDED 2026-10-05: the sampler could still emit the half-declared shape, and
+the capacity matrix measured it.** A `status` with no `VmRSS` gave a row that
+kept the `kind` it had already computed beside `rss: null`. That was so before
+this entry, and fix (2) left it so while making `VmRSS: 0 kB` a `null` too.
+It is the "kind without an rss" shape fix (3) keeps malformed and
+`scripts/test_capacity_children.mjs` pins as "never half", so the producer could
+still emit a row the validator refuses. The real-zombie fixture never reaches
+it, because a zombie's `cwd` readlink throws first. It reached
+`capacity-matrix / cells upper` in attempt 1 of Production qualification run
+37357749476 (2026-10-05), dispatched on `claude/youthful-hopper-m22xhv` at
+`9f82a087`, a commit of PR #497, as `instrument child process measurements are
+invalid: [{'pid': 41, 'kind': 'other', 'rss': None}]`, after every measured
+verb of both seeds had run to completion.
+
+**WHICH STATE PRODUCED IT IS NOT PROVEN, and the likelier one is not the one
+this entry named.** Two states give that row with every read succeeding. One
+is the path named above, a child dying between its `cwd` and `status` reads.
+The other is exit teardown: the kernel releases a process's memory before its
+`cwd`, so `cmdline` reads empty (hence `other`), the readlink resolves and
+`status` has no `VmRSS`. Measured 2026-10-05 on this container's 6.18 kernel,
+with an unreaped child holding 500 MB told to exit and the three reads in a
+tight loop: 2,293, 1,397 and 1,330 samples per exit caught teardown, against
+one sample in one trial of the between-reads state. The CI row's empty-command
+`other` fits teardown, and teardown lasts longest for the largest children, so
+it may have been the lyric child itself exiting. That qualifies the sentence
+struck in **THE MECHANISM** above. The fix below covers both states.
+
+**The fix keeps the contract and moves the producer to it.** The row builder is
+now the pure, exported `childRow` in `scripts/lyrics_capacity_queue.mjs`, and a
+child whose resident set reads empty or zero is declared unknown whole:
+`{pid, kind: null, rss: null}`. Nothing the validator reads is lost. It uses a
+child's kind only to count lyric children, and it excludes every child of
+unknown memory from that count either way. The validator is unchanged except
+for its comment.
+
+**VERIFIED:** `scripts/test_capacity_children.mjs` gains three checks that
+drive `childRow` with the `/proc` reads themselves (no `VmRSS`, `VmRSS: 0 kB`,
+and a live control), and a fourth that samples a real 100 MB child through
+`instrumentChildren` as it exits. The fourth requires that teardown was
+actually sampled, and that no row was half-declared. With the old behaviour
+restored, the first two and the fourth fail and the control passes. With the
+fix, all nine checks in the file pass. `scripts/test_lyrics_capacity.py` refuses
+the CI's exact row by name, beside a good lyric child (34 tests, all green).
 
 ### M-291 · A repository-wide dead-code sweep: three unreferenced symbols and two rename shims removed, TWO CANDIDATES DECLINED because the record conditions their removal on work that has not landed — and one bucket entry that a static sweep calls dead is reached by name through `hasattr` `CLOSED` 2026-09-15 (built; `counters.py --check` and the gate set measure) — under the owner's order, verbatim: *"fix whatever the hunts turn up"*
 
