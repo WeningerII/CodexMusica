@@ -151,6 +151,19 @@
             "contemporary-classical",
             "bowed"
           ]
+        },
+        {
+          "id": "string_quartet_inst_popular_song_accompaniment",
+          "name": "Popular-song accompaniment and revival arrangements",
+          "descriptors": [
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "melodic"
+          ],
+          "auto": false
         }
       ]
     }
@@ -251,6 +264,19 @@
             "contemporary-classical",
             "bowed"
           ]
+        },
+        {
+          "id": "string_quartet_inst_popular_song_accompaniment",
+          "name": "Popular-song accompaniment and revival arrangements",
+          "descriptors": [
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "melodic"
+          ],
+          "auto": false
         }
       ]
     }

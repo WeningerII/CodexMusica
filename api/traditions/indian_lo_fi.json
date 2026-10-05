@@ -1,0 +1,92 @@
+{
+  "id": "indian_lo_fi",
+  "name": "Indian Lo-Fi",
+  "family": "electronic",
+  "lineage": "Indian lo-fi connects independent electronic producers with local melodic traditions and intimate online listening. Film-vocal reworkings coexist with flute-led instrumental experiments and deliberately imperfect rhythmic textures.",
+  "recipe": "classic indian lo-fi, experimental Elec, lofi branch. bansuri, credited beat credited electronics unspecified. bedroom.",
+  "recipe_chars": 119,
+  "score": 1.661,
+  "config": {
+    "traditions": [
+      "indian_lo_fi"
+    ],
+    "instruments": [
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_assam_bamboo",
+          "bansuri_lineage": "bansuri_pannalal_ghosh"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "bansuri_length": 0.0315,
+          "bansuri_ornament": 1.625,
+          "bansuri_body_material": 0.105,
+          "bansuri_lineage": 0
+        }
+      },
+      {
+        "id": "credited_beat_unspecified",
+        "slots": {
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        },
+        "scores": {
+          "credited_beat_identity": 0
+        }
+      },
+      {
+        "id": "credited_electronics_unspecified",
+        "slots": {
+          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+        },
+        "scores": {
+          "credited_electronics_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "bansuri": [
+        "wind_articulation",
+        "bansuri_length",
+        "bansuri_ornament",
+        "bansuri_body_material",
+        "bansuri_lineage"
+      ],
+      "credited_beat_unspecified": [
+        "credited_beat_identity"
+      ],
+      "credited_electronics_unspecified": [
+        "credited_electronics_identity"
+      ]
+    },
+    "room": "untreated_bedroom",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "untreated_bedroom",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "bansuri_length": "classical_bansuri",
+      "bansuri_ornament": "meend_bansuri",
+      "bansuri_body_material": "bansuri_assam_bamboo",
+      "bansuri_lineage": "bansuri_pannalal_ghosh",
+      "credited_beat_identity": "credited_beat_mechanism_unspecified",
+      "credited_electronics_identity": "credited_electronics_generator_unspecified"
+    },
+    "pin_parts": true
+  }
+}

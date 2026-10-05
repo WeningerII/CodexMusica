@@ -1,0 +1,50 @@
+{
+  "id": "deep_ragga",
+  "name": "Deep Ragga",
+  "family": "global",
+  "lineage": "Deep Ragga follows Jamaican ragga and dancehall through a repertoire of deejays, singers and producers associated with digital riddims and sound-system circulation. Chatted verses and melodic hooks ride recurring bass-and-drum patterns; versions, dubplates and continuous mixes connect performers across shared backing tracks.",
+  "recipe": "classic deep ragga, bass System, Jamaican branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 96,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "deep_ragga"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

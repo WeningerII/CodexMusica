@@ -1,0 +1,70 @@
+{
+  "id": "violao",
+  "name": "Violão",
+  "family": "global",
+  "lineage": "The violão connects Brazilian concert guitar, instrumental popular music and song accompaniment. Solo writing and the guitar-led canção share performers, harmonic ideas and techniques while retaining different roles for words, melody and instrumental counterpoint.",
+  "recipe": "classic violão, art Music. classical nylon-string guitar. live tracking.",
+  "recipe_chars": 72,
+  "score": 2.094,
+  "config": {
+    "traditions": [
+      "violao"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.25,
+          "string_tuning": 0,
+          "top_wood_classical": 0.1575,
+          "bracing_classical": 0.34650000000000003,
+          "string_classical": 0.25,
+          "attack_technique_cl": 1.5899999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "tirando_cl"
+    },
+    "pin_parts": true
+  }
+}

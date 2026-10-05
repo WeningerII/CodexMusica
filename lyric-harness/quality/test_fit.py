@@ -1080,6 +1080,72 @@ def test_remaining_inert_coordinate_is_measured_not_asserted():
           not wound.prominence_undecided, f"pattern {wound.pattern()!r}")
 
 
+def test_the_fit_judges_one_whole_reading_at_a_time():
+    """THE ANY-READING RULE (owner ruling 2026-10-01, HANDBOOK.md standing
+    rule 5), brought to the meter 2026-10-04: a word whose dictionary
+    readings disagree no longer leaves its line unjudged."""
+    print("\n  ANY READING — the fit judges a line one whole reading at a time")
+    import itertools
+    line = "I didn't learn it every hour of the fire"
+    lu = read_line(line)
+    check("the calibration reader is unchanged: it still leaves the "
+          "disputed counts out (meter_bands keeps its population)",
+          {r.cause for r in lu.refused} == {"UNRESOLVED_READING"}
+          and {s.word for s in lu.disputed} >= {"didn't", "every", "hour", "fire"},
+          f"{[r.token for r in lu.refused]}")
+    sub = Subdivision(1, source=SOURCE)
+    roomy = fit_line(line, _place(cycle=FOUR, duration=16, bars=4),
+                     subdivision=sub)
+    check("the fit refuses neither the count nor the stresses, and says "
+          "which reading it judged (the first-listed, which fits)",
+          not ({"COUNT_IS_A_LOWER_BOUND", "PROMINENCE_UNDECIDED"} & _rcodes(roomy))
+          and roomy.count == 14 and "every = 3 syllables" in roomy.units.describe_reading(),
+          roomy.units.describe_reading())
+    tight = fit_line(line, _place(cycle=FOUR, duration=10, bars=4),
+                     subdivision=sub)
+    check("ten slots: the first-listed reading needs fourteen, the shortest "
+          "needs ten, so the line FITS and no SLOTS_EXCEEDED stands",
+          tight.satisfiable and tight.count == 10
+          and "SLOTS_EXCEEDED" not in _codes(tight)
+          and "every = 2 syllables" in tight.units.describe_reading(),
+          f"{_codes(tight)} {tight.units.describe_reading()}")
+    short = fit_line(line, _place(cycle=FOUR, duration=9, bars=4),
+                     subdivision=sub)
+    check("nine slots: no reading fits, and the flag stands",
+          "SLOTS_EXCEEDED" in _codes(short) and not short.satisfiable)
+    oov = fit_line("Every hour the whiteboard waits", _place())
+    check("a word no dictionary reads is still refused (the ruling does not "
+          "license a guess)", "COUNT_IS_A_LOWER_BOUND" in _rcodes(oov)
+          and "whiteboard" in [r for r in oov.refusals
+                               if r.code == "COUNT_IS_A_LOWER_BOUND"][0].missing)
+
+    # The search tries two readings, not every combination. Checked against
+    # every combination: no whole reading fails fewer declarations than the
+    # one `fit_line` reports, over lines, spans and subdivisions.
+    lines = (line, "Somebody records because our hour is spring",
+             "Didn't every fire learn us", "Nobody's and everybody's fault")
+    worse = []
+    for text in lines:
+        u = read_line(text)
+        disputed = u.disputed
+        for dur in range(4, 17):
+            for s in (None, Subdivision(1, source=SOURCE),
+                      Subdivision(2, source=SOURCE)):
+                p = _place(cycle=FOUR, duration=dur, bars=4)
+                got = sum(not f.satisfiable
+                          for f in fit_line(u, p, subdivision=s).findings)
+                best = min(
+                    sum(not f.satisfiable for f in fit_line(
+                        u.whole(lambda seg, c=dict(zip(map(id, disputed), ks)):
+                                c[id(seg)]), p, subdivision=s).findings)
+                    for ks in itertools.product(
+                        *[range(len(d.readings)) for d in disputed]))
+                if got != best:
+                    worse.append((text, dur, s and s.s, got, best))
+    check("no combination of readings meets more of the declaration than "
+          "the one the fit reports", not worse, f"{worse[:3]}")
+
+
 def main():
     for t in (test_the_count_is_in_the_phonologys_own_grid_unit,
               test_a_refused_token_makes_the_count_a_lower_bound,
@@ -1106,7 +1172,8 @@ def main():
               test_an_undeclared_signature_says_so,
               test_two_sections_may_share_a_name,
               test_an_ambiguous_name_cannot_outrank_the_bar,
-              test_remaining_inert_coordinate_is_measured_not_asserted):
+              test_remaining_inert_coordinate_is_measured_not_asserted,
+              test_the_fit_judges_one_whole_reading_at_a_time):
         t()
     print("\n" + "=" * 62)
     if FAILURES:

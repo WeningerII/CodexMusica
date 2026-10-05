@@ -3,27 +3,27 @@
   "name": "Power Noise",
   "family": "electronic",
   "lineage": "Rhythmic-noise style codified in Germany from 1994 onward by Ant-Zen, Hymen and acts such as Converter and Winterkälte, applying distorted 4/4 kick-drum sequencing and clipped percussive loops at 130-160 BPM to noise source material, with layered granular texture, no vocals, and hardware-plus-DAW production aimed at industrial dancefloors.",
-  "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding pakistani electronic. TR-909, sampler drum machine, analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
-  "recipe_chars": 594,
-  "score": 78.025,
+  "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding glitchbreak. TR-909, sampler drum machine, analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
+  "recipe_chars": 585,
+  "score": 78.67,
   "config": {
     "traditions": [
       "power_noise",
       "live_coding",
-      "pakistani_electronic"
+      "glitchbreak"
     ],
     "instruments": [
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_hat",
+          "tr909_voice": "tr909_clap",
           "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 0,
-          "drum_machine_909_context": 0.832125,
-          "tr909_production_origin": 0.45499999999999996
+          "tr909_voice": 1.25,
+          "drum_machine_909_context": 0.65,
+          "tr909_production_origin": 0.65
         }
       },
       {
@@ -37,25 +37,25 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.45499999999999996,
-          "sample_swing": 12.155,
+          "sample_swing": 11.780000000000001,
           "sample_processing": 0.39
         }
       },
       {
         "id": "analog_synth",
         "slots": {
-          "electronic_technique": "electronic_arpeggiated",
+          "electronic_technique": "electronic_bass_sub",
           "oscillator": "noise_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "gated_env",
-          "modulation": "lfo_filter"
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": -0.035,
+          "electronic_technique": 0.45500000000000007,
           "oscillator": 1,
-          "filter_topology": 0.39,
-          "envelope": 1.69,
-          "modulation": 0.195
+          "filter_topology": 1.04,
+          "envelope": 2.19375,
+          "modulation": 0.35
         }
       },
       {
@@ -67,10 +67,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 16.3,
-          "mod_voltage_source": 1.84375,
-          "mod_patch_density": 1.5618750000000001,
-          "mod_lineage": 0.195
+          "electronic_technique": 15.05,
+          "mod_voltage_source": 2.34375,
+          "mod_patch_density": 2.211875,
+          "mod_lineage": 0.7987500000000001
         }
       },
       {
@@ -81,9 +81,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 16.3,
+          "electronic_technique": 15.05,
           "granular_use": 0.16249999999999998,
-          "granular_synth_source": 6.53975
+          "granular_synth_source": 6.68975
         }
       },
       {
@@ -95,8 +95,8 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 16,
-          "wt_position": 6.305,
+          "electronic_technique": 14.75,
+          "wt_position": 6.11,
           "wt_family": 0.8449999999999999,
           "wt_polyphony": 0.24
         }

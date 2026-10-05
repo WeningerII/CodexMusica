@@ -1,0 +1,66 @@
+{
+  "id": "speed_up_turkce",
+  "name": "Speed Up Türkçe",
+  "family": "hip_hop",
+  "lineage": "Speed Up Türkçe gathers accelerated versions of Turkish-language recordings circulated through streaming releases and online remix culture. Rappers, singers and remix producers retain recognizable phrases while changing the temporal scale of the recorded song.",
+  "recipe": "classic speed up türkçe, mc Rhythm. recorded music rate processing. treated studio.",
+  "recipe_chars": 83,
+  "score": 1.152,
+  "config": {
+    "traditions": [
+      "speed_up_turkce"
+    ],
+    "instruments": [
+      {
+        "id": "recorded_music_rate_processing",
+        "slots": {
+          "rate_process_vocal_material": "rate_process_rap_vocal",
+          "rate_process_backing_material": "rate_process_produced_beat",
+          "rate_process_speed": "rate_process_accelerated",
+          "rate_process_phrase": "rate_process_continuous_song",
+          "rate_process_pitch_coupling": "rate_process_pitch_unspecified"
+        },
+        "scores": {
+          "rate_process_vocal_material": 0.39,
+          "rate_process_backing_material": 0.408,
+          "rate_process_speed": 0,
+          "rate_process_phrase": 0.354,
+          "rate_process_pitch_coupling": 0
+        }
+      }
+    ],
+    "pinned": {
+      "recorded_music_rate_processing": [
+        "rate_process_vocal_material",
+        "rate_process_backing_material",
+        "rate_process_speed",
+        "rate_process_phrase",
+        "rate_process_pitch_coupling"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "rate_process_vocal_material": "rate_process_rap_vocal",
+      "rate_process_backing_material": "rate_process_produced_beat",
+      "rate_process_speed": "rate_process_accelerated",
+      "rate_process_phrase": "rate_process_continuous_song",
+      "rate_process_pitch_coupling": "rate_process_pitch_unspecified"
+    },
+    "pin_parts": true
+  }
+}

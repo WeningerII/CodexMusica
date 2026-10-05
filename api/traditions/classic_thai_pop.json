@@ -1,0 +1,58 @@
+{
+  "id": "classic_thai_pop",
+  "name": "Classic Thai Pop",
+  "family": "pop",
+  "lineage": "Thailand’s familiar pop repertoire circulates through singers, string bands, recorded hits and later reinterpretations. Romantic melody and memorable refrains connect older urban-pop performers with subsequent generations of listeners and musicians.",
+  "recipe": "classic classic thai pop, functional Song. block chord upright piano. live tracking.",
+  "recipe_chars": 84,
+  "score": 9.95,
+  "config": {
+    "traditions": [
+      "classic_thai_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 9.95,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

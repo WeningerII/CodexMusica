@@ -112,6 +112,21 @@
             "indian",
             "virtuosic"
           ]
+        },
+        {
+          "id": "nagara_indian_folk_song_accompaniment",
+          "name": "Folk-song ensemble accompaniment",
+          "default": false,
+          "auto": false,
+          "descriptors": [
+            "supporting",
+            "rhythmic",
+            "rolling"
+          ],
+          "match_tokens": [
+            "folk-song",
+            "vocal-accompaniment"
+          ]
         }
       ]
     }
@@ -212,6 +227,21 @@
           "match_tokens": [
             "indian",
             "virtuosic"
+          ]
+        },
+        {
+          "id": "nagara_indian_folk_song_accompaniment",
+          "name": "Folk-song ensemble accompaniment",
+          "default": false,
+          "auto": false,
+          "descriptors": [
+            "supporting",
+            "rhythmic",
+            "rolling"
+          ],
+          "match_tokens": [
+            "folk-song",
+            "vocal-accompaniment"
           ]
         }
       ]

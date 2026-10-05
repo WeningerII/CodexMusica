@@ -1,0 +1,50 @@
+{
+  "id": "deep_uplifting_trance",
+  "name": "Deep Uplifting Trance",
+  "family": "electronic",
+  "lineage": "Deep uplifting trance is a discovery label connecting uplifting, progressive and club-trance producers. Expansive melodies and vocal records share the repertoire with energetic rhythmic selections and extended DJ transitions.",
+  "recipe": "classic deep uplifting trance, electronic Dance, trance branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 110,
+  "score": 0.2,
+  "config": {
+    "traditions": [
+      "deep_uplifting_trance"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.1995
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Boom bap español gathers Spanish-language rap shaped by beatmaking traditions and a foregrounded MC. Producers and rappers sustain an underground network through collaborations, releases and performance, with recurring rhythmic backings supporting narrative, wordplay and confrontational delivery.",
   "recipe": "classic boom bap español, mc Rhythm. rhythmic, no pitch organization speech, solo with instrumental accompaniment, single lead single track no stacking. credited beat unspecified. treated studio.",
   "recipe_chars": 195,
-  "score": 6.142,
+  "score": 6.005,
   "config": {
     "traditions": [
       "boom_bap_espanol"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 2.08,
+          "voice_articulation": 1.9435,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

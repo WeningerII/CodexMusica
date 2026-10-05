@@ -823,10 +823,15 @@ def test_optin_layers_are_disclosed_and_success_is_per_line():
     check("...on a draft that STILL carries HOOK_ABSENT, a flag -- so "
           "SUCCESS means 'nothing left this loop can act on', never 'clean'",
           "HOOK_ABSENT" in codes, codes)
+    # REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter (HANDBOOK.md
+    # standing rule 5): L1's `fire` (F AY1 ER0 / F AY1 R) is judged on one
+    # whole reading, so coverage now certifies beside the standing whole-draft
+    # flags. ~~`and not res.coverage_certified`~~ -- it was refused as
+    # meter:COUNT_IS_A_LOWER_BOUND:L1.
     check("whole-draft flags and unknown per-line readings retain separate causes",
           res.unresolved_flagged == [] and res.unresolved_pursued == []
           and res.unresolved == res.unresolved_unjudged
-          and res.whole_flags != [] and not res.coverage_certified,
+          and res.whole_flags != [] and res.coverage_certified,
           f"unresolved {res.unresolved}, whole flags {codes}")
     check("the printed result carries the warning, not just the dataclass",
           "WHOLE-DRAFT REQUIREMENTS UNRESOLVED" in str(res))

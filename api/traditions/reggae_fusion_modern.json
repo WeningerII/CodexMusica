@@ -3,14 +3,14 @@
   "name": "Reggae fusion (modern)",
   "family": "global",
   "lineage": "Late-1990s onward Caribbean popular-music genre fusing reggae rhythmic and vocal vocabulary with hip-hop, pop, R-and-B, and electronic-dance production techniques — codified through Sean Paul (Dutty Rock 2002), Shaggy (Hot Shot 2000), Sean Kingston (Sean Kingston 2007), Magic! (Don't Kill the Magic 2014), with the form serving as the international-mainstream commercial-reggae substream",
-  "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm russian pixel australian hip-hop. interlocked note trading, equal tempered, modern pop training, one note per syllable. clean strummed single coil electric guitar, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon electric bass, rim clicks drum kit, chopped sampler, block chord tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 551,
-  "score": 138.69,
+  "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm balkan drill desi emo rap. interlocked note trading, equal tempered, modern pop training, one note per syllable. clean strummed single coil electric guitar, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon electric bass, rim clicks drum kit, chopped sampler, block chord tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 544,
+  "score": 124.96,
   "config": {
     "traditions": [
       "reggae_fusion_modern",
-      "russian_pixel",
-      "australian_hip_hop"
+      "balkan_drill",
+      "desi_emo_rap"
     ],
     "instruments": [
       {
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": -0.05,
-          "voice_articulation": 14.754999999999995,
-          "voice_microtone": 11.349999999999998,
-          "voice_tradition": 15.385,
+          "voice_articulation": 13.714999999999995,
+          "voice_microtone": 10.099999999999998,
+          "voice_tradition": 13.484999999999998,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 4.219999999999999,
+          "voice_speech_song": 1.1749999999999998,
+          "voice_ensemble_config": 5.52,
           "voice_ornament_system": 1.65,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": -1.2500000000000002
+          "voice_multitrack_stack": -1.1000000000000003
         }
       },
       {
@@ -70,8 +70,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.875,
-          "amp_make": 2.7950000000000004,
+          "electric_technique": 13,
+          "amp_make": 1.95,
           "body_wood": 0,
           "neck_wood": 0.345,
           "fretboard": 0.195,
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.2,
+          "amp_make": 3.3500000000000005,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 2.21,
+          "string_type": 2.6000000000000005,
           "scale_length_b": 0,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
@@ -131,11 +131,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 7.1499999999999995,
+          "electronic_technique": 5.8,
           "sampler_archetypes": 0,
           "sampler_bit_depth": -0.05,
-          "sampler_workflow": 7.1,
-          "sampler_classic_context": 24.309999999999995
+          "sampler_workflow": 5.6,
+          "sampler_classic_context": 21.124999999999996
         }
       },
       {
@@ -149,12 +149,12 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 7.45,
+          "keyboard_technique": 6.2,
           "drawbar_setting": -0.05,
           "rotary_speed": -0.1,
           "percussion_setting": 1,
-          "tonewheel_model": -0.3500000000000001,
-          "leslie_cabinet_model": 0.78
+          "tonewheel_model": -0.8050000000000002,
+          "leslie_cabinet_model": -0.035
         }
       }
     ],

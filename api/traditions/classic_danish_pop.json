@@ -5,7 +5,7 @@
   "lineage": "Historical Danish pop includes Shu-bi-dua’s accessible rock-band songs and humorous Danish adaptations of international hits. This arrangement selects the documented voice, guitar, bass, keyboard and drum-kit lineup in a compact pop-rock setting, keeping the singing and wordplay central.",
   "recipe": "classic modern classic danish pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment. marshall plexi amp British rock amp soft down tuning clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, block chord electric piano tine, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 517,
-  "score": 113.142,
+  "score": 112.939,
   "config": {
     "traditions": [
       "classic_danish_pop"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.532,
-          "voice_ensemble_config": 1.3975,
+          "voice_speech_song": 1.57475,
+          "voice_ensemble_config": 1.4035,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.3265
+          "voice_multitrack_stack": 0.36924999999999997
         }
       },
       {
@@ -55,7 +55,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany",
+          "body_wood": "pine",
           "neck_wood": "mahogany_neck",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_3",
@@ -70,14 +70,14 @@
         "scores": {
           "electric_technique": 15.357499999999998,
           "amp_make": 5.2,
-          "body_wood": 0.2415,
-          "neck_wood": 0.2415,
+          "body_wood": 0.17325,
+          "neck_wood": 0.1365,
           "fretboard": 0.0315,
           "pickup_magnet": 0.0315,
           "string_material": 0.0315,
-          "string_gauge": 0.1995,
+          "string_gauge": 0.29924999999999996,
           "bridge": 0.1365,
-          "scale_length": 0.378,
+          "scale_length": 0.168,
           "finish": 0,
           "string_tuning": 6.629999999999999,
           "single_coil_pickup_construction": 0
@@ -97,9 +97,9 @@
         },
         "scores": {
           "amp_make": 6.954999999999999,
-          "body_wood": 0.378,
+          "body_wood": 0.168,
           "pickup_config": 0.3045,
-          "string_type": 12.8285,
+          "string_type": 13.02725,
           "scale_length_b": 0.168,
           "fretted_or_not": 1.5005,
           "bass_technique": 10.305,
