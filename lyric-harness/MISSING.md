@@ -28922,3 +28922,12 @@ studies and any threshold a checker re-derives from `quality/floor.py`.
 re-raise a band move as a decision. This sitting re-recorded both as
 bookkeeping; the measurements are in
 `quality/results/otterbein_m25_2026-10-04/`.
+The final run of the same sitting (over the tree after the label and apparatus
+pass) re-recorded `song` at 150–350 tokens over 3,251 items, and `short`
+unchanged at 50–150 over 3,710 items (`…/final/adoption.txt`).
+> **TESTED WHILE OPEN.** `quality/test_floor.py` names this entry beside its
+> pin on the superseded `song` profile, which covers its five thresholds and
+> its band and count (150–350 tokens, 3,251 items). That pin holds exactly the
+> bookkeeping this entry describes, and it goes red whenever a sitting
+> re-records the profile without editing it. It is retired along with the
+> profiles when this entry closes.
