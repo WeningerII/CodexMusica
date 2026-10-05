@@ -314,8 +314,11 @@ print("WordNet staging contract holds")
         source = frequency.LAYER._sources["eng-song"]
         layer.declare(source)
         end, pair, _ = layer._song_tables(source)
-        self.assertEqual((len(end), sum(sum(per.values()) for per in end.values())), (13836, 248513))
-        self.assertEqual(sum(end["word"].values()), 407)
+        # 2026-10-04, the Otterbein / M-25 closing sitting's final rebuild:
+        # 13836 / 248513 -> 13663 / 247781, literal `word` 407 -> 412
+        # (+7 hymn line endings, -2 Watts lines the apparatus passes marked).
+        self.assertEqual((len(end), sum(sum(per.values()) for per in end.values())), (13663, 247781))
+        self.assertEqual(sum(end["word"].values()), 412)
         self.assertEqual(set(pair["a"]), {"ca", "the"})
 
     def test_optional_norms_do_not_disable_or_change_any_requested_floor_feature(self):
