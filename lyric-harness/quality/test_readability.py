@@ -624,37 +624,61 @@ def test_corpus_song_rate_is_pinned():
     # refusals 989 -> 980. Piece refusals remain 428 and silent substitutions
     # remain zero. This source-reader population is not the weighted
     # calibration population. Both full runs are retained with the batch.
-    check("countable lines 281764 — VERSE ONLY, now that apparatus lines "
+    # REPINNED 2026-10-04, ONE LOADING BATCH IN THREE MEASURED STEPS (each
+    # step's `corpus_rate` run on a worktree of its commit; base f9bc020c
+    # reproduces every 2026-09-15 figure exactly):
+    #                     base    +Otterbein  +M-25(a)  +label pass
+    #   countable       281764      283404     281834     280510
+    #   token refusals   17202       17237      16939      16748
+    #   piece refusals     428         429        422        422
+    #   total refusals   17630       17666      17361      17170
+    #   substitutions    16650       16685      16584      16512
+    #   no anchor          980         981        777        658
+    #   hyphen pop         638         639        632        632
+    # The 73 hymns add 1,640 sung lines and only 36 refusals (2.2%, against
+    # the corpus's ~6%: plain hymn diction). The two apparatus passes take
+    # 2,894 lines out of the sung stream, and 496 refusals go with them -- a
+    # refusal rate of 17% on what left, nearly three times the corpus's.
+    # Silent substitutions stay at zero and the report-layer hyphen count
+    # stays at 210 throughout.
+    check("countable lines 280510 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 281764,
-          f"{r['lines_countable']}  (282402 before the bracketed-verse "
+          r["lines_countable"] == 280510,
+          f"{r['lines_countable']}  (281764 before the Otterbein / M-25 "
+          f"batch; 282402 before the bracketed-verse "
           f"repin; 282731 before the bracket-apparatus "
           f"repin; 282745 before the LATIN_SCRIPT repin; 179193 before the Tier-1 load; 153224 "
           f"before the mass load; 151894 before Pass-1)")
-    check("unreadable end word, cause TOKEN, 17202 — the follow rule took "
+    check("unreadable end word, cause TOKEN, 16748 — the follow rule took "
           "editorial-prose end words out of the population",
-          r["unreadable_final_token"] == 17202,
+          r["unreadable_final_token"] == 16748,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
-          f"(17274 before the bracket-apparatus repin; "
+          f"(17202 before the Otterbein / M-25 batch; "
+          f"17274 before the bracket-apparatus repin; "
           f"15958 before the LATIN_SCRIPT repin; 11658 before the Tier-1 load)")
-    check("rate on that quantity is 6.11% — UP from 5.64%, and the rise is the "
-          "harness reading the whole word instead of an ASCII fragment",
-          abs(r["rate_token"] - 17202 / 281764) < 1e-12,
-          f"{r['rate_token']:.4%}  (5.6440% before the LATIN_SCRIPT repin; "
+    check("rate on that quantity is 5.97% — the LATIN_SCRIPT rise from 5.64% "
+          "was the harness reading the whole word instead of an ASCII "
+          "fragment; the apparatus passes then took it down from 6.11%",
+          abs(r["rate_token"] - 16748 / 280510) < 1e-12,
+          f"{r['rate_token']:.4%}  (6.1051% before the Otterbein / M-25 "
+          f"batch; 5.6440% before the LATIN_SCRIPT repin; "
           f"6.5065% before the Tier-1 load)")
-    check("unreadable end word, cause PIECE, 428 — the price of the hyphen "
+    check("unreadable end word, cause PIECE, 422 — the price of the hyphen "
           "refusal on VERSE lines alone",
-          r["unreadable_final_piece"] == 428,
-          f"{r['unreadable_final_piece']}  (260 before the LATIN_SCRIPT repin)")
-    check("so the end-word refusal rate is 6.26% AFTER the rule and 6.11% "
+          r["unreadable_final_piece"] == 422,
+          f"{r['unreadable_final_piece']}  (428 before the Otterbein / M-25 "
+          f"batch; 260 before the LATIN_SCRIPT repin)")
+    check("so the end-word refusal rate is 6.12% AFTER the rule and 5.97% "
           "before it, and both are printed",
-          r["unreadable_final"] == 17630 and abs(r["rate"] - 17630 / 281764) < 1e-12,
-          f"{r['unreadable_final']} ({r['rate']:.4%})  (17702 / 6.2611% "
+          r["unreadable_final"] == 17170 and abs(r["rate"] - 17170 / 280510) < 1e-12,
+          f"{r['unreadable_final']} ({r['rate']:.4%})  (17630 / 6.2570% "
+          f"before the Otterbein / M-25 batch; 17702 / 6.2611% "
           f"before the bracket-apparatus repin)")
-    check("16650 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 16650,
-          f"{r['substituted_end_word']}  (16712 before the "
+    check("16512 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 16512,
+          f"{r['substituted_end_word']}  (16650 before the Otterbein / M-25 "
+          f"batch; 16712 before the "
           f"bracket-apparatus repin; 15405 before the LATIN_SCRIPT repin)")
     # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
     # FALSE. `substitution_report`'s docstring called itself "a strict subset
@@ -678,17 +702,18 @@ def test_corpus_song_rate_is_pinned():
     # class DROPS it and the line's end word IS `turf` now — the exact
     # exemplar CLAUDE.md known gap 8 filed as a `word_syllable_map` edge
     # case, closed by reading the page's own apparatus correctly instead.
-    check("16650 flagged substitutions and zero silent substitutions after unanchored readings are refused",
-          r["substituted_flagged"] == 16650 and r["substituted_silent"] == 0,
+    check("16512 flagged substitutions and zero silent substitutions after unanchored readings are refused",
+          r["substituted_flagged"] == 16512 and r["substituted_silent"] == 0,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "
           f"(D'Urfey's `_Sh----_`; Byron's `turf,[mm]` left the class when "
           f"the anchor rule dropped `[mm]`)")
-    check("980 unreadable-final lines are not substitutions: the end-word gap has no earlier readable anchor",
-          r["unreadable_final"] - r["substituted_flagged"] == 980
-          and r["unreadable_final_piece"] == 428,
-          f"{r['unreadable_final'] - r['substituted_flagged']}  (992 before "
+    check("658 unreadable-final lines are not substitutions: the end-word gap has no earlier readable anchor",
+          r["unreadable_final"] - r["substituted_flagged"] == 658
+          and r["unreadable_final_piece"] == 422,
+          f"{r['unreadable_final'] - r['substituted_flagged']}  (980 before "
+          f"the Otterbein / M-25 batch; 992 before "
           f"the bracket-apparatus repin)")
     check("the reader's token/piece and substitution partitions conserve their actual populations",
           r["unreadable_final_token"] + r["unreadable_final_piece"] == r["unreadable_final"]
@@ -718,14 +743,15 @@ def test_corpus_song_rate_is_pinned():
     # unexplained by an earlier token. 0 is what "derived by POSITION" means
     # measured rather than asserted, and it is the direct successor to the
     # 328 of 328.
-    check("the hyphen population is 638 end tokens with a read piece and an "
+    # 2026-10-04: 638 -> 632 (+1 Otterbein, -7 M-25(a)); see the table above.
+    check("the hyphen population is 632 end tokens with a read piece and an "
           "unread piece (CLAUDE.md's 323 was this figure at the 143-file "
           "corpus)",
-          r["final_piece_population"] == 638,
+          r["final_piece_population"] == 632,
           f"{r['final_piece_population']}")
-    check("split 428 ANCHOR-layer (refused) + 210 REPORT-layer (label "
+    check("split 422 ANCHOR-layer (refused) + 210 REPORT-layer (label "
           "overstates, never refused)",
-          r["unreadable_final_piece"] == 428 and r["label_overstates"] == 210,
+          r["unreadable_final_piece"] == 422 and r["label_overstates"] == 210,
           f"{r['unreadable_final_piece']} + {r['label_overstates']}")
     check("0 of 323 have an end-word piece misfiled as interior — the "
           "328-of-328 defect, measured at zero",
