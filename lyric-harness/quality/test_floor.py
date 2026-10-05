@@ -867,7 +867,7 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # never applied (M-239), but its BAND still sets CLICHE_PAIR's flag range
     # through `floor.cliche_rate_rows()` -- this re-recording made CLICHE_PAIR
     # a NOTE on lyric sheets of 351-400 tokens (corrected 2026-10-05;
-    # `MISSING.md` M-317 parks its re-measure and records the correction).
+    # `MISSING.md` M-318 parks its re-measure and records the correction).
     # Its constants are re-derived at each closing sitting, and this pins
     # what that sitting wrote: ~~(150, 400,
     # 3533)~~ -> (150, 350, 3251), mattr ~~0.7127694818441452~~, fwr

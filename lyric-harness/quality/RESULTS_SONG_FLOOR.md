@@ -247,7 +247,7 @@ constant that has stopped describing its corpus.
 The unstruck `song profile` row is the 2026-10-04 re-record (150–350 tokens,
 3,251 items, after the Otterbein refrain hymns and the apparatus and label
 passes; `quality/RESULTS_OTTERBEIN_M25_2026-10-04.md`). It is bookkeeping for a
-profile nothing applies (`MISSING.md` M-317). ~~The stored 2026-09-24 re-adoption
+profile nothing applies (`MISSING.md` ~~M-317~~ M-318, renumbered 2026-10-05). ~~The stored 2026-09-24 re-adoption
 (150–400 tokens, 3,533 items, under the N-relation comparator — §10a)~~, ~~the
 stored 2026-09-15 re-adoption (200–400 tokens, remeasured after preserved
 nonlyric apparatus annotations)~~, retained for drift checks and superseded by

@@ -1,11 +1,13 @@
 # Otterbein refrain hymns and the M-25(a) apparatus pass — 2026-10-04
 
-Status: CLOSED, with one suite's verdict outstanding. Every lane of the closing
+Status: CLOSED. ~~with one suite's verdict outstanding.~~ Every lane of the closing
 sitting (`quality/CORPUS_LOADING_PROTOCOL.md`) ran in §4 ~~over the finished
 tree~~; five of them first ran one corpus edit early and were re-run over the
 finished tree on 2026-10-05, all PASS (§4). Every re-derived constant is
 re-adopted and pinned, and `corpus_manifest.py --check` is byte-identical. All
-112 other suites pass. `test_mutation` is still outstanding (§4). The residue
+112 other suites pass. ~~`test_mutation` is still outstanding (§4).~~
+`test_mutation` passes in CI on both heads it ran on, and the capacity matrix
+is red in one cell for a cause outside this batch (§4, recorded 2026-10-05). The residue
 the two passes left (`MISSING.md` M-25) is recorded for the next batch.
 CORRECTED 2026-10-05: every claim this file, the repin notes and the register
 entries made on 2026-10-04 and 2026-10-05 was checked against the evidence by
@@ -252,7 +254,7 @@ dated note beside its superseded value.
 | capacity witnesses | 81 certified | 81, every one re-verified unchanged (0 repair rounds); max certified chain 39 | table header only; runtime verification 81/81; `capacity.py --check` PASS |
 | calibration rows | 8,536 works | 8,609 works, 279,503 sung lines (3,958 s, 4 workers) | rebuilt |
 | `lyric` length curves (the active floor) | range 10–3,244; picks mattr C1, fwr C1, anaphora C2, cv CK, predictability CK | range 9–3,244; mattr C1, **fwr C2**, anaphora C2, **cv C2**, predictability CK; every check passes every bin | re-adopted; `SHIPPED_MODEL` repinned as a set; check HOLDS |
-| superseded `song` / `short` bands | 150–400 / 50–150 | 200–400 / 50–150 | re-recorded as bookkeeping; never applied (`MISSING.md` M-317) |
+| superseded `song` / `short` bands | 150–400 / 50–150 | 200–400 / 50–150 | re-recorded as bookkeeping; never applied (`MISSING.md` ~~M-317~~ M-318, renumbered 2026-10-05) |
 | manifest | 1,430 files, 2026-09-15 | 1,477 files, 2026-10-04 | written; `--check` byte-identical |
 | runtime asset pins | | rhyme tables, `sources.tsv`, capacity table, section marks | repinned; `release_assets.py --integrity` clean |
 
@@ -301,7 +303,7 @@ Each changed constant carries a dated note beside its superseded value;
 | capacity witnesses | 81, every one re-verified unchanged | 81 re-verified unchanged (0 repair rounds); max certified chain 39 (EH-R) | table header only; runtime verification 81/81; `capacity.py --check` PASS |
 | calibration rows | 8,609 works, 279,503 sung lines | 8,597 works, 278,152 sung lines, 1,343 files (235 s, field cache reused) | rebuilt |
 | `lyric` length curves (the active floor) | range 9–3,244; mattr C1, fwr C2, anaphora C2, cv C2, predictability CK | range 4–3,244; mattr C1, **fwr C1**, anaphora C2, cv C2, predictability CK; 21/21 bins for every check | re-adopted; `SHIPPED_MODEL` repinned; check HOLDS |
-| superseded `song` / `short` bands | 200–400 / 50–150 | 150–350 (3,251 items) / 50–150 (3,710 items) | re-recorded. ~~as bookkeeping; never applied~~ Their percentiles are never applied, but their bands set CLICHE_PAIR's flag range: it is now a NOTE on lyric sheets of 351–400 tokens, where it could FLAG before (`MISSING.md` M-317, corrected 2026-10-05) |
+| superseded `song` / `short` bands | 200–400 / 50–150 | 150–350 (3,251 items) / 50–150 (3,710 items) | re-recorded. ~~as bookkeeping; never applied~~ Their percentiles are never applied, but their bands set CLICHE_PAIR's flag range: it is now a NOTE on lyric sheets of 351–400 tokens, where it could FLAG before (`MISSING.md` ~~M-317~~ M-318, corrected and renumbered 2026-10-05) |
 | manifest | 1,477 files | 1,477 files, over the finished tree | written; `--check` byte-identical |
 | runtime asset pins | | rhyme tables, `sources.tsv`, capacity table, section marks | repinned; `release_assets.py --integrity` clean |
 | suite sweep (`quality/suite_sweep.py`, 113 suites) | not run | 94 PASS on their sweep run, 16 FAIL, 2 CANNOT RUN at their bound; `test_mutation` run on its own | 13 FAILs were pins this batch moved, now repinned with per-stage notes; 3 were missing resources in this container; every suite passes when run to completion (`test_mutation`: see below) |
@@ -354,8 +356,8 @@ finish inside the session's two-hour background limit, because it holds
   at the base, at §3's rebuild and at the final one; and `test_floor`,
   `test_loop` and `test_plan`, which follow the adopted curve and band
   constants and were attributed by reading those constants, not by a stage
-  run. Two were fixed in the records rather than repinned. `test_triage`: M-317
-  now carries its TESTED WHILE OPEN declaration. `test_provenance`: it caught
+  run. Two were fixed in the records rather than repinned. `test_triage`: ~~M-317~~
+  M-318 (renumbered 2026-10-05) now carries its TESTED WHILE OPEN declaration. `test_provenance`: it caught
   an orphan, `data/lyric_label_prefixes.json`, which no `sources.tsv` row
   reached. Repairing that turned up a stale record: the rows for the two
   rhyme-position tables still claimed the 2026-09-15 build. They now record
@@ -382,7 +384,43 @@ this. The files were reformatted with the repo's own prettier; none is pinned
 by hash, each parses to identical JSON, and every later gate step passes
 locally.
 
-**`test_mutation` is still running when this is written** (2026-10-05): its baseline measured 20 of 20 test files PASS, and 40 of its 59 planted mutations had resolved after 10,172 s, with none reported surviving so far. Its verdict is added here when it finishes. Until then it is neither a PASS nor a FAIL (doctrine 20).
+~~**`test_mutation` is still running when this is written** (2026-10-05): its baseline measured 20 of 20 test files PASS, and 40 of its 59 planted mutations had resolved after 10,172 s, with none reported surviving so far. Its verdict is added here when it finishes. Until then it is neither a PASS nor a FAIL (doctrine 20).~~
+
+**`test_mutation` PASSES, in CI, on both heads it ran on (recorded 2026-10-05).**
+The local run above never finished: container restarts stopped it. Its verdict
+comes from Production qualification instead, dispatched on this branch. That
+workflow runs the suite as 16 shards (`quality/test_mutation.py
+--shard=I/16`). Every shard's log prints `declared 59, pinned 59`, and the
+sharding splits those 59 mutations between the shards. A shard exits 0 only
+when none of its mutations is stale or indeterminate and every survivor is on
+the allowlist.
+
+* Run 37346107850, on `a5ed1ad6` (before `main` was merged in): 16 of 16
+  mutation shards passed.
+* Run 37357749476, on `9f82a087` (after the merge): 16 of 16 mutation shards
+  passed. The last to finish, shard 10, ran its 4 mutations against a 10-file
+  baseline, ended phase 2 at 5,035 s and escalated nothing.
+
+The shards' printed verdict lines are in the runs' artifacts, which this
+session's proxy refuses to download. The evidence recorded here is therefore
+each shard's exit status as GitHub reports it, not its printed counts. Both runs
+also passed `song`, `short`, `curves` and `capacity-proof`. CI run 37357738253
+on `9f82a087` passed every job.
+
+**The capacity matrix is red, and the cause is outside this batch.** On
+`a5ed1ad6` all four cells failed, because the branch did not yet carry
+`main`'s capacity seed fix (`e8ae9c8e`). After `main` was merged in, three of
+the four passed (`pole`, `middle`, `rest`) on `9f82a087`. The fourth, `upper`
+(24 lines, seeds 20260910 and 20260908), ran every measured verb to the end
+and failed on the instrument's own validator: `instrument child process
+measurements are invalid: [{'pid': 41, 'kind': 'other', 'rss': None}]`. The
+sampler in `scripts/lyrics_capacity_queue.mjs` keeps a child's kind and
+writes `rss: null` when its resident set reads zero, a process that has
+released its pages on the way out; its comment calls unknown the conservative
+direction. The validator in `scripts/lyrics_capacity_runtime.py` accepts an
+unmeasured sample only when its kind is empty too. The two
+disagree, and this branch touches neither file. The failed cell is to be
+re-run once; its result is added here.
 
 Three readings the repins needed, kept here because the pins only name them:
 

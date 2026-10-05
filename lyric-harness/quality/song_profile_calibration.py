@@ -306,7 +306,7 @@ PROFILE_PRED_MAX = {"song": None, "short": 200}
 # adopt-profiles helper; this note was added 2026-10-05, when a check of the
 # sitting's record found the constant had moved with no note beside it. Both
 # rows belong to superseded profiles whose percentiles nothing applies
-# (`MISSING.md` M-317). song ~~(-0.014, 0.7868)~~ -> ~~(-0.019, 0.7341)~~ at
+# (`MISSING.md` M-318). song ~~(-0.014, 0.7868)~~ -> ~~(-0.019, 0.7341)~~ at
 # the first run (band 200-400) -> (0.008, 0.868) at the final run (band
 # 150-350); short ~~(0.166, 0.0012)~~ -> ~~(0.168, 0.0007)~~ -> (0.169, 0.0007).
 # The final values are in

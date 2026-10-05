@@ -28922,7 +28922,18 @@ its own M-311 and #398 takes M-312.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~370~~ -> **371**.
 
-### M-317 · The superseded `song` and `short` band profiles are re-measured and re-recorded by every closing sitting, and ~~nothing applies them~~ nothing applies their percentiles, but their bands still set CLICHE_PAIR's flag range `OPEN` — parked 2026-10-04 by the owner
+### M-318 · The superseded `song` and `short` band profiles are re-measured and re-recorded by every closing sitting, and ~~nothing applies them~~ nothing applies their percentiles, but their bands still set CLICHE_PAIR's flag range `OPEN` — parked 2026-10-04 by the owner
+
+**RENUMBERED 2026-10-05: this entry was opened as ~~M-317~~ and is M-318.**
+Neither number had reached `main`. The branch carrying PR #460
+(`claude/practical-curie-n66u8c`) opened its own M-317 from the same base (a
+default rhyme group that passed when any word of each line stood in it), so
+this entry takes the next free number before either merges. Code and tests
+cite M-318 only, because `quality/triage.py` reads every id near `MISSING` in
+a `.py` file as a citation, and a struck M-317 there would guard PR #460's
+entry once both land. This sitting's commit messages and its captured sweep
+output (`quality/results/otterbein_m25_2026-10-04/final/sweep/sweep_rz.json`)
+still say M-317, as written at the time.
 
 **Found 2026-10-04 in the Otterbein / M-25(a) closing sitting.** Both profiles
 carry `superseded_by="lyric"` in `quality/floor.py` (M-239) and ~~are never
@@ -28974,3 +28985,32 @@ over the current lyric range, which `floor.py` already says is owed (M-239).
 > above). The pin goes red whenever a sitting re-records the profile without
 > editing it, which is what makes a band move visible. It is retired along
 > with the profiles when this entry closes.
+
+### M-319 · `schema:perfect rhyme` passes `sea ~ company` and `sea ~ reality`: the dictionary writes secondary stress (IY2) on the unstressed final *-y* of some words and not others, and stress 2 reads as a full prominence, so one sung pattern passes or fails by a digit the writer cannot see `OPEN` 2026-10-05 — found by song run 40 (branch `claude/songrun-40-soul`, never merged; its report `songrun/songrun-40-soul.md` is not in this repository's tree, §5 B4); what a mandate's perfect rhyme may accept on such a final is the owner's ruling
+
+**FOUND** in song run 40: 40 lines, sung soul, with `relation: "schema:perfect rhyme"` declared on plan, grade and revise. Its report lives only on its own unmerged branch, so this entry is the copy `main` keeps. The round-1 revise brief for L37, whose end word was bound to L31's `sea`, offered `company, degree, xi, reality` and said the list is "what that relation accepts — the same judge the verdict uses". The report argued that *company* and *reality* carry their primary stress elsewhere, and that the tool labels the pair `length: subtractive`. The delivered song ends L37 on `degree`, so it does not carry the pair.
+
+**MEASURED 2026-10-05 at `9f82a087`. The cause is not the one the report gave.** `length: subtractive` does not separate the pairs: `sea -- degree`, a true perfect rhyme on a stressed final, reads `length: subtractive` too, because the two members differ in syllable count. What separates them is the stress digit `cmudict.dict` writes on the final vowel. Each verdict below is from `python3 lyric_harness.py screen sea company reality harmony memory degree "--relation=schema:perfect rhyme"` (NAMED COUNTS: 6 satisfies, 9 violates, 0 refused). The *liberty* and *money* rows are from `types sea -- W`.
+
+| word | `cmudict.dict` | perfect rhyme with `sea` | coarse relations with `sea` |
+|---|---|---|---|
+| company | K AH1 M P AH0 N **IY2** | satisfies | ASSONANCE, PROMOTED_RHYME, RHYME |
+| reality | R IY2 AE1 L AH0 T **IY2** | satisfies | ASSONANCE, PROMOTED_RHYME, RHYME |
+| liberty | L IH1 B ER0 T **IY2** | named perfect rhyme | ASSONANCE, PROMOTED_RHYME, RHYME |
+| harmony | HH AA1 R M AH0 N **IY0** | violates | PROMOTED_RHYME |
+| memory | M EH1 M ER0 **IY0** | violates | PROMOTED_RHYME |
+| money | M AH1 N **IY0** | not named | PROMOTED_RHYME |
+| degree | D IH0 G R **IY1** | satisfies | ASSONANCE, RHYME |
+
+`quality/phonology/eng.py` reads stress 1 or 2 as `prominence=1`, as its `prominence_rule` states. So the final syllable of *company* counts as lexically stressed. `Declaration.final_promotion` never marks it promoted, and the rule `lyric_harness.py` states for the coarse relations does not apply to it: "A syllable whose stress was PROMOTED … is not a lexically stressed one: agreement from it is the registry's syllabic/wrenched rhyme". *harmony* and *memory* also end in an unstressed /i/ after the stress and are sung the same way, but they take the promoted route and fail. Among `cmudict.dict` entries with three or more vowels whose last vowel is IY, 8,346 write IY0, 767 write IY2 and 403 write IY1. The same digit is plausibly behind the run's L8/L9 offer of `nickname`, `timeframe` and `mainframe` against `same` (each ends in EY2), though compounds carry a real secondary stress, so that is a separate question, and it was not isolated.
+
+**WHY THIS IS A RULING AND NOT A PATCH.** Standing rule 5 holds as written: IY2 is the dictionary's own reading. Sung English has long rhymed a stressed monosyllable on an unstressed final *-y* (*free / liberty*), and this engine names that PROMOTED_RHYME and keeps it apart from RHYME on purpose. The defect is the inconsistency. Two fixes would remove it, and they move verdicts in opposite directions:
+
+* (a) Read a word-final secondary stress that follows an unstressed syllable as promoted. *company*, *reality* and *liberty* then fail perfect rhyme with *sea* and keep PROMOTED_RHYME, as *harmony* does.
+* (b) Let a mandate's perfect rhyme admit a promoted final. The IY0 words then pass as well.
+
+Either one changes verdicts on every song that holds such a pair, and neither is measured here. Before either lands, run `quality/check_comparator_pin.py` to see whether it moves `comparator_fingerprint()`. If it does, standing rule 4 batches it with the next comparator change.
+
+**IMPACT, from the run and not re-measured:** a writer who takes an offered word can satisfy a declared perfect-rhyme mandate with a stressed-against-promoted pair, and the verdict certifies it.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~372~~ -> **373**.

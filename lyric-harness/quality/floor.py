@@ -850,7 +850,7 @@ PROFILES = [
         #: ~~150-400~~ 150-350, n_human ~~3,533~~ 3,251; the five percentiles
         #: are in `test_floor.py`'s pin. THE LIVE CONSEQUENCE, recorded
         #: 2026-10-05 because the sitting first called this re-recording
-        #: bookkeeping (`MISSING.md` M-317, corrected): the 2026-09-24 note
+        #: bookkeeping (`MISSING.md` M-318, corrected): the 2026-09-24 note
         #: below says this row is superseded for its PERCENTILES but not for
         #: its CLICHE rate, and `cliche_rate_rows()` still reads its band by
         #: `covers()`. So CLICHE_PAIR is a NOTE, not a FLAG, on lyric sheets of
