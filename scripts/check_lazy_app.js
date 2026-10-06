@@ -46,18 +46,26 @@
 //   api/browse_prose.json AND api/engine.json HELD BACK, the lazy page's body
 //   equals the embedded build's byte for byte. Nothing reads the engine
 //   (Engine.misses() stays 0); it is requested once, after the first view is
-//   drawn (it waits for the paint or an action, section engineEarly), and the
-//   prose and the genre page's optional files are requested only once its
-//   bytes are in (the non-starter deep link asks for the prose early). A
-//   restored recipe asks for the engine at boot instead and holds its first
-//   view at the boot status, writing nothing, until it lands. The Instrument route says its
-//   list is loading (role=status, no count, never "0 instruments") and is the
-//   embedded build's everywhere else. Two states draw prose slots as pending
+//   drawn (it waits for the paint or an action, section engineEarly), and
+//   nothing that waits for its bytes — the prose's background prefetch, the
+//   genre page's optional files, the Instrument page's photo table — is
+//   requested before them, over the whole boot (the non-starter deep link
+//   asks for its genre's prose early, as its reader). A restored recipe asks
+//   for the engine at boot instead — from <head>, through the page's one
+//   dynamic preload, for the one URL app.js then requests — and holds its
+//   first view at the boot status, writing nothing, until it lands; no other
+//   state preloads it. The Instrument route says its list is loading
+//   (role=status, no count, never "0 instruments") and is the embedded
+//   build's everywhere else. Two states draw prose slots as pending
 //   (the non-starter deep link, and the restored recipe's List suggestions);
 //   there the pending slots must be exactly the genres without prose, and the
 //   page must be equal once they are masked. Then both are released: every
 //   slot fills IN PLACE (no control the page had is rebuilt) and the page is
 //   the embedded build's, byte for byte.
+//   The <head> preload (src/engine_preload.js) answers as app.js does: over
+//   twelve kinds of stored state and one per key storedSessionText reads, the
+//   page preloads the engine exactly when app.js asks for it at boot
+//   (ENGINE_AT_BOOT), and then app.js's one request is for the preload's URL.
 //
 //   WINDOW (section `window`; before the prose and the engine land): the boot
 //   index carries exactly the page's STARTER_TRADITIONS' prose; a search
@@ -70,8 +78,9 @@
 //   api/engine.json held, against one embedded page doing the same; --checks
 //   runs some of them):
 //   • E0 — one engine request, after the first view; Engine.state() is
-//     'loading' and no prose is asked for while it is held; once released,
-//     exactly one prose request, after the engine's body.
+//     'loading' and neither the prose nor an optional download is asked for
+//     while it is held; once released, exactly one prose request, after the
+//     engine's body.
 //   • E1 — InstLite's name, short and family equal the embedded Inst's for
 //     every instrument; an unknown id is undefined; Inst() throws
 //     EngineNotReadyError and is counted (Engine.misses() 0 → 1).
@@ -79,8 +88,9 @@
 //     distinct [data-ui] (but the file import and the downloads), the
 //     header's add, saved, undo and redo buttons, and the tree's expand,
 //     find-similar, back and import: no error, no unhandled rejection, no
-//     card, no engine read, and never "0 instruments", "No instruments
-//     match", "has no recognised instruments" or "Unknown instrument".
+//     card, no engine read, no optional download, and never "0 instruments",
+//     "No instruments match", "has no recognised instruments" or "Unknown
+//     instrument".
 //   • E3 — each action that creates cards or shows one instrument, in its own
 //     boot: add a genre, add an instrument (on its own, and to the featured
 //     genre), Surprise me, import a session file, open a saved session, the
@@ -366,11 +376,12 @@ function deferred() {
 // failure for specific paths ('*': every path, the embedded build's shim);
 // `hold` maps a path to a deferred() that lets it through on release;
 // `transform` maps a path to a function that rewrites its text (a file from
-// another deploy). `log` records every request: its path `rel` without the
-// query, the query `q`, `ready` — whether the first view had been drawn when it
-// was made (`stamp`) — and `n`, a sequence number shared with `bodies`, which
-// records each body the app read (text() or json()). So a request can be
-// ordered against another file's delivery, not just its request.
+// another deploy). `log` records every request: the URL the app asked for
+// (`url`), its path `rel` without the query, the query `q`, `ready` — whether
+// the first view had been drawn when it was made (`stamp`) — and `n`, a
+// sequence number shared with `bodies`, which records each body the app read
+// (text() or json()). So a request can be ordered against another file's
+// delivery, not just its request.
 const SITE_PREFIX = /^https:\/\/codexmusica\.com\//;
 function makeFetchShim({
   deny = [],
@@ -386,7 +397,13 @@ function makeFetchShim({
       .replace(SITE_PREFIX, '')
       .replace(/^\.?\//, '');
     const rel = full.replace(/\?.*$/, '');
-    log.push({ rel, q: full.slice(rel.length), ready: stamp ? stamp() : null, n: ++n });
+    log.push({
+      url: String(url),
+      rel,
+      q: full.slice(rel.length),
+      ready: stamp ? stamp() : null,
+      n: ++n,
+    });
     return (hold[rel] ? hold[rel].promise : Promise.resolve()).then(() => {
       const file = path.join(ROOT, rel);
       if (
@@ -429,6 +446,26 @@ const fetchesOf = (log, rel) => log.filter((e) => e.rel === rel);
 // The genre page's optional downloads (gpLoadOptional): after the paint, and
 // after the instrument data's bytes.
 const OPTIONAL = ['data/atlas-geo.json', 'api/tradition_images.json'];
+// Every optional download, each waiting for the instrument data's bytes: the
+// genre page's, and the Instrument page's photo table.
+const OPTIONAL_ALL = [...OPTIONAL, 'api/instrument_images.json'];
+// They and the genre prose's background prefetch.
+const AFTER_ENGINE = ['api/browse_prose.json', ...OPTIONAL_ALL];
+// The requests for `rels` made before the body of api/engine.json was
+// delivered (all of them, while it is held).
+const beforeEngineBody = (log, bodies, rels) => {
+  const body = bodies.find((b) => b.rel === 'api/engine.json');
+  return log.filter((e) => rels.includes(e.rel) && (!body || e.n < body.n));
+};
+// The preloads <head> made for the instrument data (src/engine_preload.js).
+const enginePreloads = (w) =>
+  [...w.document.head.querySelectorAll('link[rel="preload"]')]
+    .filter((l) => /engine\.json/.test(l.getAttribute('href') || ''))
+    .map((l) => ({
+      href: l.getAttribute('href'),
+      as: l.getAttribute('as'),
+      crossorigin: l.getAttribute('crossorigin'),
+    }));
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // api/engine.json's header (the file's second line): its `tables_sha1` is the
@@ -838,12 +875,14 @@ async function firstView(embedHtml, lazyHtml, name) {
   const embedDom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), opts);
   const ref = {},
     log = [],
+    bodies = [],
     hold = { 'api/browse_prose.json': deferred(), 'api/engine.json': deferred() };
   const lazyDom = bootDom(
     lazyHtml,
     makeFetchShim({
       deny: ['api/tradition_images.json'],
       log,
+      bodies,
       hold,
       stamp: () => drawn(ref.w),
     }),
@@ -872,6 +911,19 @@ async function firstView(embedHtml, lazyHtml, name) {
         fail(`${tag}: a restored session drew before the engine arrived`);
       if (!engineAsk.length || engineAsk[0].ready !== false)
         fail(`${tag}: a restored session did not ask for the engine before its first view`);
+      // Its download began in <head>: one preload, which the app's request
+      // takes over only if it names the same URL (and fetch()'s mode).
+      const pre = enginePreloads(lazyDom.window);
+      if (
+        engineAsk.length !== 1 ||
+        pre.length !== 1 ||
+        pre[0].as !== 'fetch' ||
+        pre[0].crossorigin !== 'anonymous' ||
+        new URL(pre[0].href, url).href !== new URL(engineAsk[0].url, url).href
+      )
+        fail(
+          `${tag}: want one engine preload in <head> (as=fetch, crossorigin=anonymous) for the one URL the app asked for; saw preloads ${JSON.stringify(pre)}, requests ${JSON.stringify(engineAsk)}`
+        );
       if (early.status === null || early.bootError)
         fail(
           `${tag}: while the engine was held the page did not wait at the boot status (${early.bootError ? '#boot-error drawn' : 'no #boot-status shown'})`
@@ -897,6 +949,9 @@ async function firstView(embedHtml, lazyHtml, name) {
       // optional downloads wait for its bytes, so nothing shares the link
       // with them.
       const asks = fetchesOf(log, 'api/engine.json');
+      const pre = enginePreloads(lazyDom.window);
+      if (pre.length)
+        fail(`${tag}: no session is stored, yet <head> preloaded ${JSON.stringify(pre)}`);
       if (asks.length !== 1)
         fail(`${tag}: want exactly 1 engine request, saw ${JSON.stringify(asks)}`);
       else if (!sc.route && asks[0].ready !== true)
@@ -1117,6 +1172,18 @@ async function firstView(embedHtml, lazyHtml, name) {
         );
       else note(`${tag}: after the release identical, ${after.kept} controls kept`);
     }
+    // Over the whole boot, in every state (a restored session too): nothing
+    // that waits for the instrument data's bytes was asked for before them.
+    // The non-starter deep link asks for its genre's prose early, as its reader.
+    const jumped = beforeEngineBody(
+      log,
+      bodies,
+      AFTER_ENGINE.filter((rel) => !(name === 'deep' && rel === 'api/browse_prose.json'))
+    );
+    if (jumped.length)
+      fail(
+        `${tag}: ${[...new Set(jumped.map((e) => e.rel))].join(', ')} requested before the instrument data's bytes were delivered`
+      );
   } finally {
     embedDom.window.close();
     lazyDom.window.close();
@@ -1270,6 +1337,121 @@ async function engineEarly(lazyHtml) {
       b.dom.window.close();
     }
   }
+}
+
+// ── first view: <head> asks for the engine exactly when app.js will ────────
+// src/engine_preload.js repeats storedSessionText's and _bootNeedsEngine's
+// test in <head>, so a saved session's engine download starts with the page.
+// It must answer as app.js does: a preload app.js would not use is a download
+// the first view pays for, and a missing one costs the restored session its
+// head start. build_html --check runs the script against a fixed table of
+// stored states; this holds it to app.js itself. For every kind of stored
+// state, the page (its boot index and engine held, so nothing is drawn) has
+// preloaded the engine if and only if app.js asked for it at boot
+// (ENGINE_AT_BOOT), and when it did, app.js made exactly one request, for the
+// preload's URL, so the response the preload fetched is the one it reads.
+async function enginePreloadAgrees(lazyHtml) {
+  const tag = 'engine preload';
+  const ws = (cards) => JSON.stringify({ version: 1, name: 'T', cards });
+  const CARDS = JSON.parse(WS).cards;
+  // [label, sessionStorage, localStorage] — the recovery copy lives in the
+  // first, everything else in the second; 'throw': storage is refused.
+  const STATES = [
+    ['nothing stored', {}, {}],
+    ['autosave', {}, { 'codex-workbench-v1': WS }],
+    ['recovery copy', { 'codex-workbench-recovery': WS }, {}],
+    [
+      'legacy workspace',
+      {},
+      { 'musica-workbench-v3': JSON.stringify({ workspace: { cards: CARDS } }) },
+    ],
+    ['legacy study', {}, { 'musica-study-v1': WS }],
+    ['no cards', {}, { 'codex-workbench-v1': ws([]) }],
+    ['empty recovery first', { 'codex-workbench-recovery': ws([]) }, { 'codex-workbench-v1': WS }],
+    ['empty autosave first', {}, { 'codex-workbench-v1': ws([]), 'musica-workbench-v3': WS }],
+    ['unparseable', {}, { 'codex-workbench-v1': '{"cards":[' }],
+    ['cards not a list', {}, { 'codex-workbench-v1': JSON.stringify({ cards: { 0: CARDS[0] } }) }],
+    ['layout only', {}, LIST],
+    ['storage refused', 'throw', 'throw'],
+  ];
+  // And one state per key storedSessionText reads, as the page ships it: a key
+  // added there and not in <head> fails here even if no state above names it.
+  {
+    const dom = bootDom(lazyHtml, makeFetchShim({ hold: { 'api/browse_boot.json': deferred() } }), {
+      url: SITE,
+    });
+    const keys = [
+      ...dom.window
+        .eval('storedSessionText.toString()')
+        .matchAll(/\b(sessionStorage|localStorage)\.getItem\((["'])([^"']+)\2\)/g),
+    ].map((m) => [m[1], m[3]]);
+    dom.window.close();
+    if (keys.length < 4)
+      fail(`${tag}: read ${keys.length} key(s) from storedSessionText; want its 4 or more`);
+    for (const [where, key] of keys)
+      STATES.push([
+        `${key} alone`,
+        where === 'sessionStorage' ? { [key]: WS } : {},
+        where === 'localStorage' ? { [key]: WS } : {},
+      ]);
+  }
+  let wanted = 0;
+  for (const [label, session, local] of STATES) {
+    const log = [];
+    const hold = { 'api/browse_boot.json': deferred(), 'api/engine.json': deferred() };
+    const dom = bootDom(lazyHtml, makeFetchShim({ hold, log }), {
+      url: SITE,
+      onWindow: (w) => {
+        if (session === 'throw')
+          for (const k of ['localStorage', 'sessionStorage'])
+            Object.defineProperty(w, k, {
+              configurable: true,
+              get() {
+                throw new w.DOMException('The operation is insecure.', 'SecurityError');
+              },
+            });
+        else {
+          for (const [k, v] of Object.entries(session)) w.sessionStorage.setItem(k, v);
+          for (const [k, v] of Object.entries(local)) w.localStorage.setItem(k, v);
+        }
+      },
+    });
+    try {
+      const pre = enginePreloads(dom.window);
+      let atBoot;
+      try {
+        atBoot = dom.window.eval('ENGINE_AT_BOOT !== null');
+      } catch (e) {
+        fail(`${tag} (${label}): app.js did not reach ENGINE_AT_BOOT: ${e.message}`);
+        continue;
+      }
+      const asks = fetchesOf(log, 'api/engine.json');
+      if (pre.length > 1 || !!pre.length !== atBoot)
+        fail(
+          `${tag} (${label}): <head> preloaded ${JSON.stringify(pre)}, but app.js ${atBoot ? 'asked for the engine at boot' : 'did not ask for the engine at boot'}`
+        );
+      else if (
+        asks.length !== (atBoot ? 1 : 0) ||
+        (atBoot && new URL(asks[0].url, SITE).href !== new URL(pre[0].href, SITE).href)
+      )
+        fail(
+          `${tag} (${label}): app.js requested ${JSON.stringify(asks.map((e) => e.url))} at boot; want ${atBoot ? `exactly the preload's ${JSON.stringify(pre[0].href)}` : 'nothing'}`
+        );
+      wanted += atBoot ? 1 : 0;
+    } finally {
+      dom.window.close();
+    }
+  }
+  // Vacuity: the matrix must hold states on both sides.
+  if (wanted < 8 || wanted === STATES.length)
+    fail(
+      `${tag}: app.js asked at boot in ${wanted} of ${STATES.length} stored states; want 8 or more, and not all`
+    );
+  else
+    note(
+      `${tag}: <head> and app.js agree over ${STATES.length} stored states (${wanted} preload, each the one request)`
+    );
+  return STATES.length;
 }
 
 // ── section: window ─────────────────────────────────────────────────────────
@@ -1602,6 +1784,11 @@ async function engineE0(lazyHtml) {
     if (prose.length)
       fail(
         `${tag}: the genre prose was requested while the instrument data was held (${JSON.stringify(prose)})`
+      );
+    const early = beforeEngineBody(L.log, L.bodies, OPTIONAL_ALL);
+    if (early.length)
+      fail(
+        `${tag}: ${early.map((e) => e.rel).join(', ')} requested while the instrument data was held`
       );
     const state = L.w.eval('Engine.state()');
     if (state !== 'loading')
@@ -1983,6 +2170,13 @@ async function engineSweep(lazyHtml) {
     await sleep(200);
     check('after the sweep');
     if (w.eval('Engine.ready()')) fail(`${tag}: the engine was ready while held — vacuous`);
+    // Every route drawn, the Instrument and Genre pages among them, and still
+    // no optional download: each waits for the instrument data's bytes.
+    const early = beforeEngineBody(L.log, L.bodies, OPTIONAL_ALL);
+    if (early.length)
+      fail(
+        `${tag}: ${[...new Set(early.map((e) => e.rel))].join(', ')} requested while the instrument data was held`
+      );
     const thin = Object.entries(routes).filter(([, n]) => n < 5);
     if (thin.length)
       fail(
@@ -2472,8 +2666,9 @@ async function engineStale(lazyHtml) {
   if (ONLY.includes('first-view')) {
     for (const name of ONLY_SCENARIOS) await firstView(embedHtml, lazyHtml, name);
     await engineEarly(lazyHtml);
+    const states = await enginePreloadAgrees(lazyHtml);
     ran.push(
-      `${ONLY_SCENARIOS.length} first view(s) with the prose and the instrument data held, filled in place; the engine asked for at the first paint (or an action), not before`
+      `${ONLY_SCENARIOS.length} first view(s) with the prose and the instrument data held, filled in place; the engine asked for at the first paint (or an action), not before; <head>'s engine preload agrees with app.js over ${states} stored states`
     );
   }
   if (ONLY.includes('window')) {
