@@ -1016,7 +1016,10 @@ function uiStart() {
   status.setAttribute('role', 'status');
   status.textContent = 'Connecting…';
   $ui('chat-form').before(status);
-  uiCheckAI();
+  // After the first paint: a cross-origin status check started during boot
+  // competes with the genre page's first render for the network and is
+  // counted on the path to the largest paint. 'Connecting…' stays until then.
+  uiAfterPaint(uiCheckAI);
 
   const domain = $ui('chat-domain');
   domain.addEventListener('change', uiUpdatePrompt);
@@ -2031,6 +2034,36 @@ function uiShowStorageConflict() {
     uiButton('keep-session', 'Keep this session', 'save') +
     uiButton('export', 'Export this session', 'download');
   document.querySelector('.ui-header').after(note);
+}
+// Run fn once the first paint has been presented and the main thread is idle:
+// two animation frames (the second runs after the frame the first one queued
+// has been drawn), then an idle callback with a 2 s ceiling so it cannot be
+// starved. Where either API is missing (jsdom harnesses, older Safari) it
+// falls back to a timer. For work the first view does not need: optional
+// fetches and status checks that would otherwise compete with it.
+//
+// A HIDDEN TAB DRAWS NO FRAMES, so waiting for them would hold fn until the tab
+// is shown and then run it under the reader. A tab hidden when this is called,
+// or hidden before its frames arrive, goes straight to the idle callback,
+// which is what booting in a background tab did before: nothing is painting
+// there to compete with. fn runs once either way.
+function uiAfterPaint(fn) {
+  let done = false;
+  const run = () => {
+    if (!done) {
+      done = true;
+      fn();
+    }
+  };
+  const idle = () =>
+    typeof requestIdleCallback === 'function'
+      ? requestIdleCallback(run, { timeout: 2000 })
+      : setTimeout(run, 0);
+  const hidden = () => typeof document !== 'undefined' && document.visibilityState === 'hidden';
+  if (typeof requestAnimationFrame !== 'function' || hidden()) return void idle();
+  requestAnimationFrame(() => requestAnimationFrame(idle));
+  if (typeof document !== 'undefined' && typeof document.addEventListener === 'function')
+    document.addEventListener('visibilitychange', () => hidden() && idle(), { once: true });
 }
 async function uiCheckAI() {
   const status = $ui('ai-status');

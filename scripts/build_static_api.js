@@ -24,6 +24,11 @@ const os = require('os');
 const { Worker } = require('worker_threads');
 
 const C = require('./_loader.js');
+const {
+  readImageManifest,
+  compactInstrumentImages,
+  compactTraditionImages,
+} = require('./_image_tables.js');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
 const {
@@ -66,6 +71,12 @@ function mkdir(p) {
 }
 function writeJson(p, obj) {
   fs.writeFileSync(p, JSON.stringify(obj, null, 2));
+}
+// The files the browser app itself fetches are written without indentation:
+// browse.json was 10.06 MB pretty-printed and is 7.99 MB compact (2.23 MB vs
+// 2.13 MB gzip). The public per-id files stay pretty for people reading them.
+function writeJsonCompact(p, obj) {
+  fs.writeFileSync(p, JSON.stringify(obj));
 }
 
 // Canonical 13-axis order — the browse index stores axes as a compact array in
@@ -233,7 +244,7 @@ async function main() {
   // traditions/{id}.json as `source`, fetched once per imported tradition.
   // This split is what lets the app scale past the single-file memory ceiling
   // without a server and without per-action lag on browse interactions.
-  writeJson(path.join(OUT, 'browse.json'), {
+  writeJsonCompact(path.join(OUT, 'browse.json'), {
     name: 'Codex Musica — browse index (Tier-1 data for the lazy-loaded app)',
     generated: new Date().toISOString().slice(0, 10),
     axisKeys: AXIS_KEYS,
@@ -251,6 +262,33 @@ async function main() {
     count: Object.keys(C.NAV_GLYPH_SVGS).length,
     svgs: C.NAV_GLYPH_SVGS,
   });
+
+  // ---- tradition_images.json / instrument_images.json: the two photo tables ----
+  // Derived from references/_image_manifest.json by scripts/_image_tables.js and
+  // held to it by check_api.js. The Genre page fetches the first after its first
+  // paint; the Instrument page fetches the second the first time it draws (the
+  // lazy shell no longer inlines it). Neither is in index.json's endpoints: like
+  // nav_glyphs.json they are the app's own data, not a published API.
+  {
+    const manifest = readImageManifest(
+      path.join(__dirname, '..', 'references', '_image_manifest.json')
+    );
+    const traditionImages = compactTraditionImages(
+      manifest,
+      C.TRADITIONS.map((t) => t.id)
+    );
+    writeJsonCompact(path.join(OUT, 'tradition_images.json'), {
+      name: 'Codex Musica — tradition photos (openly licensed; for the Genre page)',
+      count: Object.keys(traditionImages.traditions).length,
+      ...traditionImages,
+    });
+    const instrumentImages = compactInstrumentImages(manifest) || { source: null, instruments: {} };
+    writeJsonCompact(path.join(OUT, 'instrument_images.json'), {
+      name: 'Codex Musica — instrument photos (openly licensed; for the Instrument page)',
+      count: Object.keys(instrumentImages.instruments).length,
+      ...instrumentImages,
+    });
+  }
 
   // ---- all.json: every recipe in ONE fetch (the universal "paste one link" payload) ----
   writeJson(path.join(OUT, 'all.json'), {

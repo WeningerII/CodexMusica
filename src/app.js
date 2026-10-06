@@ -5169,21 +5169,31 @@ const Catalog = (() => {
   // NOT drop it, deliberately: it merges import fields (tuning/room/parts/
   // chain_*) into _full and touches nothing search reads.
   let _searchIndex = null;
+  // A partial index carried across idle slices by warmSearchIndex: rows
+  // [0, _warmAt) are built. Both boot paths drop it with _searchIndex, so a
+  // cursor can never outlive the catalog it was counting through.
+  let _warmRows = null;
+  let _warmAt = 0;
+
+  function searchRow(i) {
+    const t = _list[i];
+    const ex = _ext.get(t.id);
+    return {
+      t,
+      name: normalizeSearch(t.name),
+      lineage: normalizeSearch(t.lineage || ''),
+      description: normalizeSearch((ex && ex.description) || ''),
+    };
+  }
 
   function searchIndex() {
     if (_searchIndex) return _searchIndex;
-    const rows = new Array(_list.length);
-    for (let i = 0; i < _list.length; i++) {
-      const t = _list[i];
-      const ex = _ext.get(t.id);
-      rows[i] = {
-        t,
-        name: normalizeSearch(t.name),
-        lineage: normalizeSearch(t.lineage || ''),
-        description: normalizeSearch((ex && ex.description) || ''),
-      };
-    }
+    // Finish whatever the idle slices left, rather than starting again.
+    const rows = _warmRows && _warmRows.length === _list.length ? _warmRows : new Array(_list.length);
+    for (let i = rows === _warmRows ? _warmAt : 0; i < _list.length; i++) rows[i] = searchRow(i);
     _searchIndex = rows;
+    _warmRows = null;
+    _warmAt = 0;
     return _searchIndex;
   }
 
@@ -5193,18 +5203,47 @@ const Catalog = (() => {
   // first wins: idle time builds it silently, and a user who types before that
   // fires just pays for it inside searchIndex() as before.
   //
+  // IN SLICES, not one task. At 7,078 traditions the whole index was one
+  // ~0.94 s task at 4x CPU right after the first render, which blocked the
+  // first interaction just as much as building it on boot. Each idle slice
+  // builds rows until the browser's deadline has under 3 ms left (at least one
+  // row, so a run of tiny windows still advances); a slice the 3 s timeout
+  // forced, or a timer slice, builds a fixed 300 rows (~40 ms at 4x). The rows
+  // are the ones searchIndex() builds, in the same order.
+  //
   // requestIdleCallback is guarded — Safari shipped it late, and the headless
   // harness that loads this file for the parity gates supplies neither timer.
   function warmSearchIndex() {
     if (_searchIndex) return;
-    const build = () => searchIndex();
-    if (typeof requestIdleCallback === 'function') requestIdleCallback(build, { timeout: 3000 });
-    else if (typeof setTimeout === 'function') setTimeout(build, 0);
+    const schedule = (step) => {
+      if (typeof requestIdleCallback === 'function') requestIdleCallback(step, { timeout: 3000 });
+      else if (typeof setTimeout === 'function') setTimeout(step, 0);
+    };
+    const step = (deadline) => {
+      if (_searchIndex) return;
+      if (!_list.length) return void searchIndex(); // nothing to slice
+      if (!_warmRows || _warmRows.length !== _list.length) {
+        _warmRows = new Array(_list.length);
+        _warmAt = 0;
+      }
+      const timed =
+        deadline && typeof deadline.timeRemaining === 'function' && !deadline.didTimeout;
+      const stop = _warmAt + 300;
+      do {
+        _warmRows[_warmAt] = searchRow(_warmAt);
+        _warmAt++;
+      } while (_warmAt < _list.length && (timed ? deadline.timeRemaining() > 3 : _warmAt < stop));
+      if (_warmAt < _list.length) return schedule(step);
+      _searchIndex = _warmRows;
+      _warmRows = null;
+      _warmAt = 0;
+    };
+    schedule(step);
   }
 
   return {
-    bootFromGlobals: (...a) => { _searchIndex = null; return bootFromGlobals(...a); },
-    bootFromIndex: (...a) => { _searchIndex = null; return bootFromIndex(...a); },
+    bootFromGlobals: (...a) => { _searchIndex = null; _warmRows = null; _warmAt = 0; return bootFromGlobals(...a); },
+    bootFromIndex: (...a) => { _searchIndex = null; _warmRows = null; _warmAt = 0; return bootFromIndex(...a); },
     all: () => _list,                  // light rows — iteration (search/tree/similar)
     get: (id) => _byId.get(id),        // light row — name/family/lineage/instruments
     ext: (id) => _ext.get(id),         // extras — parent/axes/description/exemplars/crossRefs
@@ -22373,6 +22412,15 @@ function _initApp() {
 // from a card's find-similar action.
 // ============================================================
 
+// ONE CACHED COLLATOR for every whole-catalog name sort. `a.localeCompare(b,
+// 'en', {sensitivity:'base'})` is defined as `new Intl.Collator('en',
+// {sensitivity:'base'}).compare(a, b)` (ECMA-402), so the order is identical,
+// but each call builds a collator: findSimilar's tie-break called it ~43,800
+// times per genre (7,078 genres share only 91 distinct distances), about 1.4 s
+// of the genre page's first render at 4x CPU. Declared above sortInstruments,
+// which runs at load.
+const _byNameBase = new Intl.Collator('en', { sensitivity: 'base' }).compare;
+
 // ---- Sort instruments: family display order, alphabetical within family by displayed (short) name ----
 (function sortInstruments() {
   const familyOrder = INSTRUMENT_FAMILIES.map(f => f.id);
@@ -22381,7 +22429,7 @@ function _initApp() {
     const fa = familyOrder.indexOf(a.family);
     const fb = familyOrder.indexOf(b.family);
     if (fa !== fb) return fa - fb;
-    return sortKey(a).localeCompare(sortKey(b), 'en', { sensitivity: 'base' });
+    return _byNameBase(sortKey(a), sortKey(b));
   });
 })();
 
@@ -22536,7 +22584,7 @@ function findSimilar(idA, n) {
     .map(t => ({ id: t.id, name: t.name, distance: computeDistance(idA, t.id) }))
     // Axis values are whole steps, so equal distances are common: a tie reads
     // A to Z by name rather than in the catalog's declaration order.
-    .sort((x, y) => x.distance - y.distance || x.name.localeCompare(y.name, 'en', { sensitivity: 'base' }))
+    .sort((x, y) => x.distance - y.distance || _byNameBase(x.name, y.name))
     .slice(0, n);
 }
 

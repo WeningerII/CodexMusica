@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile */
+/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -34,7 +34,8 @@ const G = {
   members: null, // taxonomy membership, computed once from the catalog
   sorted: null, // the catalog sorted by name, computed once
   geo: null, // data/atlas-geo.json coords, when it can be read
-  images: null, // references/_image_manifest.json, when it exists
+  images: null, // the tradition photos, when they can be read
+  optionalScheduled: false, // gpLoadOptional is queued for after the first paint
 };
 const GP_FEATURED_AXES = ['soundTech', 'density', 'voice'];
 const GP_ROOTS_SHOWN = 10;
@@ -92,7 +93,7 @@ function gpSorted() {
   if (G.sorted && G.sorted.length === gpCatalogSize()) return G.sorted;
   G.sorted = Catalog.all()
     .slice()
-    .sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
+    .sort((a, b) => gpByName(a.name, b.name));
   return G.sorted;
 }
 // The classification path of a tradition: root … parent, as tree nodes.
@@ -150,30 +151,45 @@ function gpLoadOptional() {
       .catch(() => {});
   }
   if (G.images === null) {
-    // PR #389's manifest. Absent (404) or unreadable, the glyphs stay: one
-    // request per page load, and no error is raised for a missing file.
+    // The tradition rows of PR #389's manifest, as scripts/_image_tables.js
+    // derives them (288 KB gzip rather than the whole 640 KB manifest). Absent
+    // (404) or unreadable, the glyphs stay: one request per page load, and no
+    // error is raised for a missing file.
     G.images = false;
-    get('references/_image_manifest.json')
+    get('api/tradition_images.json')
       .then((m) => {
         const images = gpIndexImages(m);
         if (!images) return;
         G.images = images;
-        if (UI.view === 'genre') renderGenreDiscovery();
+        // The list and the open detail are the only readers of the photos;
+        // the Browse column is left alone (rebuilding it drops a slider
+        // mid-drag).
+        if (UI.view === 'genre') gpRenderMain();
       })
       .catch(() => {});
   }
 }
-// { images: [{ id, kind, thumb_url, credit, license, license_raw, source_page }] }
-// → the tradition entries by id, or null when there are none.
+// { traditions: { id: [thumb, licence, credit, sourcePage, full?] } }
+// (api/tradition_images.json, scripts/_image_tables.js) → the entries gpImage
+// reads, by id, or null when there are none. `full` is 1 when the full image
+// is the thumb itself, and absent when the manifest had none.
 function gpIndexImages(m) {
-  if (!m || !Array.isArray(m.images)) return null;
+  const rows = m && m.traditions;
+  if (!rows || typeof rows !== 'object') return null;
   const out = Object.create(null);
   let n = 0;
-  for (const e of m.images)
-    if (e && e.kind === 'tradition' && typeof e.id === 'string' && Tradition(e.id)) {
-      out[e.id] = e;
-      n++;
-    }
+  for (const id of Object.keys(rows)) {
+    const r = rows[id];
+    if (!Array.isArray(r) || !Tradition(id)) continue;
+    out[id] = {
+      thumb_url: r[0],
+      license_raw: r[1],
+      credit: r[2],
+      source_page: r[3],
+      image_url: r.length > 4 ? (r[4] === 1 ? r[0] : r[4]) : undefined,
+    };
+    n++;
+  }
   return n ? out : null;
 }
 function gpPlace(id) {
@@ -286,7 +302,7 @@ function gpResults() {
       })
       .filter((r) => r.within);
   }
-  const byName = (a, b) => a.t.name.localeCompare(b.t.name, 'en', { sensitivity: 'base' });
+  const byName = (a, b) => gpByName(a.t.name, b.t.name);
   rows.sort((a, b) => (targets.length ? a.dist - b.dist : 0) || a.rank - b.rank || byName(a, b));
   return rows;
 }
@@ -752,7 +768,13 @@ function gpMarkOpen(open) {
 function renderGenreDiscovery() {
   if (!$ui('genre-body')) return;
   if (!G.view) G.view = UILayout.remember('genre-view', 'rows', () => gpRenderMain());
-  gpLoadOptional();
+  // The place names and photos are optional and the first view shows glyphs
+  // without them, so they are fetched after the first paint: requests that
+  // start before it compete with the genre page's own data.
+  if (!G.optionalScheduled) {
+    G.optionalScheduled = true;
+    uiAfterPaint(gpLoadOptional);
+  }
   if (gpTreeOpen()) return;
   const focus = gpFocusKey();
   const total = gpCatalogSize();
