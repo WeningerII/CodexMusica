@@ -1015,6 +1015,16 @@ jobs:
       - name: UI reachability
         run: npm run reachability
 
+      # The embedded build (every table inline: the page check_lazy_app and
+      # tandem compare the lazy shell against) has its own --check — every
+      # engine table present, none of the lazy machinery or its preload, each
+      # <script> under the parse ceiling — and until this step nothing in CI
+      # ran it: those gates build it without --check. --out keeps it off the
+      # default output path, where the lazy build above is what UI
+      # reachability reads.
+      - name: Build the embedded codex.html (--check)
+        run: npm run build:html:embedded -- --out="$RUNNER_TEMP/embedded/codex.html" --quiet
+
   # Reproducibility + two-sided gates. Separate job so the fresh rebuild runs in
   # parallel with `verify`, and still gates the merge (runs on PRs).
   #
@@ -1035,10 +1045,20 @@ jobs:
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
-    # MEASURED at ~10-15 minutes green; the same apt-stall class as verify
-    # hung THIS job 44m+ on the run for PR #168 (2026-08-18). Same cap,
-    # same reason.
-    timeout-minutes: 30
+    # MEASURED at ~10-15 minutes green when first pinned; the same apt-stall
+    # class as verify hung THIS job 44m+ on the run for PR #168 (2026-08-18).
+    # REPINNED 2026-10-06 from ~~30~~ to 45 for step 9's fault classes. PR
+    # #501's run measured the job at 22m43s: the cold build 11m54s, fault
+    # injection 9m49s. Step 9 brings faults.js to 85 classes, 30 of them for
+    # the engine split (9i-9zi; each engine class runs only its own
+    # check_lazy_app check, --checks). A full local run measured 28m32s
+    # (1,712 s: the step-9 classes 762 s, the other 55 950 s). At the 1.46x
+    # local/CI ratio measured on the cold build (17m26s local, 11m54s here)
+    # that is ~19.5 min of faults, and the job ~32.5 min cold; the older
+    # classes alone ran 1.61x (950 s local, 9m49s here), so 1.46 errs long.
+    # 45 is that estimate plus about 40%, room for a slow runner; the first
+    # step-9 run's own figure replaces the estimate here.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
 
@@ -1168,9 +1188,22 @@ jobs:
       # what a fresh build of this tree produces, and the parent commit's own
       # freshness run proved it byte-for-byte. faults.js copies before injecting,
       # so the working tree is untouched either way.
+      #
+      # It runs unless the run was cancelled (`!cancelled()`), after a failed
+      # step above as well: a page over its budget, or a reproducibility diff,
+      # is one verdict, and it must not hide the fault verdicts behind it. A
+      # failed step still fails the job; this one reports beside it. With no
+      # fresh pair to inject against (a step above stopped before the build
+      # finished), it says so and fails at once, rather than plant into files
+      # that are not there.
       - name: Fault injection — every gate is two-sided (0 escapes)
+        if: ${{ !cancelled() }}
         run: |
           if [ "${{ needs.gate.outputs.artifacts_affected }}" = "true" ]; then
+            if [ ! -f "$RUNNER_TEMP/fresh/codex.html" ] || [ ! -d "$RUNNER_TEMP/fresh/api" ]; then
+              echo "No fresh build to inject against: a step above stopped before it was made."
+              exit 1
+            fi
             node scripts/faults.js --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
           else
             echo "Docs-only diff — injecting against the committed artifacts."
