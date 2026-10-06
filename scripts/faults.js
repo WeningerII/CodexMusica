@@ -36,6 +36,9 @@
 //   engine in page      -> build_html.js --check (an engine table is back inline in the lazy page)
 //   engine file drift   -> check_api.js       (api/engine.json drifts from references/)
 //   page over budget    -> check_payload_budget.js (the lazy page regrows past its gzip budget)
+//   critical over budget -> check_payload_budget.js (the boot index regrows; the first view waits on it)
+//   inline data over budget -> check_payload_budget.js (a data table is back inline in the page)
+//   engine over budget  -> check_payload_budget.js (api/engine.json regrows; an early Add waits on it)
 //   index drift         -> check_lazy_app.js  (the page's instrument index differs from the engine)
 //   prose not sequenced -> check_lazy_app.js  (the prose prefetch shares the link with the engine)
 //   prose starved       -> check_lazy_app.js  (a failed engine request holds the prose back for good)
@@ -733,46 +736,118 @@ if (want('9s', 'engine-file-drift')) {
   );
 }
 
-// 9t. page-over-budget -> check_payload_budget.js
-//     The defect is the lazy page growing back: a table inline again, a
-//     runtime module, a comment. No other gate holds the page to a size. The
-//     plant is a comment of incompressible base64 before the last </body>,
-//     sized from the gate's own baseline line so the page lands about 32 KiB
-//     over its budget whatever its headroom is today (about 146 KB of text at
-//     the step-9 page). A fixed size would stop reaching the limit once the
-//     page shrank. The bytes come from a hash chain, not a random source, so
-//     every run plants the same page. The unplanted page must pass first,
-//     or the class could not tell the plant from a page already over.
-if (want('9t', 'page-over-budget')) {
-  const d = mkenv(['scripts', 'codex.html']);
-  const f = path.join(d, 'codex.html');
-  if (FRESH_HTML) fs.copyFileSync(FRESH_HTML, f);
-  const args = [
-    'scripts/check_payload_budget.js',
-    `--html=${f}`,
-    `--api=${FRESH_API || path.join(ROOT, 'api')}`,
-  ];
+// 9t, 9ta–9tc. THE PAYLOAD BUDGETS -> check_payload_budget.js. No other gate
+//     holds the lazy page and its two first downloads to a size, so each of
+//     the four budgets gets its own plant, each in a copy of the page and of
+//     the two api/ files the budgets read. The plant is incompressible base64,
+//     sized from the gate's own baseline line so the budget lands about 32 KiB
+//     over its limit whatever its headroom is today (a fixed size would stop
+//     reaching the limit once the page shrank, or the engine file did; at step
+//     9 the headroom is 76 KB for the page, 45 KB for page + boot index, 37 KB
+//     for the inline data and 125 KB for the engine). The bytes come from a
+//     hash chain, not a random source, so every run plants the same files. The
+//     unplanted copy must pass first, or a class could not tell its plant from
+//     a page already over.
+function budgetEnv() {
+  const d = mkenv(['scripts']);
+  const html = path.join(d, 'codex.html');
+  const api = path.join(d, 'api');
+  fs.copyFileSync(FRESH_HTML || path.join(ROOT, 'codex.html'), html);
+  fs.mkdirSync(api);
+  for (const f of ['browse_boot.json', 'engine.json'])
+    fs.copyFileSync(path.join(FRESH_API || path.join(ROOT, 'api'), f), path.join(api, f));
+  const args = ['scripts/check_payload_budget.js', `--html=${html}`, `--api=${api}`];
   const baseline = gate(d, args);
-  const m = baseline.out.match(/^ +page +([\d,]+) +([\d,]+) /m);
-  if (baseline.code !== 0 || !m)
+  if (baseline.code !== 0)
     throw new Error(
-      `faults: the unplanted page does not pass check_payload_budget (exit ${baseline.code}), so class 9t cannot prove the budget:\n${baseline.out}`
+      `faults: the unplanted page does not pass check_payload_budget (exit ${baseline.code}), so the budget classes cannot prove it:\n${baseline.out}`
     );
   const num = (s) => Number(s.replace(/,/g, ''));
-  // Base64 of N random bytes gzips back to about N bytes: 6 bits a character.
-  const n = num(m[2]) - num(m[1]) + 32 * 1024;
+  // What the budget has left, from its line of the gate's table.
+  const left = (id) => {
+    const m = baseline.out.match(new RegExp(`^ +${id} +([\\d,]+) +([\\d,]+) `, 'm'));
+    if (!m) throw new Error(`faults: check_payload_budget printed no ${id} line`);
+    return num(m[2]) - num(m[1]);
+  };
+  return { d, html, api, args, left };
+}
+// Base64 of `n` hash-chained bytes: about `n` bytes once gzipped, at 6 bits a
+// character.
+function incompressible(tag, n) {
   const chunks = [];
   for (let i = 0; chunks.length * 64 < n; i++)
-    chunks.push(crypto.createHash('sha512').update(`faults 9t ${i}`).digest());
-  const filler = Buffer.concat(chunks).subarray(0, n).toString('base64');
-  const html = fs.readFileSync(f, 'utf8');
+    chunks.push(crypto.createHash('sha512').update(`faults ${tag} ${i}`).digest());
+  return Buffer.concat(chunks).subarray(0, n).toString('base64');
+}
+const OVER = 32 * 1024;
+
+// 9t. page-over-budget: the lazy page growing back — a table inline again, a
+//     runtime module, a comment. The plant is a comment before the last
+//     </body>.
+if (want('9t', 'page-over-budget')) {
+  const B = budgetEnv();
+  const filler = incompressible('9t', B.left('page') + OVER);
+  const html = fs.readFileSync(B.html, 'utf8');
   const at = html.lastIndexOf('</body>');
   if (at < 0) throw new Error('faults: no </body> in codex.html to plant the 9t comment before');
-  fs.writeFileSync(f, `${html.slice(0, at)}<!-- __BUDGET_FAULT__ ${filler} -->\n${html.slice(at)}`);
+  fs.writeFileSync(
+    B.html,
+    `${html.slice(0, at)}<!-- __BUDGET_FAULT__ ${filler} -->\n${html.slice(at)}`
+  );
   record(
     'page-over-budget -> check_payload_budget.js',
-    gate(d, args),
+    gate(B.d, B.args),
     /✗ page: [\d,]+ B gzip, over its [\d,]+ B/
+  );
+}
+
+// 9ta. critical-over-budget: the first view's other download regrows — prose
+//     or exemplars back in the boot index. The plant is one more field in
+//     api/browse_boot.json; the page itself is untouched, so only the page +
+//     boot index budget can see it.
+if (want('9ta', 'critical-over-budget')) {
+  const B = budgetEnv();
+  const filler = incompressible('9ta', B.left('critical') + OVER);
+  plantIn(B.d, 'api/browse_boot.json', '{', `{"__BUDGET_FAULT__":"${filler}",`);
+  record(
+    'critical-over-budget -> check_payload_budget.js',
+    gate(B.d, B.args),
+    /✗ critical: [\d,]+ B gzip, over its [\d,]+ B/
+  );
+}
+
+// 9tb. inline-data-over-budget: a references table inline again, beside the
+//     engine block. The plant is one more labelled data <script> block,
+//     which the inline-data budget reads (it may also take the page + boot
+//     index budget over; the row expects the inline-data line).
+if (want('9tb', 'inline-data-over-budget')) {
+  const B = budgetEnv();
+  const filler = incompressible('9tb', B.left('inline-data') + OVER);
+  const html = fs.readFileSync(B.html, 'utf8');
+  const at = html.lastIndexOf('</body>');
+  if (at < 0) throw new Error('faults: no </body> in codex.html to plant the 9tb block before');
+  fs.writeFileSync(
+    B.html,
+    `${html.slice(0, at)}<script>\n// ─── __BUDGET_FAULT__ ───\nconst __BUDGET_FAULT__ = "${filler}";\n</script>\n${html.slice(at)}`
+  );
+  record(
+    'inline-data-over-budget -> check_payload_budget.js',
+    gate(B.d, B.args),
+    /✗ inline-data: [\d,]+ B gzip, over its [\d,]+ B/
+  );
+}
+
+// 9tc. engine-over-budget: api/engine.json regrows — a dropped field kept, a
+//     table added — which a restored session's first draw and every early Add
+//     wait for. The plant is one more element line before the closing ].
+if (want('9tc', 'engine-over-budget')) {
+  const B = budgetEnv();
+  const filler = incompressible('9tc', B.left('engine') + OVER);
+  plantIn(B.d, 'api/engine.json', '\n]\n', `,\n["__BUDGET_FAULT__","${filler}"]\n]\n`);
+  record(
+    'engine-over-budget -> check_payload_budget.js',
+    gate(B.d, B.args),
+    /✗ engine: [\d,]+ B gzip, over its [\d,]+ B/
   );
 }
 
