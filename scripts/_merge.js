@@ -23,9 +23,10 @@
 'use strict';
 
 /* @inline-start — the region between the markers is inlined verbatim into codex.html */
-function mergeFamilyParts(instruments, familyParts) {
+function* mergeFamilyPartsSteps(instruments, familyParts) {
   familyParts = familyParts || {};
   for (const inst of instruments || []) {
+    yield;
     const ownParts = Array.isArray(inst.parts) ? inst.parts : [];
     inst._ownParts = ownParts;
     const fParts = familyParts[inst.family] || [];
@@ -87,10 +88,11 @@ function mergeFamilyParts(instruments, familyParts) {
   //   isTargetPart(part)       — does this part take this material kind?
   //   isMemberVariant(variant) — (optional) is this variant actually of the kind?
   //                              omitted ⇒ every variant of a target part counts.
-  const augmentUniversalMaterial = function (instruments, kind, isTargetPart, isMemberVariant) {
+  const augmentUniversalMaterial = function* (instruments, kind, isTargetPart, isMemberVariant) {
     const union = [];
     const seen = {};
     for (const inst of instruments || []) {
+      yield;
       for (const p of inst.parts || []) {
         if (!isTargetPart(p)) continue;
         for (const v of p.variants || []) {
@@ -121,6 +123,7 @@ function mergeFamilyParts(instruments, familyParts) {
       Object.assign({}, v, { auto: false, expanded: kind, default: false })
     );
     for (const inst of instruments || []) {
+      yield;
       if (!Array.isArray(inst.parts)) continue;
       // Build NEW part objects for the augmented parts. Do NOT mutate the existing
       // part object: for a full-override own-part it is the SAME reference held in
@@ -154,7 +157,7 @@ function mergeFamilyParts(instruments, familyParts) {
       )
     );
   };
-  augmentUniversalMaterial(instruments, 'string', isStringMaterialPart);
+  yield* augmentUniversalMaterial(instruments, 'string', isStringMaterialPart);
 
   // Tonewoods — any wood on any resonant soundbox surface (top / back / body /
   // soundboard). Scoped to those parts only: necks, fretboards, drum shells,
@@ -210,7 +213,7 @@ function mergeFamilyParts(instruments, familyParts) {
     if (/\bwoods?\b/i.test(nm) || /\bmaterials?\b/i.test(nm)) return true;
     return false;
   };
-  augmentUniversalMaterial(instruments, 'wood', isTonewoodPart, isWoodVariant);
+  yield* augmentUniversalMaterial(instruments, 'wood', isTonewoodPart, isWoodVariant);
 
   // Membranes — any drumhead on any part that carries one.
   //
@@ -239,7 +242,7 @@ function mergeFamilyParts(instruments, familyParts) {
     if (/\b(heads?|skins?|membranes?|batter|resonant|drum.?heads?)\b/i.test(nm)) return true;
     return /\b(materials?)\b/i.test(nm);
   };
-  augmentUniversalMaterial(instruments, 'membrane', isMembranePart, isMembraneVariant);
+  yield* augmentUniversalMaterial(instruments, 'membrane', isMembranePart, isMembraneVariant);
 
   // Metals — shells, jingles, reeds, bars, bells.
   //
@@ -270,12 +273,20 @@ function mergeFamilyParts(instruments, familyParts) {
       return true;
     return /\b(metals?|alloys?|materials?)\b/i.test(nm);
   };
-  augmentUniversalMaterial(instruments, 'metal', isMetalPart, isMetalVariant);
+  yield* augmentUniversalMaterial(instruments, 'metal', isMetalPart, isMetalVariant);
 
   return instruments;
+}
+// The synchronous merge: Node (_loader.js), the embedded page and every caller
+// that is not slicing. Draining the steps is the whole of it.
+function mergeFamilyParts(instruments, familyParts) {
+  const steps = mergeFamilyPartsSteps(instruments, familyParts);
+  let r = steps.next();
+  while (!r.done) r = steps.next();
+  return r.value;
 }
 /* @inline-end */
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { mergeFamilyParts };
+  module.exports = { mergeFamilyParts, mergeFamilyPartsSteps };
 }
