@@ -3365,6 +3365,13 @@ async function engineRefused(lazyHtml, id) {
   }
   console.error(`LAZY-APP: PASS — lazy shell ≡ embedded app: ${ran.join('; ')}.`);
 })().catch((e) => {
+  // A crash must not hide what was found before it: a defect that breaks the
+  // page (a read that throws while the first view draws) can stop a later
+  // check too, and the problem that names the defect is the one to read.
+  if (problems.length) {
+    console.error(`LAZY-APP: FAIL — ${problems.length} problem(s) before the harness crashed:`);
+    for (const p of problems) console.error('  ✗ ' + p);
+  }
   console.error('LAZY-APP: harness crash — ' + ((e && e.stack) || e));
   process.exit(1);
 });
