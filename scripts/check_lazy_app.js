@@ -111,6 +111,22 @@
 //     has to be reviewed (it must run only once the instrument data has
 //     loaded), then the census regenerated with --print-readers. A read added
 //     in one function and removed from another moves both.
+//   • E7 — a wait keeps what the reader asked for, and no more: an Add sent to
+//     the featured genre, with the header's Add instrument clicked during the
+//     wait, still makes the embedded build's card in that genre and says so;
+//     an Inspect whose reader went on to the Lyrics page leaves them there
+//     once the data lands, with no new history entry; "Preparing the
+//     instrument data…" is still up 3.5 s into a wait, and down once it ends.
+//   • E8 — an Add asks for its genre's record during the wait, once; when the
+//     record fails (a network failure, so at once), the wait's own status
+//     stands until the instrument data is in, then "Could not load tradition
+//     data", with Retry, and no card.
+//   • E9 — the merge plan, counted through mergeFamilyPartsSteps: the page as
+//     built merges with the file's plan for every kind (no predicate pass), a
+//     copy whose CODEX_MERGE_SHA is another digest merges the long way, and
+//     both fingerprint as the embedded build's engine.
+//   • E10 — a copy of api/engine.json with CRLF line endings loads to the
+//     embedded build's engine.
 //
 //   FAILURE PATHS (section `failure`; the lazy app fails honestly):
 //   • the boot index unreachable → the boot-error state renders.
@@ -123,11 +139,25 @@
 //     stands (no boot error); one request, none more on a timer; an Add makes
 //     one more, adds nothing and says it could not load, with Retry; the
 //     Instrument page says it could not load, with Retry, which makes exactly
-//     one more; the genre prose still loads.
-//   • F4b, the engine unreachable with a saved session → the boot error names
-//     api/engine.json; the session is left as it was and nothing is written.
+//     one more; the genre prose still loads; adding an instrument and an
+//     import each make one more request and say the same, with Retry.
+//   • F4b, F4c (with a saved session) and F4f, a saved session the boot
+//     cannot draw → the boot error, in the words BOOT_ERROR pins for each
+//     cause: the engine unreachable (F4b), another deploy's file (F4c), or a
+//     session written in the instant after the boot's last look, so the
+//     restore reaches the engine before it loads (F4f). The session is left
+//     as it was and nothing is written.
 //   • F4c, a file from another deploy (its digest is not the page's) → refused
-//     as stale; an Add adds nothing and asks for a reload; no table is filled.
+//     as stale; an Add adds nothing and asks for a reload; the Instrument page
+//     and the similar view say the page is out of date, with Reload, never
+//     Retry; no table is filled.
+//   • F4d, a file cut short (its tail from the last table the header names, on
+//     a line boundary; its closing line; a table's line) → refused, not as
+//     stale, so a retry can succeed; every slot empty; an Add says the
+//     connection failed, with Retry.
+//   • F4e, another deploy's index (one instrument fewer than
+//     INSTRUMENT_INDEX, an index field not 0, other index_fields) → refused
+//     as stale; every slot empty.
 //
 // USAGE
 //   node scripts/check_lazy_app.js                  # every section (npm run test:lazy, CI)
@@ -290,7 +320,7 @@ const ENGINE_READERS = {
 };
 
 // The engine section's checks, by id (--checks).
-const ENGINE_CHECKS = ['E0', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6'];
+const ENGINE_CHECKS = ['E0', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8', 'E9', 'E10'];
 
 const ONLY = flagList('only') || SECTIONS;
 const PRINT_READERS = argv.includes('--print-readers');
@@ -373,10 +403,12 @@ function deferred() {
 
 // fetch shim — resolves the app's api/ URLs against the COMMITTED repo api/
 // (itself gate-verified by check_api + the freshness job). `deny` simulates a
-// failure for specific paths ('*': every path, the embedded build's shim);
+// failure for specific paths ('*': every path, the embedded build's shim): a
+// 404; `drop`, a network failure (fetch() rejects, no response at all);
 // `hold` maps a path to a deferred() that lets it through on release;
 // `transform` maps a path to a function that rewrites its text (a file from
-// another deploy). `log` records every request: the URL the app asked for
+// another deploy; called per request, so a sequence can serve a different
+// file each time). `log` records every request: the URL the app asked for
 // (`url`), its path `rel` without the query, the query `q`, `ready` — whether
 // the first view had been drawn when it was made (`stamp`) — and `n`, a
 // sequence number shared with `bodies`, which records each body the app read
@@ -385,6 +417,7 @@ function deferred() {
 const SITE_PREFIX = /^https:\/\/codexmusica\.com\//;
 function makeFetchShim({
   deny = [],
+  drop = [],
   log = [],
   hold = {},
   stamp,
@@ -405,6 +438,7 @@ function makeFetchShim({
       n: ++n,
     });
     return (hold[rel] ? hold[rel].promise : Promise.resolve()).then(() => {
+      if (drop.includes(rel)) throw new TypeError('Failed to fetch');
       const file = path.join(ROOT, rel);
       if (
         deny === '*' ||
@@ -1612,22 +1646,29 @@ const ABSENT =
 const IDS = `.replace(/\\b(?:card|ws|id)_\\d+_[0-9a-z]{1,4}\\b/g, 'ID')`;
 // What a step left: the recipe's cards and its pasteable string, or the
 // Instrument page's list and preview.
-const CARDS_STATE = `return { n: app.cards.length, cards: JSON.stringify(app.cards)${IDS}, recipe: compressRichRecipe(app.cards, 1000) };`;
+const CARDS_STATE = `return { n: app.cards.length, cards: JSON.stringify(app.cards)${IDS}, recipe: compressRichRecipe(app.cards, 1000),
+  trads: app.cards.map((c) => c.traditionId || null), toast: document.getElementById('toast').textContent };`;
 const INSPECT_STATE = `return { body: document.getElementById('instrument-body').innerHTML${IDS}, preview: document.getElementById('instrument-preview').innerHTML${IDS} };`;
 
-// A lazy page with the engine held: { dom, w, log, bodies, hold }.
-function heldLazy(lazyHtml, { onWindow } = {}) {
+// A lazy page with the engine held: { dom, w, log, bodies, hold, deny, drop }.
+// `transform` adds to the shim's; a path pushed onto `deny` (a 404) or `drop`
+// (a network failure) fails from then on.
+function heldLazy(lazyHtml, { onWindow, transform } = {}) {
   const ref = {},
     log = [],
     bodies = [],
+    deny = ['api/tradition_images.json'],
+    drop = [],
     hold = { 'api/engine.json': deferred() };
   const dom = bootDom(
     lazyHtml,
     makeFetchShim({
-      deny: ['api/tradition_images.json'],
+      deny,
+      drop,
       log,
       bodies,
       hold,
+      transform,
       stamp: () => drawn(ref.w),
     }),
     {
@@ -1638,7 +1679,7 @@ function heldLazy(lazyHtml, { onWindow } = {}) {
       },
     }
   );
-  return { dom, w: dom.window, log, bodies, hold };
+  return { dom, w: dom.window, log, bodies, hold, deny, drop };
 }
 
 // Run `tasks` (functions returning promises) at most `n` at a time.
@@ -1659,6 +1700,10 @@ async function pool(tasks, n) {
 // step, 'inspect' for the one that shows an instrument]. The recipe a session
 // file, a saved session and the AI writer bring is WS's.
 const E3_CARDS = JSON.stringify(JSON.parse(WS).cards);
+// A session file holding WS, as the file picker hands it to uiImport (jsdom's
+// File has no text()).
+const SESSION_FILE = `const file = new File([${JSON.stringify(WS)}], 'codex-musica-session.json', { type: 'application/json' });
+  file.text = async () => ${JSON.stringify(WS)};`;
 const E3_STEPS = [
   ['add a genre', 'window.__act = uiAddGenre(STARTER_TRADITIONS[0]);'],
   ['add an instrument on its own', "window.__act = uiAddInstrument('voice', { destination: '' });"],
@@ -1667,12 +1712,7 @@ const E3_STEPS = [
     "window.__act = uiAddInstrument('voice', { destination: STARTER_TRADITIONS[0] });",
   ],
   ['Surprise me', 'Math.random = () => 0; surpriseTradition();'],
-  [
-    'import a session file',
-    `const file = new File([${JSON.stringify(WS)}], 'codex-musica-session.json', { type: 'application/json' });
-    file.text = async () => ${JSON.stringify(WS)}; // jsdom's File has no text()
-    window.__act = uiImport(file);`,
-  ],
+  ['import a session file', `${SESSION_FILE} window.__act = uiImport(file);`],
   [
     'open a saved session',
     `window.storage.get = async (key) => (key === 'codex:ws:e3' ? { value: JSON.stringify({ schema: WS_SCHEMA, name: 'E3', cards: ${E3_CARDS} }) } : null);
@@ -1719,17 +1759,20 @@ const E5_STEP = `
 const E5_STATE = `const s = document.getElementById('instrument-search');
   return { body: document.getElementById('instrument-body').innerHTML, total: document.getElementById('ip-total').textContent, focused: document.activeElement === s, value: s.value };`;
 
-// The embedded page, every reference the selected checks use, in turn: E1's
-// instruments, E4's picker, E5's search (then cleared), the inspector, then
-// each card step (E3).
+// The embedded page, every reference the selected checks use, in turn: the
+// merged engine's fingerprint (E9, E10), E1's instruments, E4's picker, E5's
+// search (then cleared), the inspector, then each card step (E3; E7 uses the
+// featured genre's).
+const E7_STEP = E3_STEPS.find(([label]) => label === 'add an instrument to the featured genre');
 async function engineReference(embedHtml) {
   const need = (...ids) => ids.some((id) => ONLY_CHECKS.includes(id));
-  if (!need('E1', 'E3', 'E4', 'E5')) return { e3: {} };
+  if (!need('E1', 'E3', 'E4', 'E5', 'E7', 'E9', 'E10')) return { e3: {} };
   const dom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), { url: SITE });
   const probe = (body) => runProbe(dom, body, E_WAIT);
   try {
     const ref = { e3: {} };
     await probe(SETTLE);
+    if (need('E9', 'E10')) ref.engine = await probe(ENGINE_FINGERPRINT);
     if (need('E1'))
       ref.inst = await probe(
         'return Object.fromEntries(INSTRUMENTS.map((i) => { const x = Inst(i.id); return [i.id, [x.name, x.short == null ? null : x.short, x.family]]; }));'
@@ -1751,7 +1794,7 @@ async function engineReference(embedHtml) {
       uiNavigate('genre');
       return out;`
       );
-    const steps = need('E3') ? E3_STEPS : [];
+    const steps = need('E3') ? E3_STEPS : need('E7') ? [E7_STEP] : [];
     const inspectFirst = [...steps].sort((a, b) => (b[2] === 'inspect') - (a[2] === 'inspect'));
     for (const [label, step, kind] of inspectFirst)
       ref.e3[label] = await probe(`${E3_RESET} ${step} ${E3_FINISH(kind)}`);
@@ -1765,9 +1808,9 @@ async function engineReference(embedHtml) {
   }
 }
 
-// E0. One request after the boot index, before the first view is drawn;
-// loading, and no prose, while held; once released, one prose request after
-// the engine's body.
+// E0. One request, after the first view is drawn; loading, and neither the
+// prose nor an optional download, while held; once released, one prose
+// request after the engine's body.
 async function engineE0(lazyHtml) {
   const tag = 'engine E0';
   const L = heldLazy(lazyHtml);
@@ -2051,6 +2094,324 @@ async function engineSearch(lazyHtml, refP) {
   }
 }
 
+// E7. A wait keeps what the reader asked for, and no more. Three boots:
+// (a) an Add sent to a genre stays sent there though the header's Add
+// instrument, clicked during the wait, clears the Add-to context; (b) an
+// Inspect whose reader has moved on does not pull them back once the data
+// lands, nor add a history entry; (c) "Preparing the instrument data…" is up
+// for the whole wait, not a toast's lifetime, and taken down when it ends.
+const E7_PARTS = [
+  [
+    'the Add-to destination',
+    async (L, tag, refP) => {
+      const held = await heldProbe(
+        L,
+        `${E7_STEP[1]}
+      await new Promise((r) => setTimeout(r, 100));
+      document.getElementById('btn-add').click();
+      await new Promise((r) => setTimeout(r, 200));
+      return { cards: app.cards.length, ready: Engine.ready(), view: UI.view };`
+      );
+      if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+      // The header's Add instrument opens the Instrument page, a loose add.
+      if (held.ready || held.cards || held.view !== 'instrument')
+        return fail(
+          `${tag}: the click on #btn-add did not land during the wait (ready ${held.ready}, ${held.cards} card(s), the reader on "${held.view}", not the Instrument page) — vacuous`
+        );
+      L.hold['api/engine.json'].release();
+      const done = await heldProbe(L, `await Engine.whenReady(); ${E3_FINISH()}`);
+      const ref = await refP;
+      if (done.__err || ref.__err) return fail(`${tag}: probe crashed: ${done.__err || ref.__err}`);
+      const want = ref.e3[E7_STEP[0]];
+      if (!want.trads.some((t) => t) || !/ to /.test(want.toast))
+        return fail(
+          `${tag}: the embedded build put the instrument in ${JSON.stringify(want.trads)} with ${JSON.stringify(want.toast)} — vacuous`
+        );
+      if (JSON.stringify(done.trads) !== JSON.stringify(want.trads))
+        fail(
+          `${tag}: an Add sent to a genre, with Add instrument clicked while the instrument data loaded, made a card in ${JSON.stringify(done.trads)}; the embedded build's same Add, ${JSON.stringify(want.trads)}`
+        );
+      if (done.toast !== want.toast)
+        fail(
+          `${tag}: the Add says ${JSON.stringify(done.toast)}; the embedded build's, ${JSON.stringify(want.toast)}`
+        );
+      if (JSON.stringify(done.trads) === JSON.stringify(want.trads) && done.toast === want.toast)
+        note(`${tag}: kept through a click on Add instrument (${JSON.stringify(done.toast)})`);
+    },
+  ],
+  [
+    'an Inspect left behind',
+    async (L, tag) => {
+      const held = await heldProbe(
+        L,
+        `uiInspectInstrument('voice');
+      const inspected = UI.view;
+      uiNavigate('lyrics', { push: true });
+      return { inspected, view: UI.view, length: history.length, ready: Engine.ready() };`
+      );
+      if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+      if (held.ready || held.inspected !== 'instrument' || held.view !== 'lyrics')
+        return fail(
+          `${tag}: the Inspect opened "${held.inspected}" and the reader is on "${held.view}" (ready ${held.ready}); want the Instrument page, then the Lyrics page — vacuous`
+        );
+      L.hold['api/engine.json'].release();
+      const after = await heldProbe(
+        L,
+        `await Engine.whenReady(); await new Promise((r) => setTimeout(r, 300)); ${FRAMES(2)}
+      const t = document.getElementById('toast');
+      return { view: UI.view, length: history.length, hash: location.hash,
+        preparing: t.classList.contains('show') && /Preparing the instrument data/.test(t.textContent) };`
+      );
+      if (after.__err) return fail(`${tag}: probe crashed: ${after.__err}`);
+      if (after.view !== 'lyrics' || after.hash !== '#lyrics' || after.length !== held.length)
+        fail(
+          `${tag}: once the instrument data landed the reader is on "${after.view}" (${after.hash}), history ${held.length} → ${after.length}; want "lyrics", no new entry`
+        );
+      if (after.preparing)
+        fail(`${tag}: "Preparing the instrument data…" is still up once the wait has ended`);
+      if (after.view === 'lyrics' && after.length === held.length && !after.preparing)
+        note(`${tag}: the reader stays on Lyrics, history unchanged, the waiting toast gone`);
+    },
+  ],
+  [
+    'the waiting toast',
+    async (L, tag) => {
+      const held = await heldProbe(
+        L,
+        `window.__act = uiAddGenre(STARTER_TRADITIONS[0]);
+      await new Promise((r) => setTimeout(r, 3500));
+      const t = document.getElementById('toast');
+      return { text: t.textContent, shown: t.classList.contains('show'), ready: Engine.ready(), cards: app.cards.length };`
+      );
+      if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+      if (held.ready || held.cards)
+        return fail(`${tag}: the engine was ready while held — vacuous`);
+      if (!held.shown || !/^Preparing the instrument data…$/.test(held.text))
+        fail(
+          `${tag}: 3.5 s into the wait the toast ${held.shown ? `reads ${JSON.stringify(held.text)}` : 'is down'}; want "Preparing the instrument data…" for as long as the wait lasts`
+        );
+      L.hold['api/engine.json'].release();
+      const after = await heldProbe(
+        L,
+        `await Engine.whenReady(); await window.__act; ${FRAMES(2)}
+      const t = document.getElementById('toast');
+      return { text: t.textContent, shown: t.classList.contains('show'), cards: app.cards.length };`
+      );
+      if (after.__err) return fail(`${tag}: probe crashed: ${after.__err}`);
+      if (after.shown && /Preparing the instrument data/.test(after.text))
+        fail(`${tag}: "Preparing the instrument data…" is still up once the Add has finished`);
+      else if (held.shown && !after.cards)
+        fail(`${tag}: the Add made no card once released — vacuous`);
+      else if (held.shown)
+        note(`${tag}: up 3.5 s into the wait, then ${JSON.stringify(after.text)}`);
+    },
+  ],
+];
+const heldProbe = (L, body) => runProbe(L.dom, body, E_WAIT, { prose: false });
+async function engineWaitKeeps(lazyHtml, [part, body], refP) {
+  const tag = `engine E7 (${part})`;
+  const L = heldLazy(lazyHtml);
+  try {
+    const booted = await heldProbe(L, SETTLE);
+    if (booted.__err) return fail(`${tag}: probe crashed: ${booted.__err}`);
+    await body(L, tag, refP);
+  } finally {
+    L.dom.window.close();
+  }
+}
+
+// E8. An Add asks for its genre's record beside the instrument data: the
+// request goes out during the wait, once. A record that fails — a network
+// failure, so its promise rejects at once, while the wait goes on — is
+// reported only once the instrument data is in (the wait's own status stands
+// until then), with the existing "Could not load tradition data" and Retry,
+// and no card.
+async function engineRecordBeside(lazyHtml) {
+  const tag = 'engine E8';
+  const L = heldLazy(lazyHtml);
+  try {
+    const booted = await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    if (booted.__err) return fail(`${tag}: probe crashed: ${booted.__err}`);
+    const rel = `api/traditions/${L.w.eval('STARTER_TRADITIONS[0]')}.json`;
+    L.drop.push(rel);
+    const before = fetchesOf(L.log, rel).length;
+    const held = await runProbe(
+      L.dom,
+      `window.__act = uiAddGenre(STARTER_TRADITIONS[0]);
+      const toasts = [];
+      for (let i = 0; i < 8; i++) { await new Promise((r) => setTimeout(r, 100)); toasts.push(document.getElementById('toast').textContent); }
+      return { toasts, ready: Engine.ready(), cards: app.cards.length };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+    if (held.ready) return fail(`${tag}: the engine was ready while held — vacuous`);
+    const during = fetchesOf(L.log, rel).length - before;
+    if (before)
+      fail(`${tag}: ${rel} was requested ${before} time(s) before the Add — the check is vacuous`);
+    if (during !== 1)
+      fail(
+        `${tag}: while the instrument data was held the Add requested ${rel} ${during} time(s); want once, beside it`
+      );
+    if (held.toasts.some((t) => !/^Preparing the instrument data…$/.test(t)))
+      fail(
+        `${tag}: while the instrument data was held the toast read ${JSON.stringify([...new Set(held.toasts)])}; want "Preparing the instrument data…" throughout, the record's failure reported only once the data is in`
+      );
+    L.hold['api/engine.json'].release();
+    const after = await runProbe(
+      L.dom,
+      `await Engine.whenReady(); const r = await window.__act; ${FRAMES(2)}
+      const t = document.getElementById('toast');
+      return { added: r.added, cards: app.cards.length, toast: t.textContent, error: t.classList.contains('toast-error'),
+        actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent) };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (after.__err) return fail(`${tag}: probe crashed: ${after.__err}`);
+    const total = fetchesOf(L.log, rel).length - before;
+    if (after.added || after.cards)
+      fail(`${tag}: an Add whose genre record failed made ${after.cards} card(s)`);
+    if (
+      !/Could not load tradition data/.test(after.toast) ||
+      !after.error ||
+      !after.actions.includes('Retry')
+    )
+      fail(
+        `${tag}: once the instrument data was in, the Add reads ${JSON.stringify(after.toast)} (actions ${JSON.stringify(after.actions)}); want the error "Could not load tradition data — check your connection" with Retry`
+      );
+    if (total !== 1) fail(`${tag}: ${rel} was requested ${total} time(s) in all; want once`);
+    if (
+      during === 1 &&
+      total === 1 &&
+      !after.cards &&
+      /Could not load tradition data/.test(after.toast)
+    )
+      note(`${tag}: the record asked for during the wait, once; its failure said after it`);
+  } finally {
+    L.dom.window.close();
+  }
+}
+
+// E9. The merge plan. api/engine.json carries the universal materials'
+// choices (MERGE_PLAN), written by scripts/_merge.js at build time under the
+// digest of its code; the page uses them only when its own CODEX_MERGE_SHA is
+// that digest. The merge is counted through a wrapper around
+// mergeFamilyPartsSteps, installed before the engine is released: with the
+// plan each kind skips its predicate pass, so the merge takes (1 + K) steps per
+// instrument for K kinds, and without it (1 + 2K). Two boots: the page as
+// built (every kind planned), and a copy whose CODEX_MERGE_SHA is another
+// digest (no kind planned, the long way). Both merged engines must fingerprint
+// as the embedded build's.
+const MERGE_SHA = /\bCODEX_MERGE_SHA\s*=\s*(["'])[0-9a-f]{40}\1/g;
+const MERGE_COUNT = `
+  const orig = mergeFamilyPartsSteps;
+  window.__merges = [];
+  mergeFamilyPartsSteps = function* (instruments, familyParts, opts) {
+    const rec = { plan: opts && opts.plan ? Object.keys(opts.plan).sort() : null, steps: 0, instruments: (instruments || []).length };
+    window.__merges.push(rec);
+    const steps = orig(instruments, familyParts, opts);
+    let r = steps.next();
+    while (!r.done) { rec.steps++; yield; r = steps.next(); }
+    return r.value;
+  };
+  return typeof mergeFamilyPartsSteps;`;
+function engineFilePlanKinds() {
+  const line = fs
+    .readFileSync(path.join(API_DIR, 'engine.json'), 'utf8')
+    .split('\n')
+    .find((l) => l.startsWith('["MERGE_PLAN",'));
+  return line ? Object.keys(JSON.parse(line.replace(/,$/, ''))[1].kinds || {}).sort() : [];
+}
+async function engineMergePlan(lazyHtml, planned, refP) {
+  const tag = `engine E9 (${planned ? 'the page as built' : 'another merge digest'})`;
+  const kinds = engineFilePlanKinds();
+  if (!kinds.length) return fail(`${tag}: api/engine.json carries no merge plan — vacuous`);
+  const sites = lazyHtml.match(MERGE_SHA) || [];
+  if (sites.length !== 1)
+    return fail(
+      `${tag}: the lazy page declares CODEX_MERGE_SHA ${sites.length} time(s); want once — the check cannot plant another digest`
+    );
+  const K = kinds.length;
+  const L = heldLazy(
+    planned ? lazyHtml : lazyHtml.replace(MERGE_SHA, `CODEX_MERGE_SHA="${'0'.repeat(40)}"`)
+  );
+  try {
+    const booted = await heldProbe(L, SETTLE);
+    if (booted.__err) return fail(`${tag}: probe crashed: ${booted.__err}`);
+    const wrapped = await heldProbe(L, MERGE_COUNT);
+    if (wrapped !== 'function' || L.w.eval('Engine.ready()'))
+      return fail(
+        `${tag}: could not count the merge before the engine landed (${JSON.stringify(wrapped)})`
+      );
+    L.hold['api/engine.json'].release();
+    const r = await heldProbe(
+      L,
+      `await Engine.ensure(); return { merges: window.__merges, print: (() => { ${ENGINE_FINGERPRINT} })() };`
+    );
+    const ref = await refP;
+    if (r.__err || ref.__err) return fail(`${tag}: probe crashed: ${r.__err || ref.__err}`);
+    const m = r.merges[0];
+    if (r.merges.length !== 1 || !m.instruments)
+      return fail(`${tag}: the engine merged ${r.merges.length} time(s); want once`);
+    // The kinds that ran their predicate pass.
+    const passes = m.steps / m.instruments - 1 - K;
+    const how = `${m.plan ? `the plan for ${JSON.stringify(m.plan)}` : 'no plan'}, the predicate pass run for ${passes} of ${K} kinds (${m.steps} steps over ${m.instruments} instruments)`;
+    if (planned && (JSON.stringify(m.plan) !== JSON.stringify(kinds) || passes !== 0))
+      fail(
+        `${tag}: the merge was given ${how}; want the file's plan for every kind (${JSON.stringify(kinds)}) and no pass`
+      );
+    if (!planned && (m.plan !== null || passes !== K))
+      fail(
+        `${tag}: the merge was given ${how}; a plan written by other merge code must not be used`
+      );
+    if (r.print.hash !== ref.engine.hash)
+      fail(
+        `${tag}: the merged engine differs from the embedded build's (${r.print.count} instruments, ${r.print.distinct} variants; differs in ${Object.keys(
+          ref.engine.hashes
+        )
+          .filter((k) => ref.engine.hashes[k] !== r.print.hashes[k])
+          .join(', ')})`
+      );
+    else note(`${tag}: ${how}; the embedded build's engine`);
+  } finally {
+    L.dom.window.close();
+  }
+}
+
+// E10. A copy of api/engine.json whose line endings were converted to CRLF (a
+// checkout or a host that rewrites text) loads, to the embedded build's engine.
+async function engineCrlf(lazyHtml, refP) {
+  const tag = 'engine E10';
+  const L = heldLazy(lazyHtml, {
+    transform: { 'api/engine.json': (t) => t.replace(/\r?\n/g, '\r\n') },
+  });
+  try {
+    const booted = await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    if (booted.__err) return fail(`${tag}: probe crashed: ${booted.__err}`);
+    L.hold['api/engine.json'].release();
+    const r = await runProbe(
+      L.dom,
+      `const e = await Engine.ensure().then(() => null, (e) => e.message);
+      return { error: e, state: Engine.state(), print: e ? null : (() => { ${ENGINE_FINGERPRINT} })() };`,
+      E_WAIT,
+      { prose: false }
+    );
+    const ref = await refP;
+    if (r.__err || ref.__err) return fail(`${tag}: probe crashed: ${r.__err || ref.__err}`);
+    if (r.state !== 'ready')
+      fail(
+        `${tag}: a CRLF copy of api/engine.json left the engine "${r.state}" (${r.error}); want "ready"`
+      );
+    else if (r.print.hash !== ref.engine.hash)
+      fail(
+        `${tag}: a CRLF copy of api/engine.json merged to an engine unlike the embedded build's`
+      );
+    else note(`${tag}: a CRLF copy loads, to the embedded build's engine`);
+  } finally {
+    L.dom.window.close();
+  }
+}
+
 // E2. A sweep: every distinct control on every route and in a genre's
 // detail, the header's add, saved, undo and redo, and the tree's expand,
 // find-similar, back and import, with the engine held throughout. The file import (a file picker) and the
@@ -2300,6 +2661,10 @@ async function engineSection(embedHtml, lazyHtml) {
     E3: E3_STEPS.map((s) => guard(`E3 (${s[0]})`, () => engineAction(lazyHtml, s, refP))),
     E4: [guard('E4', () => engineSimilar(lazyHtml, refP))],
     E5: [guard('E5', () => engineSearch(lazyHtml, refP))],
+    E7: E7_PARTS.map((p) => guard(`E7 (${p[0]})`, () => engineWaitKeeps(lazyHtml, p, refP))),
+    E8: [guard('E8', () => engineRecordBeside(lazyHtml))],
+    E9: [true, false].map((planned) => guard('E9', () => engineMergePlan(lazyHtml, planned, refP))),
+    E10: [guard('E10', () => engineCrlf(lazyHtml, refP))],
   };
   await Promise.all([
     refP,
@@ -2444,12 +2809,36 @@ async function failure(lazyHtml) {
   }
   dyingDom.window.close();
 
-  // F4a–F4c, each in its own boot, side by side.
-  await Promise.all([
-    engineUnreachable(lazyHtml),
-    engineUnreachableRestore(lazyHtml),
-    engineStale(lazyHtml),
-  ]);
+  // F4a–F4f, each in its own boot, three at a time.
+  await pool(
+    [
+      () => engineUnreachable(lazyHtml),
+      () =>
+        engineBootError(lazyHtml, {
+          tag: 'engine unreachable with a saved session (F4b)',
+          cause: 'network',
+          deny: ['api/engine.json'],
+        }),
+      () => engineStale(lazyHtml),
+      () =>
+        engineBootError(lazyHtml, {
+          tag: 'a stale instrument data file with a saved session (F4c)',
+          cause: 'stale',
+          transform: { 'api/engine.json': staleFile },
+        }),
+      () => engineRefused(lazyHtml, 'F4d'),
+      () => engineRefused(lazyHtml, 'F4e'),
+      () =>
+        engineBootError(lazyHtml, {
+          tag: 'a saved session written after the boot looked (F4f)',
+          cause: 'early',
+          late: true,
+        }),
+    ].map(
+      (run) => () => run().catch((e) => fail(`failure F4: harness error: ${(e && e.message) || e}`))
+    ),
+    3
+  );
 }
 
 // F4. The instrument data unreachable, or from another deploy.
@@ -2548,33 +2937,98 @@ async function engineUnreachable(lazyHtml) {
       fail(
         `${tag}: the genre prose did not load within 10 s — its prefetch follows the instrument data's bytes, and a failed request must count as delivered`
       );
+    // Every other action that waits says the same, with Retry, and asks once:
+    // adding an instrument, and an import.
+    let n = n3;
+    for (const [what, step] of [
+      ['adding an instrument', "await uiAddInstrument('voice', { destination: '' });"],
+      ['an import', `${SESSION_FILE} await uiImport(file);`],
+    ]) {
+      const r = await runProbe(
+        dom,
+        `${step}
+        const t = document.getElementById('toast');
+        return { cards: app.cards.length, toast: t.textContent, error: t.classList.contains('toast-error'),
+          actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent) };`,
+        E_WAIT,
+        { prose: false }
+      );
+      if (r.__err) fail(`${tag}: ${what} probe crashed: ${r.__err}`);
+      else if (
+        r.cards ||
+        !/^Could not load the instrument data — check your connection/.test(r.toast) ||
+        !r.error ||
+        !r.actions.includes('Retry')
+      )
+        fail(
+          `${tag}: ${what} with the instrument data unreachable made ${r.cards} card(s) and reads ${JSON.stringify(r.toast)} (actions ${JSON.stringify(r.actions)}); want no card and the error "Could not load the instrument data — check your connection" with Retry`
+        );
+      if (asks() !== n + 1)
+        fail(`${tag}: ${what} made ${asks() - n} request(s) for api/engine.json; want exactly 1`);
+      n = asks();
+    }
     note(
-      `${tag}: first view kept; ${n1} → ${n2} (Add) → ${n3} (Retry) requests, none on a timer; prose loaded`
+      `${tag}: first view kept; ${n1} → ${n2} (Add) → ${n3} (Retry) → ${n} (adding an instrument, an import) requests, none on a timer, each failure with Retry; prose loaded`
     );
   } finally {
     dom.window.close();
   }
 }
 
-// F4b: a saved session. The boot error names the file; the session is left
-// as it was and nothing is written.
-async function engineUnreachableRestore(lazyHtml) {
-  const tag = 'engine unreachable with a saved session (F4b)';
+// F4b, F4c (with a saved session) and F4f: a saved session the boot cannot
+// draw. The boot error says which of three causes stopped it, in words a
+// reader acts on (_renderBootError in src/app.js), pinned here: the network
+// (check the connection), another deploy's file (reload), or a restore that
+// reached the instrument data before it loaded (a boot bug; reload). Each
+// leaves the session as it was and writes nothing.
+const BOOT_ERROR = {
+  heading: 'Couldn’t load your saved recipe',
+  network:
+    'The instrument data (api/engine.json) failed to load, so your saved recipe can’t be drawn yet. It is still saved in this browser. Check your connection and reload the page.',
+  stale:
+    'This page is out of date for the instrument data (api/engine.json). Your saved recipe is still saved in this browser. Reload the page.',
+  early:
+    'Your saved recipe was read before the instrument data (api/engine.json) had loaded, so it was not drawn. It is still saved in this browser. Reload the page.',
+};
+const STALE_SHA = /"tables_sha1":"[0-9a-f]{40}"/;
+const staleFile = (t) => t.replace(STALE_SHA, `"tables_sha1":"${'0'.repeat(40)}"`);
+// `late`: no session at first; one is written in the instant after the boot's
+// last look for it (the then() after the boot's own on CATALOG_READY, so it
+// runs between that look and _initApp) — another tab's autosave landing just
+// then — with the instrument data held, so the restore reaches it first.
+async function engineBootError(lazyHtml, { tag, cause, deny = [], transform, late = false }) {
+  const hold = late ? { 'api/browse_boot.json': deferred(), 'api/engine.json': deferred() } : {};
   const dom = bootDom(
     lazyHtml,
-    makeFetchShim({ deny: ['api/engine.json', 'api/tradition_images.json'] }),
-    { url: SITE, storage: { 'codex-workbench-v1': WS } }
+    makeFetchShim({ deny: ['api/tradition_images.json', ...deny], transform, hold }),
+    { url: SITE, storage: late ? undefined : { 'codex-workbench-v1': WS } }
   );
   const w = dom.window;
   try {
-    await waitFor(() => w.document.getElementById('boot-error'), 10000, 'boot-error').catch(
+    if (late) {
+      const hooked = await runProbe(
+        dom,
+        `CATALOG_READY.then(() => localStorage.setItem('codex-workbench-v1', ${JSON.stringify(WS)}));
+        return ENGINE_AT_BOOT === null && localStorage.getItem('codex-workbench-v1') === null;`,
+        E_WAIT,
+        { boot: false, prose: false }
+      );
+      if (hooked !== true)
+        return fail(
+          `${tag}: the boot asked for the engine before the session was written (${JSON.stringify(hooked)}) — vacuous`
+        );
+      hold['api/browse_boot.json'].release();
+    }
+    await waitFor(() => w.document.getElementById('boot-error'), 15000, 'boot-error').catch(
       () => {}
     );
     await sleep(300);
     const r = await runProbe(
       dom,
       `const e = document.getElementById('boot-error');
-      return { error: !!e, engine: e ? e.dataset.enginePending || null : null, text: e ? e.textContent : '',
+      return { error: !!e, engine: e ? e.dataset.enginePending || null : null,
+        heading: e?.querySelector('h2')?.textContent ?? null, text: e?.querySelector('p')?.textContent ?? null,
+        reload: !!e?.querySelector('#boot-error-reload'),
         ready: typeof UI !== 'undefined' && UI.ready === true,
         stored: localStorage.getItem('codex-workbench-v1'), recovery: sessionStorage.getItem('codex-workbench-recovery') };`,
       E_WAIT,
@@ -2582,9 +3036,14 @@ async function engineUnreachableRestore(lazyHtml) {
     );
     if (r.__err) return fail(`${tag}: probe crashed: ${r.__err}`);
     if (!r.error) fail(`${tag}: no #boot-error — a saved recipe that cannot be drawn must say so`);
-    else if (r.engine !== 'failed' || !/api\/engine\.json/.test(r.text))
+    else if (
+      r.engine !== 'failed' ||
+      r.heading !== BOOT_ERROR.heading ||
+      r.text !== BOOT_ERROR[cause] ||
+      !r.reload
+    )
       fail(
-        `${tag}: #boot-error (data-engine-pending=${JSON.stringify(r.engine)}) reads ${JSON.stringify(r.text.slice(0, 200))}; want data-engine-pending="failed" and api/engine.json named`
+        `${tag}: #boot-error (data-engine-pending=${JSON.stringify(r.engine)}, ${r.reload ? 'with' : 'no'} Reload) reads ${JSON.stringify(r.heading)} / ${JSON.stringify(r.text)}; want ${JSON.stringify(BOOT_ERROR.heading)} / ${JSON.stringify(BOOT_ERROR[cause])}, data-engine-pending="failed" and Reload`
       );
     if (r.ready)
       fail(`${tag}: UI.ready is true — the saved recipe was drawn without its instruments`);
@@ -2592,24 +3051,28 @@ async function engineUnreachableRestore(lazyHtml) {
       fail(
         `${tag}: the saved session was written (codex-workbench-v1 ${r.stored === WS ? 'unchanged' : 'changed'}, recovery copy ${JSON.stringify(r.recovery && r.recovery.slice(0, 60))})`
       );
-    if (r.error && r.engine === 'failed' && !r.ready && r.stored === WS && r.recovery === null)
-      note(`${tag}: boot error names api/engine.json; the session untouched`);
+    if (r.text === BOOT_ERROR[cause] && !r.ready && r.stored === WS && r.recovery === null)
+      note(
+        `${tag}: the boot error says ${JSON.stringify(r.text.slice(0, 60))}…; the session untouched`
+      );
   } finally {
     dom.window.close();
   }
 }
 
-// F4c: a file from another deploy — its digest is not the page's.
+// F4c: a file from another deploy — its digest is not the page's. Refused as
+// stale; everything that would offer Retry offers Reload instead (a retry
+// fetches the same file): an Add's toast, the Instrument page's list, the
+// similar view's instruments that fit.
 async function engineStale(lazyHtml) {
   const tag = 'a stale instrument data file (F4c)';
-  const SHA = /"tables_sha1":"[0-9a-f]{40}"/;
-  if (!SHA.test(fs.readFileSync(path.join(API_DIR, 'engine.json'), 'utf8')))
+  if (!STALE_SHA.test(fs.readFileSync(path.join(API_DIR, 'engine.json'), 'utf8')))
     return fail(`${tag}: api/engine.json has no tables_sha1 to make stale — vacuous`);
   const dom = bootDom(
     lazyHtml,
     makeFetchShim({
       deny: ['api/tradition_images.json'],
-      transform: { 'api/engine.json': (t) => t.replace(SHA, `"tables_sha1":"${'0'.repeat(40)}"`) },
+      transform: { 'api/engine.json': staleFile },
     }),
     { url: SITE }
   );
@@ -2636,13 +3099,205 @@ async function engineStale(lazyHtml) {
     );
     if (add.__err) return fail(`${tag}: Add probe crashed: ${add.__err}`);
     if (add.cards) fail(`${tag}: an Add made ${add.cards} card(s) from a stale file`);
-    if (!/out of date/.test(add.toast) || !add.actions.includes('Reload'))
+    if (
+      !/^This page is out of date\. Reload to load the matching instrument data\./.test(
+        add.toast
+      ) ||
+      JSON.stringify(add.actions) !== '["Reload"]'
+    )
       fail(
-        `${tag}: an Add reads ${JSON.stringify(add.toast)} (actions ${JSON.stringify(add.actions)}); want "This page is out of date. Reload to load the matching instrument data." with Reload`
+        `${tag}: an Add reads ${JSON.stringify(add.toast)} (actions ${JSON.stringify(add.actions)}); want "This page is out of date. Reload to load the matching instrument data." with Reload alone`
       );
     if (s.tables !== 'undefined' || add.tables !== 'undefined')
       fail(`${tag}: INSTRUMENTS was filled from a stale file`);
-    else if (s.stale && !add.cards) note(`${tag}: refused as stale; an Add asks for a reload`);
+    // The Instrument page and the similar view say the page is out of date,
+    // with Reload, never Retry.
+    const views = await runProbe(
+      dom,
+      `uiNavigate('instrument');
+      const b = document.getElementById('instrument-body');
+      const page = { text: b.textContent.trim(), reload: !!b.querySelector('[data-engine-pending="failed"][role="status"] [data-ui="engine-reload"]'),
+        retry: !!b.querySelector('[data-ui="engine-retry"]') };
+      uiNavigate('genre');
+      app.similarFor = STARTER_TRADITIONS[0]; app.tradSearch = ''; renderTradPicker();
+      const f = document.querySelector('#picker-trad .fit-instruments');
+      const similar = { text: f ? f.textContent.trim() : null, reload: !!f?.matches('[data-engine-pending="failed"][role="status"]') && !!f.querySelector('[data-engine-reload]'),
+        retry: !!f?.querySelector('[data-engine-retry]') };
+      app.similarFor = null; renderTradPicker();
+      return { page, similar };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (views.__err) return fail(`${tag}: probe crashed: ${views.__err}`);
+    for (const [where, v] of [
+      ['the Instrument page', views.page],
+      ['the similar view', views.similar],
+    ])
+      if (
+        !v.text ||
+        !/^This page is out of date for the instrument data\./.test(v.text) ||
+        !v.reload ||
+        v.retry
+      )
+        fail(
+          `${tag}: ${where} reads ${JSON.stringify(v.text)} (${v.reload ? 'with' : 'no'} Reload, ${v.retry ? 'with' : 'no'} Retry); want "This page is out of date for the instrument data." with Reload, never Retry`
+        );
+    if (s.stale && !add.cards && views.page.reload && views.similar.reload)
+      note(
+        `${tag}: refused as stale; an Add, the Instrument page and the similar view offer Reload`
+      );
+  } finally {
+    dom.window.close();
+  }
+}
+
+// F4d and F4e: files the page must refuse whole, served to one page in turn
+// (the shim serves the variant in force at each request; the first is the
+// paint's own request). Each must leave the engine failed — stale or not, as
+// listed — with every slot empty. F4d's are cut short (a load failure, so a
+// retry can succeed: not stale): the tail from the last table the header
+// names, on a line boundary and with no newline after, which a parser reading
+// up to the closing line accepted with that table missing; the closing line
+// alone; a table's line alone. On the first, an Add says the connection
+// failed, with Retry. F4e's are another deploy's index (stale): one
+// instrument fewer than INSTRUMENT_INDEX, an index field (written as 0, filled
+// from INSTRUMENT_INDEX) carrying a value, and the header's index_fields.
+const engineLines = (t) => t.split('\n');
+const lineOf = (lines, name) => lines.findIndex((l) => l.startsWith(`[${JSON.stringify(name)},`));
+const ENGINE_REFUSED = {
+  F4d: [
+    [
+      'cut short before its last table',
+      (t) => {
+        const lines = engineLines(t);
+        const head = JSON.parse(lines[1].replace(/,$/, ''));
+        return lines.slice(0, lineOf(lines, head.tables[head.tables.length - 1])).join('\n');
+      },
+      false,
+      true,
+    ],
+    [
+      'its closing line lost',
+      (t) => {
+        const lines = engineLines(t);
+        return lines.slice(0, lines.lastIndexOf(']')).join('\n');
+      },
+      false,
+    ],
+    [
+      'a table line lost',
+      (t) => {
+        const lines = engineLines(t);
+        lines.splice(lineOf(lines, 'PREFACE_LEXICON'), 1);
+        return lines.join('\n');
+      },
+      false,
+    ],
+  ],
+  F4e: [
+    [
+      'one instrument fewer',
+      (t) => {
+        const lines = engineLines(t);
+        const k = lines.reduce((at, l, i) => (l.startsWith('["INSTRUMENTS",') ? i : at), -1);
+        const [name, value] = JSON.parse(lines[k].replace(/,$/, ''));
+        value.pop();
+        lines[k] = JSON.stringify([name, value]) + ',';
+        return lines.join('\n');
+      },
+      true,
+    ],
+    [
+      'an index field filled in',
+      (t) => {
+        const lines = engineLines(t);
+        const k = lineOf(lines, 'INSTRUMENTS');
+        lines[k] = lines[k].replace('"name":0', '"name":"__FAULT__"');
+        return lines.join('\n');
+      },
+      true,
+    ],
+    [
+      'other index fields',
+      (t) =>
+        t.replace(
+          '"index_fields":["id","name","family","short"]',
+          '"index_fields":["id","name","family"]'
+        ),
+      true,
+    ],
+  ],
+};
+async function engineRefused(lazyHtml, id) {
+  const variants = ENGINE_REFUSED[id];
+  const raw = fs.readFileSync(path.join(API_DIR, 'engine.json'), 'utf8');
+  let current = variants[0];
+  const dom = bootDom(
+    lazyHtml,
+    makeFetchShim({
+      deny: ['api/tradition_images.json'],
+      transform: { 'api/engine.json': (t) => current[1](t) },
+    }),
+    { url: SITE }
+  );
+  const SLOTS = `({ ${ENGINE_TABLES.map((n) => `${n}: typeof ${n}`).join(', ')} })`;
+  try {
+    const booted = await runProbe(dom, SETTLE, E_WAIT, { prose: false });
+    if (booted.__err) return fail(`${id}: probe crashed: ${booted.__err}`);
+    for (const v of variants) {
+      const [label, plant, stale, add] = v;
+      const tag = `a refused instrument data file (${id}, ${label})`;
+      current = v;
+      if (plant(raw) === raw) {
+        fail(`${tag}: the variant is the file itself — vacuous`);
+        continue;
+      }
+      const r = await runProbe(
+        dom,
+        `const e = await Engine.ensure().then(() => null, (e) => e);
+        return { failed: Engine.failed(), ready: Engine.ready(), stale: !!(e && e.stale), message: e ? e.message : null, slots: ${SLOTS} };`,
+        E_WAIT,
+        { prose: false }
+      );
+      if (r.__err) {
+        fail(`${tag}: probe crashed: ${r.__err}`);
+        continue;
+      }
+      const filled = Object.keys(r.slots).filter((n) => r.slots[n] !== 'undefined');
+      if (!r.failed || r.ready || r.stale !== stale || filled.length)
+        fail(
+          `${tag}: the engine is ${r.ready ? 'ready' : r.failed ? 'failed' : 'neither ready nor failed'} (${JSON.stringify(r.message)}, stale ${r.stale}), slots filled ${JSON.stringify(filled)}; want it refused${stale ? ' as stale' : ', not as stale (a load failure, retried)'}, every slot empty`
+        );
+      if (add) {
+        const a = await runProbe(
+          dom,
+          `const r = await uiAddGenre(STARTER_TRADITIONS[0]);
+          const t = document.getElementById('toast');
+          return { cards: app.cards.length, toast: t.textContent, error: t.classList.contains('toast-error'),
+            actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent) };`,
+          E_WAIT,
+          { prose: false }
+        );
+        if (a.__err) fail(`${tag}: Add probe crashed: ${a.__err}`);
+        else if (
+          a.cards ||
+          !/^Could not load the instrument data — check your connection/.test(a.toast) ||
+          !a.error ||
+          !a.actions.includes('Retry')
+        )
+          fail(
+            `${tag}: an Add made ${a.cards} card(s) and reads ${JSON.stringify(a.toast)} (actions ${JSON.stringify(a.actions)}); want no card and the error "Could not load the instrument data — check your connection" with Retry`
+          );
+      }
+      if (r.failed && r.stale === stale && !filled.length)
+        note(`${tag}: refused${stale ? ' as stale' : ''} (${r.message}); every slot empty`);
+      // Accepted, the engine stays ready: the rest cannot be tried here.
+      if (r.ready) {
+        const rest = variants.slice(variants.indexOf(v) + 1).map(([l]) => l);
+        if (rest.length) fail(`${tag}: accepted, so ${rest.join(', ')} went untried`);
+        break;
+      }
+    }
   } finally {
     dom.window.close();
   }
@@ -2685,6 +3340,10 @@ async function engineStale(lazyHtml) {
       E4: 'E4 similar view',
       E5: 'E5 search',
       E6: `E6 ${e.reads} direct reads, each in the function listed`,
+      E7: 'E7 a wait keeps the destination, leaves a reader who moved on, and says so throughout',
+      E8: "E8 the genre's record beside the engine",
+      E9: 'E9 the merge plan, used only by its own merge code',
+      E10: 'E10 a CRLF copy',
     };
     const checks = ENGINE_CHECKS.filter((id) => ONLY_CHECKS.includes(id));
     ran.push(
@@ -2694,7 +3353,7 @@ async function engineStale(lazyHtml) {
   if (ONLY.includes('failure')) {
     await failure(lazyHtml);
     ran.push(
-      'honest failure states (incl. the instrument data unreachable, with a session, stale)'
+      'honest failure states (F4a–F4f: the instrument data unreachable, each failed wait with Retry; the saved-session boot error in its own words for each of three causes; a stale file offering Reload; a file cut short or with another index refused whole)'
     );
   }
 
