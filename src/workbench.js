@@ -1218,7 +1218,7 @@ function uiCloseLightbox() {
 // Pages build rows with uiRowsHTML (and a jump bar with uiRowsJumpHTML), and
 // bracket a repaint with uiRowsKeep / uiRowsRestore so each row keeps its
 // place, its length and the focused card control.
-/* exported uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTile, listenHref */
+/* exported uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTile, uiTilesPhotos, listenHref */
 const UI_ROWS_CHUNK = 30;
 const UI_ROWS = new Map(); // row key → { items, tile, sig }
 const UI_TILE_RATIO = new Map(); // photo src → its width / height, clamped
@@ -1261,15 +1261,39 @@ function uiTile(o) {
   return (
     `<div class="cm-tile" role="listitem" data-tile="${o.kind}" data-id="${id}" style="--ar:${ratio.toFixed(3)}"><div class="cm-tile-shot${src ? '' : ' is-glyph'}">` +
     (src
-      ? `<img class="cm-tile-img" src="${esc(src)}" alt="" loading="lazy" decoding="async">`
+      ? uiTilePhotoHTML(src, o.photo, o.name)
       : `<span class="cm-tile-glyph" aria-hidden="true">${o.glyph(o.id)}</span>`) +
-    (src && o.photo.credit
-      ? `<button type="button" class="cm-tile-credit" data-ui="tile-credit" data-credit="${esc(o.photo.credit)}" data-href="${esc(o.photo.href || '')}" aria-label="Photo credit for ${name}" data-tooltip="${esc(o.photo.credit)}">${icon('info', 14)}</button>`
-      : '') +
     `<a class="cm-tile-play" href="${listenHref(o.name, o.kind === 'instrument')}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${name} on YouTube">${icon('play', 16)}</a>` +
     uiTileAdd(o) +
     `</div><div class="cm-tile-cap"><button type="button" class="cm-tile-name" data-ui="${o.open}" data-id="${id}" title="${name}">${name}</button><span class="cm-tile-sub" title="${esc(o.sub)}">${esc(o.sub)}</span><button type="button" class="cm-tile-more" data-menu-toggle aria-controls="cm-tile-menu" aria-haspopup="menu" aria-expanded="false" aria-label="More for ${name}">${icon('ellipsis-vertical', 18)}</button></div></div>`
   );
+}
+// A card's photo and, when it has one, the button that shows its credit.
+function uiTilePhotoHTML(src, photo, name) {
+  return (
+    `<img class="cm-tile-img" src="${esc(src)}" alt="" loading="lazy" decoding="async">` +
+    (photo.credit
+      ? `<button type="button" class="cm-tile-credit" data-ui="tile-credit" data-credit="${esc(photo.credit)}" data-href="${esc(photo.href || '')}" aria-label="Photo credit for ${esc(name)}" data-tooltip="${esc(photo.credit)}">${icon('info', 14)}</button>`
+      : '')
+  );
+}
+// Photos that arrive after the cards are drawn go into those cards in place:
+// the glyph gives way to the photo and nothing else in the card is rebuilt.
+// Redrawing the list instead would replace the button under a pointer that is
+// mid-press, and on a slow phone the photos land seconds after the list.
+// photo(id) → { src, credit, href } | null, as uiTile takes it.
+function uiTilesPhotos(root, kind, photo) {
+  for (const shot of root?.querySelectorAll(
+    `.cm-tile[data-tile="${kind}"] > .cm-tile-shot.is-glyph`
+  ) || []) {
+    const tile = shot.parentElement,
+      p = photo(tile.dataset.id),
+      glyph = shot.querySelector('.cm-tile-glyph');
+    if (!p?.src || UI_TILE_FAILED.has(p.src) || !glyph) continue;
+    shot.classList.remove('is-glyph');
+    tile.style.setProperty('--ar', (UI_TILE_RATIO.get(p.src) || 4 / 3).toFixed(3));
+    glyph.outerHTML = uiTilePhotoHTML(p.src, p, tile.querySelector('.cm-tile-name').textContent);
+  }
 }
 // groups: [{ key, label, items }] (items carry .id); tile(item) → uiTile(...).
 // `prefix` names the list, so a row's key is unique on the page. A row with no

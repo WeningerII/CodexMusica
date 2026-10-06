@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile */
+/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -161,10 +161,7 @@ function gpLoadOptional() {
         const images = gpIndexImages(m);
         if (!images) return;
         G.images = images;
-        // The list and the open detail are the only readers of the photos;
-        // the Browse column is left alone (rebuilding it drops a slider
-        // mid-drag).
-        if (UI.view === 'genre') gpRenderMain();
+        gpApplyPhotos();
       })
       .catch(() => {});
   }
@@ -331,15 +328,19 @@ function gpTargetReason(r) {
 function gpLayout() {
   return G.view?.get() === 'list' ? 'list' : 'rows';
 }
+// A Rows card's photo, as uiTile takes it.
+function gpTilePhoto(id) {
+  const img = gpImage(id);
+  return img && { src: img.src, credit: img.credit, href: img.href };
+}
 // A card in Rows: the photo (or glyphs), the name and its branch (or `sub`).
 function gpTile(t, sub) {
-  const img = gpImage(t.id);
   return uiTile({
     kind: 'genre',
     id: t.id,
     name: t.name,
     sub: sub ?? (gpPath(t.id).slice(-1)[0]?.name || ''),
-    photo: img && { src: img.src, credit: img.credit, href: img.href },
+    photo: gpTilePhoto(t.id),
     glyph: (id) => traditionGlyphsHTML(id, 56),
     open: 'genre-select',
     add: 'genre-add',
@@ -478,6 +479,26 @@ function gpBackground(id, t, ext) {
   const cross = (ext.crossRefs || []).filter((x) => getTreeNode(x));
   const exemplars = (ext.exemplars || []).filter((x) => typeof x === 'string' && x.trim());
   return `<section><h3>About</h3><p class="gp-prose">${esc(ext.description || 'The catalog has no description for this genre.')}</p></section>${t.lineage ? `<section><h3>Lineage</h3><p class="gp-prose">${esc(t.lineage)}</p></section>` : ''}<section><h3>Classification</h3><p class="gp-note">Where the catalog files this genre by musical practice. Classification is not a claim of historical descent.</p>${path.length ? `<p class="gp-crumbs">${path.map((node) => `<button type="button" class="gp-link" data-ui="genre-branch" data-id="${esc(node.id)}">${esc(node.name)}</button>`).join(`<span class="gp-sep" aria-hidden="true">${icon('chevron-right', 12)}</span>`)}</p>` : ''}${cross.length ? `<p class="gp-also"><span>Also listed under:</span> ${cross.map((x) => `<button type="button" class="gp-link" data-ui="genre-branch" data-id="${esc(x)}">${esc(getTreeNode(x).name)}</button>`).join('<span aria-hidden="true"> · </span>')}</p>` : ''}</section><section><h3>Recordings &amp; references</h3>${exemplars.length ? `<p class="gp-note">Artists the catalog names as exemplars. Listen opens a YouTube search; the catalog does not cite individual recordings.</p><ul class="gp-exemplars">${exemplars.map((x) => `<li><span>${esc(x)}</span>${listenLink(x)}</li>`).join('')}</ul>` : '<p class="gp-note">The catalog names no exemplar artists for this genre. Listen opens a YouTube search for the genre itself.</p>'}${ext.status ? `<p class="gp-note">Catalog status: ${esc(ext.status)}.</p>` : ''}</section>`;
+}
+// The photos arrived after the page was drawn: they go into the cards, rows and
+// open detail already on it, and nothing else is rebuilt (uiTilesPhotos says
+// why). Whatever is drawn later reads gpImage itself. The Browse column shows
+// no photos.
+function gpApplyPhotos() {
+  uiTilesPhotos($ui('genre-list'), 'genre', gpTilePhoto);
+  for (const glyph of document.querySelectorAll(
+    '#genre-list .gp-row > .gp-media-glyph, #genre-detail .gp-detail-head > .gp-media-glyph'
+  )) {
+    const host = glyph.parentElement,
+      detail = host.classList.contains('gp-detail-head'),
+      id = (detail ? host.parentElement : host).dataset.gpId,
+      m = gpMedia(id, detail ? 44 : 30);
+    if (!m.credit) continue;
+    glyph.outerHTML = m.html;
+    host
+      .querySelector(detail ? '.gp-detail-id' : '.gp-row-text')
+      ?.insertAdjacentHTML('beforeend', detail ? gpCredit(m) : gpCreditText(m));
+  }
 }
 // Refresh only the detail's place line once the map's place names arrive.
 function gpRefreshDetail() {

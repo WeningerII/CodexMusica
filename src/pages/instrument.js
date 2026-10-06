@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiMenuOpen, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile */
+/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -97,11 +97,16 @@ function ipImageEntry(id) {
 // beside the row's own button, never inside it.
 function ipImage(id, size, name) {
   const e = ipImageEntry(id);
-  if (!e) return `<span class="ip-glyph">${image(id, size)}</span>`;
+  if (!e) return ipGlyph(id, size);
   return uiPhoto(
     `<img class="ip-photo" src="${esc(e.src)}" alt="" loading="lazy" width="${size}" height="${size}" data-ip-fallback="${esc(id)}" data-ip-size="${size}">`,
     { name, full: e.full, credit: e.text, href: e.source }
   );
+}
+// The catalog glyph in a photo's place. It carries its id and size so photos
+// that arrive later can take its place (ipApplyPhotos).
+function ipGlyph(id, size) {
+  return `<span class="ip-glyph" data-ip-glyph="${esc(id)}" data-ip-size="${size}">${image(id, size)}</span>`;
 }
 // The credit and licence that travel with a photo. `link` makes the credit a
 // link to the source page; inside a row (a <button>) it stays plain text.
@@ -129,27 +134,29 @@ let ipManifestFetch = null;
 let ipManifestRetry = null;
 let ipManifestDelay = 0;
 let ipManifestLoaded = false;
-// The table arrived while the page may be open: draw the photos without taking
-// the user's place. Focus goes back to the same control afterwards (by id,
-// else by data-ui/data-id; the inspector's fields come back through its own
-// data-ip-key path). While a <select> on the page has focus (its open list
-// would close under the redraw) or a tile menu is open, the redraw waits.
-function ipRedrawForPhotos() {
-  if (UI.view !== 'instrument') return; // the next render draws them
-  const a = document.activeElement;
-  const inside = !!a?.closest?.('#ip-root');
-  if ((inside && a.tagName === 'SELECT') || uiMenuOpen) {
-    setTimeout(ipRedrawForPhotos, 500);
-    return;
-  }
-  const key = inside ? { id: a.id, ui: a.dataset.ui, did: a.dataset.id } : null;
-  renderInstrumentDiscovery();
-  ipRenderInspector();
-  if (key && !a.isConnected) {
-    const back =
-      (key.id && document.getElementById(key.id)) ||
-      (key.ui && uiFind(`#ip-root [data-ui="${key.ui}"]`, 'id', key.did));
-    if (back) uiFocus(back);
+// The table arrived while the page may be open: the photos go into the cards,
+// rows, inspector and similar list already drawn, and nothing else is rebuilt
+// (uiTilesPhotos says why), so focus, an open <select> and a tile menu stay as
+// they were. Whatever is drawn later reads the table itself.
+function ipApplyPhotos() {
+  const root = $ui('ip-root');
+  uiTilesPhotos(root, 'instrument', ipTilePhoto);
+  for (const glyph of root?.querySelectorAll('.ip-glyph[data-ip-glyph]') || []) {
+    const id = glyph.dataset.ipGlyph,
+      host = glyph.parentElement;
+    if (!ipImageEntry(id)) continue;
+    glyph.outerHTML = ipImage(id, +glyph.dataset.ipSize, Inst(id)?.name || id);
+    if (host.classList.contains('ip-media'))
+      host
+        .closest('.ip-hero')
+        ?.insertAdjacentHTML(
+          'afterend',
+          `<p class="ip-media-credit">${ipCredit(id, { link: true })}</p>`
+        );
+    else
+      host
+        .querySelector('.ip-row-text, .ip-sim-main > span')
+        ?.insertAdjacentHTML('beforeend', ipCredit(id));
   }
 }
 function ipEnsureManifest() {
@@ -164,7 +171,7 @@ function ipEnsureManifest() {
       ipManifestLoaded = true;
       ipManifestDelay = 0;
       IP.manifest = data && data.instruments ? data : null;
-      if (IP.manifest) ipRedrawForPhotos();
+      if (IP.manifest) ipApplyPhotos();
     })
     .catch((err) => {
       if (!ipManifestDelay)
@@ -241,15 +248,19 @@ function ipSyncDestination() {
   return dest.value !== before;
 }
 const ipView = () => (IP.view?.get() === 'list' ? 'list' : 'rows');
+// A Rows card's photo, as uiTile takes it.
+function ipTilePhoto(id) {
+  const e = ipImageEntry(id);
+  return e && { src: e.src, credit: e.text, href: e.source };
+}
 // A card in Rows: the photo (or the catalog glyph), the name, family · class.
 function ipTile(i) {
-  const e = ipImageEntry(i.id);
   return uiTile({
     kind: 'instrument',
     id: i.id,
     name: i.name,
     sub: `${FamName(i.family)} · ${ipHuman(i.class)}`,
-    photo: e && { src: e.src, credit: e.text, href: e.source },
+    photo: ipTilePhoto(i.id),
     glyph: (id) => image(id, 56),
     open: 'instrument-inspect',
     add: 'instrument-add',
@@ -1031,8 +1042,7 @@ uiRegisterPage({
         }
         for (const el of surface.querySelectorAll('img.ip-photo')) {
           if (el.dataset.ipFallback === id)
-            (el.closest('.cm-photo') || el).outerHTML =
-              `<span class="ip-glyph">${image(id, +el.dataset.ipSize || 32)}</span>`;
+            (el.closest('.cm-photo') || el).outerHTML = ipGlyph(id, +el.dataset.ipSize || 32);
         }
       },
       true
