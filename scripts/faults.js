@@ -60,8 +60,13 @@
 //   toast action lingers -> check_ui_foundation.js  (a faded toast's Undo still takes a click)
 //
 // Usage:
-//   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose] [--keep]
-// Exit 0 if every defect was caught, 1 if any gate escaped.
+//   node scripts/faults.js [--only=ID,…] [--fresh-api=DIR --fresh-html=FILE] [--verbose] [--keep]
+// --only runs the classes named and skips the rest: a class answers to its
+// number (9x) where it has one, and to its gate-class name, the part of its
+// row before ` -> ` (engine-preload-disagrees). A run with --only is partial,
+// so it never asserts gate-coverage completeness.
+// Exit 0 if every defect was caught, 1 if any gate escaped, 2 if --only names
+// a class that does not exist or selects none that can run.
 // Each class's temp copy is removed once its verdict is recorded (--keep
 // leaves them all in the OS temp dir, codex-fault-*, for inspection).
 
@@ -85,6 +90,7 @@ const VERBOSE = !!flags.verbose;
 const KEEP = !!flags.keep;
 const FRESH_API = flags['fresh-api'] ? path.resolve(ROOT, flags['fresh-api']) : null;
 const FRESH_HTML = flags['fresh-html'] ? path.resolve(ROOT, flags['fresh-html']) : null;
+const ONLY = typeof flags.only === 'string' ? flags.only.split(',').filter(Boolean) : null;
 const q = (s) => JSON.stringify(s);
 
 // Isolated temp copy of just the items a gate needs; node_modules is symlinked.
@@ -143,12 +149,28 @@ function gate(dir, args) {
   }
 }
 
+// Each class opens with want(): its number, where it has one, then its
+// gate-class name. It answers whether --only selects the class, and remembers
+// the class so record() can refuse a row under another name.
+const CLASS_IDS = new Set();
+let CLASS = null;
+function want(...ids) {
+  for (const id of ids) CLASS_IDS.add(id);
+  CLASS = ids;
+  return !ONLY || ids.some((id) => ONLY.includes(id));
+}
+
 const results = [];
 // A defect is "caught" only when the gate exits NON-ZERO *and* its output names
 // the planted defect (the `expect` pattern). This rejects two false positives the
 // old `code !== 0` test counted as caught: a gate that times out, and a gate that
 // fails for an unrelated reason (env crash, missing file in the temp copy).
 function record(cls, res, expect) {
+  const name = CLASS && CLASS[CLASS.length - 1];
+  if (!name || !cls.startsWith(name + ' -> '))
+    throw new Error(
+      `faults: the row ${JSON.stringify(cls)} is not the class want() opened (${name})`
+    );
   const { code, out } = res;
   const nonzero = code !== 0 && code !== 'timeout';
   const matched = !expect || expect.test(out);
@@ -159,7 +181,9 @@ function record(cls, res, expect) {
   else if (code === 'timeout') tag = '✗ TIMEOUT    ';
   else tag = '✗ WRONG-REASON'; // failed, but not on the planted defect
   results.push({ cls, caught, code, reason: tag.trim() });
-  process.stderr.write(`  ${tag}  ${cls}  (exit ${code})\n`);
+  const num = CLASS.length > 1 ? `${CLASS[0]}, ` : '';
+  process.stderr.write(`  ${tag}  ${cls}  (${num}exit ${code})\n`);
+  CLASS = null;
   dropEnvs(); // every class records once, after its last gate run
 }
 
@@ -168,7 +192,7 @@ process.stderr.write(
 );
 
 // 1. broken ref -> validate.js
-{
+if (want('1', 'broken-ref')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/05_traditions.js');
   fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("room: '", "room: 'zzz_fault_"));
@@ -176,7 +200,7 @@ process.stderr.write(
 }
 
 // 2. >1000-char recipe -> check_api.js
-{
+if (want('2', 'over-ceiling-recipe')) {
   const d = mkenv(['scripts', 'references', 'api']);
   const f = path.join(d, 'api/traditions/bluegrass.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -191,7 +215,7 @@ process.stderr.write(
 }
 
 // 3. dropped tradition -> check_api.js
-{
+if (want('3', 'dropped-tradition')) {
   const d = mkenv(['scripts', 'references', 'api']);
   fs.unlinkSync(path.join(d, 'api/traditions/zydeco.json'));
   record(
@@ -202,7 +226,7 @@ process.stderr.write(
 }
 
 // 4. unresolvable config id (stale snapshot vs catalog) -> check_api.js
-{
+if (want('4', 'unresolvable-id')) {
   const d = mkenv(['scripts', 'references', 'api']);
   const f = path.join(d, 'api/traditions/bluegrass.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -217,7 +241,7 @@ process.stderr.write(
 
 // 5. app<->node desync -> equivalence.js  (mutate the NODE adapter only; the
 //    browser inlines the @inline core, so this forces the two sides to disagree)
-{
+if (want('5', 'app-node-desync')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_card_descriptors.js');
   const s = fs
@@ -248,7 +272,7 @@ process.stderr.write(
 // The three discovery outputs come along for the same reason: the gate reads the
 // COMMITTED copies from its own root, and "committed copy missing" is likewise
 // not the failure this class is meant to prove.
-if (FRESH_API && FRESH_HTML) {
+if (want('6', 'stale-api') && FRESH_API && FRESH_HTML) {
   const d = mkenv([
     'scripts',
     'references',
@@ -281,7 +305,7 @@ if (FRESH_API && FRESH_HTML) {
     `--committed-html=${FRESH_HTML}`,
   ]);
   record('stale-api -> check_artifact_fresh.js', res, /STALE_DRIFT|drift|stale|!=|content/i);
-} else {
+} else if (want('6', 'stale-api')) {
   process.stderr.write(
     '  - skipped stale-api fault (pass --fresh-api=DIR --fresh-html=FILE to enable)\n'
   );
@@ -292,7 +316,7 @@ if (FRESH_API && FRESH_HTML) {
 //     html, so the codex.html half of the gate was never exercised. This proves
 //     it two-sided: the api halves match (fresh==fresh) while the committed html
 //     is a mutated copy, so only an unguarded html comparison could stay green.
-if (FRESH_API && FRESH_HTML) {
+if (want('6b', 'stale-html') && FRESH_API && FRESH_HTML) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-html-'));
   ENVS.push(tmp); // removed with the class, as mkenv's copies are
   const staleHtml = path.join(tmp, 'stale_codex.html');
@@ -311,14 +335,15 @@ if (FRESH_API && FRESH_HTML) {
 }
 
 // 7. silent blend-drop -> recipe.js  (read-only on the real tree)
-record(
-  'silent-blend-drop -> recipe.js',
-  gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']),
-  /__bogus_fault__|[Uu]nknown|not found|resolve/
-);
+if (want('7', 'silent-blend-drop'))
+  record(
+    'silent-blend-drop -> recipe.js',
+    gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']),
+    /__bogus_fault__|[Uu]nknown|not found|resolve/
+  );
 
 // 8. orphan promise (documented but unregistered/ungated) -> check_promises.js
-{
+if (want('8', 'orphan-promise')) {
   const d = mkenv(['scripts', 'AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md']);
   fs.appendFileSync(path.join(d, 'AGENTS.md'), '\n<!-- @promise: __orphan_fault__ -->\n');
   record(
@@ -334,7 +359,7 @@ record(
 //    Corrupting one tradition's name in the isolated boot index forces the two
 //    builds to disagree on the catalog projection, which the parity gate must
 //    catch. (The app no longer reads api/browse.json; 9g holds that file.)
-{
+if (want('9', 'lazy-shell-desync')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const f = path.join(d, 'api/browse_boot.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -348,7 +373,7 @@ record(
 }
 
 // 9c. the prose the lazy shell merges after its first paint drifts -> check_lazy_app.js
-{
+if (want('9c', 'lazy-prose-desync')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const f = path.join(d, 'api/browse_prose.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -364,7 +389,7 @@ record(
 // 9d. the first view needs prose the boot index no longer carries -> check_lazy_app.js
 //     The featured genre (the page's first starter) loses its prose from the
 //     boot index, so the first view would wait on the file that follows it.
-{
+if (want('9d', 'first-view-needs-prose')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const B = require('./_browse_tables.js');
   const featured = B.starterIds(fs.readFileSync(path.join(d, 'src/app.js'), 'utf8'))[0];
@@ -385,7 +410,7 @@ record(
 // 9e. the page claims prose is there before it lands -> check_lazy_app.js
 //     proseState answers 'here' for every genre, so the window's readers say
 //     "the catalog has no description" where they should say "loading".
-{
+if (want('9e', 'pending-claims-absence')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const f = path.join(d, 'src/app.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -403,7 +428,7 @@ record(
 }
 
 // 9f. the prose's arrival redraws the page instead of filling its slots -> check_lazy_app.js
-{
+if (want('9f', 'prose-arrival-redraws')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const f = path.join(d, 'src/pages/genre.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -423,7 +448,7 @@ record(
 // 9g. the published browse.json drifts -> check_api.js
 //     No behavioural gate reads it now that the app boots from the split files,
 //     so check_api's derivation is what holds it.
-{
+if (want('9g', 'published-browse-drift')) {
   const d = mkenv(['scripts', 'references', 'api']);
   const f = path.join(d, 'api/browse.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -437,7 +462,7 @@ record(
 }
 
 // 9h. the genre prose is preloaded with the boot index -> build_html.js --check
-{
+if (want('9h', 'prose-preloaded')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/build_html.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -489,7 +514,7 @@ const plantEngineFile = (d) =>
 //     The embedded build merges references/; the lazy build merges the file.
 //     Parity fingerprints both merged engines, so the drift shows there, the
 //     one place a body the page accepted can be compared with its source.
-{
+if (want('9i', 'engine-desync')) {
   const d = lazyEnv();
   plantEngineFile(d);
   record(
@@ -504,7 +529,7 @@ const plantEngineFile = (d) =>
 //     page's index. Inst reads the engine, which the first view holds back; put
 //     it back in the roster and the read throws EngineNotReadyError and is
 //     counted, which is how the gate sees a reader nobody declared.
-{
+if (want('9j', 'engine-read-in-first-view')) {
   const d = lazyEnv();
   plantIn(
     d,
@@ -524,7 +549,7 @@ const plantEngineFile = (d) =>
 //     boot asks for it first and holds at its status until it lands, writing
 //     nothing. _bootNeedsEngine is that switch: answering false sends the
 //     restore into the empty slots.
-{
+if (want('9k', 'restore-without-engine')) {
   const d = lazyEnv();
   plantIn(
     d,
@@ -544,7 +569,7 @@ const plantEngineFile = (d) =>
 //     room. addInstrumentFromPicker waits for the engine through engineReady,
 //     which says "Preparing the instrument data…"; without the wait, an Add
 //     clicked before the engine lands acts on the empty slots.
-{
+if (want('9l', 'action-without-engine')) {
   const d = lazyEnv();
   plantIn(
     d,
@@ -564,7 +589,7 @@ const plantEngineFile = (d) =>
 //     496 KB). Asked for at boot, it shares the link with the first view and
 //     delays it. The plant moves Engine.start() out of uiAfterPaint, so the
 //     request goes out at init, before the first view is drawn.
-{
+if (want('9m', 'engine-before-first-paint')) {
   const d = lazyEnv();
   plantIn(
     d,
@@ -586,7 +611,7 @@ const plantEngineFile = (d) =>
 //     from the instruments in the order it meets them and lends the copies in
 //     that order. Sorted first, the merged engine differs while every
 //     instrument is still present.
-{
+if (want('9n', 'sort-before-merge')) {
   const d = lazyEnv();
   const merge =
     'yield* mergeFamilyPartsSteps(t.INSTRUMENTS, t.INSTRUMENT_FAMILY_PARTS, { plan: kinds });';
@@ -608,7 +633,7 @@ const plantEngineFile = (d) =>
 //     The similar view's "instruments that fit" reads every instrument's axes.
 //     Before the engine lands it must draw a loading block and compute nothing;
 //     with its guard switched off it draws no block at all.
-{
+if (want('9o', 'similar-before-engine')) {
   const d = lazyEnv();
   plantIn(
     d,
@@ -627,7 +652,7 @@ const plantEngineFile = (d) =>
 //     A failed engine load is retried by an action, Retry or the browser
 //     coming back online, never on a timer: with the host down, a timer keeps
 //     asking for the file for as long as the page stays open.
-{
+if (want('9p', 'engine-retry-loop')) {
   const d = lazyEnv();
   plantIn(
     d,
@@ -647,7 +672,7 @@ const plantEngineFile = (d) =>
 //     cache or a half-finished upload. The page refuses a file whose digest is
 //     not its own CODEX_ENGINE_SHA; without that compare, another deploy's
 //     tables fill the slots whenever its instrument ids still line up.
-{
+if (want('9q', 'engine-skew-accepted')) {
   const d = lazyEnv();
   plantIn(d, 'src/app.js', 'if (!head || head.tables_sha1 !== CODEX_ENGINE_SHA)', 'if (!head)');
   record(
@@ -663,7 +688,7 @@ const plantEngineFile = (d) =>
 //     inline again: for INSTRUMENTS, about 550 KB more gzipped. --check spells
 //     the eight names out itself, so the edit that puts a table back cannot
 //     also turn off the check.
-{
+if (want('9r', 'engine-in-page')) {
   const d = mkenv(['scripts', 'references', 'src']);
   plantIn(
     d,
@@ -683,7 +708,7 @@ const plantEngineFile = (d) =>
 //     and nothing but check_api reads it whole. It derives the file from
 //     references/ through scripts/_page_tables.js and compares it byte for
 //     byte, so the drift fails here without a browser.
-{
+if (want('9s', 'engine-file-drift')) {
   const d = mkenv(['scripts', 'references', 'api']);
   plantEngineFile(d);
   record(
@@ -703,7 +728,7 @@ const plantEngineFile = (d) =>
 //     page shrank. The bytes come from a hash chain, not a random source, so
 //     every run plants the same page. The unplanted page must pass first,
 //     or the class could not tell the plant from a page already over.
-{
+if (want('9t', 'page-over-budget')) {
   const d = mkenv(['scripts', 'codex.html']);
   const f = path.join(d, 'codex.html');
   if (FRESH_HTML) fs.copyFileSync(FRESH_HTML, f);
@@ -742,7 +767,7 @@ const plantEngineFile = (d) =>
 //     answers instead. A trailing space in every indexed name is invisible on
 //     screen, and the build's --check derives its expectation through the same
 //     function, so only comparing InstLite with the embedded Inst catches it.
-{
+if (want('9u', 'index-drift')) {
   const d = lazyEnv();
   plantIn(
     d,
@@ -762,7 +787,7 @@ const plantEngineFile = (d) =>
 //     together at paint, the two share a slow link and the engine, which
 //     every Add waits for, lands about 4 s later (measured, slow 4G). The
 //     plant asks for the prose at paint, beside the engine.
-{
+if (want('9v', 'prose-not-sequenced')) {
   const d = lazyEnv();
   plantIn(
     d,
@@ -782,7 +807,7 @@ const plantEngineFile = (d) =>
 //     engine request must still count as delivered. Without the bytesDone()
 //     that opens the load's catch, an unreachable engine also holds back the
 //     genre descriptions, which never needed it.
-{
+if (want('9w', 'prose-starved')) {
   const d = lazyEnv();
   plantIn(d, 'src/app.js', '      .catch((e) => {\n        bytesDone();', '      .catch((e) => {');
   record(
@@ -800,7 +825,7 @@ const plantEngineFile = (d) =>
 //     string in one table is wrong, which no byte ceiling or parse check can
 //     see. (A total break, like enabling top-level mangling, is caught by the
 //     behavioural harnesses too; this one is not.)
-{
+if (want('9b', 'minifier-changes-behaviour')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_minify.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -819,7 +844,7 @@ const plantEngineFile = (d) =>
 
 // 10. doc count drift -> check_docs.js  (a canonical count in the docs no longer
 //     matches the live catalog — the class that shipped stale AGENTS/SKILL counts)
-{
+if (want('10', 'count-drift')) {
   const d = mkenv([
     'scripts',
     'references',
@@ -859,7 +884,7 @@ const plantEngineFile = (d) =>
 //      This class is deliberately built from the qualifier list itself rather
 //      than a literal `with`, so it keeps testing the boundary if QUALIFIERS is
 //      ever edited.
-{
+if (want('10b', 'count-drift-behind-qualifier')) {
   const d = mkenv(['scripts', 'references', 'SKILL.md', 'AGENTS.md', 'index.html', 'llms.txt']);
   const f = path.join(d, 'AGENTS.md');
   const src = fs.readFileSync(f, 'utf8');
@@ -875,7 +900,7 @@ const plantEngineFile = (d) =>
 }
 
 // 11. a documented command that no longer exits 0 -> check_doc_commands.js
-{
+if (want('11', 'failing-doc-command')) {
   const d = mkenv([
     'scripts',
     'references',
@@ -902,7 +927,7 @@ const plantEngineFile = (d) =>
 //      documents were found citing two example lyrics that had been deleted
 //      nine days earlier, across 49 citations and 17 "REPRODUCES EXACTLY"
 //      rows, while `npm run check-docs` stayed green throughout)
-{
+if (want('11b', 'documented-path-missing')) {
   const d = mkenv([
     'scripts',
     'references',
@@ -926,7 +951,7 @@ const plantEngineFile = (d) =>
 
 // 12. a documented BEHAVIOR drifts from the prose -> check_doc_behaviors.js
 //     (corrupt belting's documented §3d token list — the assertion must catch it)
-{
+if (want('12', 'behavior-drift')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/07_preface_lexicon.js');
   // Rename belting's UNIQUE id so the §3d assertion (which finds 'belting' and
@@ -945,7 +970,7 @@ const plantEngineFile = (d) =>
 // 13. a production-dead preface token -> check_prefaces.js  (a token no card can
 //     surface in production preface scoring: it silently never matches yet still
 //     inflates the |shared|/tokens.length denominator — the M-DATA-1 class)
-{
+if (want('13', 'dead-preface-token')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/07_preface_lexicon.js');
   fs.writeFileSync(
@@ -962,7 +987,7 @@ const plantEngineFile = (d) =>
 // 14. app<->connector parity drift -> check_app_parity.js  (mutate ONLY the connector
 //     render path; the app reads its own inlined compileRecipeStack from src/app.js,
 //     so a sentinel in _seed_workspace.renderWorkspace forces the two to disagree)
-{
+if (want('14', 'app-connector-parity-drift')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_seed_workspace.js');
   const source = fs.readFileSync(f, 'utf8');
@@ -982,7 +1007,7 @@ const plantEngineFile = (d) =>
 
 // 15. preface assignment drift -> regression_prefaces.js  (corrupt one fixture's
 //     expected preface so the matcher's real output no longer matches it)
-{
+if (want('15', 'preface-drift')) {
   const d = mkenv(['scripts', 'references', 'tests']);
   const f = path.join(d, 'tests/_preface_regression_fixtures.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -997,7 +1022,7 @@ const plantEngineFile = (d) =>
 
 // 16. slot-pick drift -> check_slot_picks.js  (corrupt one fixture's expected variant
 //     so the searched slot pick no longer matches the lock-in)
-{
+if (want('16', 'slot-pick-drift')) {
   const d = mkenv(['scripts', 'references', 'tests']);
   const f = path.join(d, 'tests/slot_pick_lock_ins.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -1013,7 +1038,7 @@ const plantEngineFile = (d) =>
 // 17. dead token in the AUDIT-enriched pool -> audit_dead_tokens.js  (class 13 covers
 //     the production pool via check_prefaces; this covers the enriched-pool gate that
 //     also scans variant.match_tokens — a token dead even there does no work)
-{
+if (want('17', 'dead-audit-token')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/07_preface_lexicon.js');
   fs.writeFileSync(
@@ -1030,7 +1055,7 @@ const plantEngineFile = (d) =>
 // 18. workspace mutation -> check_workspace_ops.js  (neuter clone() to an identity
 //     function so edit ops mutate their input workspace, violating the state-passing
 //     immutability the gate's "IMMUTABLE: ..." checks assert)
-{
+if (want('18', 'workspace-mutation')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   fs.writeFileSync(
@@ -1052,7 +1077,7 @@ const plantEngineFile = (d) =>
 // 19. stale voice-parts mirror -> _gen_voice_parts.js --check  (the Node seed's voice
 //     maps in _voice_parts_data.js drift from src/app.js without regeneration — a
 //     desync the recipe-parity gates can miss, since it need not change a rendered recipe)
-{
+if (want('19', 'stale-voice-parts')) {
   const d = mkenv(['scripts', 'src']);
   const f = path.join(d, 'scripts/_voice_parts_data.js');
   fs.writeFileSync(
@@ -1081,7 +1106,7 @@ const plantEngineFile = (d) =>
 //     below 900px and the page clips its overflow, so the same width demand on
 //     its nav pushes the rightmost section tab off screen without any document
 //     overflow: the gate catches it through the four section capabilities.
-{
+if (want('20', 'unfittable-header')) {
   const d = mkenv(['scripts', 'codex.html', 'api']);
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
@@ -1113,7 +1138,7 @@ const plantEngineFile = (d) =>
 //     require()). If the inlined copy drifts, the browser and the connector sort
 //     chunks by DIFFERENT numbers — a desync the recipe fixtures need not catch,
 //     since it only shows on the traditions whose chunks the drifted tokens reach.
-{
+if (want('21', 'drifted-descriptor-df')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'src/app.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1135,7 +1160,7 @@ const plantEngineFile = (d) =>
 //     every chunk. Truncating the frozen table is the mechanical dual of the
 //     catalog growing past it. The app.js block is regenerated from the truncated
 //     JSON first, so PARITY is clean and only COVERAGE can fail.
-{
+if (want('22', 'stale-frozen-df')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const p = path.join(d, 'references/_descriptor_df.json');
   const j = JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -1159,7 +1184,7 @@ const plantEngineFile = (d) =>
 // bonuses from words that were never claims about sound. This is a one-word
 // defect (`false` -> `true`) with catalog-wide reach, which is exactly the kind
 // a reviewer waves through.
-{
+if (want('23', 'foreign-name-in-picks')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/score.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1190,7 +1215,7 @@ const plantEngineFile = (d) =>
 //     name the pair, not merely exit non-zero: an id-collision check would also
 //     exit 1 here, and this gate exists precisely because that is not what it
 //     is testing.
-{
+if (want('24', 'duplicate-entity')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/03_rooms_chains_tunings.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1223,7 +1248,7 @@ const plantEngineFile = (d) =>
 //     parity check, which is a different gate with its own failure message.
 //     The pair is read from the rulings file rather than typed here, so the
 //     class keeps planting a real false pair whatever the rulings become.
-{
+if (want('25', 'signature-false-pair-restored')) {
   const d = mkenv(['scripts', 'references', 'src', 'codex.html']);
   const rulings = JSON.parse(
     fs.readFileSync(path.join(d, 'references/_signature_rulings.json'), 'utf8')
@@ -1252,7 +1277,7 @@ const plantEngineFile = (d) =>
 //      unread. Adds a cultural token the vocabulary knows to a signed tradition
 //      that has no ruling for it — the shape of an honest edit that skipped the
 //      ruling, not a typo the vocabulary would catch as UNCLASSED.
-{
+if (want('25b', 'signature-pair-unruled')) {
   const d = mkenv(['scripts', 'references', 'src', 'codex.html']);
   const vocab = JSON.parse(
     fs.readFileSync(path.join(d, 'references/_soundword_vocab.json'), 'utf8')
@@ -1293,7 +1318,7 @@ const plantEngineFile = (d) =>
 // Disabling the multi-select branch is exactly the state the fx-corruption bug
 // shipped in: a bare id written straight through, to be spread into characters
 // by the next clone.
-{
+if (want('chain-shape-unvalidated')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1309,7 +1334,7 @@ const plantEngineFile = (d) =>
 
 // out-of-subset schema keyword -> check_connector_contract.js
 // looseObject republishes the open-record shape the named stages replaced.
-{
+if (want('schema-out-of-subset')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/schemas.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1323,7 +1348,7 @@ const plantEngineFile = (d) =>
 }
 
 // false read-only claim -> check_connector_contract.js
-{
+if (want('annotation-lies')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/tools.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1337,7 +1362,7 @@ const plantEngineFile = (d) =>
 }
 
 // invisible edits -> check_connector_contract.js
-{
+if (want('edit-invisible')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/engine.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1359,7 +1384,7 @@ const plantEngineFile = (d) =>
 // removal at a property that does not exist and the node survives into the
 // declarations — which the SUBSET scan above would never notice, because there
 // the same node is a justified exemption. Distinct plant, distinct gate row.
-{
+if (want('gemini-workspace-leak')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/gemini_tools.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1385,7 +1410,7 @@ const plantEngineFile = (d) =>
 // `additionalProperties` is the realistic one: it is present in the published
 // schema (chain's strictObject) and exempted there on purpose, so admitting it
 // to the allowlist republishes it to the one client that cannot read it.
-{
+if (want('gemini-illegal-keyword')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/gemini_tools.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1411,7 +1436,7 @@ const plantEngineFile = (d) =>
 // loop: search hands back a real chain id, the caller has to file it under one
 // of eight stages, and nothing it can reach says which. Dropping the `stage`
 // field restores exactly that.
-{
+if (want('chain-hit-stageless')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/engine.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1426,7 +1451,7 @@ const plantEngineFile = (d) =>
 }
 
 // a misfiled chain id gets a dead-end refusal -> check_connector_contract.js
-{
+if (want('chain-misfile-dead-end')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1453,7 +1478,7 @@ const plantEngineFile = (d) =>
 // gate stayed green — check_app_parity.js compares SEED + RENDER, so an edit that
 // diverges in between is invisible to it. Cutting the cascade back out restores
 // precisely the code that was wrong.
-{
+if (want('connector-edit-divergence')) {
   const d = mkenv(['scripts', 'references', 'src', 'mcp']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1486,7 +1511,7 @@ const plantEngineFile = (d) =>
 // assets/icon-master.png since 2026-09-14, so repainting the master stands in
 // for any edit: it must fail twice over — the master's own pinned hash, and the
 // derived rasters that are a pure function of it.
-{
+if (want('favicon-raster-drift')) {
   const d = mkenv(['scripts', 'assets', 'favicon.ico', 'package.json']);
   const f = path.join(d, 'assets', 'icon-master.png');
   const before = fs.readFileSync(f);
@@ -1512,7 +1537,7 @@ const plantEngineFile = (d) =>
 // eleven real inputs live. Nothing about the build changes; only the classifier
 // lies. Caught only by the trace — no static review of the rule would notice,
 // which is why the gate runs a real build instead of reading its own list.
-{
+if (want('build-input-outside-closure')) {
   // build_discovery.js refuses to emit a sitemap URL with no file behind it, so
   // the staged tree needs every ENTRY_POINTS target (build_discovery.js:169) —
   // it only stats them, never reads them, which is also why editing a .md
@@ -1560,7 +1585,7 @@ const plantEngineFile = (d) =>
 // Planted by removing the invalid-counter rejection after JSON parsing, which
 // restores the old "just parse the JSON" failure mode. Anchor on the rejection
 // itself rather than the former numeric-clamping helper.
-{
+if (want('corrupt-spend-file-widens-cap')) {
   // test.mjs calls the same exported assertion. Its standalone runner keeps
   // the baseline and mutant focused on disk validation: the full MCP suite
   // exercises long kitchen runs and exceeds the gate's five-minute bound.
@@ -1598,7 +1623,7 @@ const plantEngineFile = (d) =>
 // edits rendered a different recipe across the two surfaces.
 //
 // Planted by neutering the guard, which is exactly the prior state.
-{
+if (want('connector-cascades-where-app-does-not')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1626,7 +1651,7 @@ const plantEngineFile = (d) =>
 // which is the space this harness explores and the matrix cannot enumerate.
 // That is the point of having both gates, so the plant is chosen to separate
 // them rather than to be caught by either.
-{
+if (want('renderer-fork-drift')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_recipe_stack.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1659,7 +1684,7 @@ const plantEngineFile = (d) =>
 // unread (M-282 addendum 2, measured), so 227KB can fit whole and the plant on
 // the plain mode could exit having dropped nothing -- the same misfire that
 // turned CI red in the other direction. 4MB cannot fit on any default kernel.
-{
+if (want('stdout-truncated-by-exit')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/list.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1692,7 +1717,7 @@ const plantEngineFile = (d) =>
 // ceiling while the field enforces the new one. A counter that lies is worse
 // than no counter, because it turns "I wonder why it stopped" into a wrong
 // answer the user believes.
-{
+if (want('chat-counter-restates-ceiling')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'src/app.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1721,7 +1746,7 @@ function foundationEnv() {
 //       <body>, or into the app's init, would behave. The page ends up in the
 //       right theme, so a screenshot taken after load cannot tell; only the
 //       moment <body> appears can.
-{
+if (want('36', 'theme-after-first-paint')) {
   const d = foundationEnv();
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
@@ -1741,7 +1766,7 @@ function foundationEnv() {
 //   (b) THE MAP WITHOUT THE RECIPE. Until the foundation, the Map view hid the
 //       recipe panel at desktop width and offered nothing to open it. Put that
 //       back and the one-workspace promise is false on one of its three pages.
-{
+if (want('37', 'map-loses-recipe')) {
   const d = foundationEnv();
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
@@ -1761,7 +1786,7 @@ function foundationEnv() {
 //       toast: opacity 0, still a target, so a later click at bottom centre ran
 //       Undo (or Retry) unseen. Both halves of the fix go — the button is kept
 //       when the toast hides, and nothing stops it taking the click.
-{
+if (want('38', 'toast-action-lingers')) {
   const d = foundationEnv();
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
@@ -1785,9 +1810,21 @@ function foundationEnv() {
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
-// completeness is only asserted on a full run (CI passes --fresh-api/--fresh-html).
+// completeness is only asserted on a full run (CI passes --fresh-api/--fresh-html,
+// and no --only).
+if (ONLY) {
+  const unknown = ONLY.filter((id) => !CLASS_IDS.has(id));
+  if (unknown.length || !results.length) {
+    console.error(
+      unknown.length
+        ? `faults: --only names no class: ${unknown.join(', ')} (a class answers to its number and its gate-class name)`
+        : `faults: --only=${ONLY.join(',')} selected no class that could run here (class 6 and 6b need --fresh-api/--fresh-html)`
+    );
+    process.exit(2);
+  }
+}
 let uncovered = [];
-if (FRESH_API && FRESH_HTML) {
+if (FRESH_API && FRESH_HTML && !ONLY) {
   const PROMISES = require('./_promises.js');
   const faulted = new Set(results.map((r) => r.cls.split('->').pop().trim()));
   uncovered = [...new Set(PROMISES.map((p) => p.gate))].filter(
@@ -1801,9 +1838,11 @@ console.log(
 );
 if (escaped.length === 0 && uncovered.length === 0) {
   console.log(
-    FRESH_API && FRESH_HTML
+    FRESH_API && FRESH_HTML && !ONLY
       ? 'PASS — every injected defect was caught AND every promise-bound gate has a fault class. All gates are two-sided.'
-      : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).'
+      : ONLY
+        ? `PASS — every injected defect was caught (partial run: --only=${ONLY.join(',')}).`
+        : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).'
   );
   process.exit(0);
 }
