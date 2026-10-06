@@ -26643,12 +26643,19 @@ for its comment.
 
 **VERIFIED:** `scripts/test_capacity_children.mjs` gains three checks that
 drive `childRow` with the `/proc` reads themselves (no `VmRSS`, `VmRSS: 0 kB`,
-and a live control), and a fourth that samples a real 100 MB child through
-`instrumentChildren` as it exits. The fourth requires that teardown was
-actually sampled, and that no row was half-declared. With the old behaviour
-restored, the first two and the fourth fail and the control passes. With the
-fix, all nine checks in the file pass. `scripts/test_lyrics_capacity.py` refuses
-the CI's exact row by name, beside a good lyric child (34 tests, all green).
+and a live control). A fourth samples a real 300 MB child through
+`instrumentChildren` as it exits, for up to five exits, and FAILS on any
+half-declared row. Whether teardown was observed is reported apart from it, and
+a run that never saw it prints NOT OBSERVED, never PASS. The check first
+required an observation. On 2026-10-05 a CI runner executing every regression
+leaf at once took 2,093 samples of a 100 MB exit without one landing in
+teardown, and that requirement failed a correct fix. It moved to the report,
+and the `childRow` checks are the deterministic guard for that state. With the
+old behaviour restored, the first two checks and the fourth fail and the
+control passes. With the fix, all nine checks in the file pass, and teardown was
+observed on the first exit here, including with the CPU saturated.
+`scripts/test_lyrics_capacity.py` refuses the CI's exact row by name, beside a
+good lyric child (34 tests, all green).
 
 ### M-291 · A repository-wide dead-code sweep: three unreferenced symbols and two rename shims removed, TWO CANDIDATES DECLINED because the record conditions their removal on work that has not landed — and one bucket entry that a static sweep calls dead is reached by name through `hasattr` `CLOSED` 2026-09-15 (built; `counters.py --check` and the gate set measure) — under the owner's order, verbatim: *"fix whatever the hunts turn up"*
 
