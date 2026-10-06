@@ -242,77 +242,11 @@ const squeeze = (code, label) => (MINIFY ? minifyJs(code, label) : code);
 const squeezeCss = (code, label) => (MINIFY ? minifyCss(code, label) : code);
 
 // ──────────────────────────── page-only data strip ────────────────────────────
-// references/ is the catalog for every consumer, and the page reads less of it
-// than the others. The tables and fields below exist for the Node side — the CLI
-// renderers, scoring, audits and the connector — and nothing the page runs reads
-// them: git grep --text over src/ and the snippets inlined below finds no reader
-// (no property access, and no generic read such as Object.keys over a catalog
-// object). Re-run that search before adding a field here. They are dropped from
-// the PAGE only: references/, api/, the connector and the CLI keep full data. The
-// built-page gates (app_recipe_regression, equivalence, check_lazy_app,
-// check_minified_equivalence) prove the page did not need them, and --check
-// asserts they are gone.
-//
-//   CHAIN_ARCHETYPES, PRODUCTION_AESTHETICS, ARRANGEMENTS — CLI-only renderer
-//     inputs (SKILL.md §9.1: "not levers for the Rich/browser recipe").
-//   match_tokens — the offline matcher's vocabulary; _card_descriptors.js pools
-//     descriptors only, and tandem.js fails if the page ever reads it.
-//   canonical_tags — scoring-only (entryRenderDescs omits them on purpose).
-//   surface, auto, pointer, stateKey, neg_anchor / pos_anchor, and rooms'
-//     default_chain_archetype / scale_tier / era / region — audit and CLI
-//     fields; families and room clusters are read for id and name only.
-const PAGE_DROP_TABLES = new Set(['CHAIN_ARCHETYPES', 'PRODUCTION_AESTHETICS', 'ARRANGEMENTS']);
-const VARIANT_DROP = ['match_tokens', 'canonical_tags', 'surface', 'auto'];
-const PAGE_DROP_FIELDS = {
-  // table -> [path from each element ('' = the element itself), fields]
-  INSTRUMENT_FAMILY_PARTS: [['*.variants', VARIANT_DROP]],
-  INSTRUMENT_FAMILIES: [['', ['note', 'descriptors', 'canonical_tags']]],
-  INSTRUMENTS: [
-    ['', ['surface']],
-    ['parts', ['surface']],
-    ['parts.variants', VARIANT_DROP],
-  ],
-  ROOMS: [['', ['canonical_tags', 'default_chain_archetype', 'scale_tier', 'era', 'region']]],
-  ROOM_CLUSTERS: [['', ['note', 'descriptors', 'canonical_tags']]],
-  CHAIN_SECTIONS: [
-    ['', ['stateKey']],
-    ['items', ['canonical_tags']],
-  ],
-  TUNINGS: [['', ['pointer', 'canonical_tags']]],
-  AXIS_DEFINITIONS: [['', ['neg_anchor', 'pos_anchor']]],
-  INSTRUMENT_AXIS_DEFINITIONS: [['', ['neg_anchor', 'pos_anchor']]],
-};
-// Objects reached from each element of a table by a dotted path; `*` expands an
-// object's values (INSTRUMENT_FAMILY_PARTS is family -> parts).
-function reach(elements, pathSpec) {
-  const flat = (list) => list.flatMap((n) => (Array.isArray(n) ? flat(n) : n == null ? [] : [n]));
-  let nodes = flat(elements);
-  for (const step of pathSpec ? pathSpec.split('.') : [])
-    nodes = flat(nodes.map((n) => (step === '*' ? Object.values(n) : n[step])));
-  return nodes;
-}
-const tableElements = (value) => (Array.isArray(value) ? value : [value]);
-// Re-emitting a table as JSON is exact only for JSON-safe data. Say so loudly
-// rather than letting undefined, NaN, -0 or a function change on the way.
-function assertJsonSafe(v, where) {
-  if (v === null || typeof v === 'string' || typeof v === 'boolean') return;
-  if (typeof v === 'number') {
-    if (!Number.isFinite(v) || Object.is(v, -0)) throw new Error(`page strip: ${where} is ${v}`);
-    return;
-  }
-  if (Array.isArray(v)) {
-    for (let i = 0; i < v.length; i++) {
-      if (!(i in v)) throw new Error(`page strip: ${where} has a hole at ${i}`);
-      assertJsonSafe(v[i], `${where}[${i}]`);
-    }
-    return;
-  }
-  if (typeof v === 'object') {
-    for (const k of Object.keys(v)) assertJsonSafe(v[k], `${where}.${k}`);
-    return;
-  }
-  throw new Error(`page strip: ${where} is a ${typeof v}`);
-}
+// The tables and fields the page never reads, and the strip itself, live in
+// scripts/_page_tables.js (with why each is dropped), shared with the builder of
+// api/engine.json and check_api.js.
+const P = require('./_page_tables.js');
+const { PAGE_DROP_TABLES, PAGE_DROP_FIELDS } = P;
 // The page's copy of one references file: evaluated, stripped, re-emitted as one
 // `const NAME = <json>;` per declaration in the file's own order. A file with
 // nothing to strip is returned byte-for-byte.
@@ -354,11 +288,7 @@ function stripForPage(file, source) {
   const out = [`// ${file}, page copy: see "page-only data strip" in scripts/build_html.js`];
   for (const name of names) {
     if (PAGE_DROP_TABLES.has(name) || LAZY_DROP_TABLES.has(name)) continue;
-    const value = vm.runInContext(name, ctx);
-    for (const [pathSpec, fields] of PAGE_DROP_FIELDS[name] || [])
-      for (const node of reach(tableElements(value), pathSpec))
-        for (const k of fields) delete node[k];
-    assertJsonSafe(value, name);
+    const value = P.stripTable(name, vm.runInContext(name, ctx));
     out.push(`const ${name} = ${JSON.stringify(value).replace(/<\//g, '<\\/')};`);
   }
   return out.join('\n') + '\n';
