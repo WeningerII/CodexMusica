@@ -67,7 +67,8 @@
 //   picker on screen equal the embedded build's.
 //
 //   ENGINE (section `engine`; each check boots its own lazy page with
-//   api/engine.json held, against one embedded page doing the same):
+//   api/engine.json held, against one embedded page doing the same; --checks
+//   runs some of them):
 //   • E0 — one engine request, after the first view; Engine.state() is
 //     'loading' and no prose is asked for while it is held; once released,
 //     exactly one prose request, after the engine's body.
@@ -95,10 +96,11 @@
 //     no count; once released the list is the embedded build's, with the
 //     search box still focused.
 //   • E6 — the direct reads of the eight engine tables in src/ (identifier
-//     references, from the AST) are counted per file and must match
-//     ENGINE_READERS below: a new reader has to be reviewed (it must run only
-//     once the instrument data has loaded), then the counts regenerated with
-//     --print-readers.
+//     references, from the AST) are counted per file, per table and per
+//     enclosing function, and must match ENGINE_READERS below: a new reader
+//     has to be reviewed (it must run only once the instrument data has
+//     loaded), then the census regenerated with --print-readers. A read added
+//     in one function and removed from another moves both.
 //
 //   FAILURE PATHS (section `failure`; the lazy app fails honestly):
 //   • the boot index unreachable → the boot-error state renders.
@@ -122,8 +124,12 @@
 //   node scripts/check_lazy_app.js --verbose        # per-check detail
 //   --only=parity,first-view,window,engine,failure  # run some sections (faults.js)
 //   --scenarios=default,deep,instrument-route       # restrict first-view (faults.js)
+//   --checks=E1,E3,E4                               # run some engine checks (faults.js)
 //   --print-readers                                 # print E6's ENGINE_READERS from src/, exit
-// The two filters only restrict: the full run is always a superset.
+// The three filters only restrict: the full run is always a superset. An
+// unknown section, scenario or engine check is an error, and so is --checks
+// with the engine section left out; the summary line names the engine checks
+// that ran when --checks leaves some out.
 
 'use strict';
 const fs = require('fs');
@@ -185,45 +191,116 @@ const ENGINE_TABLES = [
   'INSTRUMENT_AXIS_DEFINITIONS',
   'PREFACE_LEXICON',
 ];
-// E6: the direct reads of the engine tables in src/, per file (an identifier
-// reference: a property name or an object key is not one). Each reader counted
-// here was reviewed as running only once the instrument data has loaded:
-// behind _engineLive, after Engine.ensure() or engineReady(), on a card (no
-// card exists before then), or as a `typeof` guard. A change means a reader was
-// added or removed: review it, then regenerate with
-// `node scripts/check_lazy_app.js --print-readers` (it also names the function
-// each read is in).
+// E6: the direct reads of the engine tables in src/, per file, per table, per
+// enclosing function (an identifier reference: a property name or an object
+// key is not one; a read outside any named function is "(top level)"). Each
+// reader counted here was reviewed as running only once the instrument data has
+// loaded: behind _engineLive, after Engine.ensure() or engineReady(), on a card
+// (no card exists before then), or as a `typeof` guard. A change means a reader
+// was added, removed or moved to another function: review it, then regenerate
+// with `node scripts/check_lazy_app.js --print-readers`.
 const ENGINE_READERS = {
   'src/app.js': {
-    INSTRUMENTS: 7,
-    ROOMS: 8,
-    TUNINGS: 8,
-    CHAIN_SECTIONS: 9,
-    PREFACE_LEXICON: 18,
-    ROOM_CLUSTERS: 1,
-    INSTRUMENT_AXIS_DEFINITIONS: 7,
+    INSTRUMENTS: {
+      _buildIdIndexes: 2,
+      '(top level)': 3,
+      findSimilarInstruments: 1,
+      findInstrumentsForTradition: 1,
+    },
+    ROOMS: {
+      _buildIdIndexes: 2,
+      buildDriftCandidates: 1,
+      inverseConfigureForPreface: 1,
+      renderEnvRow: 4,
+    },
+    TUNINGS: {
+      _buildIdIndexes: 2,
+      buildDriftCandidates: 1,
+      inverseConfigureForPreface: 1,
+      renderEnvRow: 4,
+    },
+    CHAIN_SECTIONS: {
+      _buildIdIndexes: 2,
+      buildDriftCandidates: 1,
+      buildStackParts: 1,
+      inverseConfigureForPreface: 1,
+      normalizeWorkspaceCards: 1,
+      renderChainSection: 2,
+      handleCardClick: 1,
+    },
+    PREFACE_LEXICON: {
+      _resolvePreface: 4,
+      _matchSurvivors: 2,
+      inverseConfigureForPreface: 2,
+      renderReachabilityFan: 2,
+      renderPrefaceSection: 2,
+      populatePrefaceDatalist: 2,
+      prefaceGroups: 1,
+      renderPrefaceModalBody: 2,
+      openPrefaceModal: 1,
+    },
+    ROOM_CLUSTERS: {
+      renderEnvRow: 1,
+    },
+    INSTRUMENT_AXIS_DEFINITIONS: {
+      computeInstrumentDistance: 1,
+      getMatchingInstrumentAxes: 1,
+      tradInstrumentCentroid: 1,
+      centroidDistance: 1,
+      buildSongFingerprint: 3,
+    },
   },
   'src/pages/instrument.js': {
-    INSTRUMENTS: 8,
-    CHAIN_SECTIONS: 3,
-    PREFACE_LEXICON: 1,
-    TUNINGS: 2,
-    ROOMS: 2,
+    INSTRUMENTS: {
+      ipGroups: 1,
+      renderInstrumentDiscovery: 3,
+      ipRenderCategories: 1,
+      ipRenderList: 2,
+      uiInstrumentNoResults: 1,
+    },
+    CHAIN_SECTIONS: {
+      ipDiff: 1,
+      ipRenderChain: 2,
+    },
+    PREFACE_LEXICON: {
+      ipRenderCharacter: 1,
+    },
+    TUNINGS: {
+      ipRenderEnv: 2,
+    },
+    ROOMS: {
+      ipRenderEnv: 2,
+    },
   },
-  'src/workbench.js': { CHAIN_SECTIONS: 1 },
+  'src/workbench.js': {
+    CHAIN_SECTIONS: {
+      uiRecipeEnvHTML: 1,
+    },
+  },
 };
+
+// The engine section's checks, by id (--checks).
+const ENGINE_CHECKS = ['E0', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6'];
 
 const ONLY = flagList('only') || SECTIONS;
 const PRINT_READERS = argv.includes('--print-readers');
 const ONLY_SCENARIOS = flagList('scenarios') || Object.keys(SCENARIOS);
+const ONLY_CHECKS = flagList('checks') || ENGINE_CHECKS;
 {
   const bad = [
-    ...ONLY.filter((x) => !SECTIONS.includes(x)).map((x) => `section "${x}"`),
-    ...ONLY_SCENARIOS.filter((x) => !SCENARIOS[x]).map((x) => `scenario "${x}"`),
+    ...ONLY.filter((x) => !SECTIONS.includes(x)).map((x) => `unknown section "${x}"`),
+    ...ONLY_SCENARIOS.filter((x) => !SCENARIOS[x]).map((x) => `unknown scenario "${x}"`),
+    ...ONLY_CHECKS.filter((x) => !ENGINE_CHECKS.includes(x)).map(
+      (x) => `unknown engine check "${x}"`
+    ),
   ];
+  // --checks filters the engine section; with the section left out it would
+  // filter nothing, and a caller would read the pass as those checks'.
+  if (flagList('checks') && !ONLY.includes('engine'))
+    bad.push('--checks names engine checks, but --only leaves out the engine section');
   if (bad.length) {
     console.error(
-      `check_lazy_app: unknown ${bad.join(', ')} (sections: ${SECTIONS.join(', ')}; scenarios: ${Object.keys(SCENARIOS).join(', ')})`
+      `check_lazy_app: ${bad.join('; ')} (sections: ${SECTIONS.join(', ')}; scenarios: ${Object.keys(SCENARIOS).join(', ')}; engine checks: ${ENGINE_CHECKS.join(', ')})`
     );
     process.exit(2);
   }
@@ -1460,33 +1537,40 @@ const E5_STEP = `
 const E5_STATE = `const s = document.getElementById('instrument-search');
   return { body: document.getElementById('instrument-body').innerHTML, total: document.getElementById('ip-total').textContent, focused: document.activeElement === s, value: s.value };`;
 
-// The embedded page, every reference in turn: E1's instruments, E4's picker,
-// E5's search (then cleared), the inspector, then each card step.
+// The embedded page, every reference the selected checks use, in turn: E1's
+// instruments, E4's picker, E5's search (then cleared), the inspector, then
+// each card step (E3).
 async function engineReference(embedHtml) {
+  const need = (...ids) => ids.some((id) => ONLY_CHECKS.includes(id));
+  if (!need('E1', 'E3', 'E4', 'E5')) return { e3: {} };
   const dom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), { url: SITE });
   const probe = (body) => runProbe(dom, body, E_WAIT);
   try {
     const ref = { e3: {} };
     await probe(SETTLE);
-    ref.inst = await probe(
-      'return Object.fromEntries(INSTRUMENTS.map((i) => { const x = Inst(i.id); return [i.id, [x.name, x.short == null ? null : x.short, x.family]]; }));'
-    );
-    ref.similar = await probe(
-      `${E4_STEP}
+    if (need('E1'))
+      ref.inst = await probe(
+        'return Object.fromEntries(INSTRUMENTS.map((i) => { const x = Inst(i.id); return [i.id, [x.name, x.short == null ? null : x.short, x.family]]; }));'
+      );
+    if (need('E4'))
+      ref.similar = await probe(
+        `${E4_STEP}
       ${FRAMES(2)}
       const out = { ids: window.__e4, html: document.getElementById('picker-trad').innerHTML };
       app.similarFor = null; renderTradPicker();
       return out;`
-    );
-    ref.search = await probe(
-      `${E5_STEP}
+      );
+    if (need('E5'))
+      ref.search = await probe(
+        `${E5_STEP}
       ${FRAMES(2)}
       const out = (() => { ${E5_STATE} })();
       s.value = ''; s.dispatchEvent(new window.Event('input', { bubbles: true })); s.blur();
       uiNavigate('genre');
       return out;`
-    );
-    const inspectFirst = [...E3_STEPS].sort((a, b) => (b[2] === 'inspect') - (a[2] === 'inspect'));
+      );
+    const steps = need('E3') ? E3_STEPS : [];
+    const inspectFirst = [...steps].sort((a, b) => (b[2] === 'inspect') - (a[2] === 'inspect'));
     for (const [label, step, kind] of inspectFirst)
       ref.e3[label] = await probe(`${E3_RESET} ${step} ${E3_FINISH(kind)}`);
     for (const [k, v] of Object.entries({ ...ref, ...ref.e3 }))
@@ -1918,15 +2002,14 @@ async function engineSweep(lazyHtml) {
 }
 
 // E6. The direct reads of the engine tables in src/, from the AST: an
-// identifier that is not a property name or an object key, with the
-// function it is read in.
+// identifier that is not a property name or an object key, counted by the
+// function it is read in: { file: { table: { function: reads } } }.
 function engineReaders() {
   const espree = require(
     require.resolve('espree', { paths: [path.dirname(require.resolve('eslint'))] })
   );
   const names = new Set(ENGINE_TABLES);
-  const counts = {},
-    where = {};
+  const readers = {};
   const files = ['src', 'src/pages']
     .flatMap((d) =>
       fs
@@ -1962,10 +2045,9 @@ function engineReaders() {
         !(parent.type === 'MemberExpression' && key === 'property' && !parent.computed) &&
         !(KEYED.test(parent.type) && key === 'key' && !parent.computed)
       ) {
-        const c = (counts[file] = counts[file] || {});
-        c[node.name] = (c[node.name] || 0) + 1;
-        const w = (where[file] = where[file] || {});
-        (w[node.name] = w[node.name] || new Set()).add(fn);
+        const w = (readers[file] = readers[file] || {});
+        const t = (w[node.name] = w[node.name] || {});
+        t[fn] = (t[fn] || 0) + 1;
       }
       for (const k of Object.keys(node)) {
         const v = node[k];
@@ -1975,59 +2057,64 @@ function engineReaders() {
     };
     walk(ast, null, null, '(top level)');
   }
-  return { counts, where };
+  return readers;
 }
+// The reads per function, ENGINE_READERS against the tree: one line per
+// function whose count moved. A count kept the same by a read added in one
+// place and removed in another still moves two functions, unless both are in
+// the same one.
 function engineReadersCheck() {
-  const { counts, where } = engineReaders();
+  const readers = engineReaders();
   const diffs = [];
-  for (const file of [...new Set([...Object.keys(ENGINE_READERS), ...Object.keys(counts)])].sort())
+  let total = 0;
+  for (const file of [...new Set([...Object.keys(ENGINE_READERS), ...Object.keys(readers)])].sort())
     for (const t of ENGINE_TABLES) {
-      const want = (ENGINE_READERS[file] || {})[t] || 0,
-        got = (counts[file] || {})[t] || 0;
-      if (want !== got)
-        diffs.push(
-          `${file} ${t} ${want} → ${got}${got ? ` (read in ${[...where[file][t]].join(', ')})` : ''}`
-        );
+      const want = (ENGINE_READERS[file] || {})[t] || {},
+        got = (readers[file] || {})[t] || {};
+      for (const fn of [...new Set([...Object.keys(want), ...Object.keys(got)])].sort()) {
+        total += got[fn] || 0;
+        if ((want[fn] || 0) !== (got[fn] || 0))
+          diffs.push(`${file} ${t} in ${fn}: ${want[fn] || 0} → ${got[fn] || 0}`);
+      }
     }
   if (diffs.length)
     fail(
       `engine E6: the direct reads of the engine tables changed: ${diffs.join('; ')}. A reader must run only once the instrument data has loaded (behind _engineLive, Engine.ensure() or engineReady(), or on a card); review it, then regenerate ENGINE_READERS with node scripts/check_lazy_app.js --print-readers`
     );
-  const total = Object.values(counts).reduce(
-    (s, c) => s + Object.values(c).reduce((a, b) => a + b, 0),
-    0
-  );
-  if (!diffs.length)
-    note(`engine E6: ${total} direct reads in ${Object.keys(counts).length} files, as listed`);
+  else
+    note(
+      `engine E6: ${total} direct reads in ${Object.keys(readers).length} files, each in the function listed`
+    );
   return total;
 }
 function printReaders() {
-  const { counts, where } = engineReaders();
-  console.log(`const ENGINE_READERS = ${JSON.stringify(counts, null, 2)};`);
-  for (const [file, w] of Object.entries(where))
-    for (const [t, fns] of Object.entries(w))
-      console.log(`// ${file} ${t}: ${[...fns].join(', ')}`);
+  console.log(`const ENGINE_READERS = ${JSON.stringify(engineReaders(), null, 2)};`);
 }
 
+// The checks --checks selected (all by default), each in its own boot, three
+// at a time beside the embedded reference; E2 alone after them (it counts
+// every unhandled rejection in this process).
 async function engineSection(embedHtml, lazyHtml) {
-  const reads = engineReadersCheck();
+  const on = (id) => ONLY_CHECKS.includes(id);
+  const reads = on('E6') ? engineReadersCheck() : null;
   const refP = engineReference(embedHtml);
   const guard = (name, run) => () =>
     run().catch((e) => fail(`engine ${name}: harness error: ${(e && e.message) || e}`));
+  const tasks = {
+    E0: [guard('E0', () => engineE0(lazyHtml))],
+    E1: [guard('E1', () => engineE1(lazyHtml, refP))],
+    E3: E3_STEPS.map((s) => guard(`E3 (${s[0]})`, () => engineAction(lazyHtml, s, refP))),
+    E4: [guard('E4', () => engineSimilar(lazyHtml, refP))],
+    E5: [guard('E5', () => engineSearch(lazyHtml, refP))],
+  };
   await Promise.all([
     refP,
     pool(
-      [
-        guard('E0', () => engineE0(lazyHtml)),
-        guard('E1', () => engineE1(lazyHtml, refP)),
-        ...E3_STEPS.map((s) => guard(`E3 (${s[0]})`, () => engineAction(lazyHtml, s, refP))),
-        guard('E4', () => engineSimilar(lazyHtml, refP)),
-        guard('E5', () => engineSearch(lazyHtml, refP)),
-      ],
+      Object.entries(tasks).flatMap(([id, t]) => (on(id) ? t : [])),
       3
     ),
   ]);
-  const clicks = await engineSweep(lazyHtml);
+  const clicks = on('E2') ? await engineSweep(lazyHtml) : null;
   return { clicks, reads };
 }
 
@@ -2395,8 +2482,18 @@ async function engineStale(lazyHtml) {
   }
   if (ONLY.includes('engine')) {
     const e = await engineSection(embedHtml, lazyHtml);
+    const said = {
+      E0: 'E0 one request after the first view',
+      E1: 'E1 the index ≡ Inst',
+      E2: `E2 ${e.clicks} clicks with no read`,
+      E3: `E3 ${E3_STEPS.length} actions wait then match`,
+      E4: 'E4 similar view',
+      E5: 'E5 search',
+      E6: `E6 ${e.reads} direct reads, each in the function listed`,
+    };
+    const checks = ENGINE_CHECKS.filter((id) => ONLY_CHECKS.includes(id));
     ran.push(
-      `the instrument data held (E0 one request after the first view, E1 the index ≡ Inst, E2 ${e.clicks} clicks with no read, E3 ${E3_STEPS.length} actions wait then match, E4 similar view, E5 search, E6 ${e.reads} direct reads as listed)`
+      `the instrument data held (${checks.map((id) => said[id]).join(', ')}${checks.length < ENGINE_CHECKS.length ? `; --checks ran ${checks.join(',')} of ${ENGINE_CHECKS.length}` : ''})`
     );
   }
   if (ONLY.includes('failure')) {
