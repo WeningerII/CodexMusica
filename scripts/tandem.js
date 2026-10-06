@@ -745,12 +745,18 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
   // The instrument engine is out of the page too: its eight tables load from
   // api/engine.json after the first paint into `let` slots that
   // CODEX_ENGINE_COMMIT fills in one step, and the first view reads names and
-  // families from INSTRUMENT_INDEX. The names are spelled out, not taken from
-  // _page_tables.js's ENGINE_TABLES, so dropping a table from that list cannot
-  // also drop it from this check. This is the artifact's shape; build_html.js
-  // --check proves the slots in a vm, and check_lazy_app.js the behaviour.
-  // The embedded build's app code names CODEX_ENGINE_COMMIT and INSTRUMENT_INDEX
-  // too (behind a typeof), so it is the DECLARATIONS that are looked for.
+  // families from INSTRUMENT_INDEX. The names of the tables that must not be
+  // inline are spelled out, not taken from _page_tables.js's ENGINE_TABLES, so
+  // dropping a table from that list cannot also drop it from this check. The
+  // slots are held to ENGINE_TABLES itself, the list the build declares them
+  // from: one `let` naming exactly those. The page carries the digest of the
+  // tables (CODEX_ENGINE_SHA), and refuses any other api/engine.json, and the
+  // digest of its merge code (CODEX_MERGE_SHA), and ignores a merge plan any
+  // other code wrote; both must be the source's. This is the artifact's shape;
+  // build_html.js --check proves the slots in a vm, and check_lazy_app.js the
+  // behaviour. The embedded build's app code names CODEX_ENGINE_COMMIT and
+  // INSTRUMENT_INDEX too (behind a typeof), so it is the DECLARATIONS that are
+  // looked for.
   const engine = [
     'INSTRUMENT_FAMILY_PARTS',
     'INSTRUMENTS',
@@ -761,7 +767,7 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
     'INSTRUMENT_AXIS_DEFINITIONS',
     'PREFACE_LEXICON',
   ];
-  const carried = engine.filter((n) => new RegExp(`\\bconst ${n}\\s*=`).test(html));
+  const carried = engine.filter((n) => new RegExp(`\\b(?:const|let|var) ${n}\\s*=`).test(html));
   if (carried.length) {
     throw new Error(
       `shipped codex.html embeds engine table(s) ${carried.join(', ')} — they load from api/engine.json`
@@ -775,9 +781,34 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
   if (!/\bconst INSTRUMENT_INDEX\s*=/.test(html)) {
     throw new Error('shipped codex.html missing INSTRUMENT_INDEX — the first view has no names');
   }
+  const P = require('./_page_tables.js');
+  const slots = [...html.matchAll(/\blet\s+([A-Za-z_$][\w$]*(?:\s*,\s*[A-Za-z_$][\w$]*)*)\s*;/g)]
+    .map((m) => m[1].split(/\s*,\s*/))
+    .filter((names) => names.some((n) => P.ENGINE_TABLES.includes(n)));
+  const sorted = (names) => [...names].sort().join(', ');
+  if (slots.length !== 1 || sorted(slots[0]) !== sorted(P.ENGINE_TABLES)) {
+    throw new Error(
+      `shipped codex.html declares the engine slots as ${JSON.stringify(slots)}; want one \`let\` naming ${P.ENGINE_TABLES.join(', ')}`
+    );
+  }
+  const digest = (name) =>
+    (html.match(new RegExp(`\\bconst ${name}\\s*=\\s*["']([0-9a-f]{40})["']`)) || [])[1];
+  const want = {
+    CODEX_ENGINE_SHA: P.engineSha(P.engineTables(path.join(ROOT, 'references'))),
+    CODEX_MERGE_SHA: P.mergeSha(),
+  };
+  for (const [name, sha] of Object.entries(want)) {
+    const got = digest(name);
+    if (!got) throw new Error(`shipped codex.html missing ${name} — a 40-hex digest`);
+    if (got !== sha)
+      throw new Error(
+        `shipped codex.html's ${name} is ${got}; the source's is ${sha} — rebuild it`
+      );
+  }
   return (
     'no TRADITIONS/TRADITION_EXTRAS or engine tables in page; boots from ' +
-    'api/browse_boot.json, the engine from api/engine.json'
+    `api/browse_boot.json, the engine from api/engine.json into one \`let\` of ${slots[0].length} slots, ` +
+    "its digests the source's"
   );
 });
 check('JS parseable (vm.Script syntax check)', () => {
