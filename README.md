@@ -14,9 +14,10 @@ single-file memory ceiling. A fully-embedded single-file variant (`--embedded`) 
 builds, and a gate proves the shell behaves identically to it once the genre
 descriptions and the instrument data have loaded. Both follow the first view, which
 needs only a small boot index (a saved recipe waits for the instrument data before it
-is drawn); until they land, a description or instrument list the page shows is marked
-as loading, never as missing, a search says it matched names only, and an action that
-needs the instrument data waits for it instead of acting without it.
+is drawn, and asks for it as the page loads); until they land, a description or
+instrument list the page shows is marked as loading, never as missing, a search says
+it matched names only, and an action that needs the instrument data waits for it
+instead of acting without it.
 <!-- @promise: lazy-shell-parity --> The page
 ships minified, and a second gate proves that reprinting it changed no behaviour —
 both builds are made from the same source in one run and compared.

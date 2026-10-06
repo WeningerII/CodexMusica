@@ -3,14 +3,15 @@
 // gzip budgets.
 //
 // Step 9 took the instrument engine out of the lazy codex.html: the page went
-// from 1,155,985 B gzipped to about 496,000, and the engine tables became one
-// internal file, api/engine.json, fetched after the first paint. Nothing else
-// holds the page to that size. build_html --check caps each <script> block at
-// the renderer's 1 MiB parse ceiling and proves the engine slots are empty, and
-// check_lazy_app proves the first view reads none of the engine tables; all of
-// it passes on a page that has regrown by hundreds of kilobytes of something
-// else: the glyph artwork or the photo table back inline, a new runtime
-// module, a comment. This gate measures the bytes themselves.
+// from 1,155,985 B gzipped to 497,816, and the engine tables became one
+// internal file, api/engine.json, asked for at the first paint (from <head>
+// when a saved session needs it to draw). Nothing else holds the page to that
+// size. build_html --check caps each <script> block at the renderer's 1 MiB
+// parse ceiling and proves the engine slots are empty, and check_lazy_app
+// proves the first view makes no engine accessor read; all of it passes on a
+// page that has regrown by hundreds of kilobytes of something else: the glyph
+// artwork or the photo table back inline, a new runtime module, a comment.
+// This gate measures the bytes themselves.
 //
 // THE FOUR BUDGETS, in bytes after Node zlib level 6 (gzip -6: zlib's default
 // level, and the one the step-9 measurements were taken at). What a host sends
@@ -32,23 +33,25 @@
 //                first draw and every action that creates a card wait for it
 //                (Engine in src/app.js)
 //
-// WHERE THE NUMBERS CAME FROM. Measured on the step-9 prototype, 2026-10-06:
-// page 496,286, critical 731,824, inline-data 106,721, engine 713,289. Each
-// limit is that figure plus headroom, rounded up to a multiple of 20 KiB. The
-// page's 77,154 B of headroom is less than either table the lazy page fetches
-// instead of carrying would add back (api/instrument_images.json is 93,173 B
-// gzipped, api/nav_glyphs.json 264,619). The step-8 page, with the engine
-// inline, measures 1,155,985 / 1,391,523 / 769,171 and has no engine file; it
-// fails here, and must.
+// WHERE THE NUMBERS CAME FROM. Each limit is the step-9 prototype's figure
+// (2026-10-06: page 496,286, critical 731,824, inline-data 106,721, engine
+// 713,289) plus headroom, rounded up to a multiple of 20 KiB. Step 9 as built
+// measures page 497,816, critical 733,354, inline-data 106,770, engine 653,116.
+// The page's 75,624 B of headroom is less than either table the lazy page
+// fetches instead of carrying would add back (api/instrument_images.json is
+// 93,173 B gzipped, api/nav_glyphs.json 264,619). The step-8 page, with the
+// engine inline, measures 1,155,985 / 1,391,523 / 769,171 and has no engine
+// file; it fails here, and must.
 //
 // RAISING A BUDGET NEEDS A CITED LIGHTHOUSE RUN. A limit here moves up only in
 // a commit that cites, beside the new number, a Lighthouse mobile run of the
-// page at its new size, taken as step 9's were: the Lighthouse version, n >= 5
-// interleaved runs reported as medians, and the step-8 head and a never-boots
-// control in the same session. Step 9's reference point: Lighthouse 13.5.0
-// mobile against a local gzip-6 server, a 496,676 B page transfer, FCP 3.07 s,
-// LCP 5.10 s, TBT 1.75 s, score 0.49. A bigger number with no run behind it is
-// how a budget stops being one. Lowering a limit needs nothing.
+// page at its new size, taken as the step-9 prototype's were: the Lighthouse
+// version, n >= 5 interleaved runs reported as medians, and the step-8 head
+// and a never-boots control in the same session. Step 9's reference point:
+// Lighthouse 13.5 mobile, simulated throttling, against a local gzip-6 server,
+// medians of 5, the 497,816 B page above: FCP 3.11 s, LCP 4.73 s, TBT 1.28 s,
+// TTI 5.62 s, score 0.53. A bigger number with no run behind it is how a
+// budget stops being one. Lowering a limit needs nothing.
 //
 // THE SHAPE COMES FIRST. The budgets describe the lazy shell with its engine
 // block, so they are refused, with exit 2, for any other page: one without the

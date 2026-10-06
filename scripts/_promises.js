@@ -104,7 +104,7 @@ module.exports = [
     doc: 'README.md',
     gate: 'check_lazy_app.js',
     claim:
-      'the shipped lazy shell behaves identically to the embedded build once the genre descriptions and the instrument data have loaded; before then it draws its first view from the boot index alone (a saved recipe waits for the instrument data before it is drawn), a description or instrument list it shows is marked as loading, never as missing, a search says it matched names only, and an action that needs the instrument data waits for it instead of acting without it',
+      'the shipped lazy shell behaves identically to the embedded build once the genre descriptions and the instrument data have loaded; before then it draws its first view from the boot index alone (a saved recipe waits for the instrument data before it is drawn, and asks for it as the page loads), a description or instrument list it shows is marked as loading, never as missing, a search says it matched names only, and an action that needs the instrument data waits for it instead of acting without it',
     doc_terms: [
       'once the genre descriptions and the instrument data have loaded',
       'never as missing',

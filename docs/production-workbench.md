@@ -42,9 +42,12 @@ writers must durably preserve the compact continuation before changing state.
   transfers, concurrent saves and failure-injected AI/storage boundaries.
 - `scripts/check_lazy_app.js` compares the lazy shell's first view with the genre
   descriptions and the instrument engine (`api/engine.json`) held back (ten starting
-  states, the Instrument page among them; the first view reads none of the engine, and
-  a restored recipe waits for it), the window before they arrive and the page once
-  they land in place, every action that needs the engine waiting for it, then the
+  states, the Instrument page among them; the first view makes no engine accessor
+  read and requests nothing that waits for the engine's bytes, and a restored recipe
+  asks for the engine from `<head>`, exactly when the app needs it at boot, and waits
+  for it), the window before they arrive and the page once they land in place, every
+  action that needs the engine waiting for it and then doing what was asked, the
+  engine's merge plan, and an unreachable, stale or truncated engine file, then the
   complete catalogs, picker DOM, imports, recipes and failed-fetch behavior against
   the embedded build.
 - `scripts/check_mobile_layout.js` retains the native viewport, touch target,

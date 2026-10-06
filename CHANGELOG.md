@@ -11,73 +11,221 @@ All notable changes to this project are recorded here. Format loosely follows
 The instrument engine is `INSTRUMENTS` with their parts and variants, the family parts,
 `ROOMS`, `ROOM_CLUSTERS`, `CHAIN_SECTIONS`, `TUNINGS`, `INSTRUMENT_AXIS_DEFINITIONS` and
 `PREFACE_LEXICON`. It was 77% of the lazy page's inline data, and the first view reads
-none of it but instrument names and families. The lazy `codex.html` is now 1,774,610
-bytes, not 4,498,109: 496,450 B gzipped (Node zlib level 6), not 1,155,985. The page and
-the boot index, all the first view waits for, are 731,988 B gzipped, not 1,391,523. The
-embedded build is unchanged and still carries every table.
+none of it but instrument names and families. The lazy `codex.html` is now 1,778,974
+bytes, not 4,498,109: 497,816 B gzipped (Node zlib level 6), not 1,155,985. The page and
+the boot index, all the first view waits for without a saved session, are 733,354 B
+gzipped, not 1,391,523. The embedded build is unchanged and still carries every table.
 
 - **One internal file holds the engine** (`scripts/_page_tables.js` derives it;
   `scripts/check_api.js` holds it byte for byte and keeps it out of `api/index.json`):
-  `api/engine.json` (713,371 B gzipped) is the page's copy of references 01, 02, 03 and
-  07, unmerged and page-stripped, one JSON element per line. The page keeps an empty
-  `let` slot per table, `CODEX_ENGINE_COMMIT` (fills every slot in one step), the file's
-  digest, and `INSTRUMENT_INDEX`: each instrument's id, name, family and short name, 43 KB
-  gzipped, which is all the first view reads.
-- **After the first paint** the page fetches the engine and checks it against its digest
-  and its instrument index; a file from another deploy is refused as stale. It parses a
-  line per idle slice, merges the family parts, indexes and sorts on local objects, then
-  commits: the tables go from absent to whole, never half-filled. Until then `Inst`,
-  `Room`, `Tuning`, `ChainItem` and `Variant` throw a counted `EngineNotReadyError`;
-  nothing answers "unknown".
-- **The background prose prefetch now follows the engine's bytes**: `api/browse_prose.json`
-  is requested once `api/engine.json` has arrived (or failed), so the two do not share a
-  slow link. A reader that needs the prose sooner (a genre opened without it, a search,
-  the tree, a deep link outside the starters) still asks for it at once.
+  `api/engine.json` is the page's copy of references 01, 02, 03 and 07, unmerged and
+  page-stripped, one JSON element per line. The page keeps an empty `let` slot per
+  table, `CODEX_ENGINE_COMMIT` (fills every slot in one step), the file's digest
+  (`CODEX_ENGINE_SHA`), the digest of its merge code (`CODEX_MERGE_SHA`), and
+  `INSTRUMENT_INDEX`: each instrument's id, name, family and short name, 43 KB gzipped,
+  which is all the first view reads.
+- **The file leaves out what the page already has or never reads**, and is 653,116 B
+  gzipped, not 713,371 as first committed. Instruments' `description` and `sources` are
+  dropped (the page shows neither; the published per-instrument files and the CLI keep
+  them). Each instrument's id, name, family and short are written as 0 (`INDEX_FIELDS`)
+  and filled back by position from `INSTRUMENT_INDEX`; the keys stay, so every
+  instrument keeps its key order.
+- **The file carries the merge plan** (`MERGE_PLAN`): the family-parts merge's
+  universal-material choices for its four kinds, by position (the parts each kind
+  targets and the variants it collects). `scripts/_merge.js` writes it at build time,
+  and `scripts/_page_tables.js` proves that the merge with the plan builds the same
+  objects as the merge without it before the file is written. The page passes the plan
+  to the same merge, which then skips its predicate passes. It uses the plan only when
+  its own merge code has the digest that wrote it (`CODEX_MERGE_SHA`); otherwise it
+  merges the long way, to the same result. The lending pass now subtracts each part's
+  held union positions as slices and reuses the collection pass's target set; Node
+  callers pass no plan and get the same objects.
+- **When the page asks for it.** At the first paint (`Engine.start`, from
+  `uiAfterPaint`), or sooner when an action needs it (`Engine.ensure`). With a saved
+  session that has cards, from `<head>`: `src/engine_preload.js`, inlined right after
+  the boot index's preload, adds one
+  `<link rel="preload" as="fetch" crossorigin="anonymous">` for the URL app.js fetches,
+  so the file travels with the page rather than after app.js has run; app.js decides
+  again when it runs (`ENGINE_AT_BOOT`). In Chromium, app.js's fetch reuses the
+  preloaded response, and the file is downloaded once. Reuse in Firefox and Safari has
+  not been verified; a browser that does not reuse it downloads `api/engine.json` twice
+  for a saved session.
+- **Loading.** The page checks the file against its digest and its instrument index: a
+  file from another deploy is refused as stale, and a file cut short (its closing line,
+  or a table its header names, missing) as a load failure that can be retried. A copy
+  with CRLF line endings reads the same (the file is `-text` in `.gitattributes`). The
+  page parses a line per idle slice, fills the index fields back, merges the family
+  parts with the plan, indexes and sorts on local objects, then commits: the tables go
+  from absent to whole, never half-filled. Each instrument's variant index is built the
+  first time `Variant` asks for it, not during the load (531,741 merged variant slots).
+  Until the commit, `Inst`, `Room`, `Tuning`, `ChainItem` and `Variant` throw a counted
+  `EngineNotReadyError`; nothing answers "unknown".
+- **Nothing shares the link with the engine's bytes.** The background prose prefetch
+  (`api/browse_prose.json`), the genre page's place names (`data/atlas-geo.json`) and
+  photos (`api/tradition_images.json`), and the Instrument page's photo table
+  (`api/instrument_images.json`) are requested once `api/engine.json` has arrived or
+  failed (`Engine.fetched()`; at once in the embedded build). A reader that needs the
+  prose sooner (a genre opened without it, a search, the tree, a deep link outside the
+  starters) still asks for it at once.
 - **Before the engine lands, nothing acts without it and nothing calls it missing.** An
   action that creates or checks cards (adding a genre or an instrument, opening a saved
-  session, import, "Use recipe") says "Preparing the instrument data…" and waits. The
+  session, import, "Use recipe") or shows one instrument (Inspect) says "Preparing the
+  instrument data…" for the whole wait, then does what was asked: an Add sent to a genre
+  stays in that genre even if the header's Add instrument is clicked meanwhile, and a
+  deferred Inspect carries on only if the reader is still on the Instrument page. The
   Instrument page and the similar view's instruments that fit say they are loading, or
-  that they could not load, with Retry. A failed load says "Could not load the instrument
-  data — check your connection", with Retry; a stale file, "This page is out of date.
-  Reload to load the matching instrument data.", with Reload. A failed load is retried by
-  an action, Retry or the browser coming back online, never on a timer.
-- **The early-Add trade-off.** An Add clicked as soon as the first view is drawn now waits
-  for the engine, then creates the same cards. Under applied slow 4G and 4x CPU it waited
-  9.9 s after the click, against 1.25 s with the engine inline, and completed 17.0 s after
-  navigation, not 12.5 s. In exchange the first view comes at 5.9 s, not 10.2 s, and the
-  engine is ready at 18.2 s with nobody waiting.
-- **A saved recipe holds the boot until the engine lands**, so it is drawn whole: its
-  first draw comes 2.2 s later under the same throttling (12.6 s, against 10.4 s). A
-  restore that misses the engine is a boot error that names `api/engine.json`; nothing is
-  written, and the session stays saved in the browser.
+  that they could not load, with Retry. A failed load says "Could not load the
+  instrument data — check your connection", with a Retry that redoes the action. A stale
+  file says "This page is out of date. Reload to load the matching instrument data.",
+  with Reload alone, and the Instrument page and the similar view say "This page is out
+  of date for the instrument data.", with Reload, never Retry. A failed load is retried
+  by an action, Retry or the browser coming back online, never on a timer.
+- **An Add asks for its genre's record beside the engine, not after it**
+  (`importTraditionWithFeedback`), so on a slow link the two waits overlap. A record
+  that fails is reported, with Retry, once the engine is in, and no card is made.
+- **A saved recipe holds the boot until the engine lands**, so it is drawn whole. A
+  restore that misses the engine is a boot error that names `api/engine.json` and its
+  cause: the file failed to load, it is another deploy's, or the restore reached the
+  engine before it loaded. Nothing is written, and the session stays saved in the
+  browser. Once the boot index lands, the boot looks again for a saved session, in case
+  another tab saved one meanwhile.
 - **The preface datalist** fills when a card's preface section first draws, in both
   builds, rather than at start-up.
-- **Gates.** `build_html.js --check` asserts the eight slots by name in a lazy page (no
-  table carried) and none of the lazy names in the embedded one, checks `INSTRUMENT_INDEX`
-  and the digest against their derivation and that `CODEX_ENGINE_COMMIT` fills each slot,
-  and prints the page's gzip size. `check_lazy_app.js` holds the engine back in every
-  first view (ten now: the nine before, and the Instrument page by its route) and in the
-  window: zero engine reads, the engine requested after the first view, the prose after
-  the engine's bytes, and a restored session waiting at the boot status. Its parity
-  section fingerprints the merged engine in both builds; a new `engine` section boots
-  each action that needs the engine with it held (each waits, then matches the embedded
-  build), sweeps every control for an engine read, and counts the direct readers of the
-  eight tables; `failure` adds the engine unreachable, with and without a saved session,
-  and a stale file. `check_payload_budget.js` (new; `npm run check:budget`, and CI's
-  freshness job) holds the page, the page with the boot index, the inline data and
-  `api/engine.json` to gzip budgets. `check_ui_foundation.js` and
-  `check_mobile_layout.js` wait for the engine as they wait for the prose, and
-  `tandem.js` asserts the shipped page carries the slots, `CODEX_ENGINE_COMMIT` and
-  `INSTRUMENT_INDEX`, not the tables. The `lazy-shell-parity` promise now says "once the
-  genre descriptions and the instrument data have loaded" and that an action that needs
-  the instrument data "waits for it instead of acting without it", bound with
-  `doc_terms`.
-- **Measured on the step-9 prototype; to be re-measured on this branch.** Lighthouse
-  13.5.0 mobile, a local gzip-6 server, medians of 5 or more interleaved runs, against
-  the step-8 head: score 0.30 → 0.49, first contentful paint 6.36 → 3.07 s, largest
-  contentful paint 7.73 → 5.10 s, total blocking time 3.81 → 1.75 s. The
-  applied-throttling times above are the prototype's too. The sizes above are this
-  branch's.
+- **Gates.**
+  - `build_html.js --check` asserts the eight slots by name in a lazy page (no table
+    carried) and none of the lazy names in the embedded one, checks `INSTRUMENT_INDEX`
+    and the digest against their derivation and that `CODEX_ENGINE_COMMIT` fills each
+    slot, and prints the page's gzip size. It holds the head preload to one `<script>`,
+    right after the boot index's link, which over a fixed table of 12 stored states adds
+    exactly one link (`rel=preload`, `as=fetch`, `crossorigin=anonymous`, the URL
+    `Engine` fetches) when the first stored session has a card, and nothing otherwise.
+    CI's `verify` job now runs the embedded build's `--check` as well
+    (`npm run build:html:embedded`, to `$RUNNER_TEMP`); nothing in CI ran it before.
+  - `check_api.js` holds `api/engine.json` byte for byte to what
+    `scripts/_page_tables.js` derives, requires its merge plan to come from the merge
+    code in `scripts/_merge.js`, and keeps it out of `api/index.json`.
+  - `check_lazy_app.js`, first view: ten states now (the nine before, and the Instrument
+    page by its route), with the engine held. The first view makes no engine accessor
+    read and requests the engine after it is drawn. Over the whole boot, restored
+    sessions included, nothing that waits for the engine's bytes (the prose prefetch,
+    `data/atlas-geo.json`, `api/tradition_images.json`, `api/instrument_images.json`) is
+    requested before them; the non-starter deep link's prose is the one exception, asked
+    for by its reader. A restored session waits at the boot status and has exactly one
+    preload (`as=fetch`, `crossorigin=anonymous`, the URL of the one engine request); no
+    other first view has one. The `<head>` preload is held to app.js's own
+    `ENGINE_AT_BOOT` over 16 stored states (12 kinds, storage refused among them, plus
+    one per key `storedSessionText` reads in the shipped page; 8 of them preload): it
+    preloads exactly when app.js asks for the engine at boot, and app.js then makes one
+    request, for the preload's URL. A key that app.js reads and `<head>` does not fails
+    by name.
+  - `check_lazy_app.js`, parity: a fingerprint of the merged engine in both builds, and
+    the fetch discipline (one boot index; one engine file, its `?v=` the header digest's
+    prefix; one prose file, after the engine's body; no `api/browse.json`).
+  - `check_lazy_app.js`, a new `engine` section, E0–E10, each check booting its own lazy
+    page with the engine held. E0: one engine request, after the first view, and no
+    prose or optional download while it is held. E1: `InstLite` against `Inst`. E2: a
+    click sweep across every route, with no engine accessor read, no optional download,
+    and never "0 instruments" or "Unknown instrument". E3: eight actions wait, then
+    match the embedded build. E4: the similar view. E5: instrument search. E6: a census
+    of the direct reads of the eight tables per file, per table and per enclosing
+    function (`ENGINE_READERS`: 75 reads in `src/app.js`, `src/pages/instrument.js` and
+    `src/workbench.js`, regenerated with `--print-readers`); a read added in one
+    function and removed from another fails, which a per-table count would pass. E7: a
+    wait keeps what was asked (an Add to the featured genre still says "Added voice to
+    Delta blues" when the header's Add instrument is clicked during the wait; a deferred
+    Inspect leaves a reader on Lyrics, with no new history entry; "Preparing the
+    instrument data…" is still up 3.5 s into a wait, and down once it ends). E8: an Add
+    asks for its genre's record during the wait, exactly once; a record lost to a
+    network failure is reported only after the engine is in, with Retry, and makes no
+    card. E9: the merge plan, counted through `mergeFamilyPartsSteps`: the page as built
+    takes no predicate pass for any of the four kinds (8,335 steps over 1,667
+    instruments), a copy whose `CODEX_MERGE_SHA` is another digest merges the long way
+    (15,003 steps), and both merge to the embedded build's engine. E10: a CRLF copy of
+    the file loads to the embedded build's engine. `--checks=E1,E3,…` runs some of them,
+    for fault classes; an unknown id, or `--checks` with the engine section left out,
+    exits 2, and the summary names the checks that ran.
+  - `check_lazy_app.js`, `failure`, F4a–F4f. F4a: the engine unreachable with no saved
+    session: the first view stands, with one request and none on a timer; adding a
+    genre, adding an instrument and an import each make one more request and show the
+    connection error with Retry; the Instrument page says it could not load, with a
+    Retry that asks once more. F4b, F4c with a saved session, and F4f: the boot error's
+    exact words for each cause (the file unreachable; another deploy's file; a session
+    written in the instant after the boot's last look, so the restore reaches the engine
+    before it loads). F4c: a stale file is refused with every slot empty; the Instrument
+    page and the similar view offer Reload, never Retry, and the Add's toast offers
+    Reload alone. F4d: a file cut short before its last table, without its closing line,
+    or without a table's line, is refused as a load failure, not as stale, with every
+    slot empty; an Add then shows the connection error with Retry. F4e: another deploy's
+    index (one instrument fewer than `INSTRUMENT_INDEX`, an index field not 0, other
+    `index_fields`) is refused as stale, with every slot empty. Each new check fails
+    with its own sentence when the fix it guards is reverted in a scratch copy (27
+    planted defects). A harness crash now prints the problems recorded before it.
+  - `check_payload_budget.js` (new; `npm run check:budget`, `test:serial`, and CI's
+    freshness job) holds four gzip budgets: the page (573,440 B), the page with the boot
+    index (778,240 B), the inline data (143,360 B) and `api/engine.json` (778,240 B). A
+    limit moves up only in a commit that cites a Lighthouse run.
+  - `check_ui_foundation.js` and `check_mobile_layout.js` wait for the engine as they
+    wait for the prose. `tandem.js` asserts that the shipped page declares one `let`
+    naming exactly `ENGINE_TABLES` and no engine table with a value (by `const`, `let`
+    or `var`), and carries `CODEX_ENGINE_COMMIT`, `INSTRUMENT_INDEX`, and
+    `CODEX_ENGINE_SHA` and `CODEX_MERGE_SHA` equal to the source's digests.
+  - `faults.js` has 30 classes for the split, 85 in all (55 before it). 9i–9w:
+    engine-desync, engine-read-in-first-view, restore-without-engine,
+    action-without-engine, engine-before-first-paint, sort-before-merge,
+    similar-before-engine, engine-retry-loop, engine-skew-accepted, engine-in-page,
+    engine-file-drift, page-over-budget, index-drift, prose-not-sequenced and
+    prose-starved. 9ta–9tc: one for each other payload budget. 9x–9z and 9zi: the head
+    preload disagreeing with app.js, unused, joined by a second preload script, and
+    dropped. 9za–9zd: an Inspect without the engine (E2), a count while pending (E5), a
+    table reader moved (E6), the boot error unmarked (F4b). 9ze: a misordered merge plan
+    (parity's fingerprint). 9zf: a lending pass that drops its tail (`check_api.js`;
+    neither the merge plan's proof nor a comparison of the two builds can see it, as
+    both sides run the same merge code). 9zg: the genre's record requested after the
+    wait (E8). 9zh: an optional download before the engine (E0). Each engine class runs
+    only its own check. `--only=ID,…` runs the classes named, by number or by name; an
+    unknown id, or a selection where nothing can run, exits 2, and a partial run never
+    asserts completeness. Temporary copies are removed as each class records and at exit
+    (`--keep` keeps them); a full run had been leaving about 16 GB in /tmp. A full run
+    on this tree (`--fresh-api=api --fresh-html=codex.html`) catches all 85, 0 escapes,
+    in 1,637 s locally.
+  - CI's freshness job may now run 45 minutes, not 30. PR #501's run took 22m43s (the
+    cold build 11m54s, fault injection 9m49s). A full local run of this tree's faults
+    took 1,712 s; at the 1.46x local/CI ratio of the cold build, that is about 19.5
+    minutes in CI, and about 32.5 minutes for the job cold. The first step-9 run's own
+    figure replaces the estimate. Fault injection runs unless the run was cancelled
+    (`!cancelled()`), so a budget failure or a reproducibility diff does not hide the
+    fault verdicts; with no fresh build to inject into, it says so and fails at once.
+  - The `lazy-shell-parity` promise now says "once the genre descriptions and the
+    instrument data have loaded", that a saved recipe "waits for the instrument data"
+    and asks for it as the page loads, and that an action that needs the instrument data
+    "waits for it instead of acting without it", bound with `doc_terms`.
+
+**Measured** on this branch, against the step-8 head and the split as first committed
+(before the early-Add work). The slow phone is throttling applied through the DevTools
+protocol: 562.5 ms latency, 1.47 Mbps down, 4x CPU, Lighthouse's mobile viewport, a
+local gzip server; medians of 3 to 6 runs. Typical 4G is 170 ms, 9 Mbps and 4x CPU, 2
+runs each. Lighthouse is 13.5 mobile with simulated throttling, median of 5. Times are
+from navigation; the early Add is issued 1 s after the first view is drawn.
+
+| | step-8 head | split, as first committed | this branch |
+|---|---|---|---|
+| slow phone: first view | 10.1 s | 5.8 s | 5.6 s |
+| slow phone: engine ready, nobody waiting | with the page | not measured | 10.6 s |
+| slow phone: early Add done (its visible wait) | 12.4 s (1.35 s) | 16.2 s (9.4 s) | 11.2 s (4.4 s) |
+| slow phone: saved session drawn | 10.1 s | 12.5 s | 9.7 s |
+| typical 4G: early Add done | 8.1 s | 8.1 s | 5.2 s |
+| typical 4G: saved session drawn | 5.7 s | not measured | 3.8 s |
+| Lighthouse score | 0.30 | 0.49 | 0.53 |
+| first contentful paint | 6.40 s | 3.11 s | 3.11 s |
+| largest contentful paint | 8.0 s | 5.19 s | 4.73 s |
+| total blocking time | 3.2–3.7 s | 1.55 s | 1.28 s |
+| time to interactive | 11.0 s | 5.9 s | 5.62 s |
+
+What it costs: the genre page's photos and place names wait for the engine's bytes. On
+the slow phone they finish at 14.5 s and 12.9 s: about when they did before the split
+(14.7 s and 13.2 s), and about 4 s later than on the split as first committed. An early
+Add still waits 4.4 s, against 1.35 s with the engine in the page, because it is bound
+by the engine's bytes, which land at about 9.8 s.
 
 ### Changed — the lazy shell's first view waits for 0.24 MB of catalog, not 2.1 MB
 
