@@ -39,6 +39,18 @@
 //   index drift         -> check_lazy_app.js  (the page's instrument index differs from the engine)
 //   prose not sequenced -> check_lazy_app.js  (the prose prefetch shares the link with the engine)
 //   prose starved       -> check_lazy_app.js  (a failed engine request holds the prose back for good)
+//   engine preload disagrees -> check_lazy_app.js (<head> and app.js read a saved session differently)
+//   engine preload unused -> check_lazy_app.js (<head> preloads a URL the app does not fetch)
+//   preload by script   -> build_html.js --check (a second script preloads beside the engine's)
+//   inspect without engine -> check_lazy_app.js (an Inspect reads the empty engine slots)
+//   count while pending -> check_lazy_app.js  (the Instrument page counts "0 instruments" before they land)
+//   engine reader moved -> check_lazy_app.js  (a direct engine read moves to a function nobody reviewed)
+//   boot error unmarked -> check_lazy_app.js  (a saved session's engine failure loses its marker)
+//   merge plan misordered -> check_lazy_app.js (the page lends variants in an order the plan got wrong)
+//   lending drops tail  -> check_api.js       (the merge stops lending; configs name variants that are gone)
+//   record after wait   -> check_lazy_app.js  (an Add asks for its genre's record only after the engine)
+//   optional before engine -> check_lazy_app.js (the genre page's optional files race the engine)
+//   engine preload dropped -> build_html.js --check (the page ships without the saved session's preload)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -480,7 +492,7 @@ if (want('9h', 'prose-preloaded')) {
   );
 }
 
-// 9i–9w. THE INSTRUMENT ENGINE OUTSIDE THE LAZY PAGE. The lazy codex.html
+// 9i–9zi. THE INSTRUMENT ENGINE OUTSIDE THE LAZY PAGE. The lazy codex.html
 //     carries an empty slot for each of the eight engine tables, an index of
 //     instrument names (INSTRUMENT_INDEX) and the digest of api/engine.json,
 //     and fills the slots from that file after its first paint. Each class
@@ -489,7 +501,10 @@ if (want('9h', 'prose-preloaded')) {
 //     things, and a bare banner would count a catch made for another reason.
 //     Every plant goes through plantIn, which throws when its anchor is gone,
 //     so a class whose code moved stops the run instead of recording a pass
-//     for a fault that was never planted.
+//     for a fault that was never planted. A class planted for one check of the
+//     engine section runs that check alone (check_lazy_app --checks): the
+//     section's other checks, a boot each, would re-prove what other classes
+//     prove, and the freshness job pays for every boot.
 function plantIn(d, rel, find, replace) {
   const f = path.join(d, rel);
   const src = fs.readFileSync(f, 'utf8');
@@ -574,12 +589,12 @@ if (want('9l', 'action-without-engine')) {
   plantIn(
     d,
     'src/app.js',
-    'async function addInstrumentFromPicker(instrumentId, opts) {\n  if (!_engineLive && !(await engineReady())) return null;',
-    'async function addInstrumentFromPicker(instrumentId, opts) {'
+    '  if (!_engineLive && !(await engineReady(opts && opts.retry))) return null;\n',
+    ''
   );
   record(
     'action-without-engine -> check_lazy_app.js',
-    lazyGate(d, '--only=engine'),
+    lazyGate(d, '--only=engine', '--checks=E3'),
     /engine E3 \(add an instrument on its own\): .*before the instrument data landed — an action must wait for it/
   );
 }
@@ -643,7 +658,7 @@ if (want('9o', 'similar-before-engine')) {
   );
   record(
     'similar-before-engine -> check_lazy_app.js',
-    lazyGate(d, '--only=engine'),
+    lazyGate(d, '--only=engine', '--checks=E4'),
     /engine E4: the similar view before the instrument data/
   );
 }
@@ -777,7 +792,7 @@ if (want('9u', 'index-drift')) {
   );
   record(
     'index-drift -> check_lazy_app.js',
-    lazyGate(d, '--only=engine'),
+    lazyGate(d, '--only=engine', '--checks=E1'),
     /engine E1: InstLite differs from the embedded Inst/
   );
 }
@@ -814,6 +829,264 @@ if (want('9w', 'prose-starved')) {
     'prose-starved -> check_lazy_app.js',
     lazyGate(d, '--only=failure'),
     /the genre prose did not load within 10 s/
+  );
+}
+
+// 9x. engine-preload-disagrees -> check_lazy_app.js
+//     A saved session's page asks for the engine from <head>
+//     (src/engine_preload.js), by the test app.js applies at boot:
+//     _bootNeedsEngine over storedSessionText's keys. Read differently, a
+//     session that needs the engine starts it late, or a page that never uses
+//     it downloads it during its first view. build_html.js --check runs the
+//     <head> script over a fixed table of keys, so a key dropped there fails
+//     the build; the plant is on the side only check_lazy_app reads, a key
+//     app.js starts to read and <head> does not.
+if (want('9x', 'engine-preload-disagrees')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "localStorage.getItem('musica-study-v1') || null;\n}",
+    "localStorage.getItem('musica-study-v1') || localStorage.getItem('codex-workbench-v2') || null;\n}"
+  );
+  record(
+    'engine-preload-disagrees -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=default'),
+    /engine preload \(codex-workbench-v2 alone\): <head> preloaded \[\], but app\.js asked for the engine at boot/
+  );
+}
+
+// 9y. engine-preload-unused -> check_lazy_app.js
+//     The preload is only worth its bytes if the app's fetch() takes it over,
+//     and that needs the same URL. The plant shortens the build's ?v= key by
+//     one character: build_html.js --check compares the script with the URL
+//     the build computes, so only the app's own request can tell.
+if (want('9y', 'engine-preload-unused')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    'engine.json?v=${ENGINE_SHA.slice(0, 12)}',
+    'engine.json?v=${ENGINE_SHA.slice(0, 11)}'
+  );
+  record(
+    'engine-preload-unused -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=restored'),
+    /first view "restored": want one engine preload in <head> \(as=fetch, crossorigin=anonymous\) for the one URL the app asked for/
+  );
+}
+
+// 9z. preload-by-script -> build_html.js --check
+//     The page's one dynamic preload is the engine's, for a saved session.
+//     Any other script that preloads joins the first view's download unseen
+//     by the static list, so a second script naming "preload" is refused.
+if (want('9z', 'preload-by-script')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'src/app.js',
+    'function storedSessionText() {',
+    "function storedSessionText() { if (!storedSessionText.done) { storedSessionText.done = 1; const l = document.createElement('link'); l.rel = 'preload'; l.as = 'fetch'; l.href = CODEX_LAZY_API + 'browse_prose.json'; document.head.appendChild(l); }"
+  );
+  record(
+    'preload-by-script -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /2 <script> block\(s\) in a lazy page name "preload"/
+  );
+}
+
+// 9za. inspect-without-engine -> check_lazy_app.js  (E2)
+//     Inspecting an instrument reads it, its parts and their variants. Before
+//     the engine lands uiInspectInstrument opens the Instrument page and waits;
+//     without that guard, the genre roster's Inspect reads the empty slots,
+//     which the E2 sweep counts as an engine read.
+if (want('9za', 'inspect-without-engine')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/pages/instrument.js',
+    'function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {\n  if (!_engineLive) {',
+    'function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {\n  if (false) {'
+  );
+  record(
+    'inspect-without-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E2'),
+    /engine E2: on a genre's detail \[data-ui="instrument-inspect"\]: \d+ engine read\(s\)/
+  );
+}
+
+// 9zb. count-while-pending -> check_lazy_app.js  (E5)
+//     The Instrument page's count is INSTRUMENTS.length, and before the
+//     engine lands that is a claim about an empty slot. The pending list
+//     shows no count; the plant shows "0 instruments" there.
+if (want('9zb', 'count-while-pending')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/pages/instrument.js',
+    "  $ui('ip-total').textContent = '';\n",
+    "  $ui('ip-total').textContent = uiCount(0, 'instrument');\n"
+  );
+  record(
+    'count-while-pending -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E5'),
+    /engine E5: a search while the instrument data loads reads .*\(count "0 instruments"\); want the loading state and no count/
+  );
+}
+
+// 9zc. engine-reader-moved -> check_lazy_app.js  (E6)
+//     Every direct read of an engine table is listed in ENGINE_READERS, per
+//     file, table and enclosing function, so a new reader is reviewed for when
+//     it runs. The plant moves one: a top-level read of INSTRUMENTS is added
+//     and findInstrumentsForTradition stops reading it. The table's count is
+//     unchanged, which a census per table would pass.
+if (want('9zc', 'engine-reader-moved')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "if (typeof INSTRUMENTS !== 'undefined') _sortInstruments(INSTRUMENTS);\n",
+    "if (typeof INSTRUMENTS !== 'undefined') _sortInstruments(INSTRUMENTS);\nconst __FAULT__ = !!INSTRUMENTS;\n"
+  );
+  plantIn(
+    d,
+    'src/app.js',
+    '  return INSTRUMENTS\n    .filter(i => !existing.has(i.id) && i.axes)',
+    '  return [..._INST_BY_ID.values()]\n    .filter(i => !existing.has(i.id) && i.axes)'
+  );
+  record(
+    'engine-reader-moved -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E6'),
+    /engine E6: the direct reads of the engine tables changed: src\/app\.js INSTRUMENTS in \(top level\): 3 → 4; src\/app\.js INSTRUMENTS in findInstrumentsForTradition: 1 → 0/
+  );
+}
+
+// 9zd. boot-error-unmarked -> check_lazy_app.js  (F4b)
+//     A saved session the boot cannot draw for want of the engine says so in
+//     a #boot-error marked data-engine-pending="failed", the mark every engine
+//     failure state carries. The plant draws the error without it.
+if (want('9zd', 'boot-error-unmarked')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', `(engine ? ' data-engine-pending="failed"' : '')`, "''");
+  record(
+    'boot-error-unmarked -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /engine unreachable with a saved session \(F4b\): #boot-error \(data-engine-pending=null/
+  );
+}
+
+// 9ze. merge-plan-misordered -> check_lazy_app.js
+//     api/engine.json's MERGE_PLAN tells the page which variants each
+//     universal material lends, in the order the merge would collect them,
+//     and the page trusts a plan whose positions resolve. The plant swaps two
+//     variants the plan takes from one part, under the file's own digests:
+//     every position still resolves, so the page lends them in the wrong order,
+//     and only the merged engine, fingerprinted against the embedded build's,
+//     shows it: its variants, numbered by first sight, are met in another
+//     order (check_api fails the file too, byte for byte, as in 9s).
+if (want('9ze', 'merge-plan-misordered')) {
+  const d = lazyEnv();
+  const f = path.join(d, 'api/engine.json');
+  const lines = fs.readFileSync(f, 'utf8').split('\n');
+  const at = lines.findIndex((l) => l.startsWith('["MERGE_PLAN",'));
+  if (at < 0) throw new Error('faults: api/engine.json has no MERGE_PLAN line for class 9ze');
+  const el = JSON.parse(lines[at]);
+  const u = el[1].kinds.string.u;
+  // Triples of (instrument delta, part, variant): the first two in one part.
+  let n = 3;
+  while (n < u.length && !(u[n] === 0 && u[n + 1] === u[n - 2])) n += 3;
+  if (n >= u.length)
+    throw new Error('faults: the string plan takes no two variants from one part (class 9ze)');
+  [u[n - 1], u[n + 2]] = [u[n + 2], u[n - 1]];
+  lines[at] = JSON.stringify(el);
+  fs.writeFileSync(f, lines.join('\n'));
+  record(
+    'merge-plan-misordered -> check_lazy_app.js',
+    lazyGate(d, '--only=parity'),
+    /engine fingerprint drift[^\n]*differs in:[^\n]*\bvariants\b/
+  );
+}
+
+// 9zf. lending-drops-tail -> check_api.js
+//     The universal-material merge lends each target part the union's
+//     variants it does not hold, cut as slices of the union between the ones
+//     it does. Drop the last slice and 871 parts lose 235,236 lent variants;
+//     the merge's own proof (planned against unplanned) cannot see it, since
+//     both run the same code, and nor can the app/Node equivalence. The
+//     catalog's own records can: every tradition's config names its variants,
+//     and a lent one that is gone no longer resolves.
+if (want('9zf', 'lending-drops-tail')) {
+  const d = mkenv(['scripts', 'references', 'api']);
+  plantIn(
+    d,
+    'scripts/_merge.js',
+    '        if (from < lent.length) slices.push(lent.slice(from));\n',
+    ''
+  );
+  record(
+    'lending-drops-tail -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /✗ traditions\/[\w-]+\.json — [\w-]+\.[\w-]+: variant not in catalog: /
+  );
+}
+
+// 9zg. record-after-wait -> check_lazy_app.js  (E8)
+//     An Add asks for its genre's record (api/traditions/<id>.json) beside
+//     the engine, so on a slow link the two waits overlap instead of adding
+//     up. The plant asks for it after the engine wait, as before step 9's fix.
+if (want('9zg', 'record-after-wait')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    '  const full = Catalog.ensureFull(tradId);\n  full.catch(() => {});\n  if (!_engineLive && !(await engineReady(retry))) return [];',
+    '  if (!_engineLive && !(await engineReady(retry))) return [];\n  const full = Catalog.ensureFull(tradId);\n  full.catch(() => {});'
+  );
+  record(
+    'record-after-wait -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E8'),
+    /engine E8: while the instrument data was held the Add requested api\/traditions\/[\w-]+\.json 0 time\(s\)/
+  );
+}
+
+// 9zh. optional-before-engine -> check_lazy_app.js  (E0)
+//     The genre page's optional downloads (the atlas outlines and the genre
+//     photos) wait for the engine's bytes, as the prose does: requested at
+//     the paint, they share the link with the file an early Add waits for.
+//     The plant asks for them at the paint.
+if (want('9zh', 'optional-before-engine')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/pages/genre.js',
+    'uiAfterPaint(() => Engine.fetched().then(gpLoadOptional));',
+    'uiAfterPaint(gpLoadOptional);'
+  );
+  record(
+    'optional-before-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E0'),
+    /engine E0: [^\n]*(?:data\/atlas-geo\.json|api\/tradition_images\.json)[^\n]* requested while the instrument data was held/
+  );
+}
+
+// 9zi. engine-preload-dropped -> build_html.js --check
+//     The <head> preload is a saved session's head start (src/engine_preload.js,
+//     placed by the template's <!--@ENGINE_PRELOAD--> marker). A template
+//     without the marker stops the build at once; the plant is the quieter
+//     loss, a build that keeps the marker and emits nothing for it, so the
+//     page ships without the script.
+if (want('9zi', 'engine-preload-dropped')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    '  .replace(ENGINE_PRELOAD_MARKER, () =>\n    LAZY\n',
+    '  .replace(ENGINE_PRELOAD_MARKER, () =>\n    false\n'
+  );
+  record(
+    'engine-preload-dropped -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /0 <script> block\(s\) in a lazy page name "preload"; want 1/
   );
 }
 
