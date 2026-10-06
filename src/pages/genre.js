@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
+/* global $ui, Catalog, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -458,7 +458,7 @@ function gpOverview(id, t, ext) {
   const words = gpSoundWords(id);
   const cross = (ext.crossRefs || []).filter((x) => getTreeNode(x));
   return `<div class="gp-overview"><section><h3>Ensemble</h3><ul class="gp-ensemble">${shown
-    .map((i) => `<li>${image(i, 28)}<span>${esc(Inst(i)?.name || i)}</span></li>`)
+    .map((i) => `<li>${image(i, 28)}<span>${esc(InstLite(i)?.name || i)}</span></li>`)
     .join(
       ''
     )}${insts.length > shown.length ? `<li class="gp-more">+${insts.length - shown.length} more</li>` : ''}</ul>${uiButton('genre-tab', 'Inspect instruments', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="instruments"`)}</section><section><h3>Sound</h3>${words.length ? `<ul class="gp-words">${words.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>` : '<p class="gp-note">The catalog places this genre in the middle of every characteristic.</p>'}${uiButton('genre-tab', 'Sound profile', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="sound"`)}${cross.length ? `<p class="gp-also"><span>Also listed under:</span> ${cross.map((x) => `<button type="button" class="gp-link" data-ui="genre-branch" data-id="${esc(x)}">${esc(getTreeNode(x).name)}</button>`).join('<span aria-hidden="true"> · </span>')}</p>` : ''}${uiButton('genre-tab', 'Recordings & references', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="background"`)}</section></div><div class="gp-detail-foot">${uiButton('genre-tab', 'Find similar sounds', 'search', `class="cm-btn gp-linkbtn" data-id="similar"`)}${uiButton('genre-map', 'View on map', 'map-pin', `class="cm-btn gp-linkbtn" data-id="${esc(id)}"`)}</div>`;
@@ -482,7 +482,7 @@ function gpInstruments(id, t) {
     `<option value="${esc(value)}"${value === dest ? ' selected' : ''}>${esc(label)}</option>`;
   return `<div class="gp-dest"><label for="gp-inst-dest">Add single instruments to</label><select id="gp-inst-dest" class="cm-select" data-genre="${esc(id)}">${opt(id, `${t.name} — set up as ${t.name} plays it`)}${others.map((g) => opt(g, `${Tradition(g)?.name || g} — set up as that genre plays it`)).join('')}${opt('', 'Independent instrument — default settings')}</select><span class="gp-note" id="gp-inst-dest-note">${dest ? `Joins the ${esc(Tradition(dest)?.name || dest)} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.` : 'Added on its own, outside any genre group.'}</span></div><ul class="gp-roster">${insts
     .map((i) => {
-      const name = Inst(i)?.name || i;
+      const name = InstLite(i)?.name || i;
       return `<li class="gp-roster-row">${image(i, 30)}<button type="button" class="gp-link gp-roster-name" data-ui="instrument-inspect" data-id="${esc(i)}" aria-label="Inspect ${esc(name)} on the Instrument page">${esc(name)}</button>${listenLink(name, true)}${uiButton('genre-inst-add', 'Add', 'plus', `class="cm-btn cm-btn-tonal" data-id="${esc(i)}" data-genre="${esc(id)}" aria-label="Add ${esc(name)} to the chosen destination"`)}</li>`;
     })
     .join(

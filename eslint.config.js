@@ -95,6 +95,13 @@ module.exports = [
         TREE_NODES: 'readonly',
         TUNINGS: 'readonly',
         mergeFamilyParts: 'readonly',
+        mergeFamilyPartsSteps: 'readonly',
+        // The lazy shell's instrument-engine block (build_html.js): the
+        // first view's instrument index, the slots' filler, and the digest
+        // api/engine.json must carry.
+        INSTRUMENT_INDEX: 'readonly',
+        CODEX_ENGINE_COMMIT: 'readonly',
+        CODEX_ENGINE_SHA: 'readonly',
         harvestDescriptors: 'readonly',
         _cardDescriptorSet: 'readonly',
       },

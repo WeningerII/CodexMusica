@@ -186,7 +186,8 @@ function makeFetchShim({ deny = [], log = [], hold = {}, stamp } = {}) {
   return (url) => {
     const rel = String(url)
       .replace(SITE_PREFIX, '')
-      .replace(/^\.?\//, '');
+      .replace(/^\.?\//, '')
+      .replace(/\?.*$/, '');
     log.push({ rel, ready: stamp ? stamp() : null });
     return (hold[rel] ? hold[rel].promise : Promise.resolve()).then(() => {
       const file = path.join(ROOT, rel);
@@ -202,10 +203,14 @@ function makeFetchShim({ deny = [], log = [], hold = {}, stamp } = {}) {
           json: async () => {
             throw new Error('404');
           },
+          text: async () => {
+            throw new Error('404');
+          },
         };
       }
-      const data = JSON.parse(fs.readFileSync(file, 'utf8'));
-      return { ok: true, status: 200, json: async () => data };
+      const text = fs.readFileSync(file, 'utf8');
+      const data = JSON.parse(text);
+      return { ok: true, status: 200, json: async () => data, text: async () => text };
     });
   };
 }
@@ -529,7 +534,7 @@ async function firstView(embedHtml, lazyHtml, name) {
   const embedDom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), opts);
   const ref = {},
     log = [],
-    hold = { 'api/browse_prose.json': deferred() };
+    hold = { 'api/browse_prose.json': deferred(), 'api/engine.json': deferred() };
   const lazyDom = bootDom(
     lazyHtml,
     makeFetchShim({
@@ -542,10 +547,36 @@ async function firstView(embedHtml, lazyHtml, name) {
   );
   const tag = `first view "${name}"`;
   try {
+    const restoredState = !!(sc.storage && sc.storage['codex-workbench-v1']);
+    if (restoredState) {
+      await new Promise((r) => setTimeout(r, 1500));
+      const early = lazyDom.window.eval(
+        "({ ready: typeof UI !== 'undefined' && UI.ready === true, rows: document.querySelectorAll('#genre-list > *').length, status: document.getElementById('boot-status')?.textContent || '' })"
+      );
+      const engineAsk = fetchesOf(log, 'api/engine.json');
+      if (early.ready || early.rows)
+        fail(`${tag}: a restored session drew before the engine arrived`);
+      if (!engineAsk.length || engineAsk[0].ready !== false)
+        fail(`${tag}: a restored session did not ask for the engine before its first view`);
+      note(
+        `${tag}: held at the boot status (${JSON.stringify(early.status)}) until the engine landed`
+      );
+      hold['api/engine.json'].release();
+    }
     const [e0, l0] = await Promise.all([
       runProbe(embedDom, SETTLE),
       runProbe(lazyDom, SETTLE, 15000, { prose: false }),
     ]);
+    if (!restoredState) {
+      const asks = fetchesOf(log, 'api/engine.json');
+      if (asks.length !== 1 || asks[0].ready !== true)
+        fail(
+          `${tag}: the engine was requested before the first view was drawn (${JSON.stringify(asks)})`
+        );
+      if (lazyDom.window.eval('Engine.ready()')) fail(`${tag}: the engine was ready while held`);
+      if (lazyDom.window.eval('Engine.misses()'))
+        fail(`${tag}: ${lazyDom.window.eval('Engine.misses()')} engine read(s) before it landed`);
+    }
     if (e0.__err || l0.__err) return fail(`${tag}: probe crashed: ${e0.__err || l0.__err}`);
 
     // (a) When the prose was asked for.
@@ -555,7 +586,11 @@ async function firstView(embedHtml, lazyHtml, name) {
         fail(
           `${tag}: a ?trad= link to a genre outside the boot index did not ask for the prose before the first view`
         );
-    } else if (asks.length !== 1 || asks[0].ready !== true) {
+    } else if (!restoredState && asks.length) {
+      fail(
+        `${tag}: the genre prose was requested while the instrument data was held (${JSON.stringify(asks)})`
+      );
+    } else if (restoredState && (asks.length !== 1 || asks[0].ready !== true)) {
       fail(
         `${tag}: the genre prose was requested before the first view was drawn (${JSON.stringify(asks)})`
       );
@@ -639,7 +674,27 @@ async function firstView(embedHtml, lazyHtml, name) {
       15000,
       { prose: false }
     );
+    if (!restoredState) {
+      hold['api/engine.json'].release();
+      await runProbe(lazyDom, 'await Engine.whenReady(); return true;', 15000, { prose: false });
+      if (name !== 'deep') {
+        await waitFor(
+          () => fetchesOf(log, 'api/browse_prose.json').length > 0,
+          10000,
+          'prose after engine'
+        ).catch(() => {});
+        const asks2 = fetchesOf(log, 'api/browse_prose.json');
+        if (asks2.length !== 1 || asks2[0].ready !== true)
+          fail(
+            `${tag}: once the instrument data landed the prose was not requested exactly once after the first view (${JSON.stringify(asks2)})`
+          );
+      }
+    }
+    const guard0 = lazyDom.window.eval('Engine.misses()');
+    if (guard0) fail(`${tag}: ${guard0} engine read(s) before the engine landed`);
     hold['api/browse_prose.json'].release();
+    hold['api/engine.json'].release();
+    await runProbe(lazyDom, 'await Engine.ensure(); return true;', 15000, { prose: false });
     const after = await runProbe(
       lazyDom,
       `${FRAMES(3)}
@@ -712,7 +767,7 @@ const WINDOW_STEPS = [
 ];
 async function windowSection(embedHtml, lazyHtml) {
   const embedDom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), { url: SITE });
-  const hold = { 'api/browse_prose.json': deferred() };
+  const hold = { 'api/browse_prose.json': deferred(), 'api/engine.json': deferred() };
   const lazyDom = bootDom(lazyHtml, makeFetchShim({ deny: ['api/tradition_images.json'], hold }), {
     url: SITE,
   });
@@ -779,7 +834,11 @@ async function windowSection(embedHtml, lazyHtml) {
       );
     // AFTER. Release; the list and the picker on screen are the embedded
     // build's, with no re-render by this probe.
+    if (lazyDom.window.eval('Engine.ready()')) fail('window: the engine was ready while held');
+    const guardW = lazyDom.window.eval('Engine.misses()');
+    if (guardW) fail(`window: ${guardW} engine read(s) before the engine landed`);
     hold['api/browse_prose.json'].release();
+    hold['api/engine.json'].release();
     const after = await runProbe(
       lazyDom,
       `${FRAMES(3)}

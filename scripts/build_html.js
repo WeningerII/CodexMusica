@@ -53,6 +53,8 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+// The page-only data strip and the instrument engine's tables (see there).
+const P = require('./_page_tables.js');
 
 const SKILL_ROOT = path.join(__dirname, '..');
 const REFS = path.join(SKILL_ROOT, 'references');
@@ -136,14 +138,23 @@ if (flags.embedded && flags.lazy) {
   process.exit(2);
 }
 const LAZY = !flags.embedded;
-const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js']);
+// Files the lazy shell leaves out whole: the two tradition tables (read from
+// api/browse_boot.json and api/browse_prose.json), and the references files
+// whose every table is an instrument-engine table (scripts/_page_tables.js).
+const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js', ...(LAZY ? P.ENGINE_FILES : [])]);
 // Tables the lazy shell leaves out of a file it otherwise ships. NAV_GLYPH_SVGS
 // is the room and preface glyph artwork (~0.75 MB), drawn only in the editor's
 // Character and Environment tabs, the preface browser and the Instrument page's
 // character lists; the app fetches it from api/nav_glyphs.json on first use
 // (navGlyphSvg in src/app.js). Its lookup tables stay in the page, and so does
 // every picture first paint draws (scripts/_glyph_stores.js).
-const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS']) : new Set();
+//
+// The instrument-engine tables (ENGINE_TABLES in scripts/_page_tables.js) leave
+// the lazy page too: they are 77% of its data, and the first view reads none of
+// them but instrument names and families, which it reads from INSTRUMENT_INDEX.
+// The page declares an empty slot for each and fetches api/engine.json after
+// its first paint (Engine in src/app.js). The embedded build keeps them inline.
+const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES]) : new Set();
 
 // ─────────────────────── templates are required source ───────────────────────
 // The HTML template and the app are first-class source files under src/. They
@@ -245,7 +256,6 @@ const squeezeCss = (code, label) => (MINIFY ? minifyCss(code, label) : code);
 // The tables and fields the page never reads, and the strip itself, live in
 // scripts/_page_tables.js (with why each is dropped), shared with the builder of
 // api/engine.json and check_api.js.
-const P = require('./_page_tables.js');
 const { PAGE_DROP_TABLES, PAGE_DROP_FIELDS } = P;
 // The page's copy of one references file: evaluated, stripped, re-emitted as one
 // `const NAME = <json>;` per declaration in the file's own order. A file with
@@ -318,6 +328,36 @@ for (const f of SOURCE_FILES) {
     openScript(label);
     dataParts.push(squeeze(chunks[i].trimEnd(), label));
   }
+}
+// The lazy shell's instrument engine block: an empty `let` slot per engine
+// table, the function that fills them all at once when api/engine.json has
+// loaded, the digest that file must carry, and the first view's instrument
+// index ([id, name, family, short]). INSTRUMENT_INDEX is read from
+// 02_instruments.js here, not from ENGINE_TABLES, so an edit to that list
+// cannot also drop the index.
+let ENGINE_SHA = null;
+let INSTRUMENT_INDEX_JSON = null;
+if (LAZY) {
+  ENGINE_SHA = P.engineSha(P.engineTables(REFS));
+  const ctx = vm.createContext({});
+  vm.runInContext(fs.readFileSync(path.join(REFS, '02_instruments.js'), 'utf8'), ctx, {
+    filename: '02_instruments.js',
+  });
+  INSTRUMENT_INDEX_JSON = JSON.stringify(P.instrumentIndex(vm.runInContext('INSTRUMENTS', ctx)));
+  const label =
+    'instrument engine: slots + first-view instrument index (tables via api/engine.json)';
+  openScript(label);
+  dataParts.push(
+    squeeze(
+      [
+        `let ${P.ENGINE_TABLES.join(', ')};`,
+        `function CODEX_ENGINE_COMMIT(t) { ${P.ENGINE_TABLES.map((n) => `${n} = t.${n};`).join(' ')} }`,
+        `const CODEX_ENGINE_SHA = '${ENGINE_SHA}';`,
+        `const INSTRUMENT_INDEX = ${INSTRUMENT_INDEX_JSON.replace(/<\//g, '<\\/')};`,
+      ].join('\n'),
+      label
+    )
+  );
 }
 // Instrument photographs: references/_image_manifest.json reduced to what the
 // Instrument page shows (scripts/_image_tables.js, compactInstrumentImages).
@@ -616,13 +656,68 @@ if (flags.check) {
     );
     process.exit(4);
   }
+  // THE INSTRUMENT ENGINE. The eight engine tables are SPELLED OUT here, not
+  // read from scripts/_page_tables.js, so an edit to that list cannot also
+  // switch off the check on it. A lazy page declares an empty slot for each
+  // (the app fills them from api/engine.json) and carries no table; an
+  // embedded page carries every table and none of the lazy machinery.
+  {
+    const ENGINE = [
+      'INSTRUMENT_FAMILY_PARTS',
+      'INSTRUMENTS',
+      'ROOMS',
+      'ROOM_CLUSTERS',
+      'CHAIN_SECTIONS',
+      'TUNINGS',
+      'INSTRUMENT_AXIS_DEFINITIONS',
+      'PREFACE_LEXICON',
+    ];
+    const fail = (msg) => {
+      console.error('check: FAIL — ' + msg);
+      process.exit(4);
+    };
+    if (LAZY) {
+      for (const name of ENGINE) {
+        const slot = probe(
+          `(() => { try { return ${name} === undefined; } catch { return 'undeclared'; } })()`
+        );
+        if (slot === 'undeclared') fail(`the lazy page does not declare the engine slot ${name}`);
+        if (slot !== true)
+          fail(
+            `lazy page carries engine table ${name} (${countOf(name)} rows); it loads from api/engine.json`
+          );
+      }
+      if (probe('INSTRUMENT_INDEX.length') !== JSON.parse(INSTRUMENT_INDEX_JSON).length)
+        fail('INSTRUMENT_INDEX did not read back whole');
+      const want = JSON.stringify(P.instrumentIndex(P.engineTables(REFS).INSTRUMENTS));
+      if (probe('JSON.stringify(INSTRUMENT_INDEX)') !== want)
+        fail("INSTRUMENT_INDEX differs from the engine's instruments (scripts/_page_tables.js)");
+      if (probe('CODEX_ENGINE_SHA') !== P.engineSha(P.engineTables(REFS)))
+        fail('CODEX_ENGINE_SHA is not the digest of the engine tables api/engine.json carries');
+      // CODEX_ENGINE_COMMIT fills every slot, each from its own field: run in
+      // a second context so the slot checks above saw the page as shipped.
+      const ctx2 = vm.createContext({});
+      vm.runInContext(checkJs, ctx2, { filename: 'data-block.js', timeout: 5000 });
+      vm.runInContext(
+        `CODEX_ENGINE_COMMIT(${JSON.stringify(Object.fromEntries(ENGINE.map((n) => [n, 'sentinel:' + n])))})`,
+        ctx2,
+        { timeout: 5000 }
+      );
+      for (const name of ENGINE)
+        if (vm.runInContext(name, ctx2, { timeout: 5000 }) !== 'sentinel:' + name)
+          fail(`CODEX_ENGINE_COMMIT does not fill the engine slot ${name}`);
+    } else {
+      for (const name of ['INSTRUMENT_INDEX', 'CODEX_ENGINE_COMMIT', 'CODEX_ENGINE_SHA'])
+        if (declared(name)) fail(`the embedded page declares ${name}, a lazy-shell name`);
+    }
+  }
   // The reverse of the leak guard, and the assertion that would have caught the
   // silent rewrite above: an EMBEDDED build must be able to read its tables back,
   // and every build must be able to read the ones it always carries. A table that
   // reads as absent here is either missing from the page or unreadable by this
   // gate, and both are build failures.
   const REQUIRED = LAZY
-    ? ['INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_SECTIONS', 'PREFACE_LEXICON']
+    ? ['INSTRUMENT_FAMILIES', 'AXIS_DEFINITIONS', 'TREE_NODES', 'INSTRUMENT_INDEX']
     : ['TRADITIONS', 'INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_SECTIONS', 'PREFACE_LEXICON'];
   const unreadable = REQUIRED.filter((name) => countOf(name) <= 0);
   if (unreadable.length) {
@@ -649,7 +744,9 @@ if (flags.check) {
   }
   const checks = [];
   if (LAZY)
-    checks.push(`mode:              lazy shell (traditions/extras and nav glyph art via api/)`);
+    checks.push(
+      `mode:              lazy shell (traditions/extras, the instrument engine and nav glyph art via api/)`
+    );
   const report = (label, name) => {
     const n = countOf(name);
     if (n >= 0) checks.push(`${(label + ':').padEnd(18)} ${n}`);
@@ -660,6 +757,10 @@ if (flags.check) {
   report('TUNINGS', 'TUNINGS');
   report('CHAIN_SECTIONS', 'CHAIN_SECTIONS');
   report('PREFACE_LEXICON', 'PREFACE_LEXICON');
+  report('INSTRUMENT_INDEX', 'INSTRUMENT_INDEX');
+  checks.push(
+    `page gzip-6:       ${require('zlib').gzipSync(Buffer.from(html, 'utf8'), { level: 6 }).length} B`
+  );
   checks.push(
     `page-only strip:   ${PAGE_DROP_TABLES.size} tables, ${Object.keys(PAGE_DROP_FIELDS).length} tables' unread fields`
   );

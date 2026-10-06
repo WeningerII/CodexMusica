@@ -5164,7 +5164,10 @@ const Catalog = (() => {
     if (_full.has(id)) return _full.get(id);
     const row = _byId.get(id);
     if (!row || !_apiBase) return row || null;
-    const res = await fetch(_apiBase + 'traditions/' + encodeURIComponent(id) + '.json');
+    const [, res] = await Promise.all([
+      typeof Engine !== 'undefined' ? Engine.ensure() : null,
+      fetch(_apiBase + 'traditions/' + encodeURIComponent(id) + '.json'),
+    ]);
     if (!res.ok) throw new Error('tradition fetch failed: ' + id + ' (' + res.status + ')');
     const rec = await res.json();
     const full = Object.assign({}, row, rec.source || {});
@@ -5379,42 +5382,219 @@ const _FAM_BY_ID = new Map();
 const _CHAIN_ITEMS_BY_SECTION = new Map();   // sectionId → Map<itemId, item>
 const _VARIANTS_BY_INST = new Map();         // instId → Map<partId, Map<variantId, variant>>
 
+// The engine half of the indexes: instruments (+ their variants), rooms,
+// tunings, chain items, read from the tables passed in. A generator, so the
+// lazy shell can build it in slices; the embedded build drains it at load.
+function* _indexEngineSteps(t) {
+  for (const inst of t.INSTRUMENTS || []) {
+    _INST_BY_ID.set(inst.id, inst);
+    const partMap = new Map();
+    for (const part of (inst.parts || [])) {
+      const variantMap = new Map();
+      for (const v of (part.variants || [])) variantMap.set(v.id, v);
+      partMap.set(part.id, variantMap);
+    }
+    _VARIANTS_BY_INST.set(inst.id, partMap);
+    yield;
+  }
+  for (const r of t.ROOMS || []) _ROOM_BY_ID.set(r.id, r);
+  for (const tu of t.TUNINGS || []) _TUNING_BY_ID.set(tu.id, tu);
+  for (const sec of t.CHAIN_SECTIONS || []) {
+    const m = new Map();
+    for (const it of (sec.items || [])) m.set(it.id, it);
+    _CHAIN_ITEMS_BY_SECTION.set(sec.id, m);
+  }
+}
+const _drain = (steps) => { let r = steps.next(); while (!r.done) r = steps.next(); return r.value; };
 (function _buildIdIndexes() {
-  if (typeof INSTRUMENTS !== 'undefined') {
-    for (const inst of INSTRUMENTS) {
-      _INST_BY_ID.set(inst.id, inst);
-      const partMap = new Map();
-      for (const part of (inst.parts || [])) {
-        const variantMap = new Map();
-        for (const v of (part.variants || [])) variantMap.set(v.id, v);
-        partMap.set(part.id, variantMap);
-      }
-      _VARIANTS_BY_INST.set(inst.id, partMap);
-    }
-  }
+  if (typeof INSTRUMENTS !== 'undefined')
+    _drain(_indexEngineSteps({
+      INSTRUMENTS,
+      ROOMS: typeof ROOMS !== 'undefined' ? ROOMS : [],
+      TUNINGS: typeof TUNINGS !== 'undefined' ? TUNINGS : [],
+      CHAIN_SECTIONS: typeof CHAIN_SECTIONS !== 'undefined' ? CHAIN_SECTIONS : [],
+    }));
   Catalog.bootFromGlobals(); // traditions route through the Catalog layer (lazy boot replaces this in the shell build)
-  if (typeof ROOMS !== 'undefined') for (const r of ROOMS) _ROOM_BY_ID.set(r.id, r);
-  if (typeof TUNINGS !== 'undefined') for (const t of TUNINGS) _TUNING_BY_ID.set(t.id, t);
   if (typeof INSTRUMENT_FAMILIES !== 'undefined') for (const f of INSTRUMENT_FAMILIES) _FAM_BY_ID.set(f.id, f);
-  if (typeof CHAIN_SECTIONS !== 'undefined') {
-    for (const sec of CHAIN_SECTIONS) {
-      const m = new Map();
-      for (const it of (sec.items || [])) m.set(it.id, it);
-      _CHAIN_ITEMS_BY_SECTION.set(sec.id, m);
-    }
-  }
 })();
+
+// ---- Instrument engine (lazy shell) ----
+// The engine tables — INSTRUMENTS with their parts and variants, the family
+// parts merged into them, ROOMS, ROOM_CLUSTERS, CHAIN_SECTIONS, TUNINGS,
+// INSTRUMENT_AXIS_DEFINITIONS, PREFACE_LEXICON — are 77% of the page's data and
+// the first view reads none of them but instrument names and families. The
+// embedded build carries them inline and everything below is inert. The lazy
+// shell declares each as an empty `let` slot (build_html.js) and carries only
+// INSTRUMENT_INDEX ([id, name, family, short] per instrument) for the first
+// view, read through InstLite. After the first paint, Engine fetches
+// api/engine.json (scripts/_page_tables.js), parses it a line at a time,
+// merges the family parts, builds the indexes and sorts, all in idle slices
+// on local objects, then fills every slot in one step: the tables go from
+// absent to whole, never half-filled.
+//
+// Until then nothing acts on partial data. Inst, Room, Tuning, ChainItem and
+// Variant throw EngineNotReadyError rather than answer "unknown" (Engine.miss,
+// counted, so the gates can prove the first view never asked). An action that
+// needs the engine waits for it (engineReady) and says so; a view that needs
+// all of it says it is loading; a saved session holds the boot until it lands.
+// A failed load is retried only by a caller — an action, Retry, the browser
+// coming back online — never on a timer. A file from another deploy (its
+// digest is not CODEX_ENGINE_SHA, or its instruments are not INSTRUMENT_INDEX's)
+// is refused as stale.
+let _engineLive = typeof INSTRUMENTS !== 'undefined';
+const _INST_LITE = new Map();
+if (!_engineLive && typeof INSTRUMENT_INDEX !== 'undefined')
+  for (const [id, name, family, short] of INSTRUMENT_INDEX)
+    _INST_LITE.set(id, short == null ? { id, name, family } : { id, name, family, short });
+const InstLite = (id) => (_engineLive ? _INST_BY_ID.get(id) : _INST_LITE.get(id));
+class EngineNotReadyError extends Error {
+  constructor(what) {
+    super('The instrument data has not loaded yet (' + what + ')');
+    this.name = 'EngineNotReadyError';
+    this.engine = true;
+  }
+}
+const Engine = (() => {
+  const lazy = !_engineLive && typeof CODEX_ENGINE_COMMIT === 'function' && typeof CODEX_LAZY_API !== 'undefined';
+  let state = _engineLive ? 'ready' : 'idle';
+  let bootP = null, urgent = false, failure = null, misses = 0, kick = null, online = false;
+  let bytesDone = null; const bytes = new Promise((r) => (bytesDone = r));
+  if (!lazy) bytesDone();
+  const listeners = [];
+  const settle = () => { for (const fn of listeners.slice()) { try { fn(); } catch (e) { console.error(e); } } };
+  const later = (fn) => (!urgent && typeof requestIdleCallback === 'function') ? requestIdleCallback(fn, { timeout: 1000 }) : setTimeout(fn, 0);
+  const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
+  function sliced(steps) {
+    return new Promise((resolve, reject) => {
+      let done = false;
+      const step = () => {
+        if (done) return;
+        const t0 = now(), budget = urgent ? 40 : 6;
+        try {
+          let r;
+          do r = steps.next(); while (!r.done && now() - t0 < budget);
+          if (r.done) { done = true; kick = null; return resolve(r.value); }
+        } catch (e) { done = true; kick = null; return reject(e); }
+        later(step);
+      };
+      kick = () => setTimeout(step, 0);
+      later(step);
+    });
+  }
+  function load() {
+    if (state === 'ready') return Promise.resolve();
+    if (!lazy) return Promise.reject(Object.assign(new Error('This page carries no instrument data'), { engine: true }));
+    if (bootP) return bootP;
+    state = 'loading';
+    failure = null;
+    bootP = fetch(CODEX_LAZY_API + 'engine.json?v=' + CODEX_ENGINE_SHA.slice(0, 12))
+      .then((res) => {
+        if (!res.ok) throw new Error('instrument data fetch failed (' + res.status + ')');
+        return res.text();
+      })
+      .then(async (text) => {
+        bytesDone();
+        // One JSON value per line ('[', the header, each [table, value] part, ']'),
+        // so each line is parsed in a slice of its own instead of one long task.
+        const lines = text.split('\n');
+        const el = (i) => JSON.parse(lines[i].replace(/,$/, ''));
+        const head = lines[0] === '[' ? el(1) : null;
+        if (!head || head.tables_sha1 !== CODEX_ENGINE_SHA)
+          throw Object.assign(new Error('instrument data does not match this page'), { stale: true });
+        const t = { INSTRUMENTS: [] };
+        state = 'preparing';
+        await sliced((function* () {
+          for (let i = 2; i < lines.length && lines[i] !== ']'; i++) {
+            const [name, value] = el(i);
+            if (name === 'INSTRUMENTS') for (const x of value) t.INSTRUMENTS.push(x);
+            else t[name] = value;
+            yield;
+          }
+          const ids = t.INSTRUMENTS.map((x) => x.id);
+          if (ids.length !== INSTRUMENT_INDEX.length || ids.some((id, k) => id !== INSTRUMENT_INDEX[k][0]))
+            throw Object.assign(new Error('instrument data does not match this page'), { stale: true });
+          yield* mergeFamilyPartsSteps(t.INSTRUMENTS, t.INSTRUMENT_FAMILY_PARTS);
+          yield* _indexEngineSteps(t);
+        })());
+        _sortInstruments(t.INSTRUMENTS);
+        CODEX_ENGINE_COMMIT(t);
+        _engineLive = true;
+        state = 'ready';
+        bootP = null;
+        settle();
+      })
+      .catch((e) => {
+        bytesDone();
+        for (const m of [_INST_BY_ID, _VARIANTS_BY_INST, _ROOM_BY_ID, _TUNING_BY_ID, _CHAIN_ITEMS_BY_SECTION]) m.clear();
+        e.engine = true;
+        failure = e;
+        state = 'failed';
+        bootP = null;
+        console.warn('[codex] ' + e.message + '; the instrument data shows as not loaded');
+        if (!online && typeof window !== 'undefined' && window.addEventListener) {
+          online = true;
+          window.addEventListener('online', () => { if (state === 'failed') load().catch(() => {}); });
+        }
+        settle();
+        throw e;
+      });
+    return bootP;
+  }
+  return {
+    ready: () => state === 'ready',
+    failed: () => state === 'failed',
+    failure: () => failure,
+    state: () => state,
+    start() { if (state === 'idle') load().catch(() => {}); },
+    ensure() { if (state === 'ready') return Promise.resolve(); urgent = true; const p = load(); if (kick) kick(); return p; },
+    whenReady() { return state === 'ready' ? Promise.resolve() : new Promise((resolve) => listeners.push(function done() { if (state !== 'ready') return; listeners.splice(listeners.indexOf(done), 1); resolve(); })); },
+    onSettle(fn) { listeners.push(fn); },
+    miss(what) { misses++; throw new EngineNotReadyError(what); },
+    misses: () => misses,
+    fetched: () => bytes,
+  };
+})();
+// An action that needs the instrument data: true at once when it is here;
+// otherwise says so, waits, and on failure says that, with Retry.
+async function engineReady(retry) {
+  if (_engineLive) return true;
+  showToast('Preparing the instrument data…');
+  try { await Engine.ensure(); return true; }
+  catch (e) {
+    if (e && e.stale) showToast('This page is out of date. Reload to load the matching instrument data.', 'error', { label: 'Reload', run: () => location.reload() });
+    else showToast('Could not load the instrument data — check your connection', 'error', retry);
+    return false;
+  }
+}
+// The saved session uiRestoreSession (src/workbench.js) restores from, in its
+// order: this tab's recovery copy, the shared autosave, then two legacy keys.
+function storedSessionText() {
+  return sessionStorage.getItem('codex-workbench-recovery') || localStorage.getItem('codex-workbench-v1') ||
+    localStorage.getItem('musica-workbench-v3') || localStorage.getItem('musica-study-v1') || null;
+}
+// A restored session draws cards at boot, and cards need the instrument data.
+function _bootNeedsEngine() {
+  try {
+    const s = JSON.parse(storedSessionText() || 'null');
+    const cards = s && (s.cards || (s.workspace && s.workspace.cards));
+    return Array.isArray(cards) && cards.length > 0;
+  } catch { return false; }
+}
 
 // ---- Catalog boot promise (lazy shell) ----
 // The lazy build (the `build_html.js` default) omits the traditions/extras
-// tables from the page and injects `CODEX_LAZY_API` ahead of the app code. In that
-// build the Catalog boots from ONE fetch of api/browse_boot.json — everything
-// the first view reads; the genres' prose follows after the first paint
-// (_initApp). The embedded build takes the other branch (null): bootFromGlobals
-// already ran synchronously above, so its init path keeps today's fully
-// synchronous timing, byte-identical behavior.
+// tables and the instrument engine from the page and injects `CODEX_LAZY_API`
+// ahead of the app code. In that build the Catalog boots from ONE fetch of
+// api/browse_boot.json — everything the first view reads; the genres' prose
+// and the instrument engine (api/engine.json) follow after the first paint
+// (_initApp). One exception: a saved session draws its cards at boot, and cards
+// need the instrument engine, so with one stored the boot waits for the engine
+// too (ENGINE_AT_BOOT). The embedded build takes the other branch (null):
+// bootFromGlobals already ran synchronously above, so its init path keeps
+// today's fully synchronous timing, byte-identical behavior.
+const ENGINE_AT_BOOT = (typeof CODEX_LAZY_API !== 'undefined' && !_engineLive && _bootNeedsEngine()) ? Engine.ensure() : null;
 const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !Catalog.all().length)
-  ? fetch(CODEX_LAZY_API + 'browse_boot.json')
+  ? Promise.all([ENGINE_AT_BOOT, fetch(CODEX_LAZY_API + 'browse_boot.json')
       .then((res) => {
         if (!res.ok) throw new Error('boot index fetch failed (' + res.status + ')');
         return res.json();
@@ -5429,7 +5609,7 @@ const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !Catalog.all().l
         // as loading, then fills in.
         const deep = new URLSearchParams(location.search).get('trad');
         if (deep && Catalog.get(deep) && !Catalog.hasProse(deep)) Catalog.needProse();
-      })
+      })])
   : null;
 
 const _traditionSignatureFor = (tradId) => (tradId && TRADITION_SIGNATURES[tradId]) || [];
@@ -6333,16 +6513,18 @@ function prefaceCatGlyphHTML(category, size) {
 
 
 const Tradition = (id) => Catalog.get(id);
-const Inst = (id) => _INST_BY_ID.get(id);
-const Room = (id) => _ROOM_BY_ID.get(id);
-const Tuning = (id) => _TUNING_BY_ID.get(id);
+const Inst = (id) => (_engineLive ? _INST_BY_ID.get(id) : Engine.miss('Inst ' + id));
+const Room = (id) => (_engineLive ? _ROOM_BY_ID.get(id) : Engine.miss('Room ' + id));
+const Tuning = (id) => (_engineLive ? _TUNING_BY_ID.get(id) : Engine.miss('Tuning ' + id));
 const ChainItem = (sectionId, id) => {
+  if (!_engineLive) return Engine.miss('ChainItem ' + sectionId + ':' + id);
   const m = _CHAIN_ITEMS_BY_SECTION.get(sectionId);
   // Preserves original: null when section unknown, undefined when item missing,
   // the item object otherwise.
   return m ? m.get(id) : null;
 };
 const Variant = (instrument, partId, variantId) => {
+  if (!_engineLive) return Engine.miss('Variant ' + partId);
   if (!instrument) return null;
   const partMap = _VARIANTS_BY_INST.get(instrument.id);
   if (!partMap) return null;
@@ -7076,6 +7258,7 @@ async function importTraditionWithFeedback(tradId, opts) {
   // Retry goes back through the shell's add command when it is running, so a
   // retry is refused like any second concurrent addition.
   const retry = { label: 'Retry', run: () => (typeof UI !== 'undefined' && UI.ready ? uiAddGenre(tradId) : importTraditionWithFeedback(tradId, opts)) };
+  if (!_engineLive && !(await engineReady(retry))) return [];
   try { await Catalog.ensureFull(tradId); }
   catch { showToast('Could not load tradition data — check your connection', 'error', retry); return []; }
   const created = importTradition(tradId);
@@ -17656,7 +17839,7 @@ function image(id, size = 32) {
   if (typeof EMOJI_SVGS === 'undefined') return '';
   let cp = (typeof EMOJI_REGISTRY !== 'undefined') ? EMOJI_REGISTRY[id] : null;
   if (!cp && typeof FAMILY_FALLBACK_EMOJI !== 'undefined') {
-    const inst = (typeof Inst === 'function') ? Inst(id) : null;
+    const inst = (typeof InstLite === 'function') ? InstLite(id) : null;
     if (inst && inst.family) cp = FAMILY_FALLBACK_EMOJI[inst.family] || null;
   }
   const inner = _eagerGlyphInner(cp);
@@ -19258,6 +19441,7 @@ async function saveWS(name) {
   }catch(e){console.error(e);showToast('Save did not finish. Your session remains open; retry or export.','error');}
 }
 async function restoreSavedWorkspace(key,fork){
+  if(!_engineLive&&!(await engineReady()))throw Error('Could not load the instrument data');
   const r=await window.storage.get(key);if(!r)throw Error('Saved session not found');
   const d=JSON.parse(r.value);if(d.schema>WS_SCHEMA)throw Error('Saved by a newer version — update to open it');
   const cards=normalizeWorkspaceCards(d.cards||[],fork);
@@ -21442,6 +21626,7 @@ function chainStageHint(secId) {
 // the recipe dedup loop re-suggests a preface — keeping the relationship live
 // in both directions.
 function renderPrefaceSection(card) {
+  populatePrefaceDatalist();
   const sec = document.createElement('section');
   sec.className = 'composer-section preface-section';
   const current = card.preface || '';
@@ -22329,7 +22514,7 @@ function _syncRecipeBarHeight() {
 // after the first paint. A failed boot index renders a persistent, honest
 // error state instead of a blank app.
 document.addEventListener('DOMContentLoaded', () => {
-  if (CATALOG_READY) CATALOG_READY.then(_initApp).catch(_renderBootError);
+  if (CATALOG_READY) CATALOG_READY.then(() => _initApp()).catch(_renderBootError);
   else _initApp();
 });
 
@@ -22337,10 +22522,14 @@ function _renderBootError(err) {
   console.error('Catalog boot failed:', err);
   document.body.classList.add('boot-failed');
   const detail = document.getElementById('workspace-detail') || document.body;
+  const engine = !!(err && (err.engine || err.name === 'EngineNotReadyError'));
   detail.innerHTML =
-    '<div class="empty-state" id="boot-error">' +
-    '<h2>Couldn’t load the catalog</h2>' +
-    '<p>The catalog index (api/browse_boot.json) failed to load. Check your connection and reload the page.</p>' +
+    '<div class="empty-state" id="boot-error"' + (engine ? ' data-engine-pending="failed"' : '') + '>' +
+    (engine
+      ? '<h2>Couldn’t load your saved recipe</h2><p>' + (err.stale
+          ? 'This page is out of date for the instrument data (api/engine.json). Your saved recipe is still in this browser. Reload the page.'
+          : 'The instrument data (api/engine.json) failed to load, so your saved recipe can’t be drawn yet. It is still saved in this browser. Check your connection and reload the page.') + '</p>'
+      : '<h2>Couldn’t load the catalog</h2><p>The catalog index (api/browse_boot.json) failed to load. Check your connection and reload the page.</p>') +
     '<div class="empty-state-actions"><button class="btn btn-primary" id="boot-error-reload">Reload</button></div>' +
     '</div>';
   const btn = document.getElementById('boot-error-reload');
@@ -22357,7 +22546,8 @@ function _initApp() {
   // Lazy shell: the genres' prose (api/browse_prose.json) is asked for once the
   // first view has painted; requested before, it would share the network with
   // that view and count on the path to the largest paint. Embedded: a no-op.
-  if (typeof uiAfterPaint === 'function') uiAfterPaint(() => Catalog.loadProse().catch(() => {}));
+  if (typeof uiAfterPaint === 'function') uiAfterPaint(() => { Engine.start(); Engine.fetched().then(() => Catalog.loadProse().catch(() => {})); });
+  Engine.onSettle(_pickerEngineSettled);
   Catalog.onProse(_pickerProseSettled);
 
   // Hydrate all icon placeholders in the static HTML shell. Each
@@ -22387,7 +22577,6 @@ function _initApp() {
     if (nowMobile !== wasMobile) { wasMobile = nowMobile; renderAll(); }
     _syncRecipeBarHeight();
   });
-  populatePrefaceDatalist();
   // Escape closes any currently-open modal. Backdrop click closes are wired
   // elsewhere via data-close; this adds the keyboard parity for accessibility.
   document.addEventListener('keydown', (e) => {
@@ -22550,16 +22739,17 @@ function _initApp() {
 const _byNameBase = new Intl.Collator('en', { sensitivity: 'base' }).compare;
 
 // ---- Sort instruments: family display order, alphabetical within family by displayed (short) name ----
-(function sortInstruments() {
+function _sortInstruments(list) {
   const familyOrder = INSTRUMENT_FAMILIES.map(f => f.id);
   const sortKey = (i) => (i.short || i.name || '').toLowerCase();
-  INSTRUMENTS.sort((a, b) => {
+  list.sort((a, b) => {
     const fa = familyOrder.indexOf(a.family);
     const fb = familyOrder.indexOf(b.family);
     if (fa !== fb) return fa - fb;
     return _byNameBase(sortKey(a), sortKey(b));
   });
-})();
+}
+if (typeof INSTRUMENTS !== 'undefined') _sortInstruments(INSTRUMENTS);
 
 // ---- Inject CSS for the new components ----
 (function injectV5Styles() {
@@ -23067,6 +23257,7 @@ function _addedInstrumentMessage(instrumentId, card) {
 // entry is recorded, so "add this instrument, configured like so" is one
 // action and one Ctrl+Z (the Instrument page's configure-before-add uses it).
 async function addInstrumentFromPicker(instrumentId, opts) {
+  if (!_engineLive && !(await engineReady())) return null;
   const configure = opts && typeof opts.configure === 'function' ? opts.configure : null;
   // An ungrouped card: addCard records it, unless it is configured first.
   const addLoose = () => {
@@ -23112,6 +23303,13 @@ if (!app.instrumentAxisFilters) app.instrumentAxisFilters = new Set();
 // no claim), searches names only and says so, and redraws once the prose
 // settles. Embedded: every genre has its prose and nothing here changes.
 let _pickerProsePending = false; // the last render left some prose out
+let _pickerEnginePending = false; // the last render drew the instrument fits as loading
+function _pickerEngineSettled() {
+  if (!_pickerEnginePending) return;
+  const body = document.querySelector('#modal-trad .modal-body'), top = body ? body.scrollTop : 0;
+  renderTradPicker();
+  if (body) body.scrollTop = top;
+}
 function _pickerHasProse(id) {
   if (Catalog.hasProse(id)) return true;
   _pickerProsePending = true;
@@ -23127,6 +23325,7 @@ function renderTradPicker() {
   const c = document.getElementById('picker-trad');
   if (!c) return;
   _pickerProsePending = false;
+  _pickerEnginePending = false;
   const q = normalizeSearch(app.tradSearch);
 
   // If we're inside a "find similar" drill-down, render that instead
@@ -23199,7 +23398,7 @@ function renderTradPicker() {
     shown.forEach(t => {
       const path = getAncestorPath(t.id);
       const ext = Catalog.ext(t.id) || {};
-      const inst = (t.instruments || []).map(id => Inst(id)?.short || Inst(id)?.name).filter(Boolean);
+      const inst = (t.instruments || []).map(id => InstLite(id)?.short || InstLite(id)?.name).filter(Boolean);
       html += `<div class="tree-search-result">`;
       html += `<div>`;
       if (path.length) html += `<div class="tree-search-path">${esc(path.join(' / '))}</div>`;
@@ -23266,7 +23465,7 @@ function renderTreeNode(node, depth) {
 function renderTradLeaf(tradition, depth, isCrossRef) {
   const ext = Catalog.ext(tradition.id) || {};
   const prose = _pickerHasProse(tradition.id);
-  const inst = (tradition.instruments || []).map(id => Inst(id)?.short || Inst(id)?.name).filter(Boolean);
+  const inst = (tradition.instruments || []).map(id => InstLite(id)?.short || InstLite(id)?.name).filter(Boolean);
   const indent = depth * 16;
   const cls = isCrossRef ? 'trad-leaf crossref' : 'trad-leaf';
   let html = `<div class="${cls}" style="margin-left: ${indent + 12}px;">`;
@@ -23309,9 +23508,18 @@ function renderSimilarView(tradId) {
   if (prose && trad.lineage) html += `<div class="similar-source-lineage">${esc(trad.lineage)}</div>`;
   if (prose && ext.description) html += `<div class="similar-source-desc">${esc(ext.description)}</div>`;
 
-  // "Instruments that fit" — outside-the-canon instruments closest to this tradition's centroid
-  const fits = findInstrumentsForTradition(tradId, 6);
-  if (fits.length) {
+  // "Instruments that fit" — outside-the-canon instruments closest to this tradition's centroid.
+  // They read every instrument's axes: until the instrument data is here the
+  // block says it is loading (or could not load), and nothing is computed or cached.
+  const fits = _engineLive ? findInstrumentsForTradition(tradId, 6) : [];
+  if (!_engineLive) {
+    _pickerEnginePending = true;
+    const failed = Engine.failed();
+    html += failed
+      ? `<div class="fit-instruments" role="status" data-engine-pending="failed"><div class="fit-instruments-label">Couldn’t load the instruments that fit this parameter space.</div><button class="leaf-btn ghost" data-engine-retry>Retry</button></div>`
+      : `<div class="fit-instruments" role="status" data-engine-pending="fits"><div class="fit-instruments-label">Loading the instruments that fit this parameter space…</div></div>`;
+    if (!failed) Engine.ensure().catch(() => {});
+  } else if (fits.length) {
     html += `<div class="fit-instruments">`;
     html += `<div class="fit-instruments-label">Instruments outside the canon that fit this parameter space</div>`;
     html += `<div class="fit-instruments-list">`;
@@ -23333,7 +23541,7 @@ function renderSimilarView(tradId) {
     const nExt = Catalog.ext(n.id) || {};
     const path = getAncestorPath(n.id);
     const matches = getMatchingAxes(tradId, n.id, 3);
-    const inst = (nTrad.instruments || []).map(id => Inst(id)?.short || Inst(id)?.name).filter(Boolean);
+    const inst = (nTrad.instruments || []).map(id => InstLite(id)?.short || InstLite(id)?.name).filter(Boolean);
 
     html += `<div class="similar-card">`;
     html += `<div>`;
@@ -23389,6 +23597,8 @@ function wireTreeEvents(container) {
 }
 
 function wireSimilarEvents(container) {
+  const retryBtn = container.querySelector('[data-engine-retry]');
+  if (retryBtn) retryBtn.addEventListener('click', () => { Engine.ensure().catch(() => {}); renderTradPicker(); });
   const backBtn = container.querySelector('[data-similar-back]');
   if (backBtn) backBtn.addEventListener('click', () => {
     app.similarFor = null;

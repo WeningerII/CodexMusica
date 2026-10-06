@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
+/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, Engine, InstLite, UI_PAGES, _engineLive, engineReady */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -145,7 +145,7 @@ function ipApplyPhotos() {
     const id = glyph.dataset.ipGlyph,
       host = glyph.parentElement;
     if (!ipImageEntry(id)) continue;
-    glyph.outerHTML = ipImage(id, +glyph.dataset.ipSize, Inst(id)?.name || id);
+    glyph.outerHTML = ipImage(id, +glyph.dataset.ipSize, InstLite(id)?.name || id);
     if (host.classList.contains('ip-media'))
       host
         .closest('.ip-hero')
@@ -282,11 +282,22 @@ function ipGroups(filtered, fam) {
     .sort((a, b) => size.get(b) - size.get(a) || ipByName(label(a), label(b)))
     .map((k) => ({ key: k, label: label(k), items: filtered.filter((i) => pick(i) === k) }));
 }
+// Until the instrument data is here the list says so: no count, and never
+// "no instruments". It asks for the data, and redraws when it settles.
+function ipRenderEnginePending(host) {
+  const failed = Engine.failed();
+  $ui('ip-total').textContent = '';
+  host.innerHTML = failed
+    ? `<div class="cm-status" role="status" data-engine-pending="failed">Couldn’t load the instruments. ${uiButton('engine-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
+    : '<div class="cm-status" role="status" data-engine-pending="instruments">Loading the instruments…</div>';
+  if (!failed) Engine.ensure().catch(() => {});
+}
 function renderInstrumentDiscovery() {
   const host = $ui('instrument-body');
   if (!host) return;
   const keep = uiRowsKeep(host);
   const changed = ipSyncDestination();
+  if (!_engineLive) return ipRenderEnginePending(host);
   const q = ipQuery(),
     filters = app.instrumentAxisFilters,
     fam = INSTRUMENT_FAMILIES.find((f) => f.id === UI.instrumentFamily);
@@ -865,6 +876,11 @@ function uiCloseInstrumentPreview() {
     uiFocus($ui('instrument-search'));
 }
 function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {
+  if (!_engineLive) {
+    if (UI.view !== 'instrument') uiNavigate('instrument', { push: true });
+    engineReady().then((ok) => ok && uiInspectInstrument(id, { fromTrail, similar }));
+    return;
+  }
   const i = Inst(id);
   if (!i) return;
   if (UI.instrumentPreview !== id) {
@@ -937,6 +953,9 @@ async function ipAddConfigured() {
   if (added) renderInstrumentDiscovery();
 }
 
+Engine.onSettle(() => {
+  if (UI.view === 'instrument') UI_PAGES.instrument.render();
+});
 uiRegisterPage({
   id: 'instrument',
   recipe: 'dock',
@@ -1088,6 +1107,10 @@ uiRegisterPage({
     if (UI.instrumentPreview) uiCloseInstrumentPreview();
   },
   actions: {
+    'engine-retry'() {
+      Engine.ensure().catch(() => {});
+      renderInstrumentDiscovery();
+    },
     'instrument-family'(id) {
       UI.instrumentFamily = id;
       UI.instrumentClass = '';

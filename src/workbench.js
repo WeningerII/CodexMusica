@@ -1,6 +1,6 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload */
 /* global UILayout */
-/* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
+/* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
    canonical app (src/app.js) and catalog, which stay the only engine.
@@ -544,7 +544,11 @@ async function uiAddInstrument(id, { configure, message, destination } = {}) {
     const dest = destination !== undefined ? destination : $ui('instrument-destination')?.value;
     app._addToTradition = dest || null;
     const c = await addInstrumentFromPicker(id, { configure });
-    if (!c) throw Error('Instrument unavailable');
+    // No card while the instrument data could not load: engineReady has said so.
+    if (!c) {
+      if (!_engineLive) return null;
+      throw Error('Instrument unavailable');
+    }
     renderAll();
     uiOpenEditor(c.id);
     showToast(message ? message(c) : _addedInstrumentMessage(id, c), 'success');
@@ -568,6 +572,7 @@ function uiExport() {
   uiDownload('codex-musica-session.json', JSON.stringify(p, null, 2), 'application/json');
 }
 async function uiImport(file) {
+  if (!_engineLive && !(await engineReady())) return;
   try {
     const s = JSON.parse(await file.text()),
       cards = s.cards || s.workspace?.cards;
@@ -1831,7 +1836,8 @@ function uiReceiveReply(payload, request) {
     const use = document.createElement('button');
     use.className = 'btn btn-primary';
     use.innerHTML = icon('plus', 16) + ' Use recipe';
-    use.onclick = () => {
+    use.onclick = async () => {
+      if (!_engineLive && !(await engineReady())) return;
       try {
         app.cards = normalizeWorkspaceCards(source, true);
         pushHistory();
@@ -1957,13 +1963,9 @@ function uiRestoreSession() {
     const shared = localStorage.getItem('codex-workbench-v1');
     const recovery = sessionStorage.getItem('codex-workbench-recovery');
     if (recovery && shared && recovery !== shared) UI.storageConflict = true;
-    const saved = JSON.parse(
-      recovery ||
-        shared ||
-        localStorage.getItem('musica-workbench-v3') ||
-        localStorage.getItem('musica-study-v1') ||
-        'null'
-    );
+    // The same session, in the same order, that the lazy shell's boot checks
+    // for cards before it draws (storedSessionText in src/app.js).
+    const saved = JSON.parse(storedSessionText() || 'null');
     app.lyrics =
       typeof saved?.lyrics === 'string'
         ? saved.lyrics
@@ -1979,7 +1981,10 @@ function uiRestoreSession() {
     app.history = [];
     app.historyIndex = -1;
     pushHistory();
-  } catch {
+  } catch (e) {
+    // A restore that reached the instrument data before it loaded is a boot
+    // bug, not a damaged session: let the boot error say so, and write nothing.
+    if (e && e.name === 'EngineNotReadyError') throw e;
     UI.storageConflict = true;
     showToast('Saved session needs recovery. Export this session before replacing it.', 'error');
   }
