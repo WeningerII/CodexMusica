@@ -6,6 +6,47 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — the lazy shell's first view waits for 0.24 MB of catalog, not 2.1 MB
+
+`codex.html` booted from `api/browse.json`: every genre's name, axes and roster, and
+every genre's lineage, description and exemplars, 2.13 MB gzipped, all before the
+first view. The prose is 85% of that, and the first view shows one genre's.
+
+- **Two internal files split it** (`scripts/_browse_tables.js` is the rule;
+  `scripts/check_api.js` holds both, and now `browse.json` too, to the catalog):
+  - `api/browse_boot.json` (235 KB gzipped): every genre without its prose, plus the
+    prose of the six genres the Genre page opens on (`STARTER_TRADITIONS`), plus each
+    genre's catalog status. The page boots from it and preloads only it.
+  - `api/browse_prose.json` (1.88 MB gzipped): every genre's prose, requested at low
+    priority once the first view has painted, and merged by id.
+- **Before the prose lands**, nothing claims it is missing. A description, the
+  Background tab's About and Recordings, and a list row's summary say they are
+  loading, or that they could not be loaded, with Retry. A search covers names only
+  and says so. The tradition picker leaves the prose out and redraws once it lands.
+  When it lands, each slot is filled in place; nothing the reader may be pressing is
+  rebuilt. A names-only search redraws once, as a keystroke would.
+- **A deep link to a genre outside the six** (`codex.html?trad=…`) asks for the prose
+  as soon as the boot index has parsed. Its frame paints with the rest of the first
+  view, and its description fills in when the prose arrives.
+- **`api/browse.json` is unchanged** and stays in `api/index.json`. The app no longer
+  downloads it.
+- **Fixed on the way:** the lazy Background tab never showed "Catalog status" (the
+  boot index did not carry it), for the 6,970 genres that have one. It does now, and
+  the parity gate's projection includes it.
+- **Gates.** `check_lazy_app.js` now boots nine first views (default, List, phone,
+  phone List, deep links to a starter, a non-starter and an unknown id, a restored
+  recipe, a restored recipe in List) with the prose held back. Each must equal the
+  embedded build; the two that draw pending slots must equal it outside them, with
+  every pending slot a genre without prose. Then the prose is released: the page must
+  equal the embedded build, with no control rebuilt. It also checks the window before
+  the prose (names-only search, the exact name matches in the full search's order,
+  "loading", never "none") and a prose failure (one request, no retry loop; Retry
+  makes one more). `--only` and `--scenarios` restrict it for `faults.js`. New fault
+  classes 9c–9h, and class 9 retargeted at the boot index.
+- **Measured** (Lighthouse 13.5 mobile, simulated throttling, gzip served, 5 runs
+  each, interleaved against the previous head): largest contentful paint 17.1 s →
+  7.9 s in every run; total transfer 3,737 → 3,728 KiB; layout shift unchanged.
+
 ### Changed — Connector audit: the service writer is chat-only, and every tool says what it does
 
 A full reading of the connector (2026-09-27) found its published text had drifted

@@ -69,11 +69,12 @@ const HTML_PATH = flags.html || HTML_OUT;
 const VERBOSE = !!flags.verbose;
 
 // The shipped codex.html is the LAZY SHELL (the build_html.js default): it boots
-// by fetching api/browse.json. Headless Chromium cannot fetch api/ over a
+// by fetching api/browse_boot.json. Headless Chromium cannot fetch api/ over a
 // file:// origin, so a lazy shell loaded here would only ever render its
 // boot-error state and every surface would "fail". UI-surface resolution is a
 // property of the shared src/app.js render code, and check_lazy_app.js proves
-// the lazy shell reaches a byte-identical rendered DOM — so this gate exercises
+// the lazy shell's first view, and the page once the genre descriptions land,
+// are the embedded build's byte for byte — so this gate exercises
 // the EMBEDDED variant (tables in the page, no fetch). If --html points at an
 // already-embedded file we use it as-is; otherwise (lazy, or nothing built yet)
 // we build a fresh embedded codex.html from source to a temp file.

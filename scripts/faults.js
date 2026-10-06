@@ -18,6 +18,12 @@
 //   silent blend-drop   -> recipe.js  (input validation)
 //   orphan promise      -> check_promises.js  (documented but unregistered/ungated)
 //   lazy != embedded    -> check_lazy_app.js  (shipped shell drifts from embedded build)
+//   lazy prose desync   -> check_lazy_app.js  (the prose file drifts from the catalog)
+//   first view needs prose -> check_lazy_app.js (the first view waits on what follows it)
+//   pending claims absence -> check_lazy_app.js (the window says "none" for "not yet")
+//   prose arrival redraws -> check_lazy_app.js  (the descriptions' arrival rebuilds the page)
+//   published index drift -> check_api.js       (browse.json drifts, no app reads it now)
+//   prose preloaded     -> build_html.js --check (the prose joins the first view's path)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -291,19 +297,128 @@ record(
 
 // 9. lazy shell drifts from embedded build -> check_lazy_app.js
 //    The gate boots BOTH builds; the embedded one reads references/ while the
-//    lazy one reads api/browse.json through the fetch shim. Corrupting one
-//    tradition's name in the isolated browse.json forces the two builds to
-//    disagree on the catalog projection, which the parity gate must catch.
+//    lazy one boots from api/browse_boot.json through the fetch shim.
+//    Corrupting one tradition's name in the isolated boot index forces the two
+//    builds to disagree on the catalog projection, which the parity gate must
+//    catch. (The app no longer reads api/browse.json; 9g holds that file.)
 {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
+  const f = path.join(d, 'api/browse_boot.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  j.items[0].name = (j.items[0].name || '') + ' __FAULT__';
+  fs.writeFileSync(f, JSON.stringify(j));
+  record(
+    'lazy-shell-desync -> check_lazy_app.js',
+    gate(d, ['scripts/check_lazy_app.js', '--only=parity']),
+    /__FAULT__|drift|projection|LAZY-APP: FAIL/i
+  );
+}
+
+// 9c. the prose the lazy shell merges after its first paint drifts -> check_lazy_app.js
+{
+  const d = mkenv(['scripts', 'references', 'src', 'api']);
+  const f = path.join(d, 'api/browse_prose.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  j.items[0].description = (j.items[0].description || '') + ' __FAULT__';
+  fs.writeFileSync(f, JSON.stringify(j));
+  record(
+    'lazy-prose-desync -> check_lazy_app.js',
+    gate(d, ['scripts/check_lazy_app.js', '--only=parity']),
+    /__FAULT__|drift|projection|LAZY-APP: FAIL/i
+  );
+}
+
+// 9d. the first view needs prose the boot index no longer carries -> check_lazy_app.js
+//     The featured genre (the page's first starter) loses its prose from the
+//     boot index, so the first view would wait on the file that follows it.
+{
+  const d = mkenv(['scripts', 'references', 'src', 'api']);
+  const B = require('./_browse_tables.js');
+  const featured = B.starterIds(fs.readFileSync(path.join(d, 'src/app.js'), 'utf8'))[0];
+  const f = path.join(d, 'api/browse_boot.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const it = j.items.find((x) => x.id === featured);
+  if (!it || typeof it.description !== 'string')
+    throw new Error(`faults: the boot index carries no prose for ${featured}; class 9d is vacuous`);
+  for (const k of B.PROSE_KEYS) delete it[k];
+  fs.writeFileSync(f, JSON.stringify(j));
+  record(
+    'first-view-needs-prose -> check_lazy_app.js',
+    gate(d, ['scripts/check_lazy_app.js', '--only=first-view', '--scenarios=default']),
+    /first view|LAZY-APP: FAIL/i
+  );
+}
+
+// 9e. the page claims prose is there before it lands -> check_lazy_app.js
+//     proseState answers 'here' for every genre, so the window's readers say
+//     "the catalog has no description" where they should say "loading".
+{
+  const d = mkenv(['scripts', 'references', 'src', 'api']);
+  const f = path.join(d, 'src/app.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const patched = src.replace(
+    'function proseState(id) {',
+    "function proseState(id) { return 'here';"
+  );
+  if (patched === src) throw new Error('faults: could not plant the proseState defect');
+  fs.writeFileSync(f, patched);
+  record(
+    'pending-claims-absence -> check_lazy_app.js',
+    gate(d, ['scripts/check_lazy_app.js', '--only=window']),
+    /window|has no description|names no exemplar|No genres match|LAZY-APP: FAIL/i
+  );
+}
+
+// 9f. the prose's arrival redraws the page instead of filling its slots -> check_lazy_app.js
+{
+  const d = mkenv(['scripts', 'references', 'src', 'api']);
+  const f = path.join(d, 'src/pages/genre.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const patched = src.replace(
+    'function gpApplyProse() {',
+    'function gpApplyProse() {\n  return gpRenderMain();'
+  );
+  if (patched === src) throw new Error('faults: could not plant the gpApplyProse defect');
+  fs.writeFileSync(f, patched);
+  record(
+    'prose-arrival-redraws -> check_lazy_app.js',
+    gate(d, ['scripts/check_lazy_app.js', '--only=first-view', '--scenarios=default']),
+    /in place|rebuilt|LAZY-APP: FAIL/i
+  );
+}
+
+// 9g. the published browse.json drifts -> check_api.js
+//     No behavioural gate reads it now that the app boots from the split files,
+//     so check_api's derivation is what holds it.
+{
+  const d = mkenv(['scripts', 'references', 'api']);
   const f = path.join(d, 'api/browse.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j.items[0].name = (j.items[0].name || '') + ' __FAULT__';
-  fs.writeFileSync(f, JSON.stringify(j, null, 2));
+  fs.writeFileSync(f, JSON.stringify(j));
   record(
-    'lazy-shell-desync -> check_lazy_app.js',
-    gate(d, ['scripts/check_lazy_app.js']),
-    /__FAULT__|drift|projection|LAZY-APP: FAIL/i
+    'published-browse-drift -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /browse\.json|__FAULT__/i
+  );
+}
+
+// 9h. the genre prose is preloaded with the boot index -> build_html.js --check
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'scripts/build_html.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const lit = '<link rel="preload" href="${LAZY_API}browse_boot.json" as="fetch" crossorigin>';
+  const patched = src.replace(
+    lit,
+    lit + '<link rel="preload" href="${LAZY_API}browse_prose.json" as="fetch" crossorigin>'
+  );
+  if (patched === src) throw new Error('faults: could not plant the prose preload');
+  fs.writeFileSync(f, patched);
+  record(
+    'prose-preloaded -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /preload/i
   );
 }
 

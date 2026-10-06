@@ -732,7 +732,7 @@ check('exists', () => {
 check('shipped codex.html is the lazy shell (no embedded tradition tables)', () => {
   // The default build flipped to the lazy shell: the shipped artifact must NOT
   // carry the tradition tables (that absence is the whole point) and MUST carry
-  // the CODEX_LAZY_API switch so the app boots from api/browse.json. The deep
+  // the CODEX_LAZY_API switch so the app boots from api/browse_boot.json. The deep
   // behavioral checks below run against a temp EMBEDDED build instead.
   const html = fs.readFileSync(HTML_PATH, 'utf8');
   if (/\bconst TRADITIONS\b/.test(html) || /\bconst TRADITION_EXTRAS\b/.test(html)) {
@@ -741,7 +741,7 @@ check('shipped codex.html is the lazy shell (no embedded tradition tables)', () 
   if (!html.includes('const CODEX_LAZY_API')) {
     throw new Error('shipped codex.html missing CODEX_LAZY_API — not the lazy shell');
   }
-  return 'no TRADITIONS/TRADITION_EXTRAS in page; boots from api/browse.json';
+  return 'no TRADITIONS/TRADITION_EXTRAS in page; boots from api/browse_boot.json';
 });
 check('JS parseable (vm.Script syntax check)', () => {
   const html = fs.readFileSync(HTML_PATH, 'utf8');

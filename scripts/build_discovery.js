@@ -163,9 +163,12 @@ fs.writeFileSync(path.join(OUT_DIR, 'llms.txt'), llms);
 //     manifest would contradict that in the one place a machine actually looks,
 //     and invite every crawler to pull 5 MB on every sitemap poll. index.html
 //     links to it, so a human-facing crawler still finds it.
-//   • api/browse.json — the 2.4 MB Tier-1 boot payload for the lazy-loaded app.
-//     api/index.json lists it as an endpoint for the app's benefit; it is not a
-//     document anyone should be told to open cold.
+//   • api/browse.json — the 8 MB published Tier-1 index. api/index.json lists
+//     it as an endpoint; it is not a document anyone should be told to open
+//     cold.
+//   • api/browse_boot.json and api/browse_prose.json — the lazy app's two
+//     halves of it (internal, like nav_glyphs.json): the boot index its first
+//     view reads, and the genre prose it reads after the first paint.
 //   • anything on mcp.codexmusica.com — a sitemap may only declare URLs
 //     under its own origin, so cross-origin entries here would simply be dropped.
 //     llms.txt is the bridge that points at that host.

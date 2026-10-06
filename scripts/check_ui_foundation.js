@@ -234,10 +234,18 @@ async function stubPhotos(ctx) {
     },
   };
 }
+// Booted, and the genre prose merged, so searches and details read what the
+// embedded build reads; the state before it arrives is check_lazy_app.js's to
+// gate.
 async function ready(page) {
-  await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready, null, {
-    timeout: 60000,
-  });
+  await page.waitForFunction(
+    () =>
+      typeof UI !== 'undefined' &&
+      UI.ready &&
+      (typeof Catalog === 'undefined' || Catalog.proseLoaded()),
+    null,
+    { timeout: 60000 }
+  );
 }
 async function loadDelta(page) {
   await page.getByLabel('Search genres').fill('Delta blues');

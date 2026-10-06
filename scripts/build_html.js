@@ -6,8 +6,9 @@
 // non-tradition catalog data embedded as JS const declarations and the
 // application code appended, while the two tradition tables (~66% of the
 // embedded bytes) stay OUT of the page — the app's Catalog layer boots them from
-// api/browse.json (one fetch) and pulls each tradition's import payload from
-// api/traditions/{id}.json on demand. The shell therefore deploys NEXT TO the
+// api/browse_boot.json (one fetch), reads the genres' prose from
+// api/browse_prose.json after the first paint, and pulls each tradition's
+// import payload from api/traditions/{id}.json on demand. The shell therefore deploys NEXT TO the
 // committed api/ directory (GitHub Pages serves both from the repo root).
 // `--embedded` builds the historical fully-self-contained single-file variant
 // (every table in the page; works from file:// with no api/). check_lazy_app.js
@@ -123,7 +124,8 @@ const outputPath = flags.out || DEFAULT_OUTPUT;
 
 // Mode switch — the lazy shell is the DEFAULT. The two tradition tables —
 // 65%+ of the embedded data — stay OUT of the page; the app's Catalog layer
-// boots them from api/browse.json (one fetch) and pulls each tradition's
+// boots them from api/browse_boot.json (one fetch; the genres' prose follows
+// from api/browse_prose.json after the first paint) and pulls each tradition's
 // import payload from api/traditions/{id}.json on demand. The injected
 // CODEX_LAZY_API const is the switch src/app.js keys off. `--embedded` opts
 // into the fully-embedded single-file build (all tables in the page; the
@@ -180,6 +182,8 @@ const layoutCss = fs.readFileSync(path.join(SRC, 'layout.css'), 'utf8');
 // fetch() then reuses the preloaded response: `crossorigin` (anonymous) gives
 // the same mode and credentials as fetch()'s defaults, and a mismatch would
 // show as a second request. The embedded build has no fetch, so no preload.
+// Only the boot index: the genres' prose is read after the first paint and is
+// never preloaded (a preload would put it on the path to the largest paint).
 const BOOT_PRELOAD_MARKER = '<!--@BOOT_PRELOAD-->';
 const LAZY_API = 'api/';
 if (!template.includes(BOOT_PRELOAD_MARKER)) {
@@ -518,7 +522,7 @@ RUNTIME_MODULES.forEach(({ label, code }, i) => {
   if (i === 0 && LAZY) {
     // The lazy-shell switch. src/app.js sees this const, skips the (absent)
     // embedded tables, and resolves its CATALOG_READY boot promise by fetching
-    // `${CODEX_LAZY_API}browse.json` before any UI init runs. It sits in the
+    // `${CODEX_LAZY_API}browse_boot.json` before any UI init runs. It sits in the
     // first runtime block so it is declared before app.js loads.
     // Emitted verbatim, NOT through squeeze(). It is already one short line, so
     // there is nothing to save, and ui_reachability_check.js tells the lazy shell
@@ -545,7 +549,7 @@ const html = template
       : '<style>' + squeezeCss(css, 'src/index.template.html <style>') + '</style>'
   )
   .replace(BOOT_PRELOAD_MARKER, () =>
-    LAZY ? `<link rel="preload" href="${LAZY_API}browse.json" as="fetch" crossorigin>` : ''
+    LAZY ? `<link rel="preload" href="${LAZY_API}browse_boot.json" as="fetch" crossorigin>` : ''
   )
   .replace(THEME_BOOT_MARKER, () => '<script>' + squeeze(themeJs, 'theme boot') + '</script>')
   .replace(WORKBENCH_STYLE_MARKER, () =>
@@ -650,14 +654,17 @@ if (flags.check) {
     console.error('check: FAIL — lazy build leaked embedded tradition tables into the page');
     process.exit(4);
   }
-  // The boot index preload: exactly one in a lazy page (two would download the
-  // index twice), none in an embedded page, which never fetches it.
+  // The preloads: exactly the boot index in a lazy page (twice would download
+  // it twice), none in an embedded page, which never fetches it. The genres'
+  // prose and api/browse.json are read after the first paint, never preloaded.
   {
-    const preloads = (html.match(/<link rel="preload" href="api\/browse\.json"[^>]*>/g) || [])
-      .length;
-    if (preloads !== (LAZY ? 1 : 0)) {
+    const preloads = [...html.matchAll(/<link rel="preload" href="([^"]*)"[^>]*>/g)].map(
+      (m) => m[1]
+    );
+    const want = LAZY ? [LAZY_API + 'browse_boot.json'] : [];
+    if (JSON.stringify(preloads) !== JSON.stringify(want)) {
       console.error(
-        `check: FAIL — ${preloads} preload(s) of api/browse.json in a ${LAZY ? 'lazy' : 'embedded'} page (expected ${LAZY ? 1 : 0})`
+        `check: FAIL — preloads ${JSON.stringify(preloads)} in a ${LAZY ? 'lazy' : 'embedded'} page; expected ${JSON.stringify(want)} (only the boot index: the genre prose and api/browse.json are read after the first paint)`
       );
       process.exit(4);
     }

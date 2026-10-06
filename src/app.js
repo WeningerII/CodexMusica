@@ -1,4 +1,4 @@
-/* global UI, UI_ICONS, UILayout, uiAddGenre, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global UI, UI_ICONS, UILayout, uiAddGenre, uiAfterPaint, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 /* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend */
 
 
@@ -5080,13 +5080,21 @@ const TRADITION_SIGNATURES = {
 //     build, and every node harness that boots it). Everything is
 //     in memory up front; `ensureFull` resolves immediately and the sync
 //     import path behaves exactly as it always has.
-//   • lazy — boots from api/browse.json, the light Tier-1 index (id/name/
-//     family/lineage/parent/13 axes/instruments/description/exemplars/
-//     crossRefs). That index powers search, the tree, find-similar, and
-//     fingerprints entirely locally — identical recall and display to the
-//     embedded build. The only fields NOT in the index are the few row fields
-//     an IMPORT needs (tuning/room/parts/chain_*); those are fetched once per
-//     tradition from api/traditions/{id}.json (its `source` field) and cached.
+//   • lazy — three tiers, all fetched (scripts/_browse_tables.js writes the
+//     first two):
+//       1. api/browse_boot.json, the boot index: every genre's id/name/family/
+//          parent/13 axes/instruments/crossRefs/status, and the prose
+//          (lineage/description/exemplars) of the starter genres only. The
+//          first view draws from it alone.
+//       2. api/browse_prose.json, every genre's prose, asked for once the first
+//          view has painted (loadProse) and merged by id into the rows already
+//          in memory. Until it lands, search covers names only and a reader
+//          shows a genre's prose as loading (proseState), never as absent.
+//          Once it lands, search, the tree, find-similar and fingerprints run
+//          locally with recall and display identical to the embedded build.
+//       3. api/traditions/{id}.json, the few row fields an IMPORT needs
+//          (tuning/room/parts/chain_*), fetched once per tradition (its
+//          `source` field) and cached.
 //     This is what lets the catalog scale past the single-file embed ceiling
 //     with no server and no per-action lag outside a tradition's first import.
 const Catalog = (() => {
@@ -5095,6 +5103,15 @@ const Catalog = (() => {
   const _ext = new Map();    // id → extras: parent/axes/description/exemplars/crossRefs
   const _full = new Map();   // id → row WITH import fields (tuning/room/parts/chain_*)
   let _apiBase = null;       // non-null once lazy-booted (e.g. 'api/')
+  // Prose — lineage, description, exemplars (see the tiers above).
+  let _proseAll = false;           // every row's prose has merged (embedded: always)
+  const _proseIds = new Set();     // rows booted with their prose, while !_proseAll
+  const _proseMissing = new Set(); // rows the merged prose file lacked (deploy skew)
+  let _proseP = null;              // the load in flight
+  let _proseFailed = false;        // the last load failed; only loadProse() retries
+  const _proseListeners = [];      // onProse: called after every load settles
+  let _proseOnline = false;        // the 'online' retry is registered
+  let _nameIndex = null;           // names-only search rows, while !_proseAll
 
   function bootFromGlobals() {
     if (typeof TRADITIONS === 'undefined') return false;
@@ -5103,30 +5120,39 @@ const Catalog = (() => {
     if (typeof TRADITION_EXTRAS !== 'undefined') {
       for (const id of Object.keys(TRADITION_EXTRAS)) _ext.set(id, TRADITION_EXTRAS[id]);
     }
+    _proseAll = true;
     return true;
   }
 
-  // Boot from a fetched browse index (lazy mode). Axes arrive as a compact
-  // 13-array in the file's axisKeys order; remap to the named object the
-  // similarity/fingerprint code reads.
+  // Boot from a fetched browse index (lazy mode): api/browse_boot.json, or
+  // api/browse.json itself, which carries every genre's prose and so boots
+  // complete. Axes arrive as a compact 13-array in the file's axisKeys order;
+  // remap to the named object the similarity/fingerprint code reads.
   function bootFromIndex(browse, apiBase) {
     const keys = browse.axisKeys || [];
     _apiBase = apiBase || 'api/';
     _list = [];
+    _proseIds.clear();
+    _proseMissing.clear();
     for (const it of browse.items || []) {
-      const row = { id: it.id, name: it.name, family: it.family, lineage: it.lineage || null, instruments: it.instruments || [] };
+      // An item carries its prose whole or not at all (scripts/_browse_tables.js).
+      const prose = typeof it.description === 'string';
+      const row = { id: it.id, name: it.name, family: it.family, lineage: (prose && it.lineage) || null, instruments: it.instruments || [] };
       _list.push(row);
       _byId.set(it.id, row);
       const axes = {};
       (it.axes || []).forEach((v, i) => { if (keys[i]) axes[keys[i]] = v; });
-      _ext.set(it.id, {
-        parent: it.parent || null,
-        axes,
-        description: it.description || '',
-        exemplars: it.exemplars || [],
-        crossRefs: it.crossRefs || [],
-      });
+      const ext = { parent: it.parent || null, axes };
+      if (prose) {
+        ext.description = it.description || '';
+        ext.exemplars = it.exemplars || [];
+      }
+      ext.crossRefs = it.crossRefs || [];
+      if (it.status) ext.status = it.status;
+      _ext.set(it.id, ext);
+      if (prose) _proseIds.add(it.id);
     }
+    _proseAll = _list.length > 0 && _proseIds.size === _list.length;
     return _list.length > 0;
   }
 
@@ -5144,6 +5170,77 @@ const Catalog = (() => {
     const full = Object.assign({}, row, rec.source || {});
     _full.set(id, full);
     return full;
+  }
+
+  // ---- Prose (lazy shell): api/browse_prose.json, after the first paint ----
+  // Merged IN PLACE: pages hold these row and extras objects (G.sorted,
+  // G.members, the search index's rows), so a merge is seen by every reader.
+  function mergeProse(p) {
+    const seen = new Set();
+    for (const it of (p && p.items) || []) {
+      const row = _byId.get(it && it.id);
+      if (!row) continue;
+      const ext = _ext.get(it.id);
+      row.lineage = it.lineage || null;
+      ext.description = it.description || '';
+      ext.exemplars = it.exemplars || [];
+      const full = _full.get(it.id);
+      if (full) full.lineage = row.lineage;
+      seen.add(it.id);
+    }
+    if (!seen.size) throw new Error('prose index is empty');
+    for (const t of _list) if (!seen.has(t.id) && !_proseIds.has(t.id)) _proseMissing.add(t.id);
+    _proseAll = true;
+    _proseIds.clear();
+    _searchIndex = null; _warmRows = null; _warmAt = 0; _nameIndex = null;
+    warmSearchIndex();
+  }
+  function settleProse() {
+    for (const fn of _proseListeners.slice()) {
+      try { fn(); } catch (e) { console.error(e); }
+    }
+  }
+  // The one load. A failure is reported once (proseFailed) and retried only by
+  // a caller of loadProse — the Retry buttons, the picker, window 'online' —
+  // never on a timer.
+  function loadProse() {
+    if (_proseAll || !_apiBase) return Promise.resolve();
+    if (_proseP) return _proseP;
+    _proseFailed = false;
+    _proseP = fetch(_apiBase + 'browse_prose.json', { priority: 'low' })
+      .then((res) => {
+        if (!res.ok) throw new Error('prose index fetch failed (' + res.status + ')');
+        return res.json();
+      })
+      .then(mergeProse)
+      .then(() => { _proseP = null; settleProse(); }, (e) => {
+        _proseP = null;
+        _proseFailed = true;
+        console.warn('[codex] ' + e.message + '; genre descriptions show as not loaded');
+        if (!_proseOnline && typeof window !== 'undefined' && window.addEventListener) {
+          _proseOnline = true;
+          window.addEventListener('online', () => { if (_proseFailed) loadProse().catch(() => {}); });
+        }
+        settleProse();
+        throw e;
+      });
+    return _proseP;
+  }
+  // Ask early (a reader needs the prose now); never a retry after a failure.
+  function needProse() { if (!_proseFailed) loadProse().catch(() => {}); }
+  // 'here' | 'loading' | 'failed' — what a reader of this genre's prose may say.
+  function proseState(id) {
+    if (_proseAll) return _proseMissing.has(id) ? 'failed' : 'here';
+    if (_proseIds.has(id)) return 'here';
+    return _proseFailed ? 'failed' : 'loading';
+  }
+  // Resolves once the prose has merged. Never starts a load (the gate relies on that).
+  function whenProse() {
+    return _proseAll ? Promise.resolve() : new Promise((resolve) => _proseListeners.push(function done() {
+      if (!_proseAll) return;
+      _proseListeners.splice(_proseListeners.indexOf(done), 1);
+      resolve();
+    }));
   }
 
   // ---- Search index: normalize ONCE, not once per keystroke ----
@@ -5187,6 +5284,12 @@ const Catalog = (() => {
   }
 
   function searchIndex() {
+    if (!_proseAll) {
+      // Names only until the prose has merged, and never kept as the full index.
+      if (!_nameIndex || _nameIndex.length !== _list.length)
+        _nameIndex = _list.map((t) => ({ t, name: normalizeSearch(t.name), lineage: '', description: '' }));
+      return _nameIndex;
+    }
     if (_searchIndex) return _searchIndex;
     // Finish whatever the idle slices left, rather than starting again.
     const rows = _warmRows && _warmRows.length === _list.length ? _warmRows : new Array(_list.length);
@@ -5214,13 +5317,13 @@ const Catalog = (() => {
   // requestIdleCallback is guarded — Safari shipped it late, and the headless
   // harness that loads this file for the parity gates supplies neither timer.
   function warmSearchIndex() {
-    if (_searchIndex) return;
+    if (_searchIndex || !_proseAll) return; // mergeProse warms it when the prose lands
     const schedule = (step) => {
       if (typeof requestIdleCallback === 'function') requestIdleCallback(step, { timeout: 3000 });
       else if (typeof setTimeout === 'function') setTimeout(step, 0);
     };
     const step = (deadline) => {
-      if (_searchIndex) return;
+      if (_searchIndex || !_proseAll) return;
       if (!_list.length) return void searchIndex(); // nothing to slice
       if (!_warmRows || _warmRows.length !== _list.length) {
         _warmRows = new Array(_list.length);
@@ -5242,8 +5345,8 @@ const Catalog = (() => {
   }
 
   return {
-    bootFromGlobals: (...a) => { _searchIndex = null; _warmRows = null; _warmAt = 0; return bootFromGlobals(...a); },
-    bootFromIndex: (...a) => { _searchIndex = null; _warmRows = null; _warmAt = 0; return bootFromIndex(...a); },
+    bootFromGlobals: (...a) => { _searchIndex = null; _warmRows = null; _warmAt = 0; _nameIndex = null; _proseP = null; _proseFailed = false; return bootFromGlobals(...a); },
+    bootFromIndex: (...a) => { _searchIndex = null; _warmRows = null; _warmAt = 0; _nameIndex = null; _proseP = null; _proseFailed = false; return bootFromIndex(...a); },
     all: () => _list,                  // light rows — iteration (search/tree/similar)
     get: (id) => _byId.get(id),        // light row — name/family/lineage/instruments
     ext: (id) => _ext.get(id),         // extras — parent/axes/description/exemplars/crossRefs
@@ -5251,6 +5354,14 @@ const Catalog = (() => {
     ensureFull,                        // async — the ONE await point, before import
     searchIndex,                       // prepared search rows, built once
     warmSearchIndex,                   // build during idle, before anyone types
+    loadProse,                         // lazy: fetch and merge every genre's prose (retries)
+    needProse,                         // lazy: ask for it early, unless it just failed
+    whenProse,                         // resolves once merged; starts nothing
+    onProse: (fn) => { _proseListeners.push(fn); }, // after every load settles
+    proseState,                        // 'here' | 'loading' | 'failed', per genre
+    hasProse: (id) => proseState(id) === 'here',
+    proseLoaded: () => _proseAll,
+    proseFailed: () => !_proseAll && _proseFailed,
   };
 })();
 
@@ -5297,20 +5408,27 @@ const _VARIANTS_BY_INST = new Map();         // instId → Map<partId, Map<varia
 // ---- Catalog boot promise (lazy shell) ----
 // The lazy build (the `build_html.js` default) omits the traditions/extras
 // tables from the page and injects `CODEX_LAZY_API` ahead of the app code. In that
-// build the Catalog boots from ONE fetch of api/browse.json — everything the
-// browse surfaces read. The embedded build takes the other branch (null):
-// bootFromGlobals already ran synchronously above, so its init path keeps
-// today's fully synchronous timing, byte-identical behavior.
+// build the Catalog boots from ONE fetch of api/browse_boot.json — everything
+// the first view reads; the genres' prose follows after the first paint
+// (_initApp). The embedded build takes the other branch (null): bootFromGlobals
+// already ran synchronously above, so its init path keeps today's fully
+// synchronous timing, byte-identical behavior.
 const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !Catalog.all().length)
-  ? fetch(CODEX_LAZY_API + 'browse.json')
+  ? fetch(CODEX_LAZY_API + 'browse_boot.json')
       .then((res) => {
-        if (!res.ok) throw new Error('browse index fetch failed (' + res.status + ')');
+        if (!res.ok) throw new Error('boot index fetch failed (' + res.status + ')');
         return res.json();
       })
-      .then((browse) => {
-        if (!Catalog.bootFromIndex(browse, CODEX_LAZY_API)) {
-          throw new Error('browse index is empty');
+      .then((boot) => {
+        if (!Catalog.bootFromIndex(boot, CODEX_LAZY_API)) {
+          throw new Error('boot index is empty');
         }
+        // codex.html?trad=<id> opens that genre first (src/workbench.js). The
+        // boot index carries prose for the starters only; for any other genre,
+        // ask for the rest now. The page does not wait: its description shows
+        // as loading, then fills in.
+        const deep = new URLSearchParams(location.search).get('trad');
+        if (deep && Catalog.get(deep) && !Catalog.hasProse(deep)) Catalog.needProse();
       })
   : null;
 
@@ -22207,8 +22325,9 @@ function _syncRecipeBarHeight() {
 
 // Boot gate. Embedded build: CATALOG_READY is null and init runs synchronously
 // inside the DOMContentLoaded handler, exactly as it always has. Lazy shell:
-// init waits for the one browse-index fetch; a failed fetch renders a
-// persistent, honest error state instead of a blank app.
+// init waits for the boot index (api/browse_boot.json); the genre prose follows
+// after the first paint. A failed boot index renders a persistent, honest
+// error state instead of a blank app.
 document.addEventListener('DOMContentLoaded', () => {
   if (CATALOG_READY) CATALOG_READY.then(_initApp).catch(_renderBootError);
   else _initApp();
@@ -22221,7 +22340,7 @@ function _renderBootError(err) {
   detail.innerHTML =
     '<div class="empty-state" id="boot-error">' +
     '<h2>Couldn’t load the catalog</h2>' +
-    '<p>The browse index (api/browse.json) failed to load. Check your connection and reload the page.</p>' +
+    '<p>The catalog index (api/browse_boot.json) failed to load. Check your connection and reload the page.</p>' +
     '<div class="empty-state-actions"><button class="btn btn-primary" id="boot-error-reload">Reload</button></div>' +
     '</div>';
   const btn = document.getElementById('boot-error-reload');
@@ -22232,8 +22351,14 @@ function _initApp() {
   // Prepare the tradition search strings while the browser is idle, so the
   // first keystroke in the picker meets a built index instead of building one.
   // Costs nothing if the user never searches; the callback is dropped on the
-  // next boot, and typing early just builds it on demand instead.
+  // next boot, and typing early just builds it on demand instead (lazy shell:
+  // after the prose lands).
   Catalog.warmSearchIndex();
+  // Lazy shell: the genres' prose (api/browse_prose.json) is asked for once the
+  // first view has painted; requested before, it would share the network with
+  // that view and count on the path to the largest paint. Embedded: a no-op.
+  if (typeof uiAfterPaint === 'function') uiAfterPaint(() => Catalog.loadProse().catch(() => {}));
+  Catalog.onProse(_pickerProseSettled);
 
   // Hydrate all icon placeholders in the static HTML shell. Each
   // <span data-icon="name" data-size="N"></span> placeholder gets its
@@ -22286,6 +22411,8 @@ function _initApp() {
     openModal('modal-add');
   });
   document.getElementById('btn-traditions').addEventListener('click', () => {
+    if (Catalog.proseFailed()) Catalog.loadProse().catch(() => {});
+    else Catalog.needProse();
     app.tradSearch = '';
     app.similarFor = null;
     document.getElementById('search-trad').value = '';
@@ -22315,6 +22442,7 @@ function _initApp() {
   // fast typist onto one render without being perceptible on its own.
   let tradSearchTimer = null;
   document.getElementById('search-trad').addEventListener('input', e => {
+    Catalog.needProse();
     app.tradSearch = e.target.value;
     app.similarFor = null;
     if (tradSearchTimer) clearTimeout(tradSearchTimer);
@@ -22979,9 +23107,26 @@ if (!('similarInstFor' in app)) app.similarInstFor = null;
 if (!app.instrumentAxisFilters) app.instrumentAxisFilters = new Set();
 
 // ---- NESTED TREE PICKER ----
+// Lazy shell: until the genres' prose has merged, the picker leaves out the
+// lineage, descriptions and exemplars it does not have (a field left out makes
+// no claim), searches names only and says so, and redraws once the prose
+// settles. Embedded: every genre has its prose and nothing here changes.
+let _pickerProsePending = false; // the last render left some prose out
+function _pickerHasProse(id) {
+  if (Catalog.hasProse(id)) return true;
+  _pickerProsePending = true;
+  return false;
+}
+function _pickerProseSettled() {
+  if (!_pickerProsePending) return;
+  const body = document.querySelector('#modal-trad .modal-body'), top = body ? body.scrollTop : 0;
+  renderTradPicker();
+  if (body) body.scrollTop = top;
+}
 function renderTradPicker() {
   const c = document.getElementById('picker-trad');
   if (!c) return;
+  _pickerProsePending = false;
   const q = normalizeSearch(app.tradSearch);
 
   // If we're inside a "find similar" drill-down, render that instead
@@ -22993,6 +23138,9 @@ function renderTradPicker() {
 
   // Search mode — flat results across the whole catalog
   if (q) {
+    const namesOnly = !Catalog.proseLoaded();
+    if (namesOnly) _pickerProsePending = true;
+    const why = Catalog.proseFailed() ? 'the descriptions could not be loaded' : 'descriptions are still loading';
     // Rank by WHERE the query matches, so an exact title beats a mere prose
     // mention: 0 exact name · 1 name prefix · 2 name substring · 3 lineage/
     // description only. Previously this was a flat substring filter rendered in
@@ -23023,7 +23171,9 @@ function renderTradPicker() {
       .sort((a, b) => a.r - b.r || a.t.name.length - b.t.name.length || a.t.name.localeCompare(b.t.name, 'en'))
       .map((x) => x.t);
     if (!matches.length) {
-      c.innerHTML = `<div class="empty-msg">No traditions match &ldquo;${esc(q)}&rdquo;</div>`;
+      c.innerHTML = namesOnly
+        ? `<div class="empty-msg">No tradition names match &ldquo;${esc(q)}&rdquo; &mdash; ${why}</div>`
+        : `<div class="empty-msg">No traditions match &ldquo;${esc(q)}&rdquo;</div>`;
       return;
     }
     // Render a ranked PAGE, not every match.
@@ -23045,7 +23195,7 @@ function renderTradPicker() {
     const shown = matches.slice(0, RESULT_CAP);
     const hidden = matches.length - shown.length;
     let html = `<div class="tree-search-hits">`;
-    html += `<div style="font-size: var(--fs-micro); color: var(--text-3); margin-bottom: var(--s3); text-transform: uppercase; letter-spacing: 0.06em; font-weight: var(--fw-semibold);">${matches.length} match${matches.length === 1 ? '' : 'es'}${hidden > 0 ? ` &middot; showing top ${shown.length}` : ''}</div>`;
+    html += `<div style="font-size: var(--fs-micro); color: var(--text-3); margin-bottom: var(--s3); text-transform: uppercase; letter-spacing: 0.06em; font-weight: var(--fw-semibold);">${matches.length} match${matches.length === 1 ? '' : 'es'}${hidden > 0 ? ` &middot; showing top ${shown.length}` : ''}${namesOnly ? ` &middot; names only, ${why}` : ''}</div>`;
     shown.forEach(t => {
       const path = getAncestorPath(t.id);
       const ext = Catalog.ext(t.id) || {};
@@ -23054,7 +23204,7 @@ function renderTradPicker() {
       html += `<div>`;
       if (path.length) html += `<div class="tree-search-path">${esc(path.join(' / '))}</div>`;
       html += `<div class="trad-leaf-name">${(typeof traditionGlyphsHTML==='function'?traditionGlyphsHTML(t.id,30):'')}${esc(t.name)}</div>`;
-      if (ext.description) html += `<div class="trad-leaf-desc">${esc(ext.description)}</div>`;
+      if (_pickerHasProse(t.id) && ext.description) html += `<div class="trad-leaf-desc">${esc(ext.description)}</div>`;
       if (inst.length) html += `<div class="trad-leaf-meta trad-leaf-meta-line">${esc(inst.join(' · '))}</div>`;
       html += `</div>`;
       html += `<div class="trad-leaf-actions">`;
@@ -23115,6 +23265,7 @@ function renderTreeNode(node, depth) {
 
 function renderTradLeaf(tradition, depth, isCrossRef) {
   const ext = Catalog.ext(tradition.id) || {};
+  const prose = _pickerHasProse(tradition.id);
   const inst = (tradition.instruments || []).map(id => Inst(id)?.short || Inst(id)?.name).filter(Boolean);
   const indent = depth * 16;
   const cls = isCrossRef ? 'trad-leaf crossref' : 'trad-leaf';
@@ -23131,9 +23282,9 @@ function renderTradLeaf(tradition, depth, isCrossRef) {
       html += `<div class="trad-leaf-xref-from">primary: ${esc(primaryParent.name)}</div>`;
     }
   }
-  if (ext.description) html += `<div class="trad-leaf-desc">${esc(ext.description)}</div>`;
+  if (prose && ext.description) html += `<div class="trad-leaf-desc">${esc(ext.description)}</div>`;
   if (inst.length) html += `<div class="trad-leaf-meta trad-leaf-meta-line">${esc(inst.join(' · '))}</div>`;
-  if (ext.exemplars && ext.exemplars.length) html += `<div class="trad-leaf-meta">${esc(ext.exemplars.slice(0, 2).join(' · '))}</div>`;
+  if (prose && ext.exemplars && ext.exemplars.length) html += `<div class="trad-leaf-meta">${esc(ext.exemplars.slice(0, 2).join(' · '))}</div>`;
   html += `</div>`;
   html += `<div class="trad-leaf-actions">`;
   html += `<button class="leaf-btn" data-import="${esc(tradition.id)}">Import ${inst.length}</button>`;
@@ -23154,8 +23305,9 @@ function renderSimilarView(tradId) {
   html += `<div class="similar-source">`;
   html += `<div class="similar-source-label">Finding traditions sonically near</div>`;
   html += `<div class="similar-source-name">${esc(trad.name)}</div>`;
-  if (trad.lineage) html += `<div class="similar-source-lineage">${esc(trad.lineage)}</div>`;
-  if (ext.description) html += `<div class="similar-source-desc">${esc(ext.description)}</div>`;
+  const prose = _pickerHasProse(tradId);
+  if (prose && trad.lineage) html += `<div class="similar-source-lineage">${esc(trad.lineage)}</div>`;
+  if (prose && ext.description) html += `<div class="similar-source-desc">${esc(ext.description)}</div>`;
 
   // "Instruments that fit" — outside-the-canon instruments closest to this tradition's centroid
   const fits = findInstrumentsForTradition(tradId, 6);
@@ -23187,7 +23339,7 @@ function renderSimilarView(tradId) {
     html += `<div>`;
     html += `<div class="similar-card-name">${esc(nTrad.name)}</div>`;
     html += `<div class="similar-card-distance">distance ${n.distance.toFixed(2)}${path.length ? ' · ' + esc(path.join(' / ')) : ''}</div>`;
-    if (nExt.description) html += `<div class="similar-card-desc">${esc(nExt.description)}</div>`;
+    if (_pickerHasProse(n.id) && nExt.description) html += `<div class="similar-card-desc">${esc(nExt.description)}</div>`;
     if (inst.length) html += `<div class="trad-leaf-meta trad-leaf-meta-line" style="margin-top: 6px;">${esc(inst.slice(0, 5).join(' · '))}${inst.length > 5 ? '…' : ''}</div>`;
     html += `<div class="similar-card-matches">`;
     html += `<div class="label-micro-cap">Closest on</div>`;
