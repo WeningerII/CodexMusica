@@ -543,7 +543,11 @@ async function uiAddInstrument(id, { configure, message, destination } = {}) {
   try {
     const dest = destination !== undefined ? destination : $ui('instrument-destination')?.value;
     app._addToTradition = dest || null;
-    const c = await addInstrumentFromPicker(id, { configure });
+    const retry = {
+      label: 'Retry',
+      run: () => uiAddInstrument(id, { configure, message, destination: dest || '' }),
+    };
+    const c = await addInstrumentFromPicker(id, { configure, retry });
     // No card while the instrument data could not load: engineReady has said so.
     if (!c) {
       if (!_engineLive) return null;
@@ -572,7 +576,7 @@ function uiExport() {
   uiDownload('codex-musica-session.json', JSON.stringify(p, null, 2), 'application/json');
 }
 async function uiImport(file) {
-  if (!_engineLive && !(await engineReady())) return;
+  if (!_engineLive && !(await engineReady({ label: 'Retry', run: () => uiImport(file) }))) return;
   try {
     const s = JSON.parse(await file.text()),
       cards = s.cards || s.workspace?.cards;
@@ -1837,7 +1841,8 @@ function uiReceiveReply(payload, request) {
     use.className = 'btn btn-primary';
     use.innerHTML = icon('plus', 16) + ' Use recipe';
     use.onclick = async () => {
-      if (!_engineLive && !(await engineReady())) return;
+      if (!_engineLive && !(await engineReady({ label: 'Retry', run: () => use.onclick() })))
+        return;
       try {
         app.cards = normalizeWorkspaceCards(source, true);
         pushHistory();

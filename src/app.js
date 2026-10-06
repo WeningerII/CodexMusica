@@ -5496,7 +5496,8 @@ const Engine = (() => {
         bytesDone();
         // One JSON value per line ('[', the header, each [table, value] part, ']'),
         // so each line is parsed in a slice of its own instead of one long task.
-        const lines = text.split('\n');
+        // A copy whose line endings were converted (CRLF) reads the same.
+        const lines = text.split(/\r?\n/);
         const el = (i) => JSON.parse(lines[i].replace(/,$/, ''));
         const head = lines[0] === '[' ? el(1) : null;
         if (!head || head.tables_sha1 !== CODEX_ENGINE_SHA)
@@ -5504,12 +5505,18 @@ const Engine = (() => {
         const t = { INSTRUMENTS: [] };
         state = 'preparing';
         await sliced((function* () {
-          for (let i = 2; i < lines.length && lines[i] !== ']'; i++) {
+          let closed = false;
+          for (let i = 2; i < lines.length; i++) {
+            if (lines[i] === ']') { closed = true; break; }
             const [name, value] = el(i);
             if (name === 'INSTRUMENTS') for (const x of value) t.INSTRUMENTS.push(x);
             else t[name] = value;
             yield;
           }
+          // A file cut short at a line boundary still parses; it must not be
+          // committed with tables missing. A load failure, so it can be retried.
+          if (!closed || (head.tables || []).some((n) => !(n in t)))
+            throw new Error('instrument data arrived incomplete');
           const ids = t.INSTRUMENTS.map((x) => x.id);
           if (ids.length !== INSTRUMENT_INDEX.length || ids.some((id, k) => id !== INSTRUMENT_INDEX[k][0]))
             throw Object.assign(new Error('instrument data does not match this page'), { stale: true });
@@ -5556,14 +5563,20 @@ const Engine = (() => {
 })();
 // An action that needs the instrument data: true at once when it is here;
 // otherwise says so, waits, and on failure says that, with Retry.
+// The waiting status stays up for the whole wait (it can be many seconds on a
+// slow link), and is taken down when the wait ends unless something newer has
+// replaced it. `retry` redoes the caller's action; without one, Retry loads the
+// instrument data again and the action is the user's to repeat.
 async function engineReady(retry) {
   if (_engineLive) return true;
-  showToast('Preparing the instrument data…');
+  const shown = showToast('Preparing the instrument data…', undefined, undefined, { sticky: true });
   try { await Engine.ensure(); return true; }
   catch (e) {
     if (e && e.stale) showToast('This page is out of date. Reload to load the matching instrument data.', 'error', { label: 'Reload', run: () => location.reload() });
-    else showToast('Could not load the instrument data — check your connection', 'error', retry);
+    else showToast('Could not load the instrument data — check your connection', 'error', retry || { label: 'Retry', run: () => Engine.ensure().catch(() => {}) });
     return false;
+  } finally {
+    if (toastSeq === shown) hideToast(document.getElementById('toast'));
   }
 }
 // The saved session uiRestoreSession (src/workbench.js) restores from, in its
@@ -19441,7 +19454,8 @@ async function saveWS(name) {
   }catch(e){console.error(e);showToast('Save did not finish. Your session remains open; retry or export.','error');}
 }
 async function restoreSavedWorkspace(key,fork){
-  if(!_engineLive&&!(await engineReady()))throw Error('Could not load the instrument data');
+  // engineReady has already said why (and offered Reload or Retry): quiet, so loadWS/forkWS add nothing over it.
+  if(!_engineLive&&!(await engineReady({label:'Retry',run:()=>(fork?forkWS(key):loadWS(key))})))throw Object.assign(Error('Could not load the instrument data'),{quiet:true});
   const r=await window.storage.get(key);if(!r)throw Error('Saved session not found');
   const d=JSON.parse(r.value);if(d.schema>WS_SCHEMA)throw Error('Saved by a newer version — update to open it');
   const cards=normalizeWorkspaceCards(d.cards||[],fork);
@@ -19452,8 +19466,8 @@ async function restoreSavedWorkspace(key,fork){
   closeModal('modal-saved');pushHistory();renderAll();
   showToast(`${fork?'Copied':'Loaded'} "${app.workspaceName}"`,'success');
 }
-async function loadWS(key){try{await restoreSavedWorkspace(key,false);}catch(e){showToast(e.message||'Load failed','error');}}
-async function forkWS(key){try{await restoreSavedWorkspace(key,true);}catch(e){showToast(e.message||'Copy failed','error');}}
+async function loadWS(key){try{await restoreSavedWorkspace(key,false);}catch(e){if(!e.quiet)showToast(e.message||'Load failed','error');}}
+async function forkWS(key){try{await restoreSavedWorkspace(key,true);}catch(e){if(!e.quiet)showToast(e.message||'Copy failed','error');}}
 async function delWS(key){
  if(!window.storage){showToast('Delete failed','error');return;}
  try{await withSavedWrite(async()=>{
@@ -19571,7 +19585,8 @@ function confirmDialog(opts) {
 
 // ---- Toast ----
 let toastT = null;
-function showToast(msg, kind, action) {
+let toastSeq = 0; // counts toasts, so a caller can tell whether its own is still up
+function showToast(msg, kind, action, opts) {
   // kind: undefined (default neutral), 'success' (green w/ check icon),
   // 'error' (red w/ alert-circle icon). Icon emoji is part of the toast
   // text to keep the existing rendering surface unchanged.
@@ -19599,7 +19614,10 @@ function showToast(msg, kind, action) {
   }
   t.classList.add('show');
   if (toastT) clearTimeout(toastT);
-  toastT = setTimeout(() => hideToast(t), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+  // opts.sticky: a status that lasts as long as what it reports; its caller
+  // takes it down (engineReady).
+  toastT = opts && opts.sticky ? null : setTimeout(() => hideToast(t), UI_TIMING_MS.TOAST_LIFETIME * (action ? 3 : 1));
+  return ++toastSeq;
 }
 // The action leaves with the toast. Left behind at opacity 0 it would still
 // take a click at bottom centre and run Undo or Retry unseen.
@@ -22514,7 +22532,12 @@ function _syncRecipeBarHeight() {
 // after the first paint. A failed boot index renders a persistent, honest
 // error state instead of a blank app.
 document.addEventListener('DOMContentLoaded', () => {
-  if (CATALOG_READY) CATALOG_READY.then(() => _initApp()).catch(_renderBootError);
+  // A session saved by another tab after the page's first look (ENGINE_AT_BOOT)
+  // still needs the instrument data before it is drawn: look again.
+  if (CATALOG_READY)
+    CATALOG_READY.then(() => (!_engineLive && _bootNeedsEngine() ? Engine.ensure() : null))
+      .then(() => _initApp())
+      .catch(_renderBootError);
   else _initApp();
 });
 
@@ -22526,8 +22549,10 @@ function _renderBootError(err) {
   detail.innerHTML =
     '<div class="empty-state" id="boot-error"' + (engine ? ' data-engine-pending="failed"' : '') + '>' +
     (engine
-      ? '<h2>Couldn’t load your saved recipe</h2><p>' + (err.stale
-          ? 'This page is out of date for the instrument data (api/engine.json). Your saved recipe is still in this browser. Reload the page.'
+      ? '<h2>Couldn’t load your saved recipe</h2><p>' + (err.name === 'EngineNotReadyError'
+          ? 'Your saved recipe was read before the instrument data (api/engine.json) had loaded, so it was not drawn. It is still saved in this browser. Reload the page.'
+          : err.stale
+          ? 'This page is out of date for the instrument data (api/engine.json). Your saved recipe is still saved in this browser. Reload the page.'
           : 'The instrument data (api/engine.json) failed to load, so your saved recipe can’t be drawn yet. It is still saved in this browser. Check your connection and reload the page.') + '</p>'
       : '<h2>Couldn’t load the catalog</h2><p>The catalog index (api/browse_boot.json) failed to load. Check your connection and reload the page.</p>') +
     '<div class="empty-state-actions"><button class="btn btn-primary" id="boot-error-reload">Reload</button></div>' +
@@ -23257,8 +23282,13 @@ function _addedInstrumentMessage(instrumentId, card) {
 // entry is recorded, so "add this instrument, configured like so" is one
 // action and one Ctrl+Z (the Instrument page's configure-before-add uses it).
 async function addInstrumentFromPicker(instrumentId, opts) {
-  if (!_engineLive && !(await engineReady())) return null;
+  // Read the destination before any wait: the Add-to context can change while
+  // the instrument data loads (another Add, the page's own select), and the
+  // user's choice is the one in force when they asked.
   const configure = opts && typeof opts.configure === 'function' ? opts.configure : null;
+  const tradId = app._addToTradition || null;
+  app._addToTradition = null;
+  if (!_engineLive && !(await engineReady(opts && opts.retry))) return null;
   // An ungrouped card: addCard records it, unless it is configured first.
   const addLoose = () => {
     if (!configure) return addCard(instrumentId);
@@ -23268,8 +23298,6 @@ async function addInstrumentFromPicker(instrumentId, opts) {
     if (typeof pushHistory === 'function') pushHistory();
     return loose;
   };
-  const tradId = app._addToTradition || null;
-  app._addToTradition = null;
   if (!tradId) return addLoose();
   // Lazy mode keeps only light tradition rows in memory; the chain / tuning /
   // room fields this needs live on the full row. Resolves immediately in
@@ -23514,8 +23542,10 @@ function renderSimilarView(tradId) {
   const fits = _engineLive ? findInstrumentsForTradition(tradId, 6) : [];
   if (!_engineLive) {
     _pickerEnginePending = true;
-    const failed = Engine.failed();
-    html += failed
+    const failed = Engine.failed(), stale = failed && !!(Engine.failure() && Engine.failure().stale);
+    html += stale
+      ? `<div class="fit-instruments" role="status" data-engine-pending="failed"><div class="fit-instruments-label">This page is out of date for the instrument data.</div><button class="leaf-btn ghost" data-engine-reload>Reload</button></div>`
+      : failed
       ? `<div class="fit-instruments" role="status" data-engine-pending="failed"><div class="fit-instruments-label">Couldn’t load the instruments that fit this parameter space.</div><button class="leaf-btn ghost" data-engine-retry>Retry</button></div>`
       : `<div class="fit-instruments" role="status" data-engine-pending="fits"><div class="fit-instruments-label">Loading the instruments that fit this parameter space…</div></div>`;
     if (!failed) Engine.ensure().catch(() => {});
@@ -23599,6 +23629,8 @@ function wireTreeEvents(container) {
 function wireSimilarEvents(container) {
   const retryBtn = container.querySelector('[data-engine-retry]');
   if (retryBtn) retryBtn.addEventListener('click', () => { Engine.ensure().catch(() => {}); renderTradPicker(); });
+  const reloadBtn = container.querySelector('[data-engine-reload]');
+  if (reloadBtn) reloadBtn.addEventListener('click', () => location.reload());
   const backBtn = container.querySelector('[data-similar-back]');
   if (backBtn) backBtn.addEventListener('click', () => {
     app.similarFor = null;

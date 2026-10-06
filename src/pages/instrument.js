@@ -285,11 +285,16 @@ function ipGroups(filtered, fam) {
 // Until the instrument data is here the list says so: no count, and never
 // "no instruments". It asks for the data, and redraws when it settles.
 function ipRenderEnginePending(host) {
-  const failed = Engine.failed();
+  const failed = Engine.failed(),
+    stale = failed && !!Engine.failure()?.stale;
   $ui('ip-total').textContent = '';
-  host.innerHTML = failed
-    ? `<div class="cm-status" role="status" data-engine-pending="failed">Couldn’t load the instruments. ${uiButton('engine-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
-    : '<div class="cm-status" role="status" data-engine-pending="instruments">Loading the instruments…</div>';
+  // A stale file (another deploy's) cannot load by retrying: say so, and offer
+  // a reload instead.
+  host.innerHTML = stale
+    ? `<div class="cm-status" role="status" data-engine-pending="failed">This page is out of date for the instrument data. ${uiButton('engine-reload', 'Reload', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
+    : failed
+      ? `<div class="cm-status" role="status" data-engine-pending="failed">Couldn’t load the instruments. ${uiButton('engine-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
+      : '<div class="cm-status" role="status" data-engine-pending="instruments">Loading the instruments…</div>';
   if (!failed) Engine.ensure().catch(() => {});
 }
 function renderInstrumentDiscovery() {
@@ -878,7 +883,10 @@ function uiCloseInstrumentPreview() {
 function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {
   if (!_engineLive) {
     if (UI.view !== 'instrument') uiNavigate('instrument', { push: true });
-    engineReady().then((ok) => ok && uiInspectInstrument(id, { fromTrail, similar }));
+    // Carried on only if the reader is still here when the data lands: an
+    // inspect must not pull them back from wherever they went meanwhile.
+    const again = () => UI.view === 'instrument' && uiInspectInstrument(id, { fromTrail, similar });
+    engineReady({ label: 'Retry', run: again }).then((ok) => ok && again());
     return;
   }
   const i = Inst(id);
@@ -1110,6 +1118,9 @@ uiRegisterPage({
     'engine-retry'() {
       Engine.ensure().catch(() => {});
       renderInstrumentDiscovery();
+    },
+    'engine-reload'() {
+      location.reload();
     },
     'instrument-family'(id) {
       UI.instrumentFamily = id;
