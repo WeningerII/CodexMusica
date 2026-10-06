@@ -24,6 +24,21 @@
 //   prose arrival redraws -> check_lazy_app.js  (the descriptions' arrival rebuilds the page)
 //   published index drift -> check_api.js       (browse.json drifts, no app reads it now)
 //   prose preloaded     -> build_html.js --check (the prose joins the first view's path)
+//   engine desync       -> check_lazy_app.js  (api/engine.json's tables drift under an unchanged digest)
+//   engine read in first view -> check_lazy_app.js (the first view reads a table the page holds back)
+//   restore without engine -> check_lazy_app.js (a saved recipe draws before the instrument data lands)
+//   action without engine -> check_lazy_app.js (an Add acts on the empty engine slots)
+//   engine before first paint -> check_lazy_app.js (the engine request races the first view)
+//   sort before merge   -> check_lazy_app.js  (the lazy merge sorts first; its engine is not the embedded one)
+//   similar before engine -> check_lazy_app.js (the similar view computes without the instrument data)
+//   engine retry loop   -> check_lazy_app.js  (a failed engine load retries itself on a timer)
+//   engine skew accepted -> check_lazy_app.js (a file from another deploy fills the slots)
+//   engine in page      -> build_html.js --check (an engine table is back inline in the lazy page)
+//   engine file drift   -> check_api.js       (api/engine.json drifts from references/)
+//   page over budget    -> check_payload_budget.js (the lazy page regrows past its gzip budget)
+//   index drift         -> check_lazy_app.js  (the page's instrument index differs from the engine)
+//   prose not sequenced -> check_lazy_app.js  (the prose prefetch shares the link with the engine)
+//   prose starved       -> check_lazy_app.js  (a failed engine request holds the prose back for good)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -45,10 +60,13 @@
 //   toast action lingers -> check_ui_foundation.js  (a faded toast's Undo still takes a click)
 //
 // Usage:
-//   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
+//   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose] [--keep]
 // Exit 0 if every defect was caught, 1 if any gate escaped.
+// Each class's temp copy is removed once its verdict is recorded (--keep
+// leaves them all in the OS temp dir, codex-fault-*, for inspection).
 
 'use strict';
+const crypto = require('crypto');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -64,13 +82,26 @@ for (const a of process.argv.slice(2)) {
   }
 }
 const VERBOSE = !!flags.verbose;
+const KEEP = !!flags.keep;
 const FRESH_API = flags['fresh-api'] ? path.resolve(ROOT, flags['fresh-api']) : null;
 const FRESH_HTML = flags['fresh-html'] ? path.resolve(ROOT, flags['fresh-html']) : null;
 const q = (s) => JSON.stringify(s);
 
 // Isolated temp copy of just the items a gate needs; node_modules is symlinked.
+// A copy with api/ and references/ is ~140 MB and a full run makes dozens, so
+// each is removed when its class records (dropEnvs): left in place they filled
+// the temp disk before the run could finish. Removal never follows a link, so
+// the tree a copy links to (node_modules, foundationEnv's api/ and assets/) is
+// untouched.
+const ENVS = [];
+function dropEnvs() {
+  if (KEEP) return;
+  while (ENVS.length) fs.rmSync(ENVS.pop(), { recursive: true, force: true });
+}
+process.on('exit', dropEnvs);
 function mkenv(items) {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-'));
+  ENVS.push(d);
   for (const it of items) {
     // mcp/ carries its own dependency tree (the MCP SDK + zod, ~27MB). Copying
     // it per fault class would dominate this script's runtime, so stage the
@@ -129,6 +160,7 @@ function record(cls, res, expect) {
   else tag = '✗ WRONG-REASON'; // failed, but not on the planted defect
   results.push({ cls, caught, code, reason: tag.trim() });
   process.stderr.write(`  ${tag}  ${cls}  (exit ${code})\n`);
+  dropEnvs(); // every class records once, after its last gate run
 }
 
 process.stderr.write(
@@ -262,6 +294,7 @@ if (FRESH_API && FRESH_HTML) {
 //     is a mutated copy, so only an unguarded html comparison could stay green.
 if (FRESH_API && FRESH_HTML) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-html-'));
+  ENVS.push(tmp); // removed with the class, as mkenv's copies are
   const staleHtml = path.join(tmp, 'stale_codex.html');
   fs.writeFileSync(
     staleHtml,
@@ -419,6 +452,342 @@ record(
     'prose-preloaded -> build_html.js --check',
     gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
     /preload/i
+  );
+}
+
+// 9i–9w. THE INSTRUMENT ENGINE OUTSIDE THE LAZY PAGE. The lazy codex.html
+//     carries an empty slot for each of the eight engine tables, an index of
+//     instrument names (INSTRUMENT_INDEX) and the digest of api/engine.json,
+//     and fills the slots from that file after its first paint. Each class
+//     plants one way that split goes wrong and expects the gate's own sentence
+//     for it, not `LAZY-APP: FAIL`: a check_lazy_app section fails on many
+//     things, and a bare banner would count a catch made for another reason.
+//     Every plant goes through plantIn, which throws when its anchor is gone,
+//     so a class whose code moved stops the run instead of recording a pass
+//     for a fault that was never planted.
+function plantIn(d, rel, find, replace) {
+  const f = path.join(d, rel);
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes(find))
+    throw new Error(
+      `faults: plant site not found in ${rel}: ${JSON.stringify(find.slice(0, 100))}`
+    );
+  // A replacer function, so a `$&` or `$1` in `replace` is written as typed.
+  const out = src.replace(find, () => replace);
+  fs.writeFileSync(f, out);
+}
+const lazyEnv = () => mkenv(['scripts', 'references', 'src', 'api']);
+const lazyGate = (d, ...args) => gate(d, ['scripts/check_lazy_app.js', ...args]);
+// 9i and 9s: one word more in the first descriptor list of api/engine.json.
+// The line layout and the header's tables_sha1 are left as they were. The page
+// checks that digest and the instrument ids, never what the tables hold, so it
+// accepts the file.
+const plantEngineFile = (d) =>
+  plantIn(d, 'api/engine.json', '"descriptors":["', '"descriptors":["__FAULT__ ');
+
+// 9i. engine-desync: the file's tables drift under an unchanged digest -> check_lazy_app.js
+//     The embedded build merges references/; the lazy build merges the file.
+//     Parity fingerprints both merged engines, so the drift shows there, the
+//     one place a body the page accepted can be compared with its source.
+{
+  const d = lazyEnv();
+  plantEngineFile(d);
+  record(
+    'engine-desync -> check_lazy_app.js',
+    lazyGate(d, '--only=parity'),
+    /engine fingerprint drift/
+  );
+}
+
+// 9j. engine-read-in-first-view -> check_lazy_app.js
+//     A genre's roster names its instruments through InstLite, which reads the
+//     page's index. Inst reads the engine, which the first view holds back; put
+//     it back in the roster and the read throws EngineNotReadyError and is
+//     counted, which is how the gate sees a reader nobody declared.
+{
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/pages/genre.js',
+    '      const name = InstLite(i)?.name || i;',
+    '      const name = Inst(i)?.name || i;'
+  );
+  record(
+    'engine-read-in-first-view -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=default'),
+    /first view "default": \d+ engine read\(s\) before (?:it|the engine) landed/
+  );
+}
+
+// 9k. restore-without-engine -> check_lazy_app.js
+//     A saved recipe draws its cards at boot, and cards need the engine, so the
+//     boot asks for it first and holds at its status until it lands, writing
+//     nothing. _bootNeedsEngine is that switch: answering false sends the
+//     restore into the empty slots.
+{
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    'function _bootNeedsEngine() {',
+    'function _bootNeedsEngine() { return false;'
+  );
+  record(
+    'restore-without-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=restored'),
+    /first view "restored": (?:while the engine was held the page did not wait at the boot status|a restored session did not ask for the engine before its first view|\d+ engine read\(s\) before it landed)/
+  );
+}
+
+// 9l. action-without-engine -> check_lazy_app.js  (E3)
+//     An Add builds a card, and a card reads the instrument, its parts and the
+//     room. addInstrumentFromPicker waits for the engine through engineReady,
+//     which says "Preparing the instrument data…"; without the wait, an Add
+//     clicked before the engine lands acts on the empty slots.
+{
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    'async function addInstrumentFromPicker(instrumentId, opts) {\n  if (!_engineLive && !(await engineReady())) return null;',
+    'async function addInstrumentFromPicker(instrumentId, opts) {'
+  );
+  record(
+    'action-without-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=engine'),
+    /engine E3 \(add an instrument on its own\): .*before the instrument data landed — an action must wait for it/
+  );
+}
+
+// 9m. engine-before-first-paint -> check_lazy_app.js
+//     The engine file is larger gzipped than the page itself (713 KB against
+//     496 KB). Asked for at boot, it shares the link with the first view and
+//     delays it. The plant moves Engine.start() out of uiAfterPaint, so the
+//     request goes out at init, before the first view is drawn.
+{
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    'uiAfterPaint(() => { Engine.start(); Engine.fetched()',
+    'Engine.start(); uiAfterPaint(() => { Engine.fetched()'
+  );
+  record(
+    'engine-before-first-paint -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=default'),
+    /first view "default": the engine was requested before the first view was drawn/
+  );
+}
+
+// 9n. sort-before-merge -> check_lazy_app.js
+//     The embedded page merges the family parts into INSTRUMENTS in source
+//     order and sorts after, and the lazy boot must do the same. The merge
+//     depends on order: the universal-material pass collects each material
+//     from the instruments in the order it meets them and lends the copies in
+//     that order. Sorted first, the merged engine differs while every
+//     instrument is still present.
+{
+  const d = lazyEnv();
+  const merge = 'yield* mergeFamilyPartsSteps(t.INSTRUMENTS, t.INSTRUMENT_FAMILY_PARTS);';
+  plantIn(d, 'src/app.js', merge, `_sortInstruments(t.INSTRUMENTS); ${merge}`);
+  plantIn(
+    d,
+    'src/app.js',
+    '        _sortInstruments(t.INSTRUMENTS);\n        CODEX_ENGINE_COMMIT(t);',
+    '        CODEX_ENGINE_COMMIT(t);'
+  );
+  record(
+    'sort-before-merge -> check_lazy_app.js',
+    lazyGate(d, '--only=parity'),
+    /engine fingerprint drift[^\n]*differs in:[^\n]*\binstruments\b/
+  );
+}
+
+// 9o. similar-before-engine -> check_lazy_app.js  (E4)
+//     The similar view's "instruments that fit" reads every instrument's axes.
+//     Before the engine lands it must draw a loading block and compute nothing;
+//     with its guard switched off it draws no block at all.
+{
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    '  if (!_engineLive) {\n    _pickerEnginePending = true;',
+    '  if (false) {\n    _pickerEnginePending = true;'
+  );
+  record(
+    'similar-before-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=engine'),
+    /engine E4: the similar view before the instrument data/
+  );
+}
+
+// 9p. engine-retry-loop -> check_lazy_app.js  (F4a)
+//     A failed engine load is retried by an action, Retry or the browser
+//     coming back online, never on a timer: with the host down, a timer keeps
+//     asking for the file for as long as the page stays open.
+{
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "        state = 'failed';\n        bootP = null;",
+    "        state = 'failed';\n        bootP = null;\n        setTimeout(() => load().catch(() => {}), 500);"
+  );
+  record(
+    'engine-retry-loop -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /engine unreachable \(F4a\): \d+ request\(s\) for api\/engine\.json 1\.5 s after the first view/
+  );
+}
+
+// 9q. engine-skew-accepted -> check_lazy_app.js  (F4c)
+//     A page from one deploy can meet api/engine.json from another, from a
+//     cache or a half-finished upload. The page refuses a file whose digest is
+//     not its own CODEX_ENGINE_SHA; without that compare, another deploy's
+//     tables fill the slots whenever its instrument ids still line up.
+{
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', 'if (!head || head.tables_sha1 !== CODEX_ENGINE_SHA)', 'if (!head)');
+  record(
+    'engine-skew-accepted -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /\(F4c\): a file whose tables_sha1 is not the page's was accepted/
+  );
+}
+
+// 9r. engine-in-page -> build_html.js --check
+//     The lazy build strips the tables named in ENGINE_TABLES
+//     (scripts/_page_tables.js). Drop a name from that list and the table ships
+//     inline again: for INSTRUMENTS, about 550 KB more gzipped. --check spells
+//     the eight names out itself, so the edit that puts a table back cannot
+//     also turn off the check.
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/_page_tables.js',
+    "const ENGINE_TABLES = [\n  'INSTRUMENT_FAMILY_PARTS',\n  'INSTRUMENTS',\n",
+    "const ENGINE_TABLES = [\n  'INSTRUMENT_FAMILY_PARTS',\n"
+  );
+  record(
+    'engine-in-page -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /lazy page carries engine table INSTRUMENTS/
+  );
+}
+
+// 9s. engine-file-drift -> check_api.js
+//     The plant of 9i, held by the static check instead: the file is internal
+//     and nothing but check_api reads it whole. It derives the file from
+//     references/ through scripts/_page_tables.js and compares it byte for
+//     byte, so the drift fails here without a browser.
+{
+  const d = mkenv(['scripts', 'references', 'api']);
+  plantEngineFile(d);
+  record(
+    'engine-file-drift -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /engine\.json differs from what scripts\/_page_tables\.js derives/
+  );
+}
+
+// 9t. page-over-budget -> check_payload_budget.js
+//     The defect is the lazy page growing back: a table inline again, a
+//     runtime module, a comment. No other gate holds the page to a size. The
+//     plant is a comment of incompressible base64 before the last </body>,
+//     sized from the gate's own baseline line so the page lands about 32 KiB
+//     over its budget whatever its headroom is today (about 146 KB of text at
+//     the step-9 page). A fixed size would stop reaching the limit once the
+//     page shrank. The bytes come from a hash chain, not a random source, so
+//     every run plants the same page. The unplanted page must pass first,
+//     or the class could not tell the plant from a page already over.
+{
+  const d = mkenv(['scripts', 'codex.html']);
+  const f = path.join(d, 'codex.html');
+  if (FRESH_HTML) fs.copyFileSync(FRESH_HTML, f);
+  const args = [
+    'scripts/check_payload_budget.js',
+    `--html=${f}`,
+    `--api=${FRESH_API || path.join(ROOT, 'api')}`,
+  ];
+  const baseline = gate(d, args);
+  const m = baseline.out.match(/^ +page +([\d,]+) +([\d,]+) /m);
+  if (baseline.code !== 0 || !m)
+    throw new Error(
+      `faults: the unplanted page does not pass check_payload_budget (exit ${baseline.code}), so class 9t cannot prove the budget:\n${baseline.out}`
+    );
+  const num = (s) => Number(s.replace(/,/g, ''));
+  // Base64 of N random bytes gzips back to about N bytes: 6 bits a character.
+  const n = num(m[2]) - num(m[1]) + 32 * 1024;
+  const chunks = [];
+  for (let i = 0; chunks.length * 64 < n; i++)
+    chunks.push(crypto.createHash('sha512').update(`faults 9t ${i}`).digest());
+  const filler = Buffer.concat(chunks).subarray(0, n).toString('base64');
+  const html = fs.readFileSync(f, 'utf8');
+  const at = html.lastIndexOf('</body>');
+  if (at < 0) throw new Error('faults: no </body> in codex.html to plant the 9t comment before');
+  fs.writeFileSync(f, `${html.slice(0, at)}<!-- __BUDGET_FAULT__ ${filler} -->\n${html.slice(at)}`);
+  record(
+    'page-over-budget -> check_payload_budget.js',
+    gate(d, args),
+    /✗ page: [\d,]+ B gzip, over its [\d,]+ B/
+  );
+}
+
+// 9u. index-drift -> check_lazy_app.js  (E1)
+//     The first view names instruments from INSTRUMENT_INDEX, which the build
+//     derives from the same tables as the engine; once the engine lands Inst
+//     answers instead. A trailing space in every indexed name is invisible on
+//     screen, and the build's --check derives its expectation through the same
+//     function, so only comparing InstLite with the embedded Inst catches it.
+{
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'scripts/_page_tables.js',
+    'instruments.map((i) => [i.id, i.name, i.family,',
+    "instruments.map((i) => [i.id, i.name + ' ', i.family,"
+  );
+  record(
+    'index-drift -> check_lazy_app.js',
+    lazyGate(d, '--only=engine'),
+    /engine E1: InstLite differs from the embedded Inst/
+  );
+}
+
+// 9v. prose-not-sequenced -> check_lazy_app.js
+//     The background prose prefetch waits for the engine's bytes: requested
+//     together at paint, the two share a slow link and the engine, which
+//     every Add waits for, lands about 4 s later (measured, slow 4G). The
+//     plant asks for the prose at paint, beside the engine.
+{
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    'uiAfterPaint(() => { Engine.start(); Engine.fetched().then(() => Catalog.loadProse().catch(() => {})); });',
+    'uiAfterPaint(() => { Engine.start(); Catalog.loadProse().catch(() => {}); });'
+  );
+  record(
+    'prose-not-sequenced -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=default'),
+    /first view "default": the genre prose was requested while the instrument data was held/
+  );
+}
+
+// 9w. prose-starved -> check_lazy_app.js  (F4a)
+//     The other side of 9v: the prefetch follows Engine.fetched(), so a failed
+//     engine request must still count as delivered. Without the bytesDone()
+//     that opens the load's catch, an unreachable engine also holds back the
+//     genre descriptions, which never needed it.
+{
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', '      .catch((e) => {\n        bytesDone();', '      .catch((e) => {');
+  record(
+    'prose-starved -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /the genre prose did not load within 10 s/
   );
 }
 

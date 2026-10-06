@@ -12,9 +12,12 @@ browser app builds into a dependency-free `codex.html` — a **lazy shell** that
 the catalog on demand from the static `api/` served beside it, scaling past the
 single-file memory ceiling. A fully-embedded single-file variant (`--embedded`) still
 builds, and a gate proves the shell behaves identically to it once the genre
-descriptions have loaded. They follow the first view, which needs only a small boot
-index; until they land, a description the page shows is marked as loading, never as
-missing, and a search says it matched names only. <!-- @promise: lazy-shell-parity --> The page
+descriptions and the instrument data have loaded. Both follow the first view, which
+needs only a small boot index (a saved recipe waits for the instrument data before it
+is drawn); until they land, a description or instrument list the page shows is marked
+as loading, never as missing, a search says it matched names only, and an action that
+needs the instrument data waits for it instead of acting without it.
+<!-- @promise: lazy-shell-parity --> The page
 ships minified, and a second gate proves that reprinting it changed no behaviour —
 both builds are made from the same source in one run and compared.
 <!-- @promise: minified-equivalence -->

@@ -5,14 +5,19 @@
 //
 // WHY: the lazy build (the `build_html.js` DEFAULT — what ships in codex.html)
 // carries the SAME src/app.js with a different data source: api/browse_boot.json
-// (every genre without its prose, plus the starter genres'), then
-// api/browse_prose.json after the first paint, then per-tradition `source`
-// fetches, instead of embedded tables. Every promise the app makes (search
-// recall and ranking, the tradition tree, find-similar, import correctness, the
-// recipe string) must survive that swap byte-for-byte once the prose has
-// landed, and before it lands the page must say what it is waiting for rather
-// than claim anything is missing. This gate boots BOTH builds in jsdom — the
-// lazy one against the committed api/ via a fetch shim — and asserts:
+// (every genre without its prose, plus the starter genres'; the page itself
+// keeps only an index of instrument ids, names and families), then after the
+// first paint api/engine.json (the instrument engine: every instrument with
+// its parts and variants, the family parts, rooms, chains, tunings, instrument
+// axes, prefaces), then api/browse_prose.json once the engine's bytes are in,
+// then per-tradition `source` fetches, instead of embedded tables. Every
+// promise the app makes (search recall and ranking, the tradition tree,
+// find-similar, import correctness, the recipe string) must survive that swap
+// byte-for-byte once the prose and the instrument data have landed. Before
+// they land the page must say what it is waiting for rather than claim
+// anything is missing, and an action that needs the instrument data must wait
+// for it instead of acting without it. This gate boots BOTH builds in jsdom —
+// the lazy one against the committed api/ via a fetch shim — and asserts:
 //
 //   PARITY (section `parity`; the lazy app IS the embedded app):
 //   • Catalog data — every tradition's app-facing projection (name/family/
@@ -22,27 +27,77 @@
 //     (string-equal) for the full tree and for search queries.
 //   • Import — for a cross-family sample: ensureFull → importTradition yields
 //     identical cards and an identical compressRichRecipe string.
-//   • Fetches — exactly 1 boot index, then exactly 1 prose file, 0 of the
-//     published 8 MB api/browse.json, and exactly 1 per imported tradition.
+//   • The engine — after the imports, an FNV-1a fingerprint of the merged
+//     engine is equal in both builds: INSTRUMENTS' order; each instrument's
+//     own fields and own part ids; each merged part's id, _fromFamily, fields
+//     and the first-seen identity of each of its variants (a variant shared by
+//     two parts must stay one object); every distinct variant's JSON; the
+//     other seven tables; the instrument and distinct-variant counts. Sorting
+//     before the merge, or a file that differs from references/, moves it.
+//   • Fetches — exactly 1 boot index; then exactly 1 engine file, its ?v= the
+//     file header's digest prefix; then exactly 1 prose file, requested only
+//     once the engine's body was delivered; 0 of the published 8 MB
+//     api/browse.json, and exactly 1 per imported tradition.
 //
-//   FIRST VIEW (section `first-view`; nine starting states — default, List,
+//   FIRST VIEW (section `first-view`; ten starting states — default, List,
 //   phone width, phone List, a starter deep link, a deep link to a genre
 //   outside the boot index, an unknown deep link, a restored recipe, a
-//   restored recipe in List): with api/browse_prose.json HELD BACK, the lazy
-//   page's body equals the embedded build's byte for byte. Two states draw
-//   prose slots as pending (the non-starter deep link, and the restored
-//   recipe's List suggestions); there the pending slots must be exactly the
-//   genres without prose, and the page must be equal once they are masked.
-//   The prose is requested only after the first view is drawn, except for the
-//   non-starter deep link, which asks early. Then the prose is released: every
+//   restored recipe in List, and the Instrument page by its route hash): with
+//   api/browse_prose.json AND api/engine.json HELD BACK, the lazy page's body
+//   equals the embedded build's byte for byte. Nothing reads the engine
+//   (Engine.misses() stays 0); it is requested once, after the first view is
+//   drawn, and the prose is requested only once its bytes are in (the
+//   non-starter deep link asks for the prose early). A restored recipe asks
+//   for the engine at boot instead and holds its first view at the boot
+//   status, writing nothing, until it lands. The Instrument route says its
+//   list is loading (role=status, no count, never "0 instruments") and is the
+//   embedded build's everywhere else. Two states draw prose slots as pending
+//   (the non-starter deep link, and the restored recipe's List suggestions);
+//   there the pending slots must be exactly the genres without prose, and the
+//   page must be equal once they are masked. Then both are released: every
 //   slot fills IN PLACE (no control the page had is rebuilt) and the page is
 //   the embedded build's, byte for byte.
 //
-//   WINDOW (section `window`; before the prose lands): the boot index carries
-//   exactly the page's STARTER_TRADITIONS' prose; a search covers names only,
-//   lists exactly the full search's name matches in the full search's order,
-//   and says so; a detail and the picker say "loading", never "none". After
-//   the release the list and the picker on screen equal the embedded build's.
+//   WINDOW (section `window`; before the prose and the engine land): the boot
+//   index carries exactly the page's STARTER_TRADITIONS' prose; a search
+//   covers names only, lists exactly the full search's name matches in the
+//   full search's order, and says so; a detail and the picker say "loading",
+//   never "none"; nothing reads the engine. After the release the list and the
+//   picker on screen equal the embedded build's.
+//
+//   ENGINE (section `engine`; each check boots its own lazy page with
+//   api/engine.json held, against one embedded page doing the same):
+//   • E0 — one engine request, after the first view; Engine.state() is
+//     'loading' and no prose is asked for while it is held; once released,
+//     exactly one prose request, after the engine's body.
+//   • E1 — InstLite's name, short and family equal the embedded Inst's for
+//     every instrument; an unknown id is undefined; Inst() throws
+//     EngineNotReadyError and is counted (Engine.misses() 0 → 1).
+//   • E2 — a sweep: on every route and in a genre's detail, one click per
+//     distinct [data-ui] (but the file import and the downloads), the
+//     header's add, saved, undo and redo buttons, and the tree's expand,
+//     find-similar, back and import: no error, no unhandled rejection, no
+//     card, no engine read, and never "0 instruments", "No instruments
+//     match", "has no recognised instruments" or "Unknown instrument".
+//   • E3 — each action that creates cards or shows one instrument, in its own
+//     boot: add a genre, add an instrument (on its own, and to the featured
+//     genre), Surprise me, import a session file, open a saved session, the
+//     AI writer's Use recipe, and inspecting an instrument. Held 300 ms it
+//     has made no card, read nothing, and says it is preparing the instrument
+//     data (or draws a loading state); once released it completes exactly as
+//     the embedded build's: the same cards and recipe string, or for the
+//     inspector the same list and preview.
+//   • E4 — the picker's similar view, then "From here": the instruments that
+//     fit are drawn as loading, nothing is computed or cached for either
+//     genre; once released the picker redraws itself as the embedded build's.
+//   • E5 — a search on the Instrument page while it loads stays pending with
+//     no count; once released the list is the embedded build's, with the
+//     search box still focused.
+//   • E6 — the direct reads of the eight engine tables in src/ (identifier
+//     references, from the AST) are counted per file and must match
+//     ENGINE_READERS below: a new reader has to be reviewed (it must run only
+//     once the instrument data has loaded), then the counts regenerated with
+//     --print-readers.
 //
 //   FAILURE PATHS (section `failure`; the lazy app fails honestly):
 //   • the boot index unreachable → the boot-error state renders.
@@ -51,12 +106,22 @@
 //     request, no retry loop, and Retry makes exactly one more.
 //   • a tradition fetch 404s → importTraditionWithFeedback adds NO cards and
 //     surfaces the error toast.
+//   • F4a, the engine unreachable with no saved session → the first view
+//     stands (no boot error); one request, none more on a timer; an Add makes
+//     one more, adds nothing and says it could not load, with Retry; the
+//     Instrument page says it could not load, with Retry, which makes exactly
+//     one more; the genre prose still loads.
+//   • F4b, the engine unreachable with a saved session → the boot error names
+//     api/engine.json; the session is left as it was and nothing is written.
+//   • F4c, a file from another deploy (its digest is not the page's) → refused
+//     as stale; an Add adds nothing and asks for a reload; no table is filled.
 //
 // USAGE
-//   node scripts/check_lazy_app.js            # every section (npm run test:lazy, CI)
-//   node scripts/check_lazy_app.js --verbose  # per-check detail
-//   --only=parity,first-view,window,failure   # run some sections (faults.js)
-//   --scenarios=default,deep                  # restrict first-view (faults.js)
+//   node scripts/check_lazy_app.js                  # every section (npm run test:lazy, CI)
+//   node scripts/check_lazy_app.js --verbose        # per-check detail
+//   --only=parity,first-view,window,engine,failure  # run some sections (faults.js)
+//   --scenarios=default,deep,instrument-route       # restrict first-view (faults.js)
+//   --print-readers                                 # print E6's ENGINE_READERS from src/, exit
 // The two filters only restrict: the full run is always a superset.
 
 'use strict';
@@ -80,7 +145,7 @@ const flagList = (name) => {
     : null;
 };
 
-const SECTIONS = ['parity', 'first-view', 'window', 'failure'];
+const SECTIONS = ['parity', 'first-view', 'window', 'engine', 'failure'];
 const SITE = 'https://codexmusica.com/codex.html';
 const WS = JSON.stringify({
   version: 1,
@@ -91,8 +156,9 @@ const WS = JSON.stringify({
   ],
 });
 const LIST = { 'codex-layout:genre-view': '"list"' };
-// name → { query, width, storage, pending }. `pending`: the state draws prose
-// slots as loading, so it is compared masked before the release.
+// name → { query, route, width, storage, pending }. `pending`: the state draws
+// prose slots as loading, so it is compared masked before the release.
+// `route`: the page opens on that route's hash (codex.html#instrument).
 const SCENARIOS = {
   default: {},
   list: { storage: LIST },
@@ -103,9 +169,51 @@ const SCENARIOS = {
   'deep-unknown': { query: '?trad=nope_not_a_genre' },
   restored: { storage: { 'codex-workbench-v1': WS } },
   'restored-list': { storage: { ...LIST, 'codex-workbench-v1': WS }, pending: true },
+  'instrument-route': { route: 'instrument' },
+};
+
+// The eight engine tables, spelled out here rather than read from
+// scripts/_page_tables.js, so dropping a name there cannot drop it here too.
+const ENGINE_TABLES = [
+  'INSTRUMENT_FAMILY_PARTS',
+  'INSTRUMENTS',
+  'ROOMS',
+  'ROOM_CLUSTERS',
+  'CHAIN_SECTIONS',
+  'TUNINGS',
+  'INSTRUMENT_AXIS_DEFINITIONS',
+  'PREFACE_LEXICON',
+];
+// E6: the direct reads of the engine tables in src/, per file (an identifier
+// reference: a property name or an object key is not one). Each reader counted
+// here was reviewed as running only once the instrument data has loaded:
+// behind _engineLive, after Engine.ensure() or engineReady(), on a card (no
+// card exists before then), or as a `typeof` guard. A change means a reader was
+// added or removed: review it, then regenerate with
+// `node scripts/check_lazy_app.js --print-readers` (it also names the function
+// each read is in).
+const ENGINE_READERS = {
+  'src/app.js': {
+    INSTRUMENTS: 7,
+    ROOMS: 8,
+    TUNINGS: 8,
+    CHAIN_SECTIONS: 9,
+    PREFACE_LEXICON: 18,
+    ROOM_CLUSTERS: 1,
+    INSTRUMENT_AXIS_DEFINITIONS: 7,
+  },
+  'src/pages/instrument.js': {
+    INSTRUMENTS: 8,
+    CHAIN_SECTIONS: 3,
+    PREFACE_LEXICON: 1,
+    TUNINGS: 2,
+    ROOMS: 2,
+  },
+  'src/workbench.js': { CHAIN_SECTIONS: 1 },
 };
 
 const ONLY = flagList('only') || SECTIONS;
+const PRINT_READERS = argv.includes('--print-readers');
 const ONLY_SCENARIOS = flagList('scenarios') || Object.keys(SCENARIOS);
 {
   const bad = [
@@ -178,17 +286,29 @@ function deferred() {
 // fetch shim — resolves the app's api/ URLs against the COMMITTED repo api/
 // (itself gate-verified by check_api + the freshness job). `deny` simulates a
 // failure for specific paths ('*': every path, the embedded build's shim);
-// `hold` maps a path to a deferred() that lets it through on release; `log`
-// records every request, with `ready` — whether the first view had been drawn
-// when it was made (`stamp`).
+// `hold` maps a path to a deferred() that lets it through on release;
+// `transform` maps a path to a function that rewrites its text (a file from
+// another deploy). `log` records every request: its path `rel` without the
+// query, the query `q`, `ready` — whether the first view had been drawn when it
+// was made (`stamp`) — and `n`, a sequence number shared with `bodies`, which
+// records each body the app read (text() or json()). So a request can be
+// ordered against another file's delivery, not just its request.
 const SITE_PREFIX = /^https:\/\/codexmusica\.com\//;
-function makeFetchShim({ deny = [], log = [], hold = {}, stamp } = {}) {
+function makeFetchShim({
+  deny = [],
+  log = [],
+  hold = {},
+  stamp,
+  bodies = [],
+  transform = {},
+} = {}) {
+  let n = 0;
   return (url) => {
-    const rel = String(url)
+    const full = String(url)
       .replace(SITE_PREFIX, '')
-      .replace(/^\.?\//, '')
-      .replace(/\?.*$/, '');
-    log.push({ rel, ready: stamp ? stamp() : null });
+      .replace(/^\.?\//, '');
+    const rel = full.replace(/\?.*$/, '');
+    log.push({ rel, q: full.slice(rel.length), ready: stamp ? stamp() : null, n: ++n });
     return (hold[rel] ? hold[rel].promise : Promise.resolve()).then(() => {
       const file = path.join(ROOT, rel);
       if (
@@ -208,19 +328,41 @@ function makeFetchShim({ deny = [], log = [], hold = {}, stamp } = {}) {
           },
         };
       }
-      const text = fs.readFileSync(file, 'utf8');
-      const data = JSON.parse(text);
-      return { ok: true, status: 200, json: async () => data, text: async () => text };
+      const raw = fs.readFileSync(file, 'utf8');
+      const text = transform[rel] ? transform[rel](raw) : raw;
+      const delivered = () => bodies.push({ rel, n: ++n });
+      return {
+        ok: true,
+        status: 200,
+        json: async () => {
+          const data = JSON.parse(text);
+          delivered();
+          return data;
+        },
+        text: async () => {
+          delivered();
+          return text;
+        },
+      };
     });
   };
 }
 const fetchesOf = (log, rel) => log.filter((e) => e.rel === rel);
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// Whether a booted page has drawn its first view (the shim's `stamp`).
+// api/engine.json's header (the file's second line): its `tables_sha1` is the
+// digest the page checks, and the page's ?v= cache key is its prefix.
+function engineHeader() {
+  const lines = fs.readFileSync(path.join(API_DIR, 'engine.json'), 'utf8').split('\n');
+  return JSON.parse(lines[1].replace(/,$/, ''));
+}
+
+// Whether a booted page has drawn its first view (the shim's `stamp`): the
+// genre list's rows on the Genre page, the page itself on any other route.
 function drawn(w) {
   try {
     return !!w.eval(
-      "typeof UI !== 'undefined' && UI.ready === true && !!document.querySelector('#genre-list > *')"
+      "typeof UI !== 'undefined' && UI.ready === true && (UI.view !== 'genre' || !!document.querySelector('#genre-list > *'))"
     );
   } catch {
     return false;
@@ -252,6 +394,8 @@ function bootDom(html, fetchShim, { url = 'about:blank', width, storage, onWindo
         removeListener() {},
       });
       w.scrollTo = () => {};
+      // jsdom has no scrollIntoView; an import scrolls its first card into view.
+      w.HTMLElement.prototype.scrollIntoView = () => {};
       if (width) Object.defineProperty(w, 'innerWidth', { value: width, configurable: true });
       if (storage) for (const [k, v] of Object.entries(storage)) w.localStorage.setItem(k, v);
       if (fetchShim) w.fetch = fetchShim;
@@ -261,19 +405,25 @@ function bootDom(html, fetchShim, { url = 'about:blank', width, storage, onWindo
 
 // Inject an async probe into a booted dom and wait for its result. The probe
 // shares the page's global script scope, so it can reference the app's
-// top-level consts (Catalog, app, renderTradPicker, …) directly. With `prose`
-// (the default) it first waits for the genre prose to merge; whenProse() never
-// starts a load, so a page that never asks for the prose fails here.
-function runProbe(dom, probeBody, timeoutMs = 15000, { prose = true } = {}) {
+// top-level consts (Catalog, app, renderTradPicker, …) directly. It first waits
+// for the boot (`boot`, the default; off for a page whose boot is held or has
+// failed); with `prose` (the default) it then waits for the genre prose to
+// merge; whenProse() never starts a load, so a page that never asks for the
+// prose fails here.
+function runProbe(dom, probeBody, timeoutMs = 15000, { prose = true, boot = true } = {}) {
   dom.window.__probe = undefined;
   const s = dom.window.document.createElement('script');
   s.textContent = `(async () => {
     try {
       if (document.readyState === 'loading') await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, {once:true}));
-      if (typeof CATALOG_READY !== 'undefined' && CATALOG_READY) await CATALOG_READY;
+      ${
+        boot
+          ? `if (typeof CATALOG_READY !== 'undefined' && CATALOG_READY) await CATALOG_READY;
       if (typeof UI !== 'undefined') {
         for (let i=0;i<100&&!UI.ready;i++) await new Promise(resolve=>setTimeout(resolve,10));
         if (!UI.ready) throw Error('Workbench did not finish booting');
+      }`
+          : ''
       }
       ${
         prose
@@ -412,6 +562,36 @@ const CAPTURE_PROBE = `
   return out;
 `;
 
+// The engine fingerprint both builds compute after the imports (parity):
+// FNV-1a per component, so a drift names the part of the engine that moved.
+// Variants are numbered by first sight, walking INSTRUMENTS' merged parts in
+// order, and a part lists its variants by number: the merge's sharing (one
+// lent copy of a material in many parts) is part of the print, then every
+// distinct variant's JSON in that order. Sorting before the merge reorders
+// what the merge collects; a file that differs from references/ changes JSON.
+const ENGINE_FINGERPRINT = `
+  const fnv = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619) >>> 0; return h; };
+  const seen = new Map(), distinct = [];
+  const vid = (v) => { if (!seen.has(v)) { seen.set(v, distinct.length); distinct.push(v); } return seen.get(v); };
+  const instruments = INSTRUMENTS.map((inst) => {
+    const { parts, _ownParts, ...own } = inst;
+    return [own, (_ownParts || []).map((p) => p.id), (parts || []).map((p) => {
+      const { variants, ...fields } = p;
+      return [p.id, p._fromFamily === true, fields, (variants || []).map(vid)];
+    })];
+  });
+  const components = {
+    order: INSTRUMENTS.map((i) => i.id),
+    instruments,
+    variants: distinct,
+    INSTRUMENT_FAMILY_PARTS, ROOMS, ROOM_CLUSTERS, CHAIN_SECTIONS, TUNINGS, INSTRUMENT_AXIS_DEFINITIONS, PREFACE_LEXICON,
+    counts: [INSTRUMENTS.length, distinct.length],
+  };
+  const hashes = {};
+  for (const [k, v] of Object.entries(components)) hashes[k] = fnv(JSON.stringify(v));
+  return { hash: fnv(JSON.stringify(hashes)), hashes, count: INSTRUMENTS.length, distinct: distinct.length };
+`;
+
 // Normalize the catalog projection so embedded raw extras (which may omit an
 // axis key or the exemplars/crossRefs fields entirely) compare against the
 // lazy build's always-materialized form through the same app-facing contract:
@@ -439,14 +619,37 @@ function normCatalog(cat) {
 // ── section: parity ─────────────────────────────────────────────────────────
 async function parity(embedHtml, lazyHtml) {
   const embedDom = bootDom(embedHtml, null);
-  const lazyLog = [];
-  const lazyDom = bootDom(lazyHtml, makeFetchShim({ log: lazyLog }));
+  const lazyLog = [],
+    lazyBodies = [];
+  const lazyDom = bootDom(lazyHtml, makeFetchShim({ log: lazyLog, bodies: lazyBodies }));
   const [embed, lazy] = await Promise.all([
     runProbe(embedDom, CAPTURE_PROBE),
     runProbe(lazyDom, CAPTURE_PROBE),
   ]);
   if (embed.__err) fail('embedded probe crashed: ' + embed.__err);
   if (lazy.__err) fail('lazy probe crashed: ' + lazy.__err);
+  // The engine, after the imports, in both builds.
+  const [ef, lf] = await Promise.all([
+    runProbe(embedDom, ENGINE_FINGERPRINT),
+    runProbe(lazyDom, ENGINE_FINGERPRINT),
+  ]);
+  if (ef.__err || lf.__err) fail('engine fingerprint probe crashed: ' + (ef.__err || lf.__err));
+  else {
+    if (!ef.count || !ef.distinct)
+      fail(
+        `engine fingerprint: the embedded build has ${ef.count} instruments and ${ef.distinct} variants — the check is vacuous`
+      );
+    if (ef.hash !== lf.hash) {
+      const moved = Object.keys(ef.hashes).filter((k) => ef.hashes[k] !== lf.hashes[k]);
+      fail(
+        `engine fingerprint drift — embedded ${ef.hash} (${ef.count} instruments, ${ef.distinct} distinct variants), lazy ${lf.hash} (${lf.count}, ${lf.distinct}); differs in: ${moved.join(', ')}`
+      );
+    } else
+      note(
+        `engine fingerprint ${ef.hash}: ${ef.count} instruments, ${ef.distinct} distinct variants, identical`
+      );
+    embed.engine = ef;
+  }
 
   if (!embed.__err && !lazy.__err) {
     // Catalog projection — every id, every app-facing field.
@@ -515,6 +718,26 @@ async function parity(embedHtml, lazyHtml) {
       );
     if (rels.indexOf('api/browse_prose.json') < rels.indexOf('api/browse_boot.json'))
       fail('api/browse_prose.json was requested before the boot index');
+    // The engine: one request after the boot index, keyed by the file's
+    // digest, and the prose only once the engine's body is in.
+    const engineAsks = fetchesOf(lazyLog, 'api/engine.json');
+    const bootAsk = fetchesOf(lazyLog, 'api/browse_boot.json')[0];
+    const proseAsk = fetchesOf(lazyLog, 'api/browse_prose.json')[0];
+    const engineBody = lazyBodies.find((b) => b.rel === 'api/engine.json');
+    const key = `?v=${engineHeader().tables_sha1.slice(0, 12)}`;
+    if (engineAsks.length !== 1)
+      fail(`expected exactly 1 api/engine.json fetch, saw ${engineAsks.length}`);
+    if (engineAsks[0] && bootAsk && engineAsks[0].n < bootAsk.n)
+      fail('api/engine.json was requested before the boot index');
+    if (engineAsks[0] && engineAsks[0].q !== key)
+      fail(
+        `api/engine.json was requested as ${JSON.stringify(engineAsks[0].q)}; want ${key}, the prefix of the file header's tables_sha1`
+      );
+    if (!engineBody) fail('the app never read the body of api/engine.json');
+    else if (proseAsk && proseAsk.n < engineBody.n)
+      fail(
+        'api/browse_prose.json was requested before the body of api/engine.json was delivered — the prose prefetch must follow the instrument data'
+      );
     for (const id of IMPORT_SAMPLE) {
       const n = fetchesOf(lazyLog, `api/traditions/${id}.json`).length;
       if (n !== 1) fail(`expected exactly 1 fetch for ${id} (cached thereafter), saw ${n}`);
@@ -529,7 +752,7 @@ async function parity(embedHtml, lazyHtml) {
 // ── section: first-view ─────────────────────────────────────────────────────
 async function firstView(embedHtml, lazyHtml, name) {
   const sc = SCENARIOS[name];
-  const url = SITE + (sc.query || '');
+  const url = SITE + (sc.query || '') + (sc.route ? '#' + sc.route : '');
   const opts = { url, width: sc.width, storage: sc.storage };
   const embedDom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), opts);
   const ref = {},
@@ -549,15 +772,34 @@ async function firstView(embedHtml, lazyHtml, name) {
   try {
     const restoredState = !!(sc.storage && sc.storage['codex-workbench-v1']);
     if (restoredState) {
-      await new Promise((r) => setTimeout(r, 1500));
-      const early = lazyDom.window.eval(
-        "({ ready: typeof UI !== 'undefined' && UI.ready === true, rows: document.querySelectorAll('#genre-list > *').length, status: document.getElementById('boot-status')?.textContent || '' })"
+      // A saved recipe draws cards, and cards need the instrument data: the
+      // boot asks for it at once and waits at the boot status, writing nothing.
+      await sleep(1500);
+      const early = await runProbe(
+        lazyDom,
+        `const status = document.getElementById('boot-status');
+        return { ready: typeof UI !== 'undefined' && UI.ready === true, rows: document.querySelectorAll('#genre-list > *').length,
+          status: status && !status.hidden ? status.textContent : null,
+          bootError: !!document.getElementById('boot-error'),
+          stored: localStorage.getItem('codex-workbench-v1'), recovery: sessionStorage.getItem('codex-workbench-recovery'),
+          misses: typeof Engine === 'undefined' ? null : Engine.misses() };`,
+        15000,
+        { boot: false, prose: false }
       );
       const engineAsk = fetchesOf(log, 'api/engine.json');
       if (early.ready || early.rows)
         fail(`${tag}: a restored session drew before the engine arrived`);
       if (!engineAsk.length || engineAsk[0].ready !== false)
         fail(`${tag}: a restored session did not ask for the engine before its first view`);
+      if (early.status === null || early.bootError)
+        fail(
+          `${tag}: while the engine was held the page did not wait at the boot status (${early.bootError ? '#boot-error drawn' : 'no #boot-status shown'})`
+        );
+      if (early.stored !== sc.storage['codex-workbench-v1'] || early.recovery !== null)
+        fail(
+          `${tag}: the saved session was written while the engine was held (codex-workbench-v1 ${early.stored === sc.storage['codex-workbench-v1'] ? 'unchanged' : 'changed'}, recovery copy ${JSON.stringify(early.recovery && early.recovery.slice(0, 60))})`
+        );
+      if (early.misses) fail(`${tag}: ${early.misses} engine read(s) before it landed`);
       note(
         `${tag}: held at the boot status (${JSON.stringify(early.status)}) until the engine landed`
       );
@@ -568,8 +810,12 @@ async function firstView(embedHtml, lazyHtml, name) {
       runProbe(lazyDom, SETTLE, 15000, { prose: false }),
     ]);
     if (!restoredState) {
+      // One request, after the first view; the Instrument route needs the
+      // instruments to draw its list, so it asks as it opens.
       const asks = fetchesOf(log, 'api/engine.json');
-      if (asks.length !== 1 || asks[0].ready !== true)
+      if (asks.length !== 1)
+        fail(`${tag}: want exactly 1 engine request, saw ${JSON.stringify(asks)}`);
+      else if (!sc.route && asks[0].ready !== true)
         fail(
           `${tag}: the engine was requested before the first view was drawn (${JSON.stringify(asks)})`
         );
@@ -596,11 +842,51 @@ async function firstView(embedHtml, lazyHtml, name) {
       );
     }
 
-    // (b)/(c) The page with the prose held back.
-    const embedSnap = await runProbe(embedDom, SNAP);
-    const lazyState = await runProbe(
-      lazyDom,
-      `return {
+    // (b)/(c) The page with the prose and the engine held back.
+    if (sc.route === 'instrument') {
+      // The Instrument page: its list says it is loading, with no count and no
+      // claim that nothing matches; the rest of the page is the embedded build's.
+      const MASK_IP = `const clone = document.body.cloneNode(true);
+        clone.querySelector('#instrument-body')?.replaceChildren(document.createComment('instruments'));
+        clone.querySelector('#ip-total')?.replaceChildren();
+        return (${SNAP_FN})(clone);`;
+      const [em, ls] = await Promise.all([
+        runProbe(embedDom, MASK_IP),
+        runProbe(
+          lazyDom,
+          `const b = document.getElementById('instrument-body');
+          return { view: UI.view, status: !!b?.querySelector('[data-engine-pending="instruments"][role="status"]'),
+            total: document.getElementById('ip-total')?.textContent || '', text: b?.textContent || '',
+            snap: (() => { ${MASK_IP} })() };`,
+          15000,
+          { prose: false }
+        ),
+      ]);
+      if (em.__err || ls.__err) return fail(`${tag}: probe crashed: ${em.__err || ls.__err}`);
+      if (ls.view !== 'instrument')
+        fail(`${tag}: the page opened on "${ls.view}", not the Instrument page — vacuous`);
+      if (!ls.status)
+        fail(
+          `${tag}: the instrument list is not marked as loading (role=status, data-engine-pending="instruments") while the instrument data is held: ${JSON.stringify(ls.text.slice(0, 160))}`
+        );
+      if (ls.total)
+        fail(
+          `${tag}: the Instrument page shows a count (${JSON.stringify(ls.total)}) before the instrument data landed`
+        );
+      if (/\b0 instruments\b|No instruments match/.test(`${ls.text} ${ls.total}`))
+        fail(
+          `${tag}: the Instrument page says there are no instruments while they load: ${JSON.stringify(ls.text.slice(0, 160))}`
+        );
+      if (ls.snap !== em)
+        fail(
+          `${tag} differs from the embedded build outside the instrument list ${firstDiff(ls.snap, em)}`
+        );
+      else note(`${tag}: the list says it is loading; identical outside it`);
+    } else {
+      const embedSnap = await runProbe(embedDom, SNAP);
+      const lazyState = await runProbe(
+        lazyDom,
+        `return {
         pending: ${PENDING},
         unproven: ${PENDING}.filter(([id]) => !id || Catalog.hasProse(id)).length,
         rowsNoSlot: [...document.querySelectorAll('.gp-row[data-gp-id]')].filter((r) => !Catalog.hasProse(r.dataset.gpId) && !r.querySelector('[data-prose-pending="row"]')).map((r) => r.dataset.gpId),
@@ -609,60 +895,61 @@ async function firstView(embedHtml, lazyHtml, name) {
         cards: app.cards.length,
         snap: (${SNAP_FN})(document.body),
       };`,
-      15000,
-      { prose: false }
-    );
-    if (lazyState.__err) return fail(`${tag}: probe crashed: ${lazyState.__err}`);
-    const pending = lazyState.pending;
-    if (lazyState.rowsNoSlot.length)
-      fail(
-        `${tag}: ${lazyState.rowsNoSlot.length} row(s) of genres without their prose drawn with no pending slot (e.g. ${lazyState.rowsNoSlot.slice(0, 3).join(', ')})`
+        15000,
+        { prose: false }
       );
-    if (!sc.pending) {
-      if (pending.length)
+      if (lazyState.__err) return fail(`${tag}: probe crashed: ${lazyState.__err}`);
+      const pending = lazyState.pending;
+      if (lazyState.rowsNoSlot.length)
         fail(
-          `${tag}: drew ${pending.length} pending prose slot(s) (${JSON.stringify(pending.slice(0, 3))}) — the first view must need only the boot index`
+          `${tag}: ${lazyState.rowsNoSlot.length} row(s) of genres without their prose drawn with no pending slot (e.g. ${lazyState.rowsNoSlot.slice(0, 3).join(', ')})`
         );
-      else if (lazyState.snap !== embedSnap)
-        fail(
-          `${tag} differs from the embedded build with the prose held back ${firstDiff(lazyState.snap, embedSnap)}`
-        );
-      else note(`${tag}: ${embedSnap.length} chars identical with the prose held back`);
-    } else {
-      if (!pending.length || lazyState.unproven)
-        fail(
-          `${tag}: pending slots ${JSON.stringify(pending.slice(0, 4))} — want at least one, each for a genre whose prose is not here`
-        );
-      if (name === 'deep' && !pending.some(([id, k]) => id === 'bluegrass' && k === 'lede'))
-        fail(`${tag}: the deep-linked genre's description is not drawn as loading`);
-      if (name === 'restored-list') {
-        const rows = pending
-          .filter(([, k]) => k === 'row')
-          .map(([id]) => id)
-          .sort();
-        if (lazyState.cards !== 2 || !lazyState.suggestions)
+      if (!sc.pending) {
+        if (pending.length)
           fail(
-            `${tag}: the restored recipe did not draw its suggestions (cards=${lazyState.cards}) — the scenario is vacuous`
+            `${tag}: drew ${pending.length} pending prose slot(s) (${JSON.stringify(pending.slice(0, 3))}) — the first view must need only the boot index`
           );
-        if (JSON.stringify(rows) !== JSON.stringify([...lazyState.nonStarterRows].sort()))
+        else if (lazyState.snap !== embedSnap)
           fail(
-            `${tag}: pending rows ${JSON.stringify(rows)} are not exactly the non-starter rows ${JSON.stringify(lazyState.nonStarterRows)}`
+            `${tag} differs from the embedded build with the prose held back ${firstDiff(lazyState.snap, embedSnap)}`
           );
+        else note(`${tag}: ${embedSnap.length} chars identical with the prose held back`);
+      } else {
+        if (!pending.length || lazyState.unproven)
+          fail(
+            `${tag}: pending slots ${JSON.stringify(pending.slice(0, 4))} — want at least one, each for a genre whose prose is not here`
+          );
+        if (name === 'deep' && !pending.some(([id, k]) => id === 'bluegrass' && k === 'lede'))
+          fail(`${tag}: the deep-linked genre's description is not drawn as loading`);
+        if (name === 'restored-list') {
+          const rows = pending
+            .filter(([, k]) => k === 'row')
+            .map(([id]) => id)
+            .sort();
+          if (lazyState.cards !== 2 || !lazyState.suggestions)
+            fail(
+              `${tag}: the restored recipe did not draw its suggestions (cards=${lazyState.cards}) — the scenario is vacuous`
+            );
+          if (JSON.stringify(rows) !== JSON.stringify([...lazyState.nonStarterRows].sort()))
+            fail(
+              `${tag}: pending rows ${JSON.stringify(rows)} are not exactly the non-starter rows ${JSON.stringify(lazyState.nonStarterRows)}`
+            );
+        }
+        const [em, lm] = await Promise.all([
+          runProbe(embedDom, MASKED(pending)),
+          runProbe(lazyDom, MASKED(pending), 15000, { prose: false }),
+        ]);
+        if (em.__err || lm.__err) fail(`${tag}: mask probe crashed: ${em.__err || lm.__err}`);
+        else if (em.missing.length || lm.missing.length)
+          fail(
+            `${tag}: no counterpart for pending slot(s) ${JSON.stringify([...em.missing, ...lm.missing].slice(0, 4))}`
+          );
+        else if (lm.snap !== em.snap)
+          fail(
+            `${tag} differs from the embedded build outside its pending slots ${firstDiff(lm.snap, em.snap)}`
+          );
+        else note(`${tag}: ${pending.length} pending slot(s); identical outside them`);
       }
-      const [em, lm] = await Promise.all([
-        runProbe(embedDom, MASKED(pending)),
-        runProbe(lazyDom, MASKED(pending), 15000, { prose: false }),
-      ]);
-      if (em.__err || lm.__err) fail(`${tag}: mask probe crashed: ${em.__err || lm.__err}`);
-      else if (em.missing.length || lm.missing.length)
-        fail(
-          `${tag}: no counterpart for pending slot(s) ${JSON.stringify([...em.missing, ...lm.missing].slice(0, 4))}`
-        );
-      else if (lm.snap !== em.snap)
-        fail(
-          `${tag} differs from the embedded build outside its pending slots ${firstDiff(lm.snap, em.snap)}`
-        );
-      else note(`${tag}: ${pending.length} pending slot(s); identical outside them`);
     }
 
     // (d) Release: every slot fills in place, nothing else is rebuilt, and
@@ -687,6 +974,18 @@ async function firstView(embedHtml, lazyHtml, name) {
         if (asks2.length !== 1 || asks2[0].ready !== true)
           fail(
             `${tag}: once the instrument data landed the prose was not requested exactly once after the first view (${JSON.stringify(asks2)})`
+          );
+      }
+      // The engine's arrival alone (the prose still held) leaves the page the
+      // embedded build's: the Instrument route draws its list.
+      if (!sc.pending) {
+        const [es, ls] = await Promise.all([
+          runProbe(embedDom, SNAP),
+          runProbe(lazyDom, `${FRAMES(2)} ${SNAP}`, 15000, { prose: false }),
+        ]);
+        if (ls !== es)
+          fail(
+            `${tag}: once the instrument data landed (the prose still held) the page differs from the embedded build ${firstDiff(ls, es)}`
           );
       }
     }
@@ -864,6 +1163,700 @@ async function windowSection(embedHtml, lazyHtml) {
   }
 }
 
+// ── section: engine ─────────────────────────────────────────────────────────
+// Each check boots its own lazy page with api/engine.json held back; one
+// embedded page takes the same steps in turn, as the reference.
+
+// A probe's ceiling here and in F4, where pages boot side by side and the
+// engine loads in idle slices behind them: it only bounds a hang.
+const E_WAIT = 60000;
+
+// What a reader sees: the body without its inline scripts.
+const PAGE_TEXT = `[...document.body.children].filter((e) => !/^(SCRIPT|STYLE|TEMPLATE)$/.test(e.tagName)).map((e) => e.textContent).join(' ')`;
+// "Not loaded yet" must never read as "none".
+const ABSENT =
+  /\b0 instruments\b|No instruments match|has no recognised instruments|Unknown instrument/;
+// Ids the app generates (newId: prefix_counter_time) differ between boots.
+const IDS = `.replace(/\\b(?:card|ws|id)_\\d+_[0-9a-z]{1,4}\\b/g, 'ID')`;
+// What a step left: the recipe's cards and its pasteable string, or the
+// Instrument page's list and preview.
+const CARDS_STATE = `return { n: app.cards.length, cards: JSON.stringify(app.cards)${IDS}, recipe: compressRichRecipe(app.cards, 1000) };`;
+const INSPECT_STATE = `return { body: document.getElementById('instrument-body').innerHTML${IDS}, preview: document.getElementById('instrument-preview').innerHTML${IDS} };`;
+
+// A lazy page with the engine held: { dom, w, log, bodies, hold }.
+function heldLazy(lazyHtml, { onWindow } = {}) {
+  const ref = {},
+    log = [],
+    bodies = [],
+    hold = { 'api/engine.json': deferred() };
+  const dom = bootDom(
+    lazyHtml,
+    makeFetchShim({
+      deny: ['api/tradition_images.json'],
+      log,
+      bodies,
+      hold,
+      stamp: () => drawn(ref.w),
+    }),
+    {
+      url: SITE,
+      onWindow: (w) => {
+        ref.w = w;
+        if (onWindow) onWindow(w);
+      },
+    }
+  );
+  return { dom, w: dom.window, log, bodies, hold };
+}
+
+// Run `tasks` (functions returning promises) at most `n` at a time.
+async function pool(tasks, n) {
+  const out = [];
+  let next = 0;
+  const lane = async () => {
+    while (next < tasks.length) {
+      const k = next++;
+      out[k] = await tasks[k]();
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(n, tasks.length) }, lane));
+  return out;
+}
+
+// E3: every action that creates cards or shows one instrument — [label, the
+// step, 'inspect' for the one that shows an instrument]. The recipe a session
+// file, a saved session and the AI writer bring is WS's.
+const E3_CARDS = JSON.stringify(JSON.parse(WS).cards);
+const E3_STEPS = [
+  ['add a genre', 'window.__act = uiAddGenre(STARTER_TRADITIONS[0]);'],
+  ['add an instrument on its own', "window.__act = uiAddInstrument('voice', { destination: '' });"],
+  [
+    'add an instrument to the featured genre',
+    "window.__act = uiAddInstrument('voice', { destination: STARTER_TRADITIONS[0] });",
+  ],
+  ['Surprise me', 'Math.random = () => 0; surpriseTradition();'],
+  [
+    'import a session file',
+    `const file = new File([${JSON.stringify(WS)}], 'codex-musica-session.json', { type: 'application/json' });
+    file.text = async () => ${JSON.stringify(WS)}; // jsdom's File has no text()
+    window.__act = uiImport(file);`,
+  ],
+  [
+    'open a saved session',
+    `window.storage.get = async (key) => (key === 'codex:ws:e3' ? { value: JSON.stringify({ schema: WS_SCHEMA, name: 'E3', cards: ${E3_CARDS} }) } : null);
+    window.__act = restoreSavedWorkspace('codex:ws:e3', false);`,
+  ],
+  [
+    "the AI writer's Use recipe",
+    `const node = document.createElement('div');
+    document.getElementById('chat-log').append(node);
+    uiReceiveReply({ recipe: 'E3', workspace: { cards: ${E3_CARDS} } }, null);
+    const use = [...node.querySelectorAll('button')].find((b) => /Use recipe/.test(b.textContent));
+    if (!use) throw Error('uiReceiveReply drew no Use recipe button');
+    use.click();`,
+  ],
+  ['inspect an instrument', "window.__act = uiInspectInstrument('voice');", 'inspect'],
+];
+// After the step: wait for it to finish, then read what it left.
+const E3_FINISH = (kind) => `
+  if (window.__act) await window.__act;
+  for (let i = 0; i < 400 && !(${kind === 'inspect' ? "UI.instrumentPreview === 'voice' && !!IP.card" : 'app.cards.length > 0'}); i++)
+    await new Promise((r) => setTimeout(r, 25));
+  ${FRAMES(2)}
+  ${kind === 'inspect' ? INSPECT_STATE : CARDS_STATE}`;
+// The embedded reference starts each card step from an empty recipe, as a
+// fresh boot does; Surprise me's Math.random is put back.
+const E3_RESET = `
+  if (!window.__random) window.__random = Math.random;
+  Math.random = window.__random;
+  window.__act = null;
+  app.cards = []; app.history = []; app.historyIndex = -1; pushHistory(); renderAll();`;
+
+// E4: the picker's similar view of the featured genre, then "From here".
+const E4_STEP = `
+  app.similarFor = STARTER_TRADITIONS[0]; app.tradSearch = ''; renderTradPicker();
+  const from = document.querySelector('#picker-trad [data-similar]');
+  if (!from) throw Error('the similar view drew no "From here" button');
+  window.__e4 = [STARTER_TRADITIONS[0], from.dataset.similar];
+  from.click();`;
+// E5: a search on the Instrument page.
+const E5_STEP = `
+  uiNavigate('instrument');
+  const s = document.getElementById('instrument-search');
+  s.focus(); s.value = 'guitar'; s.dispatchEvent(new window.Event('input', { bubbles: true }));`;
+const E5_STATE = `const s = document.getElementById('instrument-search');
+  return { body: document.getElementById('instrument-body').innerHTML, total: document.getElementById('ip-total').textContent, focused: document.activeElement === s, value: s.value };`;
+
+// The embedded page, every reference in turn: E1's instruments, E4's picker,
+// E5's search (then cleared), the inspector, then each card step.
+async function engineReference(embedHtml) {
+  const dom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), { url: SITE });
+  const probe = (body) => runProbe(dom, body, E_WAIT);
+  try {
+    const ref = { e3: {} };
+    await probe(SETTLE);
+    ref.inst = await probe(
+      'return Object.fromEntries(INSTRUMENTS.map((i) => { const x = Inst(i.id); return [i.id, [x.name, x.short == null ? null : x.short, x.family]]; }));'
+    );
+    ref.similar = await probe(
+      `${E4_STEP}
+      ${FRAMES(2)}
+      const out = { ids: window.__e4, html: document.getElementById('picker-trad').innerHTML };
+      app.similarFor = null; renderTradPicker();
+      return out;`
+    );
+    ref.search = await probe(
+      `${E5_STEP}
+      ${FRAMES(2)}
+      const out = (() => { ${E5_STATE} })();
+      s.value = ''; s.dispatchEvent(new window.Event('input', { bubbles: true })); s.blur();
+      uiNavigate('genre');
+      return out;`
+    );
+    const inspectFirst = [...E3_STEPS].sort((a, b) => (b[2] === 'inspect') - (a[2] === 'inspect'));
+    for (const [label, step, kind] of inspectFirst)
+      ref.e3[label] = await probe(`${E3_RESET} ${step} ${E3_FINISH(kind)}`);
+    for (const [k, v] of Object.entries({ ...ref, ...ref.e3 }))
+      if (v && v.__err) return { __err: `${k}: ${v.__err}` };
+    return ref;
+  } catch (e) {
+    return { __err: e.message };
+  } finally {
+    dom.window.close();
+  }
+}
+
+// E0. One request after the first view; loading, and no prose, while held;
+// once released, one prose request after the engine's body.
+async function engineE0(lazyHtml) {
+  const tag = 'engine E0';
+  const L = heldLazy(lazyHtml);
+  try {
+    const booted = await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    if (booted.__err) return fail(`${tag}: probe crashed: ${booted.__err}`);
+    await sleep(300);
+    const asks = fetchesOf(L.log, 'api/engine.json');
+    if (asks.length !== 1 || asks[0].ready !== true)
+      fail(
+        `${tag}: want 1 request for api/engine.json, made after the first view; saw ${JSON.stringify(asks)}`
+      );
+    const prose = fetchesOf(L.log, 'api/browse_prose.json');
+    if (prose.length)
+      fail(
+        `${tag}: the genre prose was requested while the instrument data was held (${JSON.stringify(prose)})`
+      );
+    const state = L.w.eval('Engine.state()');
+    if (state !== 'loading')
+      fail(
+        `${tag}: Engine.state() is ${JSON.stringify(state)} while its request is held; want "loading"`
+      );
+    L.hold['api/engine.json'].release();
+    const ready = await runProbe(
+      L.dom,
+      'await Engine.whenReady(); return Engine.state();',
+      E_WAIT,
+      {
+        prose: false,
+      }
+    );
+    await waitFor(() => fetchesOf(L.log, 'api/browse_prose.json').length > 0, 10000, 'prose').catch(
+      () => {}
+    );
+    const after = fetchesOf(L.log, 'api/browse_prose.json');
+    const body = L.bodies.find((b) => b.rel === 'api/engine.json');
+    if (ready !== 'ready')
+      fail(`${tag}: after the release Engine.state() is ${JSON.stringify(ready)}`);
+    if (after.length !== 1 || !body || after[0].n < body.n)
+      fail(
+        `${tag}: once the instrument data was delivered the prose was not requested exactly once after it (${JSON.stringify(after)}, engine body ${JSON.stringify(body)})`
+      );
+    else note(`${tag}: 1 engine request after the first view; the prose followed its body`);
+  } finally {
+    L.dom.window.close();
+  }
+}
+
+// E1. The first view's instrument index is the engine's names and families.
+async function engineE1(lazyHtml, refP) {
+  const tag = 'engine E1';
+  const L = heldLazy(lazyHtml);
+  try {
+    await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    const r = await runProbe(
+      L.dom,
+      `const lite = {};
+      for (const [id] of INSTRUMENT_INDEX) { const x = InstLite(id); lite[id] = x ? [x.name, x.short == null ? null : x.short, x.family] : null; }
+      const unknown = InstLite('__not_an_instrument__');
+      const before = Engine.misses();
+      let thrown = null;
+      try { Inst('voice'); } catch (e) { thrown = { name: e.name, typed: e instanceof EngineNotReadyError }; }
+      return { lite, unknown: unknown === undefined, before, thrown, after: Engine.misses(), ready: Engine.ready() };`,
+      E_WAIT,
+      { prose: false }
+    );
+    const ref = await refP;
+    if (r.__err || ref.__err) return fail(`${tag}: probe crashed: ${r.__err || ref.__err}`);
+    if (r.ready) fail(`${tag}: the engine was ready while held — vacuous`);
+    const ids = [...new Set([...Object.keys(ref.inst), ...Object.keys(r.lite)])].sort();
+    const off = ids.filter((id) => JSON.stringify(r.lite[id]) !== JSON.stringify(ref.inst[id]));
+    if (!Object.keys(ref.inst).length)
+      fail(`${tag}: the embedded build has no instruments — vacuous`);
+    if (off.length)
+      fail(
+        `${tag}: InstLite differs from the embedded Inst for ${off.length} of ${ids.length} instrument(s), e.g. ${off
+          .slice(0, 3)
+          .map(
+            (id) =>
+              `${id}: ${JSON.stringify(r.lite[id] ?? 'absent')} vs ${JSON.stringify(ref.inst[id] ?? 'absent')}`
+          )
+          .join('; ')} (name, short, family)`
+      );
+    if (!r.unknown) fail(`${tag}: InstLite of an unknown id is not undefined`);
+    if (!r.thrown || r.thrown.name !== 'EngineNotReadyError' || !r.thrown.typed)
+      fail(
+        `${tag}: Inst('voice') before the engine ${r.thrown ? `threw ${r.thrown.name}` : 'did not throw'}; want EngineNotReadyError`
+      );
+    if (r.before !== 0 || r.after !== 1)
+      fail(`${tag}: Engine.misses() went ${r.before} → ${r.after} over one Inst(); want 0 → 1`);
+    if (!off.length)
+      note(
+        `${tag}: InstLite ≡ embedded Inst for ${ids.length} instruments; Inst() throws, counted`
+      );
+  } finally {
+    L.dom.window.close();
+  }
+}
+
+// E3. One action, in its own boot: it waits, saying so, then completes as the
+// embedded build's does.
+async function engineAction(lazyHtml, [label, step, kind], refP) {
+  const tag = `engine E3 (${label})`;
+  const L = heldLazy(lazyHtml);
+  try {
+    await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    const held = await runProbe(
+      L.dom,
+      `${step}
+      await new Promise((r) => setTimeout(r, 300));
+      return { cards: app.cards.length, ready: Engine.ready(), misses: Engine.misses(),
+        toast: document.getElementById('toast')?.textContent || '',
+        pending: !!document.querySelector('[data-engine-pending]') };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+    if (held.ready) fail(`${tag}: the engine was ready while held — vacuous`);
+    if (held.cards)
+      fail(
+        `${tag}: made ${held.cards} card(s) before the instrument data landed — an action must wait for it`
+      );
+    if (held.misses)
+      fail(
+        `${tag}: ${held.misses} engine read(s) before the instrument data landed — an action must wait for it`
+      );
+    if (!/Preparing the instrument data/.test(held.toast) && !held.pending)
+      fail(
+        `${tag}: while it waits the page neither says it is preparing the instrument data nor draws a loading state (toast ${JSON.stringify(held.toast)})`
+      );
+    L.hold['api/engine.json'].release();
+    const done = await runProbe(L.dom, `await Engine.whenReady(); ${E3_FINISH(kind)}`, E_WAIT, {
+      prose: false,
+    });
+    const ref = await refP;
+    if (done.__err || ref.__err) return fail(`${tag}: probe crashed: ${done.__err || ref.__err}`);
+    const want = ref.e3[label];
+    if (kind === 'inspect') {
+      if (!want.preview) fail(`${tag}: the embedded inspector is empty — vacuous`);
+      for (const k of ['body', 'preview'])
+        if (done[k] !== want[k])
+          fail(
+            `${tag}: once the instrument data landed #instrument-${k} differs from the embedded build ${firstDiff(done[k], want[k])}`
+          );
+    } else {
+      if (!want.n) fail(`${tag}: the embedded build made no card — vacuous`);
+      if (done.cards !== want.cards)
+        fail(
+          `${tag}: once the instrument data landed it made ${done.n} card(s), not the embedded build's ${want.n} ${firstDiff(done.cards, want.cards)}`
+        );
+      else if (done.recipe !== want.recipe)
+        fail(
+          `${tag}: once the instrument data landed the recipe string differs from the embedded build's`
+        );
+    }
+    note(
+      `${tag}: waited (${held.pending ? 'loading state' : 'toast'}), then matched the embedded build`
+    );
+  } finally {
+    L.dom.window.close();
+  }
+}
+
+// E4. The picker's similar view: the instruments that fit say they are loading
+// and nothing is computed or cached; released, the picker redraws itself.
+async function engineSimilar(lazyHtml, refP) {
+  const tag = 'engine E4';
+  const L = heldLazy(lazyHtml);
+  try {
+    await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    const held = await runProbe(
+      L.dom,
+      `${E4_STEP}
+      const p = document.getElementById('picker-trad');
+      return { ids: window.__e4, similarFor: app.similarFor, ready: Engine.ready(), misses: Engine.misses(),
+        pending: !!p.querySelector('.fit-instruments[data-engine-pending="fits"][role="status"]'),
+        canon: /Instruments outside the canon/.test(p.textContent),
+        cached: _TRAD_CENTROID_CACHE ? window.__e4.filter((id) => _TRAD_CENTROID_CACHE.has(id)) : [] };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+    if (held.ready) fail(`${tag}: the engine was ready while held — vacuous`);
+    if (held.similarFor !== held.ids[1])
+      fail(`${tag}: "From here" did not move the similar view to ${held.ids[1]} — vacuous`);
+    if (!held.pending || held.canon)
+      fail(
+        `${tag}: the similar view before the instrument data ${held.canon ? 'listed instruments outside the canon' : 'does not mark the instruments that fit as loading (role=status, data-engine-pending="fits")'}`
+      );
+    if (held.misses) fail(`${tag}: ${held.misses} engine read(s) in the similar view while held`);
+    if (held.cached.length)
+      fail(
+        `${tag}: the centroid cache holds ${JSON.stringify(held.cached)} — computed without the instrument data`
+      );
+    L.hold['api/engine.json'].release();
+    // No re-render by this probe: the picker redraws itself as the data and
+    // then the prose (which follows the data) land.
+    const after = await runProbe(
+      L.dom,
+      `await Engine.whenReady(); await Catalog.whenProse(); ${FRAMES(3)}
+      return { html: document.getElementById('picker-trad').innerHTML, similarFor: app.similarFor };`,
+      E_WAIT,
+      { prose: false }
+    );
+    const ref = await refP;
+    if (after.__err || ref.__err) return fail(`${tag}: probe crashed: ${after.__err || ref.__err}`);
+    if (JSON.stringify(ref.similar.ids) !== JSON.stringify(held.ids))
+      fail(
+        `${tag}: "From here" went to ${held.ids[1]}, the embedded build's to ${ref.similar.ids[1]}`
+      );
+    else if (!/Instruments outside the canon/.test(ref.similar.html))
+      fail(`${tag}: the embedded similar view lists no instruments that fit — vacuous`);
+    else if (after.html !== ref.similar.html)
+      fail(
+        `${tag}: once the instrument data landed the similar view was not redrawn as the embedded build's ${firstDiff(after.html, ref.similar.html)}`
+      );
+    else note(`${tag}: loading, nothing cached; redrawn as the embedded build's`);
+  } finally {
+    L.dom.window.close();
+  }
+}
+
+// E5. A search on the Instrument page while it loads stays pending; released,
+// the list is the embedded build's and the search box keeps the focus.
+async function engineSearch(lazyHtml, refP) {
+  const tag = 'engine E5';
+  const L = heldLazy(lazyHtml);
+  try {
+    await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    const held = await runProbe(
+      L.dom,
+      `${E5_STEP}
+      await new Promise((r) => setTimeout(r, 100));
+      const b = document.getElementById('instrument-body');
+      return { pending: !!b.querySelector('[data-engine-pending="instruments"][role="status"]'),
+        total: document.getElementById('ip-total').textContent, text: b.textContent,
+        misses: Engine.misses(), ready: Engine.ready() };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+    if (held.ready) fail(`${tag}: the engine was ready while held — vacuous`);
+    if (
+      !held.pending ||
+      held.total ||
+      /\d[\d,]*\s+instruments?\b/.test(held.text) ||
+      ABSENT.test(held.text)
+    )
+      fail(
+        `${tag}: a search while the instrument data loads reads ${JSON.stringify(held.text.slice(0, 160))} (count ${JSON.stringify(held.total)}); want the loading state and no count`
+      );
+    if (held.misses) fail(`${tag}: ${held.misses} engine read(s) in a search while held`);
+    L.hold['api/engine.json'].release();
+    const after = await runProbe(
+      L.dom,
+      `await Engine.whenReady(); ${FRAMES(3)} ${E5_STATE}`,
+      E_WAIT,
+      {
+        prose: false,
+      }
+    );
+    const ref = await refP;
+    if (after.__err || ref.__err) return fail(`${tag}: probe crashed: ${after.__err || ref.__err}`);
+    if (!ref.search.total) fail(`${tag}: the embedded search shows no count — vacuous`);
+    if (after.body !== ref.search.body || after.total !== ref.search.total)
+      fail(
+        `${tag}: once the instrument data landed the search differs from the embedded build's ${firstDiff(after.body + after.total, ref.search.body + ref.search.total)}`
+      );
+    if (!after.focused || after.value !== ref.search.value)
+      fail(
+        `${tag}: once the instrument data landed the search box ${after.focused ? `reads ${JSON.stringify(after.value)}` : 'lost the focus'}`
+      );
+    else note(`${tag}: pending with no count; then the embedded list, focus kept`);
+  } finally {
+    L.dom.window.close();
+  }
+}
+
+// E2. A sweep: every distinct control on every route and in a genre's
+// detail, the header's add, saved, undo and redo, and the tree's expand,
+// find-similar, back and import, with the engine held throughout. The file import (a file picker) and the
+// downloads (jsdom has no URL.createObjectURL) are left out. It runs alone:
+// it counts every unhandled rejection in this process.
+const E2_SKIP = ['import', 'export', 'ly-download', 'ly-export-session'];
+async function engineSweep(lazyHtml) {
+  const tag = 'engine E2';
+  const errors = [],
+    rejections = [],
+    bad = [];
+  const L = heldLazy(lazyHtml, {
+    onWindow: (w) => {
+      w.addEventListener('error', (e) => errors.push(String(e.message || e.error)));
+      w.console.error = (...a) =>
+        errors.push('console.error ' + a.map((x) => String((x && x.stack) || x)).join(' '));
+    },
+  });
+  const onRejection = (r) => rejections.push(String((r && r.stack) || r).split('\n')[0]);
+  process.on('unhandledRejection', onRejection);
+  const w = L.w;
+  let clicks = 0,
+    cards = 0,
+    misses = 0,
+    absent = null;
+  const routes = {};
+  // After each click: no card, no engine read, no absence claim, no error.
+  const check = (what) => {
+    const s = w.eval(`({ cards: app.cards.length, misses: Engine.misses(), text: ${PAGE_TEXT} })`);
+    const issues = [];
+    if (s.cards > cards) issues.push(`${s.cards} card(s)`);
+    if (s.misses > misses) issues.push(`${s.misses - misses} engine read(s)`);
+    [cards, misses] = [s.cards, s.misses];
+    const m = s.text.match(ABSENT);
+    const said = m
+      ? s.text.slice(Math.max(0, m.index - 60), m.index + m[0].length + 20).replace(/\s+/g, ' ')
+      : null;
+    if (said && said !== absent) issues.push(`the page reads ${JSON.stringify(said)}`);
+    absent = said;
+    if (errors.length) issues.push(`error: ${errors.splice(0).join(' | ').slice(0, 300)}`);
+    if (rejections.length)
+      issues.push(`unhandled rejection: ${rejections.splice(0).join(' | ').slice(0, 300)}`);
+    if (issues.length) bad.push(`${what}: ${issues.join('; ')}`);
+  };
+  const click = async (what, expr) => {
+    let v;
+    try {
+      v = w.eval(expr);
+    } catch (e) {
+      bad.push(`${what}: threw ${String((e && e.message) || e).slice(0, 200)}`);
+      return null;
+    }
+    if (v === null || v === false) return v;
+    clicks++;
+    await sleep(20);
+    check(typeof v === 'string' ? `${what} [data-ui="${v}"]` : what);
+    return v;
+  };
+  try {
+    const booted = await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    if (booted.__err) return fail(`${tag}: probe crashed: ${booted.__err}`);
+    check('the first view');
+    // Every route, then a genre's detail (its tab panels hold the roster's
+    // Inspect and Add), opened again before each click in it.
+    const views = [
+      ...w
+        .eval('UI_ROUTES.map((r) => r[0])')
+        .map((r) => [r, '[data-ui]', `if (UI.view !== '${r}') uiNavigate('${r}');`]),
+      [
+        "a genre's detail",
+        '#genre-detail [data-ui]',
+        "uiNavigate('genre'); gpSelect(STARTER_TRADITIONS[0]);",
+      ],
+    ];
+    for (const [view, sel, setup] of views) {
+      const seen = new Set(E2_SKIP);
+      for (;;) {
+        const v = await click(
+          `on ${view}`,
+          `(() => {
+            ${setup}
+            const skip = new Set(${JSON.stringify([...seen])});
+            const el = [...document.querySelectorAll('${sel}')].find((e) => !skip.has(e.dataset.ui));
+            if (!el) return null;
+            el.click();
+            return el.dataset.ui;
+          })()`
+        );
+        if (v === null) break;
+        seen.add(v);
+      }
+      routes[view] = seen.size - E2_SKIP.length;
+    }
+    w.eval("uiNavigate('genre')");
+    for (const id of ['btn-traditions', 'btn-add', 'btn-saved', 'btn-undo', 'btn-redo'])
+      if (
+        !(await click(
+          `#${id}`,
+          `(() => { const el = document.getElementById('${id}'); if (!el) return false; el.click(); return true; })()`
+        ))
+      )
+        bad.push(`#${id} is not on the page — the sweep is incomplete`);
+    w.eval("uiNavigate('genre'); document.getElementById('btn-traditions').click()");
+    for (const sel of [
+      '[data-toggle-tree]',
+      '[data-similar]',
+      '[data-similar-back]',
+      '[data-import]',
+    ])
+      if (
+        !(await click(
+          `the tree's ${sel}`,
+          `(() => { const el = document.querySelector('#picker-trad ${sel}'); if (!el) return false; el.click(); return true; })()`
+        ))
+      )
+        bad.push(`the tree has no ${sel} — the sweep is incomplete`);
+    await sleep(200);
+    check('after the sweep');
+    if (w.eval('Engine.ready()')) fail(`${tag}: the engine was ready while held — vacuous`);
+    const thin = Object.entries(routes).filter(([, n]) => n < 5);
+    if (thin.length)
+      fail(
+        `${tag}: too few controls clicked on ${JSON.stringify(Object.fromEntries(thin))} — vacuous`
+      );
+  } finally {
+    process.off('unhandledRejection', onRejection);
+    L.dom.window.close();
+  }
+  for (const b of bad.slice(0, 6)) fail(`${tag}: ${b}`);
+  if (bad.length > 6) fail(`${tag}: …and ${bad.length - 6} more`);
+  if (!bad.length)
+    note(
+      `${tag}: ${clicks} clicks (${JSON.stringify(routes)} distinct controls per route), all clean`
+    );
+  return clicks;
+}
+
+// E6. The direct reads of the engine tables in src/, from the AST: an
+// identifier that is not a property name or an object key, with the
+// function it is read in.
+function engineReaders() {
+  const espree = require(
+    require.resolve('espree', { paths: [path.dirname(require.resolve('eslint'))] })
+  );
+  const names = new Set(ENGINE_TABLES);
+  const counts = {},
+    where = {};
+  const files = ['src', 'src/pages']
+    .flatMap((d) =>
+      fs
+        .readdirSync(path.join(ROOT, d))
+        .filter((f) => f.endsWith('.js'))
+        .map((f) => `${d}/${f}`)
+    )
+    .sort();
+  const KEYED = /^(Property|MethodDefinition|PropertyDefinition)$/;
+  for (const file of files) {
+    const ast = espree.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'), {
+      ecmaVersion: 'latest',
+      sourceType: 'script',
+    });
+    const walk = (node, parent, key, fn) => {
+      if (!node || typeof node.type !== 'string') return;
+      if (/^Function(Declaration|Expression)$/.test(node.type) && node.id) fn = node.id.name;
+      else if (
+        node.type === 'VariableDeclarator' &&
+        node.id.type === 'Identifier' &&
+        /Function|Arrow/.test((node.init && node.init.type) || '')
+      )
+        fn = node.id.name;
+      else if (
+        KEYED.test(node.type) &&
+        !node.computed &&
+        /Function|Arrow/.test((node.value && node.value.type) || '')
+      )
+        fn = node.key.name || String(node.key.value);
+      if (
+        node.type === 'Identifier' &&
+        names.has(node.name) &&
+        !(parent.type === 'MemberExpression' && key === 'property' && !parent.computed) &&
+        !(KEYED.test(parent.type) && key === 'key' && !parent.computed)
+      ) {
+        const c = (counts[file] = counts[file] || {});
+        c[node.name] = (c[node.name] || 0) + 1;
+        const w = (where[file] = where[file] || {});
+        (w[node.name] = w[node.name] || new Set()).add(fn);
+      }
+      for (const k of Object.keys(node)) {
+        const v = node[k];
+        if (Array.isArray(v)) for (const x of v) walk(x, node, k, fn);
+        else if (v && typeof v === 'object') walk(v, node, k, fn);
+      }
+    };
+    walk(ast, null, null, '(top level)');
+  }
+  return { counts, where };
+}
+function engineReadersCheck() {
+  const { counts, where } = engineReaders();
+  const diffs = [];
+  for (const file of [...new Set([...Object.keys(ENGINE_READERS), ...Object.keys(counts)])].sort())
+    for (const t of ENGINE_TABLES) {
+      const want = (ENGINE_READERS[file] || {})[t] || 0,
+        got = (counts[file] || {})[t] || 0;
+      if (want !== got)
+        diffs.push(
+          `${file} ${t} ${want} → ${got}${got ? ` (read in ${[...where[file][t]].join(', ')})` : ''}`
+        );
+    }
+  if (diffs.length)
+    fail(
+      `engine E6: the direct reads of the engine tables changed: ${diffs.join('; ')}. A reader must run only once the instrument data has loaded (behind _engineLive, Engine.ensure() or engineReady(), or on a card); review it, then regenerate ENGINE_READERS with node scripts/check_lazy_app.js --print-readers`
+    );
+  const total = Object.values(counts).reduce(
+    (s, c) => s + Object.values(c).reduce((a, b) => a + b, 0),
+    0
+  );
+  if (!diffs.length)
+    note(`engine E6: ${total} direct reads in ${Object.keys(counts).length} files, as listed`);
+  return total;
+}
+function printReaders() {
+  const { counts, where } = engineReaders();
+  console.log(`const ENGINE_READERS = ${JSON.stringify(counts, null, 2)};`);
+  for (const [file, w] of Object.entries(where))
+    for (const [t, fns] of Object.entries(w))
+      console.log(`// ${file} ${t}: ${[...fns].join(', ')}`);
+}
+
+async function engineSection(embedHtml, lazyHtml) {
+  const reads = engineReadersCheck();
+  const refP = engineReference(embedHtml);
+  const guard = (name, run) => () =>
+    run().catch((e) => fail(`engine ${name}: harness error: ${(e && e.message) || e}`));
+  await Promise.all([
+    refP,
+    pool(
+      [
+        guard('E0', () => engineE0(lazyHtml)),
+        guard('E1', () => engineE1(lazyHtml, refP)),
+        ...E3_STEPS.map((s) => guard(`E3 (${s[0]})`, () => engineAction(lazyHtml, s, refP))),
+        guard('E4', () => engineSimilar(lazyHtml, refP)),
+        guard('E5', () => engineSearch(lazyHtml, refP)),
+      ],
+      3
+    ),
+  ]);
+  const clicks = await engineSweep(lazyHtml);
+  return { clicks, reads };
+}
+
 // ── section: failure ────────────────────────────────────────────────────────
 async function failure(lazyHtml) {
   // F1. The boot index unreachable → the honest boot-error state.
@@ -995,9 +1988,213 @@ async function failure(lazyHtml) {
     }
   }
   dyingDom.window.close();
+
+  // F4a–F4c, each in its own boot, side by side.
+  await Promise.all([
+    engineUnreachable(lazyHtml),
+    engineUnreachableRestore(lazyHtml),
+    engineStale(lazyHtml),
+  ]);
+}
+
+// F4. The instrument data unreachable, or from another deploy.
+// F4a: no saved session. The first view stands; a failed load is retried by
+// an action or Retry, each exactly once, never on a timer; the prose still
+// comes (its prefetch follows the engine's bytes, and a failure counts).
+async function engineUnreachable(lazyHtml) {
+  const tag = 'engine unreachable (F4a)';
+  const log = [];
+  const dom = bootDom(
+    lazyHtml,
+    makeFetchShim({ deny: ['api/engine.json', 'api/tradition_images.json'], log }),
+    { url: SITE }
+  );
+  const w = dom.window;
+  const asks = () => fetchesOf(log, 'api/engine.json').length;
+  try {
+    const booted = await runProbe(dom, SETTLE, E_WAIT, { prose: false });
+    if (booted.__err) return fail(`${tag}: the page did not boot: ${booted.__err}`);
+    const prose = waitFor(() => w.eval('Catalog.proseLoaded()'), 10000, 'prose').then(
+      () => true,
+      () => false
+    );
+    await waitFor(() => w.eval('Engine.failed()'), 10000, 'engine failure').catch(() => {});
+    await sleep(1500);
+    if (w.document.getElementById('boot-error'))
+      fail(
+        `${tag}: rendered #boot-error with no saved session — the first view needs only the boot index`
+      );
+    if (!w.eval('Engine.failed()')) fail(`${tag}: Engine.failed() is false after a 404`);
+    const n1 = asks();
+    if (n1 !== 1)
+      fail(
+        `${tag}: ${n1} request(s) for api/engine.json 1.5 s after the first view; want exactly 1 — a failed load is retried by an action, never on a timer`
+      );
+    // An Add asks once more, adds nothing, and says so, with Retry.
+    const add = await runProbe(
+      dom,
+      `const r = await uiAddGenre(STARTER_TRADITIONS[0]);
+      const t = document.getElementById('toast');
+      return { added: r.added, cards: app.cards.length, toast: t.textContent, error: t.classList.contains('toast-error'),
+        actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent) };`,
+      E_WAIT,
+      { prose: false }
+    );
+    const n2 = asks();
+    if (add.__err) fail(`${tag}: Add probe crashed: ${add.__err}`);
+    else {
+      if (add.added || add.cards)
+        fail(`${tag}: an Add with the instrument data unreachable made ${add.cards} card(s)`);
+      if (
+        !/Could not load the instrument data/.test(add.toast) ||
+        !add.error ||
+        !add.actions.includes('Retry')
+      )
+        fail(
+          `${tag}: an Add with the instrument data unreachable reads ${JSON.stringify(add.toast)} (actions ${JSON.stringify(add.actions)}); want the error "Could not load the instrument data — check your connection" with Retry`
+        );
+      if (n2 !== n1 + 1)
+        fail(`${tag}: the Add made ${n2 - n1} request(s) for api/engine.json; want exactly 1`);
+    }
+    // The Instrument page says it could not load, with Retry; Retry asks once.
+    const page = await runProbe(
+      dom,
+      `uiNavigate('instrument');
+      const b = document.getElementById('instrument-body');
+      return { failed: !!b.querySelector('[data-engine-pending="failed"][role="status"] [data-ui="engine-retry"]'),
+        text: b.textContent, total: document.getElementById('ip-total').textContent };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (page.__err) fail(`${tag}: Instrument page probe crashed: ${page.__err}`);
+    else if (
+      !page.failed ||
+      !/Couldn.t load the instruments/.test(page.text) ||
+      page.total ||
+      ABSENT.test(page.text)
+    )
+      fail(
+        `${tag}: the Instrument page reads ${JSON.stringify(page.text.slice(0, 160))} (count ${JSON.stringify(page.total)}); want "Couldn’t load the instruments." with Retry, and no count`
+      );
+    if (asks() !== n2) fail(`${tag}: opening the failed Instrument page made a request by itself`);
+    w.document.querySelector('#instrument-body [data-ui="engine-retry"]')?.click();
+    await waitFor(() => asks() > n2 && w.eval('Engine.failed()'), 10000, 'retry').catch(() => {});
+    await sleep(1500);
+    const n3 = asks();
+    if (n3 !== n2 + 1)
+      fail(`${tag}: Retry made ${n3 - n2} request(s) over 1.5 s; want exactly 1 and no retry loop`);
+    if (
+      !w.document.querySelector(
+        '#instrument-body [data-engine-pending="failed"] [data-ui="engine-retry"]'
+      )
+    )
+      fail(`${tag}: after a failed Retry the Instrument page no longer offers Retry`);
+    if (!(await prose))
+      fail(
+        `${tag}: the genre prose did not load within 10 s — its prefetch follows the instrument data's bytes, and a failed request must count as delivered`
+      );
+    note(
+      `${tag}: first view kept; ${n1} → ${n2} (Add) → ${n3} (Retry) requests, none on a timer; prose loaded`
+    );
+  } finally {
+    dom.window.close();
+  }
+}
+
+// F4b: a saved session. The boot error names the file; the session is left
+// as it was and nothing is written.
+async function engineUnreachableRestore(lazyHtml) {
+  const tag = 'engine unreachable with a saved session (F4b)';
+  const dom = bootDom(
+    lazyHtml,
+    makeFetchShim({ deny: ['api/engine.json', 'api/tradition_images.json'] }),
+    { url: SITE, storage: { 'codex-workbench-v1': WS } }
+  );
+  const w = dom.window;
+  try {
+    await waitFor(() => w.document.getElementById('boot-error'), 10000, 'boot-error').catch(
+      () => {}
+    );
+    await sleep(300);
+    const r = await runProbe(
+      dom,
+      `const e = document.getElementById('boot-error');
+      return { error: !!e, engine: e ? e.dataset.enginePending || null : null, text: e ? e.textContent : '',
+        ready: typeof UI !== 'undefined' && UI.ready === true,
+        stored: localStorage.getItem('codex-workbench-v1'), recovery: sessionStorage.getItem('codex-workbench-recovery') };`,
+      E_WAIT,
+      { boot: false, prose: false }
+    );
+    if (r.__err) return fail(`${tag}: probe crashed: ${r.__err}`);
+    if (!r.error) fail(`${tag}: no #boot-error — a saved recipe that cannot be drawn must say so`);
+    else if (r.engine !== 'failed' || !/api\/engine\.json/.test(r.text))
+      fail(
+        `${tag}: #boot-error (data-engine-pending=${JSON.stringify(r.engine)}) reads ${JSON.stringify(r.text.slice(0, 200))}; want data-engine-pending="failed" and api/engine.json named`
+      );
+    if (r.ready)
+      fail(`${tag}: UI.ready is true — the saved recipe was drawn without its instruments`);
+    if (r.stored !== WS || r.recovery !== null)
+      fail(
+        `${tag}: the saved session was written (codex-workbench-v1 ${r.stored === WS ? 'unchanged' : 'changed'}, recovery copy ${JSON.stringify(r.recovery && r.recovery.slice(0, 60))})`
+      );
+    if (r.error && r.engine === 'failed' && !r.ready && r.stored === WS && r.recovery === null)
+      note(`${tag}: boot error names api/engine.json; the session untouched`);
+  } finally {
+    dom.window.close();
+  }
+}
+
+// F4c: a file from another deploy — its digest is not the page's.
+async function engineStale(lazyHtml) {
+  const tag = 'a stale instrument data file (F4c)';
+  const SHA = /"tables_sha1":"[0-9a-f]{40}"/;
+  if (!SHA.test(fs.readFileSync(path.join(API_DIR, 'engine.json'), 'utf8')))
+    return fail(`${tag}: api/engine.json has no tables_sha1 to make stale — vacuous`);
+  const dom = bootDom(
+    lazyHtml,
+    makeFetchShim({
+      deny: ['api/tradition_images.json'],
+      transform: { 'api/engine.json': (t) => t.replace(SHA, `"tables_sha1":"${'0'.repeat(40)}"`) },
+    }),
+    { url: SITE }
+  );
+  const w = dom.window;
+  try {
+    await runProbe(dom, SETTLE, E_WAIT, { prose: false });
+    await waitFor(() => w.eval('Engine.failed() || Engine.ready()'), 10000, 'engine').catch(
+      () => {}
+    );
+    const s = w.eval(
+      '({ failed: Engine.failed(), ready: Engine.ready(), stale: !!(Engine.failure() && Engine.failure().stale), tables: typeof INSTRUMENTS })'
+    );
+    if (!s.failed || !s.stale)
+      fail(
+        `${tag}: a file whose tables_sha1 is not the page's was ${s.ready ? 'accepted' : 'not refused as stale'} (failed ${s.failed}, stale ${s.stale})`
+      );
+    const add = await runProbe(
+      dom,
+      `const r = await uiAddGenre(STARTER_TRADITIONS[0]);
+      const t = document.getElementById('toast');
+      return { cards: app.cards.length, toast: t.textContent, actions: [...t.querySelectorAll('.toast-action')].map((b) => b.textContent), tables: typeof INSTRUMENTS };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (add.__err) return fail(`${tag}: Add probe crashed: ${add.__err}`);
+    if (add.cards) fail(`${tag}: an Add made ${add.cards} card(s) from a stale file`);
+    if (!/out of date/.test(add.toast) || !add.actions.includes('Reload'))
+      fail(
+        `${tag}: an Add reads ${JSON.stringify(add.toast)} (actions ${JSON.stringify(add.actions)}); want "This page is out of date. Reload to load the matching instrument data." with Reload`
+      );
+    if (s.tables !== 'undefined' || add.tables !== 'undefined')
+      fail(`${tag}: INSTRUMENTS was filled from a stale file`);
+    else if (s.stale && !add.cards) note(`${tag}: refused as stale; an Add asks for a reload`);
+  } finally {
+    dom.window.close();
+  }
 }
 
 (async () => {
+  if (PRINT_READERS) return printReaders();
   console.error('Building embedded + lazy HTML…');
   const embedHtml = buildTempHtml(false);
   const lazyHtml = buildTempHtml(true);
@@ -1008,20 +2205,30 @@ async function failure(lazyHtml) {
   if (ONLY.includes('parity')) {
     const embed = await parity(embedHtml, lazyHtml);
     ran.push(
-      `parity (catalog projection ×${Object.keys(embed.catalog || {}).length}, ${Object.keys(embed.pickers || {}).length} rendered surfaces, ${IMPORT_SAMPLE.length}-tradition import + recipe; 1 boot + 1 prose fetch, 0 browse.json)`
+      `parity (catalog projection ×${Object.keys(embed.catalog || {}).length}, ${Object.keys(embed.pickers || {}).length} rendered surfaces, ${IMPORT_SAMPLE.length}-tradition import + recipe, engine fingerprint ×${embed.engine ? `${embed.engine.count} instruments / ${embed.engine.distinct} variants` : '?'}; 1 boot + 1 engine + 1 prose fetch, 0 browse.json)`
     );
   }
   if (ONLY.includes('first-view')) {
     for (const name of ONLY_SCENARIOS) await firstView(embedHtml, lazyHtml, name);
-    ran.push(`${ONLY_SCENARIOS.length} first view(s) with the prose held, filled in place`);
+    ran.push(
+      `${ONLY_SCENARIOS.length} first view(s) with the prose and the instrument data held, filled in place`
+    );
   }
   if (ONLY.includes('window')) {
     await windowSection(embedHtml, lazyHtml);
-    ran.push('the window before the prose');
+    ran.push('the window before the prose and the instrument data');
+  }
+  if (ONLY.includes('engine')) {
+    const e = await engineSection(embedHtml, lazyHtml);
+    ran.push(
+      `the instrument data held (E0 one request after the first view, E1 the index ≡ Inst, E2 ${e.clicks} clicks with no read, E3 ${E3_STEPS.length} actions wait then match, E4 similar view, E5 search, E6 ${e.reads} direct reads as listed)`
+    );
   }
   if (ONLY.includes('failure')) {
     await failure(lazyHtml);
-    ran.push('honest failure states');
+    ran.push(
+      'honest failure states (incl. the instrument data unreachable, with a session, stale)'
+    );
   }
 
   // ── report ──

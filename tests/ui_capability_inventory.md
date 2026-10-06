@@ -645,6 +645,7 @@ surface: Instrument discovery surface
 implementation: openModal('modal-add') routes to the Instrument page (uiOpenSurface); renderInstrumentDiscovery populates
 status: reachable
 precondition: instrument picker open
+notes: In the lazy shell the instruments arrive with the instrument data (api/engine.json) after the first paint. Until then the page says "Loading the instruments…" (data-engine-pending="instruments"), or "Couldn’t load the instruments." with Retry, never a count or "No instruments match"; check_lazy_app.js gates that state. This presence check runs on the embedded build, which has the data at load.
 ```
 
 ```yaml
@@ -1248,8 +1249,8 @@ precondition: 'instrument search: no results'
 name: toast-action-undo
 kind: data-action
 selector: '#toast .toast-action'
-surface: import toast — Undo (only while the import is still the latest change); Retry after a failed catalog fetch
-implementation: showToast(message, kind, action) and importTraditionWithFeedback in src/app.js
+surface: import toast — Undo (only while the import is still the latest change); Retry after a failed catalog fetch or a failed load of the instrument data, Reload when the instrument data is out of date (lazy shell)
+implementation: showToast(message, kind, action), importTraditionWithFeedback and engineReady in src/app.js
 status: reachable
 precondition: 'genre just imported'
 ```

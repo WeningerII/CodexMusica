@@ -169,6 +169,10 @@ fs.writeFileSync(path.join(OUT_DIR, 'llms.txt'), llms);
 //   • api/browse_boot.json and api/browse_prose.json — the lazy app's two
 //     halves of it (internal, like nav_glyphs.json): the boot index its first
 //     view reads, and the genre prose it reads after the first paint.
+//   • api/engine.json — the lazy app's instrument engine (internal too: the
+//     page's copy of the instrument, room, chain, tuning and preface tables,
+//     derived by scripts/_page_tables.js), read after the first paint. The
+//     published instrument data is api/instruments/.
 //   • anything on mcp.codexmusica.com — a sitemap may only declare URLs
 //     under its own origin, so cross-origin entries here would simply be dropped.
 //     llms.txt is the bridge that points at that host.

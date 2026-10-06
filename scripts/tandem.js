@@ -22,10 +22,11 @@ const ROOT = path.join(__dirname, '..');
 const { HTML_OUT: HTML_PATH, ZIP_OUT: ZIP_PATH } = require('./_paths.js');
 
 // The shipped codex.html is the LAZY SHELL (the build_html.js default): its
-// tradition tables live in api/, not the page. The HTML-artifact and parity
-// checks below need the tables in the page (they boot the script with no fetch
-// and read TRADITIONS/TRADITION_EXTRAS), so they exercise the EMBEDDED variant
-// built from the SAME source to a temp file (memoized). This is sound because
+// tradition tables and its instrument engine live in api/, not the page. The
+// HTML-artifact and parity checks below need the tables in the page (they boot
+// the script with no fetch and read TRADITIONS/TRADITION_EXTRAS and
+// INSTRUMENTS), so they exercise the EMBEDDED variant built from the SAME
+// source to a temp file (memoized). This is sound because
 // check_lazy_app.js separately proves the shipped lazy shell behaves identically
 // to this embedded build — so "source → embedded behaves right" plus
 // "lazy ≡ embedded" gives "source → shipped lazy behaves right". The shipped
@@ -729,7 +730,7 @@ check('exists', () => {
   const size = fs.statSync(HTML_PATH).size;
   return (size / 1024 / 1024).toFixed(2) + ' MB';
 });
-check('shipped codex.html is the lazy shell (no embedded tradition tables)', () => {
+check('shipped codex.html is the lazy shell (no embedded tradition or engine tables)', () => {
   // The default build flipped to the lazy shell: the shipped artifact must NOT
   // carry the tradition tables (that absence is the whole point) and MUST carry
   // the CODEX_LAZY_API switch so the app boots from api/browse_boot.json. The deep
@@ -741,7 +742,43 @@ check('shipped codex.html is the lazy shell (no embedded tradition tables)', () 
   if (!html.includes('const CODEX_LAZY_API')) {
     throw new Error('shipped codex.html missing CODEX_LAZY_API — not the lazy shell');
   }
-  return 'no TRADITIONS/TRADITION_EXTRAS in page; boots from api/browse_boot.json';
+  // The instrument engine is out of the page too: its eight tables load from
+  // api/engine.json after the first paint into `let` slots that
+  // CODEX_ENGINE_COMMIT fills in one step, and the first view reads names and
+  // families from INSTRUMENT_INDEX. The names are spelled out, not taken from
+  // _page_tables.js's ENGINE_TABLES, so dropping a table from that list cannot
+  // also drop it from this check. This is the artifact's shape; build_html.js
+  // --check proves the slots in a vm, and check_lazy_app.js the behaviour.
+  // The embedded build's app code names CODEX_ENGINE_COMMIT and INSTRUMENT_INDEX
+  // too (behind a typeof), so it is the DECLARATIONS that are looked for.
+  const engine = [
+    'INSTRUMENT_FAMILY_PARTS',
+    'INSTRUMENTS',
+    'ROOMS',
+    'ROOM_CLUSTERS',
+    'CHAIN_SECTIONS',
+    'TUNINGS',
+    'INSTRUMENT_AXIS_DEFINITIONS',
+    'PREFACE_LEXICON',
+  ];
+  const carried = engine.filter((n) => new RegExp(`\\bconst ${n}\\s*=`).test(html));
+  if (carried.length) {
+    throw new Error(
+      `shipped codex.html embeds engine table(s) ${carried.join(', ')} — they load from api/engine.json`
+    );
+  }
+  if (!/\bfunction CODEX_ENGINE_COMMIT\s*\(/.test(html)) {
+    throw new Error(
+      'shipped codex.html missing CODEX_ENGINE_COMMIT — nothing fills the engine slots'
+    );
+  }
+  if (!/\bconst INSTRUMENT_INDEX\s*=/.test(html)) {
+    throw new Error('shipped codex.html missing INSTRUMENT_INDEX — the first view has no names');
+  }
+  return (
+    'no TRADITIONS/TRADITION_EXTRAS or engine tables in page; boots from ' +
+    'api/browse_boot.json, the engine from api/engine.json'
+  );
 });
 check('JS parseable (vm.Script syntax check)', () => {
   const html = fs.readFileSync(HTML_PATH, 'utf8');

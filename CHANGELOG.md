@@ -6,6 +6,79 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — the instrument engine leaves the lazy page: codex.html is 0.50 MB gzipped, not 1.16 MB
+
+The instrument engine is `INSTRUMENTS` with their parts and variants, the family parts,
+`ROOMS`, `ROOM_CLUSTERS`, `CHAIN_SECTIONS`, `TUNINGS`, `INSTRUMENT_AXIS_DEFINITIONS` and
+`PREFACE_LEXICON`. It was 77% of the lazy page's inline data, and the first view reads
+none of it but instrument names and families. The lazy `codex.html` is now 1,774,610
+bytes, not 4,498,109: 496,450 B gzipped (Node zlib level 6), not 1,155,985. The page and
+the boot index, all the first view waits for, are 731,988 B gzipped, not 1,391,523. The
+embedded build is unchanged and still carries every table.
+
+- **One internal file holds the engine** (`scripts/_page_tables.js` derives it;
+  `scripts/check_api.js` holds it byte for byte and keeps it out of `api/index.json`):
+  `api/engine.json` (713,371 B gzipped) is the page's copy of references 01, 02, 03 and
+  07, unmerged and page-stripped, one JSON element per line. The page keeps an empty
+  `let` slot per table, `CODEX_ENGINE_COMMIT` (fills every slot in one step), the file's
+  digest, and `INSTRUMENT_INDEX`: each instrument's id, name, family and short name, 43 KB
+  gzipped, which is all the first view reads.
+- **After the first paint** the page fetches the engine and checks it against its digest
+  and its instrument index; a file from another deploy is refused as stale. It parses a
+  line per idle slice, merges the family parts, indexes and sorts on local objects, then
+  commits: the tables go from absent to whole, never half-filled. Until then `Inst`,
+  `Room`, `Tuning`, `ChainItem` and `Variant` throw a counted `EngineNotReadyError`;
+  nothing answers "unknown".
+- **The background prose prefetch now follows the engine's bytes**: `api/browse_prose.json`
+  is requested once `api/engine.json` has arrived (or failed), so the two do not share a
+  slow link. A reader that needs the prose sooner (a genre opened without it, a search,
+  the tree, a deep link outside the starters) still asks for it at once.
+- **Before the engine lands, nothing acts without it and nothing calls it missing.** An
+  action that creates or checks cards (adding a genre or an instrument, opening a saved
+  session, import, "Use recipe") says "Preparing the instrument data…" and waits. The
+  Instrument page and the similar view's instruments that fit say they are loading, or
+  that they could not load, with Retry. A failed load says "Could not load the instrument
+  data — check your connection", with Retry; a stale file, "This page is out of date.
+  Reload to load the matching instrument data.", with Reload. A failed load is retried by
+  an action, Retry or the browser coming back online, never on a timer.
+- **The early-Add trade-off.** An Add clicked as soon as the first view is drawn now waits
+  for the engine, then creates the same cards. Under applied slow 4G and 4x CPU it waited
+  9.9 s after the click, against 1.25 s with the engine inline, and completed 17.0 s after
+  navigation, not 12.5 s. In exchange the first view comes at 5.9 s, not 10.2 s, and the
+  engine is ready at 18.2 s with nobody waiting.
+- **A saved recipe holds the boot until the engine lands**, so it is drawn whole: its
+  first draw comes 2.2 s later under the same throttling (12.6 s, against 10.4 s). A
+  restore that misses the engine is a boot error that names `api/engine.json`; nothing is
+  written, and the session stays saved in the browser.
+- **The preface datalist** fills when a card's preface section first draws, in both
+  builds, rather than at start-up.
+- **Gates.** `build_html.js --check` asserts the eight slots by name in a lazy page (no
+  table carried) and none of the lazy names in the embedded one, checks `INSTRUMENT_INDEX`
+  and the digest against their derivation and that `CODEX_ENGINE_COMMIT` fills each slot,
+  and prints the page's gzip size. `check_lazy_app.js` holds the engine back in every
+  first view (ten now: the nine before, and the Instrument page by its route) and in the
+  window: zero engine reads, the engine requested after the first view, the prose after
+  the engine's bytes, and a restored session waiting at the boot status. Its parity
+  section fingerprints the merged engine in both builds; a new `engine` section boots
+  each action that needs the engine with it held (each waits, then matches the embedded
+  build), sweeps every control for an engine read, and counts the direct readers of the
+  eight tables; `failure` adds the engine unreachable, with and without a saved session,
+  and a stale file. `check_payload_budget.js` (new; `npm run check:budget`, and CI's
+  freshness job) holds the page, the page with the boot index, the inline data and
+  `api/engine.json` to gzip budgets. `check_ui_foundation.js` and
+  `check_mobile_layout.js` wait for the engine as they wait for the prose, and
+  `tandem.js` asserts the shipped page carries the slots, `CODEX_ENGINE_COMMIT` and
+  `INSTRUMENT_INDEX`, not the tables. The `lazy-shell-parity` promise now says "once the
+  genre descriptions and the instrument data have loaded" and that an action that needs
+  the instrument data "waits for it instead of acting without it", bound with
+  `doc_terms`.
+- **Measured on the step-9 prototype; to be re-measured on this branch.** Lighthouse
+  13.5.0 mobile, a local gzip-6 server, medians of 5 or more interleaved runs, against
+  the step-8 head: score 0.30 → 0.49, first contentful paint 6.36 → 3.07 s, largest
+  contentful paint 7.73 → 5.10 s, total blocking time 3.81 → 1.75 s. The
+  applied-throttling times above are the prototype's too. The sizes above are this
+  branch's.
+
 ### Changed — the lazy shell's first view waits for 0.24 MB of catalog, not 2.1 MB
 
 `codex.html` booted from `api/browse.json`: every genre's name, axes and roster, and
