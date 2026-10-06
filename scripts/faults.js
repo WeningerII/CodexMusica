@@ -588,7 +588,8 @@ const plantEngineFile = (d) =>
 //     instrument is still present.
 {
   const d = lazyEnv();
-  const merge = 'yield* mergeFamilyPartsSteps(t.INSTRUMENTS, t.INSTRUMENT_FAMILY_PARTS);';
+  const merge =
+    'yield* mergeFamilyPartsSteps(t.INSTRUMENTS, t.INSTRUMENT_FAMILY_PARTS, { plan: kinds });';
   plantIn(d, 'src/app.js', merge, `_sortInstruments(t.INSTRUMENTS); ${merge}`);
   plantIn(
     d,

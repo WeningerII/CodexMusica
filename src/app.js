@@ -5380,21 +5380,37 @@ const _ROOM_BY_ID = new Map();
 const _TUNING_BY_ID = new Map();
 const _FAM_BY_ID = new Map();
 const _CHAIN_ITEMS_BY_SECTION = new Map();   // sectionId → Map<itemId, item>
-const _VARIANTS_BY_INST = new Map();         // instId → Map<partId, Map<variantId, variant>>
+const _VARIANTS_BY_INST = new Map();         // instId → Map<partId, Map<variantId, variant>>, filled by _variantsOf
 
-// The engine half of the indexes: instruments (+ their variants), rooms,
-// tunings, chain items, read from the tables passed in. A generator, so the
-// lazy shell can build it in slices; the embedded build drains it at load.
+// One instrument's variant index, built the first time Variant asks for it.
+// Built up front it was the largest part of the index: the merged parts hold
+// 531,741 variant slots (every borrowed material on every part that takes
+// it), and a recipe reads the variants of the handful of instruments on its
+// cards. The same maps from the same instrument (_INST_BY_ID's, the last of a
+// repeated id) as an up-front build: nothing writes a catalog instrument's
+// parts after the merge.
+function _variantsOf(id) {
+  let partMap = _VARIANTS_BY_INST.get(id);
+  if (partMap) return partMap;
+  const inst = _INST_BY_ID.get(id);
+  if (!inst) return undefined;
+  partMap = new Map();
+  for (const part of (inst.parts || [])) {
+    const variantMap = new Map();
+    for (const v of (part.variants || [])) variantMap.set(v.id, v);
+    partMap.set(part.id, variantMap);
+  }
+  _VARIANTS_BY_INST.set(id, partMap);
+  return partMap;
+}
+
+// The engine half of the indexes: instruments, rooms, tunings, chain items,
+// read from the tables passed in (instruments' variants: _variantsOf, on
+// demand). A generator, so the lazy shell can build it in slices; the embedded
+// build drains it at load.
 function* _indexEngineSteps(t) {
   for (const inst of t.INSTRUMENTS || []) {
     _INST_BY_ID.set(inst.id, inst);
-    const partMap = new Map();
-    for (const part of (inst.parts || [])) {
-      const variantMap = new Map();
-      for (const v of (part.variants || [])) variantMap.set(v.id, v);
-      partMap.set(part.id, variantMap);
-    }
-    _VARIANTS_BY_INST.set(inst.id, partMap);
     yield;
   }
   for (const r of t.ROOMS || []) _ROOM_BY_ID.set(r.id, r);
@@ -5426,11 +5442,17 @@ const _drain = (steps) => { let r = steps.next(); while (!r.done) r = steps.next
 // embedded build carries them inline and everything below is inert. The lazy
 // shell declares each as an empty `let` slot (build_html.js) and carries only
 // INSTRUMENT_INDEX ([id, name, family, short] per instrument) for the first
-// view, read through InstLite. After the first paint, Engine fetches
-// api/engine.json (scripts/_page_tables.js), parses it a line at a time,
-// merges the family parts, builds the indexes and sorts, all in idle slices
-// on local objects, then fills every slot in one step: the tables go from
-// absent to whole, never half-filled.
+// view, read through InstLite (api/engine.json leaves those four fields to
+// it). After the first paint (start, from uiAfterPaint), or sooner when an
+// action needs it (ensure), Engine fetches api/engine.json
+// (scripts/_page_tables.js), parses it a line at a time, fills each
+// instrument's index fields back, merges the family parts (with the file's
+// merge plan, which spares it the predicate passes), indexes and sorts, all in
+// idle slices on local objects, then fills every slot in one step: the tables
+// go from absent to whole, never half-filled. Until its bytes are here
+// (fetched), the page's other optional downloads wait, so nothing shares the
+// link with them. A saved session asks for the file from <head>
+// (src/engine_preload.js), and this fetch reuses that response.
 //
 // Until then nothing acts on partial data. Inst, Room, Tuning, ChainItem and
 // Variant throw EngineNotReadyError rather than answer "unknown" (Engine.miss,
@@ -5503,6 +5525,7 @@ const Engine = (() => {
         if (!head || head.tables_sha1 !== CODEX_ENGINE_SHA)
           throw Object.assign(new Error('instrument data does not match this page'), { stale: true });
         const t = { INSTRUMENTS: [] };
+        let plan = null;
         state = 'preparing';
         await sliced((function* () {
           let closed = false;
@@ -5510,6 +5533,7 @@ const Engine = (() => {
             if (lines[i] === ']') { closed = true; break; }
             const [name, value] = el(i);
             if (name === 'INSTRUMENTS') for (const x of value) t.INSTRUMENTS.push(x);
+            else if (name === 'MERGE_PLAN') plan = value;
             else t[name] = value;
             yield;
           }
@@ -5517,10 +5541,25 @@ const Engine = (() => {
           // committed with tables missing. A load failure, so it can be retried.
           if (!closed || (head.tables || []).some((n) => !(n in t)))
             throw new Error('instrument data arrived incomplete');
-          const ids = t.INSTRUMENTS.map((x) => x.id);
-          if (ids.length !== INSTRUMENT_INDEX.length || ids.some((id, k) => id !== INSTRUMENT_INDEX[k][0]))
-            throw Object.assign(new Error('instrument data does not match this page'), { stale: true });
-          yield* mergeFamilyPartsSteps(t.INSTRUMENTS, t.INSTRUMENT_FAMILY_PARTS);
+          // Each instrument's id, name, family and short come as 0: this page
+          // has them in INSTRUMENT_INDEX, in the same order, and fills them back
+          // before anything reads them (scripts/_page_tables.js, INDEX_FIELDS).
+          const FIELDS = ['id', 'name', 'family', 'short'];
+          const stale = () => Object.assign(new Error('instrument data does not match this page'), { stale: true });
+          if (JSON.stringify(head.index_fields) !== JSON.stringify(FIELDS) || t.INSTRUMENTS.length !== INSTRUMENT_INDEX.length) throw stale();
+          for (let k = 0; k < t.INSTRUMENTS.length; k++) {
+            const x = t.INSTRUMENTS[k], row = INSTRUMENT_INDEX[k];
+            for (let c = 0; c < FIELDS.length; c++) {
+              if (!(FIELDS[c] in x)) continue;
+              if (x[FIELDS[c]] !== 0) throw stale();
+              x[FIELDS[c]] = row[c];
+            }
+          }
+          // The merge plan spares the merge its predicate passes, and is used
+          // only by the merge code that wrote it (CODEX_MERGE_SHA); any other
+          // merges the long way, to the same result.
+          const kinds = plan && plan.merge_sha1 === CODEX_MERGE_SHA ? plan.kinds : null;
+          yield* mergeFamilyPartsSteps(t.INSTRUMENTS, t.INSTRUMENT_FAMILY_PARTS, { plan: kinds });
           yield* _indexEngineSteps(t);
         })());
         _sortInstruments(t.INSTRUMENTS);
@@ -6539,7 +6578,7 @@ const ChainItem = (sectionId, id) => {
 const Variant = (instrument, partId, variantId) => {
   if (!_engineLive) return Engine.miss('Variant ' + partId);
   if (!instrument) return null;
-  const partMap = _VARIANTS_BY_INST.get(instrument.id);
+  const partMap = _variantsOf(instrument.id);
   if (!partMap) return null;
   const variantMap = partMap.get(partId);
   // Preserves original: null when part missing, undefined when variant missing.
@@ -7271,8 +7310,13 @@ async function importTraditionWithFeedback(tradId, opts) {
   // Retry goes back through the shell's add command when it is running, so a
   // retry is refused like any second concurrent addition.
   const retry = { label: 'Retry', run: () => (typeof UI !== 'undefined' && UI.ready ? uiAddGenre(tradId) : importTraditionWithFeedback(tradId, opts)) };
+  // The tradition's payload is asked for now, beside the instrument data, not
+  // after it: on a slow link the two waits overlap instead of adding up. Its
+  // failure is reported only once the instrument data is here.
+  const full = Catalog.ensureFull(tradId);
+  full.catch(() => {});
   if (!_engineLive && !(await engineReady(retry))) return [];
-  try { await Catalog.ensureFull(tradId); }
+  try { await full; }
   catch { showToast('Could not load tradition data — check your connection', 'error', retry); return []; }
   const created = importTradition(tradId);
   if (opts.closeModalId) closeModal(opts.closeModalId);
@@ -22568,9 +22612,11 @@ function _initApp() {
   // next boot, and typing early just builds it on demand instead (lazy shell:
   // after the prose lands).
   Catalog.warmSearchIndex();
-  // Lazy shell: the genres' prose (api/browse_prose.json) is asked for once the
-  // first view has painted; requested before, it would share the network with
-  // that view and count on the path to the largest paint. Embedded: a no-op.
+  // Lazy shell: once the first view has painted, the instrument engine is
+  // asked for, and the genres' prose (api/browse_prose.json) once the engine's
+  // bytes are in; requested before, either would share the network with the
+  // view, and count on the path to the largest paint (the prose would also
+  // share it with the engine an early action waits for). Embedded: a no-op.
   if (typeof uiAfterPaint === 'function') uiAfterPaint(() => { Engine.start(); Engine.fetched().then(() => Catalog.loadProse().catch(() => {})); });
   Engine.onSettle(_pickerEngineSettled);
   Catalog.onProse(_pickerProseSettled);

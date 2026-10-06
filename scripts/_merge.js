@@ -20,11 +20,17 @@
 // both so the CLI engine and the shipped browser app compute identical parts:
 //   - Node    : scripts/_loader.js calls mergeFamilyParts(INSTRUMENTS, INSTRUMENT_FAMILY_PARTS)
 //   - Browser : scripts/build_html.js inlines the marked function into codex.html
+// The lazy page (Engine in src/app.js) also passes the merge plan that
+// api/engine.json carries (scripts/_page_tables.js, mergePlan): the universal
+// materials' choices, written down by this same code at build time, so the
+// page skips the predicate passes and builds the same objects.
 'use strict';
 
 /* @inline-start — the region between the markers is inlined verbatim into codex.html */
-function* mergeFamilyPartsSteps(instruments, familyParts) {
+function* mergeFamilyPartsSteps(instruments, familyParts, opts) {
   familyParts = familyParts || {};
+  const plan = (opts && opts.plan) || null;
+  const observe = (opts && opts.observe) || null;
   for (const inst of instruments || []) {
     yield;
     const ownParts = Array.isArray(inst.parts) ? inst.parts : [];
@@ -88,13 +94,55 @@ function* mergeFamilyPartsSteps(instruments, familyParts) {
   //   isTargetPart(part)       — does this part take this material kind?
   //   isMemberVariant(variant) — (optional) is this variant actually of the kind?
   //                              omitted ⇒ every variant of a target part counts.
-  const augmentUniversalMaterial = function* (instruments, kind, isTargetPart, isMemberVariant) {
+  //
+  // A PLAN (opts.plan[kind], scripts/_page_tables.js mergePlan) names, by
+  // position, the parts the predicate pass below would pick for a kind and the
+  // variants it would collect, in its order: the lazy page reads it with the
+  // instrument data instead of running the predicates. Positions are read as the
+  // pass would meet them (instrument, part, variant index). A position that does
+  // not resolve, or a variant the pass could not have collected (one already
+  // lent, or an id already taken), discards the plan for that kind, and the pass
+  // runs. opts.observe(kind, instruments, targets, union) sees what the pass
+  // found, so the plan can be written down.
+  const planned = function (instruments, p) {
+    if (!p || !Array.isArray(p.t) || !Array.isArray(p.u)) return null;
+    const partAt = (i, j) => {
+      const inst = (instruments || [])[i];
+      return inst && Array.isArray(inst.parts) ? inst.parts[j] : undefined;
+    };
+    const targets = new Set();
+    for (let n = 0, i = 0; n < p.t.length; n += 2) {
+      i += p.t[n];
+      const part = partAt(i, p.t[n + 1]);
+      if (!part || typeof part !== 'object') return null;
+      targets.add(part);
+    }
     const union = [];
     const seen = {};
-    for (const inst of instruments || []) {
+    for (let n = 0, i = 0; n < p.u.length; n += 3) {
+      i += p.u[n];
+      const part = partAt(i, p.u[n + 1]);
+      const v = part && Array.isArray(part.variants) ? part.variants[p.u[n + 2]] : undefined;
+      if (!v || typeof v !== 'object' || v.expanded || !targets.has(part) || seen[v.id])
+        return null;
+      seen[v.id] = true;
+      union.push(v);
+    }
+    return { targets, union };
+  };
+  const augmentUniversalMaterial = function* (instruments, kind, isTargetPart, isMemberVariant) {
+    const given = plan ? planned(instruments, plan[kind]) : null;
+    const union = given ? given.union : [];
+    const seen = {};
+    // The parts this kind targets, remembered for the lending pass below: the
+    // predicate reads only the part and its variants, and nothing changes them
+    // between the two passes, so asking it again would give the same answer.
+    const targets = given ? given.targets : new Set();
+    for (const inst of given ? [] : instruments || []) {
       yield;
       for (const p of inst.parts || []) {
         if (!isTargetPart(p)) continue;
+        targets.add(p);
         for (const v of p.variants || []) {
           if (v.expanded) continue; // never re-collect an already-appended copy
           if (isMemberVariant && !isMemberVariant(v)) continue;
@@ -119,9 +167,19 @@ function* mergeFamilyPartsSteps(instruments, familyParts) {
     // renderers read id, name and descriptors; the edit paths write the variant
     // ID onto a CARD, never into the catalog. If that ever stops being true this
     // becomes aliasing, so it is stated here rather than left to be rediscovered.
+    if (observe) observe(kind, instruments, targets, union);
     const lent = union.map((v) =>
       Object.assign({}, v, { auto: false, expanded: kind, default: false })
     );
+    // Each union id's position. A part borrows every union variant whose id it
+    // does not already carry, in union order: so its additions are `lent` with
+    // the positions of the ids it has taken out, cut as a few slices rather than
+    // tested one by one (the union is hundreds long and a target part usually
+    // holds a handful of its ids). Keys are property keys, exactly as the
+    // `seen` test above; no union id is an Object.prototype name, since `seen`
+    // turns those away, so a prototype-free table answers exactly as `seen` did.
+    const at = Object.create(null);
+    for (let k = 0; k < union.length; k++) at[union[k].id] = k;
     for (const inst of instruments || []) {
       yield;
       if (!Array.isArray(inst.parts)) continue;
@@ -133,16 +191,23 @@ function* mergeFamilyPartsSteps(instruments, familyParts) {
       // instrument's default (its own curated default stays), or a part with no
       // own default could pick up a borrowed one and change its recipe.
       inst.parts = inst.parts.map((p) => {
-        if (!isTargetPart(p)) return p;
-        const have = {};
-        for (const v of p.variants || []) have[v.id] = true;
-        const additions = [];
-        for (let k = 0; k < union.length; k++) {
-          if (have[union[k].id]) continue;
-          additions.push(lent[k]);
+        if (!targets.has(p)) return p;
+        const held = [];
+        for (const v of p.variants || []) {
+          const k = at[v.id];
+          if (k !== undefined) held.push(k);
         }
-        return additions.length
-          ? Object.assign({}, p, { variants: (p.variants || []).concat(additions) })
+        held.sort((a, b) => a - b);
+        const slices = [];
+        let from = 0;
+        for (const k of held) {
+          if (k < from) continue; // two of its variants share an id
+          if (k > from) slices.push(lent.slice(from, k));
+          from = k + 1;
+        }
+        if (from < lent.length) slices.push(lent.slice(from));
+        return slices.length
+          ? Object.assign({}, p, { variants: (p.variants || []).concat(...slices) })
           : p;
       });
     }
@@ -279,8 +344,8 @@ function* mergeFamilyPartsSteps(instruments, familyParts) {
 }
 // The synchronous merge: Node (_loader.js), the embedded page and every caller
 // that is not slicing. Draining the steps is the whole of it.
-function mergeFamilyParts(instruments, familyParts) {
-  const steps = mergeFamilyPartsSteps(instruments, familyParts);
+function mergeFamilyParts(instruments, familyParts, opts) {
+  const steps = mergeFamilyPartsSteps(instruments, familyParts, opts);
   let r = steps.next();
   while (!r.done) r = steps.next();
   return r.value;

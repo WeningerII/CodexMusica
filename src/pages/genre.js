@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
+/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -875,11 +875,13 @@ function renderGenreDiscovery() {
   if (!$ui('genre-body')) return;
   if (!G.view) G.view = UILayout.remember('genre-view', 'rows', () => gpRenderMain());
   // The place names and photos are optional and the first view shows glyphs
-  // without them, so they are fetched after the first paint: requests that
-  // start before it compete with the genre page's own data.
+  // without them, so they are fetched after the first paint, and after the
+  // instrument data's bytes (Engine.fetched, at once in the embedded build):
+  // requests that start before then compete with the genre page's own data or
+  // with the download an early Add is waiting for.
   if (!G.optionalScheduled) {
     G.optionalScheduled = true;
-    uiAfterPaint(gpLoadOptional);
+    uiAfterPaint(() => Engine.fetched().then(gpLoadOptional));
   }
   if (gpTreeOpen()) return;
   const focus = gpFocusKey();

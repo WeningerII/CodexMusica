@@ -335,7 +335,12 @@ if (browse) {
         'engine.json differs from what scripts/_page_tables.js derives from references/; run npm run build:api'
       );
     try {
-      const { header, tables } = P.readEngineText(text);
+      // The file leaves each instrument's index fields to INSTRUMENT_INDEX,
+      // which the page derives from the same instruments; fill them back.
+      const index = P.instrumentIndex(P.engineTables(path.join(ROOT, 'references')).INSTRUMENTS);
+      const { header, tables, plan } = P.readEngineText(text, index);
+      if (!plan || plan.merge_sha1 !== P.mergeSha())
+        fail('engine.json: its merge plan was not written by the merge code in scripts/_merge.js');
       if (JSON.stringify(header.tables) !== JSON.stringify(P.ENGINE_TABLES))
         fail('engine.json: its header does not list ENGINE_TABLES (scripts/_page_tables.js)');
       if (header.tables_sha1 !== P.engineSha(tables))

@@ -159,10 +159,14 @@ function ipApplyPhotos() {
         ?.insertAdjacentHTML('beforeend', ipCredit(id));
   }
 }
+// Not before the instrument data's bytes are in (Engine.fetched): the page
+// lists nothing until the instruments are here, and the photos must not share
+// the link with them.
 function ipEnsureManifest() {
   if (ipManifestLoaded || typeof CODEX_IMAGE_MANIFEST !== 'undefined') return;
   if (typeof CODEX_LAZY_API === 'undefined' || ipManifestFetch || ipManifestRetry) return;
-  ipManifestFetch = fetch(CODEX_LAZY_API + 'instrument_images.json')
+  ipManifestFetch = Engine.fetched()
+    .then(() => fetch(CODEX_LAZY_API + 'instrument_images.json'))
     .then((res) => {
       if (!res.ok) throw new Error('instrument photo table fetch failed (' + res.status + ')');
       return res.json();

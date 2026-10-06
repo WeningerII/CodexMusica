@@ -201,6 +201,25 @@ if (!template.includes(BOOT_PRELOAD_MARKER)) {
   console.error(`build_html: template is missing the ${BOOT_PRELOAD_MARKER} marker — ${TEMPLATE}`);
   process.exit(5);
 }
+// A saved session's head start, the lazy page's one other preload: with a
+// stored session that has cards, src/engine_preload.js asks for the instrument
+// data (api/engine.json) from <head>, so it travels with the page rather than
+// after app.js runs; the boot draws nothing until it is in. Emitted as a
+// <script> (it reads storage, so it cannot be a static link), with ENGINE_URL
+// replaced by the URL app.js's Engine fetches. The embedded build carries the
+// instrument data inline and gets nothing here.
+const ENGINE_PRELOAD_MARKER = '<!--@ENGINE_PRELOAD-->';
+const enginePreloadJs = fs.readFileSync(path.join(SRC, 'engine_preload.js'), 'utf8');
+if (!template.includes(ENGINE_PRELOAD_MARKER)) {
+  console.error(
+    `build_html: template is missing the ${ENGINE_PRELOAD_MARKER} marker — ${TEMPLATE}`
+  );
+  process.exit(5);
+}
+if (enginePreloadJs.split("'ENGINE_URL'").length !== 2) {
+  console.error("build_html: src/engine_preload.js must name 'ENGINE_URL' exactly once");
+  process.exit(5);
+}
 if (!template.includes(THEME_BOOT_MARKER)) {
   console.error(`build_html: template is missing the ${THEME_BOOT_MARKER} marker — ${TEMPLATE}`);
   process.exit(5);
@@ -331,14 +350,20 @@ for (const f of SOURCE_FILES) {
 }
 // The lazy shell's instrument engine block: an empty `let` slot per engine
 // table, the function that fills them all at once when api/engine.json has
-// loaded, the digest that file must carry, and the first view's instrument
-// index ([id, name, family, short]). INSTRUMENT_INDEX is read from
+// loaded, the digest that file must carry, the digest of the merge code this
+// page inlines (the file's merge plan is used only by that code), and the
+// first view's instrument index ([id, name, family, short], which the file
+// leaves out of each instrument and the page fills back from here). INSTRUMENT_INDEX is read from
 // 02_instruments.js here, not from ENGINE_TABLES, so an edit to that list
 // cannot also drop the index.
 let ENGINE_SHA = null;
 let INSTRUMENT_INDEX_JSON = null;
+// What Engine (src/app.js) fetches: CODEX_LAZY_API + 'engine.json?v=' + the
+// first 12 of CODEX_ENGINE_SHA. The saved session's preload asks for exactly it.
+let ENGINE_URL = null;
 if (LAZY) {
   ENGINE_SHA = P.engineSha(P.engineTables(REFS));
+  ENGINE_URL = `${LAZY_API}engine.json?v=${ENGINE_SHA.slice(0, 12)}`;
   const ctx = vm.createContext({});
   vm.runInContext(fs.readFileSync(path.join(REFS, '02_instruments.js'), 'utf8'), ctx, {
     filename: '02_instruments.js',
@@ -353,6 +378,7 @@ if (LAZY) {
         `let ${P.ENGINE_TABLES.join(', ')};`,
         `function CODEX_ENGINE_COMMIT(t) { ${P.ENGINE_TABLES.map((n) => `${n} = t.${n};`).join(' ')} }`,
         `const CODEX_ENGINE_SHA = '${ENGINE_SHA}';`,
+        `const CODEX_MERGE_SHA = '${P.mergeSha()}';`,
         `const INSTRUMENT_INDEX = ${INSTRUMENT_INDEX_JSON.replace(/<\//g, '<\\/')};`,
       ].join('\n'),
       label
@@ -521,6 +547,16 @@ const html = template
   .replace(BOOT_PRELOAD_MARKER, () =>
     LAZY ? `<link rel="preload" href="${LAZY_API}browse_boot.json" as="fetch" crossorigin>` : ''
   )
+  .replace(ENGINE_PRELOAD_MARKER, () =>
+    LAZY
+      ? '<script>' +
+        squeeze(
+          enginePreloadJs.replace("'ENGINE_URL'", () => JSON.stringify(ENGINE_URL)),
+          'engine preload'
+        ) +
+        '</script>'
+      : ''
+  )
   .replace(THEME_BOOT_MARKER, () => '<script>' + squeeze(themeJs, 'theme boot') + '</script>')
   .replace(WORKBENCH_STYLE_MARKER, () =>
     squeezeCss(
@@ -639,6 +675,103 @@ if (flags.check) {
       process.exit(4);
     }
   }
+  // THE ONE DYNAMIC PRELOAD, a narrow exception to the list above: a lazy
+  // page with a saved session asks for the instrument data from <head>
+  // (src/engine_preload.js), because the boot cannot draw that session until
+  // it is in. Nothing else may preload by script. So: exactly one <script> in
+  // a lazy page names "preload" (none in an embedded page), it sits in <head>
+  // right after the boot index's link, and, run against stored states, it adds
+  // one link — rel=preload, as=fetch, crossorigin=anonymous, href the URL
+  // Engine fetches — when the first stored session (storedSessionText's order
+  // in src/app.js) has a card, and nothing otherwise, nor when storage throws.
+  // check_lazy_app.js holds it to app.js's own decision (ENGINE_AT_BOOT).
+  {
+    const fail = (msg) => {
+      console.error('check: FAIL — ' + msg);
+      process.exit(4);
+    };
+    const all = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
+    const naming = all.filter((m) => /(["'`])preload\1/.test(m[1]));
+    if (naming.length !== (LAZY ? 1 : 0))
+      fail(
+        `${naming.length} <script> block(s) in a ${LAZY ? 'lazy' : 'embedded'} page name "preload"; want ${LAZY ? '1 (src/engine_preload.js)' : '0'}`
+      );
+    if (LAZY) {
+      const m = naming[0];
+      const bootLink = html.indexOf(`<link rel="preload" href="${LAZY_API}browse_boot.json"`);
+      const between = html.slice(bootLink, m.index).replace(/^<link[^>]*>/, '');
+      if (bootLink < 0 || m.index > html.indexOf('</head>') || /<(script|link)\b/i.test(between))
+        fail("the engine preload is not the <script> right after the boot index's link in <head>");
+      const KEYS = [
+        'codex-workbench-recovery',
+        'codex-workbench-v1',
+        'musica-workbench-v3',
+        'musica-study-v1',
+      ];
+      const WS = (cards) => JSON.stringify({ version: 1, name: 'T', cards });
+      const CARD = [{ id: 'c1', instrumentId: 'voice', traditionId: 'dub', parts: {} }];
+      // [stored, links wanted]. Keys are storedSessionText's; the first holds the
+      // recovery copy (sessionStorage), the rest localStorage.
+      const STATES = [
+        [{}, 0],
+        [{ 'codex-workbench-v1': WS(CARD) }, 1],
+        [{ 'codex-workbench-recovery': WS(CARD) }, 1],
+        [{ 'musica-workbench-v3': JSON.stringify({ workspace: { cards: CARD } }) }, 1],
+        [{ 'musica-study-v1': WS(CARD) }, 1],
+        [{ 'codex-workbench-v1': WS([]) }, 0],
+        // The order: each key shadows the next, even with no card.
+        [{ 'codex-workbench-recovery': WS([]), 'codex-workbench-v1': WS(CARD) }, 0],
+        [{ 'codex-workbench-v1': WS([]), 'musica-workbench-v3': WS(CARD) }, 0],
+        [{ 'musica-workbench-v3': WS([]), 'musica-study-v1': WS(CARD) }, 0],
+        [{ 'codex-workbench-v1': '{not json' }, 0],
+        [{ 'codex-workbench-v1': JSON.stringify({ cards: { 0: CARD[0] } }) }, 0],
+        ['throw', 0],
+      ];
+      const want = { rel: 'preload', as: 'fetch', crossorigin: 'anonymous', href: ENGINE_URL };
+      for (const [stored, n] of STATES) {
+        const links = [];
+        const store = (session) => ({
+          getItem(k) {
+            if (stored === 'throw') throw new Error('storage refused');
+            const i = KEYS.indexOf(k);
+            return i >= 0 && (i === 0) === session && k in stored ? stored[k] : null;
+          },
+        });
+        const doc = {
+          head: { appendChild: (el) => links.push(el.attrs) },
+          createElement: (tag) => {
+            const el = { tag, attrs: {} };
+            el.setAttribute = (k, v) => (el.attrs[k] = String(v));
+            return el;
+          },
+        };
+        try {
+          vm.runInContext(
+            m[1],
+            vm.createContext({
+              document: doc,
+              sessionStorage: store(true),
+              localStorage: store(false),
+            }),
+            { timeout: 1000 }
+          );
+        } catch (e) {
+          fail(`the engine preload threw on stored state ${JSON.stringify(stored)}: ${e.message}`);
+        }
+        const canon = (a) =>
+          JSON.stringify(
+            Object.keys(a)
+              .sort()
+              .map((k) => [k, a[k]])
+          );
+        const bad = links.filter((a) => canon(a) !== canon(want));
+        if (links.length !== n || bad.length)
+          fail(
+            `the engine preload added ${JSON.stringify(links)} for stored state ${JSON.stringify(stored).slice(0, 120)}; want ${n ? JSON.stringify(want) : 'nothing'}`
+          );
+      }
+    }
+  }
   // The instrument photo table rides in api/instrument_images.json for the lazy
   // shell; in the page it would be 579 KB the first view never reads.
   if (LAZY && declared('CODEX_IMAGE_MANIFEST')) {
@@ -694,6 +827,10 @@ if (flags.check) {
         fail("INSTRUMENT_INDEX differs from the engine's instruments (scripts/_page_tables.js)");
       if (probe('CODEX_ENGINE_SHA') !== P.engineSha(P.engineTables(REFS)))
         fail('CODEX_ENGINE_SHA is not the digest of the engine tables api/engine.json carries');
+      if (probe('CODEX_MERGE_SHA') !== P.mergeSha())
+        fail(
+          'CODEX_MERGE_SHA is not the digest of the merge code this page inlines (scripts/_merge.js)'
+        );
       // CODEX_ENGINE_COMMIT fills every slot, each from its own field: run in
       // a second context so the slot checks above saw the page as shipped.
       const ctx2 = vm.createContext({});

@@ -46,10 +46,11 @@
 //   api/browse_prose.json AND api/engine.json HELD BACK, the lazy page's body
 //   equals the embedded build's byte for byte. Nothing reads the engine
 //   (Engine.misses() stays 0); it is requested once, after the first view is
-//   drawn, and the prose is requested only once its bytes are in (the
-//   non-starter deep link asks for the prose early). A restored recipe asks
-//   for the engine at boot instead and holds its first view at the boot
-//   status, writing nothing, until it lands. The Instrument route says its
+//   drawn (it waits for the paint or an action, section engineEarly), and the
+//   prose and the genre page's optional files are requested only once its
+//   bytes are in (the non-starter deep link asks for the prose early). A
+//   restored recipe asks for the engine at boot instead and holds its first
+//   view at the boot status, writing nothing, until it lands. The Instrument route says its
 //   list is loading (role=status, no count, never "0 instruments") and is the
 //   embedded build's everywhere else. Two states draw prose slots as pending
 //   (the non-starter deep link, and the restored recipe's List suggestions);
@@ -348,6 +349,9 @@ function makeFetchShim({
   };
 }
 const fetchesOf = (log, rel) => log.filter((e) => e.rel === rel);
+// The genre page's optional downloads (gpLoadOptional): after the paint, and
+// after the instrument data's bytes.
+const OPTIONAL = ['data/atlas-geo.json', 'api/tradition_images.json'];
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // api/engine.json's header (the file's second line): its `tables_sha1` is the
@@ -810,8 +814,11 @@ async function firstView(embedHtml, lazyHtml, name) {
       runProbe(lazyDom, SETTLE, 15000, { prose: false }),
     ]);
     if (!restoredState) {
-      // One request, after the first view; the Instrument route needs the
-      // instruments to draw its list, so it asks as it opens.
+      // One request, after the first view (at its paint: requested before, it
+      // would count on the path to the largest paint); the Instrument route
+      // needs the instruments to draw its list, so it asks as it opens. The
+      // optional downloads wait for its bytes, so nothing shares the link
+      // with them.
       const asks = fetchesOf(log, 'api/engine.json');
       if (asks.length !== 1)
         fail(`${tag}: want exactly 1 engine request, saw ${JSON.stringify(asks)}`);
@@ -819,6 +826,9 @@ async function firstView(embedHtml, lazyHtml, name) {
         fail(
           `${tag}: the engine was requested before the first view was drawn (${JSON.stringify(asks)})`
         );
+      const early = OPTIONAL.filter((rel) => fetchesOf(log, rel).length);
+      if (early.length)
+        fail(`${tag}: ${early.join(', ')} requested while the instrument data was on its way`);
       if (lazyDom.window.eval('Engine.ready()')) fail(`${tag}: the engine was ready while held`);
       if (lazyDom.window.eval('Engine.misses()'))
         fail(`${tag}: ${lazyDom.window.eval('Engine.misses()')} engine read(s) before it landed`);
@@ -976,6 +986,20 @@ async function firstView(embedHtml, lazyHtml, name) {
             `${tag}: once the instrument data landed the prose was not requested exactly once after the first view (${JSON.stringify(asks2)})`
           );
       }
+      // The optional downloads: once each, after the instrument data's bytes
+      // (the Instrument route never draws the genre page, so it asks for none).
+      if (sc.route !== 'instrument') {
+        await waitFor(
+          () => OPTIONAL.every((rel) => fetchesOf(log, rel).length),
+          10000,
+          'optional after engine'
+        ).catch(() => {});
+        const opt = OPTIONAL.map((rel) => fetchesOf(log, rel).length);
+        if (opt.some((n) => n !== 1))
+          fail(
+            `${tag}: once the instrument data landed, ${OPTIONAL.join(' and ')} were requested ${opt.join(' and ')} time(s); want once each`
+          );
+      }
       // The engine's arrival alone (the prose still held) leaves the page the
       // embedded build's: the Instrument route draws its list.
       if (!sc.pending) {
@@ -1019,6 +1043,155 @@ async function firstView(embedHtml, lazyHtml, name) {
   } finally {
     embedDom.window.close();
     lazyDom.window.close();
+  }
+}
+
+// ── first view: the engine waits for the paint or an action ───────────────
+// The lazy page with its frames HELD (requestAnimationFrame queues and never
+// draws until this check says so) and nothing held on the network: the page
+// does not ask for the engine — no request, no parse, no merge, no index, no
+// engine read — until the first paint (uiAfterPaint → Engine.start), or until
+// an action asks for it (Engine.ensure), which does not wait for the paint.
+// The genre prose and the optional downloads wait for the paint and the
+// engine's bytes.
+async function engineEarly(lazyHtml) {
+  const boot = () => {
+    const log = [],
+      frames = [];
+    let w = null;
+    const dom = bootDom(
+      lazyHtml,
+      makeFetchShim({ deny: ['api/tradition_images.json'], log, stamp: () => drawn(w) }),
+      {
+        url: SITE,
+        onWindow: (x) => {
+          w = x;
+          x.requestAnimationFrame = (cb) => frames.push(cb);
+          x.cancelAnimationFrame = () => {};
+        },
+      }
+    );
+    const paint = () => {
+      for (let i = 0; i < 2; i++) for (const cb of frames.splice(0)) cb(w.performance.now());
+    };
+    return { dom, log, frames, paint, win: () => w };
+  };
+  // Booted, drawn, and long enough for the shim's bytes to land.
+  const settled = async (b, tag) => {
+    await waitFor(() => drawn(b.win()), 10000, `${tag}: the first view was never drawn`);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const w = b.win();
+    const st = {
+      state: w.eval('Engine.state()'),
+      misses: w.eval('Engine.misses()'),
+      engine: fetchesOf(b.log, 'api/engine.json'),
+      later: ['api/browse_prose.json', ...OPTIONAL].filter((rel) => fetchesOf(b.log, rel).length),
+    };
+    if (st.engine.length !== 0)
+      fail(
+        `${tag}: the engine was requested before the first paint (${JSON.stringify(st.engine)}); it must wait for the paint or an action`
+      );
+    if (st.state !== 'idle')
+      fail(
+        `${tag}: before the first paint the engine is "${st.state}"; want "idle" (not asked for)`
+      );
+    if (st.misses) fail(`${tag}: ${st.misses} engine read(s) before the first paint`);
+    if (st.later.length) fail(`${tag}: ${st.later.join(', ')} requested before the first paint`);
+    if (!b.frames.length) fail(`${tag}: nothing waits for the first paint — the check is vacuous`);
+    return st;
+  };
+  {
+    const tag = 'engine early (paint)';
+    const b = boot();
+    try {
+      await settled(b, tag);
+      b.paint();
+      const w = b.win();
+      await waitFor(() => w.eval('Engine.ready()'), 15000, 'never ready').catch(() =>
+        fail(
+          `${tag}: the first paint did not start the engine's work (state "${w.eval('Engine.state()')}")`
+        )
+      );
+      await waitFor(
+        () => ['api/browse_prose.json', ...OPTIONAL].every((rel) => fetchesOf(b.log, rel).length),
+        10000,
+        'after paint'
+      ).catch(() => {});
+      const n = ['api/browse_prose.json', ...OPTIONAL].map((rel) => fetchesOf(b.log, rel).length);
+      if (n.some((k) => k !== 1))
+        fail(
+          `${tag}: after the paint the prose, ${OPTIONAL.join(' and ')} were requested ${n.join(', ')} time(s); want once each`
+        );
+      if (fetchesOf(b.log, 'api/engine.json').length !== 1)
+        fail(
+          `${tag}: the engine was requested ${fetchesOf(b.log, 'api/engine.json').length} times`
+        );
+      if (w.eval('Engine.misses()')) fail(`${tag}: engine read(s) before it landed`);
+      note(
+        `${tag}: nothing before the paint; the paint asks for it and works on it, then the prose and the optional files`
+      );
+    } finally {
+      b.dom.window.close();
+    }
+  }
+  {
+    // The Instrument page lists nothing until the instruments are here, and its
+    // photo table waits for their bytes too.
+    const tag = 'engine early (instrument page)';
+    const log = [],
+      hold = { 'api/engine.json': deferred() };
+    let w = null;
+    const dom = bootDom(lazyHtml, makeFetchShim({ log, hold }), {
+      url: SITE,
+      onWindow: (x) => (w = x),
+    });
+    try {
+      await waitFor(() => drawn(w), 10000, `${tag}: the first view was never drawn`);
+      w.eval("uiNavigate('instrument')");
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const before = fetchesOf(log, 'api/instrument_images.json').length;
+      const pending = w.eval(
+        "document.querySelector('#instrument-body [data-engine-pending]') ? 1 : 0"
+      );
+      hold['api/engine.json'].release();
+      await waitFor(() => w.eval('Engine.ready()'), 15000, 'never ready').catch(() => {});
+      await waitFor(
+        () => fetchesOf(log, 'api/instrument_images.json').length,
+        10000,
+        'photos'
+      ).catch(() => {});
+      const after = fetchesOf(log, 'api/instrument_images.json').length;
+      if (!pending)
+        fail(`${tag}: the page did not say the instruments are loading — the check is vacuous`);
+      if (before || after !== 1)
+        fail(
+          `${tag}: the photo table was requested ${before} time(s) while the instrument data was on its way and ${after} in all; want 0 and 1`
+        );
+      else note(`${tag}: the photo table waits for the instrument data's bytes`);
+    } finally {
+      dom.window.close();
+    }
+  }
+  {
+    const tag = 'engine early (action)';
+    const b = boot();
+    try {
+      await settled(b, tag);
+      const w = b.win();
+      w.eval('Engine.ensure()');
+      await waitFor(() => w.eval('Engine.ready()'), 15000, 'never ready').catch(() =>
+        fail(
+          `${tag}: an action before the first paint did not start the engine's work (state "${w.eval('Engine.state()')}")`
+        )
+      );
+      if (fetchesOf(b.log, 'api/engine.json').length !== 1)
+        fail(
+          `${tag}: the engine was requested ${fetchesOf(b.log, 'api/engine.json').length} times`
+        );
+      note(`${tag}: an action before the paint asks for the engine and does the work`);
+    } finally {
+      b.dom.window.close();
+    }
   }
 }
 
@@ -1326,8 +1499,9 @@ async function engineReference(embedHtml) {
   }
 }
 
-// E0. One request after the first view; loading, and no prose, while held;
-// once released, one prose request after the engine's body.
+// E0. One request after the boot index, before the first view is drawn;
+// loading, and no prose, while held; once released, one prose request after
+// the engine's body.
 async function engineE0(lazyHtml) {
   const tag = 'engine E0';
   const L = heldLazy(lazyHtml);
@@ -2210,8 +2384,9 @@ async function engineStale(lazyHtml) {
   }
   if (ONLY.includes('first-view')) {
     for (const name of ONLY_SCENARIOS) await firstView(embedHtml, lazyHtml, name);
+    await engineEarly(lazyHtml);
     ran.push(
-      `${ONLY_SCENARIOS.length} first view(s) with the prose and the instrument data held, filled in place`
+      `${ONLY_SCENARIOS.length} first view(s) with the prose and the instrument data held, filled in place; the engine asked for at the first paint (or an action), not before`
     );
   }
   if (ONLY.includes('window')) {
