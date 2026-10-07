@@ -176,7 +176,11 @@ test('group fold receipts cannot use a previous attempt verdict for an ungraded 
     accepted: false,
     reasons: ['same attempt index, different question'],
   });
-  assert.equal(fold([...earlier]).verdict, 'pending', 'another question at the same attempt is not this one');
+  assert.equal(
+    fold([...earlier]).verdict,
+    'pending',
+    'another question at the same attempt is not this one'
+  );
   const mine = fold([
     ...earlier,
     {

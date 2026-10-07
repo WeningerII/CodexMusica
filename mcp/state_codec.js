@@ -66,7 +66,13 @@ export function assertContinuationSemantics(identity) {
 // option B, §2.8 C), `cursor` is the saved position, and `stalls` is the
 // connector's no-progress count (§2.8 E). Counting them here would refuse a continuation the harness
 // admitted. The decoded-state bound in encodeState below still covers it.
-export const WORKER_OUTSIDE_KEYS = Object.freeze(['dispositions', 'cursor', 'cursor_seal', 'cursor_strip', 'stalls']);
+export const WORKER_OUTSIDE_KEYS = Object.freeze([
+  'dispositions',
+  'cursor',
+  'cursor_seal',
+  'cursor_strip',
+  'stalls',
+]);
 
 export function assertContinuationCapacity(state) {
   const { connector_declarations, ...worker } = state;
@@ -339,7 +345,8 @@ export function verifyInterviewCursor(decoded) {
   if (!key) reason = 'key_unavailable';
   else {
     const want = Buffer.from(sealOf(decoded, key), 'hex');
-    const got = typeof seal === 'string' && /^[0-9a-f]{64}$/.test(seal) ? Buffer.from(seal, 'hex') : null;
+    const got =
+      typeof seal === 'string' && /^[0-9a-f]{64}$/.test(seal) ? Buffer.from(seal, 'hex') : null;
     if (!got || !timingSafeEqual(want, got)) reason = 'seal';
   }
   if (reason) {
@@ -348,4 +355,3 @@ export function verifyInterviewCursor(decoded) {
   }
   return reason;
 }
-

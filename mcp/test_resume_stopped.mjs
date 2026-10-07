@@ -10,10 +10,14 @@ export async function resumeStopped(client, response, options) {
     assert.ok(!response.isError, 'a safe-point stop is a successful checkpoint');
     assert.ok(row.run_id && row.state, 'a stopped call preserves its run and state');
     const previous = row;
-    response = await client.callTool({
-      name: 'lyric_revise',
-      arguments: { run_id: row.run_id, run_revision: row.run_revision },
-    }, undefined, options);
+    response = await client.callTool(
+      {
+        name: 'lyric_revise',
+        arguments: { run_id: row.run_id, run_revision: row.run_revision },
+      },
+      undefined,
+      options
+    );
     assert.ok(!response.isError, 'continuing a saved safe point succeeds');
     row = JSON.parse(response.content[1].text);
     assert.equal(row.run_id, previous.run_id, 'continuation stays in the saved run');

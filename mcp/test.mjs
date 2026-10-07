@@ -1186,7 +1186,9 @@ await check('validation: actionable errors', () => {
     await check(
       'a folded answer without an outcome is pending, never guessed, despite the next question or attempt budget',
       () => {
-        const ans3 = { answered: { propose: [{ line: 3, attempt: 0, round: 1, text: 'a new line' }] } };
+        const ans3 = {
+          answered: { propose: [{ line: 3, attempt: 0, round: 1, text: 'a new line' }] },
+        };
         const prompt2 =
           "REVISE ONE LINE — L3 of a 20-line draft.\n\nATTEMPT\n  This is ATTEMPT 2 of this line's retry budget.\n  The PREVIOUS attempt was REJECTED. The grader's reasons, verbatim:\n    - L3 took the modal candidate 'higher'\n    - L3 wants six beats, got 7\n  Do not send back something the same reason would reject again.\n\nTHE LINE TO REVISE\n  L3: x\n";
         const prev = JSON.stringify({
@@ -1218,7 +1220,10 @@ await check('validation: actionable errors', () => {
         // Moving to another question while attempts remain proves no outcome.
         const accepted = VI.foldedOf(
           prev,
-          { ...ans3, pending: { kind: 'propose', record: { line: 7, attempt: 0, round: 1 }, prompt: '' } },
+          {
+            ...ans3,
+            pending: { kind: 'propose', record: { line: 7, attempt: 0, round: 1 }, prompt: '' },
+          },
           3
         );
         assert.equal(accepted.verdict, 'pending'); // was 'unknown'
@@ -1254,7 +1259,10 @@ await check('validation: actionable errors', () => {
         });
         const g = VI.foldedOf(
           grp,
-          { answered: { propose_group: [{ members: [3, 7], round: 2, new: ['a', 'b'] }] }, pending: null },
+          {
+            answered: { propose_group: [{ members: [3, 7], round: 2, new: ['a', 'b'] }] },
+            pending: null,
+          },
           3
         );
         assert.equal(g.kind, 'propose_group');
@@ -1519,7 +1527,10 @@ await check('validation: actionable errors', () => {
         assert.equal(
           VI.foldedOf(
             last,
-            { answered: { propose: [{ line: 3, attempt: 0, round: 1, text: 'z' }] }, pending: null },
+            {
+              answered: { propose: [{ line: 3, attempt: 0, round: 1, text: 'z' }] },
+              pending: null,
+            },
             1
           ).verdict,
           'pending',
@@ -1571,7 +1582,10 @@ await check('validation: actionable errors', () => {
         // LOOP_REDESIGN.md §2.2) — never guessed, as M-235 pinned.
         const none = VI.foldedOf(
           JSON.stringify({ pending: pend }),
-          { answered: { propose_group: [{ members: [3, 7, 9], round: 2, new: ['a', 'b', 'c'] }] }, pending: null },
+          {
+            answered: { propose_group: [{ members: [3, 7, 9], round: 2, new: ['a', 'b', 'c'] }] },
+            pending: null,
+          },
           1
         );
         assert.equal(none.verdict, 'pending');
