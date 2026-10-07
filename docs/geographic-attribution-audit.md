@@ -263,7 +263,14 @@ A streaming-listenership taxonomy cannot supply these.
   - Existence checks used live web search only part of the time: a shared search quota
     ran out and the proxy blocked page fetches. So many existence verdicts rest on model
     knowledge plus the cited source.
-  - Most source URLs are Wikipedia.
+  - To measure what that costs, a stratified sample of 52 kept items (two per region) was
+    then web-searched. 48 were confirmed with recording evidence: Ocora, Smithsonian
+    Folkways, CREM-CNRS, ILAM, PARADISEC, Library of Congress and UNESCO sources. 3 are
+    documented but showed no recording evidence. 1 was not found (Dani/Lani highland
+    vocal music, probably a search miss). About 7 of the 52 look like local variants of a
+    broader genre, so expect roughly 10–15% of the list to merge into existing or sibling
+    entries.
+  - Most source URLs in the lists are Wikipedia.
 - **Agent estimates beyond the verified lists have no stated method.** Use the verified
   counts and the per-distinct rates.
 - **The country lookup uses Natural Earth borders.** A few border pins land in the
@@ -280,8 +287,8 @@ A streaming-listenership taxonomy cannot supply these.
   evidence URL. It also carries the reverse-direction check where one was run.
 - [`geographic-attribution-audit/gaps.csv`](geographic-attribution-audit/gaps.csv): 1796
   missing-tradition candidates in 26 regions. Columns: place, kind, recording evidence,
-  source URL, the skeptic's verdict, a cross-region duplicate flag, and the independent
-  re-check where one was run.
+  source URL, the skeptic's verdict, a cross-region duplicate flag, the independent
+  re-check where one was run, and the web-search spot check where one was run.
 - [`geographic-attribution-audit/pinned_elsewhere.csv`](geographic-attribution-audit/pinned_elsewhere.csv):
   entries about one region pinned in another, as reported by the coverage agents. Of 50
   that conflicted with an accepted pin, 46 re-checked as fine.
