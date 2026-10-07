@@ -429,6 +429,29 @@ function tooMany(res, retryAfterMs) {
   });
 }
 
+// The SDK (1.31 and later) writes `Cache-Control: no-cache, no-transform` on
+// the text/event-stream response a POST gets here, and `compression` honours
+// `no-transform` by leaving the body as it is: every tools/list would go out
+// uncompressed again. The token asks intermediaries not to hold an open stream;
+// this body is complete when written ("response compression", above), so it is
+// dropped from this response alone and `no-cache` stays. Every header write
+// passes through setHeader (on-headers spreads writeHead's headers into it), so
+// compression reads the header as it is left here.
+function keepCompressible(res) {
+  const setHeader = res.setHeader;
+  const drop = (v) =>
+    String(v)
+      .split(',')
+      .map((s) => s.trim())
+      .filter((s) => s && s.toLowerCase() !== 'no-transform')
+      .join(', ');
+  res.setHeader = function (name, value) {
+    if (String(name).toLowerCase() === 'cache-control')
+      value = Array.isArray(value) ? value.map(drop) : drop(value);
+    return setHeader.call(this, name, value);
+  };
+}
+
 const mcpPaths = [
   MCP_PATH,
   MCP_PATH + '/recipe',
@@ -477,6 +500,7 @@ app.post(mcpPaths, async (req, res) => {
     }),
   };
   const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
+  keepCompressible(res);
   let server;
   res.on('close', () => {
     controller.abort(new Error('MCP client disconnected'));
