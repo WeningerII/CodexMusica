@@ -117,6 +117,9 @@ test(
         body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list' }),
       });
       assert.equal(handshake.headers.get('content-encoding'), 'gzip');
+      // The SDK marks this response no-transform, which compression would obey;
+      // the server drops only that token (keepCompressible), never no-cache.
+      assert.equal(handshake.headers.get('cache-control'), 'no-cache');
       const framed = await handshake.text();
       assert(framed.startsWith('event: message\n'), framed.slice(0, 80));
       assert.equal(
