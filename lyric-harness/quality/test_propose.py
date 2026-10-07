@@ -1099,7 +1099,15 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             "whole", "pivot_slot",
             # `prior` — the last round's rejection of THIS group, read by
             # `render_group` and quoted in its ATTEMPT block (M-253).
-            "prior", "whole_repair", "mandate_description"}
+            "prior", "whole_repair", "mandate_description",
+            # `path` and the three `pivot_line_*` lists — the escalation
+            # path's own block (LOOP_REDESIGN.md §2.4). `PB` leaves them at
+            # `render_group`'s defaults, so no case here prints that block;
+            # `test_loop_redesign.py` (a) renders it through the REAL verb
+            # and asserts the cited line question and the group-first path's
+            # absence of it.
+            "path", "pivot_line_offered", "pivot_line_forbidden",
+            "pivot_line_question"}
     check("every field this suite builds a `PB` out of is a real "
           "`GroupBrief` field", used <= declared, sorted(used - declared))
     check("...and `GroupBrief` has grown no field this suite is blind to",
@@ -1109,7 +1117,12 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
     # as an EMPTY BLOCK — no error, no red — which is exactly the failure
     # mode the `B`/`Brief` guard below was written for after it happened.
     a_declared = {f.name for f in dataclasses.fields(AnchorSlot)}
-    a_used = {"line_no", "text", "word", "offered", "calls", "slot"}
+    a_used = {"line_no", "text", "word", "offered", "calls", "slot",
+              # `one_move` — the one-move menu (LOOP_REDESIGN.md §2.8 G).
+              # Rendered and asserted in `test_loop_redesign.py` (a); an `AS`
+              # without it takes `render_group`'s `None`, which prints no
+              # block, as an anchor with no menu should.
+              "one_move"}
     check("every field this suite builds an `AS` out of is a real "
           "`AnchorSlot` field", a_used <= a_declared,
           sorted(a_used - a_declared))
