@@ -125,7 +125,7 @@ jobs:
   component:
     needs: capacity-proof
     name: qualification-${{ matrix.component }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # ~~240~~ 300 minutes: the mutation budget below moved to 14,400 s and a job
     # bound must clear its own command's budget plus setup, or the bound that
     # fires is the wrong one and the evidence says `cancelled` instead of 124.
@@ -165,7 +165,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
@@ -410,7 +411,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Require every component job to succeed
         env:
           RESULT: ${{ needs.component.result }}
