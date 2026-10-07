@@ -3694,6 +3694,57 @@ def test_a_remembered_edge_is_the_evaluated_one():
           "slot, and the draft's own stream still does",
           pinned is not None and trial is None and own is not None,
           f"pinned built: {pinned is not None}, trial slot: {trial!r:.40}")
+    # BUT THE EDGE MEMO READS THE DRAFT'S OWN SLOT FOR IT (2026-10-07): each
+    # pair a pinned word sits on re-asks a whole-song figure under the same
+    # combination, and re-evaluating every edge killed PR #460's 24-line
+    # revise at the deadline. The claims: the trial is handed the draft's
+    # slot and no other, edges are served to it, and every edge and every
+    # whole-song verdict under the pinned reading is the uncached one.
+    saved = os.environ.get("LYRIC_PAIR_MEMO")
+    RT.assemble = spy
+    try:
+        os.environ["LYRIC_PAIR_MEMO"] = "1"
+        RT.pair_memo_clear()
+        tst = (RT.build_stream(lines, pinned, declaration={"language": "eng"})
+               if pinned is not None else None)
+        orphan = (RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], tst,
+                                     base_ok=True)
+                  if tst is not None else "unbuilt")
+        own = RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], st)
+        based = (RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], tst,
+                                    base_ok=True)
+                 if tst is not None else None)
+        for n in names:
+            RT.line_pairs_for(RT.REGISTRY[n], st)
+        hits = RT._EDGE_MEMO_TALLY["hit"]
+        seen.clear()
+        warm = ({n: snap(RT.line_pairs_for(RT.REGISTRY[n], tst))
+                 for n in names} if tst is not None else {})
+        warm_edges, hits = list(seen), RT._EDGE_MEMO_TALLY["hit"] - hits
+        os.environ["LYRIC_PAIR_MEMO"] = "0"
+        seen.clear()
+        cold = ({n: snap(RT.line_pairs_for(RT.REGISTRY[n], tst))
+                 for n in names} if tst is not None else {})
+        cold_edges = list(seen)
+    finally:
+        RT.assemble = real
+        if saved is None:
+            os.environ.pop("LYRIC_PAIR_MEMO", None)
+        else:
+            os.environ["LYRIC_PAIR_MEMO"] = saved
+        RT.pair_memo_clear()
+    check("a pinned stream's edge memo is the draft's own slot, and none "
+          "before the draft has one",
+          tst is not None and orphan is None and based is own,
+          f"orphan {orphan!r:.40}, same slot {based is own}")
+    check("edges are served to the pinned stream, and every one is the edge "
+          "a fresh realise finds",
+          hits > 0 and warm_edges == cold_edges,
+          f"{hits} pair(s) served; {sum(map(len, warm_edges))} against "
+          f"{sum(map(len, cold_edges))}")
+    check("every whole-song verdict under the pinned reading is the "
+          "uncached one", bool(warm) and warm == cold,
+          f"{[n for n in names if warm.get(n) != cold.get(n)]}")
 
 
 # ---------------------------------------------------------------------------
