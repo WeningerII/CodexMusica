@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile */
+/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -64,6 +64,9 @@ const IP_TABS = [
   ['chain', 'Signal chain', 'link'],
   ['stack', 'Output', 'eye'],
 ];
+// One cached collator for the page's name sorts; identical order to
+// localeCompare(…, 'en', {sensitivity:'base'}), without a collator per call.
+const ipByName = new Intl.Collator('en', { sensitivity: 'base' }).compare;
 const ipHuman = (s) => {
   const t = String(s || '').replaceAll('_', ' ');
   return t.charAt(0).toUpperCase() + t.slice(1);
@@ -71,7 +74,8 @@ const ipHuman = (s) => {
 const ipPill = (id) => INSTRUMENT_FILTER_PILLS.find((p) => p.id === id);
 
 // ── Images ── references/_image_manifest.json (openly licensed image links),
-// inlined by the build as CODEX_IMAGE_MANIFEST. An id without an entry, no
+// inlined by the embedded build as CODEX_IMAGE_MANIFEST and fetched by the lazy
+// shell from api/instrument_images.json. An id without an entry, no
 // manifest, or an image that fails to load falls back to the catalog glyph.
 // Wherever a photograph appears its credit and licence appear with it.
 function ipImageEntry(id) {
@@ -93,11 +97,16 @@ function ipImageEntry(id) {
 // beside the row's own button, never inside it.
 function ipImage(id, size, name) {
   const e = ipImageEntry(id);
-  if (!e) return `<span class="ip-glyph">${image(id, size)}</span>`;
+  if (!e) return ipGlyph(id, size);
   return uiPhoto(
     `<img class="ip-photo" src="${esc(e.src)}" alt="" loading="lazy" width="${size}" height="${size}" data-ip-fallback="${esc(id)}" data-ip-size="${size}">`,
     { name, full: e.full, credit: e.text, href: e.source }
   );
+}
+// The catalog glyph in a photo's place. It carries its id and size so photos
+// that arrive later can take its place (ipApplyPhotos).
+function ipGlyph(id, size) {
+  return `<span class="ip-glyph" data-ip-glyph="${esc(id)}" data-ip-size="${size}">${image(id, size)}</span>`;
 }
 // The credit and licence that travel with a photo. `link` makes the credit a
 // link to the source page; inside a row (a <button>) it stays plain text.
@@ -110,9 +119,72 @@ function ipCredit(id, { link = false } = {}) {
     : `<span class="ip-credit" data-ip-for="${esc(id)}">${esc(text)}</span>`;
 }
 function ipLoadManifest() {
-  // Inlined at build time (null until the manifest exists): no request, and
-  // the same on file:// as on the site.
-  IP.manifest = CODEX_IMAGE_MANIFEST;
+  // The embedded build inlines the table (null until the manifest exists): no
+  // request, and the same on file:// as on the site. The lazy shell leaves it
+  // out of the page and fetches api/instrument_images.json the first time the
+  // Instrument page draws (ipEnsureManifest); until then, and if it never
+  // arrives, the glyphs show. A bare reference here would throw on every page
+  // of the lazy shell, because mount runs for every route at boot.
+  IP.manifest = typeof CODEX_IMAGE_MANIFEST !== 'undefined' ? CODEX_IMAGE_MANIFEST : null;
+}
+// The lazy shell's fetch of the table: once, and only when the Instrument page
+// draws, never at mount. A failure backs off and retries (2 s doubling to 2
+// min) while the page is open, as loadNavGlyphArt does for the glyph artwork.
+let ipManifestFetch = null;
+let ipManifestRetry = null;
+let ipManifestDelay = 0;
+let ipManifestLoaded = false;
+// The table arrived while the page may be open: the photos go into the cards,
+// rows, inspector and similar list already drawn, and nothing else is rebuilt
+// (uiTilesPhotos says why), so focus, an open <select> and a tile menu stay as
+// they were. Whatever is drawn later reads the table itself.
+function ipApplyPhotos() {
+  const root = $ui('ip-root');
+  uiTilesPhotos(root, 'instrument', ipTilePhoto);
+  for (const glyph of root?.querySelectorAll('.ip-glyph[data-ip-glyph]') || []) {
+    const id = glyph.dataset.ipGlyph,
+      host = glyph.parentElement;
+    if (!ipImageEntry(id)) continue;
+    glyph.outerHTML = ipImage(id, +glyph.dataset.ipSize, Inst(id)?.name || id);
+    if (host.classList.contains('ip-media'))
+      host
+        .closest('.ip-hero')
+        ?.insertAdjacentHTML(
+          'afterend',
+          `<p class="ip-media-credit">${ipCredit(id, { link: true })}</p>`
+        );
+    else
+      host
+        .querySelector('.ip-row-text, .ip-sim-main > span')
+        ?.insertAdjacentHTML('beforeend', ipCredit(id));
+  }
+}
+function ipEnsureManifest() {
+  if (ipManifestLoaded || typeof CODEX_IMAGE_MANIFEST !== 'undefined') return;
+  if (typeof CODEX_LAZY_API === 'undefined' || ipManifestFetch || ipManifestRetry) return;
+  ipManifestFetch = fetch(CODEX_LAZY_API + 'instrument_images.json')
+    .then((res) => {
+      if (!res.ok) throw new Error('instrument photo table fetch failed (' + res.status + ')');
+      return res.json();
+    })
+    .then((data) => {
+      ipManifestLoaded = true;
+      ipManifestDelay = 0;
+      IP.manifest = data && data.instruments ? data : null;
+      if (IP.manifest) ipApplyPhotos();
+    })
+    .catch((err) => {
+      if (!ipManifestDelay)
+        console.warn('[codex] ' + err.message + '; instruments show glyphs until it loads');
+      ipManifestDelay = Math.min(ipManifestDelay ? ipManifestDelay * 2 : 2000, 120000);
+      ipManifestRetry = setTimeout(() => {
+        ipManifestRetry = null;
+        if (UI.view === 'instrument') ipEnsureManifest();
+      }, ipManifestDelay);
+    })
+    .finally(() => {
+      ipManifestFetch = null;
+    });
 }
 
 // ── Catalogue ──
@@ -128,7 +200,7 @@ function ipMatches(i, { q, family = UI.instrumentFamily, cls = UI.instrumentClas
   );
 }
 function ipSorted(list) {
-  const byName = (a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' });
+  const byName = (a, b) => ipByName(a.name, b.name);
   if (IP.sort === 'name-desc') return list.sort((a, b) => byName(b, a));
   if (IP.sort === 'parts')
     return list.sort((a, b) => (b.parts || []).length - (a.parts || []).length || byName(a, b));
@@ -176,15 +248,19 @@ function ipSyncDestination() {
   return dest.value !== before;
 }
 const ipView = () => (IP.view?.get() === 'list' ? 'list' : 'rows');
+// A Rows card's photo, as uiTile takes it.
+function ipTilePhoto(id) {
+  const e = ipImageEntry(id);
+  return e && { src: e.src, credit: e.text, href: e.source };
+}
 // A card in Rows: the photo (or the catalog glyph), the name, family · class.
 function ipTile(i) {
-  const e = ipImageEntry(i.id);
   return uiTile({
     kind: 'instrument',
     id: i.id,
     name: i.name,
     sub: `${FamName(i.family)} · ${ipHuman(i.class)}`,
-    photo: e && { src: e.src, credit: e.text, href: e.source },
+    photo: ipTilePhoto(i.id),
     glyph: (id) => image(id, 56),
     open: 'instrument-inspect',
     add: 'instrument-add',
@@ -203,10 +279,7 @@ function ipGroups(filtered, fam) {
     if (!fam || i.family === fam.id) size.set(pick(i), (size.get(pick(i)) || 0) + 1);
   const label = (k) => (fam ? ipHuman(k) : FamName(k));
   return [...size.keys()]
-    .sort(
-      (a, b) =>
-        size.get(b) - size.get(a) || label(a).localeCompare(label(b), 'en', { sensitivity: 'base' })
-    )
+    .sort((a, b) => size.get(b) - size.get(a) || ipByName(label(a), label(b)))
     .map((k) => ({ key: k, label: label(k), items: filtered.filter((i) => pick(i) === k) }));
 }
 function renderInstrumentDiscovery() {
@@ -271,7 +344,7 @@ function ipRenderList(filtered, fam, q, filters) {
   // family, then short label, so first appearance is no order a reader knows.
   const classes = fam
     ? [...new Set(INSTRUMENTS.filter((i) => i.family === fam.id).map((i) => i.class))].sort(
-        (a, b) => ipHuman(a).localeCompare(ipHuman(b), 'en', { sensitivity: 'base' })
+        (a, b) => ipByName(ipHuman(a), ipHuman(b))
       )
     : [];
   const inFamily = fam ? INSTRUMENTS.filter((i) => ipMatches(i, { q, cls: '', filters })) : [];
@@ -969,8 +1042,7 @@ uiRegisterPage({
         }
         for (const el of surface.querySelectorAll('img.ip-photo')) {
           if (el.dataset.ipFallback === id)
-            (el.closest('.cm-photo') || el).outerHTML =
-              `<span class="ip-glyph">${image(id, +el.dataset.ipSize || 32)}</span>`;
+            (el.closest('.cm-photo') || el).outerHTML = ipGlyph(id, +el.dataset.ipSize || 32);
         }
       },
       true
@@ -994,6 +1066,7 @@ uiRegisterPage({
     ipRenderInspector();
   },
   render() {
+    ipEnsureManifest();
     renderInstrumentDiscovery();
     if (UI.instrumentPreview && !IP.card) ipRebuild();
     else ipRenderInspector();

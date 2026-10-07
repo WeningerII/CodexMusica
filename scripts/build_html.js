@@ -174,6 +174,18 @@ const themeCss = fs.readFileSync(path.join(SRC, 'theme.css'), 'utf8');
 const themeJs = fs.readFileSync(path.join(SRC, 'theme.js'), 'utf8');
 const THEME_BOOT_MARKER = '<!--@THEME_BOOT-->';
 const layoutCss = fs.readFileSync(path.join(SRC, 'layout.css'), 'utf8');
+// The lazy shell asks for its boot index from <head>, so the download starts
+// while the page's ~4 MB of inline script is still being parsed and run rather
+// than when app.js reaches its fetch, 81% of the way down the page. The app's
+// fetch() then reuses the preloaded response: `crossorigin` (anonymous) gives
+// the same mode and credentials as fetch()'s defaults, and a mismatch would
+// show as a second request. The embedded build has no fetch, so no preload.
+const BOOT_PRELOAD_MARKER = '<!--@BOOT_PRELOAD-->';
+const LAZY_API = 'api/';
+if (!template.includes(BOOT_PRELOAD_MARKER)) {
+  console.error(`build_html: template is missing the ${BOOT_PRELOAD_MARKER} marker — ${TEMPLATE}`);
+  process.exit(5);
+}
 if (!template.includes(THEME_BOOT_MARKER)) {
   console.error(`build_html: template is missing the ${THEME_BOOT_MARKER} marker — ${TEMPLATE}`);
   process.exit(5);
@@ -214,6 +226,7 @@ const MAX_SCRIPT_BYTES = 1024 * 1024; // hard ceiling on actual emitted UTF-8 by
 // renderer's parse-memory limit, and this only adds headroom. Retuning it would
 // move every chunk boundary, which is a separate change with its own risk.
 const { minifyJs, minifyCss, topLevelStatements } = require('./_minify.js');
+const { readImageManifest, compactInstrumentImages } = require('./_image_tables.js');
 // Escape hatch for reading the shipped artifact by hand. NOT used by CI and not
 // used by sync-pages.yml, and it cannot leak into the committed page: that file
 // is byte-compared against a default build by check_artifact_fresh.js, so an
@@ -372,43 +385,23 @@ for (const f of SOURCE_FILES) {
     dataParts.push(squeeze(chunks[i].trimEnd(), label));
   }
 }
-// Instrument photographs: references/_image_manifest.json (openly licensed
-// image links, produced by scripts/fetch_image_manifest.js) reduced to what the
-// Instrument page shows — per instrument id the thumbnail, licence, credit and
-// source page, as [thumb, licence, credit, sourcePage, fullImage?] (the full
-// image only when it is not the thumb itself). Low-confidence matches
-// (a stand-in of the same kind, e.g. a generic frame drum for an obscure one)
-// are kept: the owner prefers a representative picture to the glyph. Picks a
-// review found wrong are dropped upstream via REJECTED in
-// scripts/fetch_image_manifest.js. No manifest yet: the constant is null and
-// the page shows glyphs.
-const IMAGE_MANIFEST = path.join(REFS, '_image_manifest.json');
-function compactImageManifest() {
-  if (!fs.existsSync(IMAGE_MANIFEST)) return null;
-  const m = JSON.parse(fs.readFileSync(IMAGE_MANIFEST, 'utf8'));
-  const out = {};
-  for (const e of Array.isArray(m.images) ? m.images : []) {
-    if (!e || e.kind !== 'instrument') continue;
-    const thumb = e.thumb_url || e.image_url;
-    if (typeof e.id !== 'string' || typeof thumb !== 'string' || !/^https:\/\//.test(thumb))
-      continue;
-    out[e.id] = [thumb, e.license_raw || e.license || '', e.credit || '', e.source_page || ''];
-    // The photo lightbox (uiLightbox) shows the full image when no larger
-    // Commons rendition of the thumb loads.
-    if (typeof e.image_url === 'string' && /^https:\/\//.test(e.image_url) && e.image_url !== thumb)
-      out[e.id].push(e.image_url);
-  }
-  const ids = Object.keys(out).sort();
-  return {
-    source: 'references/_image_manifest.json',
-    instruments: Object.fromEntries(ids.map((id) => [id, out[id]])),
-  };
+// Instrument photographs: references/_image_manifest.json reduced to what the
+// Instrument page shows (scripts/_image_tables.js, compactInstrumentImages).
+// Inlined only in the EMBEDDED build, which has no api/ to fetch from (it runs
+// on file:// and in the jsdom harnesses). The lazy shell leaves it out of the
+// page, 579 KB raw that the default Genre view never reads, and the Instrument
+// page fetches api/instrument_images.json the first time it draws, as
+// NAV_GLYPH_SVGS is fetched from api/nav_glyphs.json. No manifest yet: the
+// constant is null and the page shows glyphs.
+if (!LAZY) {
+  const imageManifest = compactInstrumentImages(
+    readImageManifest(path.join(REFS, '_image_manifest.json'))
+  );
+  openScript('instrument images (references/_image_manifest.json)');
+  dataParts.push(
+    `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
+  );
 }
-const imageManifest = compactImageManifest();
-openScript('instrument images (references/_image_manifest.json)');
-dataParts.push(
-  `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
-);
 
 const dataBlock = dataParts.join('\n');
 
@@ -509,8 +502,10 @@ const RUNTIME_MODULES = [
 const RUNTIME_SLOPPY_GUARD = ';';
 const runtimeParts = [];
 RUNTIME_MODULES.forEach(({ label, code }, i) => {
-  // Closes the block before it (the image manifest, for the first module). The
-  // last runtime block is closed by the template tail after the marker.
+  // Closes the block before it (for the first module, the last data block: the
+  // instrument image table in an embedded build, the nav-glyph lookups in a
+  // lazy one). The last runtime block is closed by the template tail after the
+  // marker.
   runtimeParts.push(`</script>`);
   // Each line below is its own line after the join. THE NEWLINE AFTER THE LABEL
   // IS LOAD-BEARING, and it cost an afternoon to learn why: minifying strips
@@ -530,7 +525,7 @@ RUNTIME_MODULES.forEach(({ label, code }, i) => {
     // from the embedded build by looking for this exact substring — keeping the
     // builder the only thing that spells it means no minifier setting can rewrite
     // the detector out from under that gate.
-    runtimeParts.push(`const CODEX_LAZY_API = 'api/';`);
+    runtimeParts.push(`const CODEX_LAZY_API = '${LAZY_API}';`);
   }
   runtimeParts.push(squeeze(code, label));
 });
@@ -548,6 +543,9 @@ const html = template
     css.includes(WORKBENCH_STYLE_MARKER)
       ? block
       : '<style>' + squeezeCss(css, 'src/index.template.html <style>') + '</style>'
+  )
+  .replace(BOOT_PRELOAD_MARKER, () =>
+    LAZY ? `<link rel="preload" href="${LAZY_API}browse.json" as="fetch" crossorigin>` : ''
   )
   .replace(THEME_BOOT_MARKER, () => '<script>' + squeeze(themeJs, 'theme boot') + '</script>')
   .replace(WORKBENCH_STYLE_MARKER, () =>
@@ -650,6 +648,26 @@ if (flags.check) {
   // future edit to LAZY_OMIT) would silently re-ship the 3.7 MB embed.
   if (LAZY && (declared('TRADITIONS') || declared('TRADITION_EXTRAS'))) {
     console.error('check: FAIL — lazy build leaked embedded tradition tables into the page');
+    process.exit(4);
+  }
+  // The boot index preload: exactly one in a lazy page (two would download the
+  // index twice), none in an embedded page, which never fetches it.
+  {
+    const preloads = (html.match(/<link rel="preload" href="api\/browse\.json"[^>]*>/g) || [])
+      .length;
+    if (preloads !== (LAZY ? 1 : 0)) {
+      console.error(
+        `check: FAIL — ${preloads} preload(s) of api/browse.json in a ${LAZY ? 'lazy' : 'embedded'} page (expected ${LAZY ? 1 : 0})`
+      );
+      process.exit(4);
+    }
+  }
+  // The instrument photo table rides in api/instrument_images.json for the lazy
+  // shell; in the page it would be 579 KB the first view never reads.
+  if (LAZY && declared('CODEX_IMAGE_MANIFEST')) {
+    console.error(
+      'check: FAIL — lazy build shipped CODEX_IMAGE_MANIFEST in the page (it loads from api/)'
+    );
     process.exit(4);
   }
   // Named here rather than read from LAZY_DROP_TABLES, so an edit to the strip

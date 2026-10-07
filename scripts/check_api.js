@@ -22,6 +22,8 @@
 //     catches the published snapshot drifting from references/.
 //   • index.json counts match the catalog.
 //   • nav_glyphs.json is exactly NAV_GLYPH_SVGS (the art the lazy shell fetches).
+//   • tradition_images.json and instrument_images.json are exactly what
+//     scripts/_image_tables.js derives from references/_image_manifest.json.
 //
 // Usage:
 //   node scripts/check_api.js                 # check the committed api/
@@ -34,6 +36,11 @@
 const fs = require('fs');
 const path = require('path');
 const C = require('./_loader.js');
+const {
+  readImageManifest,
+  compactInstrumentImages,
+  compactTraditionImages,
+} = require('./_image_tables.js');
 const {
   buildResolver,
   recordProblems,
@@ -259,6 +266,45 @@ if (navGlyphs) {
         .slice(0, 5)
         .join(', ')}), count=${navGlyphs.count}; run npm run build:api`
     );
+}
+
+// ───────────────────────── the two photo tables (fetched by the Genre and Instrument pages) ─────────────────────────
+// Each must be exactly what scripts/_image_tables.js derives from the committed
+// manifest: a stale copy shows the wrong photo or credit, or none, and nothing
+// else would say so. Re-derived here from references/, not trusted from api/.
+{
+  const manifest = readImageManifest(
+    path.join(__dirname, '..', 'references', '_image_manifest.json')
+  );
+  const tables = [
+    [
+      'tradition_images.json',
+      'traditions',
+      compactTraditionImages(
+        manifest,
+        C.TRADITIONS.map((t) => t.id)
+      ).traditions,
+    ],
+    [
+      'instrument_images.json',
+      'instruments',
+      (compactInstrumentImages(manifest) || { instruments: {} }).instruments,
+    ],
+  ];
+  for (const [file, key, want] of tables) {
+    const got = readJson(file);
+    if (!got) continue;
+    const have = got[key] || {};
+    const wrong = Object.keys({ ...want, ...have }).filter(
+      (id) => JSON.stringify(want[id]) !== JSON.stringify(have[id])
+    );
+    if (wrong.length || got.count !== Object.keys(want).length)
+      fail(
+        `${file}: ${wrong.length} id(s) differ from references/_image_manifest.json (e.g. ${wrong
+          .slice(0, 5)
+          .join(', ')}), count=${got.count}; run npm run build:api`
+      );
+  }
 }
 
 // ───────────────────────── instruments ─────────────────────────

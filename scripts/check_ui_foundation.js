@@ -1676,6 +1676,9 @@ async function loadDelta(page) {
       // A thumb's 44px: 21px either side of each control's centre still hits it
       // (the circles are drawn smaller); a jump letter is 44px tall to a
       // thumb; the A–Z bar fades where letters continue past its edge.
+      // The photo credits arrive after the first paint (the photo table is
+      // fetched once the page has drawn), so wait for one before measuring it.
+      await page.waitForSelector('#genre-list .cm-tile-credit', { timeout: 15000 });
       const thumbs = await page.evaluate(() => {
         const t = document.querySelector('#genre-list .cm-tile-credit').closest('.cm-tile');
         t.scrollIntoView({ block: 'center' });
