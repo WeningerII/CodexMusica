@@ -116,7 +116,11 @@ def queue_pressure_failures(record, expected, *, local=False, isolated=False):
             # A CHILD THE SAMPLER COULD NOT IDENTIFY IS `kind: None, rss: None`
             # — present, unidentified, memory unknown (`MISSING.md` M-290). It
             # is a DECLARED absence, not a malformed row: /proc is not atomic
-            # and a process that exits mid-sample leaves exactly this. It stays
+            # and a process that exits mid-sample leaves exactly this. The
+            # sampler also declares a child unknown whole when its resident set
+            # reads empty or zero (`childRow`, amended 2026-10-05), so a kind
+            # beside a null rss is never a sampler's row and stays malformed
+            # here. It stays
             # in the inventory, because pretending we saw nothing there would
             # be the inference this file refuses; and it is excluded from
             # `lyric_children` below, because a process whose command line and
