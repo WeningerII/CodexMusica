@@ -1,75 +1,86 @@
 # Geographic attribution audit
 
-Date: 2026-10-06. Baseline: the 7078-tradition catalog and `data/geo.json` at the
+Date: 2026-10-06/07. Baseline: the 7078-tradition catalog and `data/geo.json` at the
 head of `main` on that date. Per-entry evidence is in
-[`geographic-attribution-audit/`](geographic-attribution-audit/).
+[`geographic-attribution-audit/`](geographic-attribution-audit/). This audit changes
+no catalog data.
 
 ## The question
 
-The atlas looks lopsided: Europe holds 2697 pins and North America 1687, against
-374 for Africa, 236 for South Asia and 49 for the Caucasus and Central Asia. Does
-that come from **misattributed pins** (fix the data), from **source bias**
-(go find more traditions), or from both?
+The atlas looks lopsided. Europe holds 2697 pins and North America 1687, against 374
+for Africa, 236 for South Asia and 49 for the Caucasus and Central Asia. Does that
+come from **misattributed pins** (fix the data), from **source bias** (go find more
+traditions), or from both?
 
 ## Short answer
 
 Both, but they are different problems with different sizes.
 
-1. **Wrong pins are real but small.** 270 pins were confirmed to be in the wrong
-   place, 209 of them in the wrong country. Moving them shifts about 94 pins out of
-   Europe and North America. That is under 2% of the catalog and does not change
-   the shape of the map.
-2. **Inflation drives the hyper-concentrations.** 4490 entries (63%) were
-   imported from Spotify's Every Noise at Once taxonomy. 2822 of all entries are
-   market labels: a nationality or city tag on a genre practised everywhere, such
-   as "Swiss house", "Aarhus indie" or "Polish ambient". Another 560 are not
-   traditions at all ("8D", "432Hz", "Reiki", "Birthday", "Spa"). 1153 pins are
-   arbitrary: a placeless category pinned to one member artist's or label's city.
-   These sit overwhelmingly in Europe and North America.
-3. **The vacancies are real gaps.** After removing the inflation, Europe and
-   North America still hold 54% of the catalog's distinct traditions. Skeptic
-   agents verified 1088 documented, recorded traditions that are absent, in 18
-   under-covered regions. The two control regions (British Isles, US roots) yield
-   0.07 and 0.06 verified gaps per existing distinct entry; China yields 2.1,
-   Maritime Southeast Asia 2.05 and Central Africa 1.73. That is 10–30× the control
-   rate.
+1. **Wrong pins are real but small.** 264 pins are confirmed to be in the wrong place,
+   210 of them in the wrong country, and a sample suggests about 125 more among the
+   arbitrary pins. Relocating the confirmed ones moves a net 94 pins out of Europe and
+   North America. That is about 1% of the catalog and does not change the map's shape.
+2. **Inflation drives the hyper-concentrations.**
+   - 4490 entries (63%) were imported from Spotify's Every Noise at Once taxonomy.
+   - 2822 entries are market labels: a nationality or city tag on a genre practised
+     everywhere ("Swiss house", "Aarhus indie", "Polish ambient").
+   - 560 are not traditions at all ("8D", "432Hz", "Reiki", "Birthday", "Spa").
+   - 1153 pins are arbitrary: a placeless category pinned to one member artist's or
+     label's city.
+   - All of these sit overwhelmingly in Europe and North America.
+3. **The vacancies are real gaps.** After removing the inflation, Europe and North
+   America still hold over half of the catalog's distinct traditions. Every region was
+   measured the same way: 26 regions, including Western, Nordic and Southern Europe,
+   Japan and Korea, and two controls. Each region's list of missing traditions was
+   checked by a separate skeptic agent, and 1299 survived.
+   - **Low gap rate:** the British Isles (0.07 missing per existing distinct entry),
+     US roots (0.06) and Western Europe (0.13).
+   - **High gap rate:** China (2.10), Maritime Southeast Asia (2.05), the rest of South
+     Asia (1.77), Central Africa (1.73) and Mainland Southeast Asia (1.71).
 
-Fix attribution and taxonomy first; that is cheap, mechanical and makes the map
-honest. The larger job, the one that changes the map's shape, is filling the gaps
-from ethnomusicological sources. More streaming-taxonomy imports would add more
+Fix the attribution and taxonomy first. That work is cheap and mechanical, and it makes
+the map honest. The larger job, and the one that changes the map's shape, is filling the
+gaps from ethnomusicological sources. More streaming-taxonomy imports would add
 inflation, not fill the gaps.
 
 ## Method
 
-- Every entry was joined to its provenance (core hand-researched, geographic
-  expansions, or Every Noise), its pin rationale, and a country by
-  point-in-polygon against `data/countries.geo.json`.
-- 20 classifier agents labelled all 7078 entries for three things:
-  - **scope:** local origin, city scene, national label, diaspora, transnational,
-    or not place-based;
-  - **pin:** correct, representative, wrong place, arbitrary, or unsure;
-  - **split:** distinct, market label, near-duplicate, or not a tradition.
-- A separate skeptic agent re-labelled about 12 entries per chunk blind. Agreement
-  was 90% for scope, 89% for pin and 77% for split. Most split disagreements are
-  between distinct and near-duplicate, so treat "near-duplicate" as soft.
-- Every wrong-place claim (300) went to an adversarial verifier with web search,
-  told to refute it. 270 were confirmed, 29 refuted and 1 left uncertain.
-- 20 coverage agents listed documented, recorded traditions absent from the
-  catalog, one per region. Two of the regions were controls (British Isles, US
-  roots). Each list went to a skeptic who checked for presence under other names,
-  for distinctness, and for existence. Of 1492 candidates, 1132 were kept, 46
-  were already present, 209 were not distinct, 104 were unverifiable and 1 was not
-  real.
+1. **Join.** Every entry was joined to its provenance (core hand-researched, geographic
+   expansion, or Every Noise), its pin rationale, and a country found by testing its
+   point against the `data/countries.geo.json` polygons.
+2. **Classify.** 20 classifier agents labelled all 7078 entries on three axes:
+   - **scope:** local origin, city scene, national label, diaspora, transnational, or
+     not place-based;
+   - **pin:** correct, representative, wrong place, arbitrary, or unsure;
+   - **split:** distinct, market label, near-duplicate, or not a tradition.
+3. **Calibrate.** A second agent re-labelled about 12 entries per chunk without seeing
+   the first labels. Agreement was 90% on scope, 89% on pin and 77% on split.
+4. **Verify wrong pins.** Every wrong-place claim (300) went to a verifier with web
+   search, told to refute it: 270 confirmed, 29 refuted, 1 uncertain. Six of the 270
+   turned out to be artifacts of the country lookup (Haifa read as Lebanon, El Paso as
+   Mexico, and similar border cases), which leaves **264**.
+5. **Check the other direction.** A stratified sample of 102 "arbitrary" pins and 50
+   pins that coverage agents said belonged elsewhere were re-checked.
+6. **Find gaps.** One coverage agent per region (26 regions: 24 plus the 2 controls)
+   listed documented, recorded traditions absent from the catalog. A skeptic then
+   checked each candidate for presence under other names, for distinctness and for
+   existence. Of 1796 candidates, 1319 were kept: 1299 once the 20 found in two
+   regions are counted once. 62 were already present, 301 were not distinct, 113 were
+   unverifiable and 1 was not real.
+7. **Critique.** A completeness critic reviewed the first round. Its holes (European and
+   Japanese/Korean coverage, Jewish, Roma and diaspora traditions, reverse-direction
+   pins, cross-region double counts) were closed in round 2.
 
 ## Findings
 
 ### 1. The map's bubbles merge countries
 
-The 1019 bubble over London at world zoom is not Britain. The UK holds 563 pins.
-The bubble also takes in Ireland (52), France (204) and the Low Countries (155).
-By country the leaders are: United States 1509, United Kingdom 563, Brazil 324,
-Germany 268, Japan 208, France 204, India 186, Spain 177, Canada 175, Italy 173,
-Mexico 172 and Sweden 156.
+At world zoom the 1019 bubble over London is not Britain. The UK holds 563 pins; the
+bubble also takes in Ireland (52), France (204) and the Low Countries (155).
+
+By country the leaders are the United States (1509), United Kingdom (563), Brazil (324),
+Germany (268), Japan (208), France (204), India (186), Spain (177), Canada (175), Italy
+(173), Mexico (172) and Sweden (156).
 
 ### 2. Two sources, two skews
 
@@ -87,8 +98,8 @@ Mexico 172 and Sweden 156.
 | Caucasus & Central Asia | 49 | 0.7% | 1.2% | 0.4% |
 | Mongolia & Siberia | 30 | 0.4% | 0.9% | 0.2% |
 
-The core catalog was already 55% Europe plus North America. The Every Noise
-import pushed Europe from 31% to 42%.
+The core catalog was already 55% Europe plus North America. The Every Noise import
+pushed Europe from 31% to 42%.
 
 ### 3. What the entries are
 
@@ -102,31 +113,52 @@ import pushed Europe from 31% to 42%.
 | pin arbitrary | 107 (4%) | 1046 (23%) |
 | pin wrong place | 43 (2%) | 257 (6%) |
 
-Of Europe's 1884 Every Noise entries, 227 are distinct traditions and 1221 are
-market labels. Most Every Noise pin rationales name a label, venue or recording
-location, or one member's base. Only about 200 of 4490 name a documented origin.
+Of Europe's 1884 Every Noise entries, 227 are distinct traditions and 1221 are market
+labels. Most Every Noise pin rationales name a label, a venue, a recording location or
+one member's base. Only about 200 of the 4490 name a documented origin.
 
-### 4. Confirmed wrong pins (270)
+### 4. Wrong pins
 
-Most confirmed wrong pins are Every Noise national labels pinned where one sample
-artist lives or once performed:
+235 of the 264 confirmed wrong pins come from Every Noise, mostly national labels
+pinned where one sample artist lives or once performed:
 
-- "Indian classical" is in Fairfax, Virginia.
-- "Italian opera" is in London.
-- "Ethiopian pop" is in Krems, Austria.
-- "Algerian folk" is in Paris.
-- "Somali pop" is in Neukölln, Berlin.
-- "Sudanese pop" is in Washington.
-- "Liberian pop" is in Knoxville.
-- "Chinese classical" is in Amsterdam.
-- "Korean traditional" is in Washington.
+- "Indian classical" in Fairfax, Virginia
+- "Italian opera" in London
+- "Ethiopian pop" in Krems, Austria
+- "Algerian folk" in Paris
+- "Somali pop" in Neukölln, Berlin
+- "Sudanese pop" in Washington
+- "Liberian pop" in Knoxville
+- "Chinese classical" in Amsterdam
+- "Korean traditional" in Washington
 
-Core examples include "Vispop" (Visayan pop, Cebu), which is pinned in Stockholm,
-and "Frafra" (Bolgatanga), which is pinned in Kumasi. The direction is mostly
-outward from the Global South: the net move is −51 for North America and −43 for
-Europe, and +25 Latin America, +19 Africa, +18 East Asia, +16 South Asia and +13
-Middle East. The full list is in `entries.csv` (`pin_check = confirmed`, with the
-verifier's place and evidence URL).
+29 come from the core. Examples: "Vispop" (Visayan pop, Cebu) pinned in Stockholm, and
+"Frafra" (Bolgatanga) pinned in Kumasi.
+
+The moves run mostly out of Europe and North America. Net change by region:
+
+| Region | Net change |
+| --- | ---: |
+| North America | −51 |
+| Europe | −43 |
+| Latin America & Caribbean | +25 |
+| Africa | +19 |
+| East Asia | +18 |
+| South Asia | +16 |
+| Middle East | +13 |
+
+The reverse-direction checks found:
+
+- **Arbitrary pins (sample of 102):** 76 are genuinely placeless, 11 have a real origin
+  elsewhere (e.g. "Karaoke" at Australia's centroid instead of Kobe, "Old school EBM" in
+  Gothenburg instead of Brussels), 9 were fine and 6 were unresolved. Extrapolated,
+  roughly 125 of the 1153 arbitrary pins are wrong pins in disguise.
+- **Pins that coverage agents said belonged elsewhere (50):** 46 were fine. 4 were wrong,
+  e.g. "Afro-soul" in Lagos instead of Johannesburg, and "Juǀ'hoansi healing" coded
+  Botswana instead of Namibia.
+
+`entries.csv` lists every confirmed and reverse-checked pin with the verifier's place and
+evidence.
 
 ### 5. What the map would show after cleanup
 
@@ -140,84 +172,116 @@ verifier's place and evidence URL).
 | South Asia | 3.3% | 4.1% | 5.2% | 5.5% |
 | Entries left | 7078 | 5925 | 3125 | 2348 |
 
-Cleanup roughly doubles Africa's share, but Europe plus North America stays above
-half. The remaining skew is coverage.
+Cleanup roughly doubles Africa's share, but Europe plus North America stays above half.
+What remains is a coverage problem.
 
-### 6. Verified gaps by region
+### 6. Verified gaps by region, measured the same way everywhere
 
-"Distinct" counts non-arbitrary distinct entries pinned in the region's countries.
-"Keep" is the number of missing traditions that survived the skeptic. "Estimate"
-is the coverage agent's estimate of all documented gaps, including those not
-listed.
+How to read the table:
 
-| Region | Pinned | Distinct | Verified missing | Estimate | Missing per distinct |
+- **Distinct:** the non-arbitrary distinct entries pinned in the region's countries.
+- **Verified missing:** candidates that survived the skeptic, with cross-region
+  duplicates removed.
+- **Missing per distinct:** verified missing divided by distinct; this is the comparable
+  rate.
+- **Agent estimate:** the coverage agent's own guess at the total gap, including
+  traditions it did not list. It has no stated method; treat it as indicative only.
+
+| Region | Pinned | Distinct | Verified missing | Missing per distinct | Agent estimate |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| China, HK, Macao, Taiwan | 114 | 48 | 101 | 250–550 | 2.10 |
-| Maritime Southeast Asia | 179 | 56 | 115 | 190–300 | 2.05 |
-| Pakistan, Bangladesh, Nepal, Sri Lanka, Bhutan, Maldives | 47 | 26 | 46 | 80–105 | 1.77 |
-| Central Africa and Angola | 40 | 26 | 45 | 100–170 | 1.73 |
-| Mainland Southeast Asia | 83 | 34 | 58 | 85–140 | 1.71 |
-| Indigenous North America (33 Indigenous entries) | 33 | — | 46 | 90–150 | ~1.4 |
-| Russia's peoples, Mongolia, Siberia, Arctic | 138 | 47 | 62 | 120–170 | 1.32 |
-| East Africa and the Horn | 60 | 40 | 52 | 95–160 | 1.30 |
-| Andes, Amazonia, Central America, Guianas | 128 | 43 | 55 | 120–200 | 1.28 |
-| West Africa | 114 | 72 | 67 | 140–230 | 0.93 |
-| North Africa and Arab Mashriq/Peninsula | 109 | 53 | 49 | 95–135 | 0.92 |
-| Anatolia, Iran, Afghanistan, Caucasus, Central Asia | 140 | 54 | 44 | 95–145 | 0.81 |
-| Southern Africa and SW Indian Ocean | 117 | 66 | 51 | 85–140 | 0.77 |
-| India | 186 | 97 | 71 | 130–190 | 0.73 |
-| Oceania | 189 | 62 | 43 | 100–180 | 0.69 |
-| Caribbean, Mexico, Colombia, Venezuela | 375 | 157 | 86 | 140–185 | 0.55 |
-| Brazil and the Southern Cone | 477 | 143 | 57 | 110–180 | 0.40 |
-| SE and Eastern Europe (traditional) | 442 | 124 | 40 | 85–140 | 0.32 |
-| **Control: British Isles** | 619 | 229 | 16 | 30–50 | **0.07** |
-| **Control: US roots** | 1509 | 435 | 28 | 70–130 | **0.06** |
+| China, HK, Macao, Taiwan | 114 | 48 | 101 | **2.10** | 250–550 |
+| Maritime Southeast Asia | 179 | 56 | 115 | **2.05** | 190–300 |
+| Pakistan, Bangladesh, Nepal, Sri Lanka, Bhutan, Maldives | 47 | 26 | 46 | **1.77** | 80–105 |
+| Central Africa and Angola | 40 | 26 | 45 | **1.73** | 100–170 |
+| Mainland Southeast Asia | 83 | 34 | 58 | **1.71** | 85–140 |
+| Indigenous North America (33 Indigenous entries) | — | 33 | 40 | ~1.2 | 90–150 |
+| Russia's peoples, Mongolia, Siberia, Arctic | 138 | 47 | 62 | **1.32** | 120–170 |
+| East Africa and the Horn | 60 | 40 | 52 | **1.30** | 95–160 |
+| Andes, Amazonia, Central America, Guianas | 128 | 43 | 55 | **1.28** | 120–200 |
+| West Africa | 114 | 72 | 67 | 0.93 | 140–230 |
+| North Africa, Arab Mashriq and Peninsula | 108 | 53 | 49 | 0.92 | 95–135 |
+| Anatolia, Iran, Afghanistan, Caucasus, Central Asia | 139 | 54 | 44 | 0.81 | 95–145 |
+| Southern Africa and SW Indian Ocean | 117 | 66 | 51 | 0.77 | 85–140 |
+| India | 186 | 97 | 71 | 0.73 | 130–190 |
+| Oceania | 189 | 62 | 43 | 0.69 | 100–180 |
+| Caribbean, Mexico, Colombia, Venezuela | 373 | 157 | 86 | 0.55 | 140–185 |
+| Japan and Korea (North Korea has 0 entries) | 267 | 87 | 41 | 0.47 | 120–160 |
+| Southern Europe (Iberia, Italy, Malta) | 398 | 123 | 52 | 0.42 | 85–115 |
+| Brazil and the Southern Cone | 477 | 143 | 57 | 0.40 | 110–180 |
+| SE and Eastern Europe | 442 | 124 | 37 | 0.30 | 85–140 |
+| Nordic countries | 414 | 84 | 22 | 0.26 | 46–70 |
+| Western and Central Europe | 740 | 215 | 29 | 0.13 | 75–130 |
+| **Control: British Isles** | 619 | 229 | 16 | **0.07** | 30–50 |
+| **Control: US roots** | 1511 | 435 | 28 | **0.06** | 70–130 |
 
-Across the 18 non-control regions, 1088 missing traditions are verified, against
-an estimated 2110–3470. Of all 1132 kept candidates, 37% are folk or regional, 22%
-sacred or ritual, 19% Indigenous or minority, 10% historic popular and 6%
-art/classical. Only 5% are contemporary popular or urban scenes. A
-streaming-listenership taxonomy cannot supply these.
+Two cross-cutting sweeps found more missing traditions that the regional sweeps did not:
+16 Jewish and Roma traditions, and 16 from settler Canada, Australia and New Zealand or
+from diaspora communities. Their rates are not comparable, so they are left out of the
+table.
+
+**Totals:** 1299 unique verified missing traditions.
+
+**What kind they are:**
+
+- folk or regional: 36%
+- sacred or ritual: 22%
+- Indigenous or minority: 18%
+- historic popular: 11%
+- art or classical: 7%
+- contemporary popular or urban scene: 6%
+
+A streaming-listenership taxonomy cannot supply these.
 
 ## Recommended course of action
 
-1. **Re-pin the 270 confirmed misattributions.** `entries.csv` gives each one's
-   place and evidence.
-2. **Stop pinning placeless entries.** The 1153 arbitrary pins (including the 560
-   non-traditions such as 8D, 432Hz, Reiki and Birthday) should go into a "no fixed
-   origin" group, not a member's hometown.
-3. **Collapse or demote the 2822 market labels.** Keep them searchable as aliases
-   or tags of their parent genre, or as a layer that is off by default.
-   Reconsider near-duplicates case by case; that label is the noisiest.
-4. **Fill gaps in ratio order** (China, Maritime and Mainland Southeast Asia, the
-   rest of South Asia, Central and East Africa, Indigenous North America, Siberia,
-   Andes). Start from the 1132 verified candidates in `gaps.csv`. Source from
-   UNESCO ICH lists, archival labels and regional ethnomusicology, not streaming
-   taxonomies.
-5. **Gate future imports on scope.** A nationality × global-genre slice should
-   not get its own map pin.
+1. **Re-pin the 264 confirmed misattributions.** Then review the other 1153 arbitrary
+   pins: about 11% have a real origin elsewhere.
+2. **Stop pinning placeless entries.** Arbitrary pins, including the 560 non-traditions
+   such as 8D, 432Hz, Reiki and Birthday, belong in a "no fixed origin" group, not at a
+   member's hometown.
+3. **Collapse or demote the 2822 market labels.** Keep them searchable as aliases or tags
+   of their parent genre, or as a layer that is off by default.
+4. **Do a duplicate pass before merging anything.** Near-duplicates are under-counted:
+   blind re-labels flagged them about twice as often as the first pass. The current
+   duplicate graph also has 23 mutual pairs and 91 chains to untangle.
+5. **Fill gaps in rate order:** China, Maritime and Mainland Southeast Asia, the rest of
+   South Asia, Central and East Africa, Siberia and Russia's peoples, the Andes and
+   Amazonia, and Indigenous North America. Start from the verified candidates in
+   `gaps.csv`. Source from UNESCO ICH lists, archival labels and regional
+   ethnomusicology, not streaming taxonomies. North Korea has no entries at all.
+6. **Gate future imports on scope.** A nationality × global-genre slice should not get its
+   own map pin.
 
 ## Limits
 
-- Labels are model judgements, not a person checking a map; see the calibration
-  rates above. "Near-duplicate" is the least reliable label.
-- Gap estimates beyond the verified lists are model estimates. Some skeptics
-  could not reach web search and marked such items "unverifiable" rather than
-  keeping them.
-- The coverage sweep did not cover Western, Northern or Southern European
-  traditional music outside the British Isles, or Japan and Korea. Those regions
-  have no gap figures here.
-- Pins are representative locations, not territorial claims, as stated in
+- **The labels are model judgements**, not a person checking a map. See the calibration
+  rates above. "Near-duplicate" is the least reliable label, and it is under-applied, so
+  the "distinct" counts are upper bounds everywhere.
+- **The gap lists are verified for absence more firmly than for existence.**
+  - Every kept candidate was grepped against the catalog. An independent re-check of 119
+    kept items found none already present, and kept 113.
+  - Existence checks used live web search only part of the time: a shared search quota
+    ran out and the proxy blocked page fetches. So many existence verdicts rest on model
+    knowledge plus the cited source.
+  - Most source URLs are Wikipedia.
+- **Agent estimates beyond the verified lists have no stated method.** Use the verified
+  counts and the per-distinct rates.
+- **The country lookup uses Natural Earth borders.** A few border pins land in the
+  neighbouring country (corrected for the six confirmed cases), and Jerusalem falls
+  inside the Palestine polygon.
+- **Pins are representative locations, not territorial claims**, as stated in
   `data/geo-meta.json`. This audit does not change `data/geo.json`.
 
 ## Files
 
 - [`geographic-attribution-audit/entries.csv`](geographic-attribution-audit/entries.csv):
-  one row per tradition, with provenance, region, country, pin, scope, pin verdict,
-  suggested place, split verdict, duplicate target, and the verifier's verdict,
-  place and evidence URL.
-- [`geographic-attribution-audit/gaps.csv`](geographic-attribution-audit/gaps.csv):
-  1492 missing-tradition candidates with place, kind, recording evidence, source
-  URL and the skeptic's verdict.
+  one row per tradition. Columns: provenance, region, country, pin, scope, pin verdict,
+  suggested place, split verdict, duplicate target, and the verifier's verdict, place and
+  evidence URL. It also carries the reverse-direction check where one was run.
+- [`geographic-attribution-audit/gaps.csv`](geographic-attribution-audit/gaps.csv): 1796
+  missing-tradition candidates in 26 regions. Columns: place, kind, recording evidence,
+  source URL, the skeptic's verdict, a cross-region duplicate flag, and the independent
+  re-check where one was run.
 - [`geographic-attribution-audit/pinned_elsewhere.csv`](geographic-attribution-audit/pinned_elsewhere.csv):
-  entries about one region pinned in another, as found by the coverage agents.
+  entries about one region pinned in another, as reported by the coverage agents. Of 50
+  that conflicted with an accepted pin, 46 re-checked as fine.

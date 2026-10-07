@@ -228,3 +228,86 @@ control_us_roots,traditional_rockabilly,"Adelaide, Australia","Memphis, United S
 control_us_roots,alternative_country,"Naas, Ireland","Belleville / Chicago, United States of America",US alt-country genre pinned to one Irish representative artist.
 control_us_roots,alternative_americana,"Naas, Ireland","Nashville, United States of America",US Americana category pinned to one Irish representative artist.
 control_us_roots,tololoche,"Monterrey, Mexico","San Antonio / South Texas, United States of America",Lead exemplars Narciso Martínez and Santiago Jiménez Sr. are Texas conjunto founders; borderline.
+western_europe,german_opera,"Budapest, Hungary","Bayreuth, Germany","Wagner/German opera repertoire pinned to one touring recital in Budapest, not a German opera house."
+western_europe,german_renaissance,"Kraków, Poland","Munich, Germany","German Renaissance polyphony pinned to a 2011 Kraków concert series, not Munich/Nuremberg courts."
+western_europe,french_opera,"Barcelona, Spain","Paris, France",French opera (Gounod) pinned to a 2019 Barcelona recital rather than Paris opera houses.
+western_europe,old_school_ebm,"Gothenburg, Sweden","Brussels, Belgium",Old-school EBM originates with Front 242 (Brussels) and DAF (Düsseldorf); pinned to one present-day Swedish act.
+western_europe,deep_euro_house,"Los Angeles, USA","Osnabrück, Germany","Exemplars Robin Schulz, Tube & Berger are German producers; pinned to a Los Angeles DJ anchor."
+western_europe,nu_gabber,"Prague, Czechia","Berlin, Germany",Exemplar Brutalismus 3000 is Berlin-based; gabber roots Rotterdam; pinned to one Prague gig.
+western_europe,gregorian_chant,"Rome, Italy","Solesmes, France",Record says Romano-Frankish Carolingian synthesis restored by Solesmes; lead exemplar Solesmes Abbey Choir.
+nordic,danish_singer_songwriter,"Berlin, Germany","Copenhagen, Denmark",Danish category pinned at one artist's (Agnes Obel) Berlin working base
+nordic,swedish_classical,"Bristol, United Kingdom","Stockholm, Sweden",Swedish repertoire category pinned to a UK recording venue
+nordic,swedish_contemporary_classical,"Washington, United States of America","Stockholm, Sweden",Swedish composition category pinned to a US recording locality
+nordic,new_weird_finland,"Stockholm, Sweden","Helsinki, Finland",Finnish free-folk scene pinned to Stockholm EMS studio of one album
+nordic,ecm_style_jazz,"Munich, Germany","Oslo, Norway",Lineage says sound codified at Oslo's Rainbow Studio; Munich is only label HQ
+nordic,jazztronica,"London, United Kingdom","Oslo, Norway","Codifiers named are Norwegian (Molvær, Wesseltoft, Jaga Jazzist)"
+southern_europe,makina,"Newcastle, United Kingdom","Barcelona, Spain","Own record says it formed at Barcelona clubs (Pont Aeri, Chasis); Newcastle is a later export"
+southern_europe,spanish_renaissance,"London, United Kingdom","Seville, Spain",Spanish Golden Age polyphony pinned to Tallis Scholars' London recording church
+southern_europe,spanish_classical,"London, United Kingdom","Madrid, Spain",Spanish repertoire category pinned to a London recording venue (Stephen Hough)
+southern_europe,italian_opera,"London, United Kingdom","Milan, Italy",Italian opera category pinned to a Wigmore Hall recital
+southern_europe,italian_pop,"Vilnius, Lithuania","Milan, Italy",Italian pop category pinned to one minor artist's Lithuanian base
+southern_europe,portuguese_contemporary_classical,"Cardiff, United Kingdom","Lisbon, Portugal",Portuguese composition category pinned to one composer's Welsh working base
+southern_europe,flamenco_fusion,"Miami, United States of America","Madrid, Spain",Flamenco fusion pinned to a Venezuelan-origin Miami dance company
+southern_europe,rumba,"Arles, France","Barcelona, Spain","'Spanish popular song' rumba (Peret, Los Chichos) pinned at Gipsy Kings' Arles base"
+japan_korea,korean_contemporary_classical,"Paris, France","Seoul, South Korea",Korean new-music scene; Paris is only one festival/recording context
+japan_korea,korean_classical_piano,"Berlin, Germany","Seoul, South Korea",Korean pianist/conservatory field; Berlin is just a label recording city
+japan_korea,korean_experimental,"Berlin, Germany","Seoul, South Korea",Korean experimental scene pinned to a diaspora cellist's current base
+japan_korea,korean_classical_performance,"Bristol (England), United Kingdom","Seoul, South Korea",Korean concert-performance field pinned to one recording location
+japan_korea,korean_underground_rap,"London, United Kingdom","Seoul, South Korea","Seoul crew networks (Daenamhyup, Rock Bottom) pinned at a touring event city"
+japan_korea,korean_traditional,"Washington, United States of America","Seoul, South Korea","Korean gugak (sanjo, kayagum) pinned to a Smithsonian concert venue"
+japan_korea,japanese_classical,"Danderyd, Sweden","Tokyo, Japan",Japanese art-music field pinned to a booklet recording location
+japan_korea,japanese_classical_performance,"Snape Maltings, United Kingdom","Tokyo, Japan",Japanese concert-performance field pinned to Uchida's recording hall
+japan_korea,japanese_classical_piano,"Princeton, United States of America","Tokyo, Japan",Japanese piano field pinned to a single US recital city
+jewish_roma,klezmer,"Odesa, Ukraine","Odesa, Ukraine","Ashkenazi wedding-band tradition; diaspora pin correct, region has no Israel/klezmer cross-link"
+jewish_roma,cantorial_khazonus,"Vilnius, Lithuania","Vilnius, Lithuania",Ashkenazi hazzanut; plausible Eastern European pin
+jewish_roma,jewish_cantorial_recitative,"New York, United States of America","New York, United States of America","Golden-age recorded hazzanut; New York recording hub, fine"
+jewish_roma,hasidic_niggun,"Podolia, Ukraine","Podolia, Ukraine","Hasidic wordless melody; Baal Shem Tov heartland, fine"
+jewish_roma,chabad_niggunim,"Lyubavichi, Russia","Lyubavichi, Russia","Chabad niggunim; movement's namesake town, fine"
+jewish_roma,yemenite_torah_cantillation,"Sana'a, Yemen","Sana'a, Yemen",Yemenite Jewish liturgy; origin pin fine though community now mostly in Israel
+jewish_roma,sephardi_bakkashot,"Aleppo, Syria","Aleppo, Syria",Aleppan bakkashot school; correct origin pin
+jewish_roma,sefardi_romancero,"Thessaloniki, Greece","Thessaloniki, Greece",Ladino song; Salonica a defensible Sephardi centre
+jewish_roma,yiddish_folk,"Vilnius, Lithuania","Vilnius, Lithuania","Ashkenazi secular song; YIVO/Vilna centre, fine"
+jewish_roma,yiddish_vigndlid,"Vilnius, Lithuania","Vilnius, Lithuania",Yiddish cradle song; same Vilnius anchor as other Yiddish entries
+jewish_roma,yiddish_spinning_domestic,"Vilnius, Lithuania","Vilnius, Lithuania","Yiddish domestic song; Vilnius anchor, fine"
+jewish_roma,yiddish_wedding_bulgar,"Odesa, Ukraine","Odesa, Ukraine",Klezmer dance repertoire; Odesa plausible
+jewish_roma,jewish_maggid_preaching,"Vilnius, Lithuania","Vilnius, Lithuania","Maggid preaching; Dubner/Vilna lineage, fine"
+jewish_roma,klezmer_jazz_fusion,"New York, United States of America","New York, United States of America",American klezmer revival-jazz; correct
+jewish_roma,chasidic_pop,"Crown Heights, United States of America","Crown Heights, United States of America","Orthodox Jewish pop; NY industry, though Israel equally central"
+jewish_roma,jewish_kaddish,"Jerusalem, Palestine",Jerusalem (pan-Jewish liturgy),Pan-diaspora liturgy; Jerusalem coded Palestine while other Jerusalem/Israeli entries coded Israel
+jewish_roma,israeli_folk,"Jerusalem, Palestine","Jerusalem, Israel",Israeli genre (Bustan Abraham branch) country-coded Palestine; inconsistent with Israel-coded peers
+jewish_roma,israeli_singer_songwriter,"Haifa, Lebanon","Haifa, Israel",Haifa is in Israel; country field wrongly Lebanon (geocoding error)
+jewish_roma,festigal,"Haifa, Lebanon","Haifa / Tel Aviv, Israel",Israeli Hanukkah children's festival; Haifa wrongly coded Lebanon
+jewish_roma,israeli_classical_piano,"Monmouth, United Kingdom","Tel Aviv, Israel","Pinned to Welsh recording studio, not Israeli performance tradition"
+jewish_roma,jewish_hip_hop,"New York City, United States of America","New York City, United States of America","Diaspora scene (Kosha Dillz, Matisyahu); pin fine"
+jewish_roma,jewish_pop,"Los Angeles, United States of America","Los Angeles, United States of America",American Jewish pop; pin fine
+jewish_roma,jewish_a_capella,"New York City, United States of America","New York City, United States of America",American Jewish a cappella; pin fine
+jewish_roma,judaica,United States (country centroid),"New York, United States of America","Debbie Friedman branch pinned to national centroid, not a locality"
+jewish_roma,moroccan_traditional,"Tetuan, Morocco","Tetouan, Morocco",Selected branch is Sephardic Haketia romance (Alicia Benassayag); pin fine
+jewish_roma,gypsy_jazz,"Paris, France","Paris, France",Sinti/Manouche jazz; correct pin
+jewish_roma,flamenco,"Seville, Spain","Seville, Spain",Gitano-Andalusian tradition; correct
+jewish_roma,cante_flamenco,"Jerez, Spain","Jerez de la Frontera, Spain",Gitano cante core; correct
+jewish_roma,rumba_catalana,"Gràcia, Spain","Barcelona (Gràcia), Spain",Catalan Gitano rumba; correct
+jewish_roma,rumba,"Arles, France","Arles, France","Gipsy Kings branch; French Gitan rumba, fine"
+jewish_roma,hungarian_cimbalom_trad,"Budapest, Hungary","Budapest, Hungary",Romungro restaurant bands; correct
+jewish_roma,hungarian_magyar_nota,"Budapest, Hungary","Budapest, Hungary",Performed by Roma cigányzenekar; correct
+jewish_roma,csardas,"Budapest, Hungary","Budapest, Hungary",Roma-led restaurant dance music; correct
+jewish_roma,romanian_lautari,"Clejani, Romania","Clejani, Romania",Roma lăutari village (Taraf de Haïdouks); correct
+jewish_roma,muzica_lautareasca,"Bucharest, Romania","Bucharest, Romania",Roma professional repertory; correct
+jewish_roma,manele,"Bucharest, Romania","Bucharest, Romania",Romanian Roma party-pop; correct
+jewish_roma,balkan_brass_fanfara,"Guča, Serbia","Vranje, Serbia",Guča is festival site in western Serbia; Roma brass heartland is Vranje/Bujanovac
+jewish_roma,balkan_brass,"Guča, Serbia","Vranje, Serbia",Same: festival site rather than the southern-Serbian Roma orkestar centre
+jewish_roma,roma_svatba_balkan,"Šutka, North Macedonia","Šutka (Skopje), North Macedonia",Roma municipality; correct
+jewish_roma,tallava,"Pristina, Kosovo","Pristina / Ferizaj, Kosovo",Roma-Ashkali keyboard wedding song; pin acceptable
+jewish_roma,turkish_romani_cumbus,"Istanbul, Turkey","Istanbul (Sulukule), Turkey",Turkish Roman music; correct
+jewish_roma,oyun_havasi,"Istanbul, Turkey","Istanbul / Edirne, Turkey",Roman-musician dance repertoire; fine
+jewish_roma,gypsy,"Saratov, Russia","Moscow, Russia",Generic 'Gypsy' umbrella pinned to one guitarist's birthplace; Russian Romani centre is Moscow
+jewish_roma,gypsy_punk,"Lower East Side, United States of America","Lower East Side, New York, United States of America",Gogol Bordello diaspora fusion; correct
+jewish_roma,kosovan_indie,"Prishtina, Kosovo","Prishtina, Kosovo","Branch is Gipsy Groove, a Balkan Romani band; genre label, not pin, is off"
+jewish_roma,slovenske_chvaly,"Čičava, Slovakia","Čičava, Slovakia",Branch is a Slovak/Romani Pentecostal praise band; pin fine
+settler_diaspora,canadian_celtic,"Accord, United States","Halifax / Cape Breton, Canada","Canadian Celtic scene pinned to a New York recording studio, not any Canadian locality"
+settler_diaspora,canadian_classical_piano,"London, United Kingdom","Toronto, Canada",Canadian classical-piano category pinned to a London base outside Canada
+settler_diaspora,australian_dance,"Los Angeles, United States","Melbourne, Australia",Australian dance branch pinned to an expatriate producer's LA base
+settler_diaspora,bhangra_modern,"Punjab, India","Birmingham / Southall, United Kingdom",Own lineage calls modern bhangra a 1980s UK-Punjabi diaspora pop genre
+settler_diaspora,coupe_decale_ivorian,"Abidjan, Côte d'Ivoire","Paris, France",Own lineage: emerged in early-2000s Paris Ivorian diaspora clubs before moving to Abidjan
+settler_diaspora,merenrap,"Santo Domingo, Dominican Rep.","New York (Washington Heights), United States",Dominican-New York hybrid; Proyecto Uno and Fulanito were New York based
+settler_diaspora,punjabi_hip_hop,"Ludhiana, India","Brampton, Canada",Lineage cites UK/Canadian diaspora origin and Brampton production axis; pin defensible either way
