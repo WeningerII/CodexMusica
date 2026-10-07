@@ -1050,17 +1050,12 @@ jobs:
     # class as verify hung THIS job 44m+ on the run for PR #168 (2026-08-18).
     # REPINNED 2026-10-06 from ~~30~~ to 45 for step 9's fault classes. PR
     # #501's run measured the job at 22m43s: the cold build 11m54s, fault
-    # injection 9m49s. Step 9 brought faults.js to 85 classes, 30 of them for
-    # the engine split (9i-9zi; a class planted for one check of the engine
-    # section runs that check alone, --checks). A full local run of the 85
-    # measured 28m32s (1,712 s: the step-9 classes 762 s, the other 55 950 s).
-    # The review then added six (9zj-9zo, 91 in all), each one check_lazy_app
-    # section or one build, 122 s locally for the six. At the 1.46x
-    # local/CI ratio measured on the cold build (17m26s local, 11m54s here)
-    # the 85 are ~19.5 min of faults, and the job ~32.5 min cold; the older
-    # classes alone ran 1.61x (950 s local, 9m49s here), so 1.46 errs long.
-    # 45 is that estimate plus about 40%, room for a slow runner; the first
-    # step-9 run's own figure replaces the estimate here.
+    # injection 9m49s. Step 9 brought faults.js to 91 classes, 36 of them for
+    # the engine split (9i-9zo; a class planted for one check of the engine
+    # section runs that check alone, --checks). MEASURED on PR #502's first
+    # run (run 37559558317, 2026-10-07, cold): the job 32m01s, the build
+    # 12m40s, fault injection 18m22s. 30 would have cancelled it; 45 leaves
+    # 13 min, room for a slow runner.
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5

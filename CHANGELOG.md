@@ -223,14 +223,11 @@ leaves out instruments' `description` and `sources`, which no page shows.
     its own (BASELINE-OVER) and the run goes on, rather than stopping at 9t with every
     class after it unreported. The last full run of the 85 classes before the review
     (`--fresh-api=api --fresh-html=codex.html`) caught all 85, 0 escapes, in 1,637 s
-    locally; the review's six were run with `--only`.
+    locally; a full run of all 91 since caught all 91, 0 escapes.
   - CI's freshness job may now run 45 minutes, not 30. PR #501's run took 22m43s (the
-    cold build 11m54s, fault injection 9m49s). An earlier full local run of the 85
-    classes, before ab12b2479, took 1,712 s, and the estimate uses it: at the 1.46x
-    local/CI ratio of the cold build, about 19.5 minutes in CI, and about 32.5 minutes
-    for the job cold. The review's six classes add a `check_lazy_app.js` section or a
-    build each, 122 s locally for the six, run one at a time. The first step-9 run's own
-    figure replaces the estimate. Fault injection runs unless the run was cancelled
+    cold build 11m54s, fault injection 9m49s). This branch's first run took 32m01s
+    cold (the build 12m40s, fault injection 18m22s), which 30 would have cancelled; 45
+    leaves 13 minutes for a slow runner. Fault injection runs unless the run was cancelled
     (`!cancelled()`), so a budget failure or a reproducibility diff does not hide the
     fault verdicts; with no fresh build to inject into, it says so and fails at once.
   - The `lazy-shell-parity` promise now says "once the genre descriptions and the
