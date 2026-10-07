@@ -30,6 +30,7 @@ const {
   compactTraditionImages,
 } = require('./_image_tables.js');
 const { AXIS_KEYS, browseItem, bootIndex, proseIndex, starterIds } = require('./_browse_tables.js');
+const { engineText } = require('./_page_tables.js');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
 const {
@@ -244,6 +245,17 @@ async function main() {
     count: Object.keys(C.NAV_GLYPH_SVGS).length,
     svgs: C.NAV_GLYPH_SVGS,
   });
+
+  // ---- engine.json: the instrument engine the lazy shell fetches at its first paint ----
+  // (or from <head>, when a saved session needs it to draw).
+  // The page copy of references 01, 02, 03 and 07 (instruments, family parts,
+  // rooms, chains, tunings, instrument axes, preface lexicon), unmerged, one
+  // element per line, written by scripts/_page_tables.js and held to it by
+  // check_api.js. Internal, like nav_glyphs.json: not a published endpoint.
+  fs.writeFileSync(
+    path.join(OUT, 'engine.json'),
+    engineText(path.join(__dirname, '..', 'references'))
+  );
 
   // ---- tradition_images.json / instrument_images.json: the two photo tables ----
   // Derived from references/_image_manifest.json by scripts/_image_tables.js and

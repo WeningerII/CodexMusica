@@ -48,7 +48,7 @@
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
-/* global document, Catalog */
+/* global document, Catalog, Engine */
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -392,8 +392,15 @@ const PINNED_PROBE = `(() => {
     // A names-only search (the genre prose still on its way) redraws once when
     // the descriptions land, as a keystroke would, and this flow holds an
     // element handle across the search; so it starts once they have landed.
+    // It waits for the instrument engine (api/engine.json) too: before it
+    // lands, the lazy shell's Add waits for it behind a "Preparing the
+    // instrument data…" toast, and this gate measures the page with a
+    // workspace, not that wait (check_lazy_app.js gates the wait). The
+    // embedded build has the engine at load.
     await page.waitForFunction(
-      () => typeof Catalog === 'undefined' || Catalog.proseLoaded(),
+      () =>
+        (typeof Catalog === 'undefined' || Catalog.proseLoaded()) &&
+        (typeof Engine === 'undefined' || Engine.ready()),
       null,
       {
         timeout: 60000,

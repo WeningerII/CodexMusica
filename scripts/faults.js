@@ -24,6 +24,42 @@
 //   prose arrival redraws -> check_lazy_app.js  (the descriptions' arrival rebuilds the page)
 //   published index drift -> check_api.js       (browse.json drifts, no app reads it now)
 //   prose preloaded     -> build_html.js --check (the prose joins the first view's path)
+//   engine desync       -> check_lazy_app.js  (api/engine.json's tables drift under an unchanged digest)
+//   engine read in first view -> check_lazy_app.js (the first view reads a table the page holds back)
+//   restore without engine -> check_lazy_app.js (a saved recipe draws before the instrument data lands)
+//   action without engine -> check_lazy_app.js (an Add acts on the empty engine slots)
+//   engine before first paint -> check_lazy_app.js (the engine request races the first view)
+//   sort before merge   -> check_lazy_app.js  (the lazy merge sorts first; its engine is not the embedded one)
+//   similar before engine -> check_lazy_app.js (the similar view computes without the instrument data)
+//   engine retry loop   -> check_lazy_app.js  (a failed engine load retries itself on a timer)
+//   engine skew accepted -> check_lazy_app.js (a file from another deploy fills the slots)
+//   engine in page      -> build_html.js --check (an engine table is back inline in the lazy page)
+//   engine file drift   -> check_api.js       (api/engine.json drifts from references/)
+//   page over budget    -> check_payload_budget.js (the lazy page regrows past its gzip budget)
+//   critical over budget -> check_payload_budget.js (the boot index regrows; the first view waits on it)
+//   inline data over budget -> check_payload_budget.js (a data table is back inline in the page)
+//   engine over budget  -> check_payload_budget.js (api/engine.json regrows; an early Add waits on it)
+//   index drift         -> check_lazy_app.js  (the page's instrument index differs from the engine)
+//   prose not sequenced -> check_lazy_app.js  (the prose prefetch shares the link with the engine)
+//   prose starved       -> check_lazy_app.js  (a failed engine request holds the prose back for good)
+//   engine preload disagrees -> check_lazy_app.js (<head> and app.js read a saved session differently)
+//   engine preload unused -> check_lazy_app.js (<head> preloads a URL the app does not fetch)
+//   preload by script   -> build_html.js --check (a second script preloads beside the engine's)
+//   inspect without engine -> check_lazy_app.js (an Inspect reads the empty engine slots)
+//   count while pending -> check_lazy_app.js  (the Instrument page counts "0 instruments" before they land)
+//   engine reader moved -> check_lazy_app.js  (a direct engine read moves to a function nobody reviewed)
+//   boot error unmarked -> check_lazy_app.js  (a saved session's engine failure loses its marker)
+//   merge plan misordered -> check_lazy_app.js (the page lends variants in an order the plan got wrong)
+//   lending drops tail  -> check_api.js       (the merge stops lending; configs name variants that are gone)
+//   record after wait   -> check_lazy_app.js  (an Add asks for its genre's record only after the engine)
+//   optional before engine -> check_lazy_app.js (the genre page's optional files race the engine)
+//   engine preload dropped -> build_html.js --check (the page ships without the saved session's preload)
+//   boot error hidden   -> check_lazy_app.js  (a failed boot's error is drawn where nothing shows it)
+//   boot failure unhandled -> check_lazy_app.js (an early boot failure reaches the unhandled-rejection trap)
+//   not the file as stale -> check_lazy_app.js (a sign-in page answered 200 is refused as another deploy's)
+//   engine preload stray key -> build_html.js --check (<head> reads a session key app.js does not)
+//   embedded engine table missing -> build_html.js --embedded --check (the reference page lacks a table)
+//   inlined engine reader -> check_lazy_app.js (an engine read in code inlined from scripts/ goes uncounted)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -45,10 +81,18 @@
 //   toast action lingers -> check_ui_foundation.js  (a faded toast's Undo still takes a click)
 //
 // Usage:
-//   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
-// Exit 0 if every defect was caught, 1 if any gate escaped.
+//   node scripts/faults.js [--only=ID,…] [--fresh-api=DIR --fresh-html=FILE] [--verbose] [--keep]
+// --only runs the classes named and skips the rest: a class answers to its
+// number (9x) where it has one, and to its gate-class name, the part of its
+// row before ` -> ` (engine-preload-disagrees). A run with --only is partial,
+// so it never asserts gate-coverage completeness.
+// Exit 0 if every defect was caught, 1 if any gate escaped, 2 if --only names
+// a class that does not exist or selects none that can run.
+// Each class's temp copy is removed once its verdict is recorded (--keep
+// leaves them all in the OS temp dir, codex-fault-*, for inspection).
 
 'use strict';
+const crypto = require('crypto');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -64,13 +108,27 @@ for (const a of process.argv.slice(2)) {
   }
 }
 const VERBOSE = !!flags.verbose;
+const KEEP = !!flags.keep;
 const FRESH_API = flags['fresh-api'] ? path.resolve(ROOT, flags['fresh-api']) : null;
 const FRESH_HTML = flags['fresh-html'] ? path.resolve(ROOT, flags['fresh-html']) : null;
+const ONLY = typeof flags.only === 'string' ? flags.only.split(',').filter(Boolean) : null;
 const q = (s) => JSON.stringify(s);
 
 // Isolated temp copy of just the items a gate needs; node_modules is symlinked.
+// A copy with api/ and references/ is ~140 MB and a full run makes dozens, so
+// each is removed when its class records (dropEnvs): left in place they filled
+// the temp disk before the run could finish. Removal never follows a link, so
+// the tree a copy links to (node_modules, foundationEnv's api/ and assets/) is
+// untouched.
+const ENVS = [];
+function dropEnvs() {
+  if (KEEP) return;
+  while (ENVS.length) fs.rmSync(ENVS.pop(), { recursive: true, force: true });
+}
+process.on('exit', dropEnvs);
 function mkenv(items) {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-'));
+  ENVS.push(d);
   for (const it of items) {
     // mcp/ carries its own dependency tree (the MCP SDK + zod, ~27MB). Copying
     // it per fault class would dominate this script's runtime, so stage the
@@ -112,12 +170,28 @@ function gate(dir, args) {
   }
 }
 
+// Each class opens with want(): its number, where it has one, then its
+// gate-class name. It answers whether --only selects the class, and remembers
+// the class so record() can refuse a row under another name.
+const CLASS_IDS = new Set();
+let CLASS = null;
+function want(...ids) {
+  for (const id of ids) CLASS_IDS.add(id);
+  CLASS = ids;
+  return !ONLY || ids.some((id) => ONLY.includes(id));
+}
+
 const results = [];
 // A defect is "caught" only when the gate exits NON-ZERO *and* its output names
 // the planted defect (the `expect` pattern). This rejects two false positives the
 // old `code !== 0` test counted as caught: a gate that times out, and a gate that
 // fails for an unrelated reason (env crash, missing file in the temp copy).
 function record(cls, res, expect) {
+  const name = CLASS && CLASS[CLASS.length - 1];
+  if (!name || !cls.startsWith(name + ' -> '))
+    throw new Error(
+      `faults: the row ${JSON.stringify(cls)} is not the class want() opened (${name})`
+    );
   const { code, out } = res;
   const nonzero = code !== 0 && code !== 'timeout';
   const matched = !expect || expect.test(out);
@@ -128,7 +202,25 @@ function record(cls, res, expect) {
   else if (code === 'timeout') tag = '✗ TIMEOUT    ';
   else tag = '✗ WRONG-REASON'; // failed, but not on the planted defect
   results.push({ cls, caught, code, reason: tag.trim() });
-  process.stderr.write(`  ${tag}  ${cls}  (exit ${code})\n`);
+  const num = CLASS.length > 1 ? `${CLASS[0]}, ` : '';
+  process.stderr.write(`  ${tag}  ${cls}  (${num}exit ${code})\n`);
+  CLASS = null;
+  dropEnvs(); // every class records once, after its last gate run
+}
+// A class that could not plant its defect for a reason found at run time (not
+// a plant site that moved: plantIn stops the run for that). A failure row of
+// its own, named by `reason`, and the run goes on to the next class.
+function refuse(cls, reason, why) {
+  const name = CLASS && CLASS[CLASS.length - 1];
+  if (!name || !cls.startsWith(name + ' -> '))
+    throw new Error(
+      `faults: the row ${JSON.stringify(cls)} is not the class want() opened (${name})`
+    );
+  results.push({ cls, caught: false, code: reason, reason });
+  const num = CLASS.length > 1 ? `${CLASS[0]}, ` : '';
+  process.stderr.write(`  ✗ ${reason}  ${cls}  (${num}${why})\n`);
+  CLASS = null;
+  dropEnvs();
 }
 
 process.stderr.write(
@@ -136,7 +228,7 @@ process.stderr.write(
 );
 
 // 1. broken ref -> validate.js
-{
+if (want('1', 'broken-ref')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/05_traditions.js');
   fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("room: '", "room: 'zzz_fault_"));
@@ -144,7 +236,7 @@ process.stderr.write(
 }
 
 // 2. >1000-char recipe -> check_api.js
-{
+if (want('2', 'over-ceiling-recipe')) {
   const d = mkenv(['scripts', 'references', 'api']);
   const f = path.join(d, 'api/traditions/bluegrass.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -159,7 +251,7 @@ process.stderr.write(
 }
 
 // 3. dropped tradition -> check_api.js
-{
+if (want('3', 'dropped-tradition')) {
   const d = mkenv(['scripts', 'references', 'api']);
   fs.unlinkSync(path.join(d, 'api/traditions/zydeco.json'));
   record(
@@ -170,7 +262,7 @@ process.stderr.write(
 }
 
 // 4. unresolvable config id (stale snapshot vs catalog) -> check_api.js
-{
+if (want('4', 'unresolvable-id')) {
   const d = mkenv(['scripts', 'references', 'api']);
   const f = path.join(d, 'api/traditions/bluegrass.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -185,7 +277,7 @@ process.stderr.write(
 
 // 5. app<->node desync -> equivalence.js  (mutate the NODE adapter only; the
 //    browser inlines the @inline core, so this forces the two sides to disagree)
-{
+if (want('5', 'app-node-desync')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_card_descriptors.js');
   const s = fs
@@ -216,7 +308,7 @@ process.stderr.write(
 // The three discovery outputs come along for the same reason: the gate reads the
 // COMMITTED copies from its own root, and "committed copy missing" is likewise
 // not the failure this class is meant to prove.
-if (FRESH_API && FRESH_HTML) {
+if (want('6', 'stale-api') && FRESH_API && FRESH_HTML) {
   const d = mkenv([
     'scripts',
     'references',
@@ -249,7 +341,7 @@ if (FRESH_API && FRESH_HTML) {
     `--committed-html=${FRESH_HTML}`,
   ]);
   record('stale-api -> check_artifact_fresh.js', res, /STALE_DRIFT|drift|stale|!=|content/i);
-} else {
+} else if (want('6', 'stale-api')) {
   process.stderr.write(
     '  - skipped stale-api fault (pass --fresh-api=DIR --fresh-html=FILE to enable)\n'
   );
@@ -260,8 +352,9 @@ if (FRESH_API && FRESH_HTML) {
 //     html, so the codex.html half of the gate was never exercised. This proves
 //     it two-sided: the api halves match (fresh==fresh) while the committed html
 //     is a mutated copy, so only an unguarded html comparison could stay green.
-if (FRESH_API && FRESH_HTML) {
+if (want('6b', 'stale-html') && FRESH_API && FRESH_HTML) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-html-'));
+  ENVS.push(tmp); // removed with the class, as mkenv's copies are
   const staleHtml = path.join(tmp, 'stale_codex.html');
   fs.writeFileSync(
     staleHtml,
@@ -278,14 +371,15 @@ if (FRESH_API && FRESH_HTML) {
 }
 
 // 7. silent blend-drop -> recipe.js  (read-only on the real tree)
-record(
-  'silent-blend-drop -> recipe.js',
-  gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']),
-  /__bogus_fault__|[Uu]nknown|not found|resolve/
-);
+if (want('7', 'silent-blend-drop'))
+  record(
+    'silent-blend-drop -> recipe.js',
+    gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']),
+    /__bogus_fault__|[Uu]nknown|not found|resolve/
+  );
 
 // 8. orphan promise (documented but unregistered/ungated) -> check_promises.js
-{
+if (want('8', 'orphan-promise')) {
   const d = mkenv(['scripts', 'AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md']);
   fs.appendFileSync(path.join(d, 'AGENTS.md'), '\n<!-- @promise: __orphan_fault__ -->\n');
   record(
@@ -301,7 +395,7 @@ record(
 //    Corrupting one tradition's name in the isolated boot index forces the two
 //    builds to disagree on the catalog projection, which the parity gate must
 //    catch. (The app no longer reads api/browse.json; 9g holds that file.)
-{
+if (want('9', 'lazy-shell-desync')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const f = path.join(d, 'api/browse_boot.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -315,7 +409,7 @@ record(
 }
 
 // 9c. the prose the lazy shell merges after its first paint drifts -> check_lazy_app.js
-{
+if (want('9c', 'lazy-prose-desync')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const f = path.join(d, 'api/browse_prose.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -331,7 +425,7 @@ record(
 // 9d. the first view needs prose the boot index no longer carries -> check_lazy_app.js
 //     The featured genre (the page's first starter) loses its prose from the
 //     boot index, so the first view would wait on the file that follows it.
-{
+if (want('9d', 'first-view-needs-prose')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const B = require('./_browse_tables.js');
   const featured = B.starterIds(fs.readFileSync(path.join(d, 'src/app.js'), 'utf8'))[0];
@@ -352,7 +446,7 @@ record(
 // 9e. the page claims prose is there before it lands -> check_lazy_app.js
 //     proseState answers 'here' for every genre, so the window's readers say
 //     "the catalog has no description" where they should say "loading".
-{
+if (want('9e', 'pending-claims-absence')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const f = path.join(d, 'src/app.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -370,7 +464,7 @@ record(
 }
 
 // 9f. the prose's arrival redraws the page instead of filling its slots -> check_lazy_app.js
-{
+if (want('9f', 'prose-arrival-redraws')) {
   const d = mkenv(['scripts', 'references', 'src', 'api']);
   const f = path.join(d, 'src/pages/genre.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -390,7 +484,7 @@ record(
 // 9g. the published browse.json drifts -> check_api.js
 //     No behavioural gate reads it now that the app boots from the split files,
 //     so check_api's derivation is what holds it.
-{
+if (want('9g', 'published-browse-drift')) {
   const d = mkenv(['scripts', 'references', 'api']);
   const f = path.join(d, 'api/browse.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -404,7 +498,7 @@ record(
 }
 
 // 9h. the genre prose is preloaded with the boot index -> build_html.js --check
-{
+if (want('9h', 'prose-preloaded')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/build_html.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -422,6 +516,821 @@ record(
   );
 }
 
+// 9i–9zi. THE INSTRUMENT ENGINE OUTSIDE THE LAZY PAGE. The lazy codex.html
+//     carries an empty slot for each of the eight engine tables, an index of
+//     instrument names (INSTRUMENT_INDEX) and the digest of api/engine.json,
+//     and fills the slots from that file (at its first paint, or from <head>
+//     when a saved session needs it). Each class
+//     plants one way that split goes wrong and expects the gate's own sentence
+//     for it, not `LAZY-APP: FAIL`: a check_lazy_app section fails on many
+//     things, and a bare banner would count a catch made for another reason.
+//     Every plant goes through plantIn, which throws when its anchor is gone,
+//     so a class whose code moved stops the run instead of recording a pass
+//     for a fault that was never planted. A class planted for one check of the
+//     engine section runs that check alone (check_lazy_app --checks): the
+//     section's other checks, a boot each, would re-prove what other classes
+//     prove, and the freshness job pays for every boot.
+function plantIn(d, rel, find, replace) {
+  const f = path.join(d, rel);
+  const src = fs.readFileSync(f, 'utf8');
+  if (!src.includes(find))
+    throw new Error(
+      `faults: plant site not found in ${rel}: ${JSON.stringify(find.slice(0, 100))}`
+    );
+  // A replacer function, so a `$&` or `$1` in `replace` is written as typed.
+  const out = src.replace(find, () => replace);
+  fs.writeFileSync(f, out);
+}
+const lazyEnv = () => mkenv(['scripts', 'references', 'src', 'api']);
+const lazyGate = (d, ...args) => gate(d, ['scripts/check_lazy_app.js', ...args]);
+// 9i and 9s: one word more in the first descriptor list of api/engine.json.
+// The line layout and the header's tables_sha1 are left as they were. The page
+// checks that digest, the instrument count and the zeroed index fields, never
+// what the tables hold, so it accepts the file.
+const plantEngineFile = (d) =>
+  plantIn(d, 'api/engine.json', '"descriptors":["', '"descriptors":["__FAULT__ ');
+
+// 9i. engine-desync: the file's tables drift under an unchanged digest -> check_lazy_app.js
+//     The embedded build merges references/; the lazy build merges the file.
+//     Parity fingerprints both merged engines, so the drift shows there, the
+//     one place a body the page accepted can be compared with its source.
+if (want('9i', 'engine-desync')) {
+  const d = lazyEnv();
+  plantEngineFile(d);
+  record(
+    'engine-desync -> check_lazy_app.js',
+    lazyGate(d, '--only=parity'),
+    /engine fingerprint drift/
+  );
+}
+
+// 9j. engine-read-in-first-view -> check_lazy_app.js
+//     A genre's roster names its instruments through InstLite, which reads the
+//     page's index. Inst reads the engine, which the first view holds back; put
+//     it back in the roster and the read throws EngineNotReadyError and is
+//     counted, which is how the gate sees a reader nobody declared.
+if (want('9j', 'engine-read-in-first-view')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/pages/genre.js',
+    '      const name = InstLite(i)?.name || i;',
+    '      const name = Inst(i)?.name || i;'
+  );
+  record(
+    'engine-read-in-first-view -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=default'),
+    /first view "default": \d+ engine read\(s\) before (?:it|the engine) landed/
+  );
+}
+
+// 9k. restore-without-engine -> check_lazy_app.js
+//     A saved recipe draws its cards at boot, and cards need the engine, so the
+//     boot asks for it first and holds at its status until it lands, writing
+//     nothing. _bootNeedsEngine is that switch: answering false sends the
+//     restore into the empty slots.
+if (want('9k', 'restore-without-engine')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    'function _bootNeedsEngine() {',
+    'function _bootNeedsEngine() { return false;'
+  );
+  record(
+    'restore-without-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=restored'),
+    /first view "restored": (?:while the engine was held the page did not wait at the boot status|a restored session did not ask for the engine before its first view|\d+ engine read\(s\) before it landed)/
+  );
+}
+
+// 9l. action-without-engine -> check_lazy_app.js  (E3)
+//     An Add builds a card, and a card reads the instrument, its parts and the
+//     room. addInstrumentFromPicker waits for the engine through engineReady,
+//     which says "Preparing the instrument data…"; without the wait, an Add
+//     clicked before the engine lands acts on the empty slots.
+if (want('9l', 'action-without-engine')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    '  if (!_engineLive && !(await engineReady(opts && opts.retry))) return null;\n',
+    ''
+  );
+  record(
+    'action-without-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E3'),
+    /engine E3 \(add an instrument on its own\): .*before the instrument data landed — an action must wait for it/
+  );
+}
+
+// 9m. engine-before-first-paint -> check_lazy_app.js
+//     The engine file is larger gzipped than the page itself (653 KB against
+//     498 KB). Asked for at boot, it shares the link with the first view and
+//     delays it. The plant moves Engine.start() out of uiAfterPaint, so the
+//     request goes out at init, before the first view is drawn.
+if (want('9m', 'engine-before-first-paint')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    'uiAfterPaint(() => { Engine.start(); Engine.fetched()',
+    'Engine.start(); uiAfterPaint(() => { Engine.fetched()'
+  );
+  record(
+    'engine-before-first-paint -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=default'),
+    /first view "default": the engine was requested before the first view was drawn/
+  );
+}
+
+// 9n. sort-before-merge -> check_lazy_app.js
+//     The embedded page merges the family parts into INSTRUMENTS in source
+//     order and sorts after, and the lazy boot must do the same. The merge
+//     depends on order: the universal-material pass collects each material
+//     from the instruments in the order it meets them and lends the copies in
+//     that order. Sorted first, the merged engine differs while every
+//     instrument is still present.
+if (want('9n', 'sort-before-merge')) {
+  const d = lazyEnv();
+  const merge =
+    'yield* mergeFamilyPartsSteps(t.INSTRUMENTS, t.INSTRUMENT_FAMILY_PARTS, { plan: kinds });';
+  plantIn(d, 'src/app.js', merge, `_sortInstruments(t.INSTRUMENTS); ${merge}`);
+  plantIn(
+    d,
+    'src/app.js',
+    '        _sortInstruments(t.INSTRUMENTS);\n        CODEX_ENGINE_COMMIT(t);',
+    '        CODEX_ENGINE_COMMIT(t);'
+  );
+  record(
+    'sort-before-merge -> check_lazy_app.js',
+    lazyGate(d, '--only=parity'),
+    /engine fingerprint drift[^\n]*differs in:[^\n]*\binstruments\b/
+  );
+}
+
+// 9o. similar-before-engine -> check_lazy_app.js  (E4)
+//     The similar view's "instruments that fit" reads every instrument's axes.
+//     Before the engine lands it must draw a loading block and compute nothing;
+//     with its guard switched off it draws no block at all.
+if (want('9o', 'similar-before-engine')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    '  if (!_engineLive) {\n    _pickerEnginePending = true;',
+    '  if (false) {\n    _pickerEnginePending = true;'
+  );
+  record(
+    'similar-before-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E4'),
+    /engine E4: the similar view before the instrument data/
+  );
+}
+
+// 9p. engine-retry-loop -> check_lazy_app.js  (F4a)
+//     A failed engine load is retried by an action, Retry or the browser
+//     coming back online, never on a timer: with the host down, a timer keeps
+//     asking for the file for as long as the page stays open. The plant's
+//     timer is 30 s, longer than the whole of F4a, so only running the timers
+//     still pending at its end can see it; a short one also shows in the
+//     counts F4a takes between its steps.
+if (want('9p', 'engine-retry-loop')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "        state = 'failed';\n        bootP = null;",
+    "        state = 'failed';\n        bootP = null;\n        setTimeout(() => load().catch(() => {}), 30000);"
+  );
+  record(
+    'engine-retry-loop -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /engine unreachable \(F4a\): the page's \d+ pending timer\(s\), run as if it had stayed open, made [1-9]\d* request\(s\) for api\/engine\.json/
+  );
+}
+
+// 9q. engine-skew-accepted -> check_lazy_app.js  (F4c)
+//     A page from one deploy can meet api/engine.json from another, from a
+//     cache or a half-finished upload. The page refuses a file whose digest is
+//     not its own CODEX_ENGINE_SHA; without that compare, another deploy's
+//     tables fill the slots whenever its instrument count still matches.
+if (want('9q', 'engine-skew-accepted')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', 'if (head.tables_sha1 !== CODEX_ENGINE_SHA) throw stale();', '');
+  record(
+    'engine-skew-accepted -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /\(F4c\): a file whose tables_sha1 is not the page's was accepted/
+  );
+}
+
+// 9r. engine-in-page -> build_html.js --check
+//     The lazy build strips the tables named in ENGINE_TABLES
+//     (scripts/_page_tables.js). Drop a name from that list and the table ships
+//     inline again: for INSTRUMENTS, about 550 KB more gzipped. --check spells
+//     the eight names out itself, so the edit that puts a table back cannot
+//     also turn off the check.
+if (want('9r', 'engine-in-page')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/_page_tables.js',
+    "const ENGINE_TABLES = [\n  'INSTRUMENT_FAMILY_PARTS',\n  'INSTRUMENTS',\n",
+    "const ENGINE_TABLES = [\n  'INSTRUMENT_FAMILY_PARTS',\n"
+  );
+  record(
+    'engine-in-page -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /lazy page carries engine table INSTRUMENTS/
+  );
+}
+
+// 9s. engine-file-drift -> check_api.js
+//     The plant of 9i, held by the static check instead: the file is internal
+//     and nothing but check_api reads it whole. It derives the file from
+//     references/ through scripts/_page_tables.js and compares it byte for
+//     byte, so the drift fails here without a browser.
+if (want('9s', 'engine-file-drift')) {
+  const d = mkenv(['scripts', 'references', 'api']);
+  plantEngineFile(d);
+  record(
+    'engine-file-drift -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /engine\.json differs from what scripts\/_page_tables\.js derives/
+  );
+}
+
+// 9t, 9ta–9tc. THE PAYLOAD BUDGETS -> check_payload_budget.js. No other gate
+//     holds the lazy page and its two first downloads to a size, so each of
+//     the four budgets gets its own plant, each in a copy of the page and of
+//     the two api/ files the budgets read. The plant is incompressible base64,
+//     sized from the gate's own baseline line so the budget lands about 32 KiB
+//     over its limit whatever its headroom is today (a fixed size would stop
+//     reaching the limit once the page shrank, or the engine file did; at step
+//     9 the headroom is 76 KB for the page, 45 KB for page + boot index, 37 KB
+//     for the inline data and 125 KB for the engine). The bytes come from a
+//     hash chain, not a random source, so every run plants the same files. The
+//     unplanted copy must pass first, or a class could not tell its plant from
+//     a page already over. When it does not, each budget class records a
+//     failure of its own (BASELINE-OVER; the gate's table is printed once) and
+//     the run goes on: in CI the freshness job's budget step has already
+//     failed on that page, and the classes after these still owe a verdict.
+function budgetEnv() {
+  const d = mkenv(['scripts']);
+  const html = path.join(d, 'codex.html');
+  const api = path.join(d, 'api');
+  fs.copyFileSync(FRESH_HTML || path.join(ROOT, 'codex.html'), html);
+  fs.mkdirSync(api);
+  for (const f of ['browse_boot.json', 'engine.json'])
+    fs.copyFileSync(path.join(FRESH_API || path.join(ROOT, 'api'), f), path.join(api, f));
+  const args = ['scripts/check_payload_budget.js', `--html=${html}`, `--api=${api}`];
+  const baseline = gate(d, args);
+  if (baseline.code !== 0) return { d, over: baseline };
+  const num = (s) => Number(s.replace(/,/g, ''));
+  // What the budget has left, from its line of the gate's table.
+  const left = (id) => {
+    const m = baseline.out.match(new RegExp(`^ +${id} +([\\d,]+) +([\\d,]+) `, 'm'));
+    if (!m) throw new Error(`faults: check_payload_budget printed no ${id} line`);
+    return num(m[2]) - num(m[1]);
+  };
+  return { d, html, api, args, left };
+}
+let baselineShown = false;
+// One budget class: plant(B) into budgetEnv's copy, then the gate. With the
+// unplanted copy already over, the class cannot plant: a failure row.
+function budgetClass(cls, plant, expect) {
+  const B = budgetEnv();
+  if (B.over) {
+    if (!baselineShown)
+      process.stderr.write(
+        `  The unplanted page fails check_payload_budget (exit ${B.over.code}), so no budget class can plant:\n${B.over.out.replace(/^/gm, '    ')}\n`
+      );
+    baselineShown = true;
+    return refuse(cls, 'BASELINE-OVER', `the unplanted page fails the gate, exit ${B.over.code}`);
+  }
+  plant(B);
+  record(cls, gate(B.d, B.args), expect);
+}
+// Base64 of `n` hash-chained bytes: about `n` bytes once gzipped, at 6 bits a
+// character.
+function incompressible(tag, n) {
+  const chunks = [];
+  for (let i = 0; chunks.length * 64 < n; i++)
+    chunks.push(crypto.createHash('sha512').update(`faults ${tag} ${i}`).digest());
+  return Buffer.concat(chunks).subarray(0, n).toString('base64');
+}
+const OVER = 32 * 1024;
+
+// 9t. page-over-budget: the lazy page growing back — a table inline again, a
+//     runtime module, a comment. The plant is a comment before the last
+//     </body>.
+if (want('9t', 'page-over-budget'))
+  budgetClass(
+    'page-over-budget -> check_payload_budget.js',
+    (B) => {
+      const filler = incompressible('9t', B.left('page') + OVER);
+      const html = fs.readFileSync(B.html, 'utf8');
+      const at = html.lastIndexOf('</body>');
+      if (at < 0)
+        throw new Error('faults: no </body> in codex.html to plant the 9t comment before');
+      fs.writeFileSync(
+        B.html,
+        `${html.slice(0, at)}<!-- __BUDGET_FAULT__ ${filler} -->\n${html.slice(at)}`
+      );
+    },
+    /✗ page: [\d,]+ B gzip, over its [\d,]+ B/
+  );
+
+// 9ta. critical-over-budget: the first view's other download regrows — prose
+//     or exemplars back in the boot index. The plant is one more field in
+//     api/browse_boot.json; the page itself is untouched, so only the page +
+//     boot index budget can see it.
+if (want('9ta', 'critical-over-budget'))
+  budgetClass(
+    'critical-over-budget -> check_payload_budget.js',
+    (B) => {
+      const filler = incompressible('9ta', B.left('critical') + OVER);
+      plantIn(B.d, 'api/browse_boot.json', '{', `{"__BUDGET_FAULT__":"${filler}",`);
+    },
+    /✗ critical: [\d,]+ B gzip, over its [\d,]+ B/
+  );
+
+// 9tb. inline-data-over-budget: a references table inline again, beside the
+//     engine block. The plant is one more labelled data <script> block,
+//     which the inline-data budget reads (it may also take the page + boot
+//     index budget over; the row expects the inline-data line).
+if (want('9tb', 'inline-data-over-budget'))
+  budgetClass(
+    'inline-data-over-budget -> check_payload_budget.js',
+    (B) => {
+      const filler = incompressible('9tb', B.left('inline-data') + OVER);
+      const html = fs.readFileSync(B.html, 'utf8');
+      const at = html.lastIndexOf('</body>');
+      if (at < 0) throw new Error('faults: no </body> in codex.html to plant the 9tb block before');
+      fs.writeFileSync(
+        B.html,
+        `${html.slice(0, at)}<script>\n// ─── __BUDGET_FAULT__ ───\nconst __BUDGET_FAULT__ = "${filler}";\n</script>\n${html.slice(at)}`
+      );
+    },
+    /✗ inline-data: [\d,]+ B gzip, over its [\d,]+ B/
+  );
+
+// 9tc. engine-over-budget: api/engine.json regrows — a dropped field kept, a
+//     table added — which a restored session's first draw and every early Add
+//     wait for. The plant is one more element line before the closing ].
+if (want('9tc', 'engine-over-budget'))
+  budgetClass(
+    'engine-over-budget -> check_payload_budget.js',
+    (B) => {
+      const filler = incompressible('9tc', B.left('engine') + OVER);
+      plantIn(B.d, 'api/engine.json', '\n]\n', `,\n["__BUDGET_FAULT__","${filler}"]\n]\n`);
+    },
+    /✗ engine: [\d,]+ B gzip, over its [\d,]+ B/
+  );
+
+// 9u. index-drift -> check_lazy_app.js  (E1)
+//     The first view names instruments from INSTRUMENT_INDEX, which the build
+//     derives from the same tables as the engine; once the engine lands Inst
+//     answers instead. A trailing space in every indexed name is invisible on
+//     screen, and the build's --check derives its expectation through the same
+//     function, so only comparing InstLite with the embedded Inst catches it.
+if (want('9u', 'index-drift')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'scripts/_page_tables.js',
+    'instruments.map((i) => [i.id, i.name, i.family,',
+    "instruments.map((i) => [i.id, i.name + ' ', i.family,"
+  );
+  record(
+    'index-drift -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E1'),
+    /engine E1: InstLite differs from the embedded Inst/
+  );
+}
+
+// 9v. prose-not-sequenced -> check_lazy_app.js
+//     The background prose prefetch waits for the engine's bytes: requested
+//     together at paint, the two share a slow link and the engine, which
+//     every Add waits for, lands about 4 s later (measured, slow 4G). The
+//     plant asks for the prose at paint, beside the engine.
+if (want('9v', 'prose-not-sequenced')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    'uiAfterPaint(() => { Engine.start(); Engine.fetched().then(() => Catalog.loadProse().catch(() => {})); });',
+    'uiAfterPaint(() => { Engine.start(); Catalog.loadProse().catch(() => {}); });'
+  );
+  record(
+    'prose-not-sequenced -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=default'),
+    /first view "default": the genre prose was requested while the instrument data was held/
+  );
+}
+
+// 9w. prose-starved -> check_lazy_app.js  (F4a)
+//     The other side of 9v: the prefetch follows Engine.fetched(), so a failed
+//     engine request must still count as delivered. Without the bytesDone()
+//     that opens the load's catch, an unreachable engine also holds back the
+//     genre descriptions, which never needed it.
+if (want('9w', 'prose-starved')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', '      .catch((e) => {\n        bytesDone();', '      .catch((e) => {');
+  record(
+    'prose-starved -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /the genre prose did not load within 10 s/
+  );
+}
+
+// 9x. engine-preload-disagrees -> check_lazy_app.js
+//     A saved session's page asks for the engine from <head>
+//     (src/engine_preload.js), by the test app.js applies at boot:
+//     _bootNeedsEngine over storedSessionText's keys. Read differently, a
+//     session that needs the engine starts it late, or a page that never uses
+//     it downloads it during its first view. build_html.js --check runs the
+//     <head> script over a fixed table of keys, so a key dropped there fails
+//     the build; the plant is on the side only check_lazy_app reads, a key
+//     app.js starts to read and <head> does not.
+if (want('9x', 'engine-preload-disagrees')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "localStorage.getItem('musica-study-v1') || null;\n}",
+    "localStorage.getItem('musica-study-v1') || localStorage.getItem('codex-workbench-v2') || null;\n}"
+  );
+  record(
+    'engine-preload-disagrees -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=default'),
+    /engine preload \(codex-workbench-v2 alone\): <head> preloaded \[\], but app\.js asked for the engine at boot/
+  );
+}
+
+// 9y. engine-preload-unused -> check_lazy_app.js
+//     The preload is only worth its bytes if the app's fetch() takes it over,
+//     and that needs the same URL. The plant shortens the build's ?v= key by
+//     one character: build_html.js --check compares the script with the URL
+//     the build computes, so only the app's own request can tell.
+if (want('9y', 'engine-preload-unused')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    'engine.json?v=${ENGINE_SHA.slice(0, 12)}',
+    'engine.json?v=${ENGINE_SHA.slice(0, 11)}'
+  );
+  record(
+    'engine-preload-unused -> check_lazy_app.js',
+    lazyGate(d, '--only=first-view', '--scenarios=restored'),
+    /first view "restored": want one engine preload in <head> \(as=fetch, crossorigin=anonymous\) for the one URL the app asked for/
+  );
+}
+
+// 9z. preload-by-script -> build_html.js --check
+//     The page's one dynamic preload is the engine's, for a saved session.
+//     Any other script that preloads joins the first view's download unseen
+//     by the static list, so a second script naming "preload" is refused.
+if (want('9z', 'preload-by-script')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'src/app.js',
+    'function storedSessionText() {',
+    "function storedSessionText() { if (!storedSessionText.done) { storedSessionText.done = 1; const l = document.createElement('link'); l.rel = 'preload'; l.as = 'fetch'; l.href = CODEX_LAZY_API + 'browse_prose.json'; document.head.appendChild(l); }"
+  );
+  record(
+    'preload-by-script -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /2 <script> block\(s\) in a lazy page name "preload"/
+  );
+}
+
+// 9za. inspect-without-engine -> check_lazy_app.js  (E2)
+//     Inspecting an instrument reads it, its parts and their variants. Before
+//     the engine lands uiInspectInstrument opens the Instrument page and waits;
+//     without that guard, the genre roster's Inspect reads the empty slots,
+//     which the E2 sweep counts as an engine read.
+if (want('9za', 'inspect-without-engine')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/pages/instrument.js',
+    'function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {\n  if (!_engineLive) {',
+    'function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {\n  if (false) {'
+  );
+  record(
+    'inspect-without-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E2'),
+    /engine E2: on a genre's detail \[data-ui="instrument-inspect"\]: \d+ engine read\(s\)/
+  );
+}
+
+// 9zb. count-while-pending -> check_lazy_app.js  (E5)
+//     The Instrument page's count is INSTRUMENTS.length, and before the
+//     engine lands that is a claim about an empty slot. The pending list
+//     shows no count; the plant shows "0 instruments" there.
+if (want('9zb', 'count-while-pending')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/pages/instrument.js',
+    "  $ui('ip-total').textContent = '';\n",
+    "  $ui('ip-total').textContent = uiCount(0, 'instrument');\n"
+  );
+  record(
+    'count-while-pending -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E5'),
+    /engine E5: a search while the instrument data loads reads .*\(count "0 instruments"\); want the loading state and no count/
+  );
+}
+
+// 9zc. engine-reader-moved -> check_lazy_app.js  (E6)
+//     Every direct read of an engine table is listed in ENGINE_READERS, per
+//     file, table and enclosing function, so a new reader is reviewed for when
+//     it runs. The plant moves one: a top-level read of INSTRUMENTS is added
+//     and findInstrumentsForTradition stops reading it. The table's count is
+//     unchanged, which a census per table would pass.
+if (want('9zc', 'engine-reader-moved')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "if (typeof INSTRUMENTS !== 'undefined') _sortInstruments(INSTRUMENTS);\n",
+    "if (typeof INSTRUMENTS !== 'undefined') _sortInstruments(INSTRUMENTS);\nconst __FAULT__ = !!INSTRUMENTS;\n"
+  );
+  plantIn(
+    d,
+    'src/app.js',
+    '  return INSTRUMENTS\n    .filter(i => !existing.has(i.id) && i.axes)',
+    '  return [..._INST_BY_ID.values()]\n    .filter(i => !existing.has(i.id) && i.axes)'
+  );
+  record(
+    'engine-reader-moved -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E6'),
+    /engine E6: the direct reads of the engine tables changed: src\/app\.js INSTRUMENTS in \(top level\): 3 → 4; src\/app\.js INSTRUMENTS in findInstrumentsForTradition: 1 → 0/
+  );
+}
+
+// 9zd. boot-error-unmarked -> check_lazy_app.js  (F4b)
+//     A saved session the boot cannot draw for want of the engine says so in
+//     a #boot-error marked data-engine-pending="failed", the mark every engine
+//     failure state carries. The plant draws the error without it.
+if (want('9zd', 'boot-error-unmarked')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', `(engine ? ' data-engine-pending="failed"' : '')`, "''");
+  record(
+    'boot-error-unmarked -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /engine unreachable with a saved session \(F4b\): #boot-error \(data-engine-pending=null/
+  );
+}
+
+// 9ze. merge-plan-misordered -> check_lazy_app.js
+//     api/engine.json's MERGE_PLAN tells the page which variants each
+//     universal material lends, in the order the merge would collect them,
+//     and the page trusts a plan whose positions resolve. The plant swaps two
+//     variants the plan takes from one part, under the file's own digests:
+//     every position still resolves, so the page lends them in the wrong order,
+//     and only the merged engine, fingerprinted against the embedded build's,
+//     shows it: its variants, numbered by first sight, are met in another
+//     order (check_api fails the file too, byte for byte, as in 9s).
+if (want('9ze', 'merge-plan-misordered')) {
+  const d = lazyEnv();
+  const f = path.join(d, 'api/engine.json');
+  const lines = fs.readFileSync(f, 'utf8').split('\n');
+  const at = lines.findIndex((l) => l.startsWith('["MERGE_PLAN",'));
+  if (at < 0) throw new Error('faults: api/engine.json has no MERGE_PLAN line for class 9ze');
+  const el = JSON.parse(lines[at]);
+  const u = el[1].kinds.string.u;
+  // Triples of (instrument delta, part, variant): the first two in one part.
+  let n = 3;
+  while (n < u.length && !(u[n] === 0 && u[n + 1] === u[n - 2])) n += 3;
+  if (n >= u.length)
+    throw new Error('faults: the string plan takes no two variants from one part (class 9ze)');
+  [u[n - 1], u[n + 2]] = [u[n + 2], u[n - 1]];
+  lines[at] = JSON.stringify(el);
+  fs.writeFileSync(f, lines.join('\n'));
+  record(
+    'merge-plan-misordered -> check_lazy_app.js',
+    lazyGate(d, '--only=parity'),
+    /engine fingerprint drift[^\n]*differs in:[^\n]*\bvariants\b/
+  );
+}
+
+// 9zf. lending-drops-tail -> check_api.js
+//     The universal-material merge lends each target part the union's
+//     variants it does not hold, cut as slices of the union between the ones
+//     it does. Drop the last slice and 871 parts lose 235,236 lent variants;
+//     the merge's own proof (planned against unplanned) cannot see it, since
+//     both run the same code, and nor can the app/Node equivalence. The
+//     catalog's own records can: every tradition's config names its variants,
+//     and a lent one that is gone no longer resolves.
+if (want('9zf', 'lending-drops-tail')) {
+  const d = mkenv(['scripts', 'references', 'api']);
+  plantIn(
+    d,
+    'scripts/_merge.js',
+    '        if (from < lent.length) slices.push(lent.slice(from));\n',
+    ''
+  );
+  record(
+    'lending-drops-tail -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /✗ traditions\/[\w-]+\.json — [\w-]+\.[\w-]+: variant not in catalog: /
+  );
+}
+
+// 9zg. record-after-wait -> check_lazy_app.js  (E8)
+//     An Add asks for its genre's record (api/traditions/<id>.json) beside
+//     the engine, so on a slow link the two waits overlap instead of adding
+//     up. The plant asks for it after the engine wait, as before step 9's fix.
+if (want('9zg', 'record-after-wait')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    '  const full = Catalog.ensureFull(tradId);\n  full.catch(() => {});\n  if (!_engineLive && !(await engineReady(retry))) return [];',
+    '  if (!_engineLive && !(await engineReady(retry))) return [];\n  const full = Catalog.ensureFull(tradId);\n  full.catch(() => {});'
+  );
+  record(
+    'record-after-wait -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E8'),
+    /engine E8: while the instrument data was held the Add requested api\/traditions\/[\w-]+\.json 0 time\(s\)/
+  );
+}
+
+// 9zh. optional-before-engine -> check_lazy_app.js  (E0)
+//     The genre page's optional downloads (the atlas outlines and the genre
+//     photos) wait for the engine's bytes, as the prose does: requested at
+//     the paint, they share the link with the file an early Add waits for.
+//     The plant asks for them at the paint.
+if (want('9zh', 'optional-before-engine')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/pages/genre.js',
+    'uiAfterPaint(() => Engine.fetched().then(gpLoadOptional));',
+    'uiAfterPaint(gpLoadOptional);'
+  );
+  record(
+    'optional-before-engine -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E0'),
+    /engine E0: [^\n]*(?:data\/atlas-geo\.json|api\/tradition_images\.json)[^\n]* requested while the instrument data was held/
+  );
+}
+
+// 9zi. engine-preload-dropped -> build_html.js --check
+//     The <head> preload is a saved session's head start (src/engine_preload.js,
+//     placed by the template's <!--@ENGINE_PRELOAD--> marker). A template
+//     without the marker stops the build at once; the plant is the quieter
+//     loss, a build that keeps the marker and emits nothing for it, so the
+//     page ships without the script.
+if (want('9zi', 'engine-preload-dropped')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    '  .replace(ENGINE_PRELOAD_MARKER, () =>\n    LAZY\n',
+    '  .replace(ENGINE_PRELOAD_MARKER, () =>\n    false\n'
+  );
+  record(
+    'engine-preload-dropped -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /0 <script> block\(s\) in a lazy page name "preload"; want 1/
+  );
+}
+
+// 9zj. boot-error-hidden -> check_lazy_app.js  (F1, F4b, F4c, F4f)
+//     A boot that fails draws its error in the boot status's place, which
+//     body.boot-failed shows over the whole viewport. Drawn in the editor
+//     panel, as step 9 first drew it, the words are there and nobody sees
+//     them: the workbench's styles hide that panel until an editor opens, and
+//     the page is blank. The gate asks the computed style of the error and
+//     every ancestor, not only its words.
+if (want('9zj', 'boot-error-hidden')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "  const host = document.getElementById('boot-status') || document.body;",
+    "  const host = document.getElementById('workspace-detail') || document.body;"
+  );
+  record(
+    'boot-error-hidden -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /#boot-error and its Reload are drawn but not shown \(section#workspace-detail display=none\): a blank page/
+  );
+}
+
+// 9zk. boot-failure-unhandled -> check_lazy_app.js  (F1, F4b)
+//     The boot's handlers attach at DOMContentLoaded, and a saved session's
+//     engine request goes out from <head>, so a fast 404 can reject
+//     CATALOG_READY while the page is still arriving. Handled from its
+//     creation, it waits for them; unhandled, it reaches the page's trap,
+//     whose "Something went wrong" toast covers the boot error. The plant
+//     drops that first handler; F1 and F4b hold DOMContentLoaded's handlers
+//     until the failure has landed.
+if (want('9zk', 'boot-failure-unhandled')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', 'if (CATALOG_READY) CATALOG_READY.catch(() => {});\n', '');
+  record(
+    'boot-failure-unhandled -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /\((?:F1|F4b)\): unhandled rejection before DOMContentLoaded \(/
+  );
+}
+
+// 9zl. not-the-file-as-stale -> check_lazy_app.js  (F4d)
+//     Only a header that parses and names another digest is another deploy's
+//     file, which a reload fixes. A 200 that is not the file (a captive
+//     portal's sign-in page, a host's fallback page) is a load failure, which
+//     a retry can fix; refused as stale it offers Reload alone. The plant
+//     throws the stale refusal for it.
+if (want('9zl', 'not-the-file-as-stale')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "          throw new Error('the response is not the instrument data');",
+    '          throw stale();'
+  );
+  record(
+    'not-the-file-as-stale -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /\(F4d, a sign-in page in its place\): the engine is failed \("instrument data does not match this page", stale true\)/
+  );
+}
+
+// 9zm. engine-preload-stray-key -> build_html.js --check
+//     The other side of 9x: <head> reads a key app.js does not, so a page
+//     that never restores that session downloads the engine during its first
+//     view. build_html.js --check answers every key the script asks for and
+//     refuses one storedSessionText does not read (check_lazy_app's first
+//     view fails it too, from the page).
+if (want('9zm', 'engine-preload-stray-key')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'src/engine_preload.js',
+    "      localStorage.getItem('musica-study-v1') ||\n",
+    "      localStorage.getItem('musica-study-v1') ||\n      localStorage.getItem('codex-workbench-v2') ||\n"
+  );
+  record(
+    'engine-preload-stray-key -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /the engine preload reads localStorage\.getItem\("codex-workbench-v2"\), which storedSessionText \(src\/app\.js\) does not/
+  );
+}
+
+// 9zn. embedded-engine-table-missing -> build_html.js --embedded --check
+//     The embedded page is the one check_lazy_app and tandem hold the lazy
+//     shell to, and it carries every engine table inline. --check reads each
+//     of the eight back, by name, with rows; the plant strips ROOM_CLUSTERS
+//     from the embedded build as the lazy build strips the whole engine.
+if (want('9zn', 'embedded-engine-table-missing')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    "const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES]) : new Set();",
+    "const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES]) : new Set(['ROOM_CLUSTERS']);"
+  );
+  record(
+    'embedded-engine-table-missing -> build_html.js --embedded --check',
+    gate(d, [
+      'scripts/build_html.js',
+      '--embedded',
+      '--check',
+      '--quiet',
+      `--out=${path.join(d, 'x.html')}`,
+    ]),
+    /the embedded page does not carry engine table ROOM_CLUSTERS/
+  );
+}
+
+// 9zo. inlined-engine-reader -> check_lazy_app.js  (E6)
+//     The page runs the regions build_html.js inlines from scripts/ beside
+//     src/, so E6's census of the engine-table reads covers them too. The
+//     plant adds a read of INSTRUMENTS to harvestDescriptors, in
+//     scripts/_card_descriptors.js's inlined region.
+if (want('9zo', 'inlined-engine-reader')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'scripts/_card_descriptors.js',
+    '  const inst = lookups.inst(card.instrumentId);\n',
+    '  const inst = lookups.inst(card.instrumentId) || INSTRUMENTS.find((x) => x.id === card.instrumentId);\n'
+  );
+  record(
+    'inlined-engine-reader -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E6'),
+    /engine E6: the direct reads of the engine tables changed: scripts\/_card_descriptors\.js@inline INSTRUMENTS in harvestDescriptors: 0 → 1/
+  );
+}
+
 // 9b. minification changes behaviour -> check_minified_equivalence.js
 //     The gate builds the embedded app BOTH ways from one source and compares
 //     them, so the defect to plant is in the transformer itself: _minify.js is
@@ -430,7 +1339,7 @@ record(
 //     string in one table is wrong, which no byte ceiling or parse check can
 //     see. (A total break, like enabling top-level mangling, is caught by the
 //     behavioural harnesses too; this one is not.)
-{
+if (want('9b', 'minifier-changes-behaviour')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_minify.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -449,7 +1358,7 @@ record(
 
 // 10. doc count drift -> check_docs.js  (a canonical count in the docs no longer
 //     matches the live catalog — the class that shipped stale AGENTS/SKILL counts)
-{
+if (want('10', 'count-drift')) {
   const d = mkenv([
     'scripts',
     'references',
@@ -489,7 +1398,7 @@ record(
 //      This class is deliberately built from the qualifier list itself rather
 //      than a literal `with`, so it keeps testing the boundary if QUALIFIERS is
 //      ever edited.
-{
+if (want('10b', 'count-drift-behind-qualifier')) {
   const d = mkenv(['scripts', 'references', 'SKILL.md', 'AGENTS.md', 'index.html', 'llms.txt']);
   const f = path.join(d, 'AGENTS.md');
   const src = fs.readFileSync(f, 'utf8');
@@ -505,7 +1414,7 @@ record(
 }
 
 // 11. a documented command that no longer exits 0 -> check_doc_commands.js
-{
+if (want('11', 'failing-doc-command')) {
   const d = mkenv([
     'scripts',
     'references',
@@ -532,7 +1441,7 @@ record(
 //      documents were found citing two example lyrics that had been deleted
 //      nine days earlier, across 49 citations and 17 "REPRODUCES EXACTLY"
 //      rows, while `npm run check-docs` stayed green throughout)
-{
+if (want('11b', 'documented-path-missing')) {
   const d = mkenv([
     'scripts',
     'references',
@@ -556,7 +1465,7 @@ record(
 
 // 12. a documented BEHAVIOR drifts from the prose -> check_doc_behaviors.js
 //     (corrupt belting's documented §3d token list — the assertion must catch it)
-{
+if (want('12', 'behavior-drift')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/07_preface_lexicon.js');
   // Rename belting's UNIQUE id so the §3d assertion (which finds 'belting' and
@@ -575,7 +1484,7 @@ record(
 // 13. a production-dead preface token -> check_prefaces.js  (a token no card can
 //     surface in production preface scoring: it silently never matches yet still
 //     inflates the |shared|/tokens.length denominator — the M-DATA-1 class)
-{
+if (want('13', 'dead-preface-token')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/07_preface_lexicon.js');
   fs.writeFileSync(
@@ -592,7 +1501,7 @@ record(
 // 14. app<->connector parity drift -> check_app_parity.js  (mutate ONLY the connector
 //     render path; the app reads its own inlined compileRecipeStack from src/app.js,
 //     so a sentinel in _seed_workspace.renderWorkspace forces the two to disagree)
-{
+if (want('14', 'app-connector-parity-drift')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_seed_workspace.js');
   const source = fs.readFileSync(f, 'utf8');
@@ -612,7 +1521,7 @@ record(
 
 // 15. preface assignment drift -> regression_prefaces.js  (corrupt one fixture's
 //     expected preface so the matcher's real output no longer matches it)
-{
+if (want('15', 'preface-drift')) {
   const d = mkenv(['scripts', 'references', 'tests']);
   const f = path.join(d, 'tests/_preface_regression_fixtures.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -627,7 +1536,7 @@ record(
 
 // 16. slot-pick drift -> check_slot_picks.js  (corrupt one fixture's expected variant
 //     so the searched slot pick no longer matches the lock-in)
-{
+if (want('16', 'slot-pick-drift')) {
   const d = mkenv(['scripts', 'references', 'tests']);
   const f = path.join(d, 'tests/slot_pick_lock_ins.json');
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -643,7 +1552,7 @@ record(
 // 17. dead token in the AUDIT-enriched pool -> audit_dead_tokens.js  (class 13 covers
 //     the production pool via check_prefaces; this covers the enriched-pool gate that
 //     also scans variant.match_tokens — a token dead even there does no work)
-{
+if (want('17', 'dead-audit-token')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/07_preface_lexicon.js');
   fs.writeFileSync(
@@ -660,7 +1569,7 @@ record(
 // 18. workspace mutation -> check_workspace_ops.js  (neuter clone() to an identity
 //     function so edit ops mutate their input workspace, violating the state-passing
 //     immutability the gate's "IMMUTABLE: ..." checks assert)
-{
+if (want('18', 'workspace-mutation')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   fs.writeFileSync(
@@ -682,7 +1591,7 @@ record(
 // 19. stale voice-parts mirror -> _gen_voice_parts.js --check  (the Node seed's voice
 //     maps in _voice_parts_data.js drift from src/app.js without regeneration — a
 //     desync the recipe-parity gates can miss, since it need not change a rendered recipe)
-{
+if (want('19', 'stale-voice-parts')) {
   const d = mkenv(['scripts', 'src']);
   const f = path.join(d, 'scripts/_voice_parts_data.js');
   fs.writeFileSync(
@@ -711,7 +1620,7 @@ record(
 //     below 900px and the page clips its overflow, so the same width demand on
 //     its nav pushes the rightmost section tab off screen without any document
 //     overflow: the gate catches it through the four section capabilities.
-{
+if (want('20', 'unfittable-header')) {
   const d = mkenv(['scripts', 'codex.html', 'api']);
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
@@ -743,7 +1652,7 @@ record(
 //     require()). If the inlined copy drifts, the browser and the connector sort
 //     chunks by DIFFERENT numbers — a desync the recipe fixtures need not catch,
 //     since it only shows on the traditions whose chunks the drifted tokens reach.
-{
+if (want('21', 'drifted-descriptor-df')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'src/app.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -765,7 +1674,7 @@ record(
 //     every chunk. Truncating the frozen table is the mechanical dual of the
 //     catalog growing past it. The app.js block is regenerated from the truncated
 //     JSON first, so PARITY is clean and only COVERAGE can fail.
-{
+if (want('22', 'stale-frozen-df')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const p = path.join(d, 'references/_descriptor_df.json');
   const j = JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -789,7 +1698,7 @@ record(
 // bonuses from words that were never claims about sound. This is a one-word
 // defect (`false` -> `true`) with catalog-wide reach, which is exactly the kind
 // a reviewer waves through.
-{
+if (want('23', 'foreign-name-in-picks')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/score.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -820,7 +1729,7 @@ record(
 //     name the pair, not merely exit non-zero: an id-collision check would also
 //     exit 1 here, and this gate exists precisely because that is not what it
 //     is testing.
-{
+if (want('24', 'duplicate-entity')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/03_rooms_chains_tunings.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -853,7 +1762,7 @@ record(
 //     parity check, which is a different gate with its own failure message.
 //     The pair is read from the rulings file rather than typed here, so the
 //     class keeps planting a real false pair whatever the rulings become.
-{
+if (want('25', 'signature-false-pair-restored')) {
   const d = mkenv(['scripts', 'references', 'src', 'codex.html']);
   const rulings = JSON.parse(
     fs.readFileSync(path.join(d, 'references/_signature_rulings.json'), 'utf8')
@@ -882,7 +1791,7 @@ record(
 //      unread. Adds a cultural token the vocabulary knows to a signed tradition
 //      that has no ruling for it — the shape of an honest edit that skipped the
 //      ruling, not a typo the vocabulary would catch as UNCLASSED.
-{
+if (want('25b', 'signature-pair-unruled')) {
   const d = mkenv(['scripts', 'references', 'src', 'codex.html']);
   const vocab = JSON.parse(
     fs.readFileSync(path.join(d, 'references/_soundword_vocab.json'), 'utf8')
@@ -923,7 +1832,7 @@ record(
 // Disabling the multi-select branch is exactly the state the fx-corruption bug
 // shipped in: a bare id written straight through, to be spread into characters
 // by the next clone.
-{
+if (want('chain-shape-unvalidated')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -939,7 +1848,7 @@ record(
 
 // out-of-subset schema keyword -> check_connector_contract.js
 // looseObject republishes the open-record shape the named stages replaced.
-{
+if (want('schema-out-of-subset')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/schemas.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -953,7 +1862,7 @@ record(
 }
 
 // false read-only claim -> check_connector_contract.js
-{
+if (want('annotation-lies')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/tools.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -967,7 +1876,7 @@ record(
 }
 
 // invisible edits -> check_connector_contract.js
-{
+if (want('edit-invisible')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/engine.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -989,7 +1898,7 @@ record(
 // removal at a property that does not exist and the node survives into the
 // declarations — which the SUBSET scan above would never notice, because there
 // the same node is a justified exemption. Distinct plant, distinct gate row.
-{
+if (want('gemini-workspace-leak')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/gemini_tools.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1015,7 +1924,7 @@ record(
 // `additionalProperties` is the realistic one: it is present in the published
 // schema (chain's strictObject) and exempted there on purpose, so admitting it
 // to the allowlist republishes it to the one client that cannot read it.
-{
+if (want('gemini-illegal-keyword')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/gemini_tools.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1041,7 +1950,7 @@ record(
 // loop: search hands back a real chain id, the caller has to file it under one
 // of eight stages, and nothing it can reach says which. Dropping the `stage`
 // field restores exactly that.
-{
+if (want('chain-hit-stageless')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'mcp/engine.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1056,7 +1965,7 @@ record(
 }
 
 // a misfiled chain id gets a dead-end refusal -> check_connector_contract.js
-{
+if (want('chain-misfile-dead-end')) {
   const d = mkenv(['scripts', 'references', 'mcp']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1083,7 +1992,7 @@ record(
 // gate stayed green — check_app_parity.js compares SEED + RENDER, so an edit that
 // diverges in between is invisible to it. Cutting the cascade back out restores
 // precisely the code that was wrong.
-{
+if (want('connector-edit-divergence')) {
   const d = mkenv(['scripts', 'references', 'src', 'mcp']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1116,7 +2025,7 @@ record(
 // assets/icon-master.png since 2026-09-14, so repainting the master stands in
 // for any edit: it must fail twice over — the master's own pinned hash, and the
 // derived rasters that are a pure function of it.
-{
+if (want('favicon-raster-drift')) {
   const d = mkenv(['scripts', 'assets', 'favicon.ico', 'package.json']);
   const f = path.join(d, 'assets', 'icon-master.png');
   const before = fs.readFileSync(f);
@@ -1142,7 +2051,7 @@ record(
 // eleven real inputs live. Nothing about the build changes; only the classifier
 // lies. Caught only by the trace — no static review of the rule would notice,
 // which is why the gate runs a real build instead of reading its own list.
-{
+if (want('build-input-outside-closure')) {
   // build_discovery.js refuses to emit a sitemap URL with no file behind it, so
   // the staged tree needs every ENTRY_POINTS target (build_discovery.js:169) —
   // it only stats them, never reads them, which is also why editing a .md
@@ -1190,7 +2099,7 @@ record(
 // Planted by removing the invalid-counter rejection after JSON parsing, which
 // restores the old "just parse the JSON" failure mode. Anchor on the rejection
 // itself rather than the former numeric-clamping helper.
-{
+if (want('corrupt-spend-file-widens-cap')) {
   // test.mjs calls the same exported assertion. Its standalone runner keeps
   // the baseline and mutant focused on disk validation: the full MCP suite
   // exercises long kitchen runs and exceeds the gate's five-minute bound.
@@ -1228,7 +2137,7 @@ record(
 // edits rendered a different recipe across the two surfaces.
 //
 // Planted by neutering the guard, which is exactly the prior state.
-{
+if (want('connector-cascades-where-app-does-not')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1256,7 +2165,7 @@ record(
 // which is the space this harness explores and the matrix cannot enumerate.
 // That is the point of having both gates, so the plant is chosen to separate
 // them rather than to be caught by either.
-{
+if (want('renderer-fork-drift')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_recipe_stack.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1289,7 +2198,7 @@ record(
 // unread (M-282 addendum 2, measured), so 227KB can fit whole and the plant on
 // the plain mode could exit having dropped nothing -- the same misfire that
 // turned CI red in the other direction. 4MB cannot fit on any default kernel.
-{
+if (want('stdout-truncated-by-exit')) {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/list.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1322,7 +2231,7 @@ record(
 // ceiling while the field enforces the new one. A counter that lies is worse
 // than no counter, because it turns "I wonder why it stopped" into a wrong
 // answer the user believes.
-{
+if (want('chat-counter-restates-ceiling')) {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'src/app.js');
   const src = fs.readFileSync(f, 'utf8');
@@ -1351,7 +2260,7 @@ function foundationEnv() {
 //       <body>, or into the app's init, would behave. The page ends up in the
 //       right theme, so a screenshot taken after load cannot tell; only the
 //       moment <body> appears can.
-{
+if (want('36', 'theme-after-first-paint')) {
   const d = foundationEnv();
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
@@ -1371,7 +2280,7 @@ function foundationEnv() {
 //   (b) THE MAP WITHOUT THE RECIPE. Until the foundation, the Map view hid the
 //       recipe panel at desktop width and offered nothing to open it. Put that
 //       back and the one-workspace promise is false on one of its three pages.
-{
+if (want('37', 'map-loses-recipe')) {
   const d = foundationEnv();
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
@@ -1391,7 +2300,7 @@ function foundationEnv() {
 //       toast: opacity 0, still a target, so a later click at bottom centre ran
 //       Undo (or Retry) unseen. Both halves of the fix go — the button is kept
 //       when the toast hides, and nothing stops it taking the click.
-{
+if (want('38', 'toast-action-lingers')) {
   const d = foundationEnv();
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
@@ -1415,9 +2324,21 @@ function foundationEnv() {
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
-// completeness is only asserted on a full run (CI passes --fresh-api/--fresh-html).
+// completeness is only asserted on a full run (CI passes --fresh-api/--fresh-html,
+// and no --only).
+if (ONLY) {
+  const unknown = ONLY.filter((id) => !CLASS_IDS.has(id));
+  if (unknown.length || !results.length) {
+    console.error(
+      unknown.length
+        ? `faults: --only names no class: ${unknown.join(', ')} (a class answers to its number and its gate-class name)`
+        : `faults: --only=${ONLY.join(',')} selected no class that could run here (class 6 and 6b need --fresh-api/--fresh-html)`
+    );
+    process.exit(2);
+  }
+}
 let uncovered = [];
-if (FRESH_API && FRESH_HTML) {
+if (FRESH_API && FRESH_HTML && !ONLY) {
   const PROMISES = require('./_promises.js');
   const faulted = new Set(results.map((r) => r.cls.split('->').pop().trim()));
   uncovered = [...new Set(PROMISES.map((p) => p.gate))].filter(
@@ -1431,9 +2352,11 @@ console.log(
 );
 if (escaped.length === 0 && uncovered.length === 0) {
   console.log(
-    FRESH_API && FRESH_HTML
+    FRESH_API && FRESH_HTML && !ONLY
       ? 'PASS — every injected defect was caught AND every promise-bound gate has a fault class. All gates are two-sided.'
-      : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).'
+      : ONLY
+        ? `PASS — every injected defect was caught (partial run: --only=${ONLY.join(',')}).`
+        : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).'
   );
   process.exit(0);
 }
@@ -1443,7 +2366,7 @@ if (escaped.length) {
   );
   for (const e of escaped) console.error(`  ✗ ${e.cls}  [${e.reason}]`);
   console.error(
-    '  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect)'
+    '  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect; BASELINE-OVER = the unplanted page already fails the budget gate, so nothing could be planted)'
   );
 }
 if (uncovered.length) {

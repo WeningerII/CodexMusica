@@ -158,17 +158,23 @@ fs.writeFileSync(path.join(OUT_DIR, 'llms.txt'), llms);
 // Deliberately NOT here, so nobody re-adds them as "missing":
 //   • index.html — GitHub Pages serves it AT `${BASE}/`, which is already the
 //     first entry. Listing both declares two URLs for one document.
-//   • codex.html — the 5 MB browser GUI. llms.txt tells agents in as many words
-//     not to fetch it; putting it in the machine-readable "please crawl this"
-//     manifest would contradict that in the one place a machine actually looks,
-//     and invite every crawler to pull 5 MB on every sitemap poll. index.html
-//     links to it, so a human-facing crawler still finds it.
+//   • codex.html — the 1.8 MB browser GUI. llms.txt tells agents in as many
+//     words not to fetch it; putting it in the machine-readable "please crawl
+//     this" manifest would contradict that in the one place a machine actually
+//     looks, and invite every crawler to pull 1.8 MB on every sitemap poll.
+//     index.html links to it, so a human-facing crawler still finds it.
 //   • api/browse.json — the 8 MB published Tier-1 index. api/index.json lists
 //     it as an endpoint; it is not a document anyone should be told to open
 //     cold.
 //   • api/browse_boot.json and api/browse_prose.json — the lazy app's two
 //     halves of it (internal, like nav_glyphs.json): the boot index its first
-//     view reads, and the genre prose it reads after the first paint.
+//     view reads, and the genre prose it reads after the first paint, once
+//     api/engine.json's bytes are in.
+//   • api/engine.json — the lazy app's instrument engine (internal too: the
+//     page's copy of the instrument, room, chain, tuning and preface tables,
+//     derived by scripts/_page_tables.js), asked for at the first paint, or
+//     from <head> when a saved session needs it to draw. The published
+//     instrument data is api/instruments/.
 //   • anything on mcp.codexmusica.com — a sitemap may only declare URLs
 //     under its own origin, so cross-origin entries here would simply be dropped.
 //     llms.txt is the bridge that points at that host.

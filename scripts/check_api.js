@@ -28,6 +28,9 @@
 //     scripts/_browse_tables.js derives from the catalog (the lazy app boots
 //     from the second and reads the third after its first paint; the first
 //     stays published).
+//   • engine.json (the instrument engine the lazy shell fetches) is exactly what
+//     scripts/_page_tables.js derives from references/: one element per line,
+//     unmerged, page-stripped, its digest the digest of its tables.
 //
 // Usage:
 //   node scripts/check_api.js                 # check the committed api/
@@ -46,6 +49,7 @@ const {
   compactTraditionImages,
 } = require('./_image_tables.js');
 const B = require('./_browse_tables.js');
+const P = require('./_page_tables.js');
 const {
   buildResolver,
   recordProblems,
@@ -317,6 +321,44 @@ if (browse) {
   }
 }
 
+// ───────────────────────── engine.json (the instrument engine, fetched by the lazy shell) ─────────────────────────
+// The page refuses a file whose digest is not its own CODEX_ENGINE_SHA, so a
+// stale copy here breaks every recipe action in the shipped page; and the file
+// is internal, so nothing but this check reads it as a whole.
+{
+  const f = path.join(API, 'engine.json');
+  if (!fs.existsSync(f)) fail('missing file: engine.json');
+  else {
+    const text = fs.readFileSync(f, 'utf8');
+    if (text !== P.engineText(path.join(ROOT, 'references')))
+      fail(
+        'engine.json differs from what scripts/_page_tables.js derives from references/; run npm run build:api'
+      );
+    try {
+      // The file leaves each instrument's index fields to INSTRUMENT_INDEX,
+      // which the page derives from the same instruments; fill them back.
+      const index = P.instrumentIndex(P.engineTables(path.join(ROOT, 'references')).INSTRUMENTS);
+      const { header, tables, plan } = P.readEngineText(text, index);
+      if (!plan || plan.merge_sha1 !== P.mergeSha())
+        fail('engine.json: its merge plan was not written by the merge code in scripts/_merge.js');
+      if (JSON.stringify(header.tables) !== JSON.stringify(P.ENGINE_TABLES))
+        fail('engine.json: its header does not list ENGINE_TABLES (scripts/_page_tables.js)');
+      if (header.tables_sha1 !== P.engineSha(tables))
+        fail('engine.json: tables_sha1 is not the digest of the tables it carries');
+      for (const [name, specs] of Object.entries(P.PAGE_DROP_FIELDS)) {
+        if (!(name in tables)) continue;
+        const t = JSON.stringify(tables[name]);
+        for (const [, fields] of specs)
+          for (const k of fields)
+            if (t.includes(`"${k}":`))
+              fail(`engine.json: ${name} keeps the page-dropped field ${k}`);
+      }
+    } catch (e) {
+      fail('engine.json: ' + e.message);
+    }
+  }
+}
+
 // ───────────────────────── nav_glyphs.json (room and preface glyph art, fetched on demand) ─────────────────────────
 // The lazy shell draws every room and preface glyph not in an eager store from
 // this file, so it must be exactly NAV_GLYPH_SVGS: a stale copy draws the wrong
@@ -408,6 +450,9 @@ if (iindex) {
 
 // ───────────────────────── top-level index ─────────────────────────
 const index = readJson('index.json');
+// engine.json is the app's own data, like nav_glyphs.json: not an endpoint.
+if (index && JSON.stringify(index).includes('engine.json'))
+  fail('index.json lists engine.json, which is internal to the lazy app, not a published endpoint');
 if (index) {
   const c = index.counts || {};
   if (c.traditions !== C.TRADITIONS.length)

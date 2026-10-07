@@ -1,5 +1,5 @@
 /* exported renderInstrumentDiscovery, uiInspectInstrument */
-/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
+/* global $ui, CODEX_IMAGE_MANIFEST, Catalog, ChainItem, FamName, INSTRUMENT_FILTER_PILLS, Inst, PREFACE_CAT_ORDER, RECIPE_FORMATS, Room, Tradition, Tuning, UI, UILayout, Variant, app, applyPartEdit, buildStackParts, compileStack, copyToClipboard, entryRenderDescs, envCardOf, esc, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, icon, image, inverseConfigureForPreface, listenLink, loadPrefaceRecent, makeCard, normalizeSearch, passesInstrumentFilter, prefaceCatGlyphHTML, prefaceGlyphsHTML, prefaceGroups, recordPrefaceRecent, showToast, suggestPrefaceForCard, traditionCardOpts, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos, Engine, InstLite, UI_PAGES, _engineLive, engineReady */
 /* Instrument page. Owned by the Instrument page worker; see docs/ui-foundation.md.
 
    Three columns over the Your recipe dock: the catalogue (families, classes,
@@ -145,7 +145,7 @@ function ipApplyPhotos() {
     const id = glyph.dataset.ipGlyph,
       host = glyph.parentElement;
     if (!ipImageEntry(id)) continue;
-    glyph.outerHTML = ipImage(id, +glyph.dataset.ipSize, Inst(id)?.name || id);
+    glyph.outerHTML = ipImage(id, +glyph.dataset.ipSize, InstLite(id)?.name || id);
     if (host.classList.contains('ip-media'))
       host
         .closest('.ip-hero')
@@ -159,10 +159,14 @@ function ipApplyPhotos() {
         ?.insertAdjacentHTML('beforeend', ipCredit(id));
   }
 }
+// Not before the instrument data's bytes are in (Engine.fetched): the page
+// lists nothing until the instruments are here, and the photos must not share
+// the link with them.
 function ipEnsureManifest() {
   if (ipManifestLoaded || typeof CODEX_IMAGE_MANIFEST !== 'undefined') return;
   if (typeof CODEX_LAZY_API === 'undefined' || ipManifestFetch || ipManifestRetry) return;
-  ipManifestFetch = fetch(CODEX_LAZY_API + 'instrument_images.json')
+  ipManifestFetch = Engine.fetched()
+    .then(() => fetch(CODEX_LAZY_API + 'instrument_images.json'))
     .then((res) => {
       if (!res.ok) throw new Error('instrument photo table fetch failed (' + res.status + ')');
       return res.json();
@@ -282,11 +286,27 @@ function ipGroups(filtered, fam) {
     .sort((a, b) => size.get(b) - size.get(a) || ipByName(label(a), label(b)))
     .map((k) => ({ key: k, label: label(k), items: filtered.filter((i) => pick(i) === k) }));
 }
+// Until the instrument data is here the list says so: no count, and never
+// "no instruments". It asks for the data, and redraws when it settles.
+function ipRenderEnginePending(host) {
+  const failed = Engine.failed(),
+    stale = failed && !!Engine.failure()?.stale;
+  $ui('ip-total').textContent = '';
+  // A stale file (another deploy's) cannot load by retrying: say so, and offer
+  // a reload instead.
+  host.innerHTML = stale
+    ? `<div class="cm-status" role="status" data-engine-pending="failed">This page is out of date for the instrument data. ${uiButton('engine-reload', 'Reload', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
+    : failed
+      ? `<div class="cm-status" role="status" data-engine-pending="failed">Couldn’t load the instruments. ${uiButton('engine-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"')}</div>`
+      : '<div class="cm-status" role="status" data-engine-pending="instruments">Loading the instruments…</div>';
+  if (!failed) Engine.ensure().catch(() => {});
+}
 function renderInstrumentDiscovery() {
   const host = $ui('instrument-body');
   if (!host) return;
   const keep = uiRowsKeep(host);
   const changed = ipSyncDestination();
+  if (!_engineLive) return ipRenderEnginePending(host);
   const q = ipQuery(),
     filters = app.instrumentAxisFilters,
     fam = INSTRUMENT_FAMILIES.find((f) => f.id === UI.instrumentFamily);
@@ -865,6 +885,14 @@ function uiCloseInstrumentPreview() {
     uiFocus($ui('instrument-search'));
 }
 function uiInspectInstrument(id, { fromTrail = false, similar = false } = {}) {
+  if (!_engineLive) {
+    if (UI.view !== 'instrument') uiNavigate('instrument', { push: true });
+    // Carried on only if the reader is still here when the data lands: an
+    // inspect must not pull them back from wherever they went meanwhile.
+    const again = () => UI.view === 'instrument' && uiInspectInstrument(id, { fromTrail, similar });
+    engineReady({ label: 'Retry', run: again }).then((ok) => ok && again());
+    return;
+  }
   const i = Inst(id);
   if (!i) return;
   if (UI.instrumentPreview !== id) {
@@ -937,6 +965,9 @@ async function ipAddConfigured() {
   if (added) renderInstrumentDiscovery();
 }
 
+Engine.onSettle(() => {
+  if (UI.view === 'instrument') UI_PAGES.instrument.render();
+});
 uiRegisterPage({
   id: 'instrument',
   recipe: 'dock',
@@ -1088,6 +1119,13 @@ uiRegisterPage({
     if (UI.instrumentPreview) uiCloseInstrumentPreview();
   },
   actions: {
+    'engine-retry'() {
+      Engine.ensure().catch(() => {});
+      renderInstrumentDiscovery();
+    },
+    'engine-reload'() {
+      location.reload();
+    },
     'instrument-family'(id) {
       UI.instrumentFamily = id;
       UI.instrumentClass = '';
