@@ -807,6 +807,7 @@ async function windowSection(embedHtml, lazyHtml) {
 
 // ── section: failure ────────────────────────────────────────────────────────
 async function failure(lazyHtml) {
+  await require('./check_prose_retry')();
   // F1. The boot index unreachable → the honest boot-error state.
   const deadDom = bootDom(lazyHtml, makeFetchShim({ deny: ['api/browse_boot.json'] }));
   await waitFor(
