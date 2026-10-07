@@ -768,6 +768,75 @@ class ProductionRevisionTests(unittest.TestCase):
                     self.assertEqual(r.declared_offer(words, lines, m, 1, m.slot_of(0, 1),
                                                      [0], limit=limit), expected)
 
+    def test_trial_obligation_projection_preserves_asked_answers(self):
+        # First-pass screening may project exact obligations, but never the
+        # stream or its schema frames. Unasked groups must not inherit an
+        # unreadable pair's refusal, and disjunctive excusal stays complete.
+        cases = [
+            (['seed', 'reap', 'road'], mandate('AAA', n_lines=3,
+                default_relation='class:CONSONANCE'), {(1, 3, 0)}),
+            (['seed', 'qzzxv', 'road'], mandate([[1, 2, 3], [1, 2]],
+                n_lines=3, default_relation='class:RHYME'), {(1, 2, 1)}),
+            (['a cat', 'a dog', 'a road'], mandate('AAA', n_lines=3),
+                {(1, 3, 0)}),
+        ]
+        r = self.reviser
+        for lines, m, selected in cases:
+            full = r.grade(lines, m, _verdicts_only=True)
+            projected = r.grade(lines, m, _verdicts_only=True,
+                                _only_obligations=selected)
+            for key in ('verdicts', 'violations'):
+                expected = [v for v in full[key]
+                            if (*v['lines'], v['group']) in selected]
+                self.assertEqual(projected[key], expected)
+            self.assertEqual(projected['refused_obligations'],
+                             [p for p in full['refused_obligations'] if p in selected])
+            self.assertEqual(projected['pairs_mandated'], len(selected))
+        disjunctive = Reviser(rdecl=ReviseDeclaration(overlap_rule='disjunctive'))
+        lines, m, selected = cases[0]
+        self.assertEqual(disjunctive.grade(lines, m, _verdicts_only=True),
+                         disjunctive.grade(lines, m, _verdicts_only=True,
+                                           _only_obligations=selected))
+
+    def test_projected_offer_equals_original_first_pass(self):
+        from unittest.mock import patch
+        cases = [
+            (['seed', 'reap', 'road'], mandate('AAA', n_lines=3,
+                default_relation='class:CONSONANCE'), {(1, 3, 0)}),
+            (['seed', 'qzzxv', 'road'], mandate('AAA', n_lines=3,
+                default_relation='class:CONSONANCE'), {(1, 3, 0)}),
+            (['seed', 'reap', 'road', 'seed'], mandate([[1, 2, 3], [3, 4]],
+                n_lines=4, returns=[[1, 4]],
+                default_relation='class:CONSONANCE'), {(1, 3, 0)}),
+            (['a cat', 'a dog', 'a road'], mandate('AAA', n_lines=3),
+                {(1, 3, 0)}),
+        ]
+        r = self.reviser
+        grade = r.grade
+        def original_first_pass(*a, **kw):
+            kw.pop('_only_obligations', None)
+            return grade(*a, **kw)
+        for lines, m, selected in cases:
+            for limit in (None, 1):
+                args = (['bud', 'leaf', 'qzzxv', 'bud'], lines, m, 1, None, {0})
+                kw = dict(requested_obligations=selected, limit=limit)
+                with patch.object(r, 'grade', side_effect=original_first_pass):
+                    expected = r.declared_offer(*args, **kw)
+                with patch.object(r, 'grade', wraps=grade) as asked:
+                    actual = r.declared_offer(*args, **kw)
+                self.assertEqual(actual, expected)
+                demands = [c for c in asked.call_args_list
+                           if c.kwargs.get('_only_obligations') is not None]
+                self.assertTrue(demands)
+                self.assertTrue(all(c.kwargs['_only_obligations'] == selected
+                                    for c in demands))
+        # Non-vacuous controls: the partial repair survives, but a word that
+        # fails the requested pair and an unreadable word are still refused.
+        lines, m, selected = cases[0]
+        self.assertEqual(r.declared_offer(['bud', 'leaf', 'qzzxv'], lines, m,
+            1, None, {0}, requested_obligations=selected),
+            (['bud'], ['leaf', 'qzzxv']))
+
     def test_default_fan_keeps_real_unknown_out_of_verdicts(self):
         import battery
         sonnets = battery.parse_sonnets(battery.corpus_path('sonnets.txt'))

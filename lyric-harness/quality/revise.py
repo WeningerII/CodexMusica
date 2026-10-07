@@ -1622,7 +1622,8 @@ class Reviser:
     # -- grading the mandate ----------------------------------------------
 
     def grade(self, lines, mandate=None, profile=None, sections=None, *,
-              _only_groups=None, _verdicts_only=False, _moot=None):
+              _only_groups=None, _verdicts_only=False, _moot=None,
+              _only_obligations=None):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -1659,6 +1660,15 @@ class Reviser:
         if _only_groups is not None:
             _only_groups = frozenset(_only_groups)
             pairs = [p for p in pairs if p[2] in _only_groups]
+        # A partial offer's first pass reads only the demanded identities.
+        # Preserve the complete stream and mandate: schemas may still read
+        # other lines. Unasked obligations are absent, never marked passing.
+        # Disjunctive excusal depends on the other obligations' verdicts.
+        if not (_verdicts_only and self.rdecl.overlap_rule == "conjunctive"):
+            _only_obligations = None
+        if _only_obligations is not None:
+            _only_obligations = frozenset(_only_obligations)
+            pairs = [p for p in pairs if p in _only_obligations]
         refusals = refusals_for_pairs(records, sorted({(i - 1, j - 1)
                                                        for i, j, _ in pairs}))
         # M-149(b): THE SKIP SET IS KEYED PER (PAIR, GROUP), NEVER PER PAIR.
@@ -1688,6 +1698,8 @@ class Reviser:
             ks = sorted(set(m.groups_of(i)) & set(m.groups_of(j)))
             if _only_groups is not None:
                 ks = [k for k in ks if k in _only_groups]
+            if _only_obligations is not None:
+                ks = [k for k in ks if (i, j, k) in _only_obligations]
             hit = []
             for k in ks:
                 if _slotted_scalar:
@@ -4465,6 +4477,7 @@ class Reviser:
                             (i, j, k) in requested_obligations)
                        for i, j, k in obligations)
 
+        demanded_obligations = {p for p in m.pairs() if demanded((p,))}
         baseline_bad = baseline_unknown = moot = None
         kept, refused = [], []
         for word in dict.fromkeys(candidates):
@@ -4481,7 +4494,8 @@ class Reviser:
             # the grader, including every global frame and verbatim target.
             demanded_grade = self.grade(trial, m, profile=profile, sections=sections,
                                         _only_groups=requested,
-                                        _verdicts_only=True)
+                                        _verdicts_only=True,
+                                        _only_obligations=demanded_obligations)
             demanded_unknown = set(map(tuple, demanded_grade.get("refused_obligations", ())))
             if demanded(failures(demanded_grade) | demanded_unknown):
                 refused.append(word)
