@@ -1,3 +1,4 @@
+import { resumeStopped } from './test_resume_stopped.mjs';
 import assert from 'node:assert/strict';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
@@ -210,10 +211,10 @@ try {
   // 21 are re-asked on the second batch at continuation 4 and folded after
   // 5; 23 rides the third batch at continuation 8 and is folded after 9.
   const TAIL_BOUND = 10;
-  const splitCall = (args) =>
-    a.callTool({ name: 'lyric_revise', arguments: args }, undefined, {
-      timeout: TOOL_BUDGET_MS + 30000,
-    });
+  const splitOptions = { timeout: TOOL_BUDGET_MS + 30000 };
+  const splitCall = async (args) => resumeStopped(a,
+    await a.callTool({ name: 'lyric_revise', arguments: args }, undefined, splitOptions),
+    splitOptions);
   let split = verdict(
     await splitCall({
       seed: 1,
@@ -335,13 +336,14 @@ try {
           assert.equal(row.verdict, 'rejected');
           assert.equal(row.source, 'outcome');
         } else {
+          // REPINNED 2026-10-02 (LOOP_REDESIGN.md §2.2 option B): ~~'unknown',
+          // 'unverified', no reasons~~ — pending, and still never accepted.
           assert.equal(
             row.verdict,
-            'unknown',
+            'pending',
             'unused attempts cannot label an unvisited answer accepted'
           );
-          assert.equal(row.source, 'unverified');
-          assert.deepEqual(row.reasons, []);
+          assert.equal(row.source, 'waiting');
         }
       }
     }

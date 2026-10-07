@@ -1,0 +1,801 @@
+{
+ "objections": [
+  {
+   "id": "R1",
+   "section": "2.3(d) / 2.0 entry checkpoint / 2.3(b) / \u00a76 Q4",
+   "claim": "The no-progress count cannot fire in the main stall cases. Version 3 increments `stalls` only \"on a kill with no new checkpoint\". But the entry checkpoint means every call that gets going leaves a new checkpoint. And a safe-point stop at exit 5 is not a kill at all. So a run that reaches the same position call after call is never counted, and the loop runs silently forever. That is the case the owner approved `no_progress_calls` for.",
+   "evidence": "Two paths reach this. (a) A kill after the entry checkpoint. \u00a72.0 step 2 emits a checkpoint \"before the re-brief or any other expensive work, so that every call that starts leaves a state behind\". The kill branch then has `currentCheckpoint` and returns `other.state = encodeInterview(currentCheckpoint)` (mcp/lyric_tools.js:2901). That is the harness's own checkpoint, carrying the incoming `stalls` unchanged. The `stalls + 1` re-seal in \u00a72.3(d) is never reached. T5's \"Three kills during the re-brief yield the no-progress report\" therefore cannot pass, because kills during the re-brief come after the entry checkpoint. Q4 motivated the field with exactly this case: the 104-line undeclared re-brief at 1,307 s against a 600 s deadline. That case is a kill after the entry checkpoint, every call. (b) A clean exit-5 stop. \u00a72.3(b) stops when \"time left is less than the longest step so far plus the cost of stopping\". When the re-brief is longer than half the budget, every call re-briefs, finds too little time left, and stops before the menu at the same cursor. The 60-line undeclared whole grade is 324.8 s (\u00a71.3). Past 91 lines warm does not help (\u00a71.3, PAIR_MEMO_CAP). No kill happens, so nothing counts. Two more gaps: version 3 never says who resets `stalls` when progress resumes, and for `run_id` callers the RUNS record is only re-put inside `if (currentCheckpoint)` (lyric_tools.js:2890-2915), so a re-sealed stall has no revision to ride on.",
+   "severity": "blocking",
+   "what_would_resolve": "Define the counter by position, not by whether a checkpoint exists. On every non-question result (a kill or exit 5), compare the returned state's position and journal digest with the incoming state's. If neither advanced, carry `stalls + 1`, re-sealed, whichever state is returned (the entry checkpoint or the incoming one). Reset it on any advance. Update RUNS and the run revision with it. Make T5 cover a kill after the entry checkpoint and a repeated exit-5 stop at the same cursor."
+  },
+  {
+   "id": "R2",
+   "section": "2.3(b) exit 5 / 2.2",
+   "claim": "A safe-point stop placed \"before judging an answer\" means the writer's answer never gets a published verdict. The call that sent the answer ends at exit 5 through the `other` branch, which computes no `folded`. The next call has no pending answer in its incoming state, so `foldedOf` returns nothing for it either. Defect 2 comes back on exactly the long-song path this redesign is for.",
+   "evidence": "`foldedOf` reads only the incoming state's `pending` with a non-empty answer (mcp/lyric_tools.js:433-442: `const pend = prev.pending ... if (pend.answer == null ...) return null`). The `other` branch (lyric_tools.js:2885-2923) sets status, state, final_draft and run_id, but no `folded` or `asked`. The exit-5 state has no pending question, so the following call's `foldedOf(a.state, st)` returns null, even though that call's `verify` writes the outcome. \u00a72.3(b) names \"before judging an answer\" as the first permitted stop point. On a long song that is the most likely place to stop, since a cold menu-free verify is 574.7 s at 60 lines. \u00a72.2's `waiting` list covers only batch members still unjudged at a suspension. Once judged, an answer leaves that list and is never published. The same holds if the stop comes after the verdict: `other` still publishes none.",
+   "severity": "major",
+   "what_would_resolve": "Have the exit-5 (and kill) result fold against the journal, not only against the incoming `pending`. Carry the answers sent but not yet folded in the state (sealed), with a `waiting` entry (\"judged on the next call\"). Have whichever call writes their outcome publish them in `folded`. Extend T3 with a stop placed between the answer and its verify."
+  },
+  {
+   "id": "R3",
+   "section": "2.0 'Entering at the cursor' / fallback replay (B5)",
+   "claim": "A fallback replay keeps `accepted_lines` at its furthest value and puts the cursor in its own fields. But the next call resumes from that cursor with `replaying = False`, and its entry checkpoint is written \"on the cursor draft\". The harness's checkpoint writes `accepted_lines = current`, so `accepted_lines` falls back to the cursor's earlier draft. Every acceptance that call replays on the way to the frontier does the same. A kill then publishes a `final_draft` missing edits the writer already had accepted, which is the B5 failure, one call later.",
+   "evidence": "lyric_harness.py:8205-8218: `replaying = st[\"accepted_lines\"] != list(lines)`, `if replaying: if list(current) != st[\"accepted_lines\"]: return`, then `trial = dict(st, accepted_lines=list(current), ...)`. \u00a72.0 lists \"1. sets replaying = False; 2. emits one checkpoint on the cursor draft\" unconditionally. The cursor table itself records the case: \"the current draft, as a fingerprint plus a flag when it equals accepted_lines, else in full\". The kill branch publishes `exactDraft = ... currentCheckpoint?.accepted_lines` as `final_draft` (lyric_tools.js:2643-2647, 2903). T5 checks `final_draft` only on the killed fallback call, not on the resumed call after it.",
+   "severity": "major",
+   "what_would_resolve": "Set `replaying = False` only when the cursor draft equals `accepted_lines`. Otherwise keep the own-fields checkpoint mode (cursor advances, `accepted_lines` untouched) until the walk reaches the frontier, including for the entry checkpoint. Add a T5 case that kills the second call, resumed from a mid-replay cursor, and asserts `final_draft` equals the furthest `accepted_lines`."
+  },
+  {
+   "id": "R4",
+   "section": "2.3(b) exit 5 routing",
+   "claim": "Version 3 routes exit 5 through the existing `other` branch, but that branch publishes only the last stdout checkpoint (`r.checkpoint`), never the state file the verb writes. Version 3 never requires the stop to print a checkpoint carrying the stop position. If it only writes the state file, as exit 4 does, the stop hands back the entry checkpoint or an earlier one, and the work done in that call is lost.",
+   "evidence": "lyric_tools.js:2629-2636: `currentCheckpoint = r.checkpoint && ...`; :2901: `other.state = encodeInterview(currentCheckpoint)`. Unlike the exit-4 and finish branches (lyric_tools.js:2697, 2832), `other` does not read `statePath`. The CLI's suspension path writes `say_proposer.state` to the state file (lyric_harness.py:13245-13247), and the CLI resumes from that file. So exit 5 needs both a checkpoint (for the connector) and the file (for the CLI). \u00a72.3(b) only says the harness \"times its own state write and checkpoint print\". The batch-under-construction cursor (\"A call that stops between members is continued by the next call\") depends on this.",
+   "severity": "major",
+   "what_would_resolve": "State that a safe-point stop always prints a final control checkpoint holding the stop cursor (status e.g. `stopped`), and also writes the state file for the CLI. Have T4 drive the connector, not only the loop, and assert that the returned `state` holds the stop position."
+  },
+  {
+   "id": "R5",
+   "section": "2.0.1 'Where it is sealed' (B4)",
+   "claim": "The list of mint points misses one. chat.js's checkpoint recovery mints an interview `state` wire with `encodeState` directly. That state would reach lyric_revise unsealed, fail the seal, and be reported as `cursor_stripped: seal`. A server-minted state would be labelled as tampered, and the chat's recovery path would pay a full replay.",
+   "evidence": "mcp/chat.js:445-460: `wire = encodeState(cp)` ... `...(decl.writer === 'interview' ? { state: wire } : { checkpoint: wire })` inside `router.recoverCheckpoint` (chat.js:408-480). `grep encodeState mcp/*.js` finds this site beside the ones version 3 lists (lyric_tools.js:2607/2674/2796/2902 and workflow_sessions.js:554). Round 1's B4 ruling required \"List every place a state wire is minted and seal each one\".",
+   "severity": "major",
+   "what_would_resolve": "Add chat.js `recoverCheckpoint` to the mint points, sealed with the same cursor key imported from lyric_tools.js. Or seal inside one shared encode helper that every interview mint goes through. Add a T7 case that recovers a chat job checkpoint and resumes from its cursor."
+  },
+  {
+   "id": "R6",
+   "section": "2.3(b) exit-5 consumers",
+   "claim": "One consumer mis-handles exit 5, and version 3's audit list leaves it out: the website chat's `carryState` in gemini_agent.js. An exit-5 interview result has status `interrupted`, a `state` and no `checkpoint`, and every branch of `carryState` falls through it to `return prev`. The chat keeps the previous state, drops the stop's cursor, and the next chat continuation redoes the same work.",
+   "evidence": "mcp/gemini_agent.js:1151-1154: the interrupted branch requires `typeof verdict.checkpoint === 'string'` (kitchen only). :1167 requires `code === 4`. :1210 requires `code === 3 || status === 'uncertified'`. :1233-1234: `if (code === 0 ...) return null; return prev;`. Interview runs exist on that surface: the code-4 branch carries `verdict[STATE_PROPERTY]`, and chat.js:460 mints interview states. \u00a74.1 lists only lyric_workflow.js, client.js, verdict_view.js and python_bridge.js as \"checked for exit-code and field assumptions\".",
+   "severity": "major",
+   "what_would_resolve": "Add gemini_agent.js to \u00a74.1. Have `carryState` carry an `interrupted` result's `state` (interview) the way it carries `checkpoint` (kitchen), as resumable. Add a chat-surface test of an exit-5 interview result."
+  },
+  {
+   "id": "R7",
+   "section": "2.0 'Re-derived on resume' (A1) with 2.2",
+   "claim": "The rebuild rule, \"the latest (round, attempt) per line or member tuple, dropped if accepted\", is not the rule the hooks apply, in two places. (1) The group hook keeps the last write in walk order, and two group questions on the same member tuple can share a round and an attempt. (2) Version 3 never says how the new `not_applied` record (`accepted: null`) affects the rebuild or the live hooks.",
+   "evidence": "(1) `record_group` overwrites `last_grej[_m]` on every call (lyric_harness.py:8135-8139), keyed only on the member tuple. `members` is the mandate's own order, whatever the pivot (`_brief_key`, lyric_harness.py:7386-7411). `_try_tier2` starts `attempt` at 0 for each pivot (loop.py:1567-1580). So pivot L1 and pivot L2 escalating the same couplet in one round give two entries with equal (members, round, attempt) and different `question_sha256`. \"Latest (round, attempt)\" ties, and a `max` picks the first, while the hook keeps the second. The next round's `_prior_group` text and `question_sha256` then differ from a full replay, and the recorded answer misses. (2) `record` does `bool(accepted)` and sets `last_rej` on anything not accepted (lyric_harness.py:7925-7948). `_attempt_block` renders a prior as \"Your line ... in ROUND r was REJECTED ... The grader's reasons, verbatim\" (propose.py:485-496). So a `not_applied` entry that reaches either path tells the writer something false. If the live path skips it and the rebuild does not (or the reverse), cursor and replay produce different question bytes.",
+   "severity": "major",
+   "what_would_resolve": "State the rule as \"the last entry in list order per line / member tuple, among `accepted` true/false entries only, popped on `accepted: true`\". State that `not_applied` records are written without calling `record` and are skipped by the rebuild. Add a T1 script with two same-round escalations of one couplet, and one with a `not_applied` line asked again in a later round."
+  },
+  {
+   "id": "R8",
+   "section": "2.0 cursor table",
+   "claim": "The cursor table leaves out the in-progress round's `attempts` list, the LineAttempt records that become `RoundResult.attempts` when the round closes. Only finished rounds are stored by reference. Some of these attempts have no outcome record to refer to: tier-2 attempts that were never asked (pinned, starved) and escalation labels. A resume that enters mid-pass cannot produce the same `LoopResult.rounds`, which T1 compares.",
+   "evidence": "loop.py:1989 `attempts, fixed_this_round, touched = [], [], set()`. Appended at :2185, :2261 and :2271. Closed at :2277 `rounds.append(RoundResult(round_no, attempts, ...))`. The reasons are built from control flow and menus: \"after tier 1 found no accepted line, escalated to tier 2: ...\" (:2266-2270), \"after tier 2 {NOT ASKED|unaccepted}, fell through ...\" (:2188-2194), and `_try_tier2`'s unasked refusals, which carry `pinned`/`starved` counts from anchor menu searches. None of these is in `outcomes`. The cursor table lists `touched`, `fixed_this_round`, `resolved_elsewhere` and \"the finished rounds\", not the current round's attempts. The same applies to the whole-draft repair's `_attempts` (:1952-1953).",
+   "severity": "major",
+   "what_would_resolve": "Add the current round's attempts, and the global phase's `_attempts`, to the cursor: by reference where an outcome exists, verbatim otherwise. Add a T1 assertion on `LoopResult.rounds` for a suspension mid-pass after an unasked tier-2 attempt."
+  },
+  {
+   "id": "R9",
+   "section": "2.0 cursor table (A6) / 2.3(b) batch construction",
+   "claim": "\"Materialized menu inputs (the offered and forbidden lists the question was rendered with)\" is far less than the rendered question and the control flow read. A cursor holding only those two lists cannot reproduce question bytes or the group-first and batch-skip decisions without rebuilding the menu. A cursor holding everything the renderer reads is much larger than version 3 assumes.",
+   "evidence": "The offers block sets about a dozen more fields (revise.py:6143-6217): `fields_by_slot` (per-place SlotField with dropped, by_call, schema_refused, grader_refused, widened, joint_conflict), `screened_out`, `field_computed`, `empty_head_cause`, `joint_conflict`, `partial_by_call`, `schema_refused`, `grader_refused`, `field_widened`, `offer_emptied_by_ban`, `forbidden_incumbent`. The line prompt reads them (propose.py:354-361, 719, 734, 749, 766, 794-803, 810, 889). Control flow reads `field_computed`, `candidates` and `joint_conflict` (`_asks_group_first`, loop.py:2104-2107) and `x.joint_conflict` (prefetch, lyric_harness.py:8060-8061).",
+   "severity": "major",
+   "what_would_resolve": "List exactly which Brief/SlotField fields the cursor stores per materialized question: at least every field the renderers and `_asks_group_first`/prefetch read. Include their bytes in \u00a74.3 item 1's measurement. T1/T4 must compare the prompts of questions rebuilt from the cursor byte for byte."
+  },
+  {
+   "id": "R10",
+   "section": "2.1 / 2.3(b) batch construction / fallback checkpoints",
+   "claim": "Cursor bytes are admitted against the worker journal's own capacity. A checkpoint that does not fit raises `_JournalCapacity`, which ends the run for good. Two new checkpoints can do this where today's code would carry on: a mid-construction checkpoint holding the partial batch's menus, and a fallback-replay checkpoint holding the cursor draft in full. The first happens outside prefetch's `try`, so the batch is not trimmed but the run ends. That breaks \"the same journal-capacity trimming\".",
+   "evidence": "`checkpoint` admits `trial` at `ceiling=JOURNAL_BYTES` (lyric_harness.py:8218). `_journal_admit` raises `_JournalCapacity` (:7610-7613), and the verb turns that into `_journal_stop`, which is non-resumable (`new_run_required`, lyric_tools.js:2648-2690). prefetch catches `_JournalCapacity` only around `_suspend` (lyric_harness.py:8081-8090, `except _JournalCapacity: chosen.pop()`). assertContinuationCapacity counts everything except `connector_*` against WORKER_STATE_BYTES (state_codec.js:58-64). A pre-change state that fit without a cursor can fail on its first fallback checkpoint. \u00a72.1 says the cursor is \"stored by reference\", but menus and a full cursor draft are not references.",
+   "severity": "major",
+   "what_would_resolve": "Either budget the cursor outside the journal's capacity (bounded separately, as `connector_declarations` is), or state that a cursor that does not fit is dropped (`cursor_stripped`) rather than ending the run. Add the partial-batch and fallback-checkpoint cases to \u00a74.3 item 1 and a test that a near-capacity state still resumes."
+  },
+  {
+   "id": "R11",
+   "section": "2.0 journal_digest / 2.3(d)",
+   "claim": "`journal_digest` is undefined, and version 3 uses it for two things that cannot both hold. As a resume check (\"the journal digest mismatches\" means fall back), it must stay equal across a call that folds a new answer into `answered`. As the progress measure (\"the journal digest advanced: a new question was asked or a new verdict recorded\"), it must change when `pending` or `outcomes` change. Read literally, \"over the whole journal\" makes every answered continuation fall back.",
+   "evidence": "The harness folds `pending.answer` into the journal at load, before the loop (lyric_harness.py:7735-7790, `folded_base = dict(st, pending=None)`). So the journal a cursor sees at resume always has one more answer than the journal it was minted over. `record`/`record_group` overwrite outcomes in place by key (lyric_harness.py:7930-7942, 8124-8134), so the outcomes list is not append-only. A new question changes `pending`, not `answered`.",
+   "severity": "major",
+   "what_would_resolve": "Define the digest exactly: which fields (answered, outcomes, group_outcomes, pending?), and that the resume check is \"the journal the cursor was minted over is an unchanged prefix of the incoming one\", not equality. Give the progress measure its own definition (position and verdict count). Add T7 cases: an edited earlier answer falls back, a newly folded answer does not."
+  },
+  {
+   "id": "R12",
+   "section": "4.2 T1 / 2.0 (A5)",
+   "claim": "The cursor carries \"the running stale count\". But the proposer disclosure that T1 must match prints the hit count and each stale key, and its header claims a replay that no longer happens. The session's continue text also still says the session \"replays its journal\".",
+   "evidence": "`disclosure(done=True)` prints `{tally['hit']} consulted and answered` and lists every stale `(line, attempt, round)` (lyric_harness.py:8191-8199). `tally['hit']` counts lookups this process made (:7980, :8102), so a cursor resume reports a smaller number than a full replay. The header says \"answer(s) already given, replayed in order\" (:8159). workflow_sessions.js SESSION_RESUME: \"the session carries this run and replays its journal\" (:93-94). That is published text the Q6 ruling did not cover.",
+   "severity": "minor",
+   "what_would_resolve": "Carry `tally.hit` and the full stale key list in the cursor, not a count. Reword the disclosure header and SESSION_RESUME under the Q6 change, and list them in \u00a73."
+  },
+  {
+   "id": "R13",
+   "section": "2.3(c)",
+   "claim": "\"A kill that produced no new checkpoint leaves the session's previous sealed continuation in place\" is false when the interruption is a server restart. An interrupted operation with no progress record cannot resume, and the session layer then sets the continuation to null.",
+   "evidence": "workflow_sessions.js:377-386: for `parent.state === 'interrupted'` that is not `resumable`, `session = clone(original); session.native.continuation = null;`. `resumable` fails when `record.progress` is missing (resumeSnapshot, :530-551). The window is narrower now (startup until the entry checkpoint), but T5's B3 case only simulates a bridge kill, which leaves the operation `completed`.",
+   "severity": "minor",
+   "what_would_resolve": "Either keep the prior continuation for an interrupted lyric_revise with no progress, or scope 2.3(c)'s claim to bridge kills. Add the restart case to T5."
+  },
+  {
+   "id": "R14",
+   "section": "3 items 3 and 5 / mcp/verdict_view.js",
+   "claim": "Session callers will not see the two new result fields on a finished run. The short view keeps a fixed list of fields that holds neither `cursor_stripped` nor `no_progress_calls`. The exit-4 receipt is built by hand from an explicit field list, so the fields must be added there too.",
+   "evidence": "verdict_view.js:33-51 `KEPT` lists the fields of a finished grade/revise short verdict: no `cursor_stripped`, no `no_progress_calls`. The exit-4 JSON block is assembled field by field (lyric_tools.js:2741-2780). Q5's own reason is that \"a caller cannot tell a slow fallback replay from the fast path\".",
+   "severity": "minor",
+   "what_would_resolve": "Add both fields to `KEPT` and to the hand-built exit-4 receipt. Pin them in the session-view tests."
+  },
+  {
+   "id": "S1",
+   "section": "2.4",
+   "severity": "major",
+   "claim": "The one menu \u00a72.4 says it adds, the non-pivot member's one-move menu \"computed by tier 1's own call (brief(target_lines={member}), declared_offer)\", does not exist in the couplet case it claims to fix. So T6's couplet case cannot pass as specified.",
+   "evidence": "A pair violation is filed only on the LATER endpoint: revise.py:3712 `add(j, Finding(\"SCHEME_VIOLATION\", ...))`. `brief` builds a Brief only for lines that have per-line findings: revise.py:5811-5813 `for ln in sorted(found[\"per_line\"]): if targets is not None and ln not in targets: continue`. On escalation the pivot is the flagged line (loop.py:2262, `_try_tier2(reviser, b, ...)` with b = L2), so the non-pivot member is the earlier endpoint. Measured read-only on a 2-line non-rhyming couplet ('I set the kettle on the stove' / 'and waited for the morning light') with mandate [[1,2]]: per_line keys [2]; `brief(lines, m, target_lines={1})` returns []. The design's own fallback (\"no single-line finding on L1; no one-move menu was computed\") is what would print, not L1's words. \u00a72.4 already concedes the no-Brief case, so the claimed gain contradicts the design's own text.",
+   "what_would_resolve": "Compute the non-pivot member's one-move menu from the mandate rather than from a Brief: the calls of the groups bound at the member's own place (`_slot_of`), then `joint_field_screened`, then `declared_offer` at that slot, exactly as brief() does for a line that has one. State this in \u00a72.4, and make T6's couplet fixture one where L1 carries no per-line finding. Otherwise, say plainly that defect 4 stays open for couplets."
+  },
+  {
+   "id": "S2",
+   "section": "2.2",
+   "severity": "major",
+   "claim": "Option B's four verdicts do not cover every way today's walk discards a batch answer. Two skip paths are not `resolved_elsewhere`. On those paths v3 lists the dead answer as `pending` forever: a false statement while the run lives, and `unknown` once it stops.",
+   "evidence": "Line answers are keyed (line, attempt, round) (lyric_harness.py:7414-7436), so an answer not consumed in its own round is never consumed. Path 1: loop.py:2011 `if b.line_no in touched: continue` is a silent skip, with no resolved_elsewhere entry. Path 2: when the walk reaches a member, `_asks_group_first(b)` is re-evaluated on the moved draft (loop.py:2137, 2173). If that group is accepted, `_try_tier1` is never called and the batch's attempt-0 answer is never read. Both are reachable. prefetch drops a group-first or already-answered ahead line with `continue` and does NOT add its related set to `rels` (lyric_harness.py:8048-8049, 8058-8062). So a later member related to that skipped line can be chosen, and the skipped line's group rewrite then touches the member. v3 defines `waiting` as \"Every batch answer on record with no outcome\" and `not_applied` only for resolved_elsewhere. Separately, `not_applied`'s `why` (\"naming the line whose acceptance closed it\") is not computable from today's walk. At loop.py:2097 the closure happened at an earlier re-brief, and nothing records which acceptance caused it. At loop.py:2130 (`_materialize` returned None) there may be no acceptance at all.",
+   "what_would_resolve": "Give the touched skip and the group-accepted-before-tier-1 case a recorded standing too, as `not_applied` with why 'superseded by the accepted rewrite of L..'. Scope `waiting` to answers of the current round that the walk has not yet passed, which needs a loop-to-proposer hook carrying the walk position. Track the acceptance that preceded the re-brief at which a line disappeared, and give the :2130 path its own why. T3 should add a fixture for each path."
+  },
+  {
+   "id": "S3",
+   "section": "2.2 / 2.0",
+   "severity": "major",
+   "claim": "The new `not_applied` outcome row collides with the rejection history (`last_rej`) and with the coupling test. The design leaves its write path unspecified, and every available choice breaks something it promises.",
+   "evidence": "record() hard-codes `\"accepted\": bool(accepted)` (lyric_harness.py:7928) and sets `last_rej[line]` for any non-accepted entry (:7943-7948). `_prior` renders that entry into the next round's line question (:7965-7975, :8007). Case 1, the row is written through `record`: an answer that was never judged is shown to the writer next round as a rejection, with reasons=[why], and line-question bytes change from today's. Case 2, it is written another way: \u00a72.0's re-derivation rule for `last_rej` (\"the latest (round, attempt) per line, dropped if accepted\") treats the accepted:null row as latest and not accepted, so a cursor resume rebuilds a `last_rej` that a full replay never had, and T1 fails. loop.py, where \u00a74.1 puts the write, does not hold the proposer's `ones`, so it cannot tell which skipped lines have an answer on record. The coupling test requires \"the run's outcomes ... equal those of today's code on the same journal\". Its own scenario (two independent members sharing ANAPHORA_OVERLOAD) is the one where member 1's acceptance closes member 2's finding, which sends member 2 through resolved_elsewhere and adds a `not_applied` row. Today's code has no such row, so the test fails on the new code.",
+   "what_would_resolve": "Specify a separate hook, e.g. `propose.skipped(line, round, why)`, that writes the row only when the proposer holds an answer for that key. Exclude disposition rows from `last_rej`, both when it is maintained live and in the \u00a72.0 rebuild, and add a T1 script that crosses a `not_applied` row. Restate the coupling test as equality of the judged outcomes (accepted true/false) and the final draft, with `not_applied` rows compared separately."
+  },
+  {
+   "id": "S4",
+   "section": "2.2",
+   "severity": "major",
+   "claim": "\"Why pending is not stored\" is false as designed. The `waiting` list rides on the pending record, and the code copies that record into `answered` and charges it against the journal ceiling. That can change batch membership and stop runs earlier, which contradicts \"the walk order ... stays exactly as today\" and \"Cost: nothing measurable\".",
+   "evidence": "Folding an answer copies the whole pending record into the replay file: lyric_harness.py:7779 `rec, ans = dict(pend[\"record\"]), pend[\"answer\"]`, then :7836-7838 `st[\"answered\"][\"propose\"].append(rec)` for single questions and :7856-7857 `st[\"answered\"][\"propose_group\"].append(rec)` for group questions. So every answered question permanently carries its `waiting` list. `_suspend` admits the whole pending record, `trial = dict(st, pending=pending)` (:7959-7961). A failed admission inside prefetch trims the batch (:8089-8090 `except _JournalCapacity: chosen.pop()`), which yields a different batch and different question bytes from today's on the same journal. On a single or group suspension the failure propagates to the journal_capacity branch, a stop that today's code would not reach. \u00a74.3 item 1 measures state bytes without these lists.",
+   "what_would_resolve": "Carry `waiting` outside `pending.record`, for example as its own top-level result or state field that is never folded into `answered` and is excluded from the reserve `_suspend` charges. Alternatively, strip it at fold time and say so. Include it in \u00a74.3's state-byte measurement, and add a test that a run near JOURNAL_WORK_BYTES chooses the same batch members as today."
+  },
+  {
+   "id": "S5",
+   "section": "2.2 / 2.3(b)",
+   "severity": "major",
+   "claim": "A `pending` answer's eventual verdict is never published. And on the new exit-5 path, a batch answered in that call gets no verdict at all, which is defect 2 reintroduced by a path this design creates.",
+   "evidence": "foldedOf folds only the PREVIOUS pending question's own rows (lyric_tools.js:433-466: `askedOf(pend)`; batch rows come from `pend.record.records`). In T3's next call, prev.pending is the L1+L2 group question, so foldedOf returns that question's verdict only. L4, judged later in that same walk, never appears in any `folded`. The exit-5 stop is routed through the generic interrupted branch (lyric_tools.js:2885-2923), which sets no `folded` field. It is the only branch with none (compare :2753 and :2839). A safe-point stop also has no pending question, so there is no `pending.record.waiting` to render `pending` from. foldedOne's own `unknown`/`unverified` default (:409-430) is what remains for any consumer that later tries.",
+   "what_would_resolve": "(1) foldedOf also folds the previous pending's `waiting` entries against the new state's outcomes, using only the four owner-approved values. (2) The exit-5 branch carries `folded` for the answer it consumed, with `waiting` computed at the safe point. Define in which state's pending foldedOne looks for `waiting`: the new one. (3) T3 continues one more call and asserts L4's final verdict. Add an exit-5 case in which a batch is folded and the call stops before the next question."
+  },
+  {
+   "id": "S6",
+   "section": "2.3(d) / 4.2 T5",
+   "severity": "major",
+   "claim": "As specified, the no-progress count cannot fire in the case the owner approved it for, and T5's \"three kills during the re-brief\" case cannot pass.",
+   "evidence": "\u00a72.0 step 2 emits a checkpoint \"before the re-brief or any other expensive work, so that every call that starts leaves a state behind\". \u00a72.3(d) increments the stall count only \"On a kill with no new checkpoint\". So a kill during the re-brief always has a new checkpoint (the entry one), the kill branch publishes it (lyric_tools.js:2894-2900 `other.state = encodeInterview(currentCheckpoint)`), and the count never moves. An exit-5 stop that makes no progress (the re-brief consumed the budget and the next menu cannot start) is not a kill, so it is never counted either. That leaves Q4's own case, a 104-line song whose cold grade is 1,307 s against a 600 s deadline, looping silently. The contradiction is inherited from judge 1's two B8 requirements, combined literally.",
+   "what_would_resolve": "Define the trigger by the definition of progress in \u00a72.3(d)'s first bullet, not by whether a checkpoint exists. The connector compares the newest checkpoint's (journal digest, cursor phase/position) with the incoming state's, and re-seals with stalls+1 whenever neither advanced, on a kill and on exit 5 alike. T5 then asserts `no_progress_calls >= 2` after three re-brief kills, each of which leaves an entry checkpoint, and adds an exit-5 variant."
+  },
+  {
+   "id": "S7",
+   "section": "2.6",
+   "severity": "major",
+   "claim": "The rule-3 branch list is not exactly today's behaviour. It omits the first gate, \"no Brief for this line\", and its own inputs make that omission a tightening. It also leaves two other branches under-specified: what a kept incumbent's membership answer is used for, and what \"explicit\" means.",
+   "evidence": "verify builds `b_before` with `brief(before, ..., target_lines=changed)` (revise.py:6275-6280), and brief yields Briefs only for lines in `per_line` (:5811-5813). Rule 3 then `continue`s on `if not b` (:6454). But `wants` counts incident grade violations, not only per-line findings (:5897-5899 `_violated.update(... _incident)`, :5947). So a couplet anchor, which has no per-line finding but is incident to the violated pair (see S1), has `wants and groups` true. An offer-less path following \u00a72.6 step 1 (\"If the line has no `wants and groups` ...\") would apply rule 3 to the anchor of every group rewrite, which today it never does: a rejection today's code does not make. Step 7 says the question is \"asked of ... every kept incumbent\", but today a kept word is never rejected. The equality branch only appends to `modal_kept` (:6460-6473), and head membership feeds only the disclosure text \"; it is also in this line's modal head\" (:6515-6523). Step 5's \"(the undeclared default)\" is also not `_explicit`: `_explicit = any(m.relation_of(k) or not self.schema_route_open(m, k) ...)` (:6014-6015) is also true for a group with no relation under a non-default admit set or a declared structure (:4609-4618).",
+   "what_would_resolve": "Make step 1: \"no Brief: the line carries no per-line finding, or no `wants and groups`\". Make step 7 say that membership REJECTS only for a changed bound word, and for a kept incumbent only selects the disclosure clause. Make steps 5 and 6 name the predicate as the code's `_explicit` expression, not \"declared\". T8 must include a group rewrite whose non-pivot member has no per-line finding."
+  },
+  {
+   "id": "S8",
+   "section": "4.2 T1/T2, 2.0",
+   "severity": "major",
+   "claim": "T2's invariant is false under option B. And as written, the verify counters for T1 and T2 can pass on the old code, so neither reliably fails there.",
+   "evidence": "T2: \"The number of verify calls in a continuation equals the number of new answers.\" Under option B, batch members are judged in LATER calls. In T3's own AABB run, the batch call brings 2 new answers but verifies only L2 before suspending on the group question. The next call brings 1 new answer and verifies 2: the group answer, then L4 when the walk reaches it. So the invariant fails on the NEW code whenever a batch is pending. Separately, replay_memo memoises `verify` at the proxy (replay_memo.py:62 `MEMOISED = (\"brief\", \"verify\", \"inspect\", \"joint_field\")`, :207-218). Under the warm worker, the old code's replayed verifies are memo hits, so a counter on the underlying Reviser.verify equals the number of new answers on the OLD code too. T1's other old-code-failing assertion, \"no stripped-cursor reason\", is true on the old code because the field is simply absent.",
+   "what_would_resolve": "Restate the invariant: each answer is verified exactly once across the run, and the verify calls in a call equal the answers judged for the first time in that call. \u00a72.0's cost sentence needs the same restatement. Specify the counter at the loop's call site (the proxy boundary), with LYRIC_REPLAY_MEMO=0 or one cold process per call. T1's resume arm should assert a positive cursor-taken marker (for example a `cursor_resumed` count, or replayed_answers == 0), not the absence of a field."
+  },
+  {
+   "id": "S9",
+   "section": "4.2 T8",
+   "severity": "major",
+   "claim": "T8 cannot fail on the old code. It pins equality with today's verify but never asserts that verify stopped building menus, which is \u00a72.6's entire change. An implementation that forgot to switch verify to the offer-less path would pass it.",
+   "evidence": "T8: \"the new verify returns the same dict, key for key, reasons byte for byte\". Old verify trivially equals itself, because it still calls `self.brief(before, ..., target_lines=changed)` with include_offers defaulting to True (revise.py:6275-6280), which runs declared_offer over the offered and widened pools (:6022-6063, :6132-6137). \u00a74.2's header requires that \"each must fail on the old code and pass on the new\". Only the coupling test is exempted from that.",
+   "what_would_resolve": "Add an assertion that fails on the old code. Over T8's corpus, verify's brief is requested with include_offers=False, and the counts of `_widen_pool`, `schema_widened_field` and declared_offer calls with a `limit` are zero. Keep the mutants (always filter, drop rule 3) as the equality half."
+  },
+  {
+   "id": "S10",
+   "section": "2.4",
+   "severity": "major",
+   "claim": "The pivot's escalation menu, \"reprinted from the cursor ... or named by reference\" to \"its line question\", can be stale. It can also refer to a question that was never asked. And the design leaves two byte-different renderings open, which affects group-question hashes.",
+   "evidence": "A batch member's menu is materialized when the batch is built (loop.py:2169-2170; lyric_harness.py:8058-8060) against the draft at that time. When the walk reaches the member later, its brief is rebuilt against the current draft (loop.py:2052-2082, :2128), and the group verify judges against that current draft. A non-batch line walked in between can change the member's call words. One example is a group-first line, which prefetch skips without adding its related set to `rels` (lyric_harness.py:8058-8062). In that case \"the pivot's forbidden list from its line question still binds\" names a list that no longer binds. With `--attempts=0 --backtrack>=1`, the menu is materialized (loop.py:2123-2128) and the escalation runs (:2260-2264), but no line question was ever asked, so \"the words L2's line question offered\" is false. \"Reprinted ... or named by reference\" are two renderings. If the choice depends on whether a cursor holds the menu, a resume and a full replay produce different `question_sha256` (lyric_harness.py:7403-7406).",
+   "what_would_resolve": "Fix ONE rendering, independent of resume mode. Print the pivot's offered and forbidden lists as recomputed on the unit's starting draft, which is what verify enforces, and name the line question only when one was asked on that same draft. Otherwise print its own sentence: \"no line question was asked; these are the lists the grader enforces now\". Add a T6 case where a batch member's call word moved before escalation."
+  },
+  {
+   "id": "S11",
+   "section": "2.3(b) / 2.4",
+   "severity": "major",
+   "claim": "\u00a72.4 puts one exact menu per escalated non-pivot member inside a single group question, and \u00a72.3(b) forbids stopping \"in the middle of building a question\". So a group question whose menus together exceed one call can never be asked, on a path that is cheap today.",
+   "evidence": "\u00a72.3(b): \"Never in the middle of building a question.\" Batch construction was made resumable (judge 1, B7), but group-question construction was not. By \u00a71.3's own measurements, one changed line's exact menu on the 24-line fixture is ~1,720 s warm (verify 1,832.4 s with menus, 112.1 s without) against a 600 s deadline. \u00a72.4 states one menu \"was never measured at 60 or 104 lines\". Today's group question prints `(none offered)` for members (propose.py:1238-1246) and needs no menu, so adding k-1 non-interruptible menus can turn a group question that today fits one call into one that never fits.",
+   "what_would_resolve": "Make group-question construction resumable on the same terms as batch construction: the cursor records the members whose menus are done and their materialized inputs, keyed by draft fingerprint, and a safe point is allowed between members. Or state that only the couplet (one menu) gets a menu. Add a T4 case with a fake clock that stops between two members' menus."
+  }
+ ],
+ "missing": [
+  "B4",
+  "B8",
+  "C10",
+  "A3",
+  "C11"
+ ],
+ "strongest": [
+  "These parts hold against the code. The unit boundary is sound: every tier returns on its first acceptance (loop.py:1150-1153, 2186, 2262). Working out each round's briefs again from the current draft is deterministic, and that includes the M-210 `latest_open` path, because the stored pass, `judged_open` and `brief_lines` are enough to reproduce the walk's choice between re-brief and round-opening brief. The no_progress `_close(flagged)` needs only the round-opening briefs, and those can always be rebuilt, since a barren round never moved the draft. On exit 5, version 3 is right about the four consumers it checked: client.js `revisionStopped` treats only exit 0 and 3 as stopped, lyric_workflow.js counts only 0, 3 and 4 as creation steps, mcp/worker.py passes any integer code through unchanged, and python_bridge.js maps no code. Keeping the model-writer path on full replay is a clean cut. Binding the CLI cursor has existing machinery to build on: replay_memo.run_key already swaps the connector's per-call temp paths for content digests.",
+  "The core of \u00a72.6 holds against the code. Steps 2-6 match revise.py:5947-6217 exactly: the incumbent at the primary place's slot; an empty head when the place has no call words; the raw `joint_field_screened` head with the incumbent excluded; that head unfiltered when `_explicit` is false; and the head filtered through `declared_offer` only when it is true. The claim that `declared_offer`'s verdict on one word does not depend on the rest of its list is right: the forbidden-list call passes no `limit` (6025-6027), the list is deduplicated with `dict.fromkeys` only, and the baseline depends only on `lines` and the groups (4396-4402). Option B's central promise also holds. Nothing in the walk (loop.py:2010-2276) or in `prefetch`'s membership rules needs to move, so acceptance stays as today, provided the `waiting` and `not_applied` bookkeeping is kept out of the record and the journal-admission paths (see S3 and S4). On round-1 completeness, every conceded change and judge requirement is in version 3 except two. A3's T1 script dropped the 'later had an edit accepted under allow_net_new' clause; without an accepted edit, the re-brief that reads `judged_open` (loop.py:2068-2072) is never exercised. C11's 'T7 resume half asserts zero replayed answers' is absent, so T7's resume_operation and session cases can pass on the old code."
+ ],
+ "defense": [
+  {
+   "id": "R1",
+   "position": "concede",
+   "argument": "Right. Version 3 joins two of judge 1's B8 requirements word for word, and together they cannot fire. The entry checkpoint (\u00a72.0 step 2) means every call that starts returns a fresh checkpoint. \u00a72.3(d) counts a stall only 'on a kill with no new checkpoint'. A clean exit-5 stop is not a kill at all. So the 104-line re-brief case that Q4 was approved for is never counted. Version 3 also never says who resets `stalls`. And for `run_id` callers it gives the re-sealed state no RUNS revision to carry it.",
+   "evidence": "lyric_tools.js:2888-2901: `if (currentCheckpoint) { ... other.state = encodeInterview(currentCheckpoint)` returns the harness's own checkpoint, which `checkpoint()` builds as `dict(st, ...)` (lyric_harness.py:8213), so the incoming `stalls` comes back unchanged. RUNS.put is reached only inside `if (currentCheckpoint)` and `if (resumable)` (:2905-2914). LOOP_REDESIGN.md:228 (entry checkpoint) and :380 ('On a kill with no new checkpoint').",
+   "design_change": "Rewrite \u00a72.3(d). The connector defines a call's position as (cursor phase/index, round, members done in any batch or group question under construction, the count of verdict and disposition records, and the identity of the pending question). On every result that asks no new question (a kill, exit 5, interrupted or other), it compares the returned state's position with the incoming state's. If nothing advanced, it carries `stalls + 1` into whichever state it returns, the entry checkpoint or the incoming state, and re-seals it. Any advance, and any exit-4 result that asks a new question, resets it to 0. The re-sealed state is always put into RUNS with a new revision, including when no checkpoint was printed, and the session layer stores it. At 2 or more the result carries `no_progress_calls`, and no call is ever refused. T5 adds three cases: three kills after the entry checkpoint, during the re-brief, must give `no_progress_calls >= 2`; three exit-5 stops at the same cursor must give the same; and a call that advances must reset the count to 0."
+  },
+  {
+   "id": "R2",
+   "position": "concede",
+   "argument": "Right. `foldedOf` publishes a verdict only for the incoming `pending` question. The `other` branch, which version 3 uses for exit 5, publishes no `folded` at all. So an answer judged on an exit-5 or kill call is never published. Neither is an answer judged on a later call, because by then it is no longer the incoming pending question. That brings defect 2 back on the long-song path.",
+   "evidence": "lyric_tools.js:440-442: `const pend = prev.pending ... if (pend.answer == null || pend.answer === '') return null`. The `other` branch (:2885-2923) sets status, state, final_draft and run_id, but not `folded`. Only :2753 (exit 4) and :2839 (finish) call `foldedOf`.",
+   "design_change": "Replace 'fold against the incoming pending' with 'fold against the journal' (it also answers S5). On every result that carries a state (exit 4, finish, exit 5, kill or interrupted, journal_capacity), the connector compares the outcome, group-outcome and disposition records in the returned state with those in the incoming one. Every record that is new or changed is published in `folded` as `accepted`, `rejected` or `not_applied`, with `source: \"outcome\"`. Every answer on record that has no outcome or disposition is published as `pending`, computed by the connector from the state itself (see S4). When there is more than one row, `folded` is an array, the shape batch answers already use (lyric_tools.js:448-466). This is the 'every answer comes back with one of four verdicts' that Q1 and Q2 approved. It adds no verdict value and no new field. T3 adds two cases: a fake-clock stop placed between an answer and its verify, and a stop placed after the verdict. Each must publish that answer's verdict, on the call that wrote it."
+  },
+  {
+   "id": "R3",
+   "position": "concede",
+   "argument": "Right. In a fallback replay, `accepted_lines` stays at its furthest value while the cursor draft lags behind it. Setting `replaying = False` unconditionally, and writing the entry checkpoint 'on the cursor draft', would then write the earlier draft into `accepted_lines`. So would every acceptance replayed on the way back to the frontier. A kill then publishes a `final_draft` missing edits the writer already had accepted. That is the B5 failure, one call later.",
+   "evidence": "lyric_harness.py:8205 `replaying = st[\"accepted_lines\"] != list(lines or ())`; :8209-8213 `if replaying: if list(current) != st[\"accepted_lines\"]: return ... trial = dict(st, accepted_lines=list(current), ...)`. Kill branch: lyric_tools.js:2643-2647 `exactDraft = ... currentCheckpoint?.accepted_lines` published as `final_draft` (:2903).",
+   "design_change": "\u00a72.0 'Entering at the cursor', step 1 becomes: set `replaying = False` only when the cursor draft equals `accepted_lines`. Otherwise stay in the own-fields checkpoint mode that the fallback replay uses. The cursor advances and is emitted, but `accepted_lines` and the other progress fields are not touched until the walk's current draft equals `accepted_lines`. This also applies to the entry checkpoint. T5 adds a case: a fallback replay is killed mid-walk, the next call resumes from that cursor and is killed again after its entry checkpoint, and its `final_draft` must equal the furthest `accepted_lines`."
+  },
+  {
+   "id": "R4",
+   "position": "concede",
+   "argument": "Right. The `other` branch publishes only the last checkpoint printed on stdout. It never reads the state file. The CLI, by contrast, resumes from the state file. Version 3 requires neither the print nor the write for exit 5, so the stop position could be lost on either surface.",
+   "evidence": "lyric_tools.js:2629-2636 `currentCheckpoint = r.checkpoint && ...`; :2901 `other.state = encodeInterview(currentCheckpoint)`. Exit 4 and finish read `statePath` (:2697, :2832). The CLI suspension writes `say_proposer.state` to the file (lyric_harness.py:13245-13247).",
+   "design_change": "\u00a72.3(b): a safe-point stop always does three things. It prints one final control checkpoint holding the stop cursor, with `status: \"stopped\"`, through the same `checkpoint()` path and its own-fields rule from R3. It writes the same state to the defer state file, as the exit-4 path does. Then it exits 5. The deadline check budgets for both writes (the 'cost of stopping' term). T4 drives the connector as well as the loop. It asserts that the returned `state` decodes to the stop position, that the state file on disk holds the same cursor, and that the next no-answer call resumes from it."
+  },
+  {
+   "id": "R5",
+   "position": "concede",
+   "argument": "Right. chat.js mints an interview `state` wire with `encodeState` inside `recoverCheckpoint`, and version 3's list of mint points leaves it out. That wire would arrive unsealed. It would be reported as `cursor_stripped: seal` and would pay a full replay, which mislabels a state the server itself minted.",
+   "evidence": "mcp/chat.js:450 `wire = encodeState(cp);` and :460 `...(decl.writer === 'interview' ? { state: wire } : { checkpoint: wire })`. `grep -n encodeState mcp/*.js` finds chat.js:450 beside lyric_tools.js:2607/2674/2796/2902 and workflow_sessions.js:554.",
+   "design_change": "Move sealing into one shared helper, `encodeInterviewWire(state)`, exported from lyric_tools.js. Every interview mint calls it: the four lyric_tools branches, workflow_sessions.resumeSnapshot and chat.js recoverCheckpoint. Kitchen checkpoints keep plain `encodeState`. Add a guard test that greps the mcp/ sources and fails if any interview `state` is built from bare `encodeState`. T7 adds a case that recovers a chat job checkpoint and resumes from its cursor with no `cursor_stripped`."
+  },
+  {
+   "id": "R6",
+   "position": "concede",
+   "argument": "Right. An exit-5 interview result has status `interrupted` and a `state` but no `checkpoint`. Every branch of `carryState` misses it and returns `prev`. The chat then keeps the old state, the stop's cursor is lost, and the next continuation redoes the work.",
+   "evidence": "gemini_agent.js:1151-1154 requires `typeof verdict.checkpoint === 'string'`; :1167 requires `code === 4`; :1209-1210 requires `code === 3 || status === 'uncertified'`; :1233-1234 `if (code === 0 ...) return null; return prev;`. Interview states exist on that surface (chat.js:460).",
+   "design_change": "Add mcp/gemini_agent.js to \u00a74.1, under code touched as well as checked. In `carryState`, an `interrupted` result that carries `verdict[STATE_PROPERTY]` (interview) is carried as resumable, the way `checkpoint` is carried for kitchen: with `state`, `run_id`, the replay draft, `final_draft` and `decl`. Add a chat-surface test that feeds an exit-5 interview verdict through `carryState` and asserts the new state is carried."
+  },
+  {
+   "id": "R7",
+   "position": "concede",
+   "argument": "Right on both points. (1) `record_group` keeps the last write in walk order, keyed on the member tuple alone. Two pivots escalating the same couplet in one round can write equal (members, round, attempt) with different question hashes. A 'latest (round, attempt)' rule then ties, and the rebuild can pick a different entry from the one the hook kept. (2) Version 3 never says how a `not_applied` row enters the rebuild or the live hooks. `record` would turn it into a rejection.",
+   "evidence": "lyric_harness.py:8135-8139 `if accepted: last_grej.pop(_m, None) else: last_grej[_m] = {...}`. The key is `_m = tuple(members)`, and `members` is the mandate's own order (`_brief_key`, :7386-7411). Attempt restarts per pivot: loop.py:1580 `attempt += 1` inside each `_try_tier2` call. `record` writes `\"accepted\": bool(accepted)` and sets `last_rej` for anything not accepted (:7925-7948).",
+   "design_change": "\u00a72.0's rebuild rule becomes: 'replay `outcomes` and `group_outcomes` in list order, applying exactly what `record` and `record_group` do. For each line or member tuple, the last entry in list order wins; an accepted entry pops it.' Disposition rows (`not_applied`) are written through a separate hook into their own list (S3). They never reach `record`, `last_rej`, `last_grej` or the rebuild. T1 adds two scripts: two same-round escalations of one couplet from different pivots, and a `not_applied` line asked again in a later round. Each must give byte-identical question text and `question_sha256` under resume and under replay."
+  },
+  {
+   "id": "R8",
+   "position": "concede",
+   "argument": "Right. The current round's `attempts` list becomes `RoundResult.attempts` when the round closes, and T1 compares that result. Some of its entries are built from control flow and have no outcome record to point to: tier-2 attempts that were never asked, refusals carrying pinned or starved counts, and escalation labels. The same holds for the whole-draft repair's `_attempts`. A mid-pass resume without them cannot rebuild `LoopResult.rounds`.",
+   "evidence": "loop.py:1989 `attempts, fixed_this_round, touched = [], [], set()`; appended at :2185, :2261, :2271; closed at :2277 `rounds.append(RoundResult(round_no, attempts, ...))`. Reasons are composed in place: :2188-2194 `f\"after tier 2 {_group_outcome}, fell through to tier 1: \"` and :2266-2270 'after tier 1 found no accepted line, escalated to tier 2'. The global phase appends `LineAttempt(1, 3, ...)` at :1952-1953.",
+   "design_change": "Add to the cursor table: 'the current round's `attempts` and, in the global phase, `_attempts`, as LineAttempt records. Each is stored by reference (outcome key plus the composed reason string) where an outcome exists, and verbatim otherwise.' T1 adds an assertion on `LoopResult.rounds` for a suspension mid-pass after an unasked tier-2 attempt (pinned), and for one inside the global repair."
+  },
+  {
+   "id": "R9",
+   "position": "concede",
+   "argument": "Right. 'The offered and forbidden lists' is far less than what the renderers and the control flow read from a materialized Brief. The underlying point should be stated outright: those menus are a cache, not an authority. `brief(target_lines={n})` on the unit's starting draft is deterministic, so rebuilding a menu gives the same bytes. The question is only what the cache must hold to save the rebuild.",
+   "evidence": "The offers block sets candidates, forbidden_modal, screened_out, field_computed, empty_head_cause, joint_conflict, partial_by_call, schema_refused, grader_refused, field_widened and offer_emptied_by_ban (revise.py:6164-6199), plus forbidden_incumbent (:6217) and fields_by_slot. `_asks_group_first` reads joint_conflict, field_computed, violated_groups and candidates (loop.py:2104-2107). prefetch reads `x.joint_conflict` (lyric_harness.py:8061).",
+   "design_change": "\u00a72.0's row becomes: 'per materialized question, the whole serialized offers block: every Brief field the offers block sets (including fields_by_slot with its SlotFields), keyed by the draft fingerprint it was computed on. A cache: when it is missing, dropped or keyed to another draft, the menu is rebuilt by `brief(target_lines=...)` on the same draft, which gives the same bytes.' \u00a74.3 item 1 measures these bytes at 24, 60 and 104 lines. T1 and T4 compare, byte for byte, the prompts of questions rendered from the cache with those rendered after a forced rebuild."
+  },
+  {
+   "id": "R10",
+   "position": "concede",
+   "argument": "Right. Checkpoints are admitted against the journal's hard ceiling, and a failure raises `_JournalCapacity`, which ends the run for good. Outside `_suspend`, prefetch does not catch that. So a cursor carrying menus, or a full fallback draft, could end a run that today's code would carry on.",
+   "evidence": "lyric_harness.py:8218 `_journal_admit(trial, lines=current, path=path, ceiling=JOURNAL_BYTES, prior=st)`; :7610-7613 raises `_JournalCapacity`; prefetch catches it only around `_suspend` (:8081-8090). The connector maps it to `new_run_required` (lyric_tools.js:2648-2690).",
+   "design_change": "The cursor is never what ends a run. Admission tries three things in order. First, the full cursor. Second, the cursor without its menu caches (R9: they are rebuilt deterministically). Third, no cursor at all. Only the bytes that are not cursor bytes are held to today's capacity rule, so every state that fits today still fits. A dropped cursor shows on the next call as `cursor_stripped: missing`, an owner-approved value, and the harness discloses why in its own report line. \u00a74.3 item 1 adds the partial-batch, group-construction and fallback cases. Add a test: a state within a few KiB of JOURNAL_WORK_BYTES must still resume, and must choose the same batch members as today's code on the same journal."
+  },
+  {
+   "id": "R11",
+   "position": "concede",
+   "argument": "Right. `journal_digest` is undefined, and version 3 uses it for two jobs that conflict. As a resume check it must survive the fold of the new answer, which happens at load before the loop runs. As the progress measure it must change when verdicts are recorded. 'Over the whole journal', read as equality, would make every answered continuation fall back.",
+   "evidence": "lyric_harness.py:7779-7860 folds `pending.answer` into `answered` at load (`folded_base = dict(st, pending=None)`, :7787). `record` and `record_group` overwrite outcomes in place by key (:7930-7942, :8124-8134).",
+   "design_change": "Define the digest exactly. `journal_digest` = SHA-256 over the canonical JSON of `input_draft` plus the first k1 records of `answered.propose` and the first k2 of `answered.propose_group`, where k1 and k2 are stored in the cursor. The resume check is a prefix check: the incoming journal's first k1 and k2 records must hash to the stored digest. Appended answers pass; an edited or removed earlier answer fails, and the result says `cursor_stripped: digest`. Outcomes are not in the digest: they are derived, and they are covered by the seal. Progress is a separate measure, the position defined in R1. T7 adds two cases: an edited earlier answer falls back, and a newly folded answer does not."
+  },
+  {
+   "id": "R12",
+   "position": "concede",
+   "argument": "Right. After a cursor resume, `tally['hit']` counts only the lookups this process made, so the done-disclosure would print a different number from a full replay, and T1 compares those disclosures. The header also says 'replayed in order', and SESSION_RESUME says the session 'replays its journal'. Both become false on the fast path.",
+   "evidence": "lyric_harness.py:8159 `answer(s) already given, replayed in order`; :8191-8199 prints `{tally['hit']} consulted and answered` and each stale key; hits counted at :7980 and :8102. workflow_sessions.js:93-94 SESSION_RESUME '...the session carries this run and replays its journal'.",
+   "design_change": "The cursor carries `tally.hit` and the full list of stale keys, not a count, so the disclosure matches a full replay byte for byte. Reword the disclosure header and SESSION_RESUME to state both paths ('resumes from its saved position, or replays its journal when that position cannot be trusted'). This is the same statement the Q6 ruling approved for the `lyric_revise` description. List both strings under \u00a73 item 4 next to the description and `lyric_tools.js:2423-2429`."
+  },
+  {
+   "id": "R13",
+   "position": "concede",
+   "argument": "Right. For a server restart, the operation is `interrupted`. Without a progress record it is not resumable, and the session layer sets the continuation to null. The claim in \u00a72.3(c) holds only for bridge kills, where the operation stays `completed`.",
+   "evidence": "workflow_sessions.js:377-386: for `parent.state === 'interrupted'` that is not resumable, `session = clone(original); session.native.continuation = null;`. `resumeSnapshot` refuses when `!progress` (:530-551).",
+   "design_change": "Scope \u00a72.3(c)'s sentence to bridge kills. Add: 'A server restart before the entry checkpoint keeps today's behaviour: the operation is not resumable, its continuation is cleared, and CONTINUATION_UNCERTAIN gives the recovery steps. The entry checkpoint narrows that window to process start-up.' The session layer is not changed. T5 adds the restart case and asserts today's behaviour, and a second restart after the entry checkpoint, which must be resumable through `resume_operation`."
+  },
+  {
+   "id": "R14",
+   "position": "concede",
+   "argument": "Right. Session callers see a finished revise through the short view's fixed field list, and the exit-4 receipt is built by hand from an explicit list. Neither list has the two approved fields, so a session caller could not see them.",
+   "evidence": "verdict_view.js:33-51 `KEPT` has neither `cursor_stripped` nor `no_progress_calls`. The exit-4 JSON is assembled field by field at lyric_tools.js:2741-2780.",
+   "design_change": "Add `cursor_stripped` and `no_progress_calls` to `KEPT` in verdict_view.js, to the hand-built exit-4 object, and to the `other` and finish verdicts. Add verdict_view.js to \u00a74.1's code touched. Pin both fields in the session-view tests."
+  },
+  {
+   "id": "S1",
+   "position": "concede",
+   "argument": "Right. In the couplet case, the earlier endpoint has no per-line finding, because a pair violation is filed only on the later endpoint. So `brief(target_lines={L1})` returns nothing, and \u00a72.4's 'computed by tier 1's own call' gives no menu in exactly the case it claims to fix. The not-walked path already builds anchor menus with `joint_field(m_other)`. For a lone couplet `m_other` is empty, which is why `(none offered)` prints.",
+   "evidence": "revise.py:3711-3712 `add(j, Finding(\"SCHEME_VIOLATION\", ...))`; :5811-5813 `for ln in sorted(found[\"per_line\"]): if targets is not None and ln not in targets: continue`. loop.py:1558-1567 `_mf, _ = (reviser.joint_field(list(m_other), exclude=(m_current,)) if m_other else ([], []))`; propose.py:1246 `(none offered)`.",
+   "design_change": "\u00a72.4 computes the non-pivot member's one-move menu from the mandate, not from a Brief. At the member's bound place (`_slot_for(mandate, gi, m_line)`), it gathers the calls of every group bound there, including the pivot's current word, with the member's other obligations (`_anchor_obligations`). It runs `joint_field_screened` on them, excluding the member's current word, and filters through `declared_offer` when `_explicit` holds, as the offers block does. T6's couplet fixture is one in which L1 carries no per-line finding, and it must print L1's words."
+  },
+  {
+   "id": "S2",
+   "position": "concede",
+   "argument": "Right. Two more walk paths discard a batch answer without `resolved_elsewhere`. The first is the silent `touched` skip. The second is a member that turns group-first on the moved draft and whose group rewrite is accepted, so tier 1, and with it the attempt-0 answer, is never reached. Both are reachable, because prefetch skips a group-first ahead line without adding its related set. Version 3's 'why' for `not_applied` also cannot be computed from today's walk.",
+   "evidence": "loop.py:2011 `if b.line_no in touched: continue`. :2137 `_group_first = _asks_group_first(b)` is evaluated on the materialized brief; when `_try_tier2` accepts, `_try_tier1` is skipped (:2173-2182). lyric_harness.py:8058-8062: `x = materialize()` and `if x is None ...: continue` comes after `xr` is computed, but before `rels.append(xr)`. :2130 `if b is None: resolved_elsewhere.append(...)` happens with no acceptance.",
+   "design_change": "Every path on which the walk passes a member with an answer on record writes a disposition: resolved_elsewhere (:2097, :2075), the touched skip (:2011), a group-first acceptance before tier 1, and `_materialize` returning None (:2130). Each has its own `why`: 'closed by the accepted rewrite of L..' / 'rewritten by the accepted group rewrite of L..' / 'no finding stands on L<n> on the current draft'. To name the closer, the loop keeps a small `closed_by` map. At each re-brief, every pass line still ahead that has just dropped out of `still_open` is attributed to the most recent accepted unit's touched lines. Only one unit's acceptance lies between consecutive re-briefs, because a re-brief fires on the first line after any acceptance (:2063). The map goes in the cursor. Once every pass-by writes a record, 'on record with no outcome or disposition' means exactly 'not yet reached', so no walk-position hook is needed. T3 adds one fixture per path."
+  },
+  {
+   "id": "S3",
+   "position": "concede",
+   "argument": "Right. Written through `record`, a `not_applied` row becomes a rejection that the writer is shown next round. Written any other way, version 3's rebuild rule still treats it as the latest unaccepted entry. loop.py also cannot tell which skipped lines have an answer on record. And the coupling test, as worded, fails on the new code.",
+   "evidence": "lyric_harness.py:7928 `\"accepted\": bool(accepted)`; :7943-7948 `last_rej[entry[\"line\"]] = ...`; `_prior` feeds the line question (:7965-7975, :8007). The proposer alone holds `ones` (:7862).",
+   "design_change": "Add a proposer hook, `propose.skipped(line, attempt, round, why)`. The loop calls it on every pass-by path (S2). The proposer writes a row only when `_line_lookup(ones, ...)` finds an answer for that key, and it writes the row to its own list, `st[\"dispositions\"]`, never to `outcomes`. So `outcomes`, `last_rej`, the rebuild and the question bytes are exactly today's. `foldedOne` also looks in `dispositions`. The list is covered by the seal. The coupling test then holds as written, since `outcomes` equals today's. `dispositions` is checked separately, in T3. T1 adds a script that crosses a disposition row."
+  },
+  {
+   "id": "S4",
+   "position": "concede",
+   "argument": "Right. Folding copies the whole pending record of a single or group question into `answered`. `_suspend` charges the whole pending record against the journal, and a failed admission trims the batch. So a `waiting` list on `pending.record` is stored for good, and it can change batch membership. That contradicts both 'not stored' and 'nothing measurable'.",
+   "evidence": "lyric_harness.py:7779 `rec, ans = dict(pend[\"record\"]), pend[\"answer\"]`; :7836-7838 `st[\"answered\"][\"propose\"].append(rec)`; :7856-7857 group likewise; :7959-7961 `trial = dict(st, pending=pending)` admitted with reserve; :8089-8090 `except _JournalCapacity: chosen.pop()`.",
+   "design_change": "Drop the harness `waiting` field entirely. `pending` is computed by the connector from the state it already returns. It lists every answer in `answered` that has no outcome, group outcome or disposition, and attributes each to the lines of the current `pending` question, or to 'the run stopped before reaching it' on exit 5 or a kill. With S2's records this is exact. Nothing is added to the journal, so admission, batch trimming and \u00a74.3's byte figures are unchanged. The test: a run near JOURNAL_WORK_BYTES chooses the same batch members as today."
+  },
+  {
+   "id": "S5",
+   "position": "concede",
+   "argument": "Right, the same defect as R2 from the other side. An answer that is `pending` and judged on a later call is never published, because `foldedOf` folds only the previous pending question's own rows. On the exit-5 path a batch answered in that call gets no verdict at all.",
+   "evidence": "lyric_tools.js:433-466 `askedOf(pend)`, and batch rows come from `pend.record.records`. The `other` branch (:2885-2923) has no `folded`, unlike :2753 and :2839.",
+   "design_change": "As R2: fold by journal diff on every result branch, using only the four approved verdict values. As S4: `pending` is computed from the new state, so `foldedOne` never looks for a stored `waiting`. T3 continues one call further and asserts L4's final `accepted` or `rejected`, published on the call that judged it. It also adds an exit-5 case in which a batch is folded and the call stops before the next question: each member must be published, as judged or as `pending`."
+  },
+  {
+   "id": "S6",
+   "position": "concede",
+   "argument": "Right, the same finding as R1. The entry checkpoint means every kill has a new checkpoint, and an exit-5 stop is not a kill, so the counter as written never moves.",
+   "evidence": "LOOP_REDESIGN.md:228 and :380; lyric_tools.js:2894-2901.",
+   "design_change": "As R1. The trigger is position-based (cursor phase and index, construction member counts, verdict and disposition counts, pending identity), evaluated on kills and exit 5 alike, and re-sealed into whichever state is returned. T5 asserts `no_progress_calls >= 2` after three re-brief kills that each leave an entry checkpoint, and again for three exit-5 stops at the same position."
+  },
+  {
+   "id": "S7",
+   "position": "concede",
+   "argument": "Right on all three points. (1) Today rule 3 applies only to lines that have a Brief, which means lines with a per-line finding. `wants` also counts incident violations, so a couplet anchor would pass a bare 'wants and groups' test and be newly checked. (2) A kept bound word is never rejected; head membership only chooses a disclosure clause. (3) 'Explicit' is the code's `_explicit` expression, not 'declared'.",
+   "evidence": "revise.py:6275-6280 `brief(before, ..., target_lines=changed)`; :5811-5813 per_line only; :5897-5899 `_violated.update(... _incident)`. :6454 `if not b or not (b.forbidden_modal or b.forbidden_incumbent): continue`. :6460-6473: `if got == was: ... modal_kept.append(...); continue`, and only `if got in b.forbidden_modal` rejects. :6516 'it is also in this line's modal head' is disclosure text. :6014-6015 `_explicit = any(m.relation_of(k) or not self.schema_route_open(m, k) for k in ks)`.",
+   "design_change": "\u00a72.6 step 1 becomes: 'No Brief (the line has no per-line finding before the change) or no `wants and groups`: rule 3 does not apply.' Steps 5 and 6 use the predicate `_explicit = any(m.relation_of(k) or not self.schema_route_open(m, k) for k in ks)` by name. Step 7: only a CHANGED bound word can be rejected (it is in the raw head and either not `_explicit` or kept by `declared_offer`). For a kept incumbent, head membership only selects the disclosure clause. T8 includes a group rewrite whose non-pivot member has no per-line finding, and a kept incumbent that is in its own head."
+  },
+  {
+   "id": "S8",
+   "position": "concede",
+   "argument": "Right. Under option B, batch members are judged on later calls, so 'verify calls equal new answers' is false on the new code. And because the memo serves verify, a counter on `Reviser.verify` can match on the old code too. T1's 'no stripped-cursor reason' also holds trivially on the old code.",
+   "evidence": "replay_memo.py:62 `MEMOISED = (\"brief\", \"verify\", \"inspect\", \"joint_field\")`; :207-218 memoises `verify`. `LYRIC_REPLAY_MEMO=0` disables it (replay_memo.py:78).",
+   "design_change": "T2 becomes: 'each answer is verified exactly once across the run, and the verify calls in one call equal the answers judged for the first time in that call.' \u00a72.0's cost sentence is restated the same way. The counter sits at the loop's call site (the reviser proxy boundary), with `LYRIC_REPLAY_MEMO=0` and one cold process per call. T1's resume arm asserts a positive marker: the harness reports `replayed_answers: 0` (a test-visible count in its run record, not a published field) and a cursor-resume flag in the disclosure. Both fail on the old code. The T7 'resumes' half asserts the same marker."
+  },
+  {
+   "id": "S9",
+   "position": "concede",
+   "argument": "Right. T8 pins only equality with today's verify, which the old code trivially passes. So it does not meet \u00a74.2's must-fail-on-old rule, and an implementation that forgot the switch would pass it.",
+   "evidence": "revise.py:6275-6280 calls `self.brief(...)` with `include_offers` at its default `True` (:5737), which runs the offers block and `declared_offer` over the offered and widened pools.",
+   "design_change": "Add T8's failing half. Over T8's corpus, record the brief that verify requests and assert `include_offers=False`. Assert zero calls to `_widen_pool`, to `schema_widened_field`, and to `declared_offer` with a `limit`, inside verify. The old code fails this. Keep the equality half and its two mutants (always filter, drop rule 3) unchanged."
+  },
+  {
+   "id": "S10",
+   "position": "concede",
+   "argument": "Right. Reprinting the batch-time menu can be stale, because the walk re-materializes the member on the current draft. With `--attempts=0 --backtrack>=1` there was never a line question to name. And 'reprinted or named by reference' leaves two renderings open, which would split `question_sha256` between resume and replay. Fixing one rendering costs nothing: the pivot's Brief `b` is already materialized on the unit's starting draft before the escalation runs.",
+   "evidence": "loop.py:2128 `b = _materialize(b)` on the current `lines` at the unit start; the escalation passes that same `b` to `_try_tier2` (:2260-2264). Batch menus are built at prefetch time (lyric_harness.py:8058-8060). The group hash covers `render_group` (:7403-7406).",
+   "design_change": "\u00a72.4 fixes one rendering, the same in every resume mode. Always print the pivot's offered and forbidden lists from its own `b`, as materialized on the unit's starting draft: what verify enforces now. Cite the line question ('as offered in L2's line question, attempt 1, round 1') only when that question was asked on the same draft fingerprint. Otherwise print 'no line question was asked on this draft; these are the lists the grader enforces now.' Because `b` is a pure function of that draft, cached or rebuilt (R9), the bytes cannot depend on resume mode. T6 adds a case in which a batch member's call word moved before escalation, and one with `--attempts=0 --backtrack=1`."
+  },
+  {
+   "id": "S11",
+   "position": "concede",
+   "argument": "Right. \u00a72.4 adds one exact menu per non-pivot member, and \u00a72.3(b) forbids stopping while a question is being built. On long songs a group question whose menus together exceed one call could then never be asked, on a path that is cheap today.",
+   "evidence": "LOOP_REDESIGN.md:360 'Never in the middle of building a question'; :361 makes only batch construction resumable; \u00a71.3 one exact menu is about 1,720 s warm at 24 lines; propose.py:1238-1246 prints `(none offered)` today and needs no menu.",
+   "design_change": "Make group-question construction resumable on the same terms as batch construction. The cursor records the members whose one-move menus are done, with their cached inputs keyed by the draft fingerprint, and a safe point is allowed between members. The question's bytes stay a pure function of the draft, the mandate and the journal, so the hashes match full replay. Building one more member's menu counts as progress for the counter (R1). T4 adds a fake-clock stop between two members' menus and asserts the finished group question is byte-identical to the uninterrupted one."
+  },
+  {
+   "id": "B4",
+   "position": "concede",
+   "argument": "Mostly there. Version 3 has the one sealing function, the mint list (suspend, finish, kill/other, journal_capacity, resumeSnapshot), the derived key with one load per process, the damaged-key policy, and T7's resume_operation and session cases. What it lacks is one mint point that round 1 did not find: chat.js `recoverCheckpoint`.",
+   "evidence": "LOOP_REDESIGN.md:279-285 (where sealed, key) and :567 (T7 resume_operation and session). Missing: mcp/chat.js:450 `wire = encodeState(cp)`, :460 `state: wire`.",
+   "design_change": "As R5: one shared `encodeInterviewWire` helper is called from all six mint points, chat.js included. A grep guard rejects any bare `encodeState` used for an interview state. T7 adds a chat-recovery case."
+  },
+  {
+   "id": "B8",
+   "position": "concede",
+   "argument": "Version 3 carries judge 1's four required changes word for word: the entry checkpoint before the re-brief (\u00a72.0 step 2), the re-seal with `stalls + 1` stored by the session (\u00a72.3(d)), progress defined as a digest or cursor advance, and report-never-refuse. It also carries the test (T5), the owner's Q4 approval, and the \u00a74.1 entries. But taken literally together, the first two cancel out, so the counter never fires (R1/S6).",
+   "evidence": "LOOP_REDESIGN.md:228, :379-383, :543-544, :564; lyric_tools.js:2888-2901.",
+   "design_change": "As R1: count stalls by comparing positions on every result that asks no new question, kills and exit 5 alike. Reset on any advance. Re-seal into whichever state is returned and put it into RUNS. T5 covers kills after the entry checkpoint and repeated exit-5 stops."
+  },
+  {
+   "id": "C10",
+   "position": "concede",
+   "argument": "Version 3 has C10's required pieces: the counter lives in the connector inside the sealed state and the RUNS entry (\u00a72.3(d)), progress is defined by verdicts and questions, not by completed steps, it is a contract addition (\u00a73 item 3, Q4), and lyric_tools.js and workflow_sessions.js are in \u00a74.1. The defect is the same as B8's: the trigger as worded cannot fire.",
+   "evidence": "LOOP_REDESIGN.md:377-383, :520, :543-544.",
+   "design_change": "As R1. The position comparison also covers memo eviction and worker restarts, because it reads recorded positions and verdicts, not completed work."
+  },
+  {
+   "id": "A3",
+   "position": "concede",
+   "argument": "Version 3 contains A3's three changes: `judged_open` in the cursor (table row at :205), the phase field with `{global, attempt: k}` (:203), and the entry checkpoint with `replaying = False` (:225-229), plus the T1 scripts (:555). Two things are missing. First, the defender's T1 script required a round 'that opened with judged_open false and later had an edit accepted under allow_net_new'. Version 3 drops the second half, and that half is what makes `judged_open` impossible to re-derive, so without it the test cannot fail if an implementation re-derives it. Second, R3 shows that `replaying = False` set unconditionally is wrong after a fallback replay.",
+   "evidence": "debate_round1.json defense A3: '...inside a round that opened with `judged_open` false and later had an edit accepted under `allow_net_new`'. LOOP_REDESIGN.md:555 has only 'a round that opened with `judged_open` false'. loop.py:1921-1922 and :2068-2072; lyric_harness.py:8205-8213.",
+   "design_change": "Restore the full T1 script: a round that opens with `judged_open` false, then accepts an edit that introduces a flag under `allow_net_new >= 1`, then suspends. The resume must reproduce the replay's open set. Apply R3's conditional `replaying` rule."
+  },
+  {
+   "id": "C11",
+   "position": "concede",
+   "argument": "Version 3 has C11's fixture change (a pasted 24-line couplet song and a 6-line planner fixture, :551) and a cursor-taken assertion in T1 (:550). But that assertion, 'no stripped-cursor reason, and the verify count per call equals the number of new answers', can pass on the old code: the field is absent, and memoised verifies hide the replay (S8). It is also false on the new code under option B. T7's 'resumes' half no longer asserts zero replayed answers, which the defender had promised.",
+   "evidence": "LOOP_REDESIGN.md:550 and :567; debate_round1.json defense C11 'T7's \"resumes\" half asserts zero replayed answers'; replay_memo.py:62 memoises `verify`.",
+   "design_change": "As S8: a positive marker (`replayed_answers: 0` in the harness run record, plus the cursor-resume disclosure). Verify counts are taken at the proxy boundary with `LYRIC_REPLAY_MEMO=0`, and the invariant is restated as 'each answer verified once; per call, verifies equal answers judged for the first time'. T7's 'resumes' half asserts the same marker, and its 'falls back' half asserts `cursor_stripped` with the right reason."
+  }
+ ],
+ "judges": [
+  {
+   "rulings": [
+    {
+     "id": "R1",
+     "ruling": "design_must_change",
+     "reason": "The objection is right. lyric_tools.js:2888-2901 returns the harness's own checkpoint, built as dict(st, ...) at lyric_harness.py:8213, so the incoming stalls value comes back unchanged. RUNS.put is only reached inside `if (currentCheckpoint)` and `if (resumable)`. The entry checkpoint (LOOP_REDESIGN.md \u00a72.0 step 2) and 'on a kill with no new checkpoint' (\u00a72.3(d)) cancel each other out, and an exit-5 stop is not a kill. The defender's position-based count fixes this, but its trigger is too wide. 'Every result that asks no new question (... interrupted or other)' takes in the `other` branch, and that branch also carries exit-2 refusals such as INVALID_INTERVIEW_ANSWER (status 'refused'). Read as written, a refused malformed answer would count as a stall and hand back a re-sealed state where today none is returned. The parenthesis also leaves finish and journal_capacity results open.",
+     "required_change": "Adopt the defender's R1 change with two limits. (1) Only an exit-5 result and a killed, timed-out or cancelled call (r.timed_out, r.cancelled or a negative/killed code) are compared and can carry stalls+1. A refusal (status 'refused', exit 2), a journal_capacity stop and a finish (exit 0/2/3) never change the count, and exit 0 or 3 clears it. (2) The position used for the comparison excludes the `stalls` field and the seal. Everything else stands as conceded: reset on any advance or on a new question, re-seal into whichever state is returned, RUNS.put with a new revision even when no checkpoint was printed, report and never refuse. T5 adds the three cases (kills after the entry checkpoint, repeated exit-5 stops, reset on advance) plus one more: a refused invalid answer leaves the count unchanged."
+    },
+    {
+     "id": "R2",
+     "ruling": "answered",
+     "reason": "Confirmed. foldedOf reads only prev.pending with a non-empty answer (lyric_tools.js:440-442), and the `other` branch (2885-2923) sets no `folded`. The defender's journal diff works for every branch that carries a state: it compares outcome, group-outcome and disposition records between the incoming state and the returned one. Each answer gets either an outcome or, with S2/S3, a disposition, so 'new or changed record' identifies the call that judged it. `folded` is already an array for batches (448-466), and consumers treat it as an opaque object (gemini_agent.js:439, verdict_view KEPT), so publishing an array is not a new shape.",
+     "required_change": "Apply the defender's change as stated: fold by journal diff on every branch that carries a state, using only the four approved values, and add the two T3 fake-clock cases."
+    },
+    {
+     "id": "R3",
+     "ruling": "answered",
+     "reason": "Confirmed at lyric_harness.py:8205-8213. Setting replaying=False unconditionally and writing the entry checkpoint 'on the cursor draft' would overwrite accepted_lines with an earlier draft, and lyric_tools.js:2643-2647 would then publish that draft as final_draft. The defender's conditional rule fixes it: stay in own-fields mode until the walk's current draft equals accepted_lines, and apply the same rule to the entry checkpoint. The new T5 case tests it.",
+     "required_change": "Apply the defender's change: replaying=False only when the cursor draft equals accepted_lines, with own-fields checkpoints until then, including the entry checkpoint. Add the T5 double-kill case."
+    },
+    {
+     "id": "R4",
+     "ruling": "answered",
+     "reason": "Confirmed. `other` publishes only r.checkpoint (lyric_tools.js:2629-2636, 2901) and never reads statePath. The exit-4 and finish branches do read it (2697, 2832), and the CLI resumes from the state file. The defender requires both a final 'stopped' checkpoint and the state-file write, and budgets both in the cost of stopping. A checkpoint status of 'stopped' is not excluded by resumeSnapshot (workflow_sessions.js:530-551 excludes only proposing, journal_capacity and finished) or by the bridge (python_bridge.js:698).",
+     "required_change": "Apply the defender's change: a safe-point stop prints a final checkpoint with status 'stopped' holding the stop cursor, writes the same state to the defer state file, then exits 5. T4 drives the connector and checks the returned state, the file on disk and the next call's resume position."
+    },
+    {
+     "id": "R5",
+     "ruling": "answered",
+     "reason": "Confirmed. chat.js:450 has `wire = encodeState(cp)` and :460 puts that wire in `state` for interview runs, inside recoverCheckpoint. Version 3's mint list leaves this site out. A single encodeInterviewWire helper, a grep guard against bare encodeState for interview states, and a chat-recovery T7 case close it.",
+     "required_change": "Apply the defender's change: one shared sealing encoder used at all six mint points, chat.js recoverCheckpoint included, plus the grep guard and the T7 chat-recovery case."
+    },
+    {
+     "id": "R6",
+     "ruling": "answered",
+     "reason": "Confirmed. In gemini_agent.js carryState, the interrupted branch requires verdict.checkpoint (:1151-1154), the next branch requires code 4 (:1167), the parked branch requires code 3 or 'uncertified' (:1209-1210), and everything else falls through to `return prev` (:1234). An interview result with status interrupted carries only `state`, so it is dropped. This is already true for today's interview kills and would also hit exit 5 and R1's re-sealed states. The defender's fix is concrete and testable.",
+     "required_change": "Apply the defender's change: add gemini_agent.js to \u00a74.1 as touched code, have carryState carry an interrupted result's STATE_PROPERTY as resumable, and add the chat-surface test."
+    },
+    {
+     "id": "R7",
+     "ruling": "answered",
+     "reason": "Confirmed. record_group keeps the last write keyed only on the member tuple (lyric_harness.py:8135-8139), and _try_tier2 restarts `attempt` for each pivot. Within one walk each key is written once, in walk order, and a later pivot's entry has a different question_sha256, so it is appended at the end of the list. Replaying the record and record_group rules in list order therefore reproduces the live maps. Writing dispositions to their own list, never through `record`, keeps them out of last_rej and last_grej.",
+     "required_change": "Apply the defender's change: rebuild by replaying outcomes and group_outcomes in list order under exactly the record/record_group rules, keep dispositions out of both maps, and add the two T1 scripts."
+    },
+    {
+     "id": "R8",
+     "ruling": "answered",
+     "reason": "Confirmed. The current round's attempts are created at loop.py:1989 and appended at :2185, :2261 and :2271, with reasons composed from control flow at :2188-2194 and :2266-2270. The global phase's _attempts are appended at :1952. None of these is in the version 3 cursor. The defender adds them by reference where an outcome exists and verbatim otherwise, and adds a T1 assertion on LoopResult.rounds.",
+     "required_change": "Apply the defender's change: add the current round's attempts and the global phase's _attempts to the cursor, and add T1 assertions for mid-pass and global-repair suspensions."
+    },
+    {
+     "id": "R9",
+     "ruling": "answered",
+     "reason": "Confirmed. The offers block sets many more fields than the offered and forbidden lists (revise.py:6143-6217, fields_by_slot built at about :6136). _asks_group_first reads joint_conflict, field_computed, violated_groups and candidates (loop.py:2104-2107), and prefetch reads joint_conflict (lyric_harness.py:8061). Treating the cached menu as a cache of the whole offers block, keyed by draft fingerprint and rebuilt deterministically by brief(target_lines=...) when absent, removes the need to list fields. The byte-for-byte prompt comparison tests it.",
+     "required_change": "Apply the defender's change: the cache holds the whole serialized offers block keyed by draft fingerprint, rebuild-on-miss is the authority, \u00a74.3 measures its bytes, and T1/T4 compare prompts rendered from the cache with prompts rendered after a forced rebuild."
+    },
+    {
+     "id": "R10",
+     "ruling": "answered",
+     "reason": "Confirmed. checkpoint admits at JOURNAL_BYTES (lyric_harness.py:8218), and prefetch catches _JournalCapacity only around _suspend (8081-8090). The defender's three-step ladder (full cursor, then cursor without menu caches, then no cursor) together with 'only non-cursor bytes are held to today's rule' means the cursor can never end a run. The near-capacity test checks it. The implementation must apply that exclusion at every _journal_admit site (record, record_group, _suspend, the load-time fold, checkpoint), not only at checkpoint, or batch trimming will move. The defender's general wording and the same-batch-members test already cover this.",
+     "required_change": "Apply the defender's change, and state that the cursor and its caches are left out of the measurement at every _journal_admit call site, not only checkpoint. Add the partial-batch, group-construction and fallback cases to \u00a74.3 and the near-capacity resume test."
+    },
+    {
+     "id": "R11",
+     "ruling": "answered",
+     "reason": "Confirmed. The pending answer is folded into answered at load (lyric_harness.py:7779-7860), and outcomes are overwritten in place (7930-7942). The defender defines the digest as a prefix check: input_draft plus the first k1 and k2 answered records, with k1 and k2 stored in the cursor. Appended answers pass and an edited earlier answer fails. Outcomes stay out of the digest because they are covered by the seal. Progress is a separate measure (R1). The definition is exact and can be tested.",
+     "required_change": "Apply the defender's change: define journal_digest as the prefix hash, separate it from the progress measure, and add the two T7 cases."
+    },
+    {
+     "id": "R12",
+     "ruling": "answered",
+     "reason": "Confirmed. The disclosure prints tally['hit'], counted per process (lyric_harness.py:7980, 8102, 8191-8199), and its header says 'replayed in order' (8159). SESSION_RESUME says 'replays its journal' (workflow_sessions.js:93-94). Carrying tally.hit and the stale key list in the cursor makes the disclosure equal across resume modes. Rewording the header and SESSION_RESUME to the statement the owner approved in Q6, in one wording used in every mode, does not go beyond that ruling: it keeps published text true after the approved behaviour change.",
+     "required_change": "Apply the defender's change: carry tally.hit and the stale key list in the cursor, and reword the disclosure header and SESSION_RESUME to the Q6 statement in one wording for both modes. List both in \u00a73 item 4."
+    },
+    {
+     "id": "R13",
+     "ruling": "answered",
+     "reason": "Confirmed. In workflow_sessions.js:377-386, an interrupted operation that cannot resume has its continuation set to null, and resumeSnapshot refuses when there is no progress record (530-551). Narrowing \u00a72.3(c)'s claim to bridge kills, keeping today's restart behaviour, and testing both restart windows is accurate and changes no contract.",
+     "required_change": "Apply the defender's change: narrow \u00a72.3(c) to bridge kills and add both T5 restart cases."
+    },
+    {
+     "id": "R14",
+     "ruling": "answered",
+     "reason": "Confirmed. verdict_view.js KEPT (33-51) lacks both fields, and the exit-4 receipt is assembled field by field (lyric_tools.js:2741-2780). Adding the two owner-approved fields to both lists, and to the other and finish verdicts, is concrete.",
+     "required_change": "Apply the defender's change: add cursor_stripped and no_progress_calls to KEPT, the exit-4 object, and the other and finish verdicts. Add verdict_view.js to \u00a74.1 and pin both fields in the session-view tests."
+    },
+    {
+     "id": "S1",
+     "ruling": "design_must_change",
+     "reason": "The objection holds. SCHEME_VIOLATION is filed only on the later endpoint (revise.py:3711-3712), and brief yields Briefs only for lines with per-line findings (5811-5813), so brief(target_lines={L1}) is empty in the couplet case. The defender's replacement (_slot_for at the member's place, the calls bound there including the pivot's current word, joint_field_screened, declared_offer when _explicit) is right in direction but restates only part of the offers block. It leaves out the vowel-band and schema widening (revise.py:5983-6001), the declared widening pool when _explicit leaves the offer empty (6026-6061), the anchorless-slot filter that follows, and the ban/_drop exclusions. A second, partial derivation of 'the one-move menu at a place' would drift from the menu tier 1 prints for the same place.",
+     "required_change": "In \u00a72.4, compute the non-pivot member's one-move menu by calling the offers block's per-place computation, extracted from brief() into one function that brief() also uses. Call it at the member's primary place (_slot_for), on the unit's starting draft, with the member's incumbent excluded and the pivot's current word among the calls. Do not reimplement a subset. T6's couplet fixture has no per-line finding on L1. It asserts that L1's printed words equal what that shared function returns at L1's place, and equal brief()'s offer on a variant draft where L1 also carries a per-line finding at the same place."
+    },
+    {
+     "id": "S2",
+     "ruling": "answered",
+     "reason": "Confirmed. The touched skip at loop.py:2011 is silent. A batch member that turns group-first and whose group is accepted never reaches _try_tier1 (2173-2182). prefetch skips group-first ahead lines without adding their related set (lyric_harness.py:8058-8062), so both paths are reachable. The defender writes a disposition on every pass-by path, each with its own `why`. The closed_by attribution is sound: a re-brief fires on the first walked line after any acceptance (the `lines != brief_lines` guard), and a touched skip comes before that guard without changing the draft, so exactly one accepted unit lies between consecutive re-briefs. With every pass-by recorded, and given that the pass loop has no early break before the round closes (loop.py:2009-2276), 'answer with no outcome or disposition' does mean 'not yet reached'.",
+     "required_change": "Apply the defender's change: a disposition on all four pass-by paths with the stated `why` texts, the closed_by map kept in the cursor, and one T3 fixture per path."
+    },
+    {
+     "id": "S3",
+     "ruling": "answered",
+     "reason": "Confirmed. record hard-codes bool(accepted) and fills last_rej for anything not accepted (lyric_harness.py:7925-7948). A separate propose.skipped hook writes only when _line_lookup finds an answer for that key, writes into its own st['dispositions'] list, and never touches outcomes, last_rej, last_grej or the rebuild. That leaves outcomes byte-equal to today's, so the coupling test holds as written. One detail is needed: the hook runs again on a fallback replay, so its writes must be keyed and idempotent.",
+     "required_change": "Apply the defender's change, and state that dispositions are keyed on (line, attempt, round) and overwritten in place exactly as `record` does, so a fallback replay never duplicates them. Add the T1 script that crosses a disposition row."
+    },
+    {
+     "id": "S4",
+     "ruling": "design_must_change",
+     "reason": "The defender rightly drops the `waiting` list from pending.record. Folding copies the record into answered (lyric_harness.py:7779, 7836-7838, 7856-7857), and _suspend charges the whole pending record (7959-7961), so the list would be stored and charged. The connector can compute `pending` exactly from the state once S2 records exist. But the conceded text then says 'Nothing is added to the journal, so admission, batch trimming and \u00a74.3's byte figures are unchanged', and S3 adds a new `dispositions` list to st. _journal_bytes measures the whole state (7592-7594), and every record, record_group, _suspend and checkpoint admission measures st. Where today a resolved_elsewhere skip adds nothing, the new code adds a disposition row before later admissions. Near JOURNAL_WORK_BYTES, a batch can therefore be trimmed differently (8089-8090) and a capacity stop can come earlier. So the claimed near-capacity equality, 'same batch members as today', is not yet true.",
+     "required_change": "State one counting rule for `dispositions` (and the connector-side `stalls`) at every _journal_admit site. Either: (a) leave them out of the working-ceiling measurement as the cursor is (R10), with a fixed per-row size cap (key plus a code plus the closer's line number, the `why` text rendered by the connector from that code), and check the emitted state against JOURNAL_BYTES and WORKER_STATE_BYTES using the cursor-drop ladder first; or (b) count them, and replace 'unchanged' with an honest statement that near capacity a batch can be trimmed earlier than today. Measure the bytes in \u00a74.3 item 1. The near-capacity test must include a run that writes dispositions and assert whichever rule is chosen."
+    },
+    {
+     "id": "S5",
+     "ruling": "answered",
+     "reason": "Same defect as R2, seen from the pending side. foldedOf folds only the previous pending question's rows (lyric_tools.js:433-466), and `other` sets no folded. The journal-diff fold, together with a connector-computed `pending` that reads the new state, gives every member a verdict on the call that judges it, including on exit 5.",
+     "required_change": "Apply the defender's change: journal-diff folding on every branch, `pending` computed from the new state, and T3 extended one more call plus an exit-5 batch case."
+    },
+    {
+     "id": "S6",
+     "ruling": "design_must_change",
+     "reason": "Duplicate of R1, and correct for the same reasons (LOOP_REDESIGN.md:228 and :380; lyric_tools.js:2894-2901). The fix is R1's, with R1's narrowing of which results can count.",
+     "required_change": "As R1: count stalls by position on exit-5 and kill results only (not refusals, journal_capacity or finishes), reset on advance, re-seal into the returned state, put it into RUNS, and add the T5 cases."
+    },
+    {
+     "id": "S7",
+     "ruling": "answered",
+     "reason": "Confirmed. verify's b_before comes from brief(target_lines=changed) (revise.py:6275-6280), which yields only lines with per-line findings, and rule 3 skips `if not b or not (b.forbidden_modal or b.forbidden_incumbent)` (6454). A kept word is never rejected: equality only appends to modal_kept (6460-6473), and head membership only selects the disclosure clause (6516). The forbidden list is filtered only under `_explicit and _calls` (6014-6022). The defender's step 1, which also requires a per-line finding, step 7, where only a changed bound word is rejected, and the use of `_explicit` by name reproduce today's branches. The kept incumbent's disclosure clause still needs filtered-head membership when _explicit holds, and step 7 as conceded keeps that.",
+     "required_change": "Apply the defender's change to \u00a72.6 steps 1, 5, 6 and 7, and add the two T8 cases: a non-pivot member with no per-line finding, and a kept incumbent that is in its own head."
+    },
+    {
+     "id": "S8",
+     "ruling": "design_must_change",
+     "reason": "The objection holds. Under option B, batch members are judged on later calls, and replay_memo memoises verify (replay_memo.py:62, 207-218). The restated invariant and the counter at the proxy boundary with LYRIC_REPLAY_MEMO=0 are right. But the conceded marker includes 'a cursor-resume flag in the disclosure'. T1 requires the proposer disclosure to be identical between the resume arm and the stripped arm, and R12's change exists so the disclosure matches a full replay byte for byte. A flag that differs by mode in the disclosure breaks both. The run-record half works: verdictOf copies only whitelisted run-record keys (lyric_tools.js:866-867), so `replayed_answers` stays unpublished.",
+     "required_change": "Remove the disclosure flag. The positive marker is only `replayed_answers` (0 on a cursor resume, the count of replayed answers otherwise) in the harness's _lyric_run_record. Keep it off verdictOf's whitelist and off the exit-4 hand-built key list. T1 compares disclosures byte for byte and asserts replayed_answers == 0 in the resume arm. T2 is restated as conceded, counted at the reviser proxy with LYRIC_REPLAY_MEMO=0 and one cold process per call."
+    },
+    {
+     "id": "S9",
+     "ruling": "answered",
+     "reason": "Confirmed. As written, T8 cannot fail on the old code, because verify calls brief with include_offers defaulting to True (revise.py:5737, 6275-6280). The added half fails on the old code and passes on the new: verify's brief requested with include_offers=False, and zero calls inside verify to _widen_pool, schema_widened_field, and declared_offer with a limit.",
+     "required_change": "Apply the defender's change: add the failing-on-old assertions to T8, and keep the equality half and its two mutants."
+    },
+    {
+     "id": "S10",
+     "ruling": "answered",
+     "reason": "Confirmed. The escalation passes the `b` materialized at the unit start (loop.py:2128, 2260-2264), and batch menus are built at prefetch time on an earlier draft (lyric_harness.py:8058-8060). Under --attempts=0 --backtrack>=1 no line question exists. Always printing `b`'s lists, and citing the line question only when its recorded draft fingerprint equals the unit's starting draft, makes the bytes a pure function of the draft and the journal. They are then the same under resume and replay, so question_sha256 (7403-7406) agrees.",
+     "required_change": "Apply the defender's change: one rendering from `b`, the line question cited only when asked on the same draft fingerprint, the fixed sentence otherwise, and the two T6 cases."
+    },
+    {
+     "id": "S11",
+     "ruling": "answered",
+     "reason": "Confirmed. \u00a72.3(b) forbids stopping while a question is built (LOOP_REDESIGN.md:360), and \u00a72.4 adds a menu per non-pivot member at about 1,720 s each at 24 lines (\u00a71.3). Making group-question construction resumable on the same terms as batch construction keeps the bytes a pure function of the draft, mandate and journal. With S1's single shared function the per-member menus are deterministic, and T4 tests a stop between members.",
+     "required_change": "Apply the defender's change: group-question construction resumable member by member, with caches keyed by draft fingerprint and a safe point between members. A finished member menu counts as progress, and T4 adds a fake-clock stop between two members' menus."
+    },
+    {
+     "id": "B4",
+     "ruling": "answered",
+     "reason": "Version 3 has the single sealing function, the mint list, the derived key and the damaged-key policy (LOOP_REDESIGN.md:279-285). The only gap is the chat.js:450/460 mint point, closed by R5's shared helper and grep guard.",
+     "required_change": "As R5."
+    },
+    {
+     "id": "B8",
+     "ruling": "design_must_change",
+     "reason": "Version 3 carries round 1's four requirements, but read literally the entry checkpoint and 'kill with no new checkpoint' cancel each other out, so the count never fires (lyric_tools.js:2888-2901).",
+     "required_change": "As R1, including R1's narrowing of which results count."
+    },
+    {
+     "id": "C10",
+     "ruling": "design_must_change",
+     "reason": "The counter's placement, its definition by verdicts and questions, and its approval are all present (LOOP_REDESIGN.md:377-383, 520, 543-544). Only the trigger is wrong, as in R1.",
+     "required_change": "As R1."
+    },
+    {
+     "id": "A3",
+     "ruling": "answered",
+     "reason": "Version 3 has judged_open, the global phase field and the entry checkpoint (LOOP_REDESIGN.md:203-229). It dropped the second half of round 1's T1 script, 'later had an edit accepted under allow_net_new', which is what makes judged_open impossible to re-derive (loop.py:1921-1922, 2068-2072). Restoring it, and applying R3's conditional replaying rule, closes A3.",
+     "required_change": "Restore the full T1 script: a round that opens with judged_open false, accepts an edit that introduces a flag under allow_net_new >= 1, then suspends, and on resume must reproduce the replay's open set. Apply R3."
+    },
+    {
+     "id": "C11",
+     "ruling": "answered",
+     "reason": "Version 3's cursor-taken assertion can pass on the old code: the field is simply absent there, and the memo hides replayed verifies (replay_memo.py:62). The fixture change is in place. S8's positive replayed_answers marker, applied to T1 and to T7's 'resumes' half, closes C11, provided the marker is the run-record count and not a disclosure flag (see S8).",
+     "required_change": "As S8: replayed_answers == 0 in the run record for T1's resume arm and T7's 'resumes' half, and cursor_stripped with the right reason for T7's 'falls back' half."
+    }
+   ],
+   "passes_with_changes": true,
+   "summary": "Version 3 records the owner's rulings correctly: option B, the two new verdicts, exit 5, no_progress_calls, cursor_stripped, the new lyric_revise description, the model-writer scope and M-240. Every round-2 objection checks out against the code, and every defender concession holds. Four items still need the design text to go further than the concession.\n\n(1) R1/S6/B8/C10: the position-based stall count is right, but it must count only exit-5 and killed/timed-out/cancelled results. Exit-2 refusals in the `other` branch (lyric_tools.js:2885-2923), journal_capacity and finishes must never increment it.\n\n(2) S1: the couplet member's one-move menu must come from the offers block's own per-place computation, extracted into one function that brief() also uses (revise.py:5955-6100). The conceded version reimplements only part of it and leaves out widening, the anchorless filter and the ban/drop exclusions.\n\n(3) S4: 'nothing is added to the journal' is contradicted by S3's own `dispositions` list. _journal_bytes measures the whole state (lyric_harness.py:7592), so a counting rule for dispositions (and stalls) at every _journal_admit site must be stated, measured and tested near capacity.\n\n(4) S8: the conceded 'cursor-resume flag in the disclosure' contradicts T1's byte-identical disclosure and R12. The marker must be only `replayed_answers` in the unpublished run record; verdictOf whitelists run-record keys (lyric_tools.js:866-867).\n\nSmaller points:\n- R10: the cursor exclusion must apply at every admission site, not only checkpoint.\n- S3: disposition writes must be keyed and idempotent under replay.\n\nNo ruling needs the owner. Every required change can be built and tested, so the design passes once the conceded and required changes are applied.\n\nCode checked: lyric-harness/lyric_harness.py, lyric-harness/quality/loop.py, lyric-harness/quality/revise.py, mcp/lyric_tools.js, mcp/workflow_sessions.js, mcp/chat.js, mcp/gemini_agent.js, mcp/verdict_view.js, mcp/state_codec.js, mcp/python_bridge.js. Design checked: /home/user/CodexMusica/lyric-harness/quality/LOOP_REDESIGN.md."
+  },
+  {
+   "rulings": [
+    {
+     "id": "R1",
+     "ruling": "answered",
+     "reason": "Checked. checkpoint() builds `trial = dict(st, ...)` (lyric_harness.py:8213), so the entry checkpoint hands back the incoming `stalls` unchanged. The `other` branch returns it as `other.state = encodeInterview(currentCheckpoint)` and puts RUNS only inside `if (currentCheckpoint)` (lyric_tools.js:2888-2914). So v3's 'kill with no new checkpoint' trigger can never fire after the entry checkpoint. A clean exit 5 is not a kill. The defender's rewrite fixes this. It compares positions on every result that asks no new question, re-seals into whichever state is returned, resets on any advance, always puts RUNS with a new revision, and adds three T5 cases. That is buildable and testable. Folding a sent answer into `answered` before the kill counts as an advance under the 'pending identity' term. That is defensible, because the answer is then durable, and T5's three-kill case still reaches 2.",
+     "required_change": ""
+    },
+    {
+     "id": "R2",
+     "ruling": "answered",
+     "reason": "Confirmed. foldedOf returns null unless the incoming `pending` holds an answer (lyric_tools.js:440-442), and only :2753 and :2839 call it. Under the defender's journal-diff fold, every branch that returns a state publishes the outcome, group-outcome and disposition records that are new or changed against the incoming state. This closes the exit-5 and later-call gaps. Every judged answer has an outcome, because _try_tier1 calls verify and record for every consumed candidate (loop.py:1127-1149). With S2's dispositions on every pass-by path, 'answer on record with no outcome or disposition' therefore really does mean 'not yet reached'. The walk has no early return inside a pass (loop.py:2010-2280), so no batch answer is left behind by an early stop. The array shape already exists for batches (lyric_tools.js:448-466).",
+     "required_change": ""
+    },
+    {
+     "id": "R3",
+     "ruling": "answered",
+     "reason": "Confirmed at lyric_harness.py:8205-8218: an unconditional `replaying = False` followed by `accepted_lines=list(current)` would move the furthest draft backwards. The kill branch then publishes it as final_draft (lyric_tools.js:2643-2647). The concession is concrete. It clears `replaying` only when the cursor draft equals `accepted_lines` and keeps the own-fields mode, entry checkpoint included. The added two-kill T5 case fails if this is built wrong.",
+     "required_change": ""
+    },
+    {
+     "id": "R4",
+     "ruling": "answered",
+     "reason": "Confirmed. `other` reads only the stdout checkpoint (lyric_tools.js:2629-2636, 2901), while exit 4 and finish read statePath. The defender requires a final `status: stopped` checkpoint through checkpoint() and its own-fields rule, plus the state-file write, both budgeted in the stopping cost. It also requires a connector-driven T4 that checks both copies and the resume. Since `resumable = r.code !== 2 || ...` (:2889-2894), exit 5 is resumable in that branch.",
+     "required_change": ""
+    },
+    {
+     "id": "R5",
+     "ruling": "answered",
+     "reason": "Confirmed at mcp/chat.js:450 (`wire = encodeState(cp)`) and :460 (`state: wire` for interview). grep finds no other bare interview mint beyond those listed. One shared encodeInterviewWire used by all six mint points, a grep guard and a T7 chat-recovery case are concrete.",
+     "required_change": ""
+    },
+    {
+     "id": "R6",
+     "ruling": "answered",
+     "reason": "Confirmed at gemini_agent.js:1151-1154. The interrupted branch requires `typeof verdict.checkpoint === 'string'`, the code-4 branch requires `code === 4`, and the result falls through to `return prev` (:1233-1234). The concession adds the file to the code touched, specifies the carried record and adds a test.",
+     "required_change": ""
+    },
+    {
+     "id": "R7",
+     "ruling": "design_must_change",
+     "reason": "The defender's 'last entry in list order, popped on accepted' rule fixes the tie. record_group keys on (members, round, attempt, question_sha256) (lyric_harness.py:8122-8134), so two pivots' escalations are two appended entries in walk order. Keeping not_applied out of `record` is also right. One gap remains. `outcomes`/`group_outcomes` are never pruned (lyric_harness.py:7901-7914 only filters non-dicts). After a digest or seal fallback replay whose walk differs from the recorded one (an edited earlier answer, or a tampered connector state), entries the new walk never writes stay in the lists. A full replay builds last_rej/last_grej only from the record calls of the current walk. A list-order rebuild on the NEXT call, a cursor resume from the cursor that fallback minted, also picks up the orphans. Example: L3 was rejected in round 1 on the old path, and its finding was closed by the edited L1 on the new path. Round 2's L3 question then shows a REJECTED prior under resume and none under replay, so the question bytes differ and T1 fails. On the connector a seal-failure fallback would also re-seal caller-forged orphan outcomes into a trusted state.",
+     "required_change": "Do not re-derive the rejection maps from the lists. Store last_rej and last_grej in the cursor by reference: line -> index into `outcomes`, member tuple -> index into `group_outcomes`. Take them exactly as the live hooks hold them at the unit boundary, live and during fallback replay alike (R3's own-fields mode). If the rebuild is kept instead, every fallback replay must rewrite `outcomes`/`group_outcomes` to only the entries its own walk wrote. Add a T1 script in which an edited earlier answer forces a digest fallback, the path changes, and the following call resumes from the fallback's cursor. Question bytes and question_sha256 must equal a full replay."
+    },
+    {
+     "id": "R8",
+     "ruling": "answered",
+     "reason": "Confirmed. The `attempts` list (loop.py:1989, 2185, 2261, 2271, closed at 2277) and the global `_attempts` (:1952-1953) hold reasons built from control flow that no outcome record holds. The concession stores them by reference plus the composed reason, or verbatim, and adds T1 assertions on LoopResult.rounds. That is concrete.",
+     "required_change": ""
+    },
+    {
+     "id": "R9",
+     "ruling": "answered",
+     "reason": "Confirmed. The offers block sets many more fields (revise.py:6160-6217), and _asks_group_first and prefetch read joint_conflict, field_computed, violated_groups and candidates (loop.py:2104-2107; lyric_harness.py:8061). The concession recasts menus as a cache of the whole serialized offers block keyed by draft fingerprint, rebuilt by brief(target_lines=...) on a miss. It adds a byte-for-byte prompt comparison between cached and rebuilt menus. That removes any need to list fields one by one.",
+     "required_change": ""
+    },
+    {
+     "id": "R10",
+     "ruling": "design_must_change",
+     "reason": "The three-tier admission (full cursor, cursor without menu caches, no cursor) is right for the harness's JOURNAL_BYTES check. But 'only the bytes that are not cursor bytes are held to today's capacity rule' does not decide where the cursor's own bytes go. The connector has a second, total bound. encodeState refuses any decoded state over STATE_DECODED_BYTES = 512 KiB with CONTINUATION_CAPACITY, 'No journal entry may be discarded to fit it' (state_codec.js:11, 81-85). Meanwhile the worker part may legitimately reach WORKER_STATE_BYTES = 448 KiB (:12, 58-65) and the declarations 32 KiB. A state that fits today at about 448 KiB plus a cursor carrying menus would then fail at encode time, in the kill/other branch, which is exactly what R10 set out to prevent. assertContinuationCapacity (lyric_tools.js:2320, 2471) also counts every non-`connector_*` key, so it must exempt the cursor too, or a cursor-carrying state is refused on input.",
+     "required_change": "State the cursor's budget concretely: cursor bytes <= STATE_DECODED_BYTES minus (worker bytes excluding the cursor) minus the actual connector_declarations bytes minus a fixed margin for connector_semantic_identity, connector_run_ref and the seal. The harness's three-tier admission must test against that budget, which the connector passes in. Exclude the cursor key from assertContinuationCapacity's worker measure. Add a test: a state whose worker part is within a few KiB of 448 KiB and whose declarations are at 32 KiB must still encode, resume, and choose today's batch members."
+    },
+    {
+     "id": "R11",
+     "ruling": "answered",
+     "reason": "Confirmed. The fold appends to `answered` at load (lyric_harness.py:7779-7860), and nothing in the harness reorders or removes entries from `answered.propose`/`propose_group`. So the defined digest works: SHA-256 over input_draft plus the first k1/k2 records, checked as a prefix. Appended answers pass, edited ones fall back, and progress is measured separately. The T7 cases are concrete.",
+     "required_change": ""
+    },
+    {
+     "id": "R12",
+     "ruling": "answered",
+     "reason": "Confirmed. `tally['hit']` counts only this process's lookups (lyric_harness.py:7980, 8102), and the header reads 'replayed in order' (:8159). Carrying hit and the stale key list in the cursor, and rewording both strings under the Q6 ruling, is concrete. S8's marker must not undo this; see S8.",
+     "required_change": ""
+    },
+    {
+     "id": "R13",
+     "ruling": "answered",
+     "reason": "Both sides agree on workflow_sessions.js:377-386, where an interrupted, non-resumable operation's continuation is cleared. Scoping \u00a72.3(c) to bridge kills, keeping today's restart behaviour, and adding both restart cases to T5 is correct and changes no contract.",
+     "required_change": ""
+    },
+    {
+     "id": "R14",
+     "ruling": "answered",
+     "reason": "The short view keeps a fixed field list and the exit-4 receipt is assembled field by field (lyric_tools.js:2741-2780; verdictOf also allowlists fields at :867, 2769). Adding both approved fields to KEPT, to the exit-4 object, to `other` and to finish, and pinning them in the session-view tests, is concrete.",
+     "required_change": ""
+    },
+    {
+     "id": "S1",
+     "ruling": "design_must_change",
+     "reason": "Mostly answered. A pair violation is filed on the later endpoint only (revise.py:3712), and brief() iterates per_line only (:5811-5813), so a mandate-based menu is needed. The helpers named exist (loop.py:1227 `_anchor_obligations`, :1304 `_slot_for`; revise.py:5525 `joint_field_screened`, :4338 `declared_offer`). But the defender's recipe re-implements only part of the offers block's per-place body. That body also widens an empty explicit field (`_widen_pool`/the lexicon pool with `declared_offer(limit=...)`, revise.py:6019-6063), uses `schema_widened_field` on a band-refusing schema (:5998-6003), and drops words the slot cannot anchor at a non-default place (`_anchors_at`, grader_refused, :6066-6080, the 'song run A' defect). A second, partial derivation of the menu is the drift doctrine 1 forbids. It could offer the writer words the grader refuses.",
+     "required_change": "Factor the offers block's per-place computation (revise.py:5953-6122: calls, joint_field_screened, schema widening, _explicit and declared_offer, the widening pool, the _anchors_at filter, by-call fallback) into one function. Call it from brief() and from the group question's non-pivot member menu, at `_slot_for(mandate, gi, m_line)` with that place's calls including the pivot's current word, excluding the member's own word. T6's couplet fixture has no per-line finding on L1 and asserts L1's words. Add one non-default-slot case asserting that an unanchorable word is not offered."
+    },
+    {
+     "id": "S2",
+     "ruling": "answered",
+     "reason": "Confirmed. There is a silent skip at loop.py:2011. A member that becomes group-first on the moved draft, with the group accepted, never reaches _try_tier1 (:2137, 2173-2182). prefetch skips a group-first ahead line before `rels.append` (lyric_harness.py:8058-8062). The `b is None` path appends resolved_elsewhere with no acceptance (:2129-2131). The closed_by attribution holds. A re-brief fires on the first non-touched line after the draft moves (:2048, `lines != brief_lines`), and each unit accepts at most once (\u00a72.0's unit argument), so exactly one accepted unit lies between consecutive re-briefs. A disposition on every pass-by path, each with its own why, makes 'no outcome or disposition' exactly 'not yet reached'.",
+     "required_change": ""
+    },
+    {
+     "id": "S3",
+     "ruling": "answered",
+     "reason": "Confirmed. record hard-codes `bool(accepted)` and sets last_rej for anything not accepted (lyric_harness.py:7925-7948). The separate `propose.skipped` hook writes only when `_line_lookup(ones, ...)` finds an answer and writes to its own `dispositions` list, never `outcomes`. That keeps outcomes, last_rej and question bytes exactly as today, so the coupling test holds as worded. One requirement is folded into S4: rows must be keyed (line, attempt, round) and idempotent under replay, as record is.",
+     "required_change": ""
+    },
+    {
+     "id": "S4",
+     "ruling": "design_must_change",
+     "reason": "Dropping the harness `waiting` list and having the connector compute `pending` from the returned state is correct. It removes the copy into `answered` (lyric_harness.py:7779, 7836-7838, 7856-7857) and the _suspend charge (:7959-7961). But the claim 'Nothing is added to the journal, so admission, batch trimming and \u00a74.3's byte figures are unchanged' is contradicted by the defender's own S3. S3 adds `st[\"dispositions\"]`, which is part of `st`. It is charged by every `_journal_admit` (record :7933, _suspend :7959-7961, checkpoint :8218) and by the connector's assertContinuationCapacity. So near capacity, a disposition row can trim a batch (:8089-8090) or raise _JournalCapacity where today's code would not. The same applies to R1's `stalls` and S2's `closed_by` if they are not kept inside the cursor's separate budget. The proposed test, that a near-capacity run chooses the same batch members as today, would fail.",
+     "required_change": "State that `dispositions` (keyed (line, attempt, round), idempotent, `why` capped at a fixed length, at most one row per recorded answer), `stalls` and `closed_by` are measured outside the worker-journal capacity. Exclude them from `_journal_admit`'s measure and from assertContinuationCapacity. Count them in the same separate budget under STATE_DECODED_BYTES as the cursor (R10). Unlike the cursor's menu caches, `dispositions` is never dropped. Its bound is reserved first, and the cursor tiers use what remains. The near-capacity test must include a run that writes dispositions, and must assert the same batch members and the same capacity stop point as today."
+    },
+    {
+     "id": "S5",
+     "ruling": "answered",
+     "reason": "Same defect as R2 from the other side. The journal-diff fold on every state-carrying branch, `pending` computed from the new state, the four approved values only, and the extra T3 continuation plus an exit-5 fold-then-stop case resolve it. Confirmed against lyric_tools.js:433-466 and the folded-less `other` branch (:2885-2923).",
+     "required_change": ""
+    },
+    {
+     "id": "S6",
+     "ruling": "answered",
+     "reason": "Same finding as R1, resolved by R1's position-based trigger on kills and exit 5 alike, re-sealed into whichever state is returned, with the T5 cases specified.",
+     "required_change": ""
+    },
+    {
+     "id": "S7",
+     "ruling": "answered",
+     "reason": "Confirmed against revise.py. b_before comes from brief(target_lines=changed) (:6275-6280), which yields only per_line lines. The gate is `if not b or not (b.forbidden_modal or b.forbidden_incumbent): continue` (:6454). A kept word only appends to modal_kept (:6460-6473), and head membership only picks the disclosure clause (:6514-6517). `_explicit` is the `any(m.relation_of(k) or not self.schema_route_open(m, k) ...)` expression (:6014-6015), and the forbidden head goes through declared_offer without a limit only when `_explicit and _calls` (:6020-6027). The defender's three rewrites state exactly that, and T8 adds the no-per-line-finding member and the kept in-head incumbent.",
+     "required_change": ""
+    },
+    {
+     "id": "S8",
+     "ruling": "design_must_change",
+     "reason": "The restated T2 invariant (each answer verified once; per call, verifies equal answers judged for the first time) is right. So is a counter at the proxy boundary with LYRIC_REPLAY_MEMO=0 (replay_memo.py:62, 78). `replayed_answers` in the harness record is not published, because verdictOf allowlists record fields (lyric_tools.js:867). But the second marker, 'a cursor-resume flag in the disclosure', contradicts T1 and R12. The proposer disclosure is part of the published report (`report: publishedReport(r.stdout)`, lyric_tools.js:805), and T1 requires it to be identical between the resume and replay arms. R12's own change exists 'so the disclosure matches a full replay byte for byte'. A flag in it makes T1 fail on a correct build.",
+     "required_change": "Keep the positive cursor-taken marker out of the disclosure and out of every published text. Use `replayed_answers` (and, if wanted, a `cursor_resumed: true`) in the harness's own lyric_result record only, which verdictOf does not publish. T1's resume arm asserts `replayed_answers == 0` and the proxy-boundary verify count. T1 keeps comparing the disclosure byte for byte across arms. T7's resume half asserts the same marker."
+    },
+    {
+     "id": "S9",
+     "ruling": "answered",
+     "reason": "Confirmed. Today verify calls brief with include_offers at its default True (revise.py:5737, 6275-6280), so an equality-only T8 passes on the old code. Asserting include_offers=False, and zero calls to _widen_pool, schema_widened_field and declared_offer-with-limit inside verify, gives a half that fails on the old code. The mutants are kept.",
+     "required_change": ""
+    },
+    {
+     "id": "S10",
+     "ruling": "answered",
+     "reason": "Confirmed. The walk re-materializes the pivot on the unit's starting draft (loop.py:2128) and passes that `b` to _try_tier2 (:2260-2264). prefetch menus are built earlier (lyric_harness.py:8058-8060). With `--attempts=0 --backtrack>=1` no line question exists. The defender fixes one rendering, from `b` on the starting draft. It cites the line question only when its recorded `draft` fingerprint matches, and otherwise prints its own sentence. That is independent of resume mode, keeps question_sha256 equal, and is covered by two new T6 cases.",
+     "required_change": ""
+    },
+    {
+     "id": "S11",
+     "ruling": "answered",
+     "reason": "\u00a72.3(b) forbids a stop inside question construction, and \u00a72.4 adds a menu per escalated non-pivot member, which \u00a71.3's figures show can exceed one call. Making group-question construction resumable on the same terms as batch construction resolves this. The cursor records members done, with caches keyed by draft fingerprint, and allows a safe point between members. Question bytes stay a pure function of draft, mandate and journal, construction counts as progress, and a fake-clock T4 case checks byte identity.",
+     "required_change": ""
+    },
+    {
+     "id": "B4",
+     "ruling": "answered",
+     "reason": "v3 has the sealing function, key handling and mint list. The one missed mint point, chat.js:450/460, is added by R5's shared encodeInterviewWire, the grep guard and a T7 chat-recovery case.",
+     "required_change": ""
+    },
+    {
+     "id": "B8",
+     "ruling": "answered",
+     "reason": "v3 carried judge 1's requirements, but taken together they cancel out (entry checkpoint plus 'kill with no new checkpoint'). R1's position-based count on every result that asks no new question resolves this, with re-seal into the returned state, reset on advance, a RUNS revision, and T5 cases for kills after the entry checkpoint and for repeated exit-5 stops.",
+     "required_change": ""
+    },
+    {
+     "id": "C10",
+     "ruling": "answered",
+     "reason": "The count lives in the connector's sealed state and the RUNS entry, and progress is defined by recorded positions and verdicts. Its one defect is the unreachable trigger, fixed by R1. Comparing recorded positions also holds across memo eviction and worker restarts.",
+     "required_change": ""
+    },
+    {
+     "id": "A3",
+     "ruling": "answered",
+     "reason": "v3 has judged_open, the global phase and the entry checkpoint. Restoring the full T1 script (round opens with judged_open false, an edit introducing a flag accepted under allow_net_new >= 1, then suspend) makes re-derivation detectable (loop.py:1921-1922, 2068-2072). R3's conditional `replaying` rule fixes the entry step.",
+     "required_change": ""
+    },
+    {
+     "id": "C11",
+     "ruling": "design_must_change",
+     "reason": "Correctly conceded. v3's 'no stripped-cursor reason' passes on the old code, and verify memoisation hides replay (replay_memo.py:62). The fix it adopts is S8's, which as written puts a marker in the published disclosure that T1 requires to be identical between arms.",
+     "required_change": "As S8: the positive marker (`replayed_answers == 0`, optionally `cursor_resumed`) lives only in the unpublished harness lyric_result record, never in the disclosure. Verify counts are taken at the proxy boundary with LYRIC_REPLAY_MEMO=0 and one cold process per call. T7's resume half asserts the marker, and its fall-back half asserts `cursor_stripped` with the right reason."
+    }
+   ],
+   "passes_with_changes": true,
+   "summary": "Judge 2, round 2. I checked every objection, and each round-1 id reported missing, against the code. The defender conceded all 25. 20 of those concessions are correct and concrete as given. Five need a further concrete change. No ruling is an owner question, and none re-argues the owner's rulings.\n\n1. R7: the rejection maps must be stored in the cursor by reference, not rebuilt from list order. `outcomes` and `group_outcomes` are never pruned (lyric_harness.py:7901-7914). After a fallback replay whose walk changed, orphan entries would get into a later cursor resume's rebuild. Question bytes would then differ from a full replay, and caller-forged entries could be re-sealed into a trusted state.\n2. R10: the cursor needs an explicit budget under STATE_DECODED_BYTES (512 KiB). encodeState refuses any decoded state over that size (state_codec.js:81-85), while the worker part may reach 448 KiB. assertContinuationCapacity must also exempt the cursor.\n3. S4: 'nothing is added to the journal' is contradicted by S3's new `dispositions` list, and by `stalls` and `closed_by`. Every `_journal_admit` charges them, which can change batch trimming and capacity stops. They must be measured in the separate budget, with dispositions reserved first.\n4. S8 and C11: the cursor-resume marker must not go in the proposer disclosure. The disclosure is published report text, and T1 and R12 require it to be byte-identical between resume and replay. The marker belongs only in the unpublished lyric_result record, which verdictOf allowlists away.\n5. S1: the non-pivot member's menu must reuse the offers block's own per-place routine, factored out, not a partial re-implementation. Otherwise the widening and the `_anchors_at`/grader_refused filtering are lost.\n\nEach of these is buildable and testable, so version 3 passes once all conceded and required changes are applied. Files examined: /home/user/CodexMusica/lyric-harness/quality/LOOP_REDESIGN.md, /home/user/CodexMusica/lyric-harness/lyric_harness.py, /home/user/CodexMusica/lyric-harness/quality/loop.py, /home/user/CodexMusica/lyric-harness/quality/revise.py, /home/user/CodexMusica/mcp/lyric_tools.js, /home/user/CodexMusica/mcp/state_codec.js, /home/user/CodexMusica/mcp/gemini_agent.js, /home/user/CodexMusica/mcp/chat.js."
+  }
+ ]
+}
