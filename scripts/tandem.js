@@ -30,8 +30,13 @@ const { HTML_OUT: HTML_PATH, ZIP_OUT: ZIP_PATH } = require('./_paths.js');
 // check_lazy_app.js separately proves the shipped lazy shell behaves identically
 // to this embedded build — so "source → embedded behaves right" plus
 // "lazy ≡ embedded" gives "source → shipped lazy behaves right". The shipped
-// shell's own shape (no leaked tables) is asserted directly in [2/4].
+// shell's own shape (no leaked tables) is asserted directly in [2/4]. The
+// build is about 22 MB under a per-process name, so it is removed at exit:
+// left behind, every run added one to the temp dir.
 let _embedHtmlPath = null;
+process.on('exit', () => {
+  if (_embedHtmlPath) fs.rmSync(_embedHtmlPath, { force: true });
+});
 function embeddedHtml() {
   if (_embedHtmlPath && fs.existsSync(_embedHtmlPath)) return _embedHtmlPath;
   _embedHtmlPath = path.join(os.tmpdir(), `codex_tandem_embed_${process.pid}.html`);
@@ -743,7 +748,8 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
     throw new Error('shipped codex.html missing CODEX_LAZY_API — not the lazy shell');
   }
   // The instrument engine is out of the page too: its eight tables load from
-  // api/engine.json after the first paint into `let` slots that
+  // api/engine.json (at the first paint, or from <head> when a saved session
+  // needs it) into `let` slots that
   // CODEX_ENGINE_COMMIT fills in one step, and the first view reads names and
   // families from INSTRUMENT_INDEX. The names of the tables that must not be
   // inline are spelled out, not taken from _page_tables.js's ENGINE_TABLES, so

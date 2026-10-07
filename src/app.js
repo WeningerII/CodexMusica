@@ -5437,21 +5437,21 @@ const _drain = (steps) => { let r = steps.next(); while (!r.done) r = steps.next
 // ---- Instrument engine (lazy shell) ----
 // The engine tables — INSTRUMENTS with their parts and variants, the family
 // parts merged into them, ROOMS, ROOM_CLUSTERS, CHAIN_SECTIONS, TUNINGS,
-// INSTRUMENT_AXIS_DEFINITIONS, PREFACE_LEXICON — are 77% of the page's data and
-// the first view reads none of them but instrument names and families. The
-// embedded build carries them inline and everything below is inert. The lazy
-// shell declares each as an empty `let` slot (build_html.js) and carries only
-// INSTRUMENT_INDEX ([id, name, family, short] per instrument) for the first
-// view, read through InstLite (api/engine.json leaves those four fields to
-// it). After the first paint (start, from uiAfterPaint), or sooner when an
-// action needs it (ensure), Engine fetches api/engine.json
-// (scripts/_page_tables.js), parses it a line at a time, fills each
-// instrument's index fields back, merges the family parts (with the file's
-// merge plan, which spares it the predicate passes), indexes and sorts, all in
-// idle slices on local objects, then fills every slot in one step: the tables
-// go from absent to whole, never half-filled. Until its bytes are here
-// (fetched), the page's other optional downloads wait, so nothing shares the
-// link with them. A saved session asks for the file from <head>
+// INSTRUMENT_AXIS_DEFINITIONS, PREFACE_LEXICON — were 92% of the lazy page's
+// inline data, gzipped, and the first view reads none of them but instrument
+// names and families. The embedded build carries them inline and everything
+// below is inert. The lazy shell declares each as an empty `let` slot
+// (build_html.js) and carries only INSTRUMENT_INDEX ([id, name, family, short]
+// per instrument) for the first view, read through InstLite (api/engine.json
+// leaves those four fields to it). After the first paint (start, from
+// uiAfterPaint), or sooner when an action needs it (ensure), Engine fetches
+// api/engine.json (scripts/_page_tables.js), parses it a line at a time, fills
+// each instrument's index fields back, merges the family parts (with the
+// file's merge plan, which spares it the predicate passes), indexes and sorts,
+// all in idle slices on local objects, then fills every slot in one step: the
+// tables go from absent to whole, never half-filled. Until its bytes are here
+// (fetched), the page's optional downloads wait, so none of them shares the
+// link with it. A saved session asks for the file from <head>
 // (src/engine_preload.js), and this fetch reuses that response.
 //
 // Until then nothing acts on partial data. Inst, Room, Tuning, ChainItem and
@@ -5462,7 +5462,8 @@ const _drain = (steps) => { let r = steps.next(); while (!r.done) r = steps.next
 // A failed load is retried only by a caller — an action, Retry, the browser
 // coming back online — never on a timer. A file from another deploy (its
 // digest is not CODEX_ENGINE_SHA, or its instruments are not INSTRUMENT_INDEX's)
-// is refused as stale.
+// is refused as stale; a response that is not the file at all, or is cut
+// short, is a load failure.
 let _engineLive = typeof INSTRUMENTS !== 'undefined';
 const _INST_LITE = new Map();
 if (!_engineLive && typeof INSTRUMENT_INDEX !== 'undefined')
@@ -5521,9 +5522,15 @@ const Engine = (() => {
         // A copy whose line endings were converted (CRLF) reads the same.
         const lines = text.split(/\r?\n/);
         const el = (i) => JSON.parse(lines[i].replace(/,$/, ''));
-        const head = lines[0] === '[' ? el(1) : null;
-        if (!head || head.tables_sha1 !== CODEX_ENGINE_SHA)
-          throw Object.assign(new Error('instrument data does not match this page'), { stale: true });
+        const stale = () => Object.assign(new Error('instrument data does not match this page'), { stale: true });
+        // Only a header that parses and names another digest is another
+        // deploy's file. A body that is not the file at all (a captive
+        // portal's page, a host's fallback page for a missing file, an empty
+        // body) is a load failure, so it can be retried.
+        const head = lines[0] === '[' && lines.length > 2 ? el(1) : null;
+        if (!head || typeof head.tables_sha1 !== 'string')
+          throw new Error('the response is not the instrument data');
+        if (head.tables_sha1 !== CODEX_ENGINE_SHA) throw stale();
         const t = { INSTRUMENTS: [] };
         let plan = null;
         state = 'preparing';
@@ -5545,7 +5552,6 @@ const Engine = (() => {
           // has them in INSTRUMENT_INDEX, in the same order, and fills them back
           // before anything reads them (scripts/_page_tables.js, INDEX_FIELDS).
           const FIELDS = ['id', 'name', 'family', 'short'];
-          const stale = () => Object.assign(new Error('instrument data does not match this page'), { stale: true });
           if (JSON.stringify(head.index_fields) !== JSON.stringify(FIELDS) || t.INSTRUMENTS.length !== INSTRUMENT_INDEX.length) throw stale();
           for (let k = 0; k < t.INSTRUMENTS.length; k++) {
             const x = t.INSTRUMENTS[k], row = INSTRUMENT_INDEX[k];
@@ -5663,6 +5669,12 @@ const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !Catalog.all().l
         if (deep && Catalog.get(deep) && !Catalog.hasProse(deep)) Catalog.needProse();
       })])
   : null;
+// Handled from the start. The boot's own handlers attach at DOMContentLoaded,
+// and a failure can land before it: a saved session's engine request goes out
+// from <head>, while the rest of the page is still arriving. Unhandled until
+// then, it would reach the unhandled-rejection trap below, whose "Something
+// went wrong" toast would sit over the boot error the handler then draws.
+if (CATALOG_READY) CATALOG_READY.catch(() => {});
 
 const _traditionSignatureFor = (tradId) => (tradId && TRADITION_SIGNATURES[tradId]) || [];
 
@@ -21782,8 +21794,10 @@ function renderPrefaceSection(card) {
 }
 
 // Populate the global <datalist id="preface-options"> from PREFACE_LEXICON.
-// Runs once at boot (DOMContentLoaded handler). The datalist powers
-// browser-native autocomplete on every .preface-input.
+// Fills the datalist the first time a card's preface section draws
+// (renderPrefaceSection, in both builds; a card exists only once the
+// instrument data has loaded), and does nothing after that (dataset.populated).
+// The datalist powers browser-native autocomplete on every .preface-input.
 function populatePrefaceDatalist() {
   if (typeof PREFACE_LEXICON === 'undefined') return;
   const dl = document.getElementById('preface-options');
@@ -22585,12 +22599,17 @@ document.addEventListener('DOMContentLoaded', () => {
   else _initApp();
 });
 
+// The error takes the boot status's place (#boot-status, a child of <body>),
+// which body.boot-failed shows over the whole viewport. Drawn in the workspace
+// it would sit in the editor panel, which the workbench's styles hide until an
+// editor opens, and the page would read as blank.
 function _renderBootError(err) {
   console.error('Catalog boot failed:', err);
   document.body.classList.add('boot-failed');
-  const detail = document.getElementById('workspace-detail') || document.body;
+  const host = document.getElementById('boot-status') || document.body;
+  host.setAttribute('role', 'alert');
   const engine = !!(err && (err.engine || err.name === 'EngineNotReadyError'));
-  detail.innerHTML =
+  host.innerHTML =
     '<div class="empty-state" id="boot-error"' + (engine ? ' data-engine-pending="failed"' : '') + '>' +
     (engine
       ? '<h2>Couldn’t load your saved recipe</h2><p>' + (err.name === 'EngineNotReadyError'

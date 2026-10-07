@@ -3,13 +3,16 @@
 //
 // codex.html is the shipped browser app. The DEFAULT build (since the lazy-load
 // migration) is the LAZY SHELL: an HTML shell (src/index.template.html) with the
-// non-tradition catalog data embedded as JS const declarations and the
+// catalog data the first view needs embedded as JS const declarations and the
 // application code appended, while the two tradition tables (~66% of the
-// embedded bytes) stay OUT of the page — the app's Catalog layer boots them from
-// api/browse_boot.json (one fetch), reads the genres' prose from
-// api/browse_prose.json after the first paint, and pulls each tradition's
-// import payload from api/traditions/{id}.json on demand. The shell therefore deploys NEXT TO the
-// committed api/ directory (GitHub Pages serves both from the repo root).
+// embedded bytes) and the instrument engine stay OUT of the page — the app's
+// Catalog layer boots the traditions from api/browse_boot.json (one fetch),
+// reads the genres' prose from api/browse_prose.json after the first paint,
+// and pulls each tradition's import payload from api/traditions/{id}.json on
+// demand; the engine's eight tables come from api/engine.json, at the first
+// paint or from <head> when a saved session needs them. The shell therefore
+// deploys NEXT TO the committed api/ directory (GitHub Pages serves both from
+// the repo root).
 // `--embedded` builds the historical fully-self-contained single-file variant
 // (every table in the page; works from file:// with no api/). check_lazy_app.js
 // gates the two variants to behave identically. This script:
@@ -150,10 +153,12 @@ const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js', ...(LAZY ? P.ENGI
 // every picture first paint draws (scripts/_glyph_stores.js).
 //
 // The instrument-engine tables (ENGINE_TABLES in scripts/_page_tables.js) leave
-// the lazy page too: they are 77% of its data, and the first view reads none of
-// them but instrument names and families, which it reads from INSTRUMENT_INDEX.
-// The page declares an empty slot for each and fetches api/engine.json after
-// its first paint (Engine in src/app.js). The embedded build keeps them inline.
+// the lazy page too: they were 92% of its inline data, gzipped, and the first
+// view reads none of them but instrument names and families, which it reads
+// from INSTRUMENT_INDEX. The page declares an empty slot for each and fetches
+// api/engine.json at its first paint, or from <head> when a saved session needs
+// it (Engine in src/app.js, src/engine_preload.js). The embedded build keeps
+// them inline.
 const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES]) : new Set();
 
 // ─────────────────────── templates are required source ───────────────────────
@@ -188,8 +193,8 @@ const themeJs = fs.readFileSync(path.join(SRC, 'theme.js'), 'utf8');
 const THEME_BOOT_MARKER = '<!--@THEME_BOOT-->';
 const layoutCss = fs.readFileSync(path.join(SRC, 'layout.css'), 'utf8');
 // The lazy shell asks for its boot index from <head>, so the download starts
-// while the page's ~4 MB of inline script is still being parsed and run rather
-// than when app.js reaches its fetch, 81% of the way down the page. The app's
+// while the page's ~1.6 MB of inline script is still being parsed and run rather
+// than when app.js reaches its fetch, 46% of the way down the page. The app's
 // fetch() then reuses the preloaded response: `crossorigin` (anonymous) gives
 // the same mode and credentials as fetch()'s defaults, and a mismatch would
 // show as a second request. The embedded build has no fetch, so no preload.
@@ -683,8 +688,9 @@ if (flags.check) {
   // right after the boot index's link, and, run against stored states, it adds
   // one link — rel=preload, as=fetch, crossorigin=anonymous, href the URL
   // Engine fetches — when the first stored session (storedSessionText's order
-  // in src/app.js) has a card, and nothing otherwise, nor when storage throws.
-  // check_lazy_app.js holds it to app.js's own decision (ENGINE_AT_BOOT).
+  // in src/app.js) has a card, and nothing otherwise, nor when storage throws,
+  // and it reads no key storedSessionText does not. check_lazy_app.js holds it
+  // to app.js's own decision (ENGINE_AT_BOOT).
   {
     const fail = (msg) => {
       console.error('check: FAIL — ' + msg);
@@ -702,16 +708,19 @@ if (flags.check) {
       const between = html.slice(bootLink, m.index).replace(/^<link[^>]*>/, '');
       if (bootLink < 0 || m.index > html.indexOf('</head>') || /<(script|link)\b/i.test(between))
         fail("the engine preload is not the <script> right after the boot index's link in <head>");
+      // storedSessionText's keys, in its order: the recovery copy in
+      // sessionStorage, the rest in localStorage. The script may read no other:
+      // a key app.js does not read would preload the engine for a session the
+      // page never restores.
       const KEYS = [
-        'codex-workbench-recovery',
-        'codex-workbench-v1',
-        'musica-workbench-v3',
-        'musica-study-v1',
+        ['sessionStorage', 'codex-workbench-recovery'],
+        ['localStorage', 'codex-workbench-v1'],
+        ['localStorage', 'musica-workbench-v3'],
+        ['localStorage', 'musica-study-v1'],
       ];
       const WS = (cards) => JSON.stringify({ version: 1, name: 'T', cards });
       const CARD = [{ id: 'c1', instrumentId: 'voice', traditionId: 'dub', parts: {} }];
-      // [stored, links wanted]. Keys are storedSessionText's; the first holds the
-      // recovery copy (sessionStorage), the rest localStorage.
+      // [stored, links wanted], by key (each in its own storage, as KEYS).
       const STATES = [
         [{}, 0],
         [{ 'codex-workbench-v1': WS(CARD) }, 1],
@@ -728,13 +737,17 @@ if (flags.check) {
         ['throw', 0],
       ];
       const want = { rel: 'preload', as: 'fetch', crossorigin: 'anonymous', href: ENGINE_URL };
+      const stray = new Set();
       for (const [stored, n] of STATES) {
         const links = [];
-        const store = (session) => ({
+        const store = (where) => ({
           getItem(k) {
             if (stored === 'throw') throw new Error('storage refused');
-            const i = KEYS.indexOf(k);
-            return i >= 0 && (i === 0) === session && k in stored ? stored[k] : null;
+            if (!KEYS.some(([s, key]) => s === where && key === k)) {
+              stray.add(`${where}.getItem(${JSON.stringify(k)})`);
+              return null;
+            }
+            return k in stored ? stored[k] : null;
           },
         });
         const doc = {
@@ -750,8 +763,8 @@ if (flags.check) {
             m[1],
             vm.createContext({
               document: doc,
-              sessionStorage: store(true),
-              localStorage: store(false),
+              sessionStorage: store('sessionStorage'),
+              localStorage: store('localStorage'),
             }),
             { timeout: 1000 }
           );
@@ -770,6 +783,10 @@ if (flags.check) {
             `the engine preload added ${JSON.stringify(links)} for stored state ${JSON.stringify(stored).slice(0, 120)}; want ${n ? JSON.stringify(want) : 'nothing'}`
           );
       }
+      if (stray.size)
+        fail(
+          `the engine preload reads ${[...stray].join(', ')}, which storedSessionText (src/app.js) does not; it may read only ${KEYS.map(([w, k]) => `${w} ${k}`).join(', ')}`
+        );
     }
   }
   // The instrument photo table rides in api/instrument_images.json for the lazy
@@ -793,7 +810,8 @@ if (flags.check) {
   // read from scripts/_page_tables.js, so an edit to that list cannot also
   // switch off the check on it. A lazy page declares an empty slot for each
   // (the app fills them from api/engine.json) and carries no table; an
-  // embedded page carries every table and none of the lazy machinery.
+  // embedded page carries every table, each with rows, and none of the lazy
+  // machinery (the index, the commit, the two digests).
   {
     const ENGINE = [
       'INSTRUMENT_FAMILY_PARTS',
@@ -844,7 +862,23 @@ if (flags.check) {
         if (vm.runInContext(name, ctx2, { timeout: 5000 }) !== 'sentinel:' + name)
           fail(`CODEX_ENGINE_COMMIT does not fill the engine slot ${name}`);
     } else {
-      for (const name of ['INSTRUMENT_INDEX', 'CODEX_ENGINE_COMMIT', 'CODEX_ENGINE_SHA'])
+      // Every table, read back with rows: INSTRUMENT_FAMILY_PARTS is the one
+      // object (family -> parts), the rest arrays.
+      for (const name of ENGINE) {
+        const rows = probe(
+          `typeof ${name} === 'undefined' || ${name} === null ? -1 : Array.isArray(${name}) ? ${name}.length : typeof ${name} === 'object' ? Object.keys(${name}).length : -1`
+        );
+        if (rows <= 0)
+          fail(
+            `the embedded page ${rows < 0 ? 'does not carry' : 'carries an empty'} engine table ${name}`
+          );
+      }
+      for (const name of [
+        'INSTRUMENT_INDEX',
+        'CODEX_ENGINE_COMMIT',
+        'CODEX_ENGINE_SHA',
+        'CODEX_MERGE_SHA',
+      ])
         if (declared(name)) fail(`the embedded page declares ${name}, a lazy-shell name`);
     }
   }

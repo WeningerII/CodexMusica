@@ -1016,8 +1016,9 @@ jobs:
         run: npm run reachability
 
       # The embedded build (every table inline: the page check_lazy_app and
-      # tandem compare the lazy shell against) has its own --check — every
-      # engine table present, none of the lazy machinery or its preload, each
+      # tandem compare the lazy shell against) has its own --check — each of
+      # the eight engine tables present by name, with rows; none of the lazy
+      # names (the index, the commit, the two digests) or the preload; each
       # <script> under the parse ceiling — and until this step nothing in CI
       # ran it: those gates build it without --check. --out keeps it off the
       # default output path, where the lazy build above is what UI
@@ -1049,12 +1050,14 @@ jobs:
     # class as verify hung THIS job 44m+ on the run for PR #168 (2026-08-18).
     # REPINNED 2026-10-06 from ~~30~~ to 45 for step 9's fault classes. PR
     # #501's run measured the job at 22m43s: the cold build 11m54s, fault
-    # injection 9m49s. Step 9 brings faults.js to 85 classes, 30 of them for
-    # the engine split (9i-9zi; each engine class runs only its own
-    # check_lazy_app check, --checks). A full local run measured 28m32s
-    # (1,712 s: the step-9 classes 762 s, the other 55 950 s). At the 1.46x
+    # injection 9m49s. Step 9 brought faults.js to 85 classes, 30 of them for
+    # the engine split (9i-9zi; a class planted for one check of the engine
+    # section runs that check alone, --checks). A full local run of the 85
+    # measured 28m32s (1,712 s: the step-9 classes 762 s, the other 55 950 s).
+    # The review then added six (9zj-9zo, 91 in all), each one check_lazy_app
+    # section or one build, 122 s locally for the six. At the 1.46x
     # local/CI ratio measured on the cold build (17m26s local, 11m54s here)
-    # that is ~19.5 min of faults, and the job ~32.5 min cold; the older
+    # the 85 are ~19.5 min of faults, and the job ~32.5 min cold; the older
     # classes alone ran 1.61x (950 s local, 9m49s here), so 1.46 errs long.
     # 45 is that estimate plus about 40%, room for a slow runner; the first
     # step-9 run's own figure replaces the estimate here.
@@ -1191,11 +1194,12 @@ jobs:
       #
       # It runs unless the run was cancelled (`!cancelled()`), after a failed
       # step above as well: a page over its budget, or a reproducibility diff,
-      # is one verdict, and it must not hide the fault verdicts behind it. A
-      # failed step still fails the job; this one reports beside it. With no
-      # fresh pair to inject against (a step above stopped before the build
-      # finished), it says so and fails at once, rather than plant into files
-      # that are not there.
+      # is one verdict, and it must not hide the fault verdicts behind it (on a
+      # page already over, each budget class records BASELINE-OVER and the
+      # classes after them still run). A failed step still fails the job; this
+      # one reports beside it. With no fresh pair to inject against (a step
+      # above stopped before the build finished), it says so and fails at
+      # once, rather than plant into files that are not there.
       - name: Fault injection — every gate is two-sided (0 escapes)
         if: ${{ !cancelled() }}
         run: |

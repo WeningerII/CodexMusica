@@ -74,9 +74,9 @@
 //   never "none"; nothing reads the engine. After the release the list and the
 //   picker on screen equal the embedded build's.
 //
-//   ENGINE (section `engine`; each check boots its own lazy page with
-//   api/engine.json held, against one embedded page doing the same; --checks
-//   runs some of them):
+//   ENGINE (section `engine`; each check but E6, a census of the code, boots
+//   its own lazy page with api/engine.json held, against one embedded page
+//   doing the same; --checks runs some of them):
 //   • E0 — one engine request, after the first view; Engine.state() is
 //     'loading' and neither the prose nor an optional download is asked for
 //     while it is held; once released, exactly one prose request, after the
@@ -105,7 +105,8 @@
 //   • E5 — a search on the Instrument page while it loads stays pending with
 //     no count; once released the list is the embedded build's, with the
 //     search box still focused.
-//   • E6 — the direct reads of the eight engine tables in src/ (identifier
+//   • E6 — the direct reads of the eight engine tables in the page's code
+//     (src/, and the two regions the build inlines from scripts/; identifier
 //     references, from the AST) are counted per file, per table and per
 //     enclosing function, and must match ENGINE_READERS below: a new reader
 //     has to be reviewed (it must run only once the instrument data has
@@ -129,32 +130,39 @@
 //     embedded build's engine.
 //
 //   FAILURE PATHS (section `failure`; the lazy app fails honestly):
-//   • the boot index unreachable → the boot-error state renders.
+//   • F1, the boot index unreachable → the boot-error state renders and is
+//     shown (no ancestor's computed style hides it or its Reload); the failure
+//     lands before DOMContentLoaded's handlers run (held), and reaches no
+//     unhandled-rejection trap.
 //   • the prose unreachable → the app works; prose slots say they could not
 //     load, with Retry; a search says only names were searched; exactly one
 //     request, no retry loop, and Retry makes exactly one more.
 //   • a tradition fetch 404s → importTraditionWithFeedback adds NO cards and
 //     surfaces the error toast.
 //   • F4a, the engine unreachable with no saved session → the first view
-//     stands (no boot error); one request, none more on a timer; an Add makes
-//     one more, adds nothing and says it could not load, with Retry; the
-//     Instrument page says it could not load, with Retry, which makes exactly
-//     one more; the genre prose still loads; adding an instrument and an
-//     import each make one more request and say the same, with Retry.
+//     stands (no boot error); one request, none more on a timer (at the end
+//     every pending timer is run, whatever its delay, and asks nothing); an
+//     Add makes one more, adds nothing and says it could not load, with
+//     Retry; the Instrument page says it could not load, with Retry, which
+//     makes exactly one more; the genre prose still loads; adding an
+//     instrument and an import each make one more request and say the same,
+//     with Retry.
 //   • F4b, F4c (with a saved session) and F4f, a saved session the boot
 //     cannot draw → the boot error, in the words BOOT_ERROR pins for each
 //     cause: the engine unreachable (F4b), another deploy's file (F4c), or a
 //     session written in the instant after the boot's last look, so the
-//     restore reaches the engine before it loads (F4f). The session is left
-//     as it was and nothing is written.
+//     restore reaches the engine before it loads (F4f), shown as F1's is, with
+//     no unhandled rejection (F4b's failure lands before DOMContentLoaded's
+//     handlers run). The session is left as it was and nothing is written.
 //   • F4c, a file from another deploy (its digest is not the page's) → refused
 //     as stale; an Add adds nothing and asks for a reload; the Instrument page
 //     and the similar view say the page is out of date, with Reload, never
 //     Retry; no table is filled.
 //   • F4d, a file cut short (its tail from the last table the header names, on
-//     a line boundary; its closing line; a table's line) → refused, not as
-//     stale, so a retry can succeed; every slot empty; an Add says the
-//     connection failed, with Retry.
+//     a line boundary; its closing line; a table's line), or a 200 that is not
+//     the file (a sign-in page; an empty body) → refused, not as stale, so a
+//     retry can succeed; every slot empty; an Add says the connection failed,
+//     with Retry.
 //   • F4e, another deploy's index (one instrument fewer than
 //     INSTRUMENT_INDEX, an index field not 0, other index_fields) → refused
 //     as stale; every slot empty.
@@ -165,7 +173,7 @@
 //   --only=parity,first-view,window,engine,failure  # run some sections (faults.js)
 //   --scenarios=default,deep,instrument-route       # restrict first-view (faults.js)
 //   --checks=E1,E3,E4                               # run some engine checks (faults.js)
-//   --print-readers                                 # print E6's ENGINE_READERS from src/, exit
+//   --print-readers                                 # print E6's ENGINE_READERS from the code, exit
 // The three filters only restrict: the full run is always a superset. An
 // unknown section, scenario or engine check is an error, and so is --checks
 // with the engine section left out; the summary line names the engine checks
@@ -231,14 +239,15 @@ const ENGINE_TABLES = [
   'INSTRUMENT_AXIS_DEFINITIONS',
   'PREFACE_LEXICON',
 ];
-// E6: the direct reads of the engine tables in src/, per file, per table, per
-// enclosing function (an identifier reference: a property name or an object
-// key is not one; a read outside any named function is "(top level)"). Each
-// reader counted here was reviewed as running only once the instrument data has
-// loaded: behind _engineLive, after Engine.ensure() or engineReady(), on a card
-// (no card exists before then), or as a `typeof` guard. A change means a reader
-// was added, removed or moved to another function: review it, then regenerate
-// with `node scripts/check_lazy_app.js --print-readers`.
+// E6: the direct reads of the engine tables in the page's code (src/, and the
+// regions inlined from scripts/), per file, per table, per enclosing function
+// (an identifier reference: a property name or an object key is not one; a
+// read outside any named function is "(top level)"). Each reader counted here
+// was reviewed as running only once the instrument data has loaded: behind
+// _engineLive, after Engine.ensure() or engineReady(), on a card (no card
+// exists before then), or as a `typeof` guard. A change means a reader was
+// added, removed or moved to another function: review it, then regenerate with
+// `node scripts/check_lazy_app.js --print-readers`.
 const ENGINE_READERS = {
   'src/app.js': {
     INSTRUMENTS: {
@@ -554,6 +563,67 @@ function bootDom(html, fetchShim, { url = 'about:blank', width, storage, onWindo
     },
   });
 }
+
+// What hides an element of a booted page: the first of it and its ancestors
+// whose computed display is none or visibility hidden ("section#workspace-detail
+// display=none"), or null when nothing does. jsdom cascades by source order
+// alone and skips media queries that carry a condition, so this is a floor: it
+// sees a rule that hides the element at every width, such as the editor panel
+// the workbench hides until an editor opens, where a boot error once sat
+// unseen.
+function hiddenBy(w, el) {
+  for (let e = el; e && e.nodeType === 1; e = e.parentElement) {
+    const cs = w.getComputedStyle(e);
+    if (cs.display === 'none' || cs.visibility === 'hidden')
+      return `${e.tagName.toLowerCase()}${e.id ? '#' + e.id : ''}${[...e.classList].map((c) => '.' + c).join('')} ${cs.display === 'none' ? 'display=none' : 'visibility=hidden'}`;
+  }
+  return null;
+}
+// The page's own DOMContentLoaded handlers, held until release(), then run in
+// the order the page added them (call it from onWindow). In a browser a fetch
+// can fail while the rest of a long page is still arriving, before the event;
+// in jsdom the event always comes first. Held, a failure lands before the
+// handlers that would draw it are attached.
+function holdDomContentLoaded(w) {
+  const queue = [];
+  let released = false;
+  const add = w.document.addEventListener.bind(w.document);
+  w.document.addEventListener = (type, fn, opts) =>
+    add(
+      type,
+      type === 'DOMContentLoaded' && typeof fn === 'function'
+        ? (e) => (released ? fn.call(w.document, e) : queue.push(() => fn.call(w.document, e)))
+        : fn,
+      opts
+    );
+  return {
+    release() {
+      released = true;
+      for (const run of queue.splice(0)) run();
+    },
+  };
+}
+// The unhandled rejections of one window (call it from onWindow; stop() when
+// done). Node reports them per process, so a rejection counts here only when
+// its promise or its error is this window's: the checks of a pool run side by
+// side. jsdom has no unhandledrejection event, so this is where the page's
+// "Something went wrong" toast (the trap in src/app.js) shows up.
+function windowRejections(w) {
+  const seen = [];
+  const on = (reason, p) => {
+    if (p instanceof w.Promise || reason instanceof w.Error)
+      seen.push(String((reason && reason.message) || reason));
+  };
+  process.on('unhandledRejection', on);
+  return { seen, stop: () => process.off('unhandledRejection', on) };
+}
+// Whether CATALOG_READY has settled: 'fulfilled', 'rejected' or 'pending'.
+// It attaches a handler, so call it only once an unhandled rejection would
+// already have been reported (a task after the failure).
+const catalogState = (w) =>
+  w.eval(
+    "Promise.race([CATALOG_READY.then(() => 'fulfilled', () => 'rejected'), new Promise((r) => setTimeout(() => r('pending'), 0))])"
+  );
 
 // Inject an async probe into a booted dom and wait for its result. The probe
 // shares the page's global script scope, so it can reference the app's
@@ -1408,26 +1478,39 @@ async function enginePreloadAgrees(lazyHtml) {
     ['layout only', {}, LIST],
     ['storage refused', 'throw', 'throw'],
   ];
-  // And one state per key storedSessionText reads, as the page ships it: a key
-  // added there and not in <head> fails here even if no state above names it.
+  // And one state per key either side reads, as the page ships it: the keys
+  // storedSessionText reads, and the keys the <head> preload reads (the one
+  // script there that names "preload"). A key one side reads and the other
+  // does not fails here even if no state above names it: read only by app.js,
+  // a session that needs the engine starts it late; read only by <head>, a
+  // page that never restores that session downloads the engine during its
+  // first view.
   {
     const dom = bootDom(lazyHtml, makeFetchShim({ hold: { 'api/browse_boot.json': deferred() } }), {
       url: SITE,
     });
-    const keys = [
-      ...dom.window
-        .eval('storedSessionText.toString()')
-        .matchAll(/\b(sessionStorage|localStorage)\.getItem\((["'])([^"']+)\2\)/g),
-    ].map((m) => [m[1], m[3]]);
+    const GET = /\b(sessionStorage|localStorage)\.getItem\((["'])([^"']+)\2\)/g;
+    const keysIn = (text) => [...text.matchAll(GET)].map((m) => `${m[1]} ${m[3]}`);
+    const app = keysIn(dom.window.eval('storedSessionText.toString()'));
+    const heads = [...dom.window.document.head.querySelectorAll('script')].filter((x) =>
+      /(["'`])preload\1/.test(x.textContent)
+    );
+    const head = heads.length === 1 ? keysIn(heads[0].textContent) : [];
     dom.window.close();
-    if (keys.length < 4)
-      fail(`${tag}: read ${keys.length} key(s) from storedSessionText; want its 4 or more`);
-    for (const [where, key] of keys)
+    if (app.length < 4)
+      fail(`${tag}: read ${app.length} key(s) from storedSessionText; want its 4 or more`);
+    if (heads.length !== 1 || head.length < 4)
+      fail(
+        `${tag}: read ${head.length} key(s) from ${heads.length} <head> script(s) naming "preload"; want one script, reading 4 or more`
+      );
+    for (const k of [...new Set([...app, ...head])]) {
+      const [where, key] = k.split(' ');
       STATES.push([
         `${key} alone`,
         where === 'sessionStorage' ? { [key]: WS } : {},
         where === 'localStorage' ? { [key]: WS } : {},
       ]);
+    }
   }
   let wanted = 0;
   for (const [label, session, local] of STATES) {
@@ -2556,26 +2639,38 @@ async function engineSweep(lazyHtml) {
   return clicks;
 }
 
-// E6. The direct reads of the engine tables in src/, from the AST: an
-// identifier that is not a property name or an object key, counted by the
-// function it is read in: { file: { table: { function: reads } } }.
+// E6. The direct reads of the engine tables in the page's code, from the AST:
+// an identifier that is not a property name or an object key, counted by the
+// function it is read in: { file: { table: { function: reads } } }. The code
+// is src/*.js and src/pages/*.js, and the two regions build_html.js inlines
+// from scripts/ (between their @inline markers, cut as the build cuts them),
+// counted as "scripts/_merge.js@inline" and "scripts/_card_descriptors.js@inline".
+const INLINED = ['scripts/_merge.js', 'scripts/_card_descriptors.js'];
+const INLINE_REGION = /\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//;
 function engineReaders() {
   const espree = require(
     require.resolve('espree', { paths: [path.dirname(require.resolve('eslint'))] })
   );
   const names = new Set(ENGINE_TABLES);
   const readers = {};
-  const files = ['src', 'src/pages']
+  const sources = ['src', 'src/pages']
     .flatMap((d) =>
       fs
         .readdirSync(path.join(ROOT, d))
         .filter((f) => f.endsWith('.js'))
-        .map((f) => `${d}/${f}`)
+        .map((f) => [`${d}/${f}`, fs.readFileSync(path.join(ROOT, d, f), 'utf8')])
     )
-    .sort();
+    .concat(
+      INLINED.map((f) => {
+        const m = fs.readFileSync(path.join(ROOT, f), 'utf8').match(INLINE_REGION);
+        if (!m) throw new Error(`engine E6: no @inline-start/@inline-end region in ${f}`);
+        return [`${f}@inline`, m[1]];
+      })
+    )
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
   const KEYED = /^(Property|MethodDefinition|PropertyDefinition)$/;
-  for (const file of files) {
-    const ast = espree.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'), {
+  for (const [file, text] of sources) {
+    const ast = espree.parse(text, {
       ecmaVersion: 'latest',
       sourceType: 'script',
     });
@@ -2679,17 +2774,52 @@ async function engineSection(embedHtml, lazyHtml) {
 
 // ── section: failure ────────────────────────────────────────────────────────
 async function failure(lazyHtml) {
-  // F1. The boot index unreachable → the honest boot-error state.
-  const deadDom = bootDom(lazyHtml, makeFetchShim({ deny: ['api/browse_boot.json'] }));
-  await waitFor(
-    () => deadDom.window.document.getElementById('boot-error'),
-    10000,
-    'no boot-error'
-  ).then(
-    () => note('boot index failure renders the error state'),
-    () => fail('browse_boot.json failure did NOT render the boot-error state (silent blank app)')
-  );
-  deadDom.window.close();
+  // F1. The boot index unreachable → the honest boot-error state, shown. The
+  // failure lands before DOMContentLoaded's handlers run (held), as it can in
+  // a browser, and must not reach the unhandled-rejection trap meanwhile.
+  {
+    const tag = 'boot index unreachable (F1)';
+    let held = null,
+      track = null;
+    const deadDom = bootDom(lazyHtml, makeFetchShim({ deny: ['api/browse_boot.json'] }), {
+      onWindow: (x) => {
+        track = windowRejections(x);
+        held = holdDomContentLoaded(x);
+      },
+    });
+    const w = deadDom.window;
+    try {
+      await sleep(300);
+      const state = await catalogState(w);
+      if (state !== 'rejected')
+        fail(
+          `${tag}: CATALOG_READY is ${state} with DOMContentLoaded's handlers held; want rejected — vacuous`
+        );
+      held.release();
+      await waitFor(() => w.document.getElementById('boot-error'), 10000, 'no boot-error').catch(
+        () => {}
+      );
+      const e = w.document.getElementById('boot-error');
+      const hidden = e && (hiddenBy(w, e) || hiddenBy(w, e.querySelector('#boot-error-reload')));
+      if (!e)
+        fail(
+          `${tag}: browse_boot.json failure did NOT render the boot-error state (silent blank app)`
+        );
+      else if (hidden)
+        fail(
+          `${tag}: #boot-error and its Reload are drawn but not shown (${hidden}): a blank page`
+        );
+      if (track.seen.length)
+        fail(
+          `${tag}: unhandled rejection before DOMContentLoaded (${track.seen.join(' | ').slice(0, 200)}) — the trap's "Something went wrong" toast covers the boot error`
+        );
+      if (e && !hidden && !track.seen.length)
+        note(`${tag}: the error state is shown, and the early failure is handled`);
+    } finally {
+      track.stop();
+      w.close();
+    }
+  }
 
   // F2. The prose unreachable → a working app that says what it could not load.
   {
@@ -2818,6 +2948,7 @@ async function failure(lazyHtml) {
           tag: 'engine unreachable with a saved session (F4b)',
           cause: 'network',
           deny: ['api/engine.json'],
+          early: true,
         }),
       () => engineStale(lazyHtml),
       () =>
@@ -2841,17 +2972,72 @@ async function failure(lazyHtml) {
   );
 }
 
+// The window's pending timers (call it from onWindow): every setTimeout and
+// setInterval callback the page has scheduled and not yet run or cleared.
+// flush() runs each once, at once, as if the page had stayed open past every
+// delay, and returns how many it ran.
+function timerLedger(w) {
+  const pending = new Map();
+  const real = {
+    setTimeout: w.setTimeout,
+    setInterval: w.setInterval,
+    clearTimeout: w.clearTimeout,
+    clearInterval: w.clearInterval,
+  };
+  for (const [set, clear, every] of [
+    ['setTimeout', 'clearTimeout', false],
+    ['setInterval', 'clearInterval', true],
+  ]) {
+    w[set] = function (fn, ms, ...args) {
+      if (typeof fn !== 'function') return real[set].call(w, fn, ms, ...args);
+      const id = real[set].call(
+        w,
+        function () {
+          if (!every) pending.delete(id);
+          return fn.apply(this, args);
+        },
+        ms
+      );
+      pending.set(id, { fn, args, clear: real[clear] });
+      return id;
+    };
+    w[clear] = function (id) {
+      pending.delete(id);
+      return real[clear].call(w, id);
+    };
+  }
+  return {
+    flush() {
+      const due = [...pending.entries()];
+      pending.clear();
+      for (const [id, t] of due) {
+        t.clear.call(w, id);
+        try {
+          t.fn.apply(w, t.args);
+        } catch {
+          // A callback run early may meet a page that moved on; only the
+          // requests it makes are counted.
+        }
+      }
+      return due.length;
+    },
+  };
+}
+
 // F4. The instrument data unreachable, or from another deploy.
 // F4a: no saved session. The first view stands; a failed load is retried by
-// an action or Retry, each exactly once, never on a timer; the prose still
-// comes (its prefetch follows the engine's bytes, and a failure counts).
+// an action or Retry, each exactly once, never on a timer — at the end, every
+// timer still pending is run, however long its delay, and none may ask again;
+// the prose still comes (its prefetch follows the engine's bytes, and a
+// failure counts).
 async function engineUnreachable(lazyHtml) {
   const tag = 'engine unreachable (F4a)';
   const log = [];
+  let timers = null;
   const dom = bootDom(
     lazyHtml,
     makeFetchShim({ deny: ['api/engine.json', 'api/tradition_images.json'], log }),
-    { url: SITE }
+    { url: SITE, onWindow: (x) => (timers = timerLedger(x)) }
   );
   const w = dom.window;
   const asks = () => fetchesOf(log, 'api/engine.json').length;
@@ -2967,8 +3153,17 @@ async function engineUnreachable(lazyHtml) {
         fail(`${tag}: ${what} made ${asks() - n} request(s) for api/engine.json; want exactly 1`);
       n = asks();
     }
+    // Every timer still pending, run now: a retry on a timer longer than the
+    // waits above would ask again here.
+    await sleep(300);
+    const ran = timers.flush();
+    await sleep(500);
+    if (asks() !== n)
+      fail(
+        `${tag}: the page's ${ran} pending timer(s), run as if it had stayed open, made ${asks() - n} request(s) for api/engine.json; want none — a failed load is retried by an action, never on a timer`
+      );
     note(
-      `${tag}: first view kept; ${n1} → ${n2} (Add) → ${n3} (Retry) → ${n} (adding an instrument, an import) requests, none on a timer, each failure with Retry; prose loaded`
+      `${tag}: first view kept; ${n1} → ${n2} (Add) → ${n3} (Retry) → ${n} (adding an instrument, an import) requests, none on a timer (${ran} pending timer(s) run), each failure with Retry; prose loaded`
     );
   } finally {
     dom.window.close();
@@ -2996,15 +3191,41 @@ const staleFile = (t) => t.replace(STALE_SHA, `"tables_sha1":"${'0'.repeat(40)}"
 // last look for it (the then() after the boot's own on CATALOG_READY, so it
 // runs between that look and _initApp) — another tab's autosave landing just
 // then — with the instrument data held, so the restore reaches it first.
-async function engineBootError(lazyHtml, { tag, cause, deny = [], transform, late = false }) {
+// `early`: the failure lands before DOMContentLoaded's handlers run (held until
+// it has), as a fast 404 for the request <head> made can. In every case the
+// error must be shown, not only drawn, and nothing may reach the page's
+// unhandled-rejection trap, whose toast would cover it.
+async function engineBootError(
+  lazyHtml,
+  { tag, cause, deny = [], transform, late = false, early = false }
+) {
   const hold = late ? { 'api/browse_boot.json': deferred(), 'api/engine.json': deferred() } : {};
+  let held = null,
+    track = null;
   const dom = bootDom(
     lazyHtml,
     makeFetchShim({ deny: ['api/tradition_images.json', ...deny], transform, hold }),
-    { url: SITE, storage: late ? undefined : { 'codex-workbench-v1': WS } }
+    {
+      url: SITE,
+      storage: late ? undefined : { 'codex-workbench-v1': WS },
+      onWindow: (x) => {
+        track = windowRejections(x);
+        if (early) held = holdDomContentLoaded(x);
+      },
+    }
   );
   const w = dom.window;
   try {
+    if (early) {
+      await waitFor(() => w.eval('Engine.failed()'), 10000, 'engine failure').catch(() => {});
+      await sleep(100);
+      const state = await catalogState(w);
+      if (state !== 'rejected')
+        fail(
+          `${tag}: CATALOG_READY is ${state} with DOMContentLoaded's handlers held; want rejected — vacuous`
+        );
+      held.release();
+    }
     if (late) {
       const hooked = await runProbe(
         dom,
@@ -3035,6 +3256,8 @@ async function engineBootError(lazyHtml, { tag, cause, deny = [], transform, lat
       { boot: false, prose: false }
     );
     if (r.__err) return fail(`${tag}: probe crashed: ${r.__err}`);
+    const e = w.document.getElementById('boot-error');
+    const hidden = e && (hiddenBy(w, e) || hiddenBy(w, e.querySelector('#boot-error-reload')));
     if (!r.error) fail(`${tag}: no #boot-error — a saved recipe that cannot be drawn must say so`);
     else if (
       r.engine !== 'failed' ||
@@ -3045,17 +3268,31 @@ async function engineBootError(lazyHtml, { tag, cause, deny = [], transform, lat
       fail(
         `${tag}: #boot-error (data-engine-pending=${JSON.stringify(r.engine)}, ${r.reload ? 'with' : 'no'} Reload) reads ${JSON.stringify(r.heading)} / ${JSON.stringify(r.text)}; want ${JSON.stringify(BOOT_ERROR.heading)} / ${JSON.stringify(BOOT_ERROR[cause])}, data-engine-pending="failed" and Reload`
       );
+    else if (hidden)
+      fail(`${tag}: #boot-error and its Reload are drawn but not shown (${hidden}): a blank page`);
+    if (track.seen.length)
+      fail(
+        `${tag}: unhandled rejection${early ? ' before DOMContentLoaded' : ''} (${track.seen.join(' | ').slice(0, 200)}) — the trap's "Something went wrong" toast covers the boot error`
+      );
     if (r.ready)
       fail(`${tag}: UI.ready is true — the saved recipe was drawn without its instruments`);
     if (r.stored !== WS || r.recovery !== null)
       fail(
         `${tag}: the saved session was written (codex-workbench-v1 ${r.stored === WS ? 'unchanged' : 'changed'}, recovery copy ${JSON.stringify(r.recovery && r.recovery.slice(0, 60))})`
       );
-    if (r.text === BOOT_ERROR[cause] && !r.ready && r.stored === WS && r.recovery === null)
+    if (
+      r.text === BOOT_ERROR[cause] &&
+      !hidden &&
+      !track.seen.length &&
+      !r.ready &&
+      r.stored === WS &&
+      r.recovery === null
+    )
       note(
-        `${tag}: the boot error says ${JSON.stringify(r.text.slice(0, 60))}…; the session untouched`
+        `${tag}: the boot error, shown, says ${JSON.stringify(r.text.slice(0, 60))}…; the session untouched`
       );
   } finally {
+    track.stop();
     dom.window.close();
   }
 }
@@ -3154,14 +3391,17 @@ async function engineStale(lazyHtml) {
 // F4d and F4e: files the page must refuse whole, served to one page in turn
 // (the shim serves the variant in force at each request; the first is the
 // paint's own request). Each must leave the engine failed — stale or not, as
-// listed — with every slot empty. F4d's are cut short (a load failure, so a
-// retry can succeed: not stale): the tail from the last table the header
-// names, on a line boundary and with no newline after, which a parser reading
-// up to the closing line accepted with that table missing; the closing line
-// alone; a table's line alone. On the first, an Add says the connection
-// failed, with Retry. F4e's are another deploy's index (stale): one
-// instrument fewer than INSTRUMENT_INDEX, an index field (written as 0, filled
-// from INSTRUMENT_INDEX) carrying a value, and the header's index_fields.
+// listed — with every slot empty. F4d's are load failures, so a retry can
+// succeed (not stale): three cut short — the tail from the last table the
+// header names, on a line boundary and with no newline after, which a parser
+// reading up to the closing line accepted with that table missing; the
+// closing line alone; a table's line alone — and two that are not the file at
+// all, answered 200: a captive portal's sign-in page (or a host's fallback
+// page for a missing file), and an empty body. On the first and the sign-in
+// page, an Add says the connection failed, with Retry. F4e's are another
+// deploy's index (stale): one instrument fewer than INSTRUMENT_INDEX, an index
+// field (written as 0, filled from INSTRUMENT_INDEX) carrying a value, and the
+// header's index_fields.
 const engineLines = (t) => t.split('\n');
 const lineOf = (lines, name) => lines.findIndex((l) => l.startsWith(`[${JSON.stringify(name)},`));
 const ENGINE_REFUSED = {
@@ -3193,6 +3433,14 @@ const ENGINE_REFUSED = {
       },
       false,
     ],
+    [
+      'a sign-in page in its place',
+      () =>
+        '<!doctype html>\n<html><head><title>Sign in to the network</title></head><body><form><input name="user"></form></body></html>\n',
+      false,
+      true,
+    ],
+    ['an empty body', () => '', false],
   ],
   F4e: [
     [
@@ -3353,7 +3601,7 @@ async function engineRefused(lazyHtml, id) {
   if (ONLY.includes('failure')) {
     await failure(lazyHtml);
     ran.push(
-      'honest failure states (F4a–F4f: the instrument data unreachable, each failed wait with Retry; the saved-session boot error in its own words for each of three causes; a stale file offering Reload; a file cut short or with another index refused whole)'
+      'honest failure states (F1 the boot error shown, an early failure handled; F4a–F4f: the instrument data unreachable, each failed wait with Retry and no retry on a timer; the saved-session boot error shown, in its own words for each of three causes; a stale file offering Reload; a file cut short, not the file at all or with another index refused whole)'
     );
   }
 

@@ -237,11 +237,12 @@ async function stubPhotos(ctx) {
 // Booted, the genre prose merged and the instrument engine (api/engine.json)
 // committed, so searches, details and every stage that reads ROOMS,
 // INSTRUMENTS, Inst or Room read what the embedded build reads. In the lazy
-// shell those tables are empty `let` slots until the engine lands after the
-// first paint; a stage run before then reads `undefined`, or tests nothing. The
-// state before either arrives is check_lazy_app.js's to gate. The embedded
-// build has the engine at load (Engine.ready() at once), and a page with no
-// Engine at all predates the split.
+// shell those tables are empty `let` slots until the engine lands (asked for at
+// the first paint, or from <head> for a saved session); a stage run before
+// then reads `undefined`, or tests nothing. The state before either arrives
+// is check_lazy_app.js's to gate. The embedded build has the engine at load
+// (Engine.ready() at once), and a page with no Engine at all predates the
+// split.
 async function ready(page) {
   await page.waitForFunction(
     () =>

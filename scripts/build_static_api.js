@@ -246,7 +246,8 @@ async function main() {
     svgs: C.NAV_GLYPH_SVGS,
   });
 
-  // ---- engine.json: the instrument engine the lazy shell fetches after its first paint ----
+  // ---- engine.json: the instrument engine the lazy shell fetches at its first paint ----
+  // (or from <head>, when a saved session needs it to draw).
   // The page copy of references 01, 02, 03 and 07 (instruments, family parts,
   // rooms, chains, tunings, instrument axes, preface lexicon), unmerged, one
   // element per line, written by scripts/_page_tables.js and held to it by

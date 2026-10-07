@@ -54,6 +54,12 @@
 //   record after wait   -> check_lazy_app.js  (an Add asks for its genre's record only after the engine)
 //   optional before engine -> check_lazy_app.js (the genre page's optional files race the engine)
 //   engine preload dropped -> build_html.js --check (the page ships without the saved session's preload)
+//   boot error hidden   -> check_lazy_app.js  (a failed boot's error is drawn where nothing shows it)
+//   boot failure unhandled -> check_lazy_app.js (an early boot failure reaches the unhandled-rejection trap)
+//   not the file as stale -> check_lazy_app.js (a sign-in page answered 200 is refused as another deploy's)
+//   engine preload stray key -> build_html.js --check (<head> reads a session key app.js does not)
+//   embedded engine table missing -> build_html.js --embedded --check (the reference page lacks a table)
+//   inlined engine reader -> check_lazy_app.js (an engine read in code inlined from scripts/ goes uncounted)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -200,6 +206,21 @@ function record(cls, res, expect) {
   process.stderr.write(`  ${tag}  ${cls}  (${num}exit ${code})\n`);
   CLASS = null;
   dropEnvs(); // every class records once, after its last gate run
+}
+// A class that could not plant its defect for a reason found at run time (not
+// a plant site that moved: plantIn stops the run for that). A failure row of
+// its own, named by `reason`, and the run goes on to the next class.
+function refuse(cls, reason, why) {
+  const name = CLASS && CLASS[CLASS.length - 1];
+  if (!name || !cls.startsWith(name + ' -> '))
+    throw new Error(
+      `faults: the row ${JSON.stringify(cls)} is not the class want() opened (${name})`
+    );
+  results.push({ cls, caught: false, code: reason, reason });
+  const num = CLASS.length > 1 ? `${CLASS[0]}, ` : '';
+  process.stderr.write(`  ✗ ${reason}  ${cls}  (${num}${why})\n`);
+  CLASS = null;
+  dropEnvs();
 }
 
 process.stderr.write(
@@ -498,7 +519,8 @@ if (want('9h', 'prose-preloaded')) {
 // 9i–9zi. THE INSTRUMENT ENGINE OUTSIDE THE LAZY PAGE. The lazy codex.html
 //     carries an empty slot for each of the eight engine tables, an index of
 //     instrument names (INSTRUMENT_INDEX) and the digest of api/engine.json,
-//     and fills the slots from that file after its first paint. Each class
+//     and fills the slots from that file (at its first paint, or from <head>
+//     when a saved session needs it). Each class
 //     plants one way that split goes wrong and expects the gate's own sentence
 //     for it, not `LAZY-APP: FAIL`: a check_lazy_app section fails on many
 //     things, and a bare banner would count a catch made for another reason.
@@ -523,8 +545,8 @@ const lazyEnv = () => mkenv(['scripts', 'references', 'src', 'api']);
 const lazyGate = (d, ...args) => gate(d, ['scripts/check_lazy_app.js', ...args]);
 // 9i and 9s: one word more in the first descriptor list of api/engine.json.
 // The line layout and the header's tables_sha1 are left as they were. The page
-// checks that digest and the instrument ids, never what the tables hold, so it
-// accepts the file.
+// checks that digest, the instrument count and the zeroed index fields, never
+// what the tables hold, so it accepts the file.
 const plantEngineFile = (d) =>
   plantIn(d, 'api/engine.json', '"descriptors":["', '"descriptors":["__FAULT__ ');
 
@@ -603,8 +625,8 @@ if (want('9l', 'action-without-engine')) {
 }
 
 // 9m. engine-before-first-paint -> check_lazy_app.js
-//     The engine file is larger gzipped than the page itself (713 KB against
-//     496 KB). Asked for at boot, it shares the link with the first view and
+//     The engine file is larger gzipped than the page itself (653 KB against
+//     498 KB). Asked for at boot, it shares the link with the first view and
 //     delays it. The plant moves Engine.start() out of uiAfterPaint, so the
 //     request goes out at init, before the first view is drawn.
 if (want('9m', 'engine-before-first-paint')) {
@@ -669,19 +691,22 @@ if (want('9o', 'similar-before-engine')) {
 // 9p. engine-retry-loop -> check_lazy_app.js  (F4a)
 //     A failed engine load is retried by an action, Retry or the browser
 //     coming back online, never on a timer: with the host down, a timer keeps
-//     asking for the file for as long as the page stays open.
+//     asking for the file for as long as the page stays open. The plant's
+//     timer is 30 s, longer than the whole of F4a, so only running the timers
+//     still pending at its end can see it; a short one also shows in the
+//     counts F4a takes between its steps.
 if (want('9p', 'engine-retry-loop')) {
   const d = lazyEnv();
   plantIn(
     d,
     'src/app.js',
     "        state = 'failed';\n        bootP = null;",
-    "        state = 'failed';\n        bootP = null;\n        setTimeout(() => load().catch(() => {}), 500);"
+    "        state = 'failed';\n        bootP = null;\n        setTimeout(() => load().catch(() => {}), 30000);"
   );
   record(
     'engine-retry-loop -> check_lazy_app.js',
     lazyGate(d, '--only=failure'),
-    /engine unreachable \(F4a\): \d+ request\(s\) for api\/engine\.json 1\.5 s after the first view/
+    /engine unreachable \(F4a\): the page's \d+ pending timer\(s\), run as if it had stayed open, made [1-9]\d* request\(s\) for api\/engine\.json/
   );
 }
 
@@ -689,10 +714,10 @@ if (want('9p', 'engine-retry-loop')) {
 //     A page from one deploy can meet api/engine.json from another, from a
 //     cache or a half-finished upload. The page refuses a file whose digest is
 //     not its own CODEX_ENGINE_SHA; without that compare, another deploy's
-//     tables fill the slots whenever its instrument ids still line up.
+//     tables fill the slots whenever its instrument count still matches.
 if (want('9q', 'engine-skew-accepted')) {
   const d = lazyEnv();
-  plantIn(d, 'src/app.js', 'if (!head || head.tables_sha1 !== CODEX_ENGINE_SHA)', 'if (!head)');
+  plantIn(d, 'src/app.js', 'if (head.tables_sha1 !== CODEX_ENGINE_SHA) throw stale();', '');
   record(
     'engine-skew-accepted -> check_lazy_app.js',
     lazyGate(d, '--only=failure'),
@@ -747,7 +772,10 @@ if (want('9s', 'engine-file-drift')) {
 //     for the inline data and 125 KB for the engine). The bytes come from a
 //     hash chain, not a random source, so every run plants the same files. The
 //     unplanted copy must pass first, or a class could not tell its plant from
-//     a page already over.
+//     a page already over. When it does not, each budget class records a
+//     failure of its own (BASELINE-OVER; the gate's table is printed once) and
+//     the run goes on: in CI the freshness job's budget step has already
+//     failed on that page, and the classes after these still owe a verdict.
 function budgetEnv() {
   const d = mkenv(['scripts']);
   const html = path.join(d, 'codex.html');
@@ -758,10 +786,7 @@ function budgetEnv() {
     fs.copyFileSync(path.join(FRESH_API || path.join(ROOT, 'api'), f), path.join(api, f));
   const args = ['scripts/check_payload_budget.js', `--html=${html}`, `--api=${api}`];
   const baseline = gate(d, args);
-  if (baseline.code !== 0)
-    throw new Error(
-      `faults: the unplanted page does not pass check_payload_budget (exit ${baseline.code}), so the budget classes cannot prove it:\n${baseline.out}`
-    );
+  if (baseline.code !== 0) return { d, over: baseline };
   const num = (s) => Number(s.replace(/,/g, ''));
   // What the budget has left, from its line of the gate's table.
   const left = (id) => {
@@ -770,6 +795,22 @@ function budgetEnv() {
     return num(m[2]) - num(m[1]);
   };
   return { d, html, api, args, left };
+}
+let baselineShown = false;
+// One budget class: plant(B) into budgetEnv's copy, then the gate. With the
+// unplanted copy already over, the class cannot plant: a failure row.
+function budgetClass(cls, plant, expect) {
+  const B = budgetEnv();
+  if (B.over) {
+    if (!baselineShown)
+      process.stderr.write(
+        `  The unplanted page fails check_payload_budget (exit ${B.over.code}), so no budget class can plant:\n${B.over.out.replace(/^/gm, '    ')}\n`
+      );
+    baselineShown = true;
+    return refuse(cls, 'BASELINE-OVER', `the unplanted page fails the gate, exit ${B.over.code}`);
+  }
+  plant(B);
+  record(cls, gate(B.d, B.args), expect);
 }
 // Base64 of `n` hash-chained bytes: about `n` bytes once gzipped, at 6 bits a
 // character.
@@ -784,72 +825,69 @@ const OVER = 32 * 1024;
 // 9t. page-over-budget: the lazy page growing back — a table inline again, a
 //     runtime module, a comment. The plant is a comment before the last
 //     </body>.
-if (want('9t', 'page-over-budget')) {
-  const B = budgetEnv();
-  const filler = incompressible('9t', B.left('page') + OVER);
-  const html = fs.readFileSync(B.html, 'utf8');
-  const at = html.lastIndexOf('</body>');
-  if (at < 0) throw new Error('faults: no </body> in codex.html to plant the 9t comment before');
-  fs.writeFileSync(
-    B.html,
-    `${html.slice(0, at)}<!-- __BUDGET_FAULT__ ${filler} -->\n${html.slice(at)}`
-  );
-  record(
+if (want('9t', 'page-over-budget'))
+  budgetClass(
     'page-over-budget -> check_payload_budget.js',
-    gate(B.d, B.args),
+    (B) => {
+      const filler = incompressible('9t', B.left('page') + OVER);
+      const html = fs.readFileSync(B.html, 'utf8');
+      const at = html.lastIndexOf('</body>');
+      if (at < 0)
+        throw new Error('faults: no </body> in codex.html to plant the 9t comment before');
+      fs.writeFileSync(
+        B.html,
+        `${html.slice(0, at)}<!-- __BUDGET_FAULT__ ${filler} -->\n${html.slice(at)}`
+      );
+    },
     /✗ page: [\d,]+ B gzip, over its [\d,]+ B/
   );
-}
 
 // 9ta. critical-over-budget: the first view's other download regrows — prose
 //     or exemplars back in the boot index. The plant is one more field in
 //     api/browse_boot.json; the page itself is untouched, so only the page +
 //     boot index budget can see it.
-if (want('9ta', 'critical-over-budget')) {
-  const B = budgetEnv();
-  const filler = incompressible('9ta', B.left('critical') + OVER);
-  plantIn(B.d, 'api/browse_boot.json', '{', `{"__BUDGET_FAULT__":"${filler}",`);
-  record(
+if (want('9ta', 'critical-over-budget'))
+  budgetClass(
     'critical-over-budget -> check_payload_budget.js',
-    gate(B.d, B.args),
+    (B) => {
+      const filler = incompressible('9ta', B.left('critical') + OVER);
+      plantIn(B.d, 'api/browse_boot.json', '{', `{"__BUDGET_FAULT__":"${filler}",`);
+    },
     /✗ critical: [\d,]+ B gzip, over its [\d,]+ B/
   );
-}
 
 // 9tb. inline-data-over-budget: a references table inline again, beside the
 //     engine block. The plant is one more labelled data <script> block,
 //     which the inline-data budget reads (it may also take the page + boot
 //     index budget over; the row expects the inline-data line).
-if (want('9tb', 'inline-data-over-budget')) {
-  const B = budgetEnv();
-  const filler = incompressible('9tb', B.left('inline-data') + OVER);
-  const html = fs.readFileSync(B.html, 'utf8');
-  const at = html.lastIndexOf('</body>');
-  if (at < 0) throw new Error('faults: no </body> in codex.html to plant the 9tb block before');
-  fs.writeFileSync(
-    B.html,
-    `${html.slice(0, at)}<script>\n// ─── __BUDGET_FAULT__ ───\nconst __BUDGET_FAULT__ = "${filler}";\n</script>\n${html.slice(at)}`
-  );
-  record(
+if (want('9tb', 'inline-data-over-budget'))
+  budgetClass(
     'inline-data-over-budget -> check_payload_budget.js',
-    gate(B.d, B.args),
+    (B) => {
+      const filler = incompressible('9tb', B.left('inline-data') + OVER);
+      const html = fs.readFileSync(B.html, 'utf8');
+      const at = html.lastIndexOf('</body>');
+      if (at < 0) throw new Error('faults: no </body> in codex.html to plant the 9tb block before');
+      fs.writeFileSync(
+        B.html,
+        `${html.slice(0, at)}<script>\n// ─── __BUDGET_FAULT__ ───\nconst __BUDGET_FAULT__ = "${filler}";\n</script>\n${html.slice(at)}`
+      );
+    },
     /✗ inline-data: [\d,]+ B gzip, over its [\d,]+ B/
   );
-}
 
 // 9tc. engine-over-budget: api/engine.json regrows — a dropped field kept, a
 //     table added — which a restored session's first draw and every early Add
 //     wait for. The plant is one more element line before the closing ].
-if (want('9tc', 'engine-over-budget')) {
-  const B = budgetEnv();
-  const filler = incompressible('9tc', B.left('engine') + OVER);
-  plantIn(B.d, 'api/engine.json', '\n]\n', `,\n["__BUDGET_FAULT__","${filler}"]\n]\n`);
-  record(
+if (want('9tc', 'engine-over-budget'))
+  budgetClass(
     'engine-over-budget -> check_payload_budget.js',
-    gate(B.d, B.args),
+    (B) => {
+      const filler = incompressible('9tc', B.left('engine') + OVER);
+      plantIn(B.d, 'api/engine.json', '\n]\n', `,\n["__BUDGET_FAULT__","${filler}"]\n]\n`);
+    },
     /✗ engine: [\d,]+ B gzip, over its [\d,]+ B/
   );
-}
 
 // 9u. index-drift -> check_lazy_app.js  (E1)
 //     The first view names instruments from INSTRUMENT_INDEX, which the build
@@ -1162,6 +1200,134 @@ if (want('9zi', 'engine-preload-dropped')) {
     'engine-preload-dropped -> build_html.js --check',
     gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
     /0 <script> block\(s\) in a lazy page name "preload"; want 1/
+  );
+}
+
+// 9zj. boot-error-hidden -> check_lazy_app.js  (F1, F4b, F4c, F4f)
+//     A boot that fails draws its error in the boot status's place, which
+//     body.boot-failed shows over the whole viewport. Drawn in the editor
+//     panel, as step 9 first drew it, the words are there and nobody sees
+//     them: the workbench's styles hide that panel until an editor opens, and
+//     the page is blank. The gate asks the computed style of the error and
+//     every ancestor, not only its words.
+if (want('9zj', 'boot-error-hidden')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "  const host = document.getElementById('boot-status') || document.body;",
+    "  const host = document.getElementById('workspace-detail') || document.body;"
+  );
+  record(
+    'boot-error-hidden -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /#boot-error and its Reload are drawn but not shown \(section#workspace-detail display=none\): a blank page/
+  );
+}
+
+// 9zk. boot-failure-unhandled -> check_lazy_app.js  (F1, F4b)
+//     The boot's handlers attach at DOMContentLoaded, and a saved session's
+//     engine request goes out from <head>, so a fast 404 can reject
+//     CATALOG_READY while the page is still arriving. Handled from its
+//     creation, it waits for them; unhandled, it reaches the page's trap,
+//     whose "Something went wrong" toast covers the boot error. The plant
+//     drops that first handler; F1 and F4b hold DOMContentLoaded's handlers
+//     until the failure has landed.
+if (want('9zk', 'boot-failure-unhandled')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', 'if (CATALOG_READY) CATALOG_READY.catch(() => {});\n', '');
+  record(
+    'boot-failure-unhandled -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /\((?:F1|F4b)\): unhandled rejection before DOMContentLoaded \(/
+  );
+}
+
+// 9zl. not-the-file-as-stale -> check_lazy_app.js  (F4d)
+//     Only a header that parses and names another digest is another deploy's
+//     file, which a reload fixes. A 200 that is not the file (a captive
+//     portal's sign-in page, a host's fallback page) is a load failure, which
+//     a retry can fix; refused as stale it offers Reload alone. The plant
+//     throws the stale refusal for it.
+if (want('9zl', 'not-the-file-as-stale')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "          throw new Error('the response is not the instrument data');",
+    '          throw stale();'
+  );
+  record(
+    'not-the-file-as-stale -> check_lazy_app.js',
+    lazyGate(d, '--only=failure'),
+    /\(F4d, a sign-in page in its place\): the engine is failed \("instrument data does not match this page", stale true\)/
+  );
+}
+
+// 9zm. engine-preload-stray-key -> build_html.js --check
+//     The other side of 9x: <head> reads a key app.js does not, so a page
+//     that never restores that session downloads the engine during its first
+//     view. build_html.js --check answers every key the script asks for and
+//     refuses one storedSessionText does not read (check_lazy_app's first
+//     view fails it too, from the page).
+if (want('9zm', 'engine-preload-stray-key')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'src/engine_preload.js',
+    "      localStorage.getItem('musica-study-v1') ||\n",
+    "      localStorage.getItem('musica-study-v1') ||\n      localStorage.getItem('codex-workbench-v2') ||\n"
+  );
+  record(
+    'engine-preload-stray-key -> build_html.js --check',
+    gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
+    /the engine preload reads localStorage\.getItem\("codex-workbench-v2"\), which storedSessionText \(src\/app\.js\) does not/
+  );
+}
+
+// 9zn. embedded-engine-table-missing -> build_html.js --embedded --check
+//     The embedded page is the one check_lazy_app and tandem hold the lazy
+//     shell to, and it carries every engine table inline. --check reads each
+//     of the eight back, by name, with rows; the plant strips ROOM_CLUSTERS
+//     from the embedded build as the lazy build strips the whole engine.
+if (want('9zn', 'embedded-engine-table-missing')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    "const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES]) : new Set();",
+    "const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES]) : new Set(['ROOM_CLUSTERS']);"
+  );
+  record(
+    'embedded-engine-table-missing -> build_html.js --embedded --check',
+    gate(d, [
+      'scripts/build_html.js',
+      '--embedded',
+      '--check',
+      '--quiet',
+      `--out=${path.join(d, 'x.html')}`,
+    ]),
+    /the embedded page does not carry engine table ROOM_CLUSTERS/
+  );
+}
+
+// 9zo. inlined-engine-reader -> check_lazy_app.js  (E6)
+//     The page runs the regions build_html.js inlines from scripts/ beside
+//     src/, so E6's census of the engine-table reads covers them too. The
+//     plant adds a read of INSTRUMENTS to harvestDescriptors, in
+//     scripts/_card_descriptors.js's inlined region.
+if (want('9zo', 'inlined-engine-reader')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'scripts/_card_descriptors.js',
+    '  const inst = lookups.inst(card.instrumentId);\n',
+    '  const inst = lookups.inst(card.instrumentId) || INSTRUMENTS.find((x) => x.id === card.instrumentId);\n'
+  );
+  record(
+    'inlined-engine-reader -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E6'),
+    /engine E6: the direct reads of the engine tables changed: scripts\/_card_descriptors\.js@inline INSTRUMENTS in harvestDescriptors: 0 → 1/
   );
 }
 
@@ -2200,7 +2366,7 @@ if (escaped.length) {
   );
   for (const e of escaped) console.error(`  ✗ ${e.cls}  [${e.reason}]`);
   console.error(
-    '  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect)'
+    '  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect; BASELINE-OVER = the unplanted page already fails the budget gate, so nothing could be planted)'
   );
 }
 if (uncovered.length) {

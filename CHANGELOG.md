@@ -10,11 +10,13 @@ All notable changes to this project are recorded here. Format loosely follows
 
 The instrument engine is `INSTRUMENTS` with their parts and variants, the family parts,
 `ROOMS`, `ROOM_CLUSTERS`, `CHAIN_SECTIONS`, `TUNINGS`, `INSTRUMENT_AXIS_DEFINITIONS` and
-`PREFACE_LEXICON`. It was 77% of the lazy page's inline data, and the first view reads
-none of it but instrument names and families. The lazy `codex.html` is now 1,778,974
-bytes, not 4,498,109: 497,816 B gzipped (Node zlib level 6), not 1,155,985. The page and
-the boot index, all the first view waits for without a saved session, are 733,354 B
-gzipped, not 1,391,523. The embedded build is unchanged and still carries every table.
+`PREFACE_LEXICON`. It was 92% of the lazy page's inline data gzipped (94% raw), by
+`check_payload_budget.js`'s inline-data measure, and the first view reads none of it but
+instrument names and families. The lazy `codex.html` is now 1,779,263 bytes, not
+4,498,109: 497,884 B gzipped (Node zlib level 6), not 1,155,985. The page and the boot
+index, all the first view waits for without a saved session, are 733,422 B gzipped, not
+1,391,523. The embedded build still carries every table; like `api/engine.json`, it now
+leaves out instruments' `description` and `sources`, which no page shows.
 
 - **One internal file holds the engine** (`scripts/_page_tables.js` derives it;
   `scripts/check_api.js` holds it byte for byte and keeps it out of `api/index.json`):
@@ -24,12 +26,13 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
   (`CODEX_ENGINE_SHA`), the digest of its merge code (`CODEX_MERGE_SHA`), and
   `INSTRUMENT_INDEX`: each instrument's id, name, family and short name, 43 KB gzipped,
   which is all the first view reads.
-- **The file leaves out what the page already has or never reads**, and is 653,116 B
+- **The file leaves out what the page already has or never reads**, and is 653,140 B
   gzipped, not 713,371 as first committed. Instruments' `description` and `sources` are
-  dropped (the page shows neither; the published per-instrument files and the CLI keep
-  them). Each instrument's id, name, family and short are written as 0 (`INDEX_FIELDS`)
-  and filled back by position from `INSTRUMENT_INDEX`; the keys stay, so every
-  instrument keeps its key order.
+  dropped, from the file and from both builds' pages (the page shows neither; the
+  published per-instrument files and the CLI keep them; about 24 KB of the file
+  gzipped). Each instrument's id, name, family and short are written as 0
+  (`INDEX_FIELDS`) and filled back by position from `INSTRUMENT_INDEX`; the keys stay,
+  so every instrument keeps its key order.
 - **The file carries the merge plan** (`MERGE_PLAN`): the family-parts merge's
   universal-material choices for its four kinds, by position (the parts each kind
   targets and the variants it collects). `scripts/_merge.js` writes it at build time,
@@ -51,8 +54,10 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
   not been verified; a browser that does not reuse it downloads `api/engine.json` twice
   for a saved session.
 - **Loading.** The page checks the file against its digest and its instrument index: a
-  file from another deploy is refused as stale, and a file cut short (its closing line,
-  or a table its header names, missing) as a load failure that can be retried. A copy
+  file from another deploy is refused as stale. A file cut short (its closing line, or a
+  table its header names, missing), and a response that is not the file at all (a
+  captive portal's sign-in page answered 200, a host's fallback page, an empty body),
+  are load failures that can be retried, with Retry rather than Reload. A copy
   with CRLF line endings reads the same (the file is `-text` in `.gitattributes`). The
   page parses a line per idle slice, fills the index fields back, merges the family
   parts with the plan, indexes and sorts on local objects, then commits: the tables go
@@ -60,13 +65,14 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
   first time `Variant` asks for it, not during the load (531,741 merged variant slots).
   Until the commit, `Inst`, `Room`, `Tuning`, `ChainItem` and `Variant` throw a counted
   `EngineNotReadyError`; nothing answers "unknown".
-- **Nothing shares the link with the engine's bytes.** The background prose prefetch
-  (`api/browse_prose.json`), the genre page's place names (`data/atlas-geo.json`) and
-  photos (`api/tradition_images.json`), and the Instrument page's photo table
-  (`api/instrument_images.json`) are requested once `api/engine.json` has arrived or
-  failed (`Engine.fetched()`; at once in the embedded build). A reader that needs the
-  prose sooner (a genre opened without it, a search, the tree, a deep link outside the
-  starters) still asks for it at once.
+- **No optional download shares the link with the engine's bytes.** The background prose
+  prefetch (`api/browse_prose.json`), the genre page's place names
+  (`data/atlas-geo.json`) and photos (`api/tradition_images.json`), and the Instrument
+  page's photo table (`api/instrument_images.json`) are requested once `api/engine.json`
+  has arrived or failed (`Engine.fetched()`; at once in the embedded build). A reader
+  that needs the prose sooner (a genre opened without it, a search, the tree, a deep
+  link outside the starters) still asks for it at once. The AI writer's status check, a
+  small cross-origin request, still goes out at the first paint, beside the engine's.
 - **Before the engine lands, nothing acts without it and nothing calls it missing.** An
   action that creates or checks cards (adding a genre or an instrument, opening a saved
   session, import, "Use recipe") or shows one instrument (Inspect) says "Preparing the
@@ -89,18 +95,28 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
   engine before it loaded. Nothing is written, and the session stays saved in the
   browser. Once the boot index lands, the boot looks again for a saved session, in case
   another tab saved one meanwhile.
+- **A boot error is shown.** It takes the boot status's place, over the whole page. It
+  was drawn in the editor panel, which the workbench hides until an editor opens, so
+  the page was blank: the catalog's own boot error ("Couldn't load the catalog") since
+  step 8, and the three saved-session errors above as first committed. The boot's
+  promise is handled from the start, so a failure that lands while the page is still
+  arriving (a saved session's engine request goes out from `<head>`) no longer reaches
+  the "Something went wrong" toast before the boot error is drawn.
 - **The preface datalist** fills when a card's preface section first draws, in both
   builds, rather than at start-up.
 - **Gates.**
   - `build_html.js --check` asserts the eight slots by name in a lazy page (no table
-    carried) and none of the lazy names in the embedded one, checks `INSTRUMENT_INDEX`
-    and the digest against their derivation and that `CODEX_ENGINE_COMMIT` fills each
-    slot, and prints the page's gzip size. It holds the head preload to one `<script>`,
-    right after the boot index's link, which over a fixed table of 12 stored states adds
-    exactly one link (`rel=preload`, `as=fetch`, `crossorigin=anonymous`, the URL
-    `Engine` fetches) when the first stored session has a card, and nothing otherwise.
-    CI's `verify` job now runs the embedded build's `--check` as well
-    (`npm run build:html:embedded`, to `$RUNNER_TEMP`); nothing in CI ran it before.
+    carried), and in the embedded one all eight tables, each with rows, and none of the
+    four lazy names (`INSTRUMENT_INDEX`, `CODEX_ENGINE_COMMIT`, `CODEX_ENGINE_SHA`,
+    `CODEX_MERGE_SHA`). It checks `INSTRUMENT_INDEX` and the digest against their
+    derivation and that `CODEX_ENGINE_COMMIT` fills each slot, and prints the page's
+    gzip size. It holds the head preload to one `<script>`, right after the boot index's
+    link, which over a fixed table of 12 stored states adds exactly one link
+    (`rel=preload`, `as=fetch`, `crossorigin=anonymous`, the URL `Engine` fetches) when
+    the first stored session has a card, and nothing otherwise, and reads no key
+    `storedSessionText` does not. CI's `verify` job now runs the embedded build's
+    `--check` as well (`npm run build:html:embedded`, to `$RUNNER_TEMP`); nothing in CI
+    ran it before.
   - `check_api.js` holds `api/engine.json` byte for byte to what
     `scripts/_page_tables.js` derives, requires its merge plan to come from the merge
     code in `scripts/_merge.js`, and keeps it out of `api/index.json`.
@@ -114,21 +130,23 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
     preload (`as=fetch`, `crossorigin=anonymous`, the URL of the one engine request); no
     other first view has one. The `<head>` preload is held to app.js's own
     `ENGINE_AT_BOOT` over 16 stored states (12 kinds, storage refused among them, plus
-    one per key `storedSessionText` reads in the shipped page; 8 of them preload): it
-    preloads exactly when app.js asks for the engine at boot, and app.js then makes one
-    request, for the preload's URL. A key that app.js reads and `<head>` does not fails
-    by name.
+    one per key read in the shipped page, by `storedSessionText` or by the `<head>`
+    script; 8 of them preload): it preloads exactly when app.js asks for the engine at
+    boot, and app.js then makes one request, for the preload's URL. A key that one side
+    reads and the other does not fails by name.
   - `check_lazy_app.js`, parity: a fingerprint of the merged engine in both builds, and
     the fetch discipline (one boot index; one engine file, its `?v=` the header digest's
     prefix; one prose file, after the engine's body; no `api/browse.json`).
-  - `check_lazy_app.js`, a new `engine` section, E0–E10, each check booting its own lazy
-    page with the engine held. E0: one engine request, after the first view, and no
-    prose or optional download while it is held. E1: `InstLite` against `Inst`. E2: a
-    click sweep across every route, with no engine accessor read, no optional download,
-    and never "0 instruments" or "Unknown instrument". E3: eight actions wait, then
-    match the embedded build. E4: the similar view. E5: instrument search. E6: a census
-    of the direct reads of the eight tables per file, per table and per enclosing
-    function (`ENGINE_READERS`: 75 reads in `src/app.js`, `src/pages/instrument.js` and
+  - `check_lazy_app.js`, a new `engine` section, E0–E10; each check but E6 (a census of
+    the code) boots its own lazy page with the engine held. E0: one engine request,
+    after the first view, and no prose or optional download while it is held. E1:
+    `InstLite` against `Inst`. E2: a click sweep across every route, with no engine
+    accessor read, no optional download, and never "0 instruments" or "Unknown
+    instrument". E3: eight actions wait, then match the embedded build. E4: the similar
+    view. E5: instrument search. E6: a census of the direct reads of the eight tables
+    per file, per table and per enclosing function, over `src/` and the two regions the
+    build inlines from `scripts/` (`_merge.js` and `_card_descriptors.js`, which read
+    none) (`ENGINE_READERS`: 75 reads in `src/app.js`, `src/pages/instrument.js` and
     `src/workbench.js`, regenerated with `--print-readers`); a read added in one
     function and removed from another fails, which a per-table count would pass. E7: a
     wait keeps what was asked (an Add to the featured genre still says "Added voice to
@@ -144,9 +162,16 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
     the file loads to the embedded build's engine. `--checks=E1,E3,…` runs some of them,
     for fault classes; an unknown id, or `--checks` with the engine section left out,
     exits 2, and the summary names the checks that ran.
-  - `check_lazy_app.js`, `failure`, F4a–F4f. F4a: the engine unreachable with no saved
-    session: the first view stands, with one request and none on a timer; adding a
-    genre, adding an instrument and an import each make one more request and show the
+  - `check_lazy_app.js`, `failure`, F1 and F4a–F4f. F1, the boot index unreachable, and
+    every saved-session boot error below must be shown, not only drawn: no ancestor's
+    computed style may hide the error or its Reload (jsdom cascades by source order
+    alone, so this sees a rule that hides it at every width, as the editor panel's did).
+    F1 and F4b hold the page's DOMContentLoaded handlers until the failure has landed,
+    as a fast failure can in a browser, and fail on any unhandled rejection of the
+    page's own. F4a: the engine unreachable with no saved session: the first view
+    stands, with one request and none on a timer (at the end, every timer the page still
+    has pending is run, whatever its delay, and none may ask again); adding a genre,
+    adding an instrument and an import each make one more request and show the
     connection error with Retry; the Instrument page says it could not load, with a
     Retry that asks once more. F4b, F4c with a saved session, and F4f: the boot error's
     exact words for each cause (the file unreachable; another deploy's file; a session
@@ -154,9 +179,10 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
     before it loads). F4c: a stale file is refused with every slot empty; the Instrument
     page and the similar view offer Reload, never Retry, and the Add's toast offers
     Reload alone. F4d: a file cut short before its last table, without its closing line,
-    or without a table's line, is refused as a load failure, not as stale, with every
-    slot empty; an Add then shows the connection error with Retry. F4e: another deploy's
-    index (one instrument fewer than `INSTRUMENT_INDEX`, an index field not 0, other
+    or without a table's line, and a 200 that is not the file (a sign-in page, an empty
+    body), are refused as load failures, not as stale, with every slot empty; an Add
+    then shows the connection error with Retry. F4e: another deploy's index (one
+    instrument fewer than `INSTRUMENT_INDEX`, an index field not 0, other
     `index_fields`) is refused as stale, with every slot empty. Each new check fails
     with its own sentence when the fix it guards is reverted in a scratch copy (27
     planted defects). A harness crash now prints the problems recorded before it.
@@ -169,7 +195,7 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
     naming exactly `ENGINE_TABLES` and no engine table with a value (by `const`, `let`
     or `var`), and carries `CODEX_ENGINE_COMMIT`, `INSTRUMENT_INDEX`, and
     `CODEX_ENGINE_SHA` and `CODEX_MERGE_SHA` equal to the source's digests.
-  - `faults.js` has 30 classes for the split, 85 in all (55 before it). 9i–9w:
+  - `faults.js` has 36 classes for the split, 91 in all (55 before it). 9i–9w:
     engine-desync, engine-read-in-first-view, restore-without-engine,
     action-without-engine, engine-before-first-paint, sort-before-merge,
     similar-before-engine, engine-retry-loop, engine-skew-accepted, engine-in-page,
@@ -181,17 +207,29 @@ gzipped, not 1,391,523. The embedded build is unchanged and still carries every 
     (parity's fingerprint). 9zf: a lending pass that drops its tail (`check_api.js`;
     neither the merge plan's proof nor a comparison of the two builds can see it, as
     both sides run the same merge code). 9zg: the genre's record requested after the
-    wait (E8). 9zh: an optional download before the engine (E0). Each engine class runs
-    only its own check. `--only=ID,…` runs the classes named, by number or by name; an
-    unknown id, or a selection where nothing can run, exits 2, and a partial run never
-    asserts completeness. Temporary copies are removed as each class records and at exit
-    (`--keep` keeps them); a full run had been leaving about 16 GB in /tmp. A full run
-    on this tree (`--fresh-api=api --fresh-html=codex.html`) catches all 85, 0 escapes,
-    in 1,637 s locally.
+    wait (E8). 9zh: an optional download before the engine (E0). 9zj–9zo, from the
+    review: the boot error drawn where nothing shows it (F1, F4b, F4c, F4f), an early
+    boot failure left unhandled (F1, F4b), a 200 that is not the file refused as stale
+    (F4d), a key only the `<head>` preload reads (`build_html.js --check`), an engine
+    table missing from the embedded page (`build_html.js --embedded --check`), and an
+    engine read in code the build inlines from `scripts/` (E6). 9p's timer is 30 s,
+    longer than F4a itself. Each class planted for one check of the engine section runs
+    that check alone (`--checks`). `--only=ID,…` runs the classes named, by number or by
+    name; an unknown id, or a selection where nothing can run, exits 2, and a partial
+    run never asserts completeness. Temporary copies are removed as each class records
+    and at exit (`--keep` keeps them); a full run had been leaving about 16 GB in /tmp,
+    and `tandem.js` now removes its 22 MB embedded build at exit too. A budget class
+    whose unplanted page already fails `check_payload_budget.js` records a failure of
+    its own (BASELINE-OVER) and the run goes on, rather than stopping at 9t with every
+    class after it unreported. The last full run of the 85 classes before the review
+    (`--fresh-api=api --fresh-html=codex.html`) caught all 85, 0 escapes, in 1,637 s
+    locally; the review's six were run with `--only`.
   - CI's freshness job may now run 45 minutes, not 30. PR #501's run took 22m43s (the
-    cold build 11m54s, fault injection 9m49s). A full local run of this tree's faults
-    took 1,712 s; at the 1.46x local/CI ratio of the cold build, that is about 19.5
-    minutes in CI, and about 32.5 minutes for the job cold. The first step-9 run's own
+    cold build 11m54s, fault injection 9m49s). An earlier full local run of the 85
+    classes, before ab12b2479, took 1,712 s, and the estimate uses it: at the 1.46x
+    local/CI ratio of the cold build, about 19.5 minutes in CI, and about 32.5 minutes
+    for the job cold. The review's six classes add a `check_lazy_app.js` section or a
+    build each, 122 s locally for the six, run one at a time. The first step-9 run's own
     figure replaces the estimate. Fault injection runs unless the run was cancelled
     (`!cancelled()`), so a budget failure or a reproducibility diff does not hide the
     fault verdicts; with no fresh build to inject into, it says so and fails at once.

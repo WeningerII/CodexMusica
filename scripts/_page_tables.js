@@ -1,8 +1,9 @@
 // The page's copy of the catalog tables, and the instrument engine the lazy
-// shell fetches instead of carrying. One definition, three readers:
+// shell fetches instead of carrying. One definition, four readers:
 // build_html.js strips the tables it inlines, build_static_api.js writes
-// api/engine.json, and check_api.js holds that file to exactly what these
-// functions derive.
+// api/engine.json, check_api.js holds that file to exactly what these
+// functions derive, and tandem.js holds the shipped page's engine slots and
+// digests to them.
 //
 // ──────────────────────────── page-only data strip ────────────────────────────
 // references/ is the catalog for every consumer, and the page reads less of it
@@ -28,17 +29,20 @@
 //   instruments' description and sources (158 instruments carry them) — the
 //     published per-instrument files and the CLI show them; the page shows
 //     neither (every `.description` it reads is a genre's or a taxonomy
-//     node's, and nothing reads `.sources`). 3.4% of api/engine.json gzipped.
+//     node's, and nothing reads `.sources`). About 24 KB gzipped: 3.5% of
+//     api/engine.json with them kept.
 //
 // ──────────────────────────── the instrument engine ────────────────────────────
 // ENGINE_TABLES are what the page reads to edit and render a recipe: the
 // instruments with their parts and variants, the family parts merged into them,
-// rooms, chains, tunings, the instrument axes and the preface lexicon. They are
-// 77% of the page's inline data and the first view reads none of them but the
-// instruments' names and families (INSTRUMENT_INDEX, below). The --embedded
-// build keeps them inline; the lazy shell declares an empty slot for each, and
-// fetches api/engine.json after its first paint, or sooner when an action needs
-// it or a saved session will (Engine in src/app.js, src/engine_preload.js).
+// rooms, chains, tunings, the instrument axes and the preface lexicon. They
+// were 92% of the lazy page's inline data, gzipped (check_payload_budget's
+// inline-data measure, on the step-8 page), and the first view reads none of
+// them but the instruments' names and families (INSTRUMENT_INDEX, below). The
+// --embedded build keeps them inline; the lazy shell declares an empty slot for
+// each, and fetches api/engine.json at its first paint, or sooner when an
+// action needs it or a saved session will (Engine in src/app.js,
+// src/engine_preload.js).
 //
 // api/engine.json is the page copy, unmerged: exactly the tables the embedded
 // page inlines, stripped as above, before mergeFamilyParts runs in the page —
@@ -290,7 +294,7 @@ function mergePlan(tables) {
 }
 
 const ENGINE_NAME =
-  'Codex Musica — instrument engine (the page copy of references 01, 02, 03 and 07, unmerged; read by the lazy app after its first paint; internal)';
+  'Codex Musica — instrument engine (the page copy of references 01, 02, 03 and 07, unmerged; read by the lazy app at its first paint, or from <head> when a saved session needs it; internal)';
 
 // An instrument as api/engine.json writes it: INDEX_FIELDS as 0, in place.
 const indexFieldsOut = (inst) => {
