@@ -164,6 +164,18 @@ class CapacityOracle(unittest.TestCase):
                 row['instrument_children']=children
             self.assertTrue(queue_pressure_failures(broken,queue_measurements()),children)
 
+        # THE ROW A CAPACITY CELL ACTUALLY CARRIED (2026-10-05, M-290 amended),
+        # refused BY NAME and beside a good lyric child. Alone it would fail the
+        # RSS-overlap proof whatever the validator made of it, because an
+        # 'other' child never counts, so the loop above cannot pin it. The
+        # contract stays; the sampler (`childRow`) declares such a child
+        # unknown whole instead.
+        half=queue_rows()
+        for row in half['rows']:
+            row['instrument_children']=[good.copy(),dict(pid=41,kind='other',rss=None)]
+        problems=queue_pressure_failures(half,queue_measurements())
+        self.assertTrue(any('measurements are invalid' in p for p in problems),problems)
+
         # And two measured lyric children still collide, so excluding the
         # unidentified ones did not take the duplicate check away with it.
         duplicate=queue_rows()

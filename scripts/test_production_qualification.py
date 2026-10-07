@@ -37,6 +37,20 @@ class MatrixPlacementTests(unittest.TestCase):
         self.assertIn('node scripts/check_lyrics_image.mjs', self.ci)
         self.assertIn('python3 scripts/test_lyrics_capacity.py', self.ci)
 
+    def test_attested_runner_python_is_exact_and_consistent(self):
+        workflows = Path(__file__).resolve().parents[1] / '.github' / 'workflows'
+        for name in ['ci', 'production-qualification', 'capacity-proof', 'capacity-matrix']:
+            text = (workflows / (name + '.yml')).read_text()
+            versions = re.findall(r"python-version: '([^']+)'", text)
+            self.assertTrue(versions, name)
+            self.assertEqual(set(versions), {'3.11.16'}, name)
+            self.assertEqual(text.count("architecture: 'x64'"), len(versions), name)
+        proof = (workflows / 'capacity-proof.yml').read_text()
+        self.assertIn('runs-on: ubuntu-24.04', proof)
+        self.assertIn('runs-on: ubuntu-24.04', self.job('component'))
+        nightly = self.ci.split('\n  nightly:', 1)[1]
+        self.assertIn('runs-on: ubuntu-24.04', nightly.split('steps:', 1)[0])
+
     def test_workflow_result_commands_refuse_missing_or_unsuccessful_matrix(self):
         matrix = self.job('capacity-matrix-result')
         self.assertIn('name: qualification-capacity-matrix', matrix)

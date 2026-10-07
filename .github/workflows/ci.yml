@@ -1498,7 +1498,8 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       # No pip install: the harness is pure standard library by design, and
       # `quality/declared_inputs.py` is the record of that boundary. If this
@@ -2364,7 +2365,8 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness
@@ -3195,7 +3197,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
@@ -3263,7 +3266,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
@@ -3345,7 +3349,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
@@ -3474,7 +3479,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (sections reach the POS tagger through features.py)
@@ -3631,7 +3637,8 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       # THE SAME THREE PACKAGES `nightly` INSTALLS, AND FOR A REASON THAT COST
       # THIS SWEEP ITS MEANING ONCE BEFORE. With nltk absent, nine test files
@@ -3768,7 +3775,7 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' && github.event.schedule == '17 3 * * *')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # 350, RAISED FROM 240 ON 2026-09-22, AND BCI-10 BELOW IS NO LONGER BOUND
     # ARITHMETIC — IT IS A MEASUREMENT. That note said the bounds totalled
     # 267.4m against a 240m cap and that "cache save may be lost at the job
@@ -3836,7 +3843,8 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       # song_profile_calibration's memo lives OUTSIDE the repo, at
       # ~/.cache/lyric-harness/song_predictability_v1.tsv, which is what makes
