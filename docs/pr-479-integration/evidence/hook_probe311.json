@@ -1,0 +1,1 @@
+{"pass": true, "checks": 6, "first_steps": ["menu", "place", "place"], "second_steps": ["menu", "place"], "third_steps": ["menu"], "builds": ["head", "end"], "memo_tally": {"hit": 1, "miss": 1, "bypass": 0, "overflow": 0}}
