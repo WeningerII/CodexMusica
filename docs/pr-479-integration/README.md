@@ -43,6 +43,7 @@ continuation and the combined 45-minute verify-job runtime remain unqualified.
 Historical walk counts cannot be copied: main's plan change `fd06327c` changed
 the integrated fixture.
 
+Archived logs retain their exact bytes with a `.log.txt` suffix.
 Raw logs and diagnostic scripts in [evidence](evidence/) preserve both failed
 and passing experiments; their intermediate status fields are historical.
 Some reproducer scripts name the original staged local paths. The final bounded
