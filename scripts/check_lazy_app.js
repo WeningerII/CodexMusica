@@ -2774,6 +2774,7 @@ async function engineSection(embedHtml, lazyHtml) {
 
 // ── section: failure ────────────────────────────────────────────────────────
 async function failure(lazyHtml) {
+  await require('./check_prose_retry')();
   // F1. The boot index unreachable → the honest boot-error state, shown. The
   // failure lands before DOMContentLoaded's handlers run (held), as it can in
   // a browser, and must not reach the unhandled-rejection trap meanwhile.

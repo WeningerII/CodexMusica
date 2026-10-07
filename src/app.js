@@ -5105,7 +5105,7 @@ const Catalog = (() => {
   let _apiBase = null;       // non-null once lazy-booted (e.g. 'api/')
   // Prose — lineage, description, exemplars (see the tiers above).
   let _proseAll = false;           // every row's prose has merged (embedded: always)
-  const _proseIds = new Set();     // rows booted with their prose, while !_proseAll
+  const _proseIds = new Set();     // rows with received or boot prose, while !_proseAll
   const _proseMissing = new Set(); // rows the merged prose file lacked (deploy skew)
   let _proseP = null;              // the load in flight
   let _proseFailed = false;        // the last load failed; only loadProse() retries
@@ -5192,11 +5192,15 @@ const Catalog = (() => {
       seen.add(it.id);
     }
     if (!seen.size) throw new Error('prose index is empty');
-    for (const t of _list) if (!seen.has(t.id) && !_proseIds.has(t.id)) _proseMissing.add(t.id);
-    _proseAll = true;
-    _proseIds.clear();
+    for (const id of seen) _proseIds.add(id);
+    _proseMissing.clear();
+    for (const t of _list) if (!_proseIds.has(t.id)) _proseMissing.add(t.id);
+    _proseAll = _proseMissing.size === 0;
+    if (_proseAll) _proseIds.clear();
     _searchIndex = null; _warmRows = null; _warmAt = 0; _nameIndex = null;
     warmSearchIndex();
+    // Keep the rows that arrived, but leave missing rows retryable.
+    if (!_proseAll) throw new Error('prose index is incomplete');
   }
   function settleProse() {
     for (const fn of _proseListeners.slice()) {
