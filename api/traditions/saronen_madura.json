@@ -1,0 +1,131 @@
+{
+  "id": "saronen_madura",
+  "name": "Saronen (Madurese shawm band)",
+  "family": "global",
+  "lineage": "Outdoor shawm band of Madura, said to have originated in Sumenep and named after its lead instrument, the saronen, a conical wooden shawm (here the serunai card). The documented nine-piece band sets the saronen over a large gendang and a small gendang dik-gudik (here the generic membrane-drum card), three kenong, a kempul, a large gong and a korca, and it accompanies the kerapan sapi bull races and sapi sonok cattle contests as well as ritual ceremonies and processions.",
+  "recipe": "classic modern saronen, carnival Processional, east Asian branch. serunai shawm, membrane drum pulse resonant acoustic membrane drum, kenong, kempul, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 5.554,
+  "config": {
+    "traditions": [
+      "saronen_madura"
+    ],
+    "instruments": [
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_silat",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 1.3,
+          "serunai_bell": 0.0315
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 2.6,
+          "acoustic_membrane_drum_gesture": 1.3
+        }
+      },
+      {
+        "id": "kenong",
+        "slots": {
+          "kenong_tuning": "kenong_slendro"
+        },
+        "scores": {
+          "kenong_tuning": 0.105
+        }
+      },
+      {
+        "id": "kempul",
+        "slots": {
+          "kempul_build": "kempul_forged_bronze",
+          "kempul_tuning": "kempul_slendro_set",
+          "kempul_role": "kempul_midcycle"
+        },
+        "scores": {
+          "kempul_build": 0.231,
+          "kempul_tuning": 0.105,
+          "kempul_role": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0,
+          "gong_striker": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "kenong": [
+        "kenong_tuning"
+      ],
+      "kempul": [
+        "kempul_build",
+        "kempul_tuning",
+        "kempul_role"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "serunai_form": "serunai_silat",
+      "serunai_bell": "serunai_bell_wood",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "kenong_tuning": "kenong_slendro",
+      "kempul_build": "kempul_forged_bronze",
+      "kempul_tuning": "kempul_slendro_set",
+      "kempul_role": "kempul_midcycle",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

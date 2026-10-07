@@ -3,14 +3,14 @@
   "name": "Hare Krishna Kirtan (ISKCON)",
   "family": "global",
   "lineage": "Gaudiya Vaishnava congregational chant carried from Bengal and Vrindavan to the West by A. C. Bhaktivedanta Swami Prabhupada from 1965, built on the sixteen-word maha-mantra sung antiphonally by leader and assembly over khol two-headed drum and karatala hand cymbals in a 1-2-3 clapping cycle, harmonium drone accompaniment, and a long accelerando from slow meditative tempo to ecstatic double time.",
-  "recipe": "classic South Asian mid-1960s hare krishna kirtan, ritual Devotional, hindu branch, indian bard ballad poetry, Sufi ritual devotional sufi zikr chant sindhi. kargyraa, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, liturgical fiberglass khol, small steady tala keeping manjira, overtone rich sustained reed harmonium indian, suited to female vocal wooden body miraj style drone like modal tanpura, palghat lineage canonical carnatic mridangam. vrindavan braj mandir bhajan. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 714,
-  "score": 229.042,
+  "recipe": "classic South Asian mid-1960s hare krishna kirtan, ritual Devotional, hindu branch, indian bard ballad poetry, Sufi ritual devotional sufi zikr chant baithak gana. kargyraa, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, liturgical fiberglass khol, small steady tala keeping manjira, low overtone rich vocal male harmonium indian, suited to female vocal drone like modal tanpura, palghat lineage canonical carnatic mridangam. vrindavan braj mandir bhajan. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 701,
+  "score": 218.512,
   "config": {
     "traditions": [
       "hare_krishna",
       "sufi_zikr_chant",
-      "sindhi"
+      "baithak_gana"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 1.1049999999999998,
-          "voice_quality": 14.315,
+          "voice_quality": 12.379999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
+          "voice_vibrato": 3.2824999999999998,
           "voice_articulation": 15.989999999999997,
-          "voice_microtone": 17.09499999999999,
-          "voice_tradition": 16.235,
-          "voice_mechanism_compound": 2.5349999999999997,
-          "voice_estill_quality": 7.085,
-          "voice_speech_song": 19.694999999999997,
-          "voice_ensemble_config": 16.964999999999996,
-          "voice_ornament_system": 10.025000000000002,
-          "voice_pitch_organization": 2.600000000000001,
-          "voice_processing_chain": 6.629999999999999,
-          "voice_multitrack_stack": 4.615000000000001
+          "voice_microtone": 16.444999999999993,
+          "voice_tradition": 11.905,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 6.142499999999999,
+          "voice_speech_song": 20.247499999999995,
+          "voice_ensemble_config": 16.054999999999996,
+          "voice_ornament_system": 9.4,
+          "voice_pitch_organization": 2.4299999999999997,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 5.07
         }
       },
       {
@@ -58,13 +58,13 @@
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 15.209999999999999,
-          "choir_polyphonic_configuration": 3.4450000000000003,
-          "choir_regional_canonical_configuration": 8.124999999999998,
-          "choir_ensemble_repertoire": 2.795
+          "choir_size": 16.444999999999997,
+          "choir_polyphonic_configuration": 3.25,
+          "choir_regional_canonical_configuration": 9.554999999999998,
+          "choir_ensemble_repertoire": 2.6
         }
       },
       {
@@ -75,8 +75,8 @@
           "khol_body": "khol_body_fiberglass"
         },
         "scores": {
-          "khol_form": 7.790000000000001,
-          "khol_repertoire": 10.765,
+          "khol_form": 7.180000000000001,
+          "khol_repertoire": 9.99,
           "khol_body": 1.2
         }
       },
@@ -88,24 +88,24 @@
           "manjira_metal": "manjira_brass"
         },
         "scores": {
-          "manjira_form": 10.795000000000003,
-          "manjira_stroke": 5.1850000000000005,
-          "manjira_metal": -0.035
+          "manjira_form": 10.865000000000002,
+          "manjira_stroke": 5.29,
+          "manjira_metal": 0.6599999999999999
         }
       },
       {
         "id": "harmonium_indian",
         "slots": {
-          "free_reed_technique": "free_reed_overblow_modern",
+          "free_reed_technique": "free_reed_folk_first_position",
           "harmonium_action": "harmonium_foot_pump",
-          "harmonium_voicing": "harmonium_double",
+          "harmonium_voicing": "harmonium_male",
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 0,
+          "free_reed_technique": 0.5524999999999999,
           "harmonium_action": 1.95,
-          "harmonium_voicing": 1.065,
-          "harmonium_use": 5.265000000000001
+          "harmonium_voicing": 1.105,
+          "harmonium_use": 4.595000000000001
         }
       },
       {
@@ -119,12 +119,12 @@
           "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 6.225,
-          "tanpura_size": 5.784999999999999,
-          "tanpura_jawari": 0.43499999999999994,
-          "tanpura_strings": 1.0399999999999998,
-          "tanpura_string_material": 0.84,
-          "tanpura_body_wood": 1.04
+          "plucked_traditional_technique": 5.82,
+          "tanpura_size": 4.9399999999999995,
+          "tanpura_jawari": 0.38999999999999996,
+          "tanpura_strings": 0.8449999999999999,
+          "tanpura_string_material": 0.65,
+          "tanpura_body_wood": 0.845
         }
       },
       {
@@ -137,11 +137,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 1.0950000000000002,
+          "mridangam_heads": 0.195,
           "mridangam_use": 0,
           "mridangam_shell_wood": 0.84,
           "mridangam_heads_material": 0.6449999999999999,
-          "mridangam_lineage": 1.1849999999999998
+          "mridangam_lineage": 1.035
         }
       }
     ],

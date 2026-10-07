@@ -5,7 +5,7 @@
   "lineage": "Marathi balgeet brings Marathi-language children’s songs into family play, classrooms and contemporary educational media. Short rhymes, memorable phrases and coordinated actions help children share language and rhythm.",
   "recipe": "classic marathi balgeet, nursery Rhyme, south Asian branch. hand clap. live tracking.",
   "recipe_chars": 85,
-  "score": 0.428,
+  "score": 0.394,
   "config": {
     "traditions": [
       "marathi_balgeet"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3790714285714285,
-          "voice_ensemble_config": 0.006964285714285713,
+          "voice_speech_song": 0.36299999999999993,
+          "voice_ensemble_config": 0.02325,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.04178571428571427,
+          "voice_processing_chain": 0.007499999999999999,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

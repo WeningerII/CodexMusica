@@ -1,0 +1,80 @@
+{
+  "id": "gandang_tasa_tabuik",
+  "name": "Gandang tasa (Pariaman tabuik drumming)",
+  "family": "global",
+  "lineage": "Drum ensemble of the tabuik festival of Pariaman on the West Sumatran coast, the local form of the Muharram commemoration of the martyrdom of Husain at Karbala, rooted in South Asian Shia practice brought to the coast in the colonial era; Bengkulu's related tabot festival keeps its own dol-and-tasa drumming. A single tasa, a small kettle-shaped drum of the South Asian tasha family with a thin head beaten with rattan sticks (the tasha card), leads a group of large double-headed gandang tambua drums carried by their players (the generic membrane-drum card stands in).",
+  "recipe": "classic modern gandang tasa, ritual Devotional, islamic branch. tasha, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 10.695,
+  "config": {
+    "traditions": [
+      "gandang_tasa_tabuik"
+    ],
+    "instruments": [
+      {
+        "id": "tasha",
+        "slots": {
+          "tasha_shell": "tasha_clay",
+          "tasha_context": "tasha_dhol_tasha"
+        },
+        "scores": {
+          "tasha_shell": 0.6,
+          "tasha_context": 2.3
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.4725,
+          "acoustic_membrane_drum_gesture": 3.4725
+        }
+      }
+    ],
+    "pinned": {
+      "tasha": [
+        "tasha_shell",
+        "tasha_context"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "tasha_shell": "tasha_clay",
+      "tasha_context": "tasha_dhol_tasha",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

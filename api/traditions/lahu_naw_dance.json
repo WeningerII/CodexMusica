@@ -1,0 +1,71 @@
+{
+  "id": "lahu_naw_dance",
+  "name": "Lahu gourd-pipe dance music",
+  "family": "global",
+  "lineage": "Music of the Lahu, a Tibeto-Burman-speaking highland people of Yunnan, Shan State, northern Laos and the Chiang Mai and Chiang Rai hills of Thailand. Its emblem is the naw, a gourd mouth organ with bamboo pipes set in a gourd wind chest, which men play while leading the circle dances of the New Year festival on the village dance ground. The lusheng card stands in for the naw.",
+  "recipe": "classic modern lahu gourd-pipe dance music, drone Modal, wind pipe branch, indigenous ritual devotional. six pipe bronze reed bamboo lusheng. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 221,
+  "score": 6.82,
+  "config": {
+    "traditions": [
+      "lahu_naw_dance"
+    ],
+    "instruments": [
+      {
+        "id": "lusheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "lusheng_form": "lusheng_form_miao_six_pipe",
+          "lusheng_performance": "lusheng_performance_dance",
+          "lusheng_construction": "lusheng_construction_bronze_reed"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "lusheng_form": 4.485,
+          "lusheng_performance": -0.035,
+          "lusheng_construction": 1.625
+        }
+      }
+    ],
+    "pinned": {
+      "lusheng": [
+        "free_reed_technique",
+        "lusheng_form",
+        "lusheng_performance",
+        "lusheng_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "free_reed_technique": "free_reed_folk_first_position",
+      "lusheng_form": "lusheng_form_miao_six_pipe",
+      "lusheng_performance": "lusheng_performance_dance",
+      "lusheng_construction": "lusheng_construction_bronze_reed"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

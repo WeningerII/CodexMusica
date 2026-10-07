@@ -3,14 +3,14 @@
   "name": "Bhangra (Punjabi harvest dhol dance)",
   "family": "global",
   "lineage": "Harvest dance of the Majha and Doaba districts of Punjab, restaged as a national folk form in post-1947 Indian Punjab through Patiala's Punjabi University troupes and Manohar Deepak's choreography — built on the dhol's chaal pattern struck with dagga and tilli sticks at roughly 130–150 BPM, tumbi's single-string ostinato, algoza double-flute drone and chimta jingles, with shouted boliyan couplets answered by the dancing circle in a high open-throated Punjabi register.",
-  "recipe": "classic South Asian late-1940s bhangra, carnival Processional, south Asian branch, south Asian field work, south Asian pop functional song, south Asian wedding indian folk bhojpuri pop. thick, breath veiled tone, slow rate, interlocked note trading. dhol, steel single string canonical Punjabi ornamented tumbi, algoza, jingle studded driving groove chimta, dholak, kartal rajasthani. punjab village bhangra dhol outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe": "classic South Asian late-1940s bhangra, carnival Processional, south Asian branch, south Asian field work, south Asian pop functional song, south Asian wedding bhojpuri pop indian folk. thick, breath veiled tone, slow rate, interlocked note trading. dhol, steel single string canonical Punjabi ornamented tumbi, algoza, jingle studded driving groove chimta, dholak, kartal rajasthani. punjab village bhangra dhol outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 484,
-  "score": 267.483,
+  "score": 264.063,
   "config": {
     "traditions": [
       "bhangra_dhol_folk",
-      "indian_folk_lok_geet",
-      "bhojpuri_pop"
+      "bhojpuri_pop",
+      "indian_folk_lok_geet"
     ],
     "instruments": [
       {
@@ -35,10 +35,10 @@
           "tumbi_string": "tumbi_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 9.649999999999999,
+          "plucked_traditional_technique": 9.650000000000002,
           "tumbi_construction": 0.845,
           "tumbi_context": 0.78,
-          "tumbi_string": 6.5
+          "tumbi_string": 5.96
         }
       },
       {
@@ -60,8 +60,8 @@
           "chimta_build": "chimta_build_iron_forged"
         },
         "scores": {
-          "chimta_form": 11.685,
-          "chimta_stroke": 4.205,
+          "chimta_form": 11.4,
+          "chimta_stroke": 4.1000000000000005,
           "chimta_build": -0.05
         }
       },
@@ -93,14 +93,14 @@
           "voice_vibrato": 2.5025,
           "voice_articulation": 21.84,
           "voice_microtone": 21.644999999999996,
-          "voice_tradition": 24.9,
+          "voice_tradition": 24.510000000000005,
           "voice_mechanism_compound": 3.8349999999999995,
           "voice_estill_quality": 5.785,
           "voice_speech_song": 26.259999999999998,
           "voice_ensemble_config": 22.425,
-          "voice_ornament_system": 12.09,
-          "voice_pitch_organization": 11.715,
-          "voice_processing_chain": 5.655000000000001,
+          "voice_ornament_system": 11.700000000000003,
+          "voice_pitch_organization": 11.520000000000003,
+          "voice_processing_chain": 5.654999999999999,
           "voice_multitrack_stack": 3.7050000000000005
         }
       },
@@ -109,14 +109,14 @@
         "slots": {
           "dholak_use": "dholak_classical",
           "dholak_construction": "dholak_synthetic",
-          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_head": "dholak_synthetic_head",
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 1.11,
+          "dholak_use": 0.5700000000000001,
           "dholak_construction": 0.54,
-          "dholak_head": 0.9299999999999999,
-          "dholak_tensioning": 0.9299999999999999
+          "dholak_head": 0.54,
+          "dholak_tensioning": 0.345
         }
       },
       {

@@ -1,0 +1,139 @@
+{
+  "id": "jaranan_kuda_lumping",
+  "name": "Jaranan (Javanese hobby-horse trance music)",
+  "family": "global",
+  "lineage": "Hobby-horse trance dance of East and Central Java, called jaranan around Kediri, jathilan near Yogyakarta, ebeg in Banyumas and kuda lumping in general use, in which dancers riding woven bamboo horses are brought into trance. The music uses kendang, kempul and gong, kenong or bonang, and a slompret shawm (here the serunai card) in a fast repeating cycle.",
+  "recipe": "classic modern jaranan, ritual Devotional, indigenous branch. gamelan javanese buffalo hide rattan lacing canonical javanese kendang indonesian, serunai shawm, kempul, kenong, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 268,
+  "score": 4.714,
+  "config": {
+    "traditions": [
+      "jaranan_kuda_lumping"
+    ],
+    "instruments": [
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_javanese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 0.4305,
+          "kendang_context": 1.3,
+          "kendang_shell_wood": 0.1365,
+          "kendang_head": 1.3
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_silat",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.105,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "kempul",
+        "slots": {
+          "kempul_build": "kempul_forged_bronze",
+          "kempul_tuning": "kempul_slendro_set",
+          "kempul_role": "kempul_midcycle"
+        },
+        "scores": {
+          "kempul_build": 0.546,
+          "kempul_tuning": 0,
+          "kempul_role": 0
+        }
+      },
+      {
+        "id": "kenong",
+        "slots": {
+          "kenong_tuning": "kenong_slendro"
+        },
+        "scores": {
+          "kenong_tuning": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.4095,
+          "gong_striker": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "kempul": [
+        "kempul_build",
+        "kempul_tuning",
+        "kempul_role"
+      ],
+      "kenong": [
+        "kenong_tuning"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "kendang_size": "kendang_gendhing",
+      "kendang_context": "kendang_javanese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "kendang_buffalo_hide_canonical",
+      "serunai_form": "serunai_silat",
+      "serunai_bell": "serunai_bell_wood",
+      "kempul_build": "kempul_forged_bronze",
+      "kempul_tuning": "kempul_slendro_set",
+      "kempul_role": "kempul_midcycle",
+      "kenong_tuning": "kenong_slendro",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

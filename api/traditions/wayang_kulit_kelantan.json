@@ -1,0 +1,229 @@
+{
+  "id": "wayang_kulit_kelantan",
+  "name": "Wayang kulit Kelantan (Malay shadow-play music)",
+  "family": "global",
+  "lineage": "Music of the Kelantanese shadow play (wayang kulit Kelantan, formerly called wayang Siam), in which a single tok dalang voices every puppet and narrates the Hikayat Maharaja Wana (Ramayana) repertoire while directing the ensemble. The troupe plays serunai shawm, a pair of gedombak goblet drums (the generic membrane-drum card stands in), paired gendang and geduk barrel drums, a pair of canang kettle gongs, kesi cymbals and a pair of hanging tetawak gongs.",
+  "recipe": "classic modern wayang kulit kelantan, art Music, southeast Asian branch. solo with instrumental accompaniment, single lead single track no stacking. serunai shawm, membrane drum pulse resonant acoustic membrane geduk drum, gendang melayu, canang kettle gong, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 351,
+  "score": 11.507,
+  "config": {
+    "traditions": [
+      "wayang_kulit_kelantan"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": -0.14,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 3.0622499999999997,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 1.3,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_kelantan",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.6371249999999999,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 2.4725,
+          "acoustic_membrane_drum_gesture": 1.3
+        }
+      },
+      {
+        "id": "gendang_melayu",
+        "slots": {
+          "gendang_melayu_role": "gendang_melayu_ibu",
+          "gendang_melayu_stroke": "gendang_melayu_hands",
+          "gendang_melayu_head": "gendang_melayu_goat"
+        },
+        "scores": {
+          "gendang_melayu_role": 0.39,
+          "gendang_melayu_stroke": 0,
+          "gendang_melayu_head": 0
+        }
+      },
+      {
+        "id": "geduk_drum",
+        "slots": {
+          "geduk_pair": "geduk_ibu",
+          "geduk_context": "geduk_wayang"
+        },
+        "scores": {
+          "geduk_pair": 0.39,
+          "geduk_context": 0.0315
+        }
+      },
+      {
+        "id": "canang_kettle_gong",
+        "slots": {
+          "canang_form": "canang_malay_pair",
+          "canang_beater": "canang_padded"
+        },
+        "scores": {
+          "canang_form": 0.1365,
+          "canang_beater": 0.1365
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.40950000000000003,
+          "gong_striker": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "gendang_melayu": [
+        "gendang_melayu_role",
+        "gendang_melayu_stroke",
+        "gendang_melayu_head"
+      ],
+      "geduk_drum": [
+        "geduk_pair",
+        "geduk_context"
+      ],
+      "canang_kettle_gong": [
+        "canang_form",
+        "canang_beater"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "serunai_form": "serunai_kelantan",
+      "serunai_bell": "serunai_bell_wood",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "gendang_melayu_role": "gendang_melayu_ibu",
+      "gendang_melayu_stroke": "gendang_melayu_hands",
+      "gendang_melayu_head": "gendang_melayu_goat",
+      "geduk_pair": "geduk_ibu",
+      "geduk_context": "geduk_wayang",
+      "canang_form": "canang_malay_pair",
+      "canang_beater": "canang_padded",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

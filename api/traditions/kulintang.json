@@ -3,12 +3,13 @@
   "name": "Kulintang",
   "family": "classical",
   "lineage": "Maguindanao and Maranao (Mindanao, Philippines) horizontally-laid bossed-gong-set ensemble tradition predating Spanish contact",
-  "recipe": "classic Southeast Asian mid-1930s kulintang, art Music, southeast Asian branch, indigenous ritual devotional. kulintang set. balinese banjar courtyard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 224,
-  "score": 4.33,
+  "recipe": "classic Southeast Asian mid-1930s kulintang, art Music, southeast Asian branch, indigenous ritual devotional gondang sabangunan. kulintang set. balinese banjar courtyard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 243,
+  "score": 4.63,
   "config": {
     "traditions": [
-      "kulintang"
+      "kulintang",
+      "gondang_sabangunan"
     ],
     "instruments": [
       {
@@ -19,7 +20,7 @@
         },
         "scores": {
           "kulintang_set_tuning": 3.1,
-          "kulintang_set_context": 0.78
+          "kulintang_set_context": 1.4300000000000002
         }
       }
     ],

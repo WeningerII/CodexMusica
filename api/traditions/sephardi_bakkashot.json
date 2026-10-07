@@ -5,7 +5,7 @@
   "lineage": "Sephardi Jewish Saturday-night-into-pre-dawn-Sunday-morning supplicatory liturgical-poetry singing tradition performed during the autumn-and-winter months — built on Arab maqam-derived modal vocabulary, classical Arabic and Hebrew poetic structures (piyyutim by Yehuda Halevi, Ibn Gabirol, Israel Najara), with the Aleppo Syrian school (the dominant Eastern Sephardi tradition until the 1947 dispersal) and parallel Salonican / Western Sephardi tradition (until the 1943 Nazi destruction of Greek Jewry), continuing today in Israeli, Mexican, Argentine, and Brooklyn Syrian-Sephardi communities",
   "recipe": "classic Middle Eastern late-1940s sephardi bakkashot, ritual Devotional, Jewish branch, middle eastern classical art music, vocal drone modal armenian duduk-accompanied chant türk sanat müziği. thick, breath veiled tone, slow rate, interlocked note trading. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks maple body Turkish school goat skin bridge plate gut historical qanun, call ritual shofar. mediterranean sephardi synagogue. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 550,
-  "score": 407.205,
+  "score": 406.902,
   "config": {
     "traditions": [
       "sephardi_bakkashot",
@@ -41,13 +41,13 @@
           "voice_vibrato": 17.257499999999997,
           "voice_articulation": 26.519999999999996,
           "voice_microtone": 49.400000000000006,
-          "voice_tradition": 29.4125,
+          "voice_tradition": 29.270000000000003,
           "voice_mechanism_compound": 17.54,
-          "voice_estill_quality": 18.0445,
+          "voice_estill_quality": 18.093999999999998,
           "voice_speech_song": 27.95,
           "voice_ensemble_config": 25.025,
-          "voice_ornament_system": 24.015,
-          "voice_pitch_organization": 25.2095,
+          "voice_ornament_system": 23.91,
+          "voice_pitch_organization": 25.104499999999998,
           "voice_processing_chain": 5.2,
           "voice_multitrack_stack": 7.54
         }

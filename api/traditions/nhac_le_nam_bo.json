@@ -1,0 +1,145 @@
+{
+  "id": "nhac_le_nam_bo",
+  "name": "Nhạc lễ Nam Bộ (southern Vietnamese ritual ensemble music)",
+  "family": "global",
+  "lineage": "Ceremonial instrumental music of southern Vietnam, brought south by settlers from central Vietnam and related to Huế court ritual music, played at communal-house (đình) and temple rites, ancestor worship, weddings and above all funerals; revival classes have been held in Cần Thơ. Bands combine a loud section (phe võ) of kèn shawms, drums, small gong and cymbals with a softer section (phe văn) led by đàn cò and đàn gáo fiddles. The kèn bầu card stands in for the southern kèn, the đàn nhị card for the đàn cò, and a generic membrane-drum card for the ritual drums.",
+  "recipe": "classic modern nhạc lễ nam bộ, ritual Devotional. gourd funeral ken bau, membrane drum pulse resonant acoustic membrane drum, python skin threaded between strings bright funeral voiced ceremonial dan nhi, coconut shell leather threaded between strings alto heterophonic dan gao. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 61.397,
+  "config": {
+    "traditions": [
+      "nhac_le_nam_bo"
+    ],
+    "instruments": [
+      {
+        "id": "ken_bau",
+        "slots": {
+          "ken_bau_bell": "ken_bau_gourd_bell",
+          "ken_bau_context": "ken_bau_ken_bop",
+          "ken_bau_texture": "ken_bau_solo_lead",
+          "ken_bau_breath": "ken_bau_circular"
+        },
+        "scores": {
+          "ken_bau_bell": 5.3465,
+          "ken_bau_context": 4.9815000000000005,
+          "ken_bau_texture": -0.035,
+          "ken_bau_breath": -0.035
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 2,
+          "acoustic_membrane_drum_gesture": 1
+        }
+      },
+      {
+        "id": "dan_nhi",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "dan_nhi_membrane": "dan_nhi_python",
+          "dan_nhi_mode": "dan_nhi_bac",
+          "dan_nhi_idiom": "dan_nhi_funeral",
+          "dan_nhi_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.40949999999999986,
+          "dan_nhi_membrane": 5.376,
+          "dan_nhi_mode": 5.0945,
+          "dan_nhi_idiom": 6.4495000000000005,
+          "dan_nhi_strings": 0
+        }
+      },
+      {
+        "id": "dan_gao",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "dan_gao_face": "dan_gao_skin",
+          "dan_gao_size": "dan_gao_alto",
+          "dan_gao_role": "dan_gao_paired_nhi",
+          "dan_gao_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.40949999999999986,
+          "dan_gao_face": 5.25,
+          "dan_gao_size": 12.5,
+          "dan_gao_role": 12.8,
+          "dan_gao_strings": 0
+        }
+      }
+    ],
+    "pinned": {
+      "ken_bau": [
+        "ken_bau_bell",
+        "ken_bau_context",
+        "ken_bau_texture",
+        "ken_bau_breath"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "dan_nhi": [
+        "bowed_technique",
+        "dan_nhi_membrane",
+        "dan_nhi_mode",
+        "dan_nhi_idiom",
+        "dan_nhi_strings"
+      ],
+      "dan_gao": [
+        "bowed_technique",
+        "dan_gao_face",
+        "dan_gao_size",
+        "dan_gao_role",
+        "dan_gao_strings"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "ken_bau_bell": "ken_bau_gourd_bell",
+      "ken_bau_context": "ken_bau_ken_bop",
+      "ken_bau_texture": "ken_bau_solo_lead",
+      "ken_bau_breath": "ken_bau_circular",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "bowed_technique": "bowed_local_song_melody",
+      "dan_nhi_membrane": "dan_nhi_python",
+      "dan_nhi_mode": "dan_nhi_bac",
+      "dan_nhi_idiom": "dan_nhi_funeral",
+      "dan_nhi_strings": "dutar_strings_unspecified",
+      "dan_gao_face": "dan_gao_skin",
+      "dan_gao_size": "dan_gao_alto",
+      "dan_gao_role": "dan_gao_paired_nhi",
+      "dan_gao_strings": "dutar_strings_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

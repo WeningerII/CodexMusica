@@ -1,0 +1,105 @@
+{
+  "id": "kendang_pencak",
+  "name": "Kendang pencak (Sundanese pencak silat drumming)",
+  "family": "global",
+  "lineage": "Music for Sundanese pencak silat demonstrations: large and small kendang drums, a tarompet double-reed shawm (here the serunai card) and a small gong play fixed drum patterns to which the fighters shape their moves. Pencak silat traditions are on the UNESCO Representative List.",
+  "recipe": "classic modern kendang pencak, groove Percussion, east Asian branch. gamelan sundanese kendang indonesian, serunai shawm, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 214,
+  "score": 3.059,
+  "config": {
+    "traditions": [
+      "kendang_pencak"
+    ],
+    "instruments": [
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_sundanese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "ho_dumang_double_headed_drum_membranes_documented"
+        },
+        "scores": {
+          "kendang_size": 0.1365,
+          "kendang_context": 2,
+          "kendang_shell_wood": 0,
+          "kendang_head": 0
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_silat",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.39,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.5774999999999999,
+          "gong_striker": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "kendang_size": "kendang_gendhing",
+      "kendang_context": "kendang_sundanese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "ho_dumang_double_headed_drum_membranes_documented",
+      "serunai_form": "serunai_silat",
+      "serunai_bell": "serunai_bell_wood",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,6 +1,6 @@
 # Geographic attribution audit
 
-Date: 2026-10-06/07. Baseline: the 7078-tradition catalog and `data/geo.json` at the
+Date: 2026-10-06/07. Baseline: the 7078-tradition catalog and `data/geo.json` at the <!-- check_docs:ignore -->
 head of `main` on that date. Per-entry evidence is in
 [`geographic-attribution-audit/`](geographic-attribution-audit/). The audit itself
 changed no catalog data. Its first recommendation, re-pinning the confirmed wrong pins,
@@ -250,7 +250,9 @@ A streaming-listenership taxonomy cannot supply these.
    South Asia, Central and East Africa, Siberia and Russia's peoples, the Andes and
    Amazonia, and Indigenous North America. Start from the verified candidates in
    `gaps.csv`. Source from UNESCO ICH lists, archival labels and regional
-   ethnomusicology, not streaming taxonomies. North Korea has no entries at all.
+   ethnomusicology, not streaming taxonomies. North Korea has no entries at all. In
+   progress: batch 1 (China, Maritime and Mainland Southeast Asia, the rest of South Asia,
+   Central Africa) added 360 traditions; see [`geographic-gap-fill.md`](geographic-gap-fill.md). <!-- check_docs:ignore -->
 6. **Gate future imports on scope.** A nationality × global-genre slice should not get its
    own map pin.
 

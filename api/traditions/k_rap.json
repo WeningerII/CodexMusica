@@ -3,12 +3,13 @@
   "name": "Korean rap",
   "family": "hip_hop",
   "lineage": "Korean hip-hop subgenre codified through Drunken Tiger (1999-onward), Tiger JK, Outsider, and the early-2000s Korean hip-hop scene that later expanded through Epik High, Verbal Jint, Dynamic Duo — characterized by Korean-language flows over US-and-Korean-hybrid production, the Show Me the Money television format as institutional vehicle",
-  "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song enka. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 379,
-  "score": 59.16,
+  "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song kendang kempul enka. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 394,
+  "score": 63.325,
   "config": {
     "traditions": [
       "k_rap",
+      "kendang_kempul_banyuwangi",
       "enka"
     ],
     "instruments": [
@@ -44,8 +45,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.029999999999998,
-          "voice_ensemble_config": 0.975,
+          "voice_speech_song": 14.179999999999998,
+          "voice_ensemble_config": 1.365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.045,
@@ -62,7 +63,7 @@
         },
         "scores": {
           "tr808_voice": 8.384999999999998,
-          "drum_machine_808_context": 1.8199999999999998,
+          "drum_machine_808_context": 2.4699999999999998,
           "tr808_production_origin": -1.435
         }
       },
@@ -91,7 +92,7 @@
         },
         "scores": {
           "electronic_technique": 7.899999999999999,
-          "sample_bitdepth": 0.39,
+          "sample_bitdepth": 1.19,
           "sample_swing": 11.244999999999997,
           "sample_processing": 1.65
         }

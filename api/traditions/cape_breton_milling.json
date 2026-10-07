@@ -5,7 +5,7 @@
   "lineage": "Atlantic Canadian (Cape Breton, Nova Scotia) Scottish Gaelic balladic continuation tradition — milling frolics (òrain luaidh) sung by groups of women while pounding (waulking) wool tweed cloth, with call-and-response solo-and-chorus structure in Scottish Gaelic language; preserved through the Cape Breton Gaelic community and the Beaton family tradition",
   "recipe": "classic Northern European early-1940s cape breton milling-frolic, ballad Poetry, cape breton Gaelic branch, christian gospel sacred harp sacred harp singing shape-note singing. thick, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. connemara kitchen sean nos. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 512,
-  "score": 176.445,
+  "score": 176.929,
   "config": {
     "traditions": [
       "cape_breton_milling",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 7.500000000000002,
-          "voice_quality": 14.927750000000001,
+          "voice_register": 7.507500000000002,
+          "voice_quality": 14.937500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.6899999999999997,
-          "voice_articulation": 14.223249999999998,
-          "voice_microtone": 13.444249999999997,
-          "voice_tradition": 27.888000000000005,
-          "voice_mechanism_compound": 5.402749999999999,
-          "voice_estill_quality": 8.459,
+          "voice_articulation": 14.420749999999998,
+          "voice_microtone": 13.613249999999995,
+          "voice_tradition": 27.795,
+          "voice_mechanism_compound": 5.346125,
+          "voice_estill_quality": 8.475,
           "voice_speech_song": 16.379999999999995,
-          "voice_ensemble_config": 18.161,
-          "voice_ornament_system": 22.708,
+          "voice_ensemble_config": 18.2975,
+          "voice_ornament_system": 22.661499999999997,
           "voice_pitch_organization": 2.990000000000001,
-          "voice_processing_chain": 4.8622499999999995,
-          "voice_multitrack_stack": 3.6299999999999994
+          "voice_processing_chain": 4.96375,
+          "voice_multitrack_stack": 3.6149999999999993
         }
       },
       {
@@ -62,9 +62,9 @@
         },
         "scores": {
           "choir_size": 7.41,
-          "choir_polyphonic_configuration": 3.8537500000000002,
+          "choir_polyphonic_configuration": 3.85,
           "choir_regional_canonical_configuration": 3.9,
-          "choir_ensemble_repertoire": 6.539999999999999
+          "choir_ensemble_repertoire": 6.601249999999999
         }
       }
     ],

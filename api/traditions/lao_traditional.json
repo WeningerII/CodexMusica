@@ -3,14 +3,14 @@
   "name": "Lao traditional music (sep ensembles and lam song)",
   "family": "global",
   "lineage": "The traditional music of Laos and the Lao-speaking Isan plateau, comprising the courtly sep nyai and sep noi ensembles of Luang Prabang codified under the Lan Xang kingdoms and the village lam sung-poetry tradition — khaen free-reed mouth organ supplying a continuous drone-plus-melody, phin lute and so u fiddle in heterophony, seven-near-equal tuning, and a rapid syllabic vocal recitation over a lilting duple pulse.",
-  "recipe": "classic modern lao traditional music, art Music, southeast Asian branch, southeast Asian Thai classical, wind pipe drone modal, indian bard ballad poetry thai traditional piphat. vocal fry, breath veiled tone, slow rate, interlocked note trading. khaen, phin, sustained legato so u, khong wong yai, ranat ek, khim. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 394,
-  "score": 273.255,
+  "recipe": "classic modern lao traditional music, art Music, southeast Asian branch, southeast Asian Thai classical, wind pipe drone modal, indian bard ballad poetry sepha thai traditional. vocal fry, breath veiled tone, slow rate, interlocked note trading. khaen, phin, sustained legato so u, khong wong yai, ranat ek, khim. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 393,
+  "score": 272.68,
   "config": {
     "traditions": [
       "lao_traditional",
-      "thai_traditional",
-      "piphat_ceremonial"
+      "sepha_thai",
+      "thai_traditional"
     ],
     "instruments": [
       {
@@ -35,34 +35,34 @@
         },
         "scores": {
           "voice_register": 1.645,
-          "voice_quality": 16.834999999999994,
+          "voice_quality": 15.404999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.5375,
-          "voice_articulation": 21.644999999999992,
-          "voice_microtone": 21.059999999999988,
-          "voice_tradition": 18.319999999999997,
-          "voice_mechanism_compound": 7.7749999999999995,
-          "voice_estill_quality": 8.659999999999998,
-          "voice_speech_song": 23.919999999999995,
-          "voice_ensemble_config": 23.59499999999999,
-          "voice_ornament_system": 7.925,
-          "voice_pitch_organization": 26.605,
-          "voice_processing_chain": 4.485,
-          "voice_multitrack_stack": 3.9650000000000007
+          "voice_vibrato": 13.1625,
+          "voice_articulation": 18.914999999999996,
+          "voice_microtone": 18.32999999999999,
+          "voice_tradition": 19.435,
+          "voice_mechanism_compound": 9.024999999999999,
+          "voice_estill_quality": 10.349999999999998,
+          "voice_speech_song": 20.994999999999994,
+          "voice_ensemble_config": 19.759999999999994,
+          "voice_ornament_system": 9.174999999999999,
+          "voice_pitch_organization": 28.92,
+          "voice_processing_chain": 5.98,
+          "voice_multitrack_stack": 2.7300000000000004
         }
       },
       {
         "id": "khaen",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "khaen_size": "khaen_jet",
+          "khaen_size": "khaen_paet",
           "khaen_context": "khaen_mor_lam"
         },
         "scores": {
           "free_reed_technique": 0.39,
-          "khaen_size": 2.7049999999999996,
-          "khaen_context": 4.545
+          "khaen_size": 2.5999999999999996,
+          "khaen_context": 4.185
         }
       },
       {
@@ -73,8 +73,8 @@
           "phin_construction": "phin_jackfruit_carved"
         },
         "scores": {
-          "phin_form": 28.989999999999995,
-          "phin_repertoire": 8.065000000000001,
+          "phin_form": 25.414999999999996,
+          "phin_repertoire": 7.345000000000001,
           "phin_construction": 3.25
         }
       },
@@ -83,12 +83,12 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "so_u_body": "so_u_coconut",
-          "so_u_role": "so_u_solo"
+          "so_u_role": "so_u_mahori"
         },
         "scores": {
-          "bowed_technique": 8.16,
+          "bowed_technique": 9.17,
           "so_u_body": 0,
-          "so_u_role": 0.15
+          "so_u_role": 0.09
         }
       },
       {
@@ -97,7 +97,7 @@
           "khong_wong_yai_role": "khong_wong_yai_main_melody"
         },
         "scores": {
-          "khong_wong_yai_role": 9.75
+          "khong_wong_yai_role": 12.75
         }
       },
       {
@@ -106,7 +106,7 @@
           "ranat_ek_technique": "ranat_ek_kep"
         },
         "scores": {
-          "ranat_ek_technique": 10.815
+          "ranat_ek_technique": 13.815
         }
       },
       {
@@ -117,9 +117,9 @@
           "khim_strings": "khim_steel"
         },
         "scores": {
-          "khim_form": 0.195,
-          "khim_mallets": 0.135,
-          "khim_strings": 0.195
+          "khim_form": 0.045,
+          "khim_mallets": 0.09,
+          "khim_strings": 0.045
         }
       }
     ],

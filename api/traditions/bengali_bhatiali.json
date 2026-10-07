@@ -5,7 +5,7 @@
   "lineage": "Bengali bhatiali (boatmen's song) tradition continuous from premodern Bengali-riverine-and-Sundarbans-delta boatmen labor practice through 19th-20th century Tagore-era literary-elevation (Tagore composed extensively in the bhatiali idiom) into modern Bengali-and-Bangladeshi continuous practice; the bhatiali is the canonical Bengali downstream-rowing-song integrating long-held-vocal phrases matched to slow downstream-rowing strokes",
   "recipe": "classic modern bengali bhatiali, field Work, south Asian branch, east Asian field work, atlantic Southeast Asian shanty, south Asian lullaby bengali ghum-paranir gan hindi lori. thick, breath veiled tone, slow rate, interlocked note trading. ornamented dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ornamented ektara. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 425,
-  "score": 167.077,
+  "score": 166.342,
   "config": {
     "traditions": [
       "bengali_bhatiali",
@@ -38,12 +38,12 @@
           "voice_quality": 8.385,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.39,
+          "voice_vibrato": 3.48,
           "voice_articulation": 6.759999999999999,
           "voice_microtone": 7.702499999999999,
-          "voice_tradition": 17.84,
+          "voice_tradition": 17.69,
           "voice_mechanism_compound": 1.7249999999999999,
-          "voice_estill_quality": 3.14,
+          "voice_estill_quality": 3.035,
           "voice_speech_song": 16.249999999999996,
           "voice_ensemble_config": 7.084999999999999,
           "voice_ornament_system": 10.850000000000001,
@@ -76,8 +76,8 @@
         "scores": {
           "plucked_traditional_technique": 8.845,
           "ektara_use": 18.43,
-          "ektara_body": 9.365,
-          "ektara_string": 10.915
+          "ektara_body": 9.035,
+          "ektara_string": 10.674999999999999
         }
       }
     ],

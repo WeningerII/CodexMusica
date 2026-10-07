@@ -1,0 +1,63 @@
+{
+  "id": "likurai",
+  "name": "Likurai (Timorese women's drum dance)",
+  "family": "global",
+  "lineage": "Drum dance of Covalima (Suai) and neighbouring areas of southern Timor-Leste, originally performed by women to welcome warriors returning from battle and now danced at ceremonies and celebrations, in which women dancers beat small babadok drums held under the arm while dancing. It is distinct from the linked-arm tebe song-dance.",
+  "recipe": "classic modern likurai, groove Percussion, functional song. babadok. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 148,
+  "score": 0.24,
+  "config": {
+    "traditions": [
+      "likurai"
+    ],
+    "instruments": [
+      {
+        "id": "babadok",
+        "slots": {
+          "babadok_build": "babadok_build_skin",
+          "babadok_stroke": "babadok_stroke_open"
+        },
+        "scores": {
+          "babadok_build": 0,
+          "babadok_stroke": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "babadok": [
+        "babadok_build",
+        "babadok_stroke"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "babadok_build": "babadok_build_skin",
+      "babadok_stroke": "babadok_stroke_open"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

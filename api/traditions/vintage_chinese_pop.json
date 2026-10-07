@@ -5,7 +5,7 @@
   "lineage": "Vintage Chinese pop brings historical Chinese-language popular songs into a continuing repertoire of recordings, films and revivals. Shanghai and Hong Kong song traditions circulated through Taiwan and Southeast Asia, where singers and arrangers continue to reinterpret familiar melodies in intimate and orchestral settings.",
   "recipe": "classic vintage chinese pop, functional Song, east Asian pop branch. solo with instrumental accompaniment. archtop, song accompaniment string quartet inst. shoebox concert hall.",
   "recipe_chars": 177,
-  "score": 9.232,
+  "score": 9.132,
   "config": {
     "traditions": [
       "vintage_chinese_pop"
@@ -65,11 +65,11 @@
         },
         "scores": {
           "amp_make": 0,
-          "archtop_body": 0.9495,
+          "archtop_body": 0.813,
           "archtop_pickup": 0.78,
           "archtop_top_wood": 0.813,
           "archtop_strings": 0.975,
-          "archtop_technique": 0.8445,
+          "archtop_technique": 0.881625,
           "archtop_string_tuning": 0
         }
       },

@@ -3,9 +3,9 @@
   "name": "Bosavi string-band songs",
   "family": "global",
   "lineage": "Bosavi guitar-band song documented alongside ceremonial repertoires. This is a minimal voice-and-guitar band configuration.",
-  "recipe": "classic modern bosavi string-band songs, functional Song. bosavi, group vocals. dreadnought acoustic guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 188,
-  "score": 2.683,
+  "recipe": "classic modern bosavi string-band songs, functional Song. bosavi. dreadnought acoustic guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 174,
+  "score": 2.546,
   "config": {
     "traditions": [
       "bosavi_string_band"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.546,
+          "voice_ensemble_config": 0.40950000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

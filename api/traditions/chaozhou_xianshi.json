@@ -1,0 +1,209 @@
+{
+  "id": "chaozhou_xianshi",
+  "name": "Chaozhou xianshi (Teochew string ensemble)",
+  "family": "global",
+  "lineage": "String-ensemble branch of Chaozhou (Teochew) music of eastern Guangdong, played by amateur music clubs at home and in the Teochew diaspora of Hong Kong and Southeast Asia, and written in the local ersi notation. The high, hard-bowed touxian fiddle leads the Chaozhou zheng (here the guzheng card), yangqin, pipa, sanxian and lower fiddles such as the yehu and tihu, in modes such as qing sanliu, zhong sanliu and huowu that inflect particular scale degrees.",
+  "recipe": "classic modern chaozhou xianshi, art Music, east Asian branch. ensemble lead driving lead melodic touxian, wutong paulownia guzheng, traditional bamboo yangqin, pipa, sanxian, yehu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 11.797,
+  "config": {
+    "traditions": [
+      "chaozhou_xianshi"
+    ],
+    "instruments": [
+      {
+        "id": "touxian",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "touxian_role": "touxian_role_xianshi",
+          "touxian_strings": "dutar_strings_unspecified",
+          "touxian_idiom": "touxian_idiom_driving"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "touxian_role": 4.8100000000000005,
+          "touxian_strings": 0,
+          "touxian_idiom": 1.2999999999999998
+        }
+      },
+      {
+        "id": "guzheng",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "guzheng_strings": "guzheng_18",
+          "guzheng_picks": "guzheng_tortoise",
+          "guzheng_top_wood": "guzheng_wutong_paulownia",
+          "guzheng_frame": "guzheng_rosewood_frame",
+          "guzheng_string_material": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "guzheng_strings": 0.0315,
+          "guzheng_picks": -0.035,
+          "guzheng_top_wood": 1.4389285714285713,
+          "guzheng_frame": -0.035,
+          "guzheng_string_material": 0
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_traditional_smaller",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 0.2152142857142857,
+          "yangqin_technique": 1.0813392857142856
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "dutar_strings_unspecified",
+          "pipa_pick": "pipa_fingerpicks",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "pipa_frets": 0.2342142857142857,
+          "pipa_strings": 0,
+          "pipa_pick": 0,
+          "pipa_body_wood": -0.035
+        }
+      },
+      {
+        "id": "sanxian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sanxian_size": "sanxian_da",
+          "sanxian_context": "sanxian_shuochang",
+          "sanxian_head": "sanxian_python_skin",
+          "sanxian_strings": "dutar_strings_unspecified",
+          "sanxian_body_wood": "sanxian_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "sanxian_size": 0.105,
+          "sanxian_context": 0.12921428571428573,
+          "sanxian_head": -0.035,
+          "sanxian_strings": 0,
+          "sanxian_body_wood": -0.05
+        }
+      },
+      {
+        "id": "yehu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "yehu_form": "yehu_form_cantonese",
+          "yehu_setting": "yehu_setting_xianshi",
+          "yehu_strings": "dutar_strings_unspecified",
+          "yehu_tuning": "yehu_tuning_g_d"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "yehu_form": 2.5865,
+          "yehu_setting": -0.07,
+          "yehu_strings": 0,
+          "yehu_tuning": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "touxian": [
+        "bowed_technique",
+        "touxian_role",
+        "touxian_strings",
+        "touxian_idiom"
+      ],
+      "guzheng": [
+        "plucked_traditional_technique",
+        "guzheng_strings",
+        "guzheng_picks",
+        "guzheng_top_wood",
+        "guzheng_frame",
+        "guzheng_string_material"
+      ],
+      "yangqin": [
+        "yangqin_courses",
+        "yangqin_technique"
+      ],
+      "pipa": [
+        "plucked_traditional_technique",
+        "pipa_frets",
+        "pipa_strings",
+        "pipa_pick",
+        "pipa_body_wood"
+      ],
+      "sanxian": [
+        "plucked_traditional_technique",
+        "sanxian_size",
+        "sanxian_context",
+        "sanxian_head",
+        "sanxian_strings",
+        "sanxian_body_wood"
+      ],
+      "yehu": [
+        "bowed_technique",
+        "yehu_form",
+        "yehu_setting",
+        "yehu_strings",
+        "yehu_tuning"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "touxian_role": "touxian_role_xianshi",
+      "touxian_strings": "dutar_strings_unspecified",
+      "touxian_idiom": "touxian_idiom_driving",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "guzheng_strings": "guzheng_18",
+      "guzheng_picks": "guzheng_tortoise",
+      "guzheng_top_wood": "guzheng_wutong_paulownia",
+      "guzheng_frame": "guzheng_rosewood_frame",
+      "guzheng_string_material": "dutar_strings_unspecified",
+      "yangqin_courses": "yangqin_traditional_smaller",
+      "yangqin_technique": "yangqin_bamboo_mallets",
+      "pipa_frets": "pipa_modern_frets",
+      "pipa_strings": "dutar_strings_unspecified",
+      "pipa_pick": "pipa_fingerpicks",
+      "pipa_body_wood": "pipa_red_sandalwood",
+      "sanxian_size": "sanxian_da",
+      "sanxian_context": "sanxian_shuochang",
+      "sanxian_head": "sanxian_python_skin",
+      "sanxian_strings": "dutar_strings_unspecified",
+      "sanxian_body_wood": "sanxian_red_sandalwood",
+      "yehu_form": "yehu_form_cantonese",
+      "yehu_setting": "yehu_setting_xianshi",
+      "yehu_strings": "dutar_strings_unspecified",
+      "yehu_tuning": "yehu_tuning_g_d"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

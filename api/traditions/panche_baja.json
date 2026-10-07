@@ -1,0 +1,169 @@
+{
+  "id": "panche_baja",
+  "name": "Panche baja (Nepali Damai wedding band)",
+  "family": "global",
+  "lineage": "Auspicious outdoor ensemble of the Damai tailor-musician caste of Nepal, played at weddings and wedding processions (janti), temple rites and other life-cycle and calendrical occasions; the name means 'five instruments', and the larger naumati baja has nine. It combines the sahanai shawm (or the narsinga curved horn and karnal straight trumpet), the jhyali cymbals, the large damaha kettledrum, the small tyamko kettledrum and the dholaki barrel drum. The karna card stands in for the karnal, the horns card for the narsinga, the dhamsa card for the damaha and the tasha card for the tyamko.",
+  "recipe": "classic modern panche baja, wedding, south Asian branch. auspicious sahnai, karna trumpet, credited horns unspecified, credited cymbals, dhamsa, tasha, dholak. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 239,
+  "score": 2.868,
+  "config": {
+    "traditions": [
+      "panche_baja"
+    ],
+    "instruments": [
+      {
+        "id": "sahnai",
+        "slots": {
+          "sahnai_form": "sahnai_damai",
+          "sahnai_style": "sahnai_mangal"
+        },
+        "scores": {
+          "sahnai_form": 0.315,
+          "sahnai_style": 1.039
+        }
+      },
+      {
+        "id": "karna_trumpet",
+        "slots": {
+          "karna_form": "karna_straight",
+          "karna_use": "karna_ensemble"
+        },
+        "scores": {
+          "karna_form": 0.007499999999999999,
+          "karna_use": 0.11299999999999999
+        }
+      },
+      {
+        "id": "credited_horns_unspecified",
+        "slots": {
+          "credited_horns_identity": "credited_horns_source_unspecified"
+        },
+        "scores": {
+          "credited_horns_identity": 1
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      },
+      {
+        "id": "dhamsa",
+        "slots": {
+          "dhamsa_size": "dhamsa_large",
+          "dhamsa_technique": "dhamsa_two_sticks",
+          "dhamsa_head": "dhamsa_buffalo"
+        },
+        "scores": {
+          "dhamsa_size": 0.3,
+          "dhamsa_technique": 0.007499999999999999,
+          "dhamsa_head": 0
+        }
+      },
+      {
+        "id": "tasha",
+        "slots": {
+          "tasha_shell": "tasha_clay",
+          "tasha_context": "tasha_dhol_tasha"
+        },
+        "scores": {
+          "tasha_shell": 0,
+          "tasha_context": 0.014999999999999998
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_folk_song",
+          "dholak_construction": "dholak_mango",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 0.063,
+          "dholak_construction": -0.035,
+          "dholak_head": 0.09649999999999999,
+          "dholak_tensioning": 0.09649999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "sahnai": [
+        "sahnai_form",
+        "sahnai_style"
+      ],
+      "karna_trumpet": [
+        "karna_form",
+        "karna_use"
+      ],
+      "credited_horns_unspecified": [
+        "credited_horns_identity"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ],
+      "dhamsa": [
+        "dhamsa_size",
+        "dhamsa_technique",
+        "dhamsa_head"
+      ],
+      "tasha": [
+        "tasha_shell",
+        "tasha_context"
+      ],
+      "dholak": [
+        "dholak_use",
+        "dholak_construction",
+        "dholak_head",
+        "dholak_tensioning"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "sahnai_form": "sahnai_damai",
+      "sahnai_style": "sahnai_mangal",
+      "karna_form": "karna_straight",
+      "karna_use": "karna_ensemble",
+      "credited_horns_identity": "credited_horns_source_unspecified",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified",
+      "dhamsa_size": "dhamsa_large",
+      "dhamsa_technique": "dhamsa_two_sticks",
+      "dhamsa_head": "dhamsa_buffalo",
+      "tasha_shell": "tasha_clay",
+      "tasha_context": "tasha_dhol_tasha",
+      "dholak_use": "dholak_folk_song",
+      "dholak_construction": "dholak_mango",
+      "dholak_head": "dholak_goat_skin_canonical",
+      "dholak_tensioning": "dholak_rope_tuning"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

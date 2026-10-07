@@ -3,14 +3,14 @@
   "name": "Organum",
   "family": "classical",
   "lineage": "Earliest notated Western polyphony, documented from the Musica enchiriadis around 900 CE and brought to its high form at Notre-Dame de Paris circa 1160-1240 by Leonin and Perotin, in which a plainchant tenor is stretched into immensely sustained drone notes while one to three upper voices move above in rhythmic modes, cadencing on perfect fifths, octaves and unisons within a Pythagorean tuning, sung by small male ensembles in stone church acoustics.",
-  "recipe": "classic European early-1160s organum, art Music, western early branch, western common practice art music, vocal drone modal detskie pesni croatian istrian two-part-in-istrian-scale. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, single rank treble piping chant doubling portative organ, gut bourdon drone legato vielle medieval, single plectrum line monophonic melodic lead medieval psaltery, sustained handbells rung handbells. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 553,
-  "score": 249.03,
+  "recipe": "classic European early-1160s organum, art Music, western early branch, western common practice art music, vocal drone modal detskie pesni hoho. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, single rank treble piping chant doubling portative organ, gut bourdon drone legato vielle medieval, single plectrum line monophonic melodic lead medieval psaltery, sustained handbells rung handbells. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 515,
+  "score": 202.67,
   "config": {
     "traditions": [
       "organum",
       "detskie_pesni",
-      "croatian_istrian_diaphonic"
+      "hoho_nias"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.75,
-          "voice_quality": 23.074999999999996,
+          "voice_register": 2.95,
+          "voice_quality": 11.114999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.864999999999998,
-          "voice_articulation": 23.270000000000003,
-          "voice_microtone": 24.894999999999996,
-          "voice_tradition": 17.525,
+          "voice_articulation": 17.940000000000005,
+          "voice_microtone": 18.72,
+          "voice_tradition": 13,
           "voice_mechanism_compound": 6.299999999999999,
-          "voice_estill_quality": 11.704999999999997,
-          "voice_speech_song": 29.120000000000005,
-          "voice_ensemble_config": 30.93,
-          "voice_ornament_system": 6.34,
-          "voice_pitch_organization": 8.640000000000002,
-          "voice_processing_chain": 6.629999999999999,
-          "voice_multitrack_stack": 8.934999999999997
+          "voice_estill_quality": 12.204999999999997,
+          "voice_speech_song": 25.935,
+          "voice_ensemble_config": 23.270000000000003,
+          "voice_ornament_system": 5.995,
+          "voice_pitch_organization": 8.14,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 5.485000000000001
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "voicing": 2.9899999999999998,
-          "repertoire": 1.09
+          "repertoire": 1.59
         }
       },
       {
@@ -74,7 +74,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "portative_organ_form": 3.045,
-          "portative_organ_repertoire": 6.245000000000001,
+          "portative_organ_repertoire": 6.745000000000001,
           "portative_organ_pipework": -0.1
         }
       },
@@ -87,9 +87,9 @@
           "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
         },
         "scores": {
-          "bowed_technique": 8.7,
-          "vielle_medieval_form": 1.2999999999999998,
-          "vielle_medieval_repertoire": 4.489999999999999,
+          "bowed_technique": 9.2,
+          "vielle_medieval_form": 0.65,
+          "vielle_medieval_repertoire": 4.34,
           "vielle_medieval_stringing": 2.9850000000000003
         }
       },
@@ -114,7 +114,7 @@
         },
         "scores": {
           "handbells_set": 0.845,
-          "handbells_technique": 1
+          "handbells_technique": 1.5
         }
       }
     ],

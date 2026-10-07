@@ -5,7 +5,7 @@
   "lineage": "Cambodian royal ceremonial and dance-accompaniment tradition traceable to Angkorian temple reliefs and maintained at the Phnom Penh palace until the Khmer Rouge, then rebuilt after 1979 by surviving masters such as Chek Mach and the Royal University of Fine Arts, scored for roneat xylophones, kong vong gong circles, the sralai quadruple reed and skor thom barrel drums in stratified heterophony over a chhing cymbal cycle.",
   "recipe": "classic Southeast Asian late-1970s khmer court music, art Music, southeast Asian branch, southeast Asian Thai classical, buddhist ritual devotional piphat thai traditional. twenty one bamboo bars boat resonator canonical pinpeat lead royal court pinpeat canonical pre 1975 lineage roneat ek, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, sixteen tuned bronze bossed gongs rattan frame canonical pinpeat melodic backbone pinpeat melodic skeleton sustains core under roneat elaboration kong vong large barrel pair stick struck canonical pinpeat bass skor thom, palm leaf quadruple reed conical bore canonical khmer pinpeat melodic lead sustained voice sralai, skor daey, khmer ching chap open and damped ching. phnom penh royal pinpeat palace court. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 873,
-  "score": 79.364,
+  "score": 78.064,
   "config": {
     "traditions": [
       "khmer_court_music",
@@ -32,7 +32,7 @@
         },
         "scores": {
           "roneat_thung_bars": 2.0799999999999996,
-          "roneat_thung_role": 6.305000000000001
+          "roneat_thung_role": 5.937500000000001
         }
       },
       {
@@ -43,7 +43,7 @@
         },
         "scores": {
           "kong_vong_thom_construction": 2.6649999999999996,
-          "kong_vong_thom_role": 5.459999999999999
+          "kong_vong_thom_role": 5.292
         }
       },
       {
@@ -53,7 +53,7 @@
           "sralai_role": "sralai_pinpeat_lead_melodic"
         },
         "scores": {
-          "sralai_reed": 6.704,
+          "sralai_reed": 6.269,
           "sralai_role": 2.4699999999999998
         }
       },
@@ -75,7 +75,7 @@
         },
         "scores": {
           "skor_daey_body": 0,
-          "skor_daey_stroke": 0.3,
+          "skor_daey_stroke": 0.345,
           "skor_daey_context": 0.045
         }
       },
@@ -87,9 +87,9 @@
           "ching_alloy": "ching_bronze"
         },
         "scores": {
-          "ching_form": 14.488,
+          "ching_form": 14.293,
           "ching_stroke": 22.944999999999997,
-          "ching_alloy": 0.975
+          "ching_alloy": 0.795
         }
       }
     ],

@@ -1,0 +1,110 @@
+{
+  "id": "gondang_sabangunan",
+  "name": "Gondang sabangunan (Toba Batak ceremonial ensemble)",
+  "family": "global",
+  "lineage": "Outdoor ceremonial ensemble of the Toba Batak of North Sumatra, played for adat feasts, funerals and tortor dancing and formerly for offerings to the ancestors. The sarune bolon double-reed shawm leads over the taganing, a set of five tuned drums played melodically with sticks, and the large gordang drum (the generic membrane-drum card stands in for both), with four hanging ogung gongs and the hesek, a struck metal timekeeper (the auxiliary-percussion card stands in).",
+  "recipe": "classic modern gondang sabangunan, ritual Devotional, indigenous branch. serunai shawm, membrane drum pulse resonant acoustic membrane drum, tuned nipple pitched gong tamtam, credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 285,
+  "score": 9.046,
+  "config": {
+    "traditions": [
+      "gondang_sabangunan"
+    ],
+    "instruments": [
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_kelantan",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.34275,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.29,
+          "acoustic_membrane_drum_gesture": 2.9899999999999998
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 1.4365,
+          "gong_striker": 0.1365
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "serunai_form": "serunai_kelantan",
+      "serunai_bell": "serunai_bell_wood",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

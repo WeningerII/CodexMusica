@@ -5,7 +5,7 @@
   "lineage": "Cameroonian (Douala / Bantu coastal) popular music genre codified by Manu Dibango from 1972 onward (Soul Makossa, the international breakthrough that established the genre name in the global pop vocabulary) — built on a fusion of Douala traditional drumming, jazz horn-section vocabulary, and Cameroonian Catholic-mission church music; tracked extensively at Paris Pathé-Marconi studios for European distribution and recurring back to Yaoundé and Douala studios",
   "recipe": "classic Western European early-1970s makossa, groove Percussion, west African branch, African pop functional song isicathamiya sungura. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, high pitched lead congas, ensemble student commercial trombone, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 945,
-  "score": 303.015,
+  "score": 303.34,
   "config": {
     "traditions": [
       "makossa",
@@ -41,7 +41,7 @@
           "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 15.404999999999992,
           "voice_microtone": 15.01499999999999,
-          "voice_tradition": 26.58,
+          "voice_tradition": 26.189999999999998,
           "voice_mechanism_compound": 2.795,
           "voice_estill_quality": 4.545000000000001,
           "voice_speech_song": 20.279999999999994,
@@ -70,9 +70,9 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 14.069999999999999,
-          "amp_make": 3.545000000000001,
-          "body_wood": 0.21,
+          "electric_technique": 14.122499999999999,
+          "amp_make": 3.5975000000000006,
+          "body_wood": 0.33249999999999996,
           "neck_wood": 0.44999999999999996,
           "fretboard": 0.5399999999999999,
           "pickup_magnet": 0.44999999999999996,
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.705,
+          "amp_make": 6.9325,
           "body_wood": 0.195,
           "pickup_config": 0.195,
-          "string_type": 6.265000000000001,
+          "string_type": 6.492500000000001,
           "scale_length_b": 1.235,
           "fretted_or_not": 0.195,
           "bass_technique": 3.95,
@@ -192,7 +192,7 @@
         "scores": {
           "wind_articulation": 7.18,
           "brass_size": 0.44999999999999996,
-          "trumpet_mouthpiece": 4.77,
+          "trumpet_mouthpiece": 4.8025,
           "brass_mute": 0.5849999999999999,
           "trumpet_technique": 7.18,
           "trumpet_bell_metal": 0.39,

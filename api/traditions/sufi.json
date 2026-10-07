@@ -5,7 +5,7 @@
   "lineage": "Hamza Akram Qawwal & Brothers — Echoes of the Sufi Courts, complete2026album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic sufi, ritual Devotional, Sufi branch. one note per syllable. harmonium indian, tabla, dholak, room natural hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 224,
-  "score": 5.261,
+  "score": 5.061,
   "config": {
     "traditions": [
       "sufi"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6644999999999999,
-          "voice_ensemble_config": 0.402,
+          "voice_speech_song": 0.756,
+          "voice_ensemble_config": 0.36749999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.16949999999999998,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -62,9 +62,9 @@
         },
         "scores": {
           "free_reed_technique": -0.11850000000000002,
-          "harmonium_action": 0.3375,
+          "harmonium_action": 0.34650000000000003,
           "harmonium_voicing": 0.39,
-          "harmonium_use": 0.4515
+          "harmonium_use": 0.5565
         }
       },
       {
@@ -89,7 +89,7 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.0945,
+          "dholak_use": 0.126,
           "dholak_construction": -0.035,
           "dholak_head": 0.27299999999999996,
           "dholak_tensioning": 0.27299999999999996
@@ -102,8 +102,8 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.21,
-          "clap_capture": 1.69
+          "clap_technique": 0.273,
+          "clap_capture": 1.3
         }
       }
     ],

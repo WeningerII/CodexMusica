@@ -3,14 +3,14 @@
   "name": "Mbube",
   "family": "global",
   "lineage": "Zulu male-choral style named for Solomon Linda's 1939 Gallo recording 'Mbube', formed among Natal migrant workers in Johannesburg hostels — a loud, full-throated four-part bass-led homophonic choir with a soaring solo falsetto or high tenor over cycling I-IV-I-V harmony, sung in isiZulu at moderate walking tempo and staged in all-night competitive hostel contests.",
-  "recipe": "classic Southern African late-1930s mbube, functional Song, isicathamiya branch, sub saharan African praise song, christian gospel jubilee quartet apala. thick, declaimed, fast rate, interlocked note trading. choir isicathamiya, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe": "classic Southern African late-1930s mbube, functional Song, isicathamiya branch, sub saharan African praise song, christian gospel jubilee quartet gurna. thick, declaimed, breath pulsed, leader call answered. choir isicathamiya, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 571,
-  "score": 191.817,
+  "score": 146.415,
   "config": {
     "traditions": [
       "mbube",
       "jubilee_quartet",
-      "apala"
+      "tupuri_gurna"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "call_response_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 15.364999999999998,
-          "voice_quality": 23.289999999999996,
+          "voice_register": 15.214999999999998,
+          "voice_quality": 20.789999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.04,
-          "voice_articulation": 12.219999999999999,
-          "voice_microtone": 11.374999999999995,
-          "voice_tradition": 31.427499999999995,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 11.954999999999998,
-          "voice_speech_song": 16.705,
-          "voice_ensemble_config": 20.247499999999995,
-          "voice_ornament_system": 8.6125,
-          "voice_pitch_organization": 5.25,
-          "voice_processing_chain": 2.7950000000000004,
-          "voice_multitrack_stack": 5.175000000000001
+          "voice_vibrato": 0.8250000000000001,
+          "voice_articulation": 9.105,
+          "voice_microtone": 5.98,
+          "voice_tradition": 20.200000000000003,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 11.804999999999998,
+          "voice_speech_song": 11.959999999999999,
+          "voice_ensemble_config": 14.917499999999997,
+          "voice_ornament_system": 6.467499999999999,
+          "voice_pitch_organization": 1.885,
+          "voice_processing_chain": 2.665000000000002,
+          "voice_multitrack_stack": 4.075
         }
       },
       {
@@ -60,9 +60,9 @@
           "choir_isicathamiya_setting": "choir_isicathamiya_hostel_competition"
         },
         "scores": {
-          "choir_isicathamiya_lineup": 4.575,
+          "choir_isicathamiya_lineup": 2.925,
           "choir_isicathamiya_style": 2.5700000000000003,
-          "choir_isicathamiya_setting": 2.78
+          "choir_isicathamiya_setting": 1.6899999999999997
         }
       },
       {
@@ -74,9 +74,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 9.229999999999999,
-          "choir_polyphonic_configuration": 3.115,
-          "choir_regional_canonical_configuration": 6.174999999999999,
+          "choir_size": 7.604999999999999,
+          "choir_polyphonic_configuration": 3.465,
+          "choir_regional_canonical_configuration": 4.549999999999999,
           "choir_ensemble_repertoire": 2.795
         }
       }

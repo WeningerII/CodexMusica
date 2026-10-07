@@ -3,14 +3,14 @@
   "name": "Trap (southern)",
   "family": "hip_hop",
   "lineage": "Southern trap subgenre codified through Atlanta’s 2000s street-rap scene — T.I.’s Trap Muzik (2003), Young Jeezy’s Let’s Get It: Thug Motivation 101 (2005), Gucci Mane, and Three 6 Mafia’s earlier Memphis groundwork; characterized by 70-80 BPM-doubled trap-hi-hat patterns, 808-bass-and-kick programming, and street-narrative lyrical subject matter",
-  "recipe": "classic Southern American mid-2000s trap, mc Rhythm, southern branch, house electronic dance south african house g-house. thick, rap, straight note core, interlocked note trading. drum machine analog, pad like sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 426,
-  "score": 177.15,
+  "recipe": "classic Southern American mid-2000s trap, mc Rhythm, southern branch, house electronic dance south african house chicago house. thick, rap, straight note core, interlocked note trading. drum machine analog, pad like sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 432,
+  "score": 189.385,
   "config": {
     "traditions": [
       "southern_trap",
       "south_african_house",
-      "g_house"
+      "chicago_house"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.285,
-          "voice_quality": 12.8,
+          "voice_register": 8.784999999999998,
+          "voice_quality": 8.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 18.33,
-          "voice_microtone": 17.549999999999994,
-          "voice_tradition": 7.41,
-          "voice_mechanism_compound": 2.4050000000000002,
-          "voice_estill_quality": 2.7625000000000006,
-          "voice_speech_song": 18.589999999999996,
-          "voice_ensemble_config": 19.499999999999996,
-          "voice_ornament_system": 2.3750000000000013,
-          "voice_pitch_organization": 1.2,
-          "voice_processing_chain": 12.89,
-          "voice_multitrack_stack": 6.142500000000001
+          "voice_vibrato": 2.3725,
+          "voice_articulation": 20.669999999999998,
+          "voice_microtone": 20.084999999999997,
+          "voice_tradition": 8.235,
+          "voice_mechanism_compound": 1.3649999999999998,
+          "voice_estill_quality": 6.8500000000000005,
+          "voice_speech_song": 21.71,
+          "voice_ensemble_config": 22.685,
+          "voice_ornament_system": 2.1750000000000007,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 12.39,
+          "voice_multitrack_stack": 5.395000000000001
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "kick_voice": "bridged_t_kick",
           "snare_voice": "tone_noise_snare",
-          "hat_voice": "square_summed_hat",
+          "hat_voice": "noise_hat",
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 2.7299999999999995,
-          "snare_voice": 0.195,
-          "hat_voice": 0.045,
-          "shuffle_quantize": 2.92
+          "kick_voice": 2.2749999999999995,
+          "snare_voice": 0.045,
+          "hat_voice": 0.195,
+          "shuffle_quantize": 4.17
         }
       },
       {
@@ -77,9 +77,9 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 23.104999999999993,
-          "oscillator": 4.755,
-          "filter_topology": 4.545,
+          "electronic_technique": 20.804999999999996,
+          "oscillator": 3.955,
+          "filter_topology": 4.245,
           "envelope": 1.1749999999999998,
           "modulation": 0.15
         }

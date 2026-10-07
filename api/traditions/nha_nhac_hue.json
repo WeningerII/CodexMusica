@@ -1,0 +1,159 @@
+{
+  "id": "nha_nhac_hue",
+  "name": "Nhã nhạc (Huế royal court music)",
+  "family": "classical",
+  "lineage": "Ceremonial court music of the Nguyễn dynasty (1802-1945) at Huế, played at state sacrifices such as the Nam Giao rite, at coronations, royal audiences and palace banquets, and proclaimed a UNESCO Masterpiece of the Oral and Intangible Heritage in 2003. It used two orchestras: the loud đại nhạc of kèn shawms and drums, and the softer tiểu nhạc of bamboo flute, đàn nhị fiddle and plucked lutes. After near-disappearance in the twentieth century it has been revived since the 1990s by Huế court-music troupes. A generic membrane-drum card stands in for the court drums.",
+  "recipe": "classic early-1800s nhã nhạc, art Music, southeast Asian branch. court ceremonial imperial ken bau, membrane drum pulse resonant acoustic membrane drum, sao truc, sustained court classical dan nhi, dan ty ba. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 288,
+  "score": 38.588,
+  "config": {
+    "traditions": [
+      "nha_nhac_hue"
+    ],
+    "instruments": [
+      {
+        "id": "ken_bau",
+        "slots": {
+          "ken_bau_bell": "ken_bau_gourd_bell",
+          "ken_bau_context": "ken_bau_nha_nhac",
+          "ken_bau_texture": "ken_bau_solo_lead",
+          "ken_bau_breath": "ken_bau_circular"
+        },
+        "scores": {
+          "ken_bau_bell": -0.035,
+          "ken_bau_context": 13.96125,
+          "ken_bau_texture": -0.035,
+          "ken_bau_breath": -0.035
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 2.7725,
+          "acoustic_membrane_drum_gesture": 1.69
+        }
+      },
+      {
+        "id": "sao_truc",
+        "slots": {
+          "sao_truc_key": "sao_do",
+          "sao_truc_style": "sao_ru",
+          "sao_truc_membrane": "sao_plain"
+        },
+        "scores": {
+          "sao_truc_key": 0,
+          "sao_truc_style": 0,
+          "sao_truc_membrane": 0
+        }
+      },
+      {
+        "id": "dan_nhi",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "dan_nhi_membrane": "dan_nhi_python",
+          "dan_nhi_mode": "dan_nhi_bac",
+          "dan_nhi_idiom": "dan_nhi_nha_nhac",
+          "dan_nhi_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 1.5750000000000002,
+          "dan_nhi_membrane": 0.26,
+          "dan_nhi_mode": -0.035,
+          "dan_nhi_idiom": 14.740499999999999,
+          "dan_nhi_strings": 0
+        }
+      },
+      {
+        "id": "dan_ty_ba",
+        "slots": {
+          "dantyba_style": "dantyba_nha_nhac",
+          "dantyba_strings": "dutar_strings_unspecified",
+          "dantyba_frets": "dantyba_high"
+        },
+        "scores": {
+          "dantyba_style": 0.39,
+          "dantyba_strings": 0,
+          "dantyba_frets": 0.714
+        }
+      }
+    ],
+    "pinned": {
+      "ken_bau": [
+        "ken_bau_bell",
+        "ken_bau_context",
+        "ken_bau_texture",
+        "ken_bau_breath"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "sao_truc": [
+        "sao_truc_key",
+        "sao_truc_style",
+        "sao_truc_membrane"
+      ],
+      "dan_nhi": [
+        "bowed_technique",
+        "dan_nhi_membrane",
+        "dan_nhi_mode",
+        "dan_nhi_idiom",
+        "dan_nhi_strings"
+      ],
+      "dan_ty_ba": [
+        "dantyba_style",
+        "dantyba_strings",
+        "dantyba_frets"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "ken_bau_bell": "ken_bau_gourd_bell",
+      "ken_bau_context": "ken_bau_nha_nhac",
+      "ken_bau_texture": "ken_bau_solo_lead",
+      "ken_bau_breath": "ken_bau_circular",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "sao_truc_key": "sao_do",
+      "sao_truc_style": "sao_ru",
+      "sao_truc_membrane": "sao_plain",
+      "bowed_technique": "bowed_local_song_melody",
+      "dan_nhi_membrane": "dan_nhi_python",
+      "dan_nhi_mode": "dan_nhi_bac",
+      "dan_nhi_idiom": "dan_nhi_nha_nhac",
+      "dan_nhi_strings": "dutar_strings_unspecified",
+      "dantyba_style": "dantyba_nha_nhac",
+      "dantyba_strings": "dutar_strings_unspecified",
+      "dantyba_frets": "dantyba_high"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

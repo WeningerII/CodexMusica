@@ -3,53 +3,53 @@
   "name": "Bengali baul (mystic-itinerant song)",
   "family": "global",
   "lineage": "Lalon-Shah-lineage Bengali mystic-itinerant tradition, studio-recorded 1970-1990 (Lalon Fakir, c. 1774-1890, the foundational figure) — codified through the Kenduli Mela annual Baul gathering, the Bardhaman district teaching lineages, and the 20th-century preservation work of Purna Das Baul; characterized by ektara-or-dotara-and-khamak accompaniment, Sufi-Vaishnav-Tantric syncretic philosophy, and the wandering-mendicant performance context",
-  "recipe": "classic Eastern European mid-1980s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry mevlevi ayin sindhi. vocal fry, breath veiled tone, slow rate, interlocked note trading. dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh esraj. adobe room. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
-  "recipe_chars": 609,
-  "score": 207.265,
+  "recipe": "classic Eastern European mid-1980s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry persian naqqāli cypriot tsiattista. kargyraa, breath veiled tone, interlocked note trading, neutral third half flat. dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh esraj. adobe room. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 637,
+  "score": 174.76,
   "config": {
     "traditions": [
       "bengali_baul",
-      "mevlevi_ayin",
-      "sindhi"
+      "persian_naqqali",
+      "cypriot_tsiattista"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "kargyraa_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "qawwali_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 1.2899999999999998,
-          "voice_quality": 15.079999999999993,
+          "voice_register": 0.8899999999999998,
+          "voice_quality": 13.714999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6075,
-          "voice_articulation": 15.339999999999996,
-          "voice_microtone": 18.037499999999994,
-          "voice_tradition": 18.3625,
-          "voice_mechanism_compound": 4.095,
-          "voice_estill_quality": 4.9725,
-          "voice_speech_song": 19.109999999999992,
-          "voice_ensemble_config": 17.159999999999993,
-          "voice_ornament_system": 6.725,
-          "voice_pitch_organization": 5.584999999999999,
-          "voice_processing_chain": 6.5,
-          "voice_multitrack_stack": 4.485000000000001
+          "voice_vibrato": 0.38999999999999996,
+          "voice_articulation": 17.419999999999995,
+          "voice_microtone": 17.22499999999999,
+          "voice_tradition": 13.614999999999998,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 3.6725000000000003,
+          "voice_speech_song": 19.889999999999993,
+          "voice_ensemble_config": 17.744999999999994,
+          "voice_ornament_system": 3.2750000000000004,
+          "voice_pitch_organization": 0.8,
+          "voice_processing_chain": 3.5100000000000002,
+          "voice_multitrack_stack": 1.285
         }
       },
       {
@@ -60,39 +60,39 @@
           "dotara_context": "dotara_folk"
         },
         "scores": {
-          "plucked_traditional_technique": 2.2099999999999995,
-          "dotara_strings": 0.3,
-          "dotara_context": 15.144999999999998
+          "plucked_traditional_technique": 0.26,
+          "dotara_strings": 0.39,
+          "dotara_context": 16.379999999999995
         }
       },
       {
         "id": "ektara",
         "slots": {
-          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "plucked_traditional_technique": "plucked_fingerpicked",
           "ektara_use": "ektara_baul",
           "ektara_body": "ektara_gourd_bamboo",
           "ektara_string": "ektara_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 0.42499999999999993,
-          "ektara_use": 12.389999999999999,
-          "ektara_body": 3.3799999999999994,
+          "plucked_traditional_technique": 0.25,
+          "ektara_use": 11.134999999999998,
+          "ektara_body": 3.1399999999999997,
           "ektara_string": 2.8499999999999996
         }
       },
       {
         "id": "khamak",
         "slots": {
-          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "plucked_traditional_technique": "plucked_fingerpicked",
           "khamak_use": "khamak_baul",
           "khamak_body": "khamak_wood_skin",
           "khamak_string": "khamak_gut_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 0.42499999999999993,
-          "khamak_use": 12.795,
-          "khamak_body": 3.3799999999999994,
-          "khamak_string": 7.079999999999999
+          "plucked_traditional_technique": 0.25,
+          "khamak_use": 11.442499999999999,
+          "khamak_body": 3.1399999999999997,
+          "khamak_string": 6.6899999999999995
         }
       },
       {
@@ -105,10 +105,10 @@
           "esraj_main_strings": "esraj_gut_historical"
         },
         "scores": {
-          "bowed_technique": 2.125,
+          "bowed_technique": -0.035,
           "esraj_strings": 0,
-          "esraj_use": 3.25,
-          "esraj_body_wood": 2.8600000000000003,
+          "esraj_use": 1.7550000000000001,
+          "esraj_body_wood": 1.95,
           "esraj_main_strings": 2.8499999999999996
         }
       }

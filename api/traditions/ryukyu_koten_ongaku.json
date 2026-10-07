@@ -3,35 +3,35 @@
   "name": "Ryukyu koten ongaku (Okinawan classical court music)",
   "family": "classical",
   "lineage": "Court repertoire of the Ryukyu Kingdom at Shuri, systematized in the eighteenth century when Yakabi Choki (1716-1775) devised the kunkunshi tablature and the music was formalized for reception of Chinese sappushi envoys and for kumiodori dance-drama created by Tamagusuku Chokun in 1719 — very slow, sung in courtly Okinawan to the ryukyu scale on sanshin with kutu koto, kucho spike fiddle, fue flute and sparse taiko punctuation, in ryuka thirty-syllable verse form.",
-  "recipe": "classic East Asian early-1710s ryukyu koten ongaku, art Music, east Asian branch, east Asian funeral lament, string drone modal korean kok hurdy gurdy. vocal fry, breath veiled tone, slow rate, interlocked note trading. sanshin, stable tuning nylon tetron modern standard koto, extended range legato kokyu, ritual shinobue, taiko drum. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 489,
-  "score": 172.18,
+  "recipe": "classic East Asian early-1710s ryukyu koten ongaku, art Music, east Asian branch, east Asian funeral lament, string drone modal mo mường hurdy gurdy. thick, breath veiled tone, slow rate, interlocked note trading. sanshin, stable tuning nylon tetron modern standard koto, song accompaniment legato kokyu, narrative ritual shinobue, taiko drum. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 497,
+  "score": 173.593,
   "config": {
     "traditions": [
       "ryukyu_koten_ongaku",
-      "korean_kok",
+      "mo_muong",
       "hurdy_gurdy"
     ],
     "instruments": [
       {
         "id": "sanshin",
         "slots": {
-          "sanshin_kata": "sanshin_amami",
+          "sanshin_kata": "sanshin_makabi",
           "sanshin_repertoire": "sanshin_koten",
-          "sanshin_skin": "sanshin_python_hon_bari",
+          "sanshin_skin": "sanshin_kyoka_bari",
           "sanshin_plectrum": "sanshin_plastic_tsume"
         },
         "scores": {
-          "sanshin_kata": 0.24,
+          "sanshin_kata": 0.495,
           "sanshin_repertoire": 3.695,
-          "sanshin_skin": 0.12999999999999998,
+          "sanshin_skin": 0,
           "sanshin_plectrum": 0.195
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -43,28 +43,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.235,
-          "voice_quality": 12.154999999999992,
+          "voice_register": 1.1749999999999998,
+          "voice_quality": 16.184999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.275,
-          "voice_articulation": 10.919999999999996,
-          "voice_microtone": 13.06499999999999,
-          "voice_tradition": 18.595000000000002,
+          "voice_vibrato": 6.885,
+          "voice_articulation": 12.024999999999995,
+          "voice_microtone": 14.10499999999999,
+          "voice_tradition": 15.360000000000001,
           "voice_mechanism_compound": 5.55,
-          "voice_estill_quality": 8.075000000000001,
-          "voice_speech_song": 13.682499999999996,
-          "voice_ensemble_config": 10.854999999999995,
-          "voice_ornament_system": 9.894999999999998,
-          "voice_pitch_organization": 5.185,
-          "voice_processing_chain": 3.575,
-          "voice_multitrack_stack": 2.0799999999999996
+          "voice_estill_quality": 8.185,
+          "voice_speech_song": 14.592499999999994,
+          "voice_ensemble_config": 11.959999999999994,
+          "voice_ornament_system": 4.945,
+          "voice_pitch_organization": 5.035,
+          "voice_processing_chain": 7.735,
+          "voice_multitrack_stack": 2.5350000000000006
         }
       },
       {
@@ -81,7 +81,7 @@
           "plucked_traditional_technique": 5.345,
           "koto_strings": 2.045,
           "koto_picks": 2.6,
-          "koto_body_wood": 0.675,
+          "koto_body_wood": 0.3,
           "koto_strings_material": 1.04,
           "koto_bridge_material": 0.195
         }
@@ -92,15 +92,15 @@
           "bowed_technique": "bowed_legato_classical",
           "kokyu_form": "kokyu_mainland_square",
           "kokyu_skin": "kokyu_synthetic",
-          "kokyu_tuning": "kokyu_matayoshi_four",
-          "kokyu_context": "kokyu_sankyoku"
+          "kokyu_tuning": "kokyu_niagari_sansagari",
+          "kokyu_context": "kokyu_ryukyuan_classical"
         },
         "scores": {
-          "bowed_technique": 5.3,
+          "bowed_technique": 5.345,
           "kokyu_form": 0.7,
           "kokyu_skin": 0.375,
-          "kokyu_tuning": 3.607499999999999,
-          "kokyu_context": 7.75
+          "kokyu_tuning": 3.0250000000000004,
+          "kokyu_context": 7.635
         }
       },
       {
@@ -114,7 +114,7 @@
         "scores": {
           "shinobue_family": 1.4625,
           "shinobue_choshi": 0.975,
-          "shinobue_context": 7.619999999999999,
+          "shinobue_context": 4.42,
           "shinobue_bore": 0.4875
         }
       },
@@ -124,15 +124,15 @@
           "taiko_size": "taiko_o_daiko",
           "taiko_skin": "taiko_horsehide",
           "taiko_shell_wood": "taiko_keyaki_canonical",
-          "taiko_lineage": "taiko_kodo_sado",
-          "taiko_technique": "taiko_festival_matsuri"
+          "taiko_lineage": "taiko_oedo_sukeroku",
+          "taiko_technique": "taiko_kumi_daiko"
         },
         "scores": {
           "taiko_size": 0.74,
-          "taiko_skin": 0.7649999999999999,
-          "taiko_shell_wood": 0.585,
-          "taiko_lineage": 0.6749999999999999,
-          "taiko_technique": 0.81
+          "taiko_skin": 0.525,
+          "taiko_shell_wood": 0.39,
+          "taiko_lineage": 0.495,
+          "taiko_technique": 0.585
         }
       }
     ],

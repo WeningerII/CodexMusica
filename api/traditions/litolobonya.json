@@ -5,7 +5,7 @@
   "lineage": "Basotho women’s and girls’ litolobonya; group singing with sekupu tin drum and whistle cues.",
   "recipe": "classic modern litolobonya, domestic Rhythm, sub saharan African branch. group vocals. sekupu litolobonya, signal whistle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 202,
-  "score": 4.203,
+  "score": 4.34,
   "config": {
     "traditions": [
       "litolobonya"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.558,
+          "voice_ensemble_config": 1.5895000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -56,7 +56,7 @@
           "sekupu_litolobonya_form": "sekupu_litolobonya_documented"
         },
         "scores": {
-          "sekupu_litolobonya_form": 2.64875
+          "sekupu_litolobonya_form": 2.75375
         }
       },
       {

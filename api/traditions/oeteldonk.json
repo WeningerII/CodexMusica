@@ -5,7 +5,7 @@
   "lineage": "Oeteldonk music belongs to the carnival culture of ’s-Hertogenbosch, sustained by local clubs, song competitions and community celebrations. New carnival songs join familiar refrains in the Kwèkfestijn and a shared repertoire associated with the city’s festive identity.",
   "recipe": "classic oeteldonk, carnival Processional. trumpet, trombone, saxophone section alto tenor, baritone horn bb, tuba, drum kit. live tracking.",
   "recipe_chars": 139,
-  "score": 2.119,
+  "score": 2.468,
   "config": {
     "traditions": [
       "oeteldonk"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3075,
-          "voice_ensemble_config": 0.1215,
+          "voice_speech_song": 0.42,
+          "voice_ensemble_config": 0.168,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0225,
-          "voice_multitrack_stack": 0.0315,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -67,10 +67,10 @@
           "wind_articulation": -0.10500000000000001,
           "brass_size": 0,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0.0225,
+          "brass_mute": 0.0315,
           "trumpet_technique": -0.10500000000000001,
-          "trumpet_bell_metal": 0.363,
-          "trumpet_maker_school": 0.075
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.105
         }
       },
       {
@@ -86,12 +86,12 @@
         },
         "scores": {
           "wind_articulation": -0.10500000000000001,
-          "trombone_type": -0.035,
+          "trombone_type": -0.05,
           "trombone_mouthpiece": -0.1,
-          "trombone_mute": 0.0225,
-          "trombone_technique": 0.3765,
-          "trombone_bell_metal": 0.363,
-          "trombone_maker_school": 0.075
+          "trombone_mute": 0.0315,
+          "trombone_technique": 0.3315,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 0.105
         }
       },
       {
@@ -126,7 +126,7 @@
           "wind_articulation": -0.10500000000000001,
           "tuba_pitch": 0,
           "tuba_context": 0.39,
-          "tuba_bell_metal": 0.363,
+          "tuba_bell_metal": 0.39,
           "tuba_valve_system": 0,
           "tuba_maker_school": 0
         }
@@ -155,7 +155,7 @@
           "bearing_edges": 0,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": -0.12750000000000003,
+          "cymbal_hammering": -0.11850000000000002,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }

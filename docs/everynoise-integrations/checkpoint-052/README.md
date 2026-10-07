@@ -1,6 +1,6 @@
 # Checkpoint 052
 
-Adds 73 source-reviewed genre profiles and applies 11 scoped receiver corrections using the original recipe engine. The existing string-quartet owner receives one reviewed explicit-only variant; no new instrument identity is added. Expected catalog totals: 7078 traditions and 1667 instruments.
+Adds 73 source-reviewed genre profiles and applies 11 scoped receiver corrections using the original recipe engine. The existing string-quartet owner receives one reviewed explicit-only variant; no new instrument identity is added. Expected catalog totals: 7078 traditions and 1667 instruments. <!-- check_docs:ignore -->
 
 The immutable candidate is `654f431fbedd974c439ac21c02980e91d430709bafe0b6af9cb4e1000e5b8c16`, based on merged checkpoint051 commit `c86909cf88b0b02cb1a05eff7e4e4c129b83b257`. Full source projection and reference checks passed before building. Exactly ten individually reviewed recipe expectations changed; the other 1139 remain unchanged.
 

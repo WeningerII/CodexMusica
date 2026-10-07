@@ -3,14 +3,14 @@
   "name": "Haryanvi pop",
   "family": "pop",
   "lineage": "Haryanvi commercial song emerged from ragini and saang folk theatre of Haryana and western UP, went cassette-commercial in the 1990s, and became a national YouTube phenomenon after 2015 through Sapna Choudhary's stage-dance videos and the songwriting of Raju Punjabi, Vicky Kajla and MD-KD — the sound is a 120-150 BPM dholak-and-nagara pattern reinforced by programmed kick and clap, a blunt harmonium or square-synth riff, tumbi or shehnai colour, and a loud declamatory chest-voice delivery in Haryanvi over almost static harmony.",
-  "recipe": "classic mid-1990s haryanvi pop, functional Song, south Asian pop branch, south Asian wedding indian sangeet indian baraat. thick, breath veiled tone, slow rate, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, nagara vocal male straight harmonium indian, singing lead analog poly synth, dhol, behringer rd 8 modern clone analog circuit reproduction TR-808, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 691,
-  "score": 272.273,
+  "recipe": "classic mid-1990s haryanvi pop, functional Song, south Asian pop branch, south Asian wedding dhamail indian sangeet. thick, breath veiled tone, slow rate, interlocked note trading. dholak, nagara melodic straight harmonium indian, singing lead analog poly synth, dhol, TR-808, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 564,
+  "score": 232.174,
   "config": {
     "traditions": [
       "haryanvi_pop",
-      "indian_sangeet",
-      "indian_baraat"
+      "sylheti_dhamail",
+      "indian_sangeet"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.896499999999993,
-          "voice_quality": 7.865000000000001,
+          "voice_register": 14.896499999999993,
+          "voice_quality": 7.540000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2175000000000002,
-          "voice_articulation": 18.785,
-          "voice_microtone": 19.5325,
-          "voice_tradition": 23.63075,
-          "voice_mechanism_compound": 1.625,
-          "voice_estill_quality": 1.4299999999999997,
-          "voice_speech_song": 25.447499999999998,
-          "voice_ensemble_config": 20.215,
-          "voice_ornament_system": 10.905500000000002,
-          "voice_pitch_organization": 10.0365,
-          "voice_processing_chain": 10.885749999999998,
-          "voice_multitrack_stack": 7.8
+          "voice_articulation": 18.525000000000002,
+          "voice_microtone": 19.2725,
+          "voice_tradition": 18.5575,
+          "voice_mechanism_compound": 1.4300000000000002,
+          "voice_estill_quality": 2.0407499999999996,
+          "voice_speech_song": 25.8375,
+          "voice_ensemble_config": 19.955000000000002,
+          "voice_ornament_system": 8.744000000000002,
+          "voice_pitch_organization": 8.011500000000002,
+          "voice_processing_chain": 7.635750000000001,
+          "voice_multitrack_stack": 6.3375
         }
       },
       {
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.78,
-          "dholak_construction": 2.275,
-          "dholak_head": 1.69,
-          "dholak_tensioning": 1.69
+          "dholak_use": 0.585,
+          "dholak_construction": 1.4300000000000002,
+          "dholak_head": 0.845,
+          "dholak_tensioning": 0.845
         }
       },
       {
@@ -75,9 +75,9 @@
           "nagara_indian_context": "nagara_indian_shehnai"
         },
         "scores": {
-          "nagara_indian_size": 1.4949999999999999,
+          "nagara_indian_size": 2.145,
           "nagara_indian_shell": 0,
-          "nagara_indian_context": 1.3
+          "nagara_indian_context": 0.3
         }
       },
       {
@@ -89,10 +89,10 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 3.8857500000000007,
-          "harmonium_action": 1.17,
-          "harmonium_voicing": 1.17,
-          "harmonium_use": 1.2349999999999999
+          "free_reed_technique": 3.7050000000000005,
+          "harmonium_action": 0.975,
+          "harmonium_voicing": 0.975,
+          "harmonium_use": 1.0399999999999998
         }
       },
       {
@@ -104,10 +104,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 11.436624999999996,
+          "electronic_technique": 11.075125,
           "poly_archetypes": 0.16799999999999998,
           "poly_voices": 0,
-          "poly_maker_lineage": -1.33
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -118,9 +118,9 @@
           "dhol_shell": "dhol_fiberglass"
         },
         "scores": {
-          "dhol_form": 19.955000000000002,
-          "dhol_repertoire": 18.244999999999997,
-          "dhol_shell": 1.56
+          "dhol_form": 19.890000000000004,
+          "dhol_repertoire": 11.194999999999999,
+          "dhol_shell": 0.7149999999999999
         }
       },
       {
@@ -132,8 +132,8 @@
         },
         "scores": {
           "tr808_voice": 0.105,
-          "drum_machine_808_context": 5.135,
-          "tr808_production_origin": 1.69
+          "drum_machine_808_context": 3.445,
+          "tr808_production_origin": 0.845
         }
       },
       {
@@ -146,11 +146,11 @@
           "shehnai_lineage": "shehnai_bismillah_khan_banaras"
         },
         "scores": {
-          "shehnai_register": 6.11,
-          "shehnai_use": 9.62,
-          "shehnai_body_wood": 4.3549999999999995,
-          "shehnai_reed": 0.195,
-          "shehnai_lineage": 0.39
+          "shehnai_register": 3.38,
+          "shehnai_use": 5.59,
+          "shehnai_body_wood": 2.2749999999999995,
+          "shehnai_reed": 0.5594999999999999,
+          "shehnai_lineage": 0.195
         }
       }
     ],

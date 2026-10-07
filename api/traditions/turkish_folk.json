@@ -3,9 +3,9 @@
   "name": "Turkish Folk (Türk Halk Müziği)",
   "family": "global",
   "lineage": "Anatolian village repertoire codified for broadcast by the Ankara Radio and TRT collecting programmes from the 1930s under Muzaffer Sarısözen — long-metre free-rhythm uzun hava and metred kırık hava forms, aksak 9/8 and 5/8 dance metres, bağlama family lutes fretted to makam commas, outdoor davul-and-zurna pairing, and âşık bardic singing with heavy vibrato and glottal breaks.",
-  "recipe": "classic Middle Eastern mid-1930s turkish folk, drone Modal, string branch, heterophonic drone modal, med east poetic ballad poetry, middle eastern classical art music armenian folk music khaleeji-iraqi song. thick, breath veiled tone, slow rate, interlocked note trading. makam correct juniper bowl eastern anatolian asik wandering bardic saz baglama, ornamented makam correct microtonal bend cura sazi, divan saz, apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, davul, plum canonical bulgarian continuous-airflow legato kaval, mulberry canonical black sea legato kemence. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 894,
-  "score": 278.833,
+  "recipe": "classic Middle Eastern mid-1930s turkish folk, drone Modal, string branch, heterophonic drone modal, med east poetic ballad poetry, middle eastern classical art music armenian folk music khaleeji-iraqi song. thick, breath veiled tone, slow rate, interlocked note trading. makam correct juniper bowl eastern anatolian asik wandering bardic saz baglama, ornamented makam correct microtonal bend cura sazi, divan saz, apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, davul, cornel anatolian coban kavali premium continuous-airflow legato kaval, sustained legato kemence. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 888,
+  "score": 277.183,
   "config": {
     "traditions": [
       "turkish_folk",
@@ -27,9 +27,9 @@
           "plucked_traditional_technique": 12.5125,
           "saz_size": 1.4949999999999999,
           "saz_frets": 1.6,
-          "saz_body_wood": 3.7449999999999997,
+          "saz_body_wood": 3.5949999999999998,
           "saz_strings": 0,
-          "saz_tradition": 1.195
+          "saz_tradition": 1
         }
       },
       {
@@ -67,8 +67,8 @@
         },
         "scores": {
           "wind_articulation": -1.3877787807814457e-17,
-          "zurna_size": 2.54,
-          "zurna_context": 2.39,
+          "zurna_size": 2.645,
+          "zurna_context": 2.195,
           "zurna_body_wood": 2.535,
           "zurna_reed": 1.04
         }
@@ -92,13 +92,13 @@
           "wind_articulation": "wind_continuous_legato",
           "kaval_region": "kaval_turkish",
           "kaval_context": "kaval_art_music",
-          "kaval_body_wood": "kaval_plum_canonical"
+          "kaval_body_wood": "kaval_cornel"
         },
         "scores": {
           "wind_articulation": 4.37,
           "kaval_region": 2.495,
           "kaval_context": 0.195,
-          "kaval_body_wood": 1.4100000000000001
+          "kaval_body_wood": 1.1949999999999998
         }
       },
       {
@@ -116,7 +116,7 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
@@ -126,16 +126,16 @@
           "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.09,
+          "voice_vibrato": 6.775,
           "voice_articulation": 23.14,
           "voice_microtone": 40.3975,
-          "voice_tradition": 15.18,
+          "voice_tradition": 15.48,
           "voice_mechanism_compound": 9.43,
-          "voice_estill_quality": 6.8100000000000005,
+          "voice_estill_quality": 6.57,
           "voice_speech_song": 25.025,
           "voice_ensemble_config": 23.269999999999996,
-          "voice_ornament_system": 8.52,
-          "voice_pitch_organization": 9.115,
+          "voice_ornament_system": 8.34,
+          "voice_pitch_organization": 8.965,
           "voice_processing_chain": 4.55,
           "voice_multitrack_stack": 2.34
         }
@@ -146,14 +146,14 @@
           "bowed_technique": "bowed_legato_classical",
           "kemence_type": "classical_kemence",
           "kemence_context": "kemence_classical",
-          "kemence_body_wood": "kemence_mulberry",
+          "kemence_body_wood": "kemence_plum_walnut",
           "kemence_strings": "kemence_steel_modern"
         },
         "scores": {
-          "bowed_technique": 4.765000000000001,
+          "bowed_technique": 4.8100000000000005,
           "kemence_type": 2.47,
           "kemence_context": 5.59,
-          "kemence_body_wood": 1.4100000000000001,
+          "kemence_body_wood": 0.9500000000000001,
           "kemence_strings": -1.05
         }
       }

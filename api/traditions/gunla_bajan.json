@@ -1,0 +1,89 @@
+{
+  "id": "gunla_bajan",
+  "name": "Gunla bajan (Newar Buddhist processional music)",
+  "family": "global",
+  "lineage": "Processional music of Newar Buddhist music groups of Kathmandu and Patan, played during the holy month of Gunla on daily pilgrimages to Swayambhu and other stupas and monasteries. The two-headed dhaa drum leads, with the small taa and large bhusya cymbals, while trumpets and clarinets now play the tune once carried by the local mwahali shawm and basuri flute. The drum card stands in for the dhaa, the cymbals card for the taa and bhusya, and the horns card for the wind players.",
+  "recipe": "classic modern gunla bajan, ritual Devotional, buddhist branch. membrane drum pulse resonant acoustic membrane drum, credited cymbals, credited horns unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 5.861,
+  "config": {
+    "traditions": [
+      "gunla_bajan"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 2.9899999999999998,
+          "acoustic_membrane_drum_gesture": 2.9899999999999998
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      },
+      {
+        "id": "credited_horns_unspecified",
+        "slots": {
+          "credited_horns_identity": "credited_horns_source_unspecified"
+        },
+        "scores": {
+          "credited_horns_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ],
+      "credited_horns_unspecified": [
+        "credited_horns_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified",
+      "credited_horns_identity": "credited_horns_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

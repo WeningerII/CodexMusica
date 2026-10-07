@@ -1,0 +1,105 @@
+{
+  "id": "maguindanao_kutiyapi",
+  "name": "Kutiyapi (Maguindanao and Maranao boat-lute music)",
+  "family": "global",
+  "lineage": "Solo repertoire of the kutiyapi, the two-string fretted boat lute of the Maguindanao and Maranao of Mindanao, in which one string carries the melody while the other drones; it is played outside the kulintang gong ensemble, alongside other solo instruments such as the kubing jaw harp and the palendag bamboo flute. The bamboo flute card stands in for the palendag.",
+  "recipe": "classic modern kutiyapi, art Music, southeast Asian branch. kutiyapi, kubing, bamboo credited bamboo flute unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 199,
+  "score": 4.71,
+  "config": {
+    "traditions": [
+      "maguindanao_kutiyapi"
+    ],
+    "instruments": [
+      {
+        "id": "kutiyapi",
+        "slots": {
+          "kutiyapi_form": "kutiyapi_maguindanao",
+          "kutiyapi_strings": "dutar_strings_unspecified",
+          "kutiyapi_technique": "kutiyapi_drone_melody"
+        },
+        "scores": {
+          "kutiyapi_form": 0,
+          "kutiyapi_strings": 0,
+          "kutiyapi_technique": 0.39
+        }
+      },
+      {
+        "id": "kubing",
+        "slots": {
+          "kubing_form": "kubing_maguindanao",
+          "kubing_technique": "kubing_string_pull"
+        },
+        "scores": {
+          "kubing_form": 0.7364999999999999,
+          "kubing_technique": 0.4095
+        }
+      },
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 3.3244999999999996,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      }
+    ],
+    "pinned": {
+      "kutiyapi": [
+        "kutiyapi_form",
+        "kutiyapi_strings",
+        "kutiyapi_technique"
+      ],
+      "kubing": [
+        "kubing_form",
+        "kubing_technique"
+      ],
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "kutiyapi_form": "kutiyapi_maguindanao",
+      "kutiyapi_strings": "dutar_strings_unspecified",
+      "kutiyapi_technique": "kutiyapi_drone_melody",
+      "kubing_form": "kubing_maguindanao",
+      "kubing_technique": "kubing_string_pull",
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

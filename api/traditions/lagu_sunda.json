@@ -3,13 +3,13 @@
   "name": "Lagu Sunda (Pop Sunda)",
   "family": "global",
   "lineage": "Sundanese-language popular song of West Java that took commercial shape in the 1970s-80s cassette market of Bandung through Darso, Nining Meida, Doel Sumbang and Detty Kurnia, setting cianjuran-derived pelog vocal ornament and kacapi/suling colour over a moderate 4/4 pop rhythm section of electric bass, kit drums and cheap polyphonic synth, usually issued on locally duplicated cassettes at ballad to mid-tempo pace.",
-  "recipe": "classic Southeast Asian mid-1970s lagu sunda, functional Song, east Asian pop branch, southeast Asian art music, tropical song functional song burmese traditional song thai traditional. thick, breath veiled tone, slow rate, interlocked note trading. boat shaped kacapi, continuous-airflow legato suling, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, lively gamelan sundanese teak premium javanese court kendang indonesian. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
-  "recipe_chars": 748,
-  "score": 232.155,
+  "recipe": "classic Southeast Asian mid-1970s lagu sunda, functional Song, east Asian pop branch, southeast Asian art music, tropical song functional song sepha thai traditional. thick, breath veiled tone, slow rate, interlocked note trading. boat shaped kacapi, continuous-airflow legato suling, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, gamelan sundanese mahogany mid tier modern kendang indonesian. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 719,
+  "score": 240.995,
   "config": {
     "traditions": [
       "lagu_sunda",
-      "burmese_traditional",
+      "sepha_thai",
       "thai_traditional"
     ],
     "instruments": [
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 12.699999999999994,
-          "voice_quality": 9.945,
+          "voice_register": 11.774999999999993,
+          "voice_quality": 9.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.85,
-          "voice_articulation": 16.639999999999993,
-          "voice_microtone": 16.44499999999999,
-          "voice_tradition": 13.3575,
-          "voice_mechanism_compound": 3.3999999999999995,
-          "voice_estill_quality": 6.109999999999999,
-          "voice_speech_song": 23.139999999999997,
-          "voice_ensemble_config": 17.484999999999992,
-          "voice_ornament_system": 3.5150000000000006,
-          "voice_pitch_organization": 17.285,
-          "voice_processing_chain": 4.875,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_vibrato": 9.9125,
+          "voice_articulation": 13.714999999999996,
+          "voice_microtone": 13.519999999999992,
+          "voice_tradition": 16.12,
+          "voice_mechanism_compound": 6.5249999999999995,
+          "voice_estill_quality": 10.627499999999996,
+          "voice_speech_song": 19.174999999999997,
+          "voice_ensemble_config": 14.559999999999997,
+          "voice_ornament_system": 6.5249999999999995,
+          "voice_pitch_organization": 20.759999999999998,
+          "voice_processing_chain": 6.37,
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -71,14 +71,14 @@
         "id": "suling",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "suling_use": "suling_sundanese",
+          "suling_use": "suling_gamelan",
           "suling_tuning": "suling_pelog",
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 3.494999999999999,
-          "suling_use": 2.535,
-          "suling_tuning": 3.965,
+          "wind_articulation": 6.619999999999999,
+          "suling_use": 3.445,
+          "suling_tuning": 4.745,
           "suling_body_material": 0.195
         }
       },
@@ -97,11 +97,11 @@
         "scores": {
           "amp_make": 1.625,
           "body_wood": 1.3,
-          "pickup_config": 0.495,
+          "pickup_config": 0.195,
           "string_type": 3.5100000000000002,
           "scale_length_b": 1.3,
           "fretted_or_not": 0.345,
-          "bass_technique": -0.035,
+          "bass_technique": 0.585,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,7 +113,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16.054999999999996,
+          "drum_technique": 12.934999999999997,
           "drumhead": 11.19,
           "drum_kit_kick_pedal": 0
         }
@@ -136,15 +136,15 @@
       {
         "id": "kendang_indonesian",
         "slots": {
-          "kendang_size": "kendang_ciblon",
+          "kendang_size": "kendang_gendhing",
           "kendang_context": "kendang_sundanese",
-          "kendang_shell_wood": "kendang_teak",
+          "kendang_shell_wood": "kendang_mahogany",
           "kendang_head": "kendang_cowhide_alternative"
         },
         "scores": {
-          "kendang_size": 1.8449999999999998,
+          "kendang_size": 2.0849999999999995,
           "kendang_context": 1.69,
-          "kendang_shell_wood": 1.6899999999999997,
+          "kendang_shell_wood": 1.3,
           "kendang_head": 0.24
         }
       }

@@ -1,0 +1,180 @@
+{
+  "id": "gambang_kromong",
+  "name": "Gambang kromong (Betawi and Chinese-Indonesian ensemble)",
+  "family": "global",
+  "lineage": "Ensemble of the Betawi and Chinese-Indonesian (peranakan, Cina Benteng) communities of Jakarta and Tangerang, named for the gambang wooden xylophone (here the xylophone card) and the kromong row of small kettle gongs (here the bonang card). Chinese two-string fiddles (tehyan, kongahyan, sukong), suling (here the generic bamboo-flute card), kendang (here the generic hand-drum card), kecrek and gong complete it, playing an older Chinese-derived lagu dalem repertoire and the later lagu sayur songs for weddings and lenong theatre.",
+  "recipe": "classic modern gambang kromong, art Music, southeast Asian branch. xylophone, bonang, coconut shell densely ornamented high tuned popular kongahyan, bamboo credited bamboo flute hand drum source unspecified, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 300,
+  "score": 20.059,
+  "config": {
+    "traditions": [
+      "gambang_kromong"
+    ],
+    "instruments": [
+      {
+        "id": "xylophone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "xylophone_size": "xylophone_orch_35",
+          "xylophone_bar": "zhuihu_body_wood"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "xylophone_size": 0.12374999999999999,
+          "xylophone_bar": -0.07
+        }
+      },
+      {
+        "id": "bonang",
+        "slots": {
+          "bonang_tuning": "bonang_full_set",
+          "bonang_register": "bonang_barung"
+        },
+        "scores": {
+          "bonang_tuning": -0.035,
+          "bonang_register": 0
+        }
+      },
+      {
+        "id": "kongahyan",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kongahyan_resonator": "kongahyan_coconut_shell",
+          "kongahyan_register": "kongahyan_high_d",
+          "kongahyan_repertoire": "kongahyan_lagu_sayur",
+          "kongahyan_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "kongahyan_resonator": 5.32425,
+          "kongahyan_register": 6.75125,
+          "kongahyan_repertoire": 5.63025,
+          "kongahyan_strings": 0
+        }
+      },
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 1.69,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "hand_drum_source_unspecified",
+        "slots": {
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+        },
+        "scores": {
+          "hand_drum_structure_neutral": 0,
+          "hand_drum_material_neutral": 0,
+          "hand_drum_excitation_neutral": 0.47024999999999995,
+          "hand_drum_damping_neutral": 0,
+          "hand_drum_tension_neutral": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.40950000000000003,
+          "gong_striker": 0
+        }
+      }
+    ],
+    "pinned": {
+      "xylophone": [
+        "percussion_technique",
+        "xylophone_size",
+        "xylophone_bar"
+      ],
+      "bonang": [
+        "bonang_tuning",
+        "bonang_register"
+      ],
+      "kongahyan": [
+        "bowed_technique",
+        "kongahyan_resonator",
+        "kongahyan_register",
+        "kongahyan_repertoire",
+        "kongahyan_strings"
+      ],
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "hand_drum_source_unspecified": [
+        "hand_drum_structure_neutral",
+        "hand_drum_material_neutral",
+        "hand_drum_excitation_neutral",
+        "hand_drum_damping_neutral",
+        "hand_drum_tension_neutral"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "percussion_technique": "percussion_mallets_orchestral",
+      "xylophone_size": "xylophone_orch_35",
+      "xylophone_bar": "zhuihu_body_wood",
+      "bonang_tuning": "bonang_full_set",
+      "bonang_register": "bonang_barung",
+      "bowed_technique": "bowed_legato_classical",
+      "kongahyan_resonator": "kongahyan_coconut_shell",
+      "kongahyan_register": "kongahyan_high_d",
+      "kongahyan_repertoire": "kongahyan_lagu_sayur",
+      "kongahyan_strings": "dutar_strings_unspecified",
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+      "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+      "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+      "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+      "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

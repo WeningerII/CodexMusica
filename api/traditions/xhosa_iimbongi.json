@@ -3,14 +3,14 @@
   "name": "Xhosa iimbongi praise oratory",
   "family": "global",
   "lineage": "Praise-oratory of the imbongi (plural iimbongi), the Xhosa praise-poet of the Eastern Cape of South Africa, who delivers izibongo — improvised, high-energy declamatory praises of chiefs, ancestors and, in the modern era, political leaders — often clad in animal skins and carrying spears, appearing at installations, funerals and public gatherings. A living tradition documented by scholars such as Jeff Opland and embodied by figures like S.E.K. Mqhayi and, in the democratic era, the praise-poet at Nelson Mandela's 1994 inauguration. Delivery is rapid, loud, rhythmically-surging spoken praise, rich in metaphor and delivered in a single sustained breath-driven flow.",
-  "recipe": "classic Southern African mid-1990s xhosa iimbongi praise oratory, praise Song, sub saharan African branch arabic madh and qasida zulu izibongo. extended whistle, declaimed, slow rate, interlocked note trading. eastern cape outdoor grassland. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 304,
-  "score": 221.305,
+  "recipe": "classic Southern African mid-1990s xhosa iimbongi praise oratory, praise Song, sub saharan African branch arabic madh and qasida sufi munajat and naat. extended whistle, declaimed, slow rate, interlocked note trading. eastern cape outdoor grassland. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 238.672,
   "config": {
     "traditions": [
       "xhosa_iimbongi",
       "arabic_madh_qasida",
-      "zulu_izibongo"
+      "sufi_munajat_naat"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.8025,
-          "voice_quality": 42.36750000000002,
+          "voice_register": 2.4050000000000002,
+          "voice_quality": 46.79250000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.3375,
-          "voice_articulation": 13.844999999999995,
-          "voice_microtone": 23.042499999999993,
-          "voice_tradition": 40.4625,
-          "voice_mechanism_compound": 6.475,
-          "voice_estill_quality": 7.442499999999999,
-          "voice_speech_song": 25.707499999999996,
-          "voice_ensemble_config": 14.169999999999996,
-          "voice_ornament_system": 13.845,
-          "voice_pitch_organization": 12.149999999999999,
-          "voice_processing_chain": 8.0925,
-          "voice_multitrack_stack": 4.4525
+          "voice_vibrato": 7.7315000000000005,
+          "voice_articulation": 14.494999999999996,
+          "voice_microtone": 27.364999999999995,
+          "voice_tradition": 34.449999999999996,
+          "voice_mechanism_compound": 11.875,
+          "voice_estill_quality": 8.0275,
+          "voice_speech_song": 26.7475,
+          "voice_ensemble_config": 15.014999999999997,
+          "voice_ornament_system": 15.649999999999999,
+          "voice_pitch_organization": 15.649999999999999,
+          "voice_processing_chain": 8.84,
+          "voice_multitrack_stack": 4.939999999999999
         }
       }
     ],

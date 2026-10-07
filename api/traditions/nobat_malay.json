@@ -1,0 +1,135 @@
+{
+  "id": "nobat_malay",
+  "name": "Nobat (Malay royal court ensemble)",
+  "family": "classical",
+  "lineage": "Royal ceremonial ensemble of the Malay sultanates, held as regalia and played only for coronations, installations and other court rites; it survives in Kedah, Terengganu, Perak and Selangor and in Brunei. The core ensemble is the nehara kettledrum (a Persian-Indian naqareh card stands in), a pair of gendang nobat barrel drums, the serunai shawm and the long silver nafiri trumpet, with a gong in the Kedah ensemble.",
+  "recipe": "classic modern nobat, art Music, southeast Asian branch. nafiri trumpet, serunai shawm, gendang melayu, naqareh, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 205,
+  "score": 4.884,
+  "config": {
+    "traditions": [
+      "nobat_malay"
+    ],
+    "instruments": [
+      {
+        "id": "nafiri_trumpet",
+        "slots": {
+          "nafiri_form": "nafiri_straight",
+          "nafiri_style": "nafiri_ceremonial"
+        },
+        "scores": {
+          "nafiri_form": 0.1365,
+          "nafiri_style": 1.705
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_kelantan",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.33525,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "gendang_melayu",
+        "slots": {
+          "gendang_melayu_role": "gendang_melayu_ibu",
+          "gendang_melayu_stroke": "gendang_melayu_hands",
+          "gendang_melayu_head": "gendang_melayu_goat"
+        },
+        "scores": {
+          "gendang_melayu_role": 0.105,
+          "gendang_melayu_stroke": 0.1175,
+          "gendang_melayu_head": 0
+        }
+      },
+      {
+        "id": "naqareh",
+        "slots": {
+          "naqareh_size": "naqareh_small",
+          "naqareh_shell": "naqareh_metal"
+        },
+        "scores": {
+          "naqareh_size": 0,
+          "naqareh_shell": 0.3
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.40950000000000003,
+          "gong_striker": 0
+        }
+      }
+    ],
+    "pinned": {
+      "nafiri_trumpet": [
+        "nafiri_form",
+        "nafiri_style"
+      ],
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "gendang_melayu": [
+        "gendang_melayu_role",
+        "gendang_melayu_stroke",
+        "gendang_melayu_head"
+      ],
+      "naqareh": [
+        "naqareh_size",
+        "naqareh_shell"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "nafiri_form": "nafiri_straight",
+      "nafiri_style": "nafiri_ceremonial",
+      "serunai_form": "serunai_kelantan",
+      "serunai_bell": "serunai_bell_wood",
+      "gendang_melayu_role": "gendang_melayu_ibu",
+      "gendang_melayu_stroke": "gendang_melayu_hands",
+      "gendang_melayu_head": "gendang_melayu_goat",
+      "naqareh_size": "naqareh_small",
+      "naqareh_shell": "naqareh_metal",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

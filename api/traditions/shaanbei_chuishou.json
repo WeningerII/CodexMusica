@@ -1,0 +1,118 @@
+{
+  "id": "shaanbei_chuishou",
+  "name": "Shaanbei chuishou (northern Shaanxi shawm bands)",
+  "family": "global",
+  "lineage": "Occupational shawm bands (chuishou) of northern Shaanxi around Yulin and Suide, hired for weddings, funerals and temple fairs; historically low-status and often family-based musicians, they are documented in Stephen Jones's Ritual and Music of North China, volume 2. A band pairs an upper and a lower suona over drum, cymbals and small gong, and recent bands also take up popular tunes.",
+  "recipe": "classic modern shaanbei chuishou, wedding, east Asian branch. rosewood bodied copper belled suona, membrane drum pulse resonant acoustic membrane drum, naobo, crashing gong chau gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 270,
+  "score": 13.391,
+  "config": {
+    "traditions": [
+      "shaanbei_chuishou"
+    ],
+    "instruments": [
+      {
+        "id": "suona",
+        "slots": {
+          "suona_size": "suona_zhongyin",
+          "suona_context": "suona_guchui_band",
+          "suona_body": "suona_rosewood_copper"
+        },
+        "scores": {
+          "suona_size": 2.4871250000000003,
+          "suona_context": 2.620625,
+          "suona_body": 2.5
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 1.6336249999999999,
+          "acoustic_membrane_drum_gesture": 1.614875
+        }
+      },
+      {
+        "id": "naobo",
+        "slots": {
+          "naobo_type": "naobo_dabo",
+          "naobo_stroke": "naobo_open_clash"
+        },
+        "scores": {
+          "naobo_type": 0.145,
+          "naobo_stroke": 0.007499999999999999
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_chau",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 1.732,
+          "gong_striker": 0
+        }
+      }
+    ],
+    "pinned": {
+      "suona": [
+        "suona_size",
+        "suona_context",
+        "suona_body"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "naobo": [
+        "naobo_type",
+        "naobo_stroke"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "suona_size": "suona_zhongyin",
+      "suona_context": "suona_guchui_band",
+      "suona_body": "suona_rosewood_copper",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "naobo_type": "naobo_dabo",
+      "naobo_stroke": "naobo_open_clash",
+      "gong_type": "gong_chau",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

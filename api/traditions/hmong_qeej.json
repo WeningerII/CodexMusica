@@ -1,0 +1,89 @@
+{
+  "id": "hmong_qeej",
+  "name": "Qeej (Hmong funeral reed-pipe music)",
+  "family": "global",
+  "lineage": "Music of the qeej, the Hmong free-reed mouth organ of six bamboo pipes, played in the Hmong communities of Laos, Thailand and Vietnam and in the diaspora of the United States, France and Australia. Its melodies encode Hmong words through the tones of the language, so the player speaks ritual texts through the instrument; at funerals the qeej addresses the dead and guides the soul on its journey to the ancestors, played with the funeral drum, and it is also heard at New Year. The lusheng card in its qeej form stands in for the qeej, and a generic membrane-drum card for the funeral drum.",
+  "recipe": "classic modern qeej, ritual Devotional, indigenous branch, east Asian funeral lament, wind pipe drone modal kantaoming. qeej funeral ritual bronze reed bamboo lusheng, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 300,
+  "score": 29.325,
+  "config": {
+    "traditions": [
+      "hmong_qeej",
+      "khmer_kantaoming"
+    ],
+    "instruments": [
+      {
+        "id": "lusheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "lusheng_form": "lusheng_form_hmong_qeej",
+          "lusheng_performance": "lusheng_performance_qeej_ritual",
+          "lusheng_construction": "lusheng_construction_bronze_reed"
+        },
+        "scores": {
+          "free_reed_technique": -9.714451465470119e-18,
+          "lusheng_form": 5.640000000000001,
+          "lusheng_performance": 11.7,
+          "lusheng_construction": 3.5949999999999998
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 5.895,
+          "acoustic_membrane_drum_gesture": 4.745
+        }
+      }
+    ],
+    "pinned": {
+      "lusheng": [
+        "free_reed_technique",
+        "lusheng_form",
+        "lusheng_performance",
+        "lusheng_construction"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "free_reed_technique": "free_reed_folk_first_position",
+      "lusheng_form": "lusheng_form_hmong_qeej",
+      "lusheng_performance": "lusheng_performance_qeej_ritual",
+      "lusheng_construction": "lusheng_construction_bronze_reed",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Andean Quechua-and-Aymara spinning-and-weaving song tradition continuous from pre-Hispanic Andean-textile labor practice through Spanish-colonial-era continuous performance into modern Quechua-and-Aymara-speaking Andean-rural continuous practice across Bolivia, Peru, and Ecuador",
   "recipe": "classic Andean modern andean quechua-aymara spinning song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, European lullaby, andean field work andean huayno-de-trabajo música andina. vocal fry, forward-resonance, straight onset, interlocked note trading. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 369,
-  "score": 262.395,
+  "score": 261.9,
   "config": {
     "traditions": [
       "andean_quechua_spinning",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_parallel_thirds",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -41,14 +41,14 @@
           "voice_vibrato": 2.4050000000000002,
           "voice_articulation": 15.664999999999994,
           "voice_microtone": 16.31499999999999,
-          "voice_tradition": 61.114999999999995,
+          "voice_tradition": 60.724999999999994,
           "voice_mechanism_compound": 3.0549999999999997,
           "voice_estill_quality": 28.674999999999994,
           "voice_speech_song": 22.099999999999994,
           "voice_ensemble_config": 29.759999999999994,
           "voice_ornament_system": 39.724999999999994,
-          "voice_pitch_organization": 6.759999999999999,
-          "voice_processing_chain": 2.0549999999999997,
+          "voice_pitch_organization": 6.5649999999999995,
+          "voice_processing_chain": 2.145,
           "voice_multitrack_stack": 1.6249999999999998
         }
       }

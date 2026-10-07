@@ -1,0 +1,101 @@
+{
+  "id": "hewisi_temple_drumming",
+  "name": "Hewisi (Sri Lankan Buddhist temple drum offering)",
+  "family": "global",
+  "lineage": "Ceremonial drum offering (hewisi pooja) of Sinhala Buddhist temples, best known from the daily services at the Temple of the Tooth (Dalada Maligawa) in Kandy and from perahera processions. The ensemble joins the davula barrel drum, the tammattama pair of stick-struck drums and the horanewa double-reed oboe; a generic membrane-drum card stands in for the davula, the nagara card for the tammattama and the Nepali sahnai card for the horanewa.",
+  "recipe": "classic modern hewisi, ritual Devotional, buddhist branch. sahnai, membrane drum pulse resonant acoustic membrane drum, nagara indian. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 214,
+  "score": 12.429,
+  "config": {
+    "traditions": [
+      "hewisi_temple_drumming"
+    ],
+    "instruments": [
+      {
+        "id": "sahnai",
+        "slots": {
+          "sahnai_form": "sahnai_small",
+          "sahnai_style": "sahnai_procession"
+        },
+        "scores": {
+          "sahnai_form": 0,
+          "sahnai_style": 0.0315
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 6.387499999999999,
+          "acoustic_membrane_drum_gesture": 5.6605
+        }
+      },
+      {
+        "id": "nagara_indian",
+        "slots": {
+          "nagara_indian_size": "nagara_indian_folk",
+          "nagara_indian_shell": "nagara_indian_clay",
+          "nagara_indian_context": "nagara_indian_shehnai"
+        },
+        "scores": {
+          "nagara_indian_size": 0,
+          "nagara_indian_shell": 0,
+          "nagara_indian_context": 0
+        }
+      }
+    ],
+    "pinned": {
+      "sahnai": [
+        "sahnai_form",
+        "sahnai_style"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "nagara_indian": [
+        "nagara_indian_size",
+        "nagara_indian_shell",
+        "nagara_indian_context"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "sahnai_form": "sahnai_small",
+      "sahnai_style": "sahnai_procession",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "nagara_indian_size": "nagara_indian_folk",
+      "nagara_indian_shell": "nagara_indian_clay",
+      "nagara_indian_context": "nagara_indian_shehnai"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

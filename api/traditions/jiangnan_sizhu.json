@@ -1,0 +1,223 @@
+{
+  "id": "jiangnan_sizhu",
+  "name": "Jiangnan sizhu (Shanghai silk-and-bamboo ensemble)",
+  "family": "global",
+  "lineage": "Amateur chamber ensemble music of Shanghai and southern Jiangsu, cultivated since the late nineteenth century by music clubs meeting in teahouses and private rooms, and the subject of J. Lawrence Witzleben's study Silk and Bamboo Music in Shanghai. Its core repertoire, the 'eight great pieces' (ba da qu), is elaborated heterophonically by erhu, dizi or xiao, pipa, sanxian, yangqin and qinqin, with a small drum and clapper marking time.",
+  "recipe": "classic East Asian modern jiangnan sizhu, art Music, east Asian branch. python skin snake skin bamboo silk bamboo stick erhu, bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical dizi, purple bamboo phyllostachys canonical literati premium xiao, pipa, sanxian, traditional bamboo yangqin, paiban. chinese traditional teahouse. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 443,
+  "score": 45.597,
+  "config": {
+    "traditions": [
+      "jiangnan_sizhu"
+    ],
+    "instruments": [
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_jiangnan",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "dutar_strings_unspecified",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "erhu_skin": 1.176,
+          "erhu_use": 9.49,
+          "erhu_body_wood": -0.035,
+          "erhu_strings": 0,
+          "erhu_bow": 2.9899999999999998
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_with_membrane",
+          "dizi_pitch": "dizi_f",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_qudi_southern"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "dizi_membrane": 0.03599999999999999,
+          "dizi_pitch": 0.063,
+          "dizi_body_material": 4.29,
+          "dizi_regional_style": 2.6
+        }
+      },
+      {
+        "id": "xiao",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "xiao_pitch": "xiao_f",
+          "xiao_context": "xiao_chamber",
+          "xiao_body_material": "xiao_purple_bamboo"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "xiao_pitch": 1.1655000000000002,
+          "xiao_context": 17.68,
+          "xiao_body_material": 2.9899999999999998
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "dutar_strings_unspecified",
+          "pipa_pick": "pipa_fingerpicks",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "pipa_frets": 0.231,
+          "pipa_strings": 0,
+          "pipa_pick": 0,
+          "pipa_body_wood": -0.035
+        }
+      },
+      {
+        "id": "sanxian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sanxian_size": "sanxian_da",
+          "sanxian_context": "sanxian_shuochang",
+          "sanxian_head": "sanxian_python_skin",
+          "sanxian_strings": "dutar_strings_unspecified",
+          "sanxian_body_wood": "sanxian_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "sanxian_size": 0.105,
+          "sanxian_context": 0.126,
+          "sanxian_head": -0.035,
+          "sanxian_strings": 0,
+          "sanxian_body_wood": -0.05
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_traditional_smaller",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 0.2145,
+          "yangqin_technique": 2.9899999999999998
+        }
+      },
+      {
+        "id": "paiban",
+        "slots": {
+          "paiban_form": "paiban_three_slab"
+        },
+        "scores": {
+          "paiban_form": 0
+        }
+      }
+    ],
+    "pinned": {
+      "erhu": [
+        "bowed_technique",
+        "erhu_skin",
+        "erhu_use",
+        "erhu_body_wood",
+        "erhu_strings",
+        "erhu_bow"
+      ],
+      "dizi": [
+        "wind_articulation",
+        "dizi_membrane",
+        "dizi_pitch",
+        "dizi_body_material",
+        "dizi_regional_style"
+      ],
+      "xiao": [
+        "wind_articulation",
+        "xiao_pitch",
+        "xiao_context",
+        "xiao_body_material"
+      ],
+      "pipa": [
+        "plucked_traditional_technique",
+        "pipa_frets",
+        "pipa_strings",
+        "pipa_pick",
+        "pipa_body_wood"
+      ],
+      "sanxian": [
+        "plucked_traditional_technique",
+        "sanxian_size",
+        "sanxian_context",
+        "sanxian_head",
+        "sanxian_strings",
+        "sanxian_body_wood"
+      ],
+      "yangqin": [
+        "yangqin_courses",
+        "yangqin_technique"
+      ],
+      "paiban": [
+        "paiban_form"
+      ]
+    },
+    "room": "chinese_traditional_teahouse",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "chinese_traditional_teahouse",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "erhu_skin": "erhu_python",
+      "erhu_use": "erhu_jiangnan",
+      "erhu_body_wood": "erhu_red_sandalwood",
+      "erhu_strings": "dutar_strings_unspecified",
+      "erhu_bow": "erhu_bamboo_horsehair",
+      "wind_articulation": "wind_continuous_legato",
+      "dizi_membrane": "dizi_with_membrane",
+      "dizi_pitch": "dizi_f",
+      "dizi_body_material": "dizi_bitter_bamboo",
+      "dizi_regional_style": "dizi_qudi_southern",
+      "xiao_pitch": "xiao_f",
+      "xiao_context": "xiao_chamber",
+      "xiao_body_material": "xiao_purple_bamboo",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "pipa_frets": "pipa_modern_frets",
+      "pipa_strings": "dutar_strings_unspecified",
+      "pipa_pick": "pipa_fingerpicks",
+      "pipa_body_wood": "pipa_red_sandalwood",
+      "sanxian_size": "sanxian_da",
+      "sanxian_context": "sanxian_shuochang",
+      "sanxian_head": "sanxian_python_skin",
+      "sanxian_strings": "dutar_strings_unspecified",
+      "sanxian_body_wood": "sanxian_red_sandalwood",
+      "yangqin_courses": "yangqin_traditional_smaller",
+      "yangqin_technique": "yangqin_bamboo_mallets",
+      "paiban_form": "paiban_three_slab"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

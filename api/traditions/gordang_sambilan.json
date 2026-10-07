@@ -1,0 +1,127 @@
+{
+  "id": "gordang_sambilan",
+  "name": "Gordang sambilan (Mandailing nine-drum ensemble)",
+  "family": "global",
+  "lineage": "Ceremonial ensemble of the Mandailing of southern North Sumatra, once reserved for the great feasts (horja) of the ruling families and now also played at weddings and festivals; its name means 'nine drums'. Nine long drums of graduated size (the generic membrane-drum card stands in), shared among several players beating with sticks, sound with two large ogung gongs and a smaller doal, small mongmongan gongs (the canang card stands in), a pair of small tali sasayak cymbals and a sarune shawm.",
+  "recipe": "classic modern gordang sambilan, groove Percussion, east Asian branch. membrane drum pulse resonant acoustic membrane drum, gong tamtam, canang kettle gong, credited cymbals, serunai shawm. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 269,
+  "score": 8.018,
+  "config": {
+    "traditions": [
+      "gordang_sambilan"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.9,
+          "acoustic_membrane_drum_gesture": 2.6
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.5774999999999999,
+          "gong_striker": 0.12999999999999998
+        }
+      },
+      {
+        "id": "canang_kettle_gong",
+        "slots": {
+          "canang_form": "canang_malay_pair",
+          "canang_beater": "canang_padded"
+        },
+        "scores": {
+          "canang_form": 0.0705,
+          "canang_beater": 0
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_kelantan",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.39,
+          "serunai_bell": 0
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "canang_kettle_gong": [
+        "canang_form",
+        "canang_beater"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ],
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "canang_form": "canang_malay_pair",
+      "canang_beater": "canang_padded",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified",
+      "serunai_form": "serunai_kelantan",
+      "serunai_bell": "serunai_bell_wood"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Byzantine chant",
   "family": "classical",
   "lineage": "Greek Orthodox liturgical chant tradition continuing in unbroken practice since the 9th-century codification at the Byzantine court of Constantinople, governed by the eight-mode oktoechos modal system and performed as ison-drone-with-melismatic-chanter (psaltis) across the liturgical year in Orthodox cathedrals, monasteries (Mount Athos, Meteora), and parish churches",
-  "recipe": "classic Southern European early-1950s byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal armenian duduk-accompanied chant alpine yodeling. thick, breath veiled tone, slow rate, interlocked note trading. byzantine monastery chant athos. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 338,
-  "score": 222.485,
+  "recipe": "classic Southern European early-1950s byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal paiwan nose flute and drone song armenian duduk-accompanied chant. thick, breath veiled tone, slow rate, interlocked note trading. byzantine monastery chant athos. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 355,
+  "score": 206.67,
   "config": {
     "traditions": [
       "byzantine_chant",
-      "armenian_duduk_chant",
-      "alpine_yodeling"
+      "paiwan_nose_flute_song",
+      "armenian_duduk_chant"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.240000000000002,
-          "voice_quality": 26.389999999999997,
+          "voice_register": 6.390000000000001,
+          "voice_quality": 28.47,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.490000000000001,
-          "voice_articulation": 20.085,
-          "voice_microtone": 32.7925,
-          "voice_tradition": 30.3875,
-          "voice_mechanism_compound": 12.870000000000001,
-          "voice_estill_quality": 10.025,
-          "voice_speech_song": 22.164999999999996,
-          "voice_ensemble_config": 21.059999999999995,
+          "voice_vibrato": 6.19,
+          "voice_articulation": 18.069999999999997,
+          "voice_microtone": 29.28249999999999,
+          "voice_tradition": 29.7375,
+          "voice_mechanism_compound": 14.17,
+          "voice_estill_quality": 9.4575,
+          "voice_speech_song": 19.239999999999995,
+          "voice_ensemble_config": 16.705,
           "voice_ornament_system": 6.505000000000001,
-          "voice_pitch_organization": 9.977500000000001,
-          "voice_processing_chain": 6.5,
-          "voice_multitrack_stack": 8.709999999999999
+          "voice_pitch_organization": 8.125,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 7.865
         }
       }
     ],

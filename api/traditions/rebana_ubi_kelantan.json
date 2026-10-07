@@ -1,0 +1,63 @@
+{
+  "id": "rebana_ubi_kelantan",
+  "name": "Rebana ubi (Kelantan giant-drum ensemble)",
+  "family": "global",
+  "lineage": "Kelantanese ensemble of rebana ubi, very large single-headed drums with hide heads laced and wedged to the body, once used for signalling and now played by village teams at harvest celebrations, official welcomes and inter-village competitions. Teams of drummers combine distinct rhythmic parts into interlocking patterns.",
+  "recipe": "classic modern rebana ubi, groove Percussion, east Asian branch. interlocking rebana ubi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 169,
+  "score": 2.62,
+  "config": {
+    "traditions": [
+      "rebana_ubi_kelantan"
+    ],
+    "instruments": [
+      {
+        "id": "rebana_ubi",
+        "slots": {
+          "rebana_ubi_size": "rebana_ubi_giant",
+          "rebana_ubi_style": "rebana_ubi_ensemble"
+        },
+        "scores": {
+          "rebana_ubi_size": 1.0859999999999999,
+          "rebana_ubi_style": 1.534
+        }
+      }
+    ],
+    "pinned": {
+      "rebana_ubi": [
+        "rebana_ubi_size",
+        "rebana_ubi_style"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "rebana_ubi_size": "rebana_ubi_giant",
+      "rebana_ubi_style": "rebana_ubi_ensemble"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

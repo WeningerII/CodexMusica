@@ -5,7 +5,7 @@
   "lineage": "Chewa single-string fiddle playing documented in central and southern Malawi. This entry selects an instrumental solo configuration.",
   "recipe": "classic modern kaligo playing, drone Modal, string branch. single string drum resonator kaligo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 5.547,
+  "score": 5.537,
   "config": {
     "traditions": [
       "kaligo_playing"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "kaligo_build": 5.329999999999999,
-          "bowed_technique": 0.36664285714285716
+          "bowed_technique": 0.357
         }
       }
     ],

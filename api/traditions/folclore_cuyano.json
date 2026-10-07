@@ -3,20 +3,20 @@
   "name": "Folclore cuyano",
   "family": "global",
   "lineage": "Guitar-duo tradition of the Cuyo region — Mendoza, San Juan and San Luis — codified in the 1920s-40s by Hilario Cuadros and Los Trovadores de Cuyo and by Buenaventura Luna, whose repertoire is the tonada cuyana sung as a serenade in slow 6/8 with an instrumental estribillo, and the cueca cuyana in brisk 6/8 danced with handkerchiefs, both scored for two guitars in punteo-and-rasguido interplay with two voices in close parallel thirds and no percussion.",
-  "recipe": "classic mid-1920s folclore cuyano, ballad Poetry, Latin am troubadour branch, iberian functional song, americas wedding andean matrimonio huayno basque kantautor. thick, breath veiled tone, straight note core, interlocked note trading. cedar pre 1940 period gut fingerpicked classical nylon-string fingerpicked parlor acoustic guitar, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 509,
-  "score": 172.817,
+  "recipe": "classic mid-1920s folclore cuyano, ballad Poetry, Latin am troubadour branch, iberian functional song, americas wedding andean matrimonio huayno sarswela. kargyraa, breath veiled tone, straight note core, interlocked note trading. cedar pre 1940 period gut classical nylon-string parlor acoustic guitar, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 478,
+  "score": 172.1,
   "config": {
     "traditions": [
       "folclore_cuyano",
       "andean_matrimonio_huayno",
-      "basque_kantautor"
+      "sarswela_filipino"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "kargyraa_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 2.1799999999999997,
-          "voice_quality": 14.754999999999992,
+          "voice_register": 2.1500000000000004,
+          "voice_quality": 14.819999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9400000000000004,
-          "voice_articulation": 17.224999999999998,
-          "voice_microtone": 15.534999999999995,
-          "voice_tradition": 16.949999999999996,
-          "voice_mechanism_compound": 5.785,
+          "voice_vibrato": 3.74,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 16.249999999999993,
+          "voice_tradition": 16.799999999999997,
+          "voice_mechanism_compound": 5.135,
           "voice_estill_quality": 8.04,
-          "voice_speech_song": 18.459999999999994,
-          "voice_ensemble_config": 15.924999999999995,
-          "voice_ornament_system": 11.349999999999998,
-          "voice_pitch_organization": 3.8675000000000006,
-          "voice_processing_chain": 4.159999999999999,
-          "voice_multitrack_stack": 3.5100000000000002
+          "voice_speech_song": 18.524999999999995,
+          "voice_ensemble_config": 15.989999999999995,
+          "voice_ornament_system": 10.849999999999998,
+          "voice_pitch_organization": 4.517500000000001,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 1.3
         }
       },
       {
@@ -63,9 +63,9 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 4.6450000000000005,
+          "acoustic_technique": 2.62,
           "string_tuning": 0,
-          "top_wood_classical": 7.494999999999999,
+          "top_wood_classical": 9.145,
           "bracing_classical": 0.44999999999999996,
           "string_classical": 1.645,
           "attack_technique_cl": 1.065
@@ -81,7 +81,7 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 4.6450000000000005,
+          "acoustic_technique": 2.62,
           "string_tuning": 0,
           "top_wood_parlor": 0.435,
           "back_sides_parlor": 0,
@@ -103,10 +103,10 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.5499999999999998,
-          "orch_strings": 0.5399999999999999,
-          "orch_top_wood": 2.45,
-          "orch_back_wood": 2.9349999999999996,
+          "bowed_technique": 1.8499999999999999,
+          "orch_strings": 0.39,
+          "orch_top_wood": 2.3,
+          "orch_back_wood": 2.5025,
           "orch_varnish": 1.955,
           "orch_setup_period": 3.295,
           "orch_bow": 1.8850000000000002,

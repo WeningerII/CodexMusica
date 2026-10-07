@@ -6,6 +6,35 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — Geographic gap fill, batch 1: 360 traditions from the five worst-covered regions
+
+The geographic attribution audit's verified gap list is being added region by region,
+worst-covered first. This batch covers:
+
+- Maritime Southeast Asia: 115
+- China, Hong Kong, Macao and Taiwan: 102
+- Mainland Southeast Asia: 57
+- Pakistan, Bangladesh, Nepal, Sri Lanka, Bhutan and Maldives: 45
+- Central Africa and Angola: 41
+
+How the entries were made and checked:
+
+- **Sources and instruments.** Each entry was authored from its candidate's recording
+  evidence using existing instrument cards. 185 lineages name a stand-in card.
+- **Review.** An independent reviewer checked facts, duplicates, instruments, pins and
+  rendered wording.
+- **Pinned parts and signatures.** Every entry carries pinned, mostly
+  source-unspecified part settings and a sound-word-only signature.
+- **Wording sweep.** A final render sweep retuned 22 entries whose automatic preface
+  named an unrelated culture.
+- **Excluded candidates.** Two were merged into siblings and one was dropped as
+  unverifiable. All three are recorded in the ledger.
+
+The ledger is `docs/geographic-gap-fill.json` and the write-up is
+`docs/geographic-gap-fill.md`. `scripts/check_gap_fill.js` joins `npm run test:geography`
+and checks every row: anchor, pinned parts, seed/search survival, and browser/connector
+parity in all four formats. Catalog totals: 7438 traditions and 1667 instruments. <!-- check_docs:ignore -->
+
 ### Changed — Atlas: 263 misattributed pins moved to where their traditions are
 
 The geographic attribution audit (`docs/geographic-attribution-audit.md`) confirmed

@@ -5,7 +5,7 @@
   "lineage": "Village song repertoire of the Bhojpuri-speaking belt of eastern Uttar Pradesh and western Bihar, documented from the nineteenth century and carried into print and recording by Bhikhari Thakur's Launda Nach theatre from the 1920s — seasonal and life-cycle cycles (kajri, chaita, sohar, vivah geet, birha, purbi) sung mostly by women in unison or by a male birha soloist, over dholak and naal with harmonium drone and manjira, in short strophic cycles at moderate walking tempo with nasal, high-tessitura, heavily portamento-laden delivery.",
   "recipe": "classic mid-1920s bhojpuri lok geet, domestic Rhythm, south Asian branch, south Asian field work, south Asian wedding, south Asian pop functional song punjabi folk indian folk. thick, breath veiled tone, slow rate, interlocked note trading. dholak, vocal male straight harmonium indian, naal drum, indian rosewood rosewood clay tabla. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 426,
-  "score": 220.659,
+  "score": 216.339,
   "config": {
     "traditions": [
       "bhojpuri_lok_geet",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 9.398750000000001,
+          "voice_register": 9.203750000000003,
           "voice_quality": 10.01,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2824999999999993,
+          "voice_vibrato": 3.244999999999999,
           "voice_articulation": 22.035,
           "voice_microtone": 21.449999999999996,
-          "voice_tradition": 26.195000000000004,
+          "voice_tradition": 25.137500000000003,
           "voice_mechanism_compound": 5.135,
           "voice_estill_quality": 6.24,
           "voice_speech_song": 29.185,
           "voice_ensemble_config": 22.814999999999998,
-          "voice_ornament_system": 14.015000000000002,
-          "voice_pitch_organization": 13.295625000000001,
+          "voice_ornament_system": 13.640000000000002,
+          "voice_pitch_organization": 13.100625,
           "voice_processing_chain": 6.629999999999999,
-          "voice_multitrack_stack": 2.41
+          "voice_multitrack_stack": 2.62
         }
       },
       {
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 1.005,
+          "dholak_use": 0.135,
           "dholak_construction": 2.145,
-          "dholak_head": 0.78,
-          "dholak_tensioning": 0.78
+          "dholak_head": 0.24,
+          "dholak_tensioning": 0.24
         }
       },
       {
@@ -76,7 +76,7 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 5.630000000000001,
+          "free_reed_technique": 4.91,
           "harmonium_action": 0.65,
           "harmonium_voicing": 2.275,
           "harmonium_use": 1.625

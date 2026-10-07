@@ -3,9 +3,9 @@
   "name": "Hiragasy (Malagasy highland performance)",
   "family": "global",
   "lineage": "Malagasy highland performance combining song, oratory and dance. The selected troupe configuration uses singers, violins, trumpets and drums.",
-  "recipe": "classic modern hiragasy, functional Song. malagasy, group vocals. melodic bowed song accompaniment fiddle, trumpet, hiragasy drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 211,
-  "score": 6.774,
+  "recipe": "classic modern hiragasy, functional Song. malagasy. melodic bowed song accompaniment fiddle, trumpet, hiragasy drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 197,
+  "score": 6.712,
   "config": {
     "traditions": [
       "hiragasy"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.546,
+          "voice_ensemble_config": 0.48375,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

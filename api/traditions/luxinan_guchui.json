@@ -1,0 +1,143 @@
+{
+  "id": "luxinan_guchui",
+  "name": "Luxinan guchui (south-west Shandong drum-and-shawm)",
+  "family": "global",
+  "lineage": "Drum-and-shawm music of south-western Shandong, centred on Heze and Jiaxiang, played by family bands for weddings, funerals and festivals and listed as national intangible heritage in 2006. Its suona playing is full of imitation, of birdsong and of the voices of local opera singers (kaqiang), over sheng, drum, gongs and cymbals; Ren Tongxiang of Jiaxiang carried the style to national stages from the 1950s.",
+  "recipe": "classic mid-1950s luxinan guchui, carnival Processional, east Asian branch. suona, bamboo pipes copper brass free reeds canonical Chinese sheng, membrane drum pulse resonant acoustic membrane drum, naobo, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 297,
+  "score": 14.362,
+  "config": {
+    "traditions": [
+      "luxinan_guchui"
+    ],
+    "instruments": [
+      {
+        "id": "suona",
+        "slots": {
+          "suona_size": "suona_zhongyin",
+          "suona_context": "suona_guchui_band",
+          "suona_body": "suona_rosewood_copper"
+        },
+        "scores": {
+          "suona_size": -0.1,
+          "suona_context": 1.8199999999999998,
+          "suona_body": -0.05
+        }
+      },
+      {
+        "id": "sheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "sheng_size": "sheng_traditional_17",
+          "sheng_context": "sheng_court",
+          "sheng_pipe_material": "sheng_bamboo_canonical"
+        },
+        "scores": {
+          "free_reed_technique": -0.15000000000000002,
+          "sheng_size": 0,
+          "sheng_context": 0.27749999999999997,
+          "sheng_pipe_material": 2.1734999999999998
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.29,
+          "acoustic_membrane_drum_gesture": 4.29
+        }
+      },
+      {
+        "id": "naobo",
+        "slots": {
+          "naobo_type": "naobo_dabo",
+          "naobo_stroke": "naobo_open_clash"
+        },
+        "scores": {
+          "naobo_type": 0.2085,
+          "naobo_stroke": 0.0315
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_chau",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.39,
+          "gong_striker": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "suona": [
+        "suona_size",
+        "suona_context",
+        "suona_body"
+      ],
+      "sheng": [
+        "free_reed_technique",
+        "sheng_size",
+        "sheng_context",
+        "sheng_pipe_material"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "naobo": [
+        "naobo_type",
+        "naobo_stroke"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "suona_size": "suona_zhongyin",
+      "suona_context": "suona_guchui_band",
+      "suona_body": "suona_rosewood_copper",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "sheng_size": "sheng_traditional_17",
+      "sheng_context": "sheng_court",
+      "sheng_pipe_material": "sheng_bamboo_canonical",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "naobo_type": "naobo_dabo",
+      "naobo_stroke": "naobo_open_clash",
+      "gong_type": "gong_chau",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

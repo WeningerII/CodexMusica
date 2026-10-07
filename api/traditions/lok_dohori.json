@@ -5,7 +5,7 @@
   "lineage": "Nepali competitive improvised duet song, rooted in village courtship exchanges of the hill districts and commercialized through Radio Nepal and the 1980s-90s cassette industry, in which male and female singers trade extemporized rhyming couplets in a fixed melodic frame over a driving madal ostinato at roughly 100-130 BPM with sarangi, bansuri and later harmonium and keyboard filling the responses.",
   "recipe": "classic South Asian mid-1980s lok dohori, ballad Poetry, indian bard branch, south Asian domestic rhythm, south Asian pop functional song chutney bhojpuri lok geet. thick, breath veiled tone, straight note core, interlocked note trading. dance driving slung madal, four string nepali sarangi, kerala bamboo alternative south indian foundational concert bansuri melodic bansuri, vocal male straight harmonium indian, tungna. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 642,
-  "score": 214.465,
+  "score": 213.19,
   "config": {
     "traditions": [
       "lok_dohori",
@@ -46,8 +46,8 @@
           "voice_estill_quality": 4.745,
           "voice_speech_song": 25.284999999999993,
           "voice_ensemble_config": 18.524999999999995,
-          "voice_ornament_system": 7.860000000000001,
-          "voice_pitch_organization": 8.465,
+          "voice_ornament_system": 7.470000000000001,
+          "voice_pitch_organization": 8.27,
           "voice_processing_chain": 3.38,
           "voice_multitrack_stack": 4.355
         }
@@ -61,7 +61,7 @@
           "madal_shell": "madal_shell_hardwood"
         },
         "scores": {
-          "madal_role": 8.934999999999999,
+          "madal_role": 9.324999999999998,
           "madal_posture": 4.125,
           "madal_paste": 0.54,
           "madal_shell": -0.1
@@ -92,7 +92,7 @@
           "bansuri_lineage": "bansuri_pannalal_ghosh"
         },
         "scores": {
-          "wind_articulation": 5.41,
+          "wind_articulation": 4.87,
           "bansuri_length": 3.5899999999999994,
           "bansuri_ornament": 1.3324999999999998,
           "bansuri_body_material": 7.930000000000001,
@@ -108,7 +108,7 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 5.36,
+          "free_reed_technique": 4.82,
           "harmonium_action": 0.845,
           "harmonium_voicing": 3.38,
           "harmonium_use": 1.04

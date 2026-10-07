@@ -5,7 +5,7 @@
   "lineage": "Percussive virtuoso shamisen style of the Tsugaru plain in Aomori, northern Honshu, developed from the 1870s by itinerant blind bosama beggar-musicians — Nitabo (Akimoto Nitaro) is the traditional founder — using the heavy futozao thick-necked instrument with a thick-skinned body struck rather than plucked by a large bachi, built on the fast triplet-driven Jongara-bushi, Yosare-bushi and Aiya-bushi tune families with extended improvised maebiki preludes and rough, forced min'yo vocal delivery.",
   "recipe": "classic East Asian mid-1870s tsugaru-jamisen, improv On Frame, string improv branch, east Asian field work, east Asian pop functional song enka korean nongak. thick, breath veiled tone, straight note core, interlocked note trading. dog skin acrylic mulberry kuwa mid tier traditional nylon shamisen, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk outdoor traditional taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi, song accompaniment synthetic resin shinobue. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 724,
-  "score": 275.95,
+  "score": 273.315,
   "config": {
     "traditions": [
       "shamisen_tsugaru",
@@ -50,7 +50,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
@@ -59,17 +59,17 @@
           "voice_quality": 15.339999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.055000000000001,
+          "voice_vibrato": 3.7700000000000005,
           "voice_articulation": 16.055,
           "voice_microtone": 16.509999999999998,
-          "voice_tradition": 36.605,
+          "voice_tradition": 35.585,
           "voice_mechanism_compound": 5.004999999999999,
           "voice_estill_quality": 5.915,
           "voice_speech_song": 21.255000000000003,
           "voice_ensemble_config": 16.64,
           "voice_ornament_system": 12.965,
-          "voice_pitch_organization": 3.285,
-          "voice_processing_chain": 5.490000000000001,
+          "voice_pitch_organization": 3.1849999999999996,
+          "voice_processing_chain": 5.250000000000001,
           "voice_multitrack_stack": 6.2725
         }
       },
@@ -116,9 +116,9 @@
           "shinobue_bore": "shinobue_bore_resin"
         },
         "scores": {
-          "shinobue_family": 10.024999999999999,
-          "shinobue_choshi": 7.424999999999999,
-          "shinobue_context": 17.684999999999995,
+          "shinobue_family": 9.739999999999998,
+          "shinobue_choshi": 7.139999999999999,
+          "shinobue_context": 17.264999999999997,
           "shinobue_bore": 2.1125
         }
       }

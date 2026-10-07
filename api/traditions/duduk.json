@@ -5,7 +5,7 @@
   "lineage": "Armenian double-reed tradition centered on the apricot-wood duduk, formalized in the twentieth century by Vache Hovsepyan, Levon Madoyan and Djivan Gasparyan at the Yerevan conservatory, in which a lead player spins slow rubato modal laments and dance tunes over a second duduk sustaining an unbroken circular-breathed dam drone, with dense finger-slide ornament, breathy subtone attacks and a narrow one-and-a-half-octave nasal-warm range.",
   "recipe": "classic Eastern European early-1940s duduk, drone Modal, wind pipe branch, middle eastern funeral lament, heterophonic drone modal armenian folk music mongolian long-song. sygyt, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley canonical 20th century armenian drone like circular breathing duduk, mid register dance driving shvi, dhol, four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory kamancha. yerevan armenian komitas studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 709,
-  "score": 267.953,
+  "score": 268.033,
   "config": {
     "traditions": [
       "duduk",
@@ -24,7 +24,7 @@
           "duduk_lineage": "duduk_djivan_gasparyan"
         },
         "scores": {
-          "wind_articulation": 9.0640625,
+          "wind_articulation": 9.185,
           "duduk_use": 1.4300000000000002,
           "duduk_pitch": 1.7550000000000001,
           "duduk_body_wood": 7.01,
@@ -40,9 +40,9 @@
           "shvi_body": "shvi_body_apricot"
         },
         "scores": {
-          "shvi_size_key": 10.4236875,
-          "shvi_context": 13.24,
-          "shvi_body": 10.774312499999997
+          "shvi_size_key": 10.424999999999999,
+          "shvi_context": 13.285,
+          "shvi_body": 10.739999999999998
         }
       },
       {
@@ -54,8 +54,8 @@
         },
         "scores": {
           "dhol_form": 18.72,
-          "dhol_repertoire": 2.704375,
-          "dhol_shell": 0.8999999999999999
+          "dhol_repertoire": 2.6350000000000002,
+          "dhol_shell": 0.945
         }
       },
       {
@@ -94,11 +94,11 @@
           "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
         },
         "scores": {
-          "voice_register": 5.515,
+          "voice_register": 5.56,
           "voice_quality": 9.815,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.03,
+          "voice_vibrato": 3.8200000000000003,
           "voice_articulation": 17.81,
           "voice_microtone": 33.019999999999996,
           "voice_tradition": 21.5475,
@@ -107,9 +107,9 @@
           "voice_speech_song": 20.475,
           "voice_ensemble_config": 17.939999999999998,
           "voice_ornament_system": 6.435000000000001,
-          "voice_pitch_organization": 13.0890625,
+          "voice_pitch_organization": 13.21,
           "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 3.625
+          "voice_multitrack_stack": 3.6399999999999997
         }
       }
     ],
