@@ -239,31 +239,36 @@ leaves out instruments' `description` and `sources`, which no page shows.
     "waits for it instead of acting without it", bound with `doc_terms`.
 
 **Measured** on this branch, against the step-8 head and the split as first committed
-(before the early-Add work). The slow phone is throttling applied through the DevTools
-protocol: 562.5 ms latency, 1.47 Mbps down, 4x CPU, Lighthouse's mobile viewport, a
-local gzip server; medians of 3 to 6 runs. Typical 4G is 170 ms, 9 Mbps and 4x CPU, 2
-runs each. Lighthouse is 13.5 mobile with simulated throttling, median of 5. Times are
-from navigation; the early Add is issued 1 s after the first view is drawn.
+(before the early-Add work), all three served side by side from one machine in one
+session. The slow phone is throttling applied through the DevTools protocol: 562.5 ms
+latency, 1.47 Mbps down, 4x CPU, Lighthouse's mobile viewport, a local gzip server;
+medians of 3 runs. Typical 4G is 170 ms, 9 Mbps and 4x CPU, medians of 2 runs.
+Lighthouse is 13.5 mobile with simulated throttling, median of 5. Times are from
+navigation; the early Add is issued 1 s after the first view is drawn.
 
 | | step-8 head | split, as first committed | this branch |
 |---|---|---|---|
-| slow phone: first view | 10.1 s | 5.8 s | 5.6 s |
-| slow phone: engine ready, nobody waiting | with the page | not measured | 10.6 s |
-| slow phone: early Add done (its visible wait) | 12.4 s (1.35 s) | 16.2 s (9.4 s) | 11.2 s (4.4 s) |
-| slow phone: saved session drawn | 10.1 s | 12.5 s | 9.7 s |
-| typical 4G: early Add done | 8.1 s | 8.1 s | 5.2 s |
-| typical 4G: saved session drawn | 5.7 s | not measured | 3.8 s |
-| Lighthouse score | 0.30 | 0.49 | 0.53 |
-| first contentful paint | 6.40 s | 3.11 s | 3.11 s |
-| largest contentful paint | 8.0 s | 5.19 s | 4.73 s |
-| total blocking time | 3.2–3.7 s | 1.55 s | 1.28 s |
-| time to interactive | 11.0 s | 5.9 s | 5.62 s |
+| slow phone: first view | 9.1 s | 5.2 s | 5.3 s |
+| slow phone: engine ready, nobody waiting | with the page | 14.9 s | 10.0 s |
+| slow phone: early Add done (its visible wait) | 11.0 s (1.05 s) | 14.6 s (8.4 s) | 10.2 s (4.0 s) |
+| slow phone: saved session drawn | 9.2 s | 10.9 s | 9.2 s |
+| typical 4G: first view | 3.7 s | 2.0 s | 2.0 s |
+| typical 4G: early Add done (its visible wait) | 5.5 s (0.63 s) | 5.7 s (2.5 s) | 3.8 s (0.67 s) |
+| typical 4G: saved session drawn | 4.0 s | 4.2 s | 2.9 s |
+| Lighthouse score | 0.33 | 0.56 | 0.58 |
+| first contentful paint | 6.39 s | 3.09 s | 3.09 s |
+| largest contentful paint | 8.08 s | 4.86 s | 4.66 s |
+| total blocking time | 1.87 s | 0.91 s | 0.81 s |
+| time to interactive | 9.26 s | 4.88 s | 4.85 s |
 
 What it costs: the genre page's photos and place names wait for the engine's bytes. On
-the slow phone they finish at 14.5 s and 12.9 s: about when they did before the split
-(14.7 s and 13.2 s), and about 4 s later than on the split as first committed. An early
-Add still waits 4.4 s, against 1.35 s with the engine in the page, because it is bound
-by the engine's bytes, which land at about 9.8 s.
+the slow phone they finish at 14.1 s and 12.5 s: about half a second after they did
+before the split (13.6 s and 12.1 s), and about 4.3 s later than on the split as first
+committed (9.7 s and 8.2 s). On the slow phone an early Add still waits 4.0 s, against
+1.05 s with the engine in the page, because it is bound by the engine's bytes, which
+land at about 9.4 s; it finishes sooner because the first view comes 3.8 s sooner. A
+saved session is drawn when it was before the split (9.18 s against 9.22 s): its
+download alone, the page, the boot index and the engine, runs to 7.95 s.
 
 ### Changed — the lazy shell's first view waits for 0.24 MB of catalog, not 2.1 MB
 

@@ -49,9 +49,9 @@
 // version, n >= 5 interleaved runs reported as medians, and the step-8 head
 // and a never-boots control in the same session. Step 9's reference point:
 // Lighthouse 13.5 mobile, simulated throttling, against a local gzip-6 server,
-// medians of 5, the page at 497,816 B (68 B short of today's, before the
-// review's boot-error fix): FCP 3.11 s, LCP 4.73 s, TBT 1.28 s, TTI 5.62 s,
-// score 0.53. A bigger number with no run behind it is how a
+// medians of 5, the page at 497,884 B: FCP 3.09 s, LCP 4.66 s, TBT 0.81 s,
+// TTI 4.85 s, score 0.58 (the step-8 head in the same session: 6.39 s, 8.08 s,
+// 1.87 s, 9.26 s, 0.33). A bigger number with no run behind it is how a
 // budget stops being one. Lowering a limit needs nothing.
 //
 // THE SHAPE COMES FIRST. The budgets describe the lazy shell with its engine
