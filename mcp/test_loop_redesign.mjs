@@ -200,3 +200,28 @@ test('R6: the website chat carries a stopped interview run as resumable', () => 
   assert.equal(carried.run_id, 'r1');
   assert.deepEqual(carried.draft, ['x', 'y']);
 });
+
+test('test continuation: safe-point resumes without replaying the answer', async () => {
+  const { resumeStopped } = await import('./test_resume_stopped.mjs');
+  const response = (row) => ({ content: [{ text: 'checkpoint' }, { text: JSON.stringify(row) }] });
+  const calls = [];
+  const client = { callTool: async (request) => {
+    calls.push(request);
+    return response({ exit_code: 4, run_id: 'saved', run_revision: 2, state: 'next' });
+  } };
+  const result = await resumeStopped(client,
+    response({ exit_code: 5, run_id: 'saved', run_revision: 1, state: 'checkpoint' }), {});
+  assert.equal(JSON.parse(result.content[1].text).exit_code, 4);
+  assert.deepEqual(calls, [{ name: 'lyric_revise', arguments: { run_id: 'saved', run_revision: 1 } }]);
+});
+
+test('test continuation: errors and killed calls cannot become passing questions', async () => {
+  const { resumeStopped } = await import('./test_resume_stopped.mjs');
+  const response = (row) => ({ content: [{ text: 'checkpoint' }, { text: JSON.stringify(row) }] });
+  await assert.rejects(() => resumeStopped({},
+    { isError: true, content: [{ text: 'original worker error' }] }, {}), /original worker error/);
+  await assert.rejects(() => resumeStopped({ callTool: async () =>
+    response({ exit_code: -1, run_id: 'saved', run_revision: 2 }) },
+  response({ exit_code: 5, run_id: 'saved', run_revision: 1, state: 'checkpoint' }), {}),
+  /must not be killed/);
+});
