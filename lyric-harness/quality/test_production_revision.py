@@ -792,6 +792,9 @@ class ProductionRevisionTests(unittest.TestCase):
             self.assertEqual(projected['refused_obligations'],
                              [p for p in full['refused_obligations'] if p in selected])
             self.assertEqual(projected['pairs_mandated'], len(selected))
+            # Public/reporting grades never narrow their coverage.
+            self.assertEqual(r.grade(lines, m),
+                             r.grade(lines, m, _only_obligations=selected))
         disjunctive = Reviser(rdecl=ReviseDeclaration(overlap_rule='disjunctive'))
         lines, m, selected = cases[0]
         self.assertEqual(disjunctive.grade(lines, m, _verdicts_only=True),
