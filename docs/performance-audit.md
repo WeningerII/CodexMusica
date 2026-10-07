@@ -55,9 +55,9 @@ already keeps 66% of the catalog out of the page.
 | Defer non-critical scripts | `render-blocking-resources` scores **1**. Every script is inline or at `</body>`. |
 | Split code into chunks | 19 `<script>` blocks, largest 750 KiB against a 1024 KiB ceiling. |
 | Add a CDN | GitHub Pages. |
-| Lazy loading | The lazy shell fetches `api/browse.json` once and pulls traditions on demand. |
+| Lazy loading | The lazy shell boots from `api/browse_boot.json` (235 KB gzip: every genre without its prose, plus the six starters'), reads `api/browse_prose.json` after its first paint, and pulls traditions on demand. |
 | Paginate large lists | Sharded into 2,589 per-entity JSON files rather than paged. |
-| Cache API responses | `Catalog.ensureFull` memoises: two calls for the same tradition make **one** network fetch (verified). A cold visit is 2 requests total. |
+| Cache API responses | `Catalog.ensureFull` memoises: two calls for the same tradition make **one** network fetch (verified). A cold visit that imports one genre makes 3 catalog requests. |
 | Server-side caching | `mcp/engine.js` holds a bounded catalog memo, keyed only to real tradition ids after a measured 315 MB exhaustion bug. |
 | Cache expensive queries | The search index normalises once instead of per keystroke — a measured ~35x. |
 | Compress images | Mostly SVG; the rasters are the pinned icon set. |

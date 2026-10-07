@@ -24,6 +24,10 @@
 //   • nav_glyphs.json is exactly NAV_GLYPH_SVGS (the art the lazy shell fetches).
 //   • tradition_images.json and instrument_images.json are exactly what
 //     scripts/_image_tables.js derives from references/_image_manifest.json.
+//   • browse.json, browse_boot.json and browse_prose.json are exactly what
+//     scripts/_browse_tables.js derives from the catalog (the lazy app boots
+//     from the second and reads the third after its first paint; the first
+//     stays published).
 //
 // Usage:
 //   node scripts/check_api.js                 # check the committed api/
@@ -41,6 +45,7 @@ const {
   compactInstrumentImages,
   compactTraditionImages,
 } = require('./_image_tables.js');
+const B = require('./_browse_tables.js');
 const {
   buildResolver,
   recordProblems,
@@ -205,7 +210,7 @@ if (all) {
   }
 }
 
-// ───────────────────────── browse.json (Tier-1 index for the lazy-loaded app) ─────────────────────────
+// ───────────────────────── browse.json (the published Tier-1 index) ─────────────────────────
 const browse = readJson('browse.json');
 if (browse) {
   if (browse.count !== C.TRADITIONS.length)
@@ -231,8 +236,10 @@ if (browse) {
         .map((x) => x.id)
         .join(', ')})`
     );
-  // The lazy-loaded app boots ENTIRELY from this index — every field its browse
-  // surfaces read (search rank/render, tree leaves, find-similar) must be here.
+  // Published for agents: every field the browse surfaces read (search
+  // rank/render, tree leaves, find-similar) must be here. The app boots from
+  // browse_boot.json and reads browse_prose.json (below), which split this
+  // file exactly.
   const badFields = items.filter(
     (x) =>
       typeof x.name !== 'string' ||
@@ -249,6 +256,65 @@ if (browse) {
         .map((x) => x.id)
         .join(', ')})`
     );
+}
+
+// ───────────────────────── the browse tables, against the catalog ─────────────────────────
+// browse.json is published and no longer read by the app, so this is what holds
+// it now; browse_boot.json and browse_prose.json are what the lazy shell reads.
+// All three are exactly what scripts/_browse_tables.js derives from the catalog.
+{
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const want = C.TRADITIONS.map((t) => B.browseItem(t, C.TRADITION_EXTRAS[t.id] || {}));
+  const report = (file, ids) =>
+    ids.length &&
+    fail(
+      `${file}: ${ids.length} item(s) differ from what scripts/_browse_tables.js derives from the catalog (e.g. ${ids
+        .slice(0, 5)
+        .join(', ')}); run npm run build:api`
+    );
+  if (browse) {
+    report(
+      'browse.json',
+      want.filter((w, i) => !same(w, (browse.items || [])[i])).map((w) => w.id)
+    );
+    if (!same(browse.axisKeys, B.AXIS_KEYS))
+      fail('browse.json: axisKeys differ from scripts/_browse_tables.js');
+  }
+  const boot = readJson('browse_boot.json');
+  if (boot) {
+    const items = Array.isArray(boot.items) ? boot.items : [];
+    if (boot.count !== want.length || items.length !== want.length)
+      fail(
+        `browse_boot.json: count=${boot.count}, items=${items.length}, catalog has ${want.length}`
+      );
+    if (!same(boot.axisKeys, B.AXIS_KEYS))
+      fail('browse_boot.json: axisKeys differ from scripts/_browse_tables.js');
+    const prosed = new Set(items.filter((it) => it && 'description' in it).map((it) => it.id));
+    report(
+      'browse_boot.json',
+      want
+        .filter(
+          (w, i) => !same(B.bootItem(w, C.TRADITION_EXTRAS[w.id], prosed.has(w.id)), items[i])
+        )
+        .map((w) => w.id)
+    );
+    if (prosed.size < 1 || prosed.size > B.BOOT_PROSE_MAX)
+      fail(
+        `browse_boot.json carries the prose of ${prosed.size} genres; it carries only the Genre page's starters (1..${B.BOOT_PROSE_MAX}; check_lazy_app.js holds the exact set)`
+      );
+  }
+  const prose = readJson('browse_prose.json');
+  if (prose) {
+    const items = Array.isArray(prose.items) ? prose.items : [];
+    if (prose.count !== want.length || items.length !== want.length)
+      fail(
+        `browse_prose.json: count=${prose.count}, items=${items.length}, catalog has ${want.length}`
+      );
+    report(
+      'browse_prose.json',
+      want.filter((w, i) => !same(B.proseItem(w), items[i])).map((w) => w.id)
+    );
+  }
 }
 
 // ───────────────────────── nav_glyphs.json (room and preface glyph art, fetched on demand) ─────────────────────────

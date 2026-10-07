@@ -18,7 +18,7 @@ const RECIPE_CHAR_CEILING = 1000; // AGENTS.md / llms.txt: "recipe (string, <=10
 
 // The raw catalog-row fields the BROWSER app needs to IMPORT a tradition into
 // its workspace: tuning/room/part-overrides plus the recording chain. The
-// lazy-loaded app boots from the light browse index (api/browse.json) and
+// lazy-loaded app boots from the light boot index (api/browse_boot.json) and
 // fetches traditions/{id}.json only on import — `source` is where these row
 // fields ride along in that file. Builder and gate both use THIS list, so the
 // published `source` can never silently drift from references/.

@@ -103,7 +103,9 @@ module.exports = [
     id: 'lazy-shell-parity',
     doc: 'README.md',
     gate: 'check_lazy_app.js',
-    claim: 'the shipped lazy shell behaves identically to the embedded build',
+    claim:
+      'the shipped lazy shell behaves identically to the embedded build once the genre descriptions have loaded; before then it draws its first view from the boot index alone, a description it shows is marked as loading, never as missing, and a search says it matched names only',
+    doc_terms: ['once the genre descriptions have loaded', 'never as missing'],
   },
   {
     id: 'minified-equivalence',

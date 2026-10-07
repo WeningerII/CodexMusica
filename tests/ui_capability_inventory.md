@@ -2064,8 +2064,8 @@ precondition: empty
 name: genre-detail-background-references
 kind: widget
 selector: '#genre-detail #gp-panel-background'
-surface: Genre detail — Background: About, Lineage, Classification (primary path and cross-listings, "not a claim of historical descent"), Recordings & references (the catalog's exemplar artists with Listen searches; catalog status). Nothing is added that the catalog does not hold
-implementation: gpBackground in src/pages/genre.js
+surface: Genre detail — Background: About, Lineage, Classification (primary path and cross-listings, "not a claim of historical descent"), Recordings & references (the catalog's exemplar artists with Listen searches; catalog status). Nothing is added that the catalog does not hold; in the lazy shell, until the descriptions arrive, About and Recordings say they are loading (or could not be loaded, with Retry), never that the catalog has none
+implementation: gpBackground, gpBgAboutHTML, gpBgRecordingsHTML and gpApplyProse in src/pages/genre.js
 status: reachable
 precondition: empty
 ```

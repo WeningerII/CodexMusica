@@ -48,7 +48,7 @@
 // Exit 0 if every assertion passes, 1 otherwise.
 
 'use strict';
-/* global document */
+/* global document, Catalog */
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -389,6 +389,16 @@ const PINNED_PROBE = `(() => {
     // Reach the starter through the search box, as check_layout_usability does:
     // the browse list is alphabetical and shows 50 rows, so Delta blues is not
     // on the first page of it.
+    // A names-only search (the genre prose still on its way) redraws once when
+    // the descriptions land, as a keystroke would, and this flow holds an
+    // element handle across the search; so it starts once they have landed.
+    await page.waitForFunction(
+      () => typeof Catalog === 'undefined' || Catalog.proseLoaded(),
+      null,
+      {
+        timeout: 60000,
+      }
+    );
     await page.getByLabel('Search genres').fill('Delta blues');
     const starter = await page.$('[data-ui="genre-add"][data-id="delta_blues"]');
     if (!starter) {
