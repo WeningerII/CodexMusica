@@ -212,9 +212,12 @@ try {
   // 5; 23 rides the third batch at continuation 8 and is folded after 9.
   const TAIL_BOUND = 10;
   const splitOptions = { timeout: TOOL_BUDGET_MS + 30000 };
-  const splitCall = async (args) => resumeStopped(a,
-    await a.callTool({ name: 'lyric_revise', arguments: args }, undefined, splitOptions),
-    splitOptions);
+  const splitCall = async (args) =>
+    resumeStopped(
+      a,
+      await a.callTool({ name: 'lyric_revise', arguments: args }, undefined, splitOptions),
+      splitOptions
+    );
   let split = verdict(
     await splitCall({
       seed: 1,

@@ -495,13 +495,15 @@ function foldedOf(prevStateText, st) {
     return null;
   }
   if (!prev || typeof prev !== 'object' || !st || typeof st !== 'object') return null;
-  const list = (x, k) => (x && Array.isArray(x[k]) ? x[k].filter((o) => o && typeof o === 'object') : []);
+  const list = (x, k) =>
+    x && Array.isArray(x[k]) ? x[k].filter((o) => o && typeof o === 'object') : [];
   const before = (k, keyOf) => new Map(list(prev, k).map((o) => [keyOf(o), JSON.stringify(o)]));
   const answers = new Map(list(st.answered, 'propose').map((r) => [_lineKey(r), r]));
   const groupAnswers = new Map(list(st.answered, 'propose_group').map((r) => [_groupKey(r), r]));
   const rows = [];
   const clip = (t) => (typeof t === 'string' ? t : JSON.stringify(t ?? '')).slice(0, 300);
-  const reasonsOf = (o) => (Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : []);
+  const reasonsOf = (o) =>
+    Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : [];
   const seenOut = before('outcomes', _lineKey);
   const recorded = new Set();
   for (const o of list(st, 'outcomes')) {
@@ -556,7 +558,9 @@ function foldedOf(prevStateText, st) {
     });
   }
   const asked = st.pending && typeof st.pending === 'object' ? askedOf(st.pending) : null;
-  const waitingOn = asked ? asked.members || asked.lines || (asked.line != null ? [asked.line] : []) : [];
+  const waitingOn = asked
+    ? asked.members || asked.lines || (asked.line != null ? [asked.line] : [])
+    : [];
   const waiting = waitingOn.length
     ? `pending: waiting on ${_lines(waitingOn)}, the question asked now`
     : 'pending: the run stopped before reaching it; continue with no answer';
@@ -2917,7 +2921,14 @@ export function registerLyricTools(server, tool) {
                         path: typeof r.path === 'string' ? r.path : null,
                         ms: typeof r.ms === 'number' ? r.ms : null,
                         ...Object.fromEntries(
-                          ['memo_state', 'memo_hit', 'memo_asked', 'stale_answers', 'plan_lines', 'cursor_stripped']
+                          [
+                            'memo_state',
+                            'memo_hit',
+                            'memo_asked',
+                            'stale_answers',
+                            'plan_lines',
+                            'cursor_stripped',
+                          ]
                             .filter((key) => suspendedVerdict[key] !== undefined)
                             .map((key) => [key, suspendedVerdict[key]])
                         ),

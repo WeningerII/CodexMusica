@@ -13,11 +13,7 @@ import assert from 'node:assert/strict';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
-import {
-  decodeState,
-  encodeInterviewWire,
-  verifyInterviewCursor,
-} from './state_codec.js';
+import { decodeState, encodeInterviewWire, verifyInterviewCursor } from './state_codec.js';
 import { _verdictInternals as VI } from './lyric_tools.js';
 import { _agentInternals as AI } from './gemini_agent.js';
 
@@ -27,7 +23,12 @@ const sealedState = () => ({
   connector_declarations: { scheme: 'AA', relation: 'class:RHYME', writer: 'interview' },
   answered: { propose: [{ line: 2, attempt: 0, round: 1, text: 'a hat' }], propose_group: [] },
   outcomes: [{ line: 2, attempt: 0, round: 1, text: 'a hat', accepted: false, reasons: ['x'] }],
-  pending: { kind: 'propose', record: { line: 2, attempt: 1, round: 1 }, prompt: 'p', answer: null },
+  pending: {
+    kind: 'propose',
+    record: { line: 2, attempt: 1, round: 1 },
+    prompt: 'p',
+    answer: null,
+  },
   accepted_lines: ['Cat', 'Dog'],
   cursor: { version: 1, loop: { phase: 'pass', round: 1, at: 0, draft: ['Cat', 'Dog'] } },
 });
@@ -75,7 +76,9 @@ test('T7 (connector): a sealed cursor verifies, and editing anything it covers s
 test('T3 (connector): option B — no folded row is unknown, and a passed-by answer is not_applied', () => {
   const pend = {
     kind: 'propose_batch',
-    record: { records: [{ line: 1 }, { line: 3 }, { line: 5 }].map((r) => ({ ...r, attempt: 0, round: 1 })) },
+    record: {
+      records: [{ line: 1 }, { line: 3 }, { line: 5 }].map((r) => ({ ...r, attempt: 0, round: 1 })),
+    },
     answer: 'L1: a\nL3: b\nL5: c',
   };
   const st = {
@@ -121,11 +124,20 @@ test('live: a continuation keeps a sealed cursor; a tampered one is reported and
   };
   try {
     const draft = ['I left the kettle on the stove', 'and walked out to the empty yard'];
-    const decl = { scheme: 'AA', relation: 'class:RHYME', writer: 'interview', attempts: 1, backtrack: 1 };
+    const decl = {
+      scheme: 'AA',
+      relation: 'class:RHYME',
+      writer: 'interview',
+      attempts: 1,
+      backtrack: 1,
+    };
     const first = await call({ ...decl, draft });
     assert.equal(first.exit_code, 4);
     const st1 = decodeState(first.state);
-    assert.ok(st1.cursor && typeof st1.cursor_seal === 'string', 'the first state carries a sealed cursor');
+    assert.ok(
+      st1.cursor && typeof st1.cursor_seal === 'string',
+      'the first state carries a sealed cursor'
+    );
     const answer = 'and walked out to the empty field';
     const second = await call({ ...decl, draft, state: first.state, answer });
     assert.equal(second.exit_code, 4);
@@ -181,7 +193,11 @@ test('T5 (connector): the no-progress count rises only while the position stands
     { ...at(0), pending: { kind: 'propose', record: { line: 2 } } },
   ];
   for (const m of moved)
-    assert.equal(VI.stallsOf(JSON.stringify({ ...at(0), stalls: 2 }), m), 0, JSON.stringify(m).slice(0, 120));
+    assert.equal(
+      VI.stallsOf(JSON.stringify({ ...at(0), stalls: 2 }), m),
+      0,
+      JSON.stringify(m).slice(0, 120)
+    );
 });
 
 test('R6: the website chat carries a stopped interview run as resumable', () => {
@@ -191,7 +207,13 @@ test('R6: the website chat carries a stopped interview run as resumable', () => 
     null,
     'lyric_revise',
     args,
-    { exit_code: 5, status: 'interrupted', state: 'SEALED', run_id: 'r1', replay_draft: ['x', 'y'] },
+    {
+      exit_code: 5,
+      status: 'interrupted',
+      state: 'SEALED',
+      run_id: 'r1',
+      replay_draft: ['x', 'y'],
+    },
     surface
   );
   assert.ok(carried, 'the run is carried, not dropped');
@@ -205,23 +227,37 @@ test('test continuation: safe-point resumes without replaying the answer', async
   const { resumeStopped } = await import('./test_resume_stopped.mjs');
   const response = (row) => ({ content: [{ text: 'checkpoint' }, { text: JSON.stringify(row) }] });
   const calls = [];
-  const client = { callTool: async (request) => {
-    calls.push(request);
-    return response({ exit_code: 4, run_id: 'saved', run_revision: 2, state: 'next' });
-  } };
-  const result = await resumeStopped(client,
-    response({ exit_code: 5, run_id: 'saved', run_revision: 1, state: 'checkpoint' }), {});
+  const client = {
+    callTool: async (request) => {
+      calls.push(request);
+      return response({ exit_code: 4, run_id: 'saved', run_revision: 2, state: 'next' });
+    },
+  };
+  const result = await resumeStopped(
+    client,
+    response({ exit_code: 5, run_id: 'saved', run_revision: 1, state: 'checkpoint' }),
+    {}
+  );
   assert.equal(JSON.parse(result.content[1].text).exit_code, 4);
-  assert.deepEqual(calls, [{ name: 'lyric_revise', arguments: { run_id: 'saved', run_revision: 1 } }]);
+  assert.deepEqual(calls, [
+    { name: 'lyric_revise', arguments: { run_id: 'saved', run_revision: 1 } },
+  ]);
 });
 
 test('test continuation: errors and killed calls cannot become passing questions', async () => {
   const { resumeStopped } = await import('./test_resume_stopped.mjs');
   const response = (row) => ({ content: [{ text: 'checkpoint' }, { text: JSON.stringify(row) }] });
-  await assert.rejects(() => resumeStopped({},
-    { isError: true, content: [{ text: 'original worker error' }] }, {}), /original worker error/);
-  await assert.rejects(() => resumeStopped({ callTool: async () =>
-    response({ exit_code: -1, run_id: 'saved', run_revision: 2 }) },
-  response({ exit_code: 5, run_id: 'saved', run_revision: 1, state: 'checkpoint' }), {}),
-  /must not be killed/);
+  await assert.rejects(
+    () => resumeStopped({}, { isError: true, content: [{ text: 'original worker error' }] }, {}),
+    /original worker error/
+  );
+  await assert.rejects(
+    () =>
+      resumeStopped(
+        { callTool: async () => response({ exit_code: -1, run_id: 'saved', run_revision: 2 }) },
+        response({ exit_code: 5, run_id: 'saved', run_revision: 1, state: 'checkpoint' }),
+        {}
+      ),
+    /must not be killed/
+  );
 });
