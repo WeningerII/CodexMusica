@@ -996,10 +996,10 @@
     "South Asia"
   ],
   "bhangra_modern": [
-    31.33,
-    75.58,
-    "Punjab",
-    "South Asia"
+    52.4862,
+    -1.8904,
+    "Birmingham",
+    "Europe"
   ],
   "hindi_filmi": [
     19.08,
@@ -2436,9 +2436,9 @@
     "Africa"
   ],
   "british_invasion_rb": [
-    53.41,
-    -2.98,
-    "Liverpool",
+    51.51,
+    -0.13,
+    "London",
     "Europe"
   ],
   "khayal": [
@@ -6378,10 +6378,10 @@
     "Africa"
   ],
   "darkpsy": [
-    15.57,
-    73.74,
-    "Goa",
-    "South Asia"
+    55.7558,
+    37.6173,
+    "Moscow",
+    "Europe"
   ],
   "gengetone": [
     -1.29,
@@ -6900,9 +6900,9 @@
     "North America"
   ],
   "corridos_tumbados": [
-    24.81,
-    -107.39,
-    "Culiacán",
+    29.07,
+    -110.96,
+    "Hermosillo",
     "Latin America & Caribbean"
   ],
   "reggaeton_colombiano": [
@@ -7146,10 +7146,10 @@
     "East Asia"
   ],
   "rnb_en_espanol": [
-    40.42,
-    -3.7,
-    "Madrid",
-    "Europe"
+    19.43,
+    -99.13,
+    "Mexico City",
+    "Latin America & Caribbean"
   ],
   "downtempo": [
     51.45,
@@ -7194,9 +7194,9 @@
     "Latin America & Caribbean"
   ],
   "funk_consciente": [
-    -23.55,
-    -46.63,
-    "São Paulo",
+    -22.91,
+    -43.2,
+    "Rio de Janeiro",
     "Latin America & Caribbean"
   ],
   "musica_chihuahuense": [
@@ -7308,10 +7308,10 @@
     "Europe"
   ],
   "shimmer_pop": [
-    59.33,
-    18.07,
-    "Stockholm",
-    "Europe"
+    40.6782,
+    -73.9442,
+    "Brooklyn",
+    "North America"
   ],
   "skate_punk": [
     34.09,
@@ -7350,9 +7350,9 @@
     "South Asia"
   ],
   "stutter_house": [
-    51.51,
-    -0.13,
-    "London",
+    48.86,
+    2.35,
+    "Paris",
     "Europe"
   ],
   "lagu_jawa": [
@@ -7884,9 +7884,9 @@
     "East Asia"
   ],
   "corridos_clasicos": [
-    24.81,
-    -107.39,
-    "Culiacán",
+    25.68,
+    -100.31,
+    "Monterrey",
     "Latin America & Caribbean"
   ],
   "rif_amazigh": [
@@ -8598,10 +8598,10 @@
     "Europe"
   ],
   "steampunk": [
-    51.51,
-    -0.13,
-    "London",
-    "Europe"
+    47.6062,
+    -122.3321,
+    "Seattle",
+    "North America"
   ],
   "acoustic_blues": [
     34.2,
@@ -8640,10 +8640,10 @@
     "North America"
   ],
   "doom_blues": [
-    29.95,
-    -90.07,
-    "New Orleans",
-    "North America"
+    52.4862,
+    -1.8904,
+    "Birmingham",
+    "Europe"
   ],
   "folk_blues": [
     32.53,
@@ -9072,9 +9072,9 @@
     "Europe"
   ],
   "makina": [
-    54.98,
-    -1.61,
-    "Newcastle",
+    41.3874,
+    2.1686,
+    "Barcelona",
     "Europe"
   ],
   "terrorcore": [
@@ -9084,9 +9084,9 @@
     "Europe"
   ],
   "hard_dance": [
-    51.92,
-    4.48,
-    "Rotterdam",
+    51.51,
+    -0.13,
+    "London",
     "Europe"
   ],
   "diva_house": [
@@ -9648,9 +9648,9 @@
     "Europe"
   ],
   "techno_folk": [
-    52.52,
-    13.4,
-    "Berlin",
+    55.9533,
+    -3.1883,
+    "Edinburgh",
     "Europe"
   ],
   "german_folk": [
@@ -9678,9 +9678,9 @@
     "North America"
   ],
   "cumbia_rap": [
-    -34.6,
-    -58.38,
-    "Buenos Aires",
+    25.68,
+    -100.31,
+    "Monterrey",
     "Latin America & Caribbean"
   ],
   "brick_city_club": [
@@ -9930,9 +9930,9 @@
     "Latin America & Caribbean"
   ],
   "criolla": [
-    -12.05,
-    -77.04,
-    "Lima",
+    23.11,
+    -82.37,
+    "Havana",
     "Latin America & Caribbean"
   ],
   "nuevo_flamenco": [
@@ -9948,9 +9948,9 @@
     "Latin America & Caribbean"
   ],
   "raices": [
-    18.44,
-    -66.06,
-    "San Juan",
+    -33.4489,
+    -70.6693,
+    "Santiago",
     "Latin America & Caribbean"
   ],
   "rasin": [
@@ -10062,10 +10062,10 @@
     "North America"
   ],
   "motorpop": [
-    42.33,
-    -83.05,
-    "Detroit",
-    "North America"
+    51.22,
+    6.77,
+    "Düsseldorf",
+    "Europe"
   ],
   "new_romantic": [
     51.52,
@@ -10110,10 +10110,10 @@
     "North America"
   ],
   "vispop": [
-    59.33,
-    18.07,
-    "Stockholm",
-    "Europe"
+    10.315,
+    123.885,
+    "Cebu City",
+    "Southeast Asia"
   ],
   "wonky_pop": [
     51.51,
@@ -10158,9 +10158,9 @@
     "North America"
   ],
   "modern_soul": [
-    51.51,
-    -0.13,
-    "London",
+    53.81,
+    -3.05,
+    "Blackpool",
     "Europe"
   ],
   "northern_soul": [
@@ -10182,9 +10182,9 @@
     "Europe"
   ],
   "reggae_bultron": [
-    8.98,
-    -79.52,
-    "Panama City",
+    18.44,
+    -66.06,
+    "San Juan",
     "Latin America & Caribbean"
   ],
   "ragga": [
@@ -10746,9 +10746,9 @@
     "Latin America & Caribbean"
   ],
   "cumbia_ranchera": [
-    -31.63,
-    -60.7,
-    "Santa Fe",
+    25.68,
+    -100.31,
+    "Monterrey",
     "Latin America & Caribbean"
   ],
   "cumbia_editada": [
@@ -11148,10 +11148,10 @@
     "Latin America & Caribbean"
   ],
   "corridos_alternativos": [
-    24.81,
-    -107.39,
-    "Culiacán",
-    "Latin America & Caribbean"
+    34.05,
+    -118.24,
+    "Los Angeles",
+    "North America"
   ],
   "arpa_grande": [
     19,
@@ -11922,9 +11922,9 @@
     "Southeast Asia"
   ],
   "tan_co": [
-    10.03,
-    105.78,
-    "Mekong Delta",
+    10.8231,
+    106.6297,
+    "Ho Chi Minh City",
     "Southeast Asia"
   ],
   "nhac_thieu_nhi": [
@@ -14082,9 +14082,9 @@
     "Europe"
   ],
   "melodipop": [
-    59.33,
-    18.07,
-    "Stockholm",
+    55.7558,
+    37.6173,
+    "Moscow",
     "Europe"
   ],
   "space_disco": [
@@ -14190,10 +14190,10 @@
     "North America"
   ],
   "free_folk": [
-    61.5,
-    23.76,
-    "Tampere",
-    "Europe"
+    42.85,
+    -72.56,
+    "Brattleboro",
+    "North America"
   ],
   "new_weird_america": [
     42.85,
@@ -14454,10 +14454,10 @@
     "North America"
   ],
   "jazz_metal": [
-    48.14,
-    11.58,
-    "Munich",
-    "Europe"
+    25.7617,
+    -80.1918,
+    "Miami",
+    "North America"
   ],
   "jazzcore": [
     40.72,
@@ -14856,9 +14856,9 @@
     "North America"
   ],
   "emoviolence": [
-    37.54,
-    -77.44,
-    "Virginia",
+    34.0007,
+    -81.0348,
+    "Columbia",
     "North America"
   ],
   "street_punk": [
@@ -15906,10 +15906,10 @@
     "North America"
   ],
   "indian_ambient": [
-    48.1351,
-    11.582,
-    "Munich",
-    "Europe"
+    19.076,
+    72.8777,
+    "Mumbai",
+    "South Asia"
   ],
   "j_ambient": [
     35.6762,
@@ -17448,9 +17448,9 @@
     "North America"
   ],
   "kurdish_folk": [
-    41.0082,
-    28.9784,
-    "Istanbul (Kurdish performance network)",
+    37.91,
+    40.24,
+    "Diyarbakır",
     "Middle East"
   ],
   "malagasy_folk": [
@@ -17730,9 +17730,9 @@
     "Europe"
   ],
   "danish_singer_songwriter": [
-    52.52,
-    13.405,
-    "Berlin",
+    55.6761,
+    12.5683,
+    "Copenhagen",
     "Europe"
   ],
   "canadian_indie_folk": [
@@ -17832,9 +17832,9 @@
     "Europe"
   ],
   "british_singer_songwriter": [
-    44.2,
-    3.8,
-    "Cévennes",
+    51.51,
+    -0.13,
+    "London",
     "Europe"
   ],
   "german_country": [
@@ -18018,9 +18018,9 @@
     "North America"
   ],
   "traditional_blues": [
-    40.7128,
-    -74.006,
-    "New York recording locus",
+    34.2,
+    -90.57,
+    "Clarksdale",
     "North America"
   ],
   "japanese_soul": [
@@ -18468,9 +18468,9 @@
     "Europe"
   ],
   "czech_alternative_rap": [
-    48.1486,
-    17.1077,
-    "Bratislava (Slovak network branch)",
+    50.0755,
+    14.4378,
+    "Prague",
     "Europe"
   ],
   "deep_southern_trap": [
@@ -18786,10 +18786,10 @@
     "North America"
   ],
   "haitian_gospel": [
-    45.5019,
-    -73.5674,
-    "Montreal",
-    "North America"
+    18.55,
+    -72.34,
+    "Port-au-Prince",
+    "Latin America & Caribbean"
   ],
   "instrumental_soul": [
     40.6782,
@@ -18960,10 +18960,10 @@
     "East Asia"
   ],
   "kurdish_hip_hop": [
-    50.7374,
-    7.0982,
-    "Bonn (Kurdish diaspora branch)",
-    "Europe"
+    37.91,
+    40.24,
+    "Diyarbakır",
+    "Middle East"
   ],
   "lapland_hip_hop": [
     68.9067,
@@ -19938,9 +19938,9 @@
     "Europe"
   ],
   "slovak_trap": [
-    50.0755,
-    14.4378,
-    "Prague (Edúv Syn documented practice)",
+    48.1486,
+    17.1077,
+    "Bratislava",
     "Europe"
   ],
   "slovenian_hip_hop": [
@@ -20112,9 +20112,9 @@
     "East Asia"
   ],
   "tamil_hip_hop": [
-    19.076,
-    72.8777,
-    "Mumbai",
+    13.08,
+    80.27,
+    "Chennai",
     "South Asia"
   ],
   "tanzanian_hip_hop": [
@@ -20148,10 +20148,10 @@
     "Southeast Asia"
   ],
   "tibetan_hip_hop": [
-    47.3769,
-    8.5417,
-    "Zurich",
-    "Europe"
+    29.65,
+    91.14,
+    "Lhasa",
+    "East Asia"
   ],
   "toronto_rap": [
     43.6532,
@@ -20208,10 +20208,10 @@
     "Latin America & Caribbean"
   ],
   "trap_dominicano": [
-    40.844,
-    -73.864,
-    "Bronx",
-    "North America"
+    18.49,
+    -69.9,
+    "Santo Domingo",
+    "Latin America & Caribbean"
   ],
   "trap_maroc": [
     33.574,
@@ -20508,10 +20508,10 @@
     "North America"
   ],
   "colombian_black_metal": [
-    47.6062,
-    -122.3321,
-    "Seattle",
-    "North America"
+    6.24,
+    -75.58,
+    "Medellín",
+    "Latin America & Caribbean"
   ],
   "colombian_death_metal": [
     6.2442,
@@ -21786,10 +21786,10 @@
     "North America"
   ],
   "southern_metal": [
-    51.76,
-    19.456,
-    "Łódź",
-    "Europe"
+    29.95,
+    -90.07,
+    "New Orleans",
+    "North America"
   ],
   "spanish_black_metal": [
     41.617,
@@ -22086,9 +22086,9 @@
     "North America"
   ],
   "war_metal": [
-    43.646,
-    -108.212,
-    "Thermopolis",
+    49.25,
+    -122.99,
+    "Burnaby",
     "North America"
   ],
   "welsh_metal": [
@@ -23634,9 +23634,9 @@
     "Africa"
   ],
   "albanian_rock": [
-    42.01,
-    20.971,
-    "Tetovo",
+    41.33,
+    19.82,
+    "Tirana",
     "Europe"
   ],
   "argentine_alternative_rock": [
@@ -24186,10 +24186,10 @@
     "Latin America & Caribbean"
   ],
   "persian_rock": [
-    40.713,
-    -74.006,
-    "New York",
-    "North America"
+    35.69,
+    51.39,
+    "Tehran",
+    "Middle East"
   ],
   "pinoy_rock": [
     14.676,
@@ -25146,10 +25146,10 @@
     "Europe"
   ],
   "amharic_pop": [
-    31.5,
-    34.9,
-    "Israel",
-    "Middle East"
+    9.02,
+    38.75,
+    "Addis Ababa",
+    "Africa"
   ],
   "antiviral_pop": [
     53.4,
@@ -25158,9 +25158,9 @@
     "Europe"
   ],
   "assamese_pop": [
-    12.972,
-    77.595,
-    "Bangalore",
+    26.144,
+    91.736,
+    "Guwahati",
     "South Asia"
   ],
   "assyrian_pop": [
@@ -25188,10 +25188,10 @@
     "Latin America & Caribbean"
   ],
   "balochi_pop": [
-    59.329,
-    18.069,
-    "Stockholm",
-    "Europe"
+    24.8607,
+    67.0011,
+    "Karachi",
+    "South Asia"
   ],
   "bangla_pop": [
     23.81,
@@ -25260,10 +25260,10 @@
     "Africa"
   ],
   "cambodian_pop": [
-    34.052,
-    -118.244,
-    "Los Angeles",
-    "North America"
+    11.56,
+    104.92,
+    "Phnom Penh",
+    "Southeast Asia"
   ],
   "candy_pop": [
     52.407,
@@ -25440,10 +25440,10 @@
     "Europe"
   ],
   "classic_punjabi_pop": [
-    34.052,
-    -118.244,
-    "Los Angeles",
-    "North America"
+    30.9,
+    75.85,
+    "Ludhiana",
+    "South Asia"
   ],
   "classic_romanian_pop": [
     44.331,
@@ -25530,10 +25530,10 @@
     "Europe"
   ],
   "ethiopian_pop": [
-    48.4106,
-    15.602,
-    "Krems",
-    "Europe"
+    9.02,
+    38.75,
+    "Addis Ababa",
+    "Africa"
   ],
   "experimental_pop": [
     37.7749,
@@ -25560,16 +25560,16 @@
     "Africa"
   ],
   "gambian_pop": [
-    51.5074,
-    -0.1278,
-    "London",
-    "Europe"
+    13.45,
+    -16.58,
+    "Banjul",
+    "Africa"
   ],
   "ghanaian_pop": [
-    43.6532,
-    -79.3832,
-    "Toronto",
-    "North America"
+    5.56,
+    -0.2,
+    "Accra",
+    "Africa"
   ],
   "greenlandic_pop": [
     64.1835,
@@ -25584,10 +25584,10 @@
     "Africa"
   ],
   "guyanese_pop": [
-    40.7128,
-    -74.006,
-    "New York",
-    "North America"
+    6.8,
+    -58.16,
+    "Georgetown",
+    "Latin America & Caribbean"
   ],
   "hausa_pop": [
     12.0022,
@@ -25596,10 +25596,10 @@
     "Africa"
   ],
   "hazaragi_pop": [
-    48.2082,
-    16.3738,
-    "Vienna",
-    "Europe"
+    34.56,
+    69.21,
+    "Kabul",
+    "South Asia"
   ],
   "hmong_pop": [
     44.9537,
@@ -25674,9 +25674,9 @@
     "Europe"
   ],
   "inuit_pop": [
-    45.502,
-    -73.567,
-    "Montréal",
+    63.75,
+    -68.52,
+    "Iqaluit",
     "North America"
   ],
   "irish_pop": [
@@ -25698,9 +25698,9 @@
     "Europe"
   ],
   "italian_pop": [
-    54.687,
-    25.279,
-    "Vilnius",
+    45.4642,
+    9.19,
+    "Milan",
     "Europe"
   ],
   "j_idol": [
@@ -25758,9 +25758,9 @@
     "South Asia"
   ],
   "kashmiri_pop": [
-    12.9716,
-    77.5946,
-    "Bengaluru (Bangalore)",
+    34.09,
+    74.79,
+    "Srinagar",
     "South Asia"
   ],
   "korean_dream_pop": [
@@ -25770,10 +25770,10 @@
     "East Asia"
   ],
   "australian_dance": [
-    34.0522,
-    -118.2437,
-    "Los Angeles",
-    "North America"
+    -33.8688,
+    151.2093,
+    "Sydney",
+    "Oceania & Pacific"
   ],
   "belarusian_electronic": [
     53.9006,
@@ -25860,9 +25860,9 @@
     "Europe"
   ],
   "belgian_electronic": [
-    52.52,
-    13.405,
-    "Berlin",
+    50.8503,
+    4.3517,
+    "Brussels",
     "Europe"
   ],
   "bristol_electronic": [
@@ -25878,10 +25878,10 @@
     "Europe"
   ],
   "chinese_electronic": [
-    40.6782,
-    -73.9442,
-    "Brooklyn",
-    "North America"
+    39.9,
+    116.4,
+    "Beijing",
+    "East Asia"
   ],
   "christian_dance": [
     62.2426,
@@ -25896,10 +25896,10 @@
     "Europe"
   ],
   "colombian_electronic": [
-    -37.8136,
-    144.9631,
-    "Melbourne",
-    "Oceania & Pacific"
+    4.711,
+    -74.0721,
+    "Bogotá",
+    "Latin America & Caribbean"
   ],
   "croatian_electronic": [
     45.815,
@@ -26040,9 +26040,9 @@
     "East Asia"
   ],
   "karadeniz_pop": [
-    41.0082,
-    28.9784,
-    "Istanbul",
+    41,
+    39.72,
+    "Trabzon",
     "Middle East"
   ],
   "khasi_pop": [
@@ -26100,10 +26100,10 @@
     "Europe"
   ],
   "electronica_argentina": [
-    52.52,
-    13.405,
-    "Berlin",
-    "Europe"
+    -34.6,
+    -58.38,
+    "Buenos Aires",
+    "Latin America & Caribbean"
   ],
   "electro_dub": [
     44.4949,
@@ -26142,10 +26142,10 @@
     "Latin America & Caribbean"
   ],
   "electronica_venezuela": [
-    52.52,
-    13.405,
-    "Berlin",
-    "Europe"
+    10.49,
+    -66.88,
+    "Caracas",
+    "Latin America & Caribbean"
   ],
   "edm": [
     34.0522,
@@ -26292,9 +26292,9 @@
     "Europe"
   ],
   "russian_synthpop": [
-    52.52,
-    13.405,
-    "Berlin",
+    55.7558,
+    37.6173,
+    "Moscow",
     "Europe"
   ],
   "polish_experimental_electronic": [
@@ -26304,10 +26304,10 @@
     "Europe"
   ],
   "persian_electronic": [
-    51.5074,
-    -0.1278,
-    "London",
-    "Europe"
+    35.69,
+    51.39,
+    "Tehran",
+    "Middle East"
   ],
   "romanian_electronic": [
     46.2197,
@@ -26346,9 +26346,9 @@
     "Europe"
   ],
   "russian_experimental_electronic": [
-    52.52,
-    13.405,
-    "Berlin",
+    55.7558,
+    37.6173,
+    "Moscow",
     "Europe"
   ],
   "nu_electro": [
@@ -26370,10 +26370,10 @@
     "Europe"
   ],
   "russian_edm": [
-    34.0522,
-    -118.2437,
-    "Los Angeles",
-    "North America"
+    55.7558,
+    37.6173,
+    "Moscow",
+    "Europe"
   ],
   "magyar_retro_dance": [
     47.4979,
@@ -26400,10 +26400,10 @@
     "Europe"
   ],
   "singaporean_electronic": [
-    40.7128,
-    -74.006,
-    "New York",
-    "North America"
+    1.3521,
+    103.8198,
+    "Singapore",
+    "Southeast Asia"
   ],
   "slovak_electronic": [
     48.1486,
@@ -26526,10 +26526,10 @@
     "Europe"
   ],
   "chinese_jazz": [
-    40.7128,
-    -74.006,
-    "New York City",
-    "North America"
+    31.23,
+    121.47,
+    "Shanghai",
+    "East Asia"
   ],
   "classical_jazz_fusion": [
     38.627,
@@ -26568,10 +26568,10 @@
     "Europe"
   ],
   "bossa_nova_jazz": [
-    47.6062,
-    -122.3321,
-    "Seattle",
-    "North America"
+    -22.91,
+    -43.2,
+    "Rio de Janeiro",
+    "Latin America & Caribbean"
   ],
   "czech_jazz": [
     50.0755,
@@ -26616,10 +26616,10 @@
     "North America"
   ],
   "jazz_caraibes": [
-    50.9375,
-    6.9603,
-    "Cologne",
-    "Europe"
+    14.61,
+    -61.07,
+    "Fort-de-France",
+    "Latin America & Caribbean"
   ],
   "jazz_cover": [
     48.8566,
@@ -26646,10 +26646,10 @@
     "East Asia"
   ],
   "jazz_boliviano": [
-    -37.8136,
-    144.9631,
-    "Melbourne",
-    "Oceania & Pacific"
+    -16.5,
+    -68.15,
+    "La Paz",
+    "Latin America & Caribbean"
   ],
   "jazz_brass": [
     52.52,
@@ -26688,10 +26688,10 @@
     "North America"
   ],
   "jazz_tico": [
-    40.6782,
-    -73.9442,
-    "Brooklyn",
-    "North America"
+    9.9281,
+    -84.0907,
+    "San José",
+    "Latin America & Caribbean"
   ],
   "south_african_modern_jazz": [
     -33.9249,
@@ -26736,10 +26736,10 @@
     "Europe"
   ],
   "russian_jazz": [
-    40.6782,
-    -73.9442,
-    "Brooklyn",
-    "North America"
+    55.7558,
+    37.6173,
+    "Moscow",
+    "Europe"
   ],
   "neo_soul_jazz": [
     47.6062,
@@ -27030,9 +27030,9 @@
     "Europe"
   ],
   "bohemian_baroque": [
-    47.809,
-    13.055,
-    "Salzburg",
+    50.0755,
+    14.4378,
+    "Prague",
     "Europe"
   ],
   "austrian_orchestra": [
@@ -27054,10 +27054,10 @@
     "North America"
   ],
   "canadian_classical_piano": [
-    51.5074,
-    -0.1278,
-    "London",
-    "Europe"
+    43.6532,
+    -79.3832,
+    "Toronto",
+    "North America"
   ],
   "canadian_contemporary_classical": [
     43.6532,
@@ -27066,22 +27066,22 @@
     "North America"
   ],
   "caucasian_classical": [
-    40.7128,
-    -74.006,
-    "New York",
-    "North America"
+    41.72,
+    44.79,
+    "Tbilisi",
+    "Caucasus & Central Asia"
   ],
   "caucasian_classical_piano": [
-    48.1351,
-    11.582,
-    "Munich",
-    "Europe"
+    41.72,
+    44.79,
+    "Tbilisi",
+    "Caucasus & Central Asia"
   ],
   "chinese_classical": [
-    52.3676,
-    4.9041,
-    "Amsterdam",
-    "Europe"
+    39.9,
+    116.4,
+    "Beijing",
+    "East Asia"
   ],
   "chinese_classical_performance": [
     1.3521,
@@ -27090,10 +27090,10 @@
     "Southeast Asia"
   ],
   "chinese_classical_piano": [
-    52.52,
-    13.405,
-    "Berlin",
-    "Europe"
+    39.9,
+    116.4,
+    "Beijing",
+    "East Asia"
   ],
   "classical_accordion": [
     55.9533,
@@ -27378,10 +27378,10 @@
     "Europe"
   ],
   "greek_contemporary_classical": [
-    40.4406,
-    -79.9959,
-    "Pittsburgh",
-    "North America"
+    37.9838,
+    23.7275,
+    "Athens",
+    "Europe"
   ],
   "german_classical_piano": [
     48.1351,
@@ -27456,9 +27456,9 @@
     "Europe"
   ],
   "hungarian_classical_performance": [
-    46.0037,
-    8.9511,
-    "Lugano",
+    47.4979,
+    19.0402,
+    "Budapest",
     "Europe"
   ],
   "hungarian_classical_piano": [
@@ -27468,9 +27468,9 @@
     "Europe"
   ],
   "hungarian_contemporary_classical": [
-    48.2082,
-    16.3738,
-    "Vienna",
+    47.4979,
+    19.0402,
+    "Budapest",
     "Europe"
   ],
   "icelandic_choir": [
@@ -27486,15 +27486,15 @@
     "Europe"
   ],
   "indian_classical": [
-    37.987,
-    -122.588,
-    "Fairfax",
-    "North America"
+    28.6139,
+    77.209,
+    "New Delhi",
+    "South Asia"
   ],
   "irish_classical": [
-    52.2053,
-    0.1218,
-    "Cambridge",
+    53.35,
+    -6.26,
+    "Dublin",
     "Europe"
   ],
   "irish_contemporary_classical": [
@@ -27510,10 +27510,10 @@
     "Middle East"
   ],
   "israeli_classical_piano": [
-    51.811,
-    -2.717,
-    "Monmouth",
-    "Europe"
+    32.0853,
+    34.7818,
+    "Tel Aviv",
+    "Middle East"
   ],
   "italian_baroque_ensemble": [
     45.4642,
@@ -27546,9 +27546,9 @@
     "Europe"
   ],
   "italian_opera": [
-    51.5168,
-    -0.148,
-    "London",
+    43.7696,
+    11.2558,
+    "Florence",
     "Europe"
   ],
   "italian_orchestra": [
@@ -27570,34 +27570,34 @@
     "East Asia"
   ],
   "japanese_classical": [
-    59.407,
-    18.03,
-    "Danderyd",
-    "Europe"
+    35.6762,
+    139.6503,
+    "Tokyo",
+    "East Asia"
   ],
   "japanese_classical_performance": [
-    52.1635,
-    1.495,
-    "Snape Maltings",
-    "Europe"
+    35.6762,
+    139.6503,
+    "Tokyo",
+    "East Asia"
   ],
   "japanese_classical_piano": [
-    40.3573,
-    -74.6672,
-    "Princeton",
-    "North America"
+    35.6762,
+    139.6503,
+    "Tokyo",
+    "East Asia"
   ],
   "korean_classical_piano": [
-    52.52,
-    13.405,
-    "Berlin",
-    "Europe"
+    37.57,
+    126.98,
+    "Seoul",
+    "East Asia"
   ],
   "latin_american_classical_piano": [
-    41.8781,
-    -87.6298,
-    "Chicago",
-    "North America"
+    19.43,
+    -99.13,
+    "Mexico City",
+    "Latin America & Caribbean"
   ],
   "nordic_classical_piano": [
     64.1466,
@@ -27624,10 +27624,10 @@
     "East Asia"
   ],
   "korean_contemporary_classical": [
-    48.8566,
-    2.3522,
-    "Paris",
-    "Europe"
+    37.57,
+    126.98,
+    "Seoul",
+    "East Asia"
   ],
   "nordic_contemporary_classical": [
     55.4038,
@@ -27636,16 +27636,16 @@
     "Europe"
   ],
   "mexican_classical": [
-    41.8781,
-    -87.6298,
-    "Chicago",
-    "North America"
+    19.43,
+    -99.13,
+    "Mexico City",
+    "Latin America & Caribbean"
   ],
   "latin_classical": [
-    40.9312,
-    -73.8987,
-    "Yonkers",
-    "North America"
+    -23.5505,
+    -46.6333,
+    "São Paulo",
+    "Latin America & Caribbean"
   ],
   "oriental_classical": [
     40.7128,
@@ -27654,15 +27654,15 @@
     "North America"
   ],
   "korean_classical_performance": [
-    51.4545,
-    -2.5879,
-    "Bristol (England)",
-    "Europe"
+    37.57,
+    126.98,
+    "Seoul",
+    "East Asia"
   ],
   "polish_classical": [
-    52.2764,
-    1.6307,
-    "Dunwich",
+    52.2297,
+    21.0122,
+    "Warsaw",
     "Europe"
   ],
   "polish_classical_piano": [
@@ -27672,9 +27672,9 @@
     "Europe"
   ],
   "polish_contemporary_classical": [
-    52.2764,
-    1.6307,
-    "Dunwich",
+    52.2297,
+    21.0122,
+    "Warsaw",
     "Europe"
   ],
   "portuguese_classical": [
@@ -27684,15 +27684,15 @@
     "Europe"
   ],
   "portuguese_contemporary_classical": [
-    51.4816,
-    -3.1791,
-    "Cardiff",
+    38.72,
+    -9.14,
+    "Lisbon",
     "Europe"
   ],
   "romanian_classical_piano": [
-    47.2378,
-    6.0241,
-    "Besançon",
+    44.4268,
+    26.1025,
+    "Bucharest",
     "Europe"
   ],
   "romanian_contemporary_classical": [
@@ -27702,15 +27702,15 @@
     "Europe"
   ],
   "russian_classical_piano": [
-    51.5074,
-    -0.1278,
-    "London",
+    55.7558,
+    37.6173,
+    "Moscow",
     "Europe"
   ],
   "spanish_classical": [
-    51.5074,
-    -0.1278,
-    "London",
+    40.42,
+    -3.7,
+    "Madrid",
     "Europe"
   ],
   "spanish_contemporary_classical": [
@@ -27720,9 +27720,9 @@
     "Europe"
   ],
   "swedish_classical": [
-    51.4545,
-    -2.5879,
-    "Bristol",
+    59.3293,
+    18.0686,
+    "Stockholm",
     "Europe"
   ],
   "polish_choir": [
@@ -27738,9 +27738,9 @@
     "Europe"
   ],
   "spanish_renaissance": [
-    51.5074,
-    -0.1278,
-    "London",
+    39.86,
+    -4.02,
+    "Toledo",
     "Europe"
   ],
   "string_orchestra": [
@@ -27762,9 +27762,9 @@
     "Europe"
   ],
   "russian_modern_classical": [
-    51.5074,
-    -0.1278,
-    "London",
+    55.7558,
+    37.6173,
+    "Moscow",
     "Europe"
   ],
   "early_music_choir": [
@@ -27798,15 +27798,15 @@
     "Europe"
   ],
   "french_opera": [
-    41.3874,
-    2.1686,
-    "Barcelona",
+    48.86,
+    2.35,
+    "Paris",
     "Europe"
   ],
   "german_opera": [
-    47.4979,
-    19.0402,
-    "Budapest",
+    49.95,
+    11.58,
+    "Bayreuth",
     "Europe"
   ],
   "french_renaissance": [
@@ -27816,9 +27816,9 @@
     "Europe"
   ],
   "german_renaissance": [
-    50.0647,
-    19.945,
-    "Kraków",
+    48.1351,
+    11.582,
+    "Munich",
     "Europe"
   ],
   "oxford_choir": [
@@ -27834,10 +27834,10 @@
     "East Asia"
   ],
   "latin_american_baroque": [
-    32.7162,
-    -16.7676,
-    "Machico",
-    "Europe"
+    19.43,
+    -99.13,
+    "Mexico City",
+    "Latin America & Caribbean"
   ],
   "man_s_orchestra": [
     41.8781,
@@ -27954,9 +27954,9 @@
     "Europe"
   ],
   "ukrainian_contemporary_classical": [
-    48.1351,
-    11.582,
-    "Munich",
+    50.4501,
+    30.5234,
+    "Kyiv",
     "Europe"
   ],
   "university_choir": [
@@ -27966,16 +27966,16 @@
     "North America"
   ],
   "welsh_choir": [
-    53.4084,
-    -2.9916,
-    "Liverpool",
+    51.4816,
+    -3.1791,
+    "Cardiff",
     "Europe"
   ],
   "swedish_contemporary_classical": [
-    38.9072,
-    -77.0369,
-    "Washington",
-    "North America"
+    59.3293,
+    18.0686,
+    "Stockholm",
+    "Europe"
   ],
   "taiwan_classical_performance": [
     25.033,
@@ -27990,15 +27990,15 @@
     "Middle East"
   ],
   "ukrainian_classical": [
-    40.9126,
-    -73.8371,
-    "Mount Vernon",
-    "North America"
+    50.4501,
+    30.5234,
+    "Kyiv",
+    "Europe"
   ],
   "ukrainian_classical_piano": [
-    51.5074,
-    -0.1278,
-    "London",
+    50.4501,
+    30.5234,
+    "Kyiv",
     "Europe"
   ],
   "vintage_classical_singing": [
@@ -28020,9 +28020,9 @@
     "Africa"
   ],
   "ainu_folk": [
-    35.0116,
-    135.7681,
-    "Kyoto",
+    42.55,
+    141.36,
+    "Shiraoi",
     "East Asia"
   ],
   "albanian_folk": [
@@ -28038,16 +28038,16 @@
     "North America"
   ],
   "alternative_country": [
-    53.2158,
-    -6.6669,
-    "Naas",
-    "Europe"
+    38.52,
+    -89.98,
+    "Belleville",
+    "North America"
   ],
   "alternative_americana": [
-    53.2158,
-    -6.6669,
-    "Naas",
-    "Europe"
+    36.16,
+    -86.78,
+    "Nashville",
+    "North America"
   ],
   "appenzeller_folk": [
     47.373,
@@ -28080,10 +28080,10 @@
     "North America"
   ],
   "algerian_folk": [
-    48.8566,
-    2.3522,
-    "Paris",
-    "Europe"
+    36.75,
+    3.06,
+    "Algiers",
+    "Africa"
   ],
   "bahamian_folk": [
     24.7283,
@@ -28176,10 +28176,10 @@
     "North America"
   ],
   "dub_reggae": [
-    41.3874,
-    2.1686,
-    "Barcelona",
-    "Europe"
+    17.97,
+    -76.79,
+    "Kingston",
+    "Latin America & Caribbean"
   ],
   "east_coast_reggae": [
     37.0871,
@@ -28266,10 +28266,10 @@
     "Latin America & Caribbean"
   ],
   "dancehall_guyanaise": [
-    48.8566,
-    2.3522,
-    "Paris",
-    "Europe"
+    4.94,
+    -52.33,
+    "Cayenne",
+    "Latin America & Caribbean"
   ],
   "dub_product": [
     17.9712,
@@ -28278,9 +28278,9 @@
     "Latin America & Caribbean"
   ],
   "dancehall_mauricien": [
-    -21.3393,
-    55.4781,
-    "Saint-Pierre",
+    -20.16,
+    57.5,
+    "Port Louis",
     "Africa"
   ],
   "j_reggae": [
@@ -28410,10 +28410,10 @@
     "Latin America & Caribbean"
   ],
   "reggae_maghreb": [
-    45.1885,
-    5.7245,
-    "Grenoble",
-    "Europe"
+    36.75,
+    3.06,
+    "Algiers",
+    "Africa"
   ],
   "reggae_tico": [
     10.0163,
@@ -28584,10 +28584,10 @@
     "Europe"
   ],
   "trinidadian_reggae": [
-    51.5074,
-    -0.1278,
-    "London",
-    "Europe"
+    10.65,
+    -61.51,
+    "Port of Spain",
+    "Latin America & Caribbean"
   ],
   "uk_dub": [
     53.4808,
@@ -28626,9 +28626,9 @@
     "Europe"
   ],
   "48g": [
-    34.8167,
-    135.5667,
-    "Ibaraki",
+    35.6762,
+    139.6503,
+    "Tokyo",
     "East Asia"
   ],
   "432hz": [
@@ -28650,10 +28650,10 @@
     "Europe"
   ],
   "traditional_reggae": [
-    26.1,
-    -80.3,
-    "South Florida",
-    "North America"
+    17.97,
+    -76.79,
+    "Kingston",
+    "Latin America & Caribbean"
   ],
   "abstract": [
     69.6492,
@@ -28734,22 +28734,22 @@
     "Europe"
   ],
   "deep_delta_blues": [
-    41.8781,
-    -87.6298,
-    "Chicago",
+    34.2,
+    -90.57,
+    "Clarksdale",
     "North America"
   ],
   "deep_funk_ostentacao": [
-    -27.5954,
-    -48.548,
-    "Florianópolis",
+    -23.5505,
+    -46.6333,
+    "São Paulo",
     "Latin America & Caribbean"
   ],
   "deep_g_funk": [
-    59.32,
-    11,
-    "Østfold",
-    "Europe"
+    34.05,
+    -118.24,
+    "Los Angeles",
+    "North America"
   ],
   "deep_northern_soul": [
     42.3314,
@@ -28836,10 +28836,10 @@
     "Latin America & Caribbean"
   ],
   "gospel_papiamento": [
-    51.9169,
-    4.3986,
-    "Schiedam",
-    "Europe"
+    12.12,
+    -68.93,
+    "Willemstad",
+    "Latin America & Caribbean"
   ],
   "indonesian_blues": [
     -6.2088,
@@ -29076,10 +29076,10 @@
     "Africa"
   ],
   "afro_cuban_percussion": [
-    40.713,
-    -74.006,
-    "New York City",
-    "North America"
+    23.11,
+    -82.37,
+    "Havana",
+    "Latin America & Caribbean"
   ],
   "afro_cuban_traditional": [
     23.113,
@@ -29262,10 +29262,10 @@
     "North America"
   ],
   "baps": [
-    33.99,
-    -117.73,
-    "Chino Hills",
-    "North America"
+    23.02,
+    72.57,
+    "Ahmedabad",
+    "South Asia"
   ],
   "antideutsche": [
     52.52,
@@ -29286,10 +29286,10 @@
     "North America"
   ],
   "arab_alternative": [
-    35.994,
-    -78.899,
-    "Durham",
-    "North America"
+    33.89,
+    35.5,
+    "Beirut",
+    "Middle East"
   ],
   "arab_experimental": [
     51.56,
@@ -29304,16 +29304,16 @@
     "Europe"
   ],
   "arabic_instrumental": [
-    40.713,
-    -74.006,
-    "New York",
-    "North America"
+    30.04,
+    31.24,
+    "Cairo",
+    "Middle East"
   ],
   "argentine_indie": [
-    40.417,
-    -3.704,
-    "Madrid (Argentine diaspora)",
-    "Europe"
+    -34.6,
+    -58.38,
+    "Buenos Aires",
+    "Latin America & Caribbean"
   ],
   "argentine_telepop": [
     -34.604,
@@ -29334,9 +29334,9 @@
     "Caucasus & Central Asia"
   ],
   "arunachal_indie": [
-    28.614,
-    77.209,
-    "New Delhi (recording)",
+    27.1,
+    93.62,
+    "Itanagar",
     "South Asia"
   ],
   "asbury_park_indie": [
@@ -29376,10 +29376,10 @@
     "Europe"
   ],
   "bansuri": [
-    34.126,
-    -118.211,
-    "Eagle Rock",
-    "North America"
+    19.076,
+    72.8777,
+    "Mumbai",
+    "South Asia"
   ],
   "barcadi": [
     -25.779,
@@ -29640,16 +29640,16 @@
     "Europe"
   ],
   "belly_dance": [
-    42.3736,
-    -71.1097,
-    "Cambridge",
-    "North America"
+    30.04,
+    31.24,
+    "Cairo",
+    "Middle East"
   ],
   "bard": [
-    40.6782,
-    -73.9442,
-    "Brooklyn",
-    "North America"
+    55.7558,
+    37.6173,
+    "Moscow",
+    "Europe"
   ],
   "bardcore": [
     56,
@@ -29736,9 +29736,9 @@
     "Oceania & Pacific"
   ],
   "beat_poetry": [
-    41.8781,
-    -87.6298,
-    "Chicago",
+    37.77,
+    -122.42,
+    "San Francisco",
     "North America"
   ],
   "beatboxing": [
@@ -29868,10 +29868,10 @@
     "Southeast Asia"
   ],
   "black_n_roll": [
-    39.768,
-    -86.158,
-    "Indianapolis",
-    "North America"
+    59.9139,
+    10.7522,
+    "Oslo",
+    "Europe"
   ],
   "black_comedy": [
     34.181,
@@ -30060,9 +30060,9 @@
     "Europe"
   ],
   "britpop_revival": [
-    41.39,
-    2.17,
-    "Barcelona",
+    51.51,
+    -0.13,
+    "London",
     "Europe"
   ],
   "brno_indie": [
@@ -30336,10 +30336,10 @@
     "Europe"
   ],
   "celtic_harp": [
-    47.61,
-    -122.33,
-    "Seattle",
-    "North America"
+    53.35,
+    -6.26,
+    "Dublin",
+    "Europe"
   ],
   "ceske_chvaly": [
     49.82,
@@ -30414,10 +30414,10 @@
     "North America"
   ],
   "charango": [
-    34.05,
-    -118.24,
-    "Los Angeles artist base",
-    "North America"
+    -16.5,
+    -68.15,
+    "La Paz",
+    "Latin America & Caribbean"
   ],
   "charlotte_nc_indie": [
     35.23,
@@ -30756,9 +30756,9 @@
     "Europe"
   ],
   "cosmic_american": [
-    40.71,
-    -74.01,
-    "New York",
+    34.05,
+    -118.24,
+    "Los Angeles",
     "North America"
   ],
   "countrygaze": [
@@ -30984,9 +30984,9 @@
     "North America"
   ],
   "deep_freestyle": [
-    39.8,
-    -98.6,
-    "United States",
+    40.7128,
+    -74.006,
+    "New York",
     "North America"
   ],
   "deep_german_indie": [
@@ -31494,10 +31494,10 @@
     "Oceania & Pacific"
   ],
   "somali_pop": [
-    52.482,
-    13.435,
-    "Neukölln",
-    "Europe"
+    2.04,
+    45.34,
+    "Mogadishu",
+    "Africa"
   ],
   "spanish_indie_pop": [
     43.5322,
@@ -31596,10 +31596,10 @@
     "Latin America & Caribbean"
   ],
   "guitarra_mexicana": [
-    32.77,
-    -108.28,
-    "Silver City",
-    "North America"
+    19.43,
+    -99.13,
+    "Mexico City",
+    "Latin America & Caribbean"
   ],
   "h8000": [
     51.1,
@@ -31722,9 +31722,9 @@
     "North America"
   ],
   "high_tech_minimal": [
-    43.835,
-    4.36,
-    "Nîmes",
+    49.48,
+    8.44,
+    "Ludwigshafen",
     "Europe"
   ],
   "hindi_indie": [
@@ -31812,10 +31812,10 @@
     "South Asia"
   ],
   "indian_percussion": [
-    51.51,
-    -0.13,
-    "London",
-    "Europe"
+    25.32,
+    83,
+    "Varanasi",
+    "South Asia"
   ],
   "indie_asturiana": [
     43.36,
@@ -32034,10 +32034,10 @@
     "Africa"
   ],
   "tatar_pop": [
-    52.286,
-    104.281,
-    "Irkutsk",
-    "Mongolia & Siberia"
+    55.79,
+    49.12,
+    "Kazan",
+    "Europe"
   ],
   "teen_pop": [
     39.7392,
@@ -32046,16 +32046,16 @@
     "North America"
   ],
   "tibetan_pop": [
-    47.6062,
-    -122.3321,
-    "Seattle",
-    "North America"
+    29.65,
+    91.14,
+    "Lhasa",
+    "East Asia"
   ],
   "tigrigna_pop": [
-    46.6,
-    2.2,
-    "France",
-    "Europe"
+    15.34,
+    38.93,
+    "Asmara",
+    "Africa"
   ],
   "togolese_pop": [
     6.1319,
@@ -32064,10 +32064,10 @@
     "Africa"
   ],
   "turkish_alt_pop": [
-    48.8566,
-    2.3522,
-    "Paris",
-    "Europe"
+    41.01,
+    28.98,
+    "Istanbul",
+    "Middle East"
   ],
   "ugandan_pop": [
     0.3476,
@@ -32088,10 +32088,10 @@
     "Europe"
   ],
   "ukrainian_folk_pop": [
-    43.6532,
-    -79.3832,
-    "Toronto",
-    "North America"
+    50.4501,
+    30.5234,
+    "Kyiv",
+    "Europe"
   ],
   "ukrainian_pop": [
     50.9077,
@@ -32100,10 +32100,10 @@
     "Europe"
   ],
   "uyghur_pop": [
-    -33.8688,
-    151.2093,
-    "Sydney",
-    "Oceania & Pacific"
+    43.8,
+    87.6,
+    "Ürümqi",
+    "Caucasus & Central Asia"
   ],
   "african_electronic": [
     13.5116,
@@ -32112,9 +32112,9 @@
     "Africa"
   ],
   "irish_neo_traditional": [
-    45.407,
-    11.877,
-    "Padua",
+    53.35,
+    -6.26,
+    "Dublin",
     "Europe"
   ],
   "isle_of_man_indie": [
@@ -32328,10 +32328,10 @@
     "Europe"
   ],
   "kora": [
-    52.083,
-    -4.66,
-    "Cardigan",
-    "Europe"
+    13.45,
+    -16.58,
+    "Banjul",
+    "Africa"
   ],
   "korean_electropop": [
     37.5665,
@@ -32340,10 +32340,10 @@
     "East Asia"
   ],
   "korean_experimental": [
-    52.52,
-    13.405,
-    "Berlin",
-    "Europe"
+    37.57,
+    126.98,
+    "Seoul",
+    "East Asia"
   ],
   "korean_instrumental": [
     37.5665,
@@ -32352,10 +32352,10 @@
     "East Asia"
   ],
   "korean_traditional": [
-    38.8882,
-    -77.0275,
-    "Washington",
-    "North America"
+    37.57,
+    126.98,
+    "Seoul",
+    "East Asia"
   ],
   "kosovan_indie": [
     42.6629,
@@ -32442,9 +32442,9 @@
     "Europe"
   ],
   "lata": [
-    20.5937,
-    78.9629,
-    "India",
+    19.076,
+    72.8777,
+    "Mumbai",
     "South Asia"
   ],
   "latin_afrobeat": [
@@ -32742,9 +32742,9 @@
     "Europe"
   ],
   "lldm": [
-    23.634,
-    -102.552,
-    "Mexico",
+    20.66,
+    -103.35,
+    "Guadalajara",
     "Latin America & Caribbean"
   ],
   "lo_star": [
@@ -32778,9 +32778,9 @@
     "Europe"
   ],
   "magyar_mulatos": [
-    46.542,
-    24.558,
-    "Târgu Mureș",
+    47.4979,
+    19.0402,
+    "Budapest",
     "Europe"
   ],
   "magyar_musicalek": [
@@ -32802,10 +32802,10 @@
     "Southeast Asia"
   ],
   "malayalam_cover": [
-    53.546,
-    -113.494,
-    "Edmonton",
-    "North America"
+    9.97,
+    76.28,
+    "Kochi",
+    "South Asia"
   ],
   "malayalam_indie": [
     10.85,
@@ -32874,9 +32874,9 @@
     "Latin America & Caribbean"
   ],
   "marathi_devotional": [
-    13.083,
-    80.27,
-    "Chennai",
+    17.68,
+    75.33,
+    "Pandharpur",
     "South Asia"
   ],
   "marathi_traditional": [
@@ -32976,9 +32976,9 @@
     "Middle East"
   ],
   "mestissatge": [
-    40.4637,
-    -3.7492,
-    "Spain",
+    41.3874,
+    2.1686,
+    "Barcelona",
     "Europe"
   ],
   "mexican_experimental": [
@@ -33060,10 +33060,10 @@
     "Europe"
   ],
   "modern_old_time": [
-    52.414,
-    -4.081,
-    "Aberystwyth",
-    "Europe"
+    36.66,
+    -80.92,
+    "Galax",
+    "North America"
   ],
   "modern_performance": [
     42.712,
@@ -33294,9 +33294,9 @@
     "Latin America & Caribbean"
   ],
   "musica_campista": [
-    -7.1195,
-    -34.845,
-    "João Pessoa",
+    -21.7622,
+    -41.3181,
+    "Campos dos Goytacazes",
     "Latin America & Caribbean"
   ],
   "musica_canaria": [
@@ -33606,10 +33606,10 @@
     "Southeast Asia"
   ],
   "nadaswaram": [
-    -34.9285,
-    138.6007,
-    "Adelaide",
-    "Oceania & Pacific"
+    10.79,
+    79.14,
+    "Thanjavur",
+    "South Asia"
   ],
   "nagaland_indie": [
     25.6751,
@@ -33654,9 +33654,9 @@
     "Europe"
   ],
   "neo_progressive": [
-    60.1282,
-    18.6435,
-    "Sweden",
+    51.51,
+    -0.13,
+    "London",
     "Europe"
   ],
   "neo_proto": [
@@ -33696,9 +33696,9 @@
     "North America"
   ],
   "new_weird_finland": [
-    59.3293,
-    18.0686,
-    "Stockholm",
+    60.1699,
+    24.9384,
+    "Helsinki",
     "Europe"
   ],
   "norman_ok_indie": [
@@ -33792,9 +33792,9 @@
     "North America"
   ],
   "palestinian_alternative": [
-    33.269,
-    35.771,
-    "Majdal Shams",
+    32.82,
+    34.99,
+    "Haifa",
     "Middle East"
   ],
   "panamanian_indie": [
@@ -34446,9 +34446,9 @@
     "Europe"
   ],
   "nordnorsk_ponk": [
-    63.4305,
-    10.3951,
-    "Trondheim",
+    69.6492,
+    18.9553,
+    "Tromsø",
     "Europe"
   ],
   "one_person_band": [
@@ -34464,10 +34464,10 @@
     "Europe"
   ],
   "orquesta_cubana": [
-    30.2672,
-    -97.7431,
-    "Austin",
-    "North America"
+    23.11,
+    -82.37,
+    "Havana",
+    "Latin America & Caribbean"
   ],
   "orquesta_tropical": [
     -32.5228,
@@ -34476,9 +34476,9 @@
     "Latin America & Caribbean"
   ],
   "orquestas_de_galicia": [
-    40.4168,
-    -3.7038,
-    "Spain",
+    42.878,
+    -8.545,
+    "Santiago de Compostela",
     "Europe"
   ],
   "ostschlager": [
@@ -34488,15 +34488,15 @@
     "Europe"
   ],
   "pagode_baiano": [
-    -22.9068,
-    -43.1729,
-    "Rio de Janeiro",
+    -12.97,
+    -38.5,
+    "Salvador",
     "Latin America & Caribbean"
   ],
   "pagode_novo": [
-    -14.235,
-    -51.9253,
-    "Brazil",
+    -22.91,
+    -43.2,
+    "Rio de Janeiro",
     "Latin America & Caribbean"
   ],
   "partyschlager": [
@@ -34650,10 +34650,10 @@
     "Europe"
   ],
   "russian_romanticism": [
-    40.7128,
-    -74.006,
-    "New York City",
-    "North America"
+    59.9343,
+    30.3351,
+    "Saint Petersburg",
+    "Europe"
   ],
   "rwandan_traditional": [
     -1.95,
@@ -34704,10 +34704,10 @@
     "South Asia"
   ],
   "santoor": [
-    42.3601,
-    -71.0589,
-    "Boston",
-    "North America"
+    34.09,
+    74.79,
+    "Srinagar",
+    "South Asia"
   ],
   "sarangi": [
     31.5204,
@@ -34722,10 +34722,10 @@
     "Europe"
   ],
   "sarod": [
-    37.9358,
-    -122.3477,
-    "Richmond",
-    "North America"
+    26.22,
+    78.18,
+    "Gwalior",
+    "South Asia"
   ],
   "saskatchewan_indie": [
     50.4452,
@@ -34836,10 +34836,10 @@
     "Europe"
   ],
   "shehnai": [
-    51.5072,
-    -0.1276,
-    "London",
-    "Europe"
+    25.32,
+    83,
+    "Varanasi",
+    "South Asia"
   ],
   "shimmer_psych": [
     40.9793,
@@ -34872,10 +34872,10 @@
     "South Asia"
   ],
   "sitar": [
-    53.8008,
-    -1.5491,
-    "Leeds",
-    "Europe"
+    28.61,
+    77.21,
+    "Delhi",
+    "South Asia"
   ],
   "skansk_musik": [
     55.605,
@@ -35016,9 +35016,9 @@
     "Europe"
   ],
   "swancore": [
-    32.7555,
-    -97.3308,
-    "Fort Worth",
+    38.5816,
+    -121.4944,
+    "Sacramento",
     "North America"
   ],
   "swansea_indie": [
@@ -35058,9 +35058,9 @@
     "East Asia"
   ],
   "show_tunes": [
-    43.0389,
-    -87.9065,
-    "Milwaukee",
+    40.7128,
+    -74.006,
+    "New York",
     "North America"
   ],
   "shred": [
@@ -35196,9 +35196,9 @@
     "South Asia"
   ],
   "sunnlensk_tonlist": [
-    64.9631,
-    -19.0208,
-    "Iceland",
+    63.93,
+    -21.0,
+    "Selfoss",
     "Europe"
   ],
   "suomirap": [
@@ -35286,10 +35286,10 @@
     "North America"
   ],
   "tabla": [
-    52.6369,
-    -1.1398,
-    "Leicester",
-    "Europe"
+    28.61,
+    77.21,
+    "Delhi",
+    "South Asia"
   ],
   "tagalog_worship": [
     13.7565,
@@ -35328,16 +35328,16 @@
     "Europe"
   ],
   "tamil_devotional": [
-    20.5937,
-    78.9629,
-    "India",
+    13.08,
+    80.27,
+    "Chennai",
     "South Asia"
   ],
   "tamil_worship": [
-    43.589,
-    -79.6441,
-    "Mississauga",
-    "North America"
+    13.08,
+    80.27,
+    "Chennai",
+    "South Asia"
   ],
   "tampa_indie": [
     27.9506,
@@ -35412,10 +35412,10 @@
     "Southeast Asia"
   ],
   "thall": [
-    39.7392,
-    -104.9903,
-    "Denver",
-    "North America"
+    61.73,
+    17.12,
+    "Hudiksvall",
+    "Europe"
   ],
   "theme": [
     52.3555,
@@ -35448,10 +35448,10 @@
     "Latin America & Caribbean"
   ],
   "tontipop": [
-    19.4326,
-    -99.1332,
-    "Mexico City",
-    "Latin America & Caribbean"
+    40.42,
+    -3.7,
+    "Madrid",
+    "Europe"
   ],
   "toronto_indie": [
     43.6532,
@@ -35472,10 +35472,10 @@
     "Europe"
   ],
   "trio_cubano": [
-    34.0522,
-    -118.2437,
-    "Los Angeles",
-    "North America"
+    20.02,
+    -75.83,
+    "Santiago de Cuba",
+    "Latin America & Caribbean"
   ],
   "trombone_ensemble": [
     59.9139,
@@ -35484,9 +35484,9 @@
     "Europe"
   ],
   "trondersk_musikk": [
-    60.472,
-    8.4689,
-    "Norway",
+    63.4305,
+    10.3951,
+    "Trondheim",
     "Europe"
   ],
   "trondheim_indie": [
@@ -35508,10 +35508,10 @@
     "North America"
   ],
   "tunisian_alternative": [
-    43.7034,
-    7.2663,
-    "Nice",
-    "Europe"
+    36.8,
+    10.18,
+    "Tunis",
+    "Africa"
   ],
   "uk_beatdown": [
     51.5074,
@@ -35772,10 +35772,10 @@
     "Southeast Asia"
   ],
   "tibetan_mantra": [
-    51.024,
-    7.652,
-    "Bergneustadt",
-    "Europe"
+    29.65,
+    91.14,
+    "Lhasa",
+    "East Asia"
   ],
   "tone": [
     40.015,
@@ -35916,9 +35916,9 @@
     "Europe"
   ],
   "vallenato_moderno": [
-    4.5709,
-    -74.2973,
-    "Colombia",
+    10.46,
+    -73.25,
+    "Valledupar",
     "Latin America & Caribbean"
   ],
   "vbs": [
@@ -36204,9 +36204,9 @@
     "Europe"
   ],
   "zhenskiy_rep": [
-    52.52,
-    13.405,
-    "Berlin",
+    55.7558,
+    37.6173,
+    "Moscow",
     "Europe"
   ],
   "zillertal": [
@@ -36390,15 +36390,15 @@
     "Europe"
   ],
   "afghan_rap": [
-    48.1351,
-    11.582,
-    "Munich",
-    "Europe"
+    34.56,
+    69.21,
+    "Kabul",
+    "South Asia"
   ],
   "albanian_hip_hop": [
-    48.7758,
-    9.1829,
-    "Stuttgart",
+    41.33,
+    19.82,
+    "Tirana",
     "Europe"
   ],
   "arkansas_hip_hop": [
@@ -36666,9 +36666,9 @@
     "Oceania & Pacific"
   ],
   "chinese_idol_pop": [
-    25.033,
-    121.5654,
-    "Taipei",
+    39.9,
+    116.4,
+    "Beijing",
     "East Asia"
   ],
   "cook_islands_pop": [
@@ -36762,9 +36762,9 @@
     "Southeast Asia"
   ],
   "yemeni_pop": [
-    32.0853,
-    34.7818,
-    "Tel Aviv",
+    15.35,
+    44.21,
+    "Sana'a",
     "Middle East"
   ],
   "acid_idm": [
@@ -36792,9 +36792,9 @@
     "Southeast Asia"
   ],
   "tulum": [
-    41.0407,
-    28.9783,
-    "Istanbul",
+    41.02,
+    40.52,
+    "Rize",
     "Middle East"
   ],
   "turkish_alternative": [
@@ -36816,9 +36816,9 @@
     "Europe"
   ],
   "ukrainian_experimental": [
-    52.5264,
-    13.3933,
-    "Berlin",
+    50.4501,
+    30.5234,
+    "Kyiv",
     "Europe"
   ],
   "vinahouse": [
@@ -36870,10 +36870,10 @@
     "East Asia"
   ],
   "malagasy_pop": [
-    48.8566,
-    2.3522,
-    "Paris",
-    "Europe"
+    -18.91,
+    47.53,
+    "Antananarivo",
+    "Africa"
   ],
   "pop_argentino": [
     -34.6037,
@@ -36906,15 +36906,15 @@
     "Africa"
   ],
   "russian_alt_pop": [
-    52.373,
-    4.89,
-    "Amsterdam",
+    55.7558,
+    37.6173,
+    "Moscow",
     "Europe"
   ],
   "samoan_pop": [
-    -28.643,
-    153.612,
-    "Byron Bay",
+    -13.83,
+    -171.77,
+    "Apia",
     "Oceania & Pacific"
   ],
   "south_sudanese_pop": [
@@ -36936,10 +36936,10 @@
     "East Asia"
   ],
   "tunisian_pop": [
-    50.85,
-    4.35,
-    "Brussels",
-    "Europe"
+    36.8,
+    10.18,
+    "Tunis",
+    "Africa"
   ],
   "ukrainian_viral_pop": [
     50.9077,
@@ -37050,15 +37050,15 @@
     "Latin America & Caribbean"
   ],
   "brega": [
-    -22.7375,
-    -47.3333,
-    "Americana",
+    -8.05,
+    -34.88,
+    "Recife",
     "Latin America & Caribbean"
   ],
   "canadian_celtic": [
-    41.7856,
-    -74.229,
-    "Accord",
+    44.6488,
+    -63.5752,
+    "Halifax",
     "North America"
   ],
   "canadian_children_s_music": [
@@ -37104,10 +37104,10 @@
     "North America"
   ],
   "classic_afrobeat": [
-    34.0522,
-    -118.2437,
-    "Los Angeles",
-    "North America"
+    6.52,
+    3.38,
+    "Lagos",
+    "Africa"
   ],
   "classic_anime": [
     35.68,
@@ -37134,9 +37134,9 @@
     "Europe"
   ],
   "crank_wave": [
-    54.352,
-    18.6466,
-    "Gdańsk",
+    51.51,
+    -0.13,
+    "London",
     "Europe"
   ],
   "cuento_infantile": [
@@ -37188,9 +37188,9 @@
     "Europe"
   ],
   "death_n_roll": [
-    41.234,
-    23.39,
-    "Sidirokastro",
+    59.3293,
+    18.0686,
+    "Stockholm",
     "Europe"
   ],
   "deathstep": [
@@ -37308,9 +37308,9 @@
     "North America"
   ],
   "elephant_6": [
-    39.8283,
-    -98.5795,
-    "United States",
+    33.9519,
+    -83.3576,
+    "Athens",
     "North America"
   ],
   "essex_indie": [
@@ -37446,9 +37446,9 @@
     "Europe"
   ],
   "swazi_pop": [
-    -33.925,
-    18.429,
-    "Cape Town",
+    -26.3054,
+    31.1367,
+    "Mbabane",
     "Africa"
   ],
   "bloco": [
@@ -37500,9 +37500,9 @@
     "Europe"
   ],
   "eastern_bloc_groove": [
-    61.4978,
-    23.761,
-    "Tampere",
+    50.0755,
+    14.4378,
+    "Prague",
     "Europe"
   ],
   "edo_old_school": [
@@ -37632,9 +37632,9 @@
     "Europe"
   ],
   "forro_instrumental": [
-    -22.91,
-    -43.18,
-    "Rio de Janeiro",
+    -8.28,
+    -35.98,
+    "Caruaru",
     "Latin America & Caribbean"
   ],
   "future_bounce": [
@@ -37746,10 +37746,10 @@
     "East Asia"
   ],
   "honky_tonk_piano": [
-    49.9929,
-    8.2473,
-    "Mainz",
-    "Europe"
+    32.7555,
+    -97.3308,
+    "Fort Worth",
+    "North America"
   ],
   "houston_indie": [
     29.7604,
@@ -37848,10 +37848,10 @@
     "Southeast Asia"
   ],
   "indonesian_neo_psychedelia": [
-    52.3676,
-    4.9041,
-    "Amsterdam",
-    "Europe"
+    -6.2088,
+    106.8456,
+    "Jakarta",
+    "Southeast Asia"
   ],
   "indy_indie": [
     39.7684,
@@ -37884,10 +37884,10 @@
     "East Asia"
   ],
   "jawaiian": [
-    36.6777,
-    -121.6555,
-    "Salinas",
-    "North America"
+    21.31,
+    -157.86,
+    "Honolulu",
+    "Oceania & Pacific"
   ],
   "jesus_movement": [
     33.6411,
@@ -37908,10 +37908,10 @@
     "North America"
   ],
   "jumptek": [
-    39.1,
-    -98.5,
-    "United States",
-    "North America"
+    51.2194,
+    4.4025,
+    "Antwerp",
+    "Europe"
   ],
   "junior_songfestival": [
     52.3297,
@@ -38184,9 +38184,9 @@
     "Latin America & Caribbean"
   ],
   "musica_chiapaneca": [
-    19.4326,
-    -99.1332,
-    "Mexico City",
+    16.75,
+    -93.12,
+    "Tuxtla Gutiérrez",
     "Latin America & Caribbean"
   ],
   "musica_colombiana_instrumental": [
@@ -38196,10 +38196,10 @@
     "Latin America & Caribbean"
   ],
   "musica_mocambicana": [
-    38.571,
-    -7.909,
-    "Évora",
-    "Europe"
+    -25.97,
+    32.57,
+    "Maputo",
+    "Africa"
   ],
   "musica_para_criancas": [
     -23.623,
@@ -38292,16 +38292,16 @@
     "Europe"
   ],
   "musique_centrafricaine": [
-    3.5,
-    17.5,
-    "Southwestern Central African Republic",
+    4.36,
+    18.56,
+    "Bangui",
     "Africa"
   ],
   "musique_mahoraise": [
-    47.7483,
-    -3.3702,
-    "Lorient",
-    "Europe"
+    -12.78,
+    45.23,
+    "Mamoudzou",
+    "Africa"
   ],
   "musique_militaire": [
     43.647,
@@ -38322,9 +38322,9 @@
     "Africa"
   ],
   "musique_urbaine_kinshasa": [
-    -11.6647,
-    27.4794,
-    "Lubumbashi",
+    -4.32,
+    15.31,
+    "Kinshasa",
     "Africa"
   ],
   "muzica_ardeleneasca": [
@@ -38418,9 +38418,9 @@
     "Europe"
   ],
   "nova_musica_carioca": [
-    -27.5954,
-    -48.548,
-    "Florianópolis",
+    -22.91,
+    -43.2,
+    "Rio de Janeiro",
     "Latin America & Caribbean"
   ],
   "nu_gabber": [
@@ -38706,10 +38706,10 @@
     "Africa"
   ],
   "iraqi_hip_hop": [
-    42.3314,
-    -83.0458,
-    "Detroit",
-    "North America"
+    33.34,
+    44.4,
+    "Baghdad",
+    "Middle East"
   ],
   "lo_fi_rap": [
     56.88,
@@ -38742,10 +38742,10 @@
     "Middle East"
   ],
   "rap_antillais": [
-    48.8566,
-    2.3522,
-    "Paris",
-    "Europe"
+    14.61,
+    -61.07,
+    "Fort-de-France",
+    "Latin America & Caribbean"
   ],
   "rap_boricua": [
     18.22,
@@ -38754,10 +38754,10 @@
     "Latin America & Caribbean"
   ],
   "rap_congolais": [
-    48.8566,
-    2.3522,
-    "Paris",
-    "Europe"
+    -4.32,
+    15.31,
+    "Kinshasa",
+    "Africa"
   ],
   "rap_nica": [
     12.8654,
@@ -38868,10 +38868,10 @@
     "Africa"
   ],
   "sudanese_pop": [
-    38.9072,
-    -77.0369,
-    "Washington",
-    "North America"
+    15.5,
+    32.56,
+    "Khartoum",
+    "Africa"
   ],
   "surinamese_pop": [
     5.852,
@@ -38946,9 +38946,9 @@
     "Southeast Asia"
   ],
   "chinese_soundtrack": [
-    22.1987,
-    113.5439,
-    "Macao",
+    39.9,
+    116.4,
+    "Beijing",
     "East Asia"
   ],
   "cuban_alternative": [
@@ -39150,10 +39150,10 @@
     "South Asia"
   ],
   "kompa_chretien": [
-    48.8566,
-    2.3522,
-    "Paris",
-    "Europe"
+    18.55,
+    -72.34,
+    "Port-au-Prince",
+    "Latin America & Caribbean"
   ],
   "korean_musicals": [
     37.5665,
@@ -39240,10 +39240,10 @@
     "Latin America & Caribbean"
   ],
   "armenian_hip_hop": [
-    38.898,
-    -77.037,
-    "Washington",
-    "North America"
+    40.18,
+    44.51,
+    "Yerevan",
+    "Caucasus & Central Asia"
   ],
   "botswana_hip_hop": [
     -24.6282,
@@ -39276,9 +39276,9 @@
     "Europe"
   ],
   "hip_hop_boliviano": [
-    -23.5505,
-    -46.6333,
-    "São Paulo",
+    -16.5,
+    -68.15,
+    "La Paz",
     "Latin America & Caribbean"
   ],
   "hip_hop_mauritanien": [
@@ -39318,10 +39318,10 @@
     "East Asia"
   ],
   "korean_underground_rap": [
-    51.539,
-    -0.142,
-    "London",
-    "Europe"
+    37.57,
+    126.98,
+    "Seoul",
+    "East Asia"
   ],
   "lao_hip_hop": [
     17.976,
@@ -39372,10 +39372,10 @@
     "Europe"
   ],
   "persian_underground_hip_hop": [
-    -37.8136,
-    144.9631,
-    "Melbourne",
-    "Oceania & Pacific"
+    35.69,
+    51.39,
+    "Tehran",
+    "Middle East"
   ],
   "pinoy_alternative_rap": [
     14.676,
@@ -39408,10 +39408,10 @@
     "Latin America & Caribbean"
   ],
   "surinamese_hip_hop": [
-    52.3648,
-    4.8814,
-    "Amsterdam",
-    "Europe"
+    5.85,
+    -55.2,
+    "Paramaribo",
+    "Latin America & Caribbean"
   ],
   "swedish_drill": [
     57.7089,
@@ -39426,16 +39426,16 @@
     "Africa"
   ],
   "karbi_pop": [
-    22.9734,
-    78.6569,
-    "India",
+    25.83,
+    93.43,
+    "Diphu",
     "South Asia"
   ],
   "karen_pop": [
-    32.7157,
-    -117.1611,
-    "San Diego",
-    "North America"
+    16.89,
+    97.63,
+    "Hpa-an",
+    "Southeast Asia"
   ],
   "kumaoni_pop": [
     29.6,
@@ -39456,10 +39456,10 @@
     "Southeast Asia"
   ],
   "liberian_pop": [
-    35.9606,
-    -83.9207,
-    "Knoxville",
-    "North America"
+    6.3,
+    -10.8,
+    "Monrovia",
+    "Africa"
   ],
   "maluku_pop": [
     52.255,
@@ -39492,10 +39492,10 @@
     "South Asia"
   ],
   "palestinian_pop": [
-    38.908,
-    -77.022,
-    "Washington",
-    "North America"
+    31.9,
+    35.2,
+    "Ramallah",
+    "Middle East"
   ],
   "png_pop": [
     -9.4438,
@@ -39534,10 +39534,10 @@
     "South Asia"
   ],
   "sorani_pop": [
-    59.335,
-    18.063,
-    "Stockholm",
-    "Europe"
+    35.56,
+    45.44,
+    "Sulaymaniyah",
+    "Middle East"
   ],
   "thai_indie_pop": [
     18.7883,
@@ -39552,10 +39552,10 @@
     "Europe"
   ],
   "zomi_pop": [
-    38.9072,
-    -77.0369,
-    "Washington",
-    "North America"
+    23.38,
+    93.65,
+    "Tedim",
+    "Southeast Asia"
   ],
   "viet_edm": [
     21.028,
@@ -39582,10 +39582,10 @@
     "Europe"
   ],
   "cantonese_worship": [
-    29.7604,
-    -95.3698,
-    "Houston",
-    "North America"
+    22.3193,
+    114.1694,
+    "Hong Kong",
+    "East Asia"
   ],
   "cartoni_animati": [
     42.5,
@@ -39606,9 +39606,9 @@
     "East Asia"
   ],
   "classic_bhangra": [
-    53.795,
-    -1.759,
-    "Bradford",
+    52.4862,
+    -1.8904,
+    "Birmingham",
     "Europe"
   ],
   "cumbia_ecuatoriana": [
@@ -39654,9 +39654,9 @@
     "Latin America & Caribbean"
   ],
   "frafra": [
-    6.6885,
-    -1.6244,
-    "Kumasi",
+    10.79,
+    -0.85,
+    "Bolgatanga",
     "Africa"
   ],
   "french_movie_tunes": [
@@ -39672,10 +39672,10 @@
     "Latin America & Caribbean"
   ],
   "gumbe": [
-    38.722,
-    -9.139,
-    "Lisbon",
-    "Europe"
+    11.86,
+    -15.6,
+    "Bissau",
+    "Africa"
   ],
   "hyperpop_brasileiro": [
     -14.235,
@@ -39732,10 +39732,10 @@
     "East Asia"
   ],
   "kabyle_moderne": [
-    48.889,
-    2.393,
-    "Paris",
-    "Europe"
+    36.72,
+    4.05,
+    "Tizi Ouzou",
+    "Africa"
   ],
   "korean_soundtrack": [
     37.5665,
@@ -39834,10 +39834,10 @@
     "Latin America & Caribbean"
   ],
   "musica_evangelica_instrumental": [
-    29.7604,
-    -95.3698,
-    "Houston",
-    "North America"
+    -23.5505,
+    -46.6333,
+    "São Paulo",
+    "Latin America & Caribbean"
   ],
   "musica_michoacana": [
     19.7036,
@@ -39996,9 +39996,9 @@
     "Latin America & Caribbean"
   ],
   "rumba": [
-    43.6766,
-    4.6278,
-    "Arles",
+    41.3874,
+    2.1686,
+    "Barcelona",
     "Europe"
   ],
   "russian_ccm": [
@@ -40284,10 +40284,10 @@
     "Europe"
   ],
   "persian_drill": [
-    51.5074,
-    -0.1278,
-    "London",
-    "Europe"
+    35.69,
+    51.39,
+    "Tehran",
+    "Middle East"
   ],
   "indie_curitibano": [
     -25.4284,
@@ -40495,7 +40495,7 @@
   "necrotrap": [47.1625,19.5033,"Hungary","Europe"],
   "rave": [51.5074,-0.1278,"London","Europe"],
   "south_african_soulful_deep_house": [-26.2485,27.854,"Soweto","Africa"],
-  "deep_dubstep": [37.7749,-122.4194,"San Francisco","North America"],
+  "deep_dubstep": [51.51,-0.13,"London","Europe"],
   "malayalam_hip_hop": [10.8505,76.2711,"Kerala","South Asia"],
   "chhattisgarhi_pop": [21.2514,81.6296,"Raipur","South Asia"],
   "dakke_dak": [55.6761,12.5683,"Copenhagen","Europe"],
@@ -40613,7 +40613,7 @@
   "covertronica": [-37.8136,144.9631,"Melbourne","Oceania & Pacific"],
   "deep_chill": [48.425,10.876,"Gersthofen","Europe"],
   "deep_comedy": [30.2672,-97.7431,"Austin","North America"],
-  "deep_rai": [48.8566,2.3522,"Paris","Europe"],
+  "deep_rai": [35.7,-0.63,"Oran","Africa"],
   "deep_talent_show": [41.5214,-84.3072,"Archbold","North America"],
   "downtempo_fusion": [37.7749,-122.4194,"San Francisco","North America"],
   "electropowerpop": [41.8781,-87.6298,"Chicago","North America"],
@@ -40624,7 +40624,7 @@
   "novos_talentos_brasileiros": [-22.9099,-47.0626,"Campinas","Latin America & Caribbean"],
   "nubian_traditional": [22.337,31.625,"Abu Simbel","Middle East"],
   "polka_nortena": [25.6866,-100.3161,"Monterrey","Latin America & Caribbean"],
-  "proto_hyperpop": [40.7128,-74.006,"New York","North America"],
+  "proto_hyperpop": [51.51,-0.13,"London","Europe"],
   "punjabi_lo_fi": [30.7333,76.7794,"Chandigarh","South Asia"],
   "remix_product": [-25.2744,133.7751,"Australia","Oceania & Pacific"],
   "sky_room": [50.9375,6.9603,"Cologne","Europe"],
@@ -40639,7 +40639,7 @@
   "dark_minimal_techno": [48.7758,9.1829,"Stuttgart","Europe"],
   "dutch_drill": [52.3676,4.9041,"Amsterdam","Europe"],
   "polish_trap": [52.2297,21.0122,"Warsaw","Europe"],
-  "soda_pop": [41.3874,2.1686,"Barcelona","Europe"],
+  "soda_pop": [40.7128,-74.006,"New York City","North America"],
   "deep_pop_edm": [59.3293,18.0686,"Stockholm","Europe"],
   "twee_indie_pop": [38.0293,-78.4767,"Charlottesville","North America"],
   "deep_big_room": [37.9922,-1.1307,"Murcia","Europe"],
@@ -40656,16 +40656,16 @@
   "gothic_alternative": [32.0853,34.7818,"Tel Aviv","Middle East"],
   "aesthetic_rap": [36.1699,-115.1398,"Las Vegas","North America"],
   "libyan_hip_hop": [32.8872,13.1913,"Tripoli","Africa"],
-  "russian_trap_metal": [53.7632,-2.7044,"Lancashire","Europe"],
+  "russian_trap_metal": [55.7558,37.6173,"Moscow","Europe"],
   "glitch_beats": [-33.8688,151.2093,"Sydney","Oceania & Pacific"],
   "taiwanese_indie": [25.033,121.5654,"Taipei","East Asia"],
-  "flamenco_fusion": [25.7617,-80.1918,"Miami","North America"],
+  "flamenco_fusion": [40.42,-3.7,"Madrid","Europe"],
   "redneck": [36.1627,-86.7816,"Nashville","North America"],
   "antilliaanse_rap": [52.3676,4.9041,"Amsterdam","Europe"],
   "thai_teen_pop": [13.7563,100.5018,"Bangkok","Southeast Asia"],
   "regional_mexicano_femenil": [19.4326,-99.1332,"Mexico City","Latin America & Caribbean"],
   "classic_progressive_house": [51.5074,-0.1278,"London","Europe"],
-  "deep_euro_house": [34.0522,-118.2437,"Los Angeles","North America"],
+  "deep_euro_house": [52.52,13.405,"Berlin","Europe"],
   "musica_tropical_guatemalteca": [14.6349,-90.5069,"Guatemala City","Latin America & Caribbean"],
   "indonesian_viral_pop": [-8.5369,115.3329,"Gianyar","Southeast Asia"],
   "fussball": [50.9375,6.9603,"Cologne","Europe"],
@@ -40730,15 +40730,15 @@
   "sludgecore": [32.7157,-117.1611,"San Diego","North America"],
   "electra": [52.52,13.405,"Berlin","Europe"],
   "gamecore": [38.7828,-77.017,"National Harbor","North America"],
-  "persian_sad_rap": [46.6,2.2,"France","Europe"],
+  "persian_sad_rap": [35.69,51.39,"Tehran","Middle East"],
   "fake": [43.0731,-89.4012,"Madison","North America"],
   "rasiya": [27.5962,78.0524,"Hathras","South Asia"],
   "glitchbreak": [50.8225,-0.1372,"Brighton","Europe"],
   "experimental_big_band": [53.0793,8.8017,"Bremen","Europe"],
-  "funk_das_antigas": [-21.7622,-41.3181,"Campos dos Goytacazes","Latin America & Caribbean"],
+  "funk_das_antigas": [-22.91,-43.2,"Rio de Janeiro","Latin America & Caribbean"],
   "plug_brasileiro": [-22.9028,-43.2075,"Rio de Janeiro","Latin America & Caribbean"],
   "deep_uplifting_trance": [51.5074,-0.1278,"London","Europe"],
-  "goa_psytrance": [35.6762,139.6503,"Tokyo","East Asia"],
+  "goa_psytrance": [15.57,73.74,"Anjuna","South Asia"],
   "dubstep_product": [45.5152,-122.6784,"Portland","North America"],
   "filthstep": [36.8525,-121.4016,"Hollister","North America"],
   "desi_emo_rap": [27.1047,93.6952,"Naharlagun","South Asia"],
@@ -40753,7 +40753,7 @@
   "indie_rockism": [39.1031,-84.512,"Cincinnati","North America"],
   "deep_smooth_jazz": [43.0389,-87.9065,"Milwaukee","North America"],
   "gymcore": [42.3601,-71.0589,"Boston","North America"],
-  "vintage_chinese_pop": [3.139,101.6869,"Kuala Lumpur","Southeast Asia"],
+  "vintage_chinese_pop": [31.23,121.47,"Shanghai","East Asia"],
   "modern_dream_pop": [39.2904,-76.6122,"Baltimore","North America"],
   "pop_r_and_b": [40.6782,-73.9442,"Brooklyn","North America"],
   "flamenco_urbano": [40,-4,"Spain","Europe"],
@@ -40778,7 +40778,7 @@
   "dangdut_remix": [-6.2088,106.8456,"Jakarta","Southeast Asia"],
   "neo_r_and_b": [48.8566,2.3522,"Paris","Europe"],
   "indonesian_hyperpop": [-6.2,106.82,"Jakarta","Southeast Asia"],
-  "marwadi_pop": [19.076,72.8777,"Mumbai","South Asia"],
+  "marwadi_pop": [26.26,73.01,"Jodhpur","South Asia"],
   "japanese_chillhop": [35.6762,139.6503,"Tokyo","East Asia"],
   "indie_fuzzpop": [55.8642,-4.2518,"Glasgow","Europe"],
   "japanese_hyperpop": [35.6762,139.6503,"Tokyo","East Asia"],

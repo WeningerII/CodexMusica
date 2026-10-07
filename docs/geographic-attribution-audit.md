@@ -2,8 +2,10 @@
 
 Date: 2026-10-06/07. Baseline: the 7078-tradition catalog and `data/geo.json` at the
 head of `main` on that date. Per-entry evidence is in
-[`geographic-attribution-audit/`](geographic-attribution-audit/). This audit changes
-no catalog data.
+[`geographic-attribution-audit/`](geographic-attribution-audit/). The audit itself
+changed no catalog data. Its first recommendation, re-pinning the confirmed wrong pins,
+was applied on 2026-10-07 (see [Applied: re-pins](#applied-re-pins-2026-10-07)). The
+figures below describe the catalog before that change.
 
 ## The question
 
@@ -234,8 +236,8 @@ A streaming-listenership taxonomy cannot supply these.
 
 ## Recommended course of action
 
-1. **Re-pin the 264 confirmed misattributions.** Then review the other 1153 arbitrary
-   pins: about 11% have a real origin elsewhere.
+1. **Re-pin the 264 confirmed misattributions.** Done on 2026-10-07; see below. Next,
+   review the other 1153 arbitrary pins: about 11% have a real origin elsewhere.
 2. **Stop pinning placeless entries.** Arbitrary pins, including the 560 non-traditions
    such as 8D, 432Hz, Reiki and Birthday, belong in a "no fixed origin" group, not at a
    member's hometown.
@@ -251,6 +253,54 @@ A streaming-listenership taxonomy cannot supply these.
    ethnomusicology, not streaming taxonomies. North Korea has no entries at all.
 6. **Gate future imports on scope.** A nationality × global-genre slice should not get its
    own map pin.
+
+## Applied: re-pins (2026-10-07)
+
+Before `data/geo.json` changed, each of the 264 confirmed moves was reviewed again by
+an independent agent. It checked the target against this atlas's conventions in
+`scripts/_atlas_regions.js`: cultural centres rather than centroids, labels that name
+only the place, and the contested region rulings. Any disagreement went to a third
+agent.
+
+- **259 applied** as the audit proposed.
+- **4 adjusted** to a better place:
+  - Central African music goes to Bangui, not Mbaïki: it is a national label, so its
+    main scene city.
+  - Ukrainian experimental goes to Kyiv, not Lviv.
+  - Balochi pop goes to Karachi's Lyari studio scene, not Quetta.
+  - Palestinian alternative goes to Haifa, the exemplar's base and a named scene hub,
+    not Ramallah.
+- **1 held:** `deboxe`. Web sources tie the Deboxe brand to Goiânia's car-sound
+  culture, so its pin is right. The record's Rio Grande do Sul lineage is the error,
+  and it should be corrected in the record.
+- **Coordinates:**
+  - 234 moves reuse the coordinate the atlas already uses for that city.
+  - 28 use coordinates looked up from web sources.
+  - 1 (Bangui) uses the tie-break reviewer's coordinate.
+  - Every new coordinate was tested against the country polygons in
+    `data/countries.geo.json` before it was written.
+
+**Net change by sidebar region:**
+
+| Region | Net change |
+| --- | ---: |
+| North America | −53 |
+| Europe | −48 |
+| Latin America & Caribbean | +29 |
+| Africa | +21 |
+| East Asia | +17 |
+| South Asia | +16 |
+| Middle East | +13 |
+
+**Checks.** `data/atlas-geo.json` was regenerated. `npm run check:atlas`,
+`npm run test:geography`, `npm run test:everynoise`, `npm run validate` and the doc
+gates pass.
+
+**Records.** The full ledger, with old and new coordinates, label, region, distance
+moved, coordinate source, evidence URL and reason, is
+[`geographic-attribution-audit/repins.csv`](geographic-attribution-audit/repins.csv).
+The `data/geo-meta.json` note records that 28 of the moved ids are on its 2026-09-09
+model-reviewed list.
 
 ## Limits
 
@@ -277,7 +327,7 @@ A streaming-listenership taxonomy cannot supply these.
   neighbouring country (corrected for the six confirmed cases), and Jerusalem falls
   inside the Palestine polygon.
 - **Pins are representative locations, not territorial claims**, as stated in
-  `data/geo-meta.json`. This audit does not change `data/geo.json`.
+  `data/geo-meta.json`.
 
 ## Files
 
@@ -292,3 +342,5 @@ A streaming-listenership taxonomy cannot supply these.
 - [`geographic-attribution-audit/pinned_elsewhere.csv`](geographic-attribution-audit/pinned_elsewhere.csv):
   entries about one region pinned in another, as reported by the coverage agents. Of 50
   that conflicted with an accepted pin, 46 re-checked as fine.
+- [`geographic-attribution-audit/repins.csv`](geographic-attribution-audit/repins.csv):
+  the 2026-10-07 re-pin ledger, one row per confirmed wrong pin.

@@ -6,6 +6,31 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — Atlas: 263 misattributed pins moved to where their traditions are
+
+The geographic attribution audit (`docs/geographic-attribution-audit.md`) confirmed
+264 pins as sitting in the wrong place. Most were Every Noise national labels pinned
+at one sample artist's or label's city: "Indian classical" in Fairfax, Virginia,
+"Algerian folk" in Paris, "Ethiopian pop" in Krems.
+
+- **How each move was checked.** An adversarial verifier with web search confirmed
+  every move, and an independent reviewer then checked each target against the
+  atlas's own conventions: cultural centres, place-only labels and the contested
+  region rulings.
+- **What changed.** 259 moved to the audit's target and 4 to a better place the
+  review found, e.g. a national label went to its main scene city (Bangui, Kyiv,
+  Karachi). 1 stays put (`deboxe`): its Goiânia pin is right, and its lineage text
+  is what needs fixing.
+- **Coordinates.** 234 of the moves reuse the coordinate already in `data/geo.json`
+  for that city. The other 29 go to places new to the atlas: 28 were looked up from
+  web sources, and the tie-break reviewer supplied Bangui's.
+- **Net change by sidebar region:** North America −53, Europe −48, Latin America &
+  Caribbean +29, Africa +21, East Asia +17, South Asia +16, Middle East +13.
+- **Records.** Every old and new coordinate is in
+  `docs/geographic-attribution-audit/repins.csv`. `data/atlas-geo.json` is
+  regenerated. The `data/geo-meta.json` note records that 28 of the moved ids are
+  on its 2026-09-09 `reviewed` list.
+
 ### Changed — Connector audit: the service writer is chat-only, and every tool says what it does
 
 A full reading of the connector (2026-09-27) found its published text had drifted
