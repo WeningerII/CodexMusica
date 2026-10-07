@@ -3602,9 +3602,20 @@ the repaired check now fails and the old one did not.
   `corpus/whitman.txt` carries the property under test as epistrophe and was
   never eligible for the role (`K-3`: replacement task CLOSED 2026-09-17;
   eligibility finding retained and guarded by `quality/test_band.py` section 9).
-- Current baselines: sonnets **0.7% violations (7/970 JUDGED pairs)** —
-  MEASURED 2026-09-22 against both `check_scheme` and `Reviser.grade`:
-  `mandated 1064, judged 970, refused 94, violations 7`.
+- Current baselines: sonnets **4.0% violations (40/1012 JUDGED pairs)** —
+  MEASURED 2026-10-02 against both `check_scheme` and `Reviser.grade`:
+  `mandated 1064, judged 1012, refused 52, violations 40`. **REPINNED BY THE
+  BOUND-WORD RULE (`MISSING.md` M-317, owner ruling 2026-10-02):** a group
+  is judged at the words it binds, so a pair no longer passes because some
+  OTHER word of each line stands in a schema. 25 pairs newly violate: 20 held
+  only through other words, 5 were refusals now judged at their end words.
+  This line had also missed two repins in between, which
+  `quality/production_relation_oracle.json` carries under `superseded`:
+  ~~936/128/9~~ (2026-09-23, the N-relation model) and ~~1007/57/15~~
+  (2026-10-01, the any-reading rule).
+  ~~0.7% violations (7/970 JUDGED pairs) — MEASURED 2026-09-22 against both
+  `check_scheme` and `Reviser.grade`: `mandated 1064, judged 970, refused
+  94, violations 7`.~~
   `quality/report_slang_oracle.json` records the before/after pair evidence:
   three pairs previously refused only by the absent slang surface now violate.
   No accepted pair, pronunciation, threshold or corpus input changed.
@@ -3627,8 +3638,11 @@ the repaired check now fails and the old one did not.
   driven it down. The superseded ladder stays visible below (doctrine 17).
   **REPINNED 2026-08-25 from ~~3.5% (35/1014)~~ when ALL 77 SCHEMAS joined
   the DEFAULT on the owner's ruling (`MISSING.md` M-116): a mandated pair
-  that declares no relation is satisfied when its lines stand in ANY schema
-  the vocabulary names, judged by ONE shared function —
+  that declares no relation is satisfied when ~~its lines stand in ANY schema
+  the vocabulary names~~ **the words it binds stand in ANY schema the
+  vocabulary names (narrowed 2026-10-02 by the owner's bound-word ruling,
+  `MISSING.md` M-317: every kind of relation still counts, but only through
+  the bound words)**, judged by ONE shared function —
   `relations.whole_vocabulary_pairs`, consulted by `check_scheme` and
   `quality.revise.grade` alike. One-directional by construction, measured
   per pair: 23 STOPPED violating, 0 newly violate (chain rhyme 16, internal

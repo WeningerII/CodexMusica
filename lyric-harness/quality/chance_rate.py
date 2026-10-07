@@ -181,7 +181,9 @@ def measure(sampler, lex, decl, phon=None, schema=True):
     """-> dict. THREE COUNTS NEVER SUMMED: drawn / refused / judged. Every
     pair is counted in EVERY relation it stands in — each coarse relation it
     holds at its own cut and each registry schema its two lines stand in —
-    and `any` is the default door: at least one of them."""
+    and `any` is the default door: at least one of them. (The sampled pair
+    is two one-word lines, so its two lines ARE its two bound words, and
+    this arm reads the bound-word door of `MISSING.md` M-317 unchanged.)"""
     from collections import Counter
     wide = frozenset(decl.admit)
     out = {"sampler": sampler, "drawn": 0, "refused": 0, "judged": 0,
@@ -541,7 +543,15 @@ def _answered(lines, phon, RF, lex=None, decl=None):
 
     A pair is ANSWERED when it stands in ANY relation the default consults:
     an admitted coarse relation at its cut, or any registry schema. Every
-    pair is asked both; neither is a rescue for the other."""
+    pair is asked both; neither is a rescue for the other.
+
+    THE SCHEMA HALF READS TWO WHOLE LINES (any word of each). Since
+    2026-10-02 a mandated group is judged at the words it BINDS (`MISSING.md`
+    M-317), a narrower door, and `recover` reads its line-end edges the same
+    way, so this arm's `mandated` rate is the pre-M-317 door's and is kept,
+    pinned, as that record (doctrine 17). ~~which is the reading the
+    GENERATORS take (`recover`, `--cliques`)~~ -- `--cliques` reads the
+    rhyme graph alone (M-145), and `recover` binds its end words."""
     n = len(lines)
     got = set(RF.whole_vocabulary_pairs(list(lines), phon))
     if lex is not None:

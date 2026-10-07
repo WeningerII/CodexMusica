@@ -284,17 +284,27 @@ def test_untouched_path():
     # readings, are asked under each whole reading and hold under one, so
     # the pair is judged and names the readings. superseded: (2, 4) refused,
     # "unresolved in schema(s)", counts (2, 1, 1).
+    # REPINNED 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner
+    # ruling): a letter scheme binds each line's LAST word, and both of
+    # these pairs held only through other words -- light/silver through
+    # `Silver` opening L1, warning/clever through a whole-line schema under
+    # one reading. The end words share no relation, so both are judged and
+    # both VIOLATED. superseded: both held, (2, 4) naming its readings
+    # (`test_production_revision.py` and `test_propose.py` still pin the
+    # readings witness).
     _v13 = [v for v in g['verdicts'] if tuple(v['lines']) == (1, 3)]
     _v24 = [v for v in g['verdicts'] if tuple(v['lines']) == (2, 4)]
-    check("a plain letter mandate judges both pairs, and the one that holds "
-          "only under a reading names it",
+    check("a plain letter mandate judges both pairs at their END WORDS, and "
+          "two lines relating elsewhere satisfies neither",
           {tuple(v['lines']) for v in g['verdicts']} == {(1, 3), (2, 4)}
-          and not g['violations'] and _v13 and not _v13[0]['admitted']
-          and _v13[0]['why'] is None and _v13[0]['schemas']
-          and _v24 and _v24[0]['why'] is None and _v24[0].get('readings')
+          and sorted(tuple(v['lines']) for v in g['violations'])
+          == [(1, 3), (2, 4)]
+          and _v13 and not _v13[0]['satisfied_by']
+          and _v24 and not _v24[0]['satisfied_by']
           and not g['refusals']
           and (g["pairs_mandated"], g["pairs_judged"], g["pairs_refused"])
-          == (2, 2, 0), str(_v24 and _v24[0].get('readings')))
+          == (2, 2, 0),
+          str([(v['lines'], v['satisfied_by']) for v in g['verdicts']]))
     clean_lines = ['we follow every beam of light', 'the stones are wet with rain',
                    'and keep our candles through the night', 'we hear the distant train']
     clean = rv.grade(clean_lines, SC.mandate('ABAB', n_lines=4))
